@@ -38,10 +38,6 @@ return(true);
 
 // proc for fish rolls
 [proc,fish_roll](namedobj $fish1, namedobj $fish2, namedobj $equipment, namedobj $bait)
-if (npc_param(is_whirlpool) = ^true) {
-    ~macro_whirlpool_attempt_take_equipment($equipment);
-    return;
-}
 
 if ($fish2 ! null) { // if fish2 isnt null and roll for 2nd fish passes
     def_struct $struct2 = oc_param($fish2, fishing_struct);

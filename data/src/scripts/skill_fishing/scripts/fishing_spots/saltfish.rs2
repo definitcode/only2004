@@ -53,9 +53,7 @@ if (%action_delay = calc(map_clock + 3)) {
     anim(human_smallnet, 0);
 }
 
-if (afk_event = ^true & npc_param(is_whirlpool) = ^false) {
-    @macro_event_fishing(net);
-}
+
 
 [label,fish_shrimp]
 // check if they have fishing equipment
@@ -119,9 +117,7 @@ if (%action_delay = calc(map_clock + 4)) {
         ~fish_roll(raw_sardine, null, fishing_rod, fishing_bait);
     }
 }
-if (afk_event = ^true & npc_param(is_whirlpool) = ^false) {
-    @macro_event_fishing(fishing_rod);
-}
+
 
 
 [label,fish_sardine]
