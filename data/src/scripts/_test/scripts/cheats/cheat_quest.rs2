@@ -400,6 +400,7 @@ queue(zombiequeen_quest_complete, 0);
 queue(tree_quest_complete, 0);
 queue(totem_quest_complete, 0);
 queue(upass_quest_complete, 0);
+queue(legends_quest_complete, 0);
 queue(itwatchtower_quest_complete, 0);
 %itwatchtower_progress = ^itwatchtower_complete;
                 // Rewards are given before quest completion, so give here
@@ -494,7 +495,7 @@ return;
 %hero_progress = 0;
 %grail_progress = 0;
 %junglepotion_progress = 0;
-// Legend's Quest not implemented
+%legends_progress = 0;
 %zanaris_progress = 0;
 %arthur_progress = 0;
 %drunkmonk_progress = 0;
