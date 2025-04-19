@@ -37,9 +37,7 @@ if (%action_delay = calc(map_clock + 4)) {
     anim(human_harpoon, 0);
 }
 
-if (afk_event = ^true & npc_param(is_whirlpool) = ^false) {
-    @macro_event_fishing(harpoon);
-}
+
 
 
 [label,fish_shark]
@@ -98,9 +96,7 @@ if (%action_delay = calc(map_clock + 3)) {
 } else if (%action_delay = map_clock) { 
     ~fish_roll_big_net;
 }
-if (afk_event = ^true & npc_param(is_whirlpool) = ^false) {
-    @macro_event_fishing(big_net);
-}
+
 
 
 
@@ -130,10 +126,6 @@ if (%action_delay < map_clock) {
 p_opnpc(4);
 
 [proc,fish_roll_big_net]
-if (npc_param(is_whirlpool) = ^true) {
-    ~macro_whirlpool_attempt_take_equipment(big_net);
-    return;
-}
 def_int $level = stat(fishing);
 // leather boots
 if (stat_random($level, 10, 10) = true) {

@@ -53,9 +53,7 @@ if ($data = null) {
     return;
 }
 
-if (afk_event = ^true) {
-    @macro_randomthievingchest;
-}
+
 
 mes("You search the chest for traps.");
 

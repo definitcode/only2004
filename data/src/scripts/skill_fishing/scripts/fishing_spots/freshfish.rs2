@@ -50,10 +50,7 @@ if (%action_delay = calc(map_clock + 2)) {
     mes("You attempt to catch a fish.");
 }
 p_opnpc(4);
-// random events didnt prevent you from continuing to fish: https://youtu.be/M_AOjwLD9Og?list=PLn23LiLYLb1am4weMQzkWn5m9b3m9fXv9&t=199
-if (afk_event = ^true & npc_param(is_whirlpool) = ^false) {
-    @macro_event_fishing(fly_fishing_rod);
-}
+
 
 
 [label,fish_trout_salmon]
@@ -115,9 +112,7 @@ if (%action_delay = calc(map_clock + 2)) {
     mes("You attempt to catch a fish.");
 }
 p_opnpc(5);
-if (afk_event = ^true & npc_param(is_whirlpool) = ^false) {
-    @macro_event_fishing(fishing_rod);
-}
+
 
 
 [label,fish_pike]
