@@ -115,6 +115,7 @@ if (p_finduid(uid) = true) {
                 case 32 : queue(junglepotion_quest_complete, 0);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 case 33 : queue(legends_quest_complete, 0;)
 =======
                 case 33 : queue(legends_quest_complete, 0);
@@ -122,6 +123,9 @@ if (p_finduid(uid) = true) {
 =======
                 case 33 : queue(legends_quest_complete, 0);
 >>>>>>> 7731a101f05ce305030fb3ea8ff22bf79d598a75
+=======
+                case 33 : mes("Quest not implemented.");
+>>>>>>> 210a8b0b4689cbfe946b4a6003e75471a0052114
                 case 34 : queue(zanaris_quest_complete, 0);
                 case 35 : queue(arthur_quest_complete, 0);
                 case 36 : queue(drunkmonk_complete, 0);
@@ -260,7 +264,7 @@ if (p_finduid(uid) = true) {
                 case 30 : %hero_progress = 0;
                 case 31 : %grail_progress = 0;
                 case 32 : %junglepotion_progress = 0;
-                case 33 : %legends_progress = 0;
+                case 33 : mes("Quest not implemented.");
                 case 34 : %zanaris_progress = 0;
                 case 35 : %arthur_progress = 0;
                 case 36 : %drunkmonk_progress = 0;
@@ -369,7 +373,6 @@ queue(zombiequeen_quest_complete, 0);
 queue(tree_quest_complete, 0);
 queue(totem_quest_complete, 0);
 queue(upass_quest_complete, 0);
-queue(legends_quest_complete, 0);
 queue(itwatchtower_quest_complete, 0);
 %itwatchtower_progress = ^itwatchtower_complete;
                 // Rewards are given before quest completion, so give here
@@ -464,7 +467,7 @@ return;
 %hero_progress = 0;
 %grail_progress = 0;
 %junglepotion_progress = 0;
-%legends_progress = 0;
+// Legend's Quest not implemented
 %zanaris_progress = 0;
 %arthur_progress = 0;
 %drunkmonk_progress = 0;
