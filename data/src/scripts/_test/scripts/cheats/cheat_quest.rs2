@@ -369,6 +369,7 @@ queue(zombiequeen_quest_complete, 0);
 queue(tree_quest_complete, 0);
 queue(totem_quest_complete, 0);
 queue(upass_quest_complete, 0);
+queue(legends_quest_complete, 0);
 queue(itwatchtower_quest_complete, 0);
 %itwatchtower_progress = ^itwatchtower_complete;
                 // Rewards are given before quest completion, so give here
@@ -377,7 +378,6 @@ queue(itwatchtower_quest_complete, 0);
                 inv_add(inv, watchtowerspell, 1);
 queue(waterfall_quest_complete, 0);
 queue(ball_quest_complete, 0);
-queue(legends_quest_complete, 0);
 
 if ($arrav_choice = 0) {
     // Black Arm gang
