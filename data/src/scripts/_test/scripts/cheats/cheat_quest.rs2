@@ -109,7 +109,11 @@ if (p_finduid(uid) = true) {
                 case 30 : queue(hero_quest_complete, 0);
                 case 31 : queue(grail_quest_complete, 0);
                 case 32 : queue(junglepotion_quest_complete, 0);
+<<<<<<< HEAD
                 case 33 : queue(legends_quest_complete, 0;)
+=======
+                case 33 : queue(legends_quest_complete, 0);
+>>>>>>> 8a4958a93b36b71efb41a4094bab0c88481b66bc
                 case 34 : queue(zanaris_quest_complete, 0);
                 case 35 : queue(arthur_quest_complete, 0);
                 case 36 : queue(drunkmonk_complete, 0);
