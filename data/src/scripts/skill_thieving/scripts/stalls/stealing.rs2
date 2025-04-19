@@ -34,9 +34,7 @@ if ($data = null) {
 // He would attack and the player could fight him. 
 // He would not drop any member items on free to play worlds.'
 // - https://oldschool.runescape.wiki/w/Watchman_(random_event)
-if (afk_event = ^true) {
-    @macro_randomthieving;
-}
+
 
 if (map_members = false) {
     mes(^mes_members_thieving);

@@ -21,10 +21,6 @@ if (db_getfield($spell_data, magic_spell_table:loc_type, 0) ! $loc) {
     mes("This spell needs to be cast on <~add_article(lc_param(db_getfield($spell_data, magic_spell_table:loc_type, 0), charge_orb_name))>.");
     return;
 }
-if (afk_event = ^true) {
-    ~macro_event_general_spawn(~macro_event_set_random);
-    return;
-}
 def_namedobj $final_obj;
 def_seq $anim;
 def_spotanim $spotanim;

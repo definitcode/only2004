@@ -36,10 +36,6 @@ if (p_finduid(uid) = true) {
         mes("You havn't learnt how to cast this spell yet.");
         return;
     }
-    if (afk_event = ^true) {
-        ~macro_event_general_spawn(~macro_event_set_random);
-        return;
-    }
     // delete runes and give xp
     ~delete_spell_runes($spell_data);
     ~give_spell_xp($spell_data);

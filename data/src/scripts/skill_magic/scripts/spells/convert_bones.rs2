@@ -20,10 +20,6 @@ if (p_finduid(uid) = true) {
         mes("You aren't holding any bones!");
         return;
     }
-    if (afk_event = ^true) {
-        ~macro_event_general_spawn(~macro_event_set_random);
-        return;
-    }
     // delete all bones by category
     ~inv_delcat(inv, bones);
     inv_add(inv, $product, $total_bones);
