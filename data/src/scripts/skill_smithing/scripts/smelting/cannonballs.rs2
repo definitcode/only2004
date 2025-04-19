@@ -19,10 +19,7 @@ if (inv_total(inv, steel_bar) < 1) {
     mes("You need a steel bar to make cannonballs."); // should never happen
     return;
 }
-if (afk_event = ^true) {
-    ~macro_event_general_spawn(~macro_event_set_random); // guess
-    return;
-}
+
 mes("You heat the steel bar into a liquid state.");
 anim(human_furnace, 0);
 sound_synth(furnace, 0, 0);

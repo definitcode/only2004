@@ -26,9 +26,6 @@ wealth_event(^wealth_high_alch, oc_debugname($item), 1, $profit);
 inv_del(inv, $item, 1);
 inv_add(inv, coins, $profit);
 // delay by 5 ticks
-if (afk_event = ^true) {
-    ~macro_event_general_spawn(~macro_event_set_random);
-}
 // https://oldschool.runescape.wiki/w/Update:Patch_Notes_(11_April_2013), in osrs it weakqueues the spell. Early osrs it was delay'd
 // https://www.neoseeker.com/forums/2410/t960058-useless-rs-facts/2.htm
 // > When you high alch while your cannon is spinning, it stops spinning until you finish alching
@@ -62,9 +59,6 @@ wealth_event(^wealth_low_alch, oc_debugname($item), 1, $profit);
 inv_del(inv, $item, 1);
 inv_add(inv, coins, $profit);
 if_settabactive(^tab_magic);
-if (afk_event = ^true) {
-    ~macro_event_general_spawn(~macro_event_set_random);
-}
 // delay by 3 ticks
 p_delay(1);
 
