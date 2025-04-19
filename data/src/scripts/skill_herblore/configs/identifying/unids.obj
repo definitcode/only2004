@@ -1,6 +1,6 @@
 // guessed name
 
-[unidentified_guam]
+[unidentified_guam_leaf]
 category=category_773
 iop1=Clean
 members=yes
@@ -57,7 +57,7 @@ model=model_2364_obj
 weight=7g
 // guessed name
 
-[unidentified_ranarr]
+[unidentified_ranarr_weed]
 iop1=Clean
 members=yes
 name=Grimy ranarr weed
@@ -70,7 +70,7 @@ model=model_2364_obj
 weight=7g
 // guessed name
 
-[unidentified_irit]
+[unidentified_irit_leaf]
 iop1=Clean
 members=yes
 name=Grimy irit leaf
