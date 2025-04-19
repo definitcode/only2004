@@ -1,11 +1,11 @@
 // guessed name
 
-[unidentified_guam]
+[unidentified_guam_leaf]
 category=category_773
-iop1=Identify
+iop1=Clean
 members=yes
-name=Herb
-desc=I need a closer look to identify this.
+name=Grimy guam leaf
+desc=I need to clean this herb. 
 model=model_2364_obj
 2dxof=4
 2dzoom=700
@@ -17,10 +17,10 @@ respawnrate=200
 
 [unidentified_marrentill]
 category=category_773
-iop1=Identify
+iop1=Clean
 members=yes
-name=Herb
-desc=I need a closer look to identify this.
+name=Grimy marrentill
+desc=I need to clean this herb. 
 model=model_2364_obj
 2dxof=4
 2dzoom=700
@@ -31,10 +31,10 @@ weight=7g
 
 [unidentified_tarromin]
 category=category_773
-iop1=Identify
+iop1=Clean
 members=yes
-name=Herb
-desc=I need a closer look to identify this.
+name=Grimy tarromin
+desc=I need to clean this herb. 
 model=model_2364_obj
 2dxof=4
 2dzoom=700
@@ -45,10 +45,10 @@ weight=7g
 
 [unidentified_harralander]
 category=category_773
-iop1=Identify
+iop1=Clean
 members=yes
-name=Herb
-desc=I need a closer look to identify this.
+name=Grimy harralander
+desc=I need to clean this herb. 
 model=model_2364_obj
 2dxof=4
 2dzoom=700
@@ -57,11 +57,11 @@ model=model_2364_obj
 weight=7g
 // guessed name
 
-[unidentified_ranarr]
-iop1=Identify
+[unidentified_ranarr_weed]
+iop1=Clean
 members=yes
-name=Herb
-desc=I need a closer look to identify this.
+name=Grimy ranarr weed
+desc=I need to clean this herb. 
 model=model_2364_obj
 2dxof=4
 2dzoom=700
@@ -70,11 +70,11 @@ model=model_2364_obj
 weight=7g
 // guessed name
 
-[unidentified_irit]
-iop1=Identify
+[unidentified_irit_leaf]
+iop1=Clean
 members=yes
-name=Herb
-desc=I need a closer look to identify this.
+name=Grimy irit leaf
+desc=I need to clean this herb. 
 model=model_2364_obj
 2dxof=4
 2dzoom=700
@@ -84,10 +84,10 @@ weight=7g
 // guessed name
 
 [unidentified_avantoe]
-iop1=Identify
+iop1=Clean
 members=yes
-name=Herb
-desc=I need a closer look to identify this.
+name=Grimy avantoe
+desc=I need to clean this herb. 
 model=model_2364_obj
 2dxof=4
 2dzoom=700
@@ -97,10 +97,10 @@ weight=7g
 // guessed name
 
 [unidentified_kwuarm]
-iop1=Identify
+iop1=Clean
 members=yes
-name=Herb
-desc=I need a closer look to identify this.
+name=Grimy kwuarm
+desc=I need to clean this herb. 
 model=model_2364_obj
 2dxof=4
 2dzoom=700
@@ -110,10 +110,10 @@ weight=7g
 // guessed name
 
 [unidentified_cadantine]
-iop1=Identify
+iop1=Clean
 members=yes
-name=Herb
-desc=I need a closer look to identify this.
+name=Grimy cadantine
+desc=I need to clean this herb. 
 model=model_2364_obj
 2dxof=4
 2dzoom=700
@@ -123,10 +123,10 @@ weight=7g
 // guessed name
 
 [unidentified_dwarf_weed]
-iop1=Identify
+iop1=Clean
 members=yes
-name=Herb
-desc=I need a closer look to identify this.
+name=Grimy dwarf weed
+desc=I need to clean this herb. 
 model=model_2364_obj
 2dxof=4
 2dzoom=700
@@ -136,10 +136,10 @@ weight=7g
 // guessed name
 
 [unidentified_torstol]
-iop1=Identify
+iop1=Clean
 members=yes
-name=Herb
-desc=I need a closer look to identify this.
+name=Grimy torstol
+desc=I need to clean this herb. 
 model=model_2364_obj
 2dxof=4
 2dzoom=700
@@ -149,7 +149,7 @@ weight=7g
 // guessed name
 
 [unidentified_snake_weed]
-name=Unidentified herb
+name=Grimy snake weed
 desc=An unidentified herb.
 category=category_90
 model=model_2440_obj
@@ -163,13 +163,13 @@ members=yes
 2dzoom=1170
 2dyan=48
 2dxan=484
-iop1=Identify
+iop1=Clean
 weight=7g
 tradeable=no
 // guessed name
 
 [unidentified_ardrigal]
-name=Unidentified herb
+name=Grimy ardrigal
 desc=An unidentified herb.
 category=category_90
 cost=1
@@ -184,12 +184,12 @@ members=yes
 2dyan=1588
 2dxan=376
 weight=7g
-iop1=Identify
+iop1=Clean
 tradeable=no
 // guessed name
 
 [unidentified_sito_foil]
-name=Unidentified herb
+name=Grimy sito foil
 desc=An unidentified herb.
 category=category_90
 model=model_2364_obj
@@ -198,13 +198,13 @@ members=yes
 2dzoom=700
 2dyan=1588
 2dxan=376
-iop1=Identify
+iop1=Clean
 weight=7g
 tradeable=no
 // guessed name
 
 [unidentified_volencia_moss]
-name=Unidentified herb
+name=Grimy volencia moss
 desc=An unidentified herb.
 category=category_90
 model=model_2364_obj
@@ -213,13 +213,13 @@ members=yes
 2dzoom=700
 2dyan=1588
 2dxan=376
-iop1=Identify
+iop1=Clean
 weight=7g
 tradeable=no
 // guessed name
 
 [unidentified_rogues_purse]
-name=Unidentified herb
+name=Grimy rogues purse
 desc=An unidentified herb.
 category=category_90
 model=model_2364_obj
@@ -228,17 +228,17 @@ members=yes
 2dzoom=700
 2dyan=1588
 2dxan=376
-iop1=Identify
+iop1=Clean
 weight=7g
 tradeable=no
 // guessed name
 
 [unidentified_lantadyme]
 category=category_773
-iop1=Identify
+iop1=Clean
 members=yes
-name=Herb
-desc=I need a closer look to identify this.
+name=Grimy lantadyme
+desc=I need to clean this herb. 
 model=model_2364_obj
 2dxof=4
 2dzoom=700

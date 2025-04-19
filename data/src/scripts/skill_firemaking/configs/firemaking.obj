@@ -25,6 +25,9 @@ recol1d=28539
 2dyan=1892
 2dxan=264
 weight=2oz
+category=bones
+iop1=scatter
+param=bone_exp,25
 
 [torch_lit]
 cost=4

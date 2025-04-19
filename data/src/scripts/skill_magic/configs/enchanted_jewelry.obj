@@ -458,7 +458,7 @@ wearpos=front
 manwear=model_290_obj_wear,0
 womanwear=model_454_obj_wear,0
 weight=10g
-param=strengthbonus,10
+param=strengthbonus,20
 
 [amulet_of_magic]
 name=Amulet of magic
@@ -481,7 +481,7 @@ wearpos=front
 manwear=model_290_obj_wear,0
 womanwear=model_454_obj_wear,0
 weight=10g
-param=magicattack,10
+param=magicattack,20
 
 [amulet_of_defence]
 name=Amulet of defence
@@ -506,7 +506,7 @@ womanwear=model_454_obj_wear,0
 weight=10g
 param=stabdefence,7
 param=slashdefence,7
-param=crushdefence,7
+param=crushdefence,20
 param=magicdefence,7
 param=rangedefence,7
 
@@ -532,12 +532,12 @@ weight=10g
 param=stabattack,6
 param=slashattack,6
 param=crushattack,6
-param=magicattack,6
-param=rangeattack,6
+param=magicattack,15
+param=rangeattack,20
 param=stabdefence,6
 param=slashdefence,6
-param=crushdefence,6
+param=crushdefence,10
 param=magicdefence,6
 param=rangedefence,6
-param=strengthbonus,6
+param=strengthbonus,15
 param=prayerbonus,1

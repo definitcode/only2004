@@ -21,6 +21,7 @@ param=slashdefence,5
 param=crushdefence,3
 param=magicdefence,1
 param=rangedefence,4
+param=magicattack,4
 
 [bronze_sq_shield]
 name=Bronze sq shield

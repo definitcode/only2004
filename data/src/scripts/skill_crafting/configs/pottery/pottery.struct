@@ -16,5 +16,5 @@ param=productexp,100
 [unfired_bowl]
 param=product,bowl_empty
 param=levelrequire,8
-param=processexp,180
-param=productexp,150
+param=processexp,250
+param=productexp,250

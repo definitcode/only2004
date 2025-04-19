@@ -5,7 +5,7 @@ data=ore_name,rune stones
 data=success_message,You manage to mine an unbound rune stone.
 data=rock_output,blankrune
 data=rock_level,1
-data=rock_exp,50
+data=rock_exp,125
 data=rock_successchance,256,256
 
 [clay_rock_table]
@@ -17,9 +17,9 @@ data=rock,macro_clayrock2
 data=ore_name,clay
 data=rock_output,clay
 data=rock_level,1
-data=rock_exp,50
+data=rock_exp,300
 data=rock_successchance,128,400
-data=rock_respawnrate,6
+data=rock_respawnrate,20
 
 [copper_rock_table]
 table=mining_table
@@ -110,7 +110,7 @@ data=rock_output,mithril_ore
 data=rock_level,55
 data=rock_exp,800
 data=rock_successchance,5,50
-data=rock_respawnrate,400
+data=rock_respawnrate,250
 
 [adamantite_rock_table]
 table=mining_table
@@ -123,7 +123,7 @@ data=rock_output,adamantite_ore
 data=rock_level,70
 data=rock_exp,950
 data=rock_successchance,2,25
-data=rock_respawnrate,800
+data=rock_respawnrate,400
 
 [runite_rock_table]
 table=mining_table
@@ -159,7 +159,7 @@ data=ore_name,gems
 data=rock_level,40
 data=rock_exp,650
 data=rock_successchance,28,70
-data=rock_respawnrate,200
+data=rock_respawnrate,40
 
 [desertrescue_rock]
 table=mining_table
