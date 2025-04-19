@@ -153,6 +153,7 @@ if (p_finduid(uid) = true) {
                 case 51 : queue(ball_quest_complete, 0);
                 case default : mes("Quest not found.");
             }
+        
         } else if ($choice3 = 1) {
             switch_int ($quest) {
                 case 0 : %blackknight_progress = 0;
