@@ -6,7 +6,7 @@ if (p_finduid(uid) = true) {
 %prayer_incrediblereflexes = %prayer_incrediblereflexes; // resync varp
 
 [label,activate_prayer_incrediblereflexes]
-p_clearpendingaction;
+//p_clearpendingaction;
 def_dbrow $data = ~get_prayer_data(^prayer_incrediblereflexes);
 if ($data = null) {
     return;

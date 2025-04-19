@@ -6,7 +6,7 @@ if (p_finduid(uid) = true) {
 %prayer_protectfrommagic = %prayer_protectfrommagic;
 
 [label,activate_prayer_protectfrommagic]
-p_clearpendingaction;
+//p_clearpendingaction;
 def_dbrow $data = ~get_prayer_data(^prayer_protectfrommagic);
 if ($data = null) {
     return;

@@ -6,7 +6,7 @@ if (p_finduid(uid) = true) {
 %prayer_rockskin = %prayer_rockskin;
 
 [label,activate_prayer_rockskin]
-p_clearpendingaction;
+//p_clearpendingaction;
 def_dbrow $data = ~get_prayer_data(^prayer_rockskin);
 if ($data = null) {
     return;

@@ -6,7 +6,7 @@ if (p_finduid(uid) = true) {
 %prayer_protectfrommissiles = %prayer_protectfrommissiles;
 
 [label,activate_prayer_protectfrommissiles]
-p_clearpendingaction;
+//p_clearpendingaction;
 def_dbrow $data = ~get_prayer_data(^prayer_protectfrommissiles);
 if ($data = null) {
     return;

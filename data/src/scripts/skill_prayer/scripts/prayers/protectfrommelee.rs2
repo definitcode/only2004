@@ -6,7 +6,7 @@ if (p_finduid(uid) = true) {
 %prayer_protectfrommelee = %prayer_protectfrommelee;
 
 [label,activate_prayer_protectfrommelee]
-p_clearpendingaction;
+//p_clearpendingaction;
 def_dbrow $data = ~get_prayer_data(^prayer_protectfrommelee);
 if ($data = null) {
     return;

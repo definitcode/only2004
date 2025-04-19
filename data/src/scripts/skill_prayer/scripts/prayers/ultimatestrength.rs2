@@ -6,7 +6,7 @@ if (p_finduid(uid) = true) {
 %prayer_ultimatestrength = %prayer_ultimatestrength;
 
 [label,activate_prayer_ultimatestrength]
-p_clearpendingaction;
+//p_clearpendingaction;
 def_dbrow $data = ~get_prayer_data(^prayer_ultimatestrength);
 if ($data = null) {
     return;

@@ -6,7 +6,7 @@ if (p_finduid(uid) = true) {
 %prayer_thickskin = %prayer_thickskin;
 
 [label,activate_prayer_thickskin]
-p_clearpendingaction;
+//p_clearpendingaction;
 def_dbrow $data = ~get_prayer_data(^prayer_thickskin);
 if ($data = null) {
     return;
