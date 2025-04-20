@@ -145,7 +145,7 @@ export default class InputTracking {
             if (this.shouldSubmitTrackingDetails()) {
                 World.submitInputTracking(this.player.username, this.player instanceof NetworkPlayer ? this.player.client.uuid : 'headless', this.recordedBlobs);
             }
-        } else if (!Environment.NODE_DEBUG) {
+        } else if (!Environment.NODE_DEBUG || !Environment.NODE_PRODUCTION) {
             // this means that:
             // 1: the player is trying to avoid afk timer.
             // 2: the player is on a very slow connection and the report packet never came in.
