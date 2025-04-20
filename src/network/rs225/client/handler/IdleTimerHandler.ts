@@ -8,6 +8,9 @@ export default class IdleTimerHandler extends MessageHandler<IdleTimer> {
         if (!Environment.NODE_DEBUG) {
             player.requestIdleLogout = false;
         }
+        else if(!Environment.NODE_PRODUCTION) {
+            player.requestIdleLogout = false;
+        }
 
         return false;
     }
