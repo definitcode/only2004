@@ -104,35 +104,16 @@ if (p_finduid(uid) = true) {
                 case 27 : 
                     %fluffs_progress = ^fluffs_complete;
                     queue(fluffs_complete, 0);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7731a101f05ce305030fb3ea8ff22bf79d598a75
-=======
->>>>>>> 9b87e61a01f2670030355cae3b0ea2b29ec5f0ac
                 case 28 : queue(grandtree_quest_complete, 0);
                 case 29 : queue(hazeelcult_quest_complete, 0);
                 case 30 : queue(hero_quest_complete, 0);
                 case 31 : queue(grail_quest_complete, 0);
                 case 32 : queue(junglepotion_quest_complete, 0);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                case 33 : queue(legends_quest_complete, 0;)
-=======
-                case 33 : queue(legends_quest_complete, 0);
->>>>>>> 8a4958a93b36b71efb41a4094bab0c88481b66bc
-=======
-                case 33 : queue(legends_quest_complete, 0);
->>>>>>> 7731a101f05ce305030fb3ea8ff22bf79d598a75
-=======
-                case 33 : mes("Quest not implemented.");
->>>>>>> 210a8b0b4689cbfe946b4a6003e75471a0052114
-=======
-                case 33 : mes("Quest not implemented.");
->>>>>>> 9b87e61a01f2670030355cae3b0ea2b29ec5f0ac
+                case 33 :
+                    %legends_progress = ^legends_returned_to_radimus;
+                    if (npc_find(0_42_52_34_45, radimus_erkle, 20, 0) = true) {
+                        @radimus_training;
+                    }
                 case 34 : queue(zanaris_quest_complete, 0);
                 case 35 : queue(arthur_quest_complete, 0);
                 case 36 : queue(drunkmonk_complete, 0);
@@ -140,40 +121,6 @@ if (p_finduid(uid) = true) {
                 case 38 : queue(itgronigen_quest_complete, 0);
                 case 39 : queue(quest_elena_complete, 0);
                 case 40 : queue(scorpcatcher_quest_complete, 0);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                case 28 :
-                    queue(grandtree_quest_complete, 0);
-                case 29 :
-                    queue(hazeelcult_quest_complete, 0);
-                case 30 :
-                    queue(hero_quest_complete, 0);
-                case 31 :
-                    queue(grail_quest_complete, 0);
-                case 32 :
-                    queue(junglepotion_quest_complete, 0);
-                case 33 :
-                    queue(legends_quest_complete, 0);
-                case 34 :
-                    queue(zanaris_quest_complete, 0);
-                case 35 :
-                    queue(arthur_quest_complete, 0);
-                case 36 :
-                    queue(drunkmonk_complete, 0);
-                case 37 :
-                    queue(murder_quest_complete, 0);
-                case 38 :
-                    queue(itgronigen_quest_complete, 0);
-                case 39 :
-                    queue(quest_elena_complete, 0);
-                case 40 :
-                    queue(scorpcatcher_quest_complete, 0);
->>>>>>> 95e19e962a1eab45badd79f70f80d8ace2c1cc94
-=======
->>>>>>> 7731a101f05ce305030fb3ea8ff22bf79d598a75
-=======
->>>>>>> 9b87e61a01f2670030355cae3b0ea2b29ec5f0ac
                 case 41 : 
                     %seaslug_progress = ^seaslug_complete;
                     %questpoints = add(%questpoints, ^seaslug_questpoints);
@@ -274,7 +221,7 @@ if (p_finduid(uid) = true) {
                 case 30 : %hero_progress = 0;
                 case 31 : %grail_progress = 0;
                 case 32 : %junglepotion_progress = 0;
-                case 33 : mes("Quest not implemented.");
+                case 33 : %legends_progress = 0;
                 case 34 : %zanaris_progress = 0;
                 case 35 : %arthur_progress = 0;
                 case 36 : %drunkmonk_progress = 0;
@@ -351,9 +298,9 @@ queue(quest_chompybird_complete, 0);
 queue(quest_biohazard_complete, 0);
 queue(cog_complete, 0);
 queue(itexam_complete, 0);
-if (npc_find(0_45_54_45_30, kaqemeex, 7, 0) = true) {
-                        queue(druid_quest_complete, 0, npc_uid);
-                    }
+    if (npc_find(0_45_54_45_30, kaqemeex, 7, 0) = true) {
+        queue(druid_quest_complete, 0, npc_uid);
+    }
 queue(mcannon_complete, 0);
 queue(crest_complete, 0);
 // Complete all blast spells and levers, gauntlet choice unselected
@@ -374,9 +321,9 @@ queue(itgronigen_quest_complete, 0);
 queue(quest_elena_complete, 0);
 queue(scorpcatcher_quest_complete, 0);
 %seaslug_progress = ^seaslug_complete;
-%questpoints = add(%questpoints, ^seaslug_questpoints);
-inv_add(inv, bigoysterpearls, 1);
-stat_advance(fishing, 71750);
+    %questpoints = add(%questpoints, ^seaslug_questpoints);
+    inv_add(inv, bigoysterpearls, 1);
+    stat_advance(fishing, 71750);
 queue(seaslug_quest_complete, 0);
 queue(sheepherder_complete, 0);
 queue(zombiequeen_quest_complete, 0);
@@ -385,10 +332,10 @@ queue(totem_quest_complete, 0);
 queue(upass_quest_complete, 0);
 queue(itwatchtower_quest_complete, 0);
 %itwatchtower_progress = ^itwatchtower_complete;
-                // Rewards are given before quest completion, so give here
-                stat_advance(magic, 153000);
-                inv_add(inv, coins, 5000);
-                inv_add(inv, watchtowerspell, 1);
+    // Rewards are given before quest completion, so give here
+    stat_advance(magic, 153000);
+    inv_add(inv, coins, 5000);
+    inv_add(inv, watchtowerspell, 1);
 queue(waterfall_quest_complete, 0);
 queue(ball_quest_complete, 0);
 
@@ -402,7 +349,6 @@ if ($arrav_choice = 0) {
     %blackarmgang_progress = 0;
 }
 
-
 if ($ikov_choice = 0) {
     // Armadyl side
     if (npc_find(0_40_51_13_57, lucien_ardougne, 7, 0) = true) {
@@ -414,10 +360,14 @@ if ($ikov_choice = 0) {
 }
 
 %desertrescue_progress = ^desertrescue_saved_ana;
-                if (npc_find(0_51_48_40_40, irena, 20, 0) = true) {
-                    @irena_ana_found;
-                }
+    if (npc_find(0_51_48_40_40, irena, 20, 0) = true) {
+        @irena_ana_found;
+    }
 
+%legends_progress = ^legends_returned_to_radimus;
+    if (npc_find(0_42_52_34_45, radimus_erkle, 20, 0) = true) {
+        @radimus_training;
+    }
 
 ~update_quests;
 mes("All quests have been completed.");
@@ -478,7 +428,7 @@ return;
 %hero_progress = 0;
 %grail_progress = 0;
 %junglepotion_progress = 0;
-// Legend's Quest not implemented
+%legends_progress = 0;
 %zanaris_progress = 0;
 %arthur_progress = 0;
 %drunkmonk_progress = 0;

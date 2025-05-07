@@ -27,7 +27,7 @@ table=fletching_table
 data=item,mithril_arrowheads
 data=metal,mithril
 data=product,mithril_arrow,15
-data=level,45
+data=level,50
 data=experience,75
 
 [fletching_adamant_arrow]
@@ -35,7 +35,7 @@ table=fletching_table
 data=item,adamant_arrowheads
 data=metal,adamant
 data=product,adamant_arrow,15
-data=level,60
+data=level,70
 data=experience,100
 
 [fletching_rune_arrow]
@@ -43,5 +43,5 @@ table=fletching_table
 data=item,rune_arrowheads
 data=metal,rune
 data=product,rune_arrow,15
-data=level,75
+data=level,80
 data=experience,125

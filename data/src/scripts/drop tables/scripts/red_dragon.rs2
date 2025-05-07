@@ -47,6 +47,8 @@ if ($random < 4) {
     obj_add(npc_coord, coins, 330, ^lootdrop_duration);
 } else if ($random < 119) {
     obj_add(npc_coord, coins, 690, ^lootdrop_duration);
+} else if ($random < 120) {
+    obj_add(npc_coord, macro_genilamp, 1, ^lootdrop_duration);
 } else if ($random < 122) {
     obj_add(npc_coord, chocolate_cake, 3, ^lootdrop_duration);
 } else if ($random < 123) {

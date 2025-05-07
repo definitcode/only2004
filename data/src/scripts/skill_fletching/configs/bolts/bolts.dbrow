@@ -11,14 +11,14 @@ data=skill_sound,chisel
 table=fletching_table
 data=item,smalloysterpearls
 data=product,pearl_bolttips,6
-data=level,41
+data=level,16
 data=experience,32
 
 [fletching_oyster_pearls_tips]
 table=fletching_table
 data=item,bigoysterpearls
 data=product,pearl_bolttips,24
-data=level,41
+data=level,16
 data=experience,32
 
 [fletching_opal_bolts]
@@ -32,7 +32,7 @@ data=experience,16
 table=fletching_table
 data=item,pearl_bolttips
 data=product,pearl_bolt,10
-data=level,41
+data=level,16
 data=experience,32
 
 [fletching_barb_bolts]

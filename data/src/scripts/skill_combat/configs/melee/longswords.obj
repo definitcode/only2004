@@ -221,7 +221,7 @@ param=slash_sound,hacksword_slash
 param=stab_sound,hacksword_stab
 
 [dragon_longsword]
-cost=100000
+cost=1000000
 name=Dragon longsword
 desc=A very powerful sword.
 members=yes

@@ -118,6 +118,8 @@ if ($random < 3) {
     return (cert_silver_ore, 100);
 } else if ($random < 113) {
     return (~randomjewel);
+} else if ($random < 120) {
+    return (macro_genilamp, 1);
 } else if ($random < 128) {
     return (~megararetable);
 }
@@ -130,9 +132,20 @@ if ($random < 8) {
     return (rune_spear, 1);
 } else if ($random < 12) {
     return (dragonshield_a, 1);
+} else if ($random < 13) {
+    return (dragon_dagger, 1);
+} else if ($random < 14) {
+    return (dragon_mace, 1);
 } else if ($random < 15) {
     return (dragon_spear, 1);
+} else if ($random < 16) {
+    return (dragon_longsword, 1);    
+} else if ($random < 18) {
+    return (boots_ranger, 1);
+} else if ($random < 19) {
+    return (robinhoodhat, 1);
 }
+
 
 [proc,randomjunk]()(namedobj, int) // guess
 switch_int (random(8)) {

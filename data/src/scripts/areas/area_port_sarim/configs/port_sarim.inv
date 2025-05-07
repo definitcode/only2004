@@ -56,17 +56,18 @@ size=40
 restock=yes
 stackall=yes
 allstock=no
-stock1=firerune,1000,10
-stock2=waterrune,1000,10
-stock3=airrune,1000,10
-stock4=earthrune,1000,10
-stock5=mindrune,1000,10
-stock6=bodyrune,1000,10
-stock7=chaosrune,500,100
-stock8=deathrune,500,150
+stock1=firerune,10000,5
+stock2=waterrune,10000,5
+stock3=airrune,10000,5
+stock4=earthrune,10000,5
+stock5=mindrune,10000,5
+stock6=bodyrune,10000,5
+stock7=chaosrune,1000,50
+stock8=deathrune,1000,75
 stock9=eye_of_newt,300,10
 stock10=bluewizhat,1,100
-stock11=blackwizhat,1,100
+stock11=wizards_robe,1,100
+stock12=blackwizhat,1,100
 
 [battleaxeshop]
 // https://classic.runescape.wiki/w/Brian%27s_Great_Axes

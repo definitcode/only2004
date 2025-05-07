@@ -13,6 +13,9 @@ stock4=bucket_empty,2,100
 stock5=tinderbox,2,100
 stock6=chisel,2,100
 stock7=hammer,5,100
+stock8=vial_empty,50,200
+stock9=feather,100,100
+stock10=knife,5,100
 
 [runeplateshop]
 // https://oldschool.runescape.wiki/w/Oziach_(shop)
@@ -22,5 +25,6 @@ size=40
 restock=yes
 stackall=yes
 allstock=no
-stock1=rune_platebody,2,500
-stock2=dragonhide_body,2,500
+stock1=rune_platebody,10,500
+stock2=dragonhide_body,10,500
+stock3=rune_battleaxe,10,500
