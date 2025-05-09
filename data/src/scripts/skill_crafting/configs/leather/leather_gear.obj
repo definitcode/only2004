@@ -14,8 +14,9 @@ category=armour_hands
 2dyan=828
 2dxan=420
 weight=8oz
-param=slashdefence,1
-param=crushdefence,2
+param=slashdefence,5
+param=crushdefence,5
+param=stabdefence,2
 
 [leather_boots]
 name=Leather boots
@@ -32,8 +33,8 @@ wearpos=feet
 manwear=model_185_obj_wear,0
 womanwear=model_361_obj_wear,0
 weight=12oz
-param=slashdefence,1
-param=crushdefence,1
+param=slashdefence,5
+param=crushdefence,5
 
 [leather_vambraces]
 cost=18
@@ -77,9 +78,9 @@ category=category_16
 weight=10oz
 param=magicattack,-10
 param=rangeattack,8
-param=stabdefence,3
-param=slashdefence,2
-param=crushdefence,4
+param=stabdefence,5
+param=slashdefence,6
+param=crushdefence,6
 param=magicdefence,2
 
 [leather_chaps]
