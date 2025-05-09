@@ -16,7 +16,7 @@ womanwear=model_348_idk,0
 manwear2=model_292_idk
 womanwear2=model_456_idk
 weight=2lb
-param=magicattack,3
+param=magicattack,10
 param=magicdefence,3
 
 [bluewizhat]
@@ -36,8 +36,8 @@ womanwear=model_377_obj_wear,0
 manhead=model_44_obj_wear
 womanhead=model_102_obj_wear
 weight=1lb
-param=magicattack,2
-param=magicdefence,2
+param=magicattack,10
+param=magicdefence,3
 
 [black_robe]
 cost=13
@@ -57,8 +57,8 @@ womanwear=model_348_idk,0
 manwear2=model_292_idk
 womanwear2=model_456_idk
 weight=2lb
-param=magicattack,3
-param=magicdefence,3
+param=magicattack,15
+param=magicdefence,5
 
 [blackwizhat]
 cost=2
@@ -79,5 +79,5 @@ womanwear=model_377_obj_wear,0
 manhead=model_44_obj_wear
 womanhead=model_102_obj_wear
 weight=1lb
-param=magicattack,2
-param=magicdefence,2
+param=magicattack,15
+param=magicdefence,5

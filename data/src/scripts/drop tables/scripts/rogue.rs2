@@ -53,6 +53,8 @@ if ($dropint < 2) {
 } else if ($dropint < 110) {
     // 1/128
     obj_add(npc_coord, coins, 25, 200);
+} else if ($dropint < 112) {
+    obj_add(npc_coord, macro_genilamp, 1, ^lootdrop_duration);
 } else if ($dropint < 115) {
     // 5/128
     obj_add(npc_coord, fishing_bait, 1, 200);

@@ -19,8 +19,8 @@ spotanim_pl(highlvlalchemy_casting, 92, 0);
 // delete runes and give xp
 ~delete_spell_runes($spell_data);
 ~give_spell_xp($spell_data);
-// give 0.6x of item's value and delete item
-def_int $profit = max(scale(6, 10, oc_cost($item)), 1);
+// give 1.0x of item's value and delete item
+def_int $profit = max(scale(10, 10, oc_cost($item)), 1);
 wealth_log(^wealth_gained, $profit, "High alching <oc_debugname($item)>");
 wealth_event(^wealth_high_alch, oc_debugname($item), 1, $profit);
 inv_del(inv, $item, 1);
@@ -52,8 +52,8 @@ spotanim_pl(lowlvlalchemy_casting, 92, 0);
 // delete runes and give xp
 ~delete_spell_runes($spell_data);
 ~give_spell_xp($spell_data);
-// give 0.4x of item's value and delete item
-def_int $profit = max(scale(4, 10, oc_cost($item)), 1);
+// give 0.7x of item's value and delete item
+def_int $profit = max(scale(7, 10, oc_cost($item)), 1);
 wealth_log(^wealth_gained, $profit, "Low alching <oc_debugname($item)>");
 wealth_event(^wealth_low_alch, oc_debugname($item), 1, $profit);
 inv_del(inv, $item, 1);

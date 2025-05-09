@@ -202,7 +202,7 @@ param=rangedefence,38
 [dragon_sq_shield]
 name=Dragon sq shield
 desc=An ancient and powerful looking Dragon Square shield.
-cost=500000
+cost=5000000
 members=yes
 model=model_2840_obj
 2dxof=1
