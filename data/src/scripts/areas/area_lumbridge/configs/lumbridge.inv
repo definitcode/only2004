@@ -11,14 +11,14 @@ stock2=bronze_axe,10,100
 stock3=iron_axe,5,200
 stock4=steel_axe,3,400
 stock5=mithril_axe,1,500
-stock10=iron_battleaxe,5,100
-stock11=steel_battleaxe,2,200
-stock12=mithril_battleaxe,1,3000
 stock6=adamant_axe,1,4000
 stock7=rune_axe,1,10000
 stock8=macro_hatchethandle,1,100
 stock9=macro_bronze_hatchethead,1,100
-
+stock10=iron_battleaxe,5,100
+stock11=steel_battleaxe,2,200
+stock12=mithril_battleaxe,1,3000
+//
 [generalshop1]
 // https://classic.runescape.wiki/w/Lumbridge_General_Store
 // https://web.archive.org/web/20050313104939/http://server6.uploadit.org/files/Nishkid64-lumbridgegeneralstore.JPG  (full stocks) 2004
