@@ -19,7 +19,7 @@ model=model_2631_obj
 2dzoom=1290
 2dyan=168
 2dxan=388
-cost=10
+cost=100
 weight=3kg
 
 [silk]
@@ -812,7 +812,7 @@ model=model_2796_obj
 recol1s=13537
 recol1d=15855
 recol2s=31649
-recol2d=31175
+recol2d=0
 2dxof=1
 2dyof=16
 2dzoom=620

@@ -4,7 +4,7 @@
 // rates are completely guessed
 def_int $random = random(4);
 if (map_members = true) {
-    $random = random(11);
+    $random = random(14);
 }
 switch_int ($random) {
     case 0 :
@@ -43,4 +43,13 @@ switch_int ($random) {
     case 10 :
         inv_add(inv, digsitebuttons, 1);
         ~objbox(digsitebuttons, "You've found some buttons.", 250, 0, 0);
+    case 11 :
+        inv_add(inv, bronze_arrow, 5);
+        ~objbox(bronze_arrow,"You've found some arrows.",250,0,0)
+    case 12 :
+        inv_add(inv, mindrune, 1);
+        ~objbox(mindrune,"You've found an Mind Rune.",250,0,0)
+    case 13 :
+        inv_add(inv, airrune, 1);
+        ~objbox(airrune,"You've found an Air Rune.",250,0,0)
 }

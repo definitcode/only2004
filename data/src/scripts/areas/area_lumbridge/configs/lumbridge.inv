@@ -14,6 +14,10 @@ stock5=mithril_axe,1,500
 stock6=iron_battleaxe,5,100
 stock7=steel_battleaxe,2,200
 stock8=mithril_battleaxe,1,3000
+stock9=adamant_axe,1,4000
+stock10=rune_axe,1,10000
+stock11=macro_hatchethandle,1,100
+stock12=macro_bronze_hatchethead,1,100
 
 [generalshop1]
 // https://classic.runescape.wiki/w/Lumbridge_General_Store
@@ -24,12 +28,13 @@ size=40
 restock=yes
 stackall=yes
 allstock=yes
-stock1=pot_empty,3,100
-stock2=jug_empty,2,100
-stock3=shears,2,100
-stock4=bucket_empty,2,100
+stock1=pot_empty,10,100
+stock2=jug_empty,10,100
+stock3=shears,10,100
+stock4=bucket_empty,10,100
 stock5=tinderbox,2,100
 stock6=chisel,2,100
 stock7=hammer,5,100
 stock8=knife,5,100
 stock9=newcomer_map,5,100
+stock10=ball_of_wool,0,100

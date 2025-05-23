@@ -237,8 +237,7 @@ if (%vampire_progress = ^vampire_complete & npc_type = count_draynor) {
 }
 if (npc_type = delrith) {
     if (%demon_progress >= ^demon_complete) {
-        mes("You've already done that quest.");
-        return(false);
+        return(true);
     }
     if (inv_getobj(worn, 3) ! silverlight) {
         if (inv_total(inv, silverlight) > 0) {
@@ -251,8 +250,7 @@ if (npc_type = delrith) {
 }
 if (npc_type = count_draynor) {
     if (%vampire_progress = ^vampire_complete) {
-        mes("You've done enough vampire slaying.");
-        return(false);
+        return(true);
     }
 }
 if (npc_hasop(2) = true) {

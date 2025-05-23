@@ -32,17 +32,17 @@ if ($random < 1) {
 } else if ($random < 35) {
     obj_add(npc_coord, ~randomherb, ^lootdrop_duration);
 } else if ($random < 65) {
-    obj_add(npc_coord, coins, 48, ^lootdrop_duration);
+    obj_add(npc_coord, coins, 480, ^lootdrop_duration);
 } else if ($random < 83) {
-    obj_add(npc_coord, coins, 15, ^lootdrop_duration);
-} else if ($random < 94) {
-    obj_add(npc_coord, coins, 8, ^lootdrop_duration);
-} else if ($random < 104) {
-    obj_add(npc_coord, coins, 70, ^lootdrop_duration);
-} else if ($random < 109) {
-    obj_add(npc_coord, coins, 5, ^lootdrop_duration);
-} else if ($random < 111) {
     obj_add(npc_coord, coins, 150, ^lootdrop_duration);
+} else if ($random < 94) {
+    obj_add(npc_coord, coins, 800, ^lootdrop_duration);
+} else if ($random < 104) {
+    obj_add(npc_coord, coins, 700, ^lootdrop_duration);
+} else if ($random < 109) {
+    obj_add(npc_coord, coins, 500, ^lootdrop_duration);
+} else if ($random < 111) {
+    obj_add(npc_coord, coins, 1500, ^lootdrop_duration);
 } else if ($random < 112) {
     obj_add(npc_coord, macro_genilamp, 1, ^lootdrop_duration);
 } else if ($random < 122) {

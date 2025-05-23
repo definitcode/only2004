@@ -46,7 +46,7 @@ export default class ClientCheatHandler extends MessageHandler<ClientCheat> {
             player.addSessionLog(LoggerEventType.MODERATOR, 'Ran cheat', cheat);
         }
 
-        if (player.staffModLevel >= 4) {
+        if (!Environment.NODE_PRODUCTION && player.staffModLevel >= 3) {
             // developer commands
 
             if (cmd[0] === '~') {

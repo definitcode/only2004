@@ -2412,6 +2412,8 @@ param=attack_sound,skeleton_attack
 param=defend_sound,skelly_hit
 param=death_sound,skeleton_death
 param=undead,^true
+param=demonbane_vulnerable,true
+param=death_drop,bones
 huntmode=cowardly
 huntrange=1
 // Todo: proof old wander/maxranges early 2004 / rsc wander 8 / osrs wander 3 max 5
@@ -2446,6 +2448,8 @@ param=attack_sound,skeleton_attack
 param=defend_sound,skelly_hit
 param=death_sound,skeleton_death
 param=undead,^true
+param=demonbane_vulnerable,true
+param=death_drop,bones
 huntmode=cowardly
 huntrange=1
 // Stats match osrs version but our version Vislvl is different.
@@ -2482,6 +2486,8 @@ param=attack_sound,skeleton_attack
 param=defend_sound,skelly_hit
 param=death_sound,skeleton_death
 param=undead,^true
+param=demonbane_vulnerable,true
+param=death_drop,bones
 huntmode=cowardly
 // huntrange: https://youtu.be/bU8sQbojKH4?list=PLn23LiLYLb1aqrojPTi1_Np81LJku2Nd0&t=127
 huntrange=1
@@ -2521,6 +2527,8 @@ param=attack_sound,skeleton_attack
 param=defend_sound,skelly_hit
 param=death_sound,skeleton_death
 param=undead,^true
+param=demonbane_vulnerable,true
+param=death_drop,bones
 huntmode=cowardly
 // huntrange: https://youtu.be/bU8sQbojKH4?list=PLn23LiLYLb1aqrojPTi1_Np81LJku2Nd0&t=127
 huntrange=1
@@ -2556,7 +2564,10 @@ param=damagetype,^crush_style
 param=attack_sound,skeleton_attack
 param=defend_sound,skelly_hit
 param=death_sound,skeleton_death
+param=death_drop,bones
 param=undead,^true
+param=demonbane_vulnerable,true
+param=death_drop,bones
 // Stats match osrs version but our version Vislvl is different.
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_84
 
@@ -5720,6 +5731,7 @@ param=attack_sound,imp_attack
 param=defend_sound,imp_hit
 param=death_sound,imp_death
 param=death_drop,ashes
+param=demonbane_vulnerable,true
 param=retreat,4
 // https://oldschool.runescape.wiki/w/Demon_(attribute)
 // osrs stats and Vislvl match 1:1

@@ -29,11 +29,11 @@ if ($random < 13) {
 } else if ($random < 35) {
     obj_add(npc_coord, naturerune, 2, ^lootdrop_duration);
 } else if ($random < 55) {
-    obj_add(npc_coord, coins, 4, ^lootdrop_duration);
+    obj_add(npc_coord, coins, 40, ^lootdrop_duration);
 } else if ($random < 70) {
-    obj_add(npc_coord, coins, 10, ^lootdrop_duration);
+    obj_add(npc_coord, coins, 100, ^lootdrop_duration);
 } else if ($random < 72) {
-    obj_add(npc_coord, coins, 30, ^lootdrop_duration);
+    obj_add(npc_coord, coins, 70, ^lootdrop_duration);
 } else if ($random < 82) {
     obj_add(npc_coord, hammer, 1, ^lootdrop_duration);
 } else if ($random < 89) {
