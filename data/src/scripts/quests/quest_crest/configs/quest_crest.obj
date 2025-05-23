@@ -145,8 +145,6 @@ param=stabdefence,8
 param=slashdefence,9
 param=crushdefence,7
 param=strengthbonus,2
-param=rangeattack=,7
-param=magicattack=,-7
 tradeable=no
 
 [avan_crest]

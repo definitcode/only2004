@@ -46,14 +46,14 @@ export default class ClientCheatHandler extends MessageHandler<ClientCheat> {
             player.addSessionLog(LoggerEventType.MODERATOR, 'Ran cheat', cheat);
         }
 
-        if (!Environment.NODE_PRODUCTION && player.staffModLevel >= 3) {
+        if (player.staffModLevel >= 4) {
             // developer commands
 
             if (cmd[0] === '~') {
                 // debugprocs are NOT allowed on live ;)
                 const script = ScriptProvider.getByName(`[debugproc,${cmd.slice(1)}]`);
                 if (!script) {
-                    return false;
+                    return true;
                 }
 
                 const params = new Array(script.info.parameterTypes.length).fill(-1);

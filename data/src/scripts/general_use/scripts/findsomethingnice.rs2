@@ -45,11 +45,11 @@ switch_int ($random) {
         ~objbox(digsitebuttons, "You've found some buttons.", 250, 0, 0);
     case 11 :
         inv_add(inv, bronze_arrow, 5);
-        ~objbox(bronze_arrow,"You've found some arrows.",250,0,0)
+        ~objbox(bronze_arrow,"You've found some arrows.",250,0,0);
     case 12 :
         inv_add(inv, mindrune, 1);
-        ~objbox(mindrune,"You've found an Mind Rune.",250,0,0)
+        ~objbox(mindrune,"You've found an Mind Rune.",250,0,0);
     case 13 :
         inv_add(inv, airrune, 1);
-        ~objbox(airrune,"You've found an Air Rune.",250,0,0)
+        ~objbox(airrune,"You've found an Air Rune.",250,0,0);
 }
