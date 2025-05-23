@@ -15,5 +15,21 @@ if (finduid(%npc_attacking_uid) = true) {
     if (distance(coord, npc_coord) < 10 & coordy(coord) = coordy(npc_coord)) {
         sound_synth(zombie_moan, 0, 0);
     }
+    
+    // Random number generation for zombie dialogue
+    def_int $random = calc(random(128));
+    
+    if ($random < 25) {
+        npc_say("Brainsss");
+    } else if ($random < 50) {
+        npc_say("Trust the science!");
+    } else {
+        return; // Exit if $random is 50 or higher
+    }
+    
+    if (inv_total(worn, gasmask) = 0) {
+        // Delay the message by 50 server ticks
+        npc_delay(50);
+        npc_say("You Are Not Wearing A Mask!");
+    }       
 }
-npc_say("Brainssss");

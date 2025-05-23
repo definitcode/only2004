@@ -1,5 +1,6 @@
 // Melee
 [opheld2,dragon_dagger] @levelrequire_zanaris_quest_attack(90, last_slot);
+[opheld2,deathdaggerdone] @levelrequire_zanaris_quest_attack(99, last_slot);
 [opheld2,dragon_dagger_p] @levelrequire_zanaris_quest_attack(90, last_slot);
 [opheld2,dragon_mace] @levelrequire_heroes_quest_attack(90, last_slot);
 [opheld2,dragon_longsword] @levelrequire_zanaris_quest_attack(90, last_slot);
