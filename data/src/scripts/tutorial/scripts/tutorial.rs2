@@ -183,7 +183,7 @@ switch_int(%tutorial_progress) {
     // Runescape Guide's House
     case ^runescape_guide_start,
         ^runescape_guide_designed_character : ~tutorial_step_getting_started;
-    // Not Relelvant until October 2006
+    // Not Relevant until October 2006
     case 2 : ~tutorial_step_player_controls_spanner;
     case 3 : ~tutorial_step_player_controls_left_click;
     case ^runescape_guide_interact_with_scenery : ~tutorial_step_interact_with_scenery;
@@ -264,6 +264,12 @@ switch_int(%tutorial_progress) {
     case ^tutorial_unsuccessful_wind_strike : ~tutorial_cast_wind_strike_splash;
     case ^tutorial_successful_wind_strike : ~tutorial_cast_wind_strike_success;
     case ^magic_instructor_finished : ~tutorial_cast_wind_strike_success;
+
+    // Add this case to handle tutorial_complete state to avoid unhandled error
+    case ^tutorial_complete :
+        // Possibly do nothing or do any cleanup if needed
+        return;
+
     case default : ~tutorialstep("Oops! Unhandled Tutorial Step.", "Please contact a server admin for assistance.||tutorial_progress value <tostring(%tutorial_progress)>");
 }
 
