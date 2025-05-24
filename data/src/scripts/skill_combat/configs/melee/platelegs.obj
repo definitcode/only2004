@@ -1,7 +1,7 @@
 [iron_platelegs]
 name=Iron platelegs
 desc=These look pretty heavy.
-cost=280
+cost=800
 model=model_2582_obj
 recol1s=15855
 recol1d=8456
@@ -29,7 +29,7 @@ param=rangedefence,10
 [steel_platelegs]
 name=Steel platelegs
 desc=These look pretty heavy.
-cost=1000
+cost=4250
 model=model_2582_obj
 recol1s=14798
 recol1d=15855
@@ -54,7 +54,7 @@ param=rangedefence,16
 [mithril_platelegs]
 name=Mithril platelegs
 desc=These look pretty heavy.
-cost=2600
+cost=9560
 model=model_2582_obj
 recol1s=15855
 recol1d=6346
@@ -82,7 +82,7 @@ param=rangedefence,22
 [adamant_platelegs]
 name=Adamant platelegs
 desc=These look pretty heavy.
-cost=6400
+cost=14568
 model=model_2582_obj
 recol1s=15855
 recol1d=6438
@@ -110,7 +110,7 @@ param=rangedefence,31
 [bronze_platelegs]
 name=Bronze platelegs
 desc=These look pretty heavy.
-cost=80
+cost=250
 model=model_2582_obj
 recol1s=15855
 recol1d=8354
@@ -138,7 +138,7 @@ param=rangedefence,7
 [black_platelegs]
 name=Black platelegs
 desc=Big, black and heavy looking.
-cost=1920
+cost=5720
 model=model_2582_obj
 recol1s=15855
 recol1d=2114

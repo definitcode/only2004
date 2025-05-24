@@ -1,7 +1,7 @@
 [iron_med_helm]
 name=Iron med helm
 desc=A medium sized helmet.
-cost=84
+cost=250
 model=model_2833_obj
 recol1s=15855
 recol1d=8456
@@ -60,7 +60,7 @@ param=rangedefence,4
 [steel_med_helm]
 name=Steel med helm
 desc=A medium sized helmet.
-cost=300
+cost=2785
 model=model_2833_obj
 2dxof=1
 2dyof=-4
@@ -87,7 +87,7 @@ param=rangedefence,7
 [mithril_med_helm]
 name=Mithril med helm
 desc=A medium sized helmet.
-cost=780
+cost=8150
 model=model_2833_obj
 recol1s=15855
 recol1d=6346
@@ -116,7 +116,7 @@ param=rangedefence,10
 [adamant_med_helm]
 name=Adamant med helm
 desc=A medium sized helmet.
-cost=1920
+cost=11875
 model=model_2833_obj
 recol1s=15855
 recol1d=6438

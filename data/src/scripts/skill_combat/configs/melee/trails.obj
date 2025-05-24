@@ -2,7 +2,7 @@
 name=Ranger boots
 desc=Lightweight boots ideal for rangers.
 category=category_17
-cost=200
+cost=12450
 weight=10oz
 members=yes
 wearpos=feet
@@ -27,7 +27,7 @@ param=magicdefence,2
 [boots_wizard]
 name=Wizard's boots
 desc=Slightly magical boots.
-cost=200
+cost=12450
 weight=10oz
 members=yes
 model=model_2837_obj
@@ -49,7 +49,7 @@ param=magicdefence,4
 name=Robin hood hat
 desc=Endorsed by Robin Hood.
 category=armour_helmet
-cost=450
+cost=89000
 weight=10oz
 members=yes
 model=model_3021_obj

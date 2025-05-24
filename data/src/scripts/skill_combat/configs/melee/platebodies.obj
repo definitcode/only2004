@@ -1,7 +1,7 @@
 [iron_platebody]
 name=Iron platebody
 desc=Provides excellent protection.
-cost=560
+cost=800
 model=model_2605_obj
 recol1s=6342
 recol1d=15855
@@ -33,7 +33,7 @@ param=rangedefence,20
 [bronze_platebody]
 name=Bronze platebody
 desc=Provides excellent protection.
-cost=160
+cost=250
 model=model_2605_obj
 recol1s=6342
 recol1d=15855
@@ -64,7 +64,7 @@ param=rangedefence,14
 [steel_platebody]
 name=Steel platebody
 desc=Provides excellent protection.
-cost=2000
+cost=4250
 model=model_2605_obj
 recol1s=6342
 recol1d=15855
@@ -92,7 +92,7 @@ param=rangedefence,31
 [mithril_platebody]
 name=Mithril platebody
 desc=Provides excellent protection.
-cost=5200
+cost=9560
 model=model_2605_obj
 recol1s=6342
 recol1d=15855
@@ -123,7 +123,7 @@ param=rangedefence,44
 [adamant_platebody]
 name=Adamant platebody
 desc=Provides excellent protection.
-cost=12800
+cost=14568
 model=model_2605_obj
 recol1s=6342
 recol1d=15855
@@ -154,7 +154,7 @@ param=rangedefence,63
 [black_platebody]
 name=Black platebody
 desc=Provides excellent protection.
-cost=3840
+cost=5720
 model=model_2605_obj
 recol1s=6342
 recol1d=15855
@@ -184,7 +184,7 @@ param=rangedefence,40
 
 [rune_platebody]
 name=Rune platebody
-cost=65000
+cost=99000
 model=model_2605_obj
 recol1s=6342
 recol1d=15855

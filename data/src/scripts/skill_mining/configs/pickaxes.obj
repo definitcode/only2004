@@ -1,5 +1,5 @@
 [bronze_pickaxe]
-cost=1
+cost=16
 name=Bronze pickaxe
 desc=Used for mining.
 model=model_2529_obj
@@ -34,7 +34,7 @@ param=broken,macro_broken_bronze_pickaxe
 param=pickaxe_head,macro_bronze_pickaxehead
 
 [iron_pickaxe]
-cost=140
+cost=250
 name=Iron pickaxe
 desc=Used for mining.
 model=model_2529_obj
@@ -69,7 +69,7 @@ param=broken,macro_broken_iron_pickaxe
 param=pickaxe_head,macro_iron_pickaxehead
 
 [steel_pickaxe]
-cost=500
+cost=2785
 name=Steel pickaxe
 desc=Used for mining.
 model=model_2529_obj
@@ -102,7 +102,7 @@ param=broken,macro_broken_steel_pickaxe
 param=pickaxe_head,macro_steel_pickaxehead
 
 [adamant_pickaxe]
-cost=3200
+cost=12850
 name=Adamant pickaxe
 desc=Used for mining.
 model=model_2529_obj
@@ -137,7 +137,7 @@ param=broken,macro_broken_adamant_pickaxe
 param=pickaxe_head,macro_adamant_pickaxehead
 
 [mithril_pickaxe]
-cost=1300
+cost=8500
 name=Mithril pickaxe
 desc=Used for mining.
 model=model_2529_obj

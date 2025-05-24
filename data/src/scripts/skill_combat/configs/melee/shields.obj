@@ -77,7 +77,7 @@ param=rangedefence,8
 [steel_sq_shield]
 name=Steel sq shield
 desc=A medium square shield.
-cost=600
+cost=2145
 model=model_2720_obj
 recol1s=14798
 recol1d=15855
@@ -102,7 +102,7 @@ param=rangedefence,12
 [black_sq_shield]
 name=Black sq shield
 desc=A medium square shield.
-cost=1152
+cost=4320
 model=model_2720_obj
 recol1s=14798
 recol1d=3171
@@ -127,7 +127,7 @@ param=rangedefence,15
 [mithril_sq_shield]
 name=Mithril sq shield
 desc=A medium square shield.
-cost=1560
+cost=8405
 model=model_2720_obj
 recol1s=14798
 recol1d=6346
@@ -152,7 +152,7 @@ param=rangedefence,17
 [adamant_sq_shield]
 name=Adamant sq shield
 desc=A medium square shield.
-cost=3840
+cost=11450
 model=model_2720_obj
 recol1s=14798
 recol1d=6438
@@ -227,7 +227,7 @@ param=rangedefence,50
 name=Dragonfire shield
 desc=This shield is said to have magical properties against dragon flames.
 model=model_2572_obj
-cost=20
+cost=1
 2dxof=3
 2dyof=37
 2dzoom=1670

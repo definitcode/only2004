@@ -30,7 +30,7 @@ param=slash_sound,stabsword_slash
 [iron_sword]
 name=Iron sword
 desc=A razor sharp sword.
-cost=91
+cost=250
 model=model_2604_obj
 recol1s=15855
 recol1d=8456
@@ -60,7 +60,7 @@ param=slash_sound,stabsword_slash
 [steel_sword]
 name=Steel sword
 desc=A razor sharp sword.
-cost=325
+cost=2780
 model=model_2604_obj
 2dyof=-3
 2dzoom=1040
@@ -88,7 +88,7 @@ param=slash_sound,stabsword_slash
 [black_sword]
 name=Black sword
 desc=A razor sharp sword.
-cost=624
+cost=4730
 model=model_2604_obj
 recol1s=15855
 recol1d=0
@@ -117,7 +117,7 @@ param=slash_sound,stabsword_slash
 [mithril_sword]
 name=Mithril sword
 desc=A razor sharp sword.
-cost=845
+cost=8450
 model=model_2604_obj
 recol1s=15855
 recol1d=6346
@@ -146,7 +146,7 @@ param=slash_sound,stabsword_slash
 [adamant_sword]
 name=Adamant sword
 desc=A razor sharp sword.
-cost=2080
+cost=12080
 model=model_2604_obj
 recol1s=15855
 recol1d=6438
@@ -175,7 +175,7 @@ param=slash_sound,stabsword_slash
 [rune_sword]
 name=Rune sword
 desc=A razor sharp sword.
-cost=20800
+cost=30800
 model=model_2604_obj
 recol1s=15855
 recol1d=6476

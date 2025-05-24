@@ -50,7 +50,7 @@ param=slashdefence,2
 param=crushdefence,2
 param=magicdefence,2
 param=rangedefence,2
-param=prayerbonus,8
+param=prayerbonus,10
 
 [stringsnake]
 name=Unpowered symbol
@@ -108,7 +108,7 @@ param=slashattack,2
 param=crushattack,2
 param=magicattack,2
 param=rangeattack,2
-param=prayerbonus,8
+param=prayerbonus,12
 tradeable=no
 
 

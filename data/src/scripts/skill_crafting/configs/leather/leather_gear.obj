@@ -57,7 +57,7 @@ param=slashdefence,2
 param=crushdefence,1
 
 [dragon_vambraces]
-cost=2500
+cost=4750
 name=Dragon vambraces
 desc=Made from 100% real dragon hide.
 model=model_2656_obj
@@ -105,7 +105,7 @@ param=slashdefence,2
 param=crushdefence,1
 
 [studded_chaps]
-cost=750
+cost=3250
 name=Studded chaps
 desc=Those studs should provide a bit more protection.
 model=model_2581_obj
@@ -130,7 +130,7 @@ param=magicdefence,6
 param=rangedefence,16
 
 [dragonhide_chaps]
-cost=3900
+cost=4750
 name=Dragonhide chaps
 desc=Made from 100% real dragon hide.
 model=model_2507_obj
@@ -197,7 +197,7 @@ param=magicdefence,6
 param=rangedefence,15
 
 [studded_body]
-cost=850
+cost=3250
 name=Studded body
 desc=Those studs should provide a bit more protection.
 model=model_2565_obj
@@ -219,7 +219,7 @@ param=magicdefence,8
 param=rangedefence,25
 
 [dragonhide_body]
-cost=7800
+cost=12500
 name=Dragonhide body
 desc=Made from 100% real dragon hide.
 model=model_2745_obj
@@ -274,7 +274,7 @@ param=magicdefence,2
 param=rangedefence,3
 
 [coif]
-cost=200
+cost=2750
 name=Coif
 desc=Light weight head protection.
 model=model_2541_obj
@@ -304,7 +304,7 @@ param=rangedefence,4
 
 
 [blue_dragon_vambraces]
-cost=2500
+cost=8455
 name=Dragon vambraces
 desc=Made from 100% real dragon hide.
 model=model_2656_obj
@@ -334,7 +334,7 @@ param=crushdefence,5
 param=magicdefence,4
 
 [red_dragon_vambraces]
-cost=2500
+cost=12875
 name=Dragon vambraces
 desc=Made from 100% real dragon hide.
 model=model_2656_obj
@@ -364,7 +364,7 @@ param=crushdefence,6
 param=magicdefence,6
 
 [black_dragon_vambraces]
-cost=2500
+cost=32000
 name=Dragon vambraces
 desc=Made from 100% real dragon hide.
 model=model_2656_obj
@@ -394,7 +394,7 @@ param=crushdefence,7
 param=magicdefence,8
 
 [blue_dragonhide_chaps]
-cost=3900
+cost=8455
 name=Dragonhide chaps
 desc=Made from 100% real dragon hide.
 model=model_2507_obj
@@ -423,7 +423,7 @@ param=magicdefence,14
 param=rangedefence,25
 
 [red_dragonhide_chaps]
-cost=3900
+cost=12875
 name=Dragonhide chaps
 desc=Made from 100% real dragon hide.
 model=model_2507_obj
@@ -452,7 +452,7 @@ param=magicdefence,20
 param=rangedefence,28
 
 [black_dragonhide_chaps]
-cost=3900
+cost=32000
 name=Dragonhide chaps
 desc=Made from 100% real dragon hide.
 model=model_2507_obj
@@ -481,7 +481,7 @@ param=magicdefence,28
 param=rangedefence,31
 
 [blue_dragonhide_body]
-cost=7800
+cost=9450
 name=Dragonhide body
 desc=Made from 100% real dragon hide.
 model=model_2745_obj
@@ -511,7 +511,7 @@ param=magicdefence,30
 param=rangedefence,45
 
 [red_dragonhide_body]
-cost=7800
+cost=13975
 name=Dragonhide body
 desc=Made from 100% real dragon hide.
 model=model_2745_obj
@@ -541,7 +541,7 @@ param=magicdefence,40
 param=rangedefence,50
 
 [black_dragonhide_body]
-cost=7800
+cost=100000
 name=Dragonhide body
 desc=Made from 100% real dragon hide.
 model=model_2745_obj

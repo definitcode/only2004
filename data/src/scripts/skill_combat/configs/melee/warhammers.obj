@@ -1,5 +1,5 @@
 [iron_warhammer]
-cost=173
+cost=250
 name=Iron warhammer
 desc=I don't think it's intended for joinery.
 iop2=Wield
@@ -55,7 +55,7 @@ param=defend_anim,human_blunt_block
 param=crush_sound,baxe_crush
 
 [steel_warhammer]
-cost=640
+cost=2750
 name=Steel warhammer
 desc=I don't think it's intended for joinery.
 iop2=Wield
@@ -82,7 +82,7 @@ param=defend_anim,human_blunt_block
 param=crush_sound,baxe_crush
 
 [black_warhammer]
-cost=640
+cost=4785
 name=Black warhammer
 desc=I don't think it's intended for joinery.
 iop2=Wield
@@ -111,7 +111,7 @@ param=defend_anim,human_blunt_block
 param=crush_sound,baxe_crush
 
 [mithril_warhammer]
-cost=1660
+cost=8450
 name=Mithril warhammer
 desc=I don't think it's intended for joinery.
 iop2=Wield
@@ -132,9 +132,9 @@ weight=56oz
 param=attackrate,6
 param=stabattack,-4
 param=slashattack,-4
-param=crushattack,25
+param=crushattack,45
 param=magicattack,-4
-param=strengthbonus,20
+param=strengthbonus,45
 param=crushattack_anim,human_blunt_pound
 param=defend_anim,human_blunt_block
 param=crush_sound,baxe_crush
@@ -161,9 +161,9 @@ weight=72oz
 param=attackrate,6
 param=stabattack,-4
 param=slashattack,-4
-param=crushattack,35
+param=crushattack,90
 param=magicattack,-4
-param=strengthbonus,31
+param=strengthbonus,90
 param=crushattack_anim,human_blunt_pound
 param=defend_anim,human_blunt_block
 param=crush_sound,baxe_crush
@@ -189,9 +189,9 @@ weight=4lb
 param=attackrate,6
 param=stabattack,-4
 param=slashattack,-4
-param=crushattack,53
+param=crushattack,110
 param=magicattack,-4
-param=strengthbonus,48
+param=strengthbonus,80
 param=crushattack_anim,human_blunt_pound
 param=defend_anim,human_blunt_block
 param=crush_sound,baxe_crush

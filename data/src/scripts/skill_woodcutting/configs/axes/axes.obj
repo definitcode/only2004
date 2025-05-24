@@ -1,7 +1,7 @@
 [iron_axe]
 name=Iron axe
 desc=A woodcutters axe.
-cost=56
+cost=250
 model=model_2544_obj
 recol1s=15855
 recol1d=8456
@@ -68,7 +68,7 @@ param=axe_head,macro_bronze_hatchethead
 [steel_axe]
 name=Steel axe
 desc=A woodcutters axe.
-cost=200
+cost=2785
 model=model_2544_obj
 2dxof=-15
 2dzoom=1060
@@ -99,7 +99,7 @@ param=axe_head,macro_steel_hatchethead
 [mithril_axe]
 name=Mithril axe
 desc=A powerful axe.
-cost=520
+cost=8500
 model=model_2544_obj
 recol1s=15855
 recol1d=6346
@@ -132,7 +132,7 @@ param=axe_head,macro_mithril_hatchethead
 [adamant_axe]
 name=Adamant axe
 desc=A powerful axe.
-cost=1280
+cost=12850
 model=model_2544_obj
 recol1s=15855
 recol1d=6438
@@ -178,7 +178,7 @@ manwear=model_510_obj_wear,0
 womanwear=model_510_obj_wear,6
 category=weapon_axe
 weight=3lb
-cost=12800
+cost=32000
 param=woodcutting_struct,woodcutting_rune_axe
 param=stabattack,-2
 param=slashattack,26
@@ -210,7 +210,7 @@ wearpos=righthand
 manwear=model_510_obj_wear,0
 womanwear=model_510_obj_wear,6
 category=weapon_axe
-cost=384
+cost=4875
 iop2=Wield
 weight=3lb
 param=woodcutting_struct,woodcutting_black_axe

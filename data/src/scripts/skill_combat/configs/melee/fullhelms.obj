@@ -1,7 +1,7 @@
 [iron_full_helm]
 name=Iron full helm
 desc=A full face helmet.
-cost=154
+cost=250
 model=model_2813_obj
 recol1s=15855
 recol1d=8456
@@ -66,7 +66,7 @@ param=rangedefence,4
 [steel_full_helm]
 name=Steel full helm
 desc=A full face helmet.
-cost=550
+cost=2785
 model=model_2813_obj
 recol1s=15360
 recol1d=5135
@@ -96,7 +96,7 @@ param=rangedefence,9
 [mithril_full_helm]
 name=Mithril full helm
 desc=A full face helmet.
-cost=1430
+cost=8555
 model=model_2813_obj
 recol1s=15855
 recol1d=6346
@@ -128,7 +128,7 @@ param=rangedefence,13
 [adamant_full_helm]
 name=Adamant full helm
 desc=A full face helmet.
-cost=3520
+cost=12875
 model=model_2813_obj
 recol1s=15855
 recol1d=6438
@@ -192,7 +192,7 @@ param=rangedefence,30
 [black_full_helm]
 name=Black full helm
 desc=A full face helmet.
-cost=1056
+cost=4785
 model=model_2813_obj
 recol1s=15855
 recol1d=2114

@@ -33,7 +33,7 @@ param=stab_sound,hacksword_stab
 [iron_longsword]
 name=Iron longsword
 desc=A razor sharp longsword.
-cost=140
+cost=250
 model=model_2602_obj
 recol1s=15855
 recol1d=8456
@@ -65,7 +65,7 @@ param=stab_sound,hacksword_stab
 [steel_longsword]
 name=Steel longsword
 desc=A razor sharp longsword.
-cost=500
+cost=2785
 model=model_2602_obj
 2dxof=-13
 2dyof=-2
@@ -95,7 +95,7 @@ param=stab_sound,hacksword_stab
 [black_longsword]
 name=Black longsword
 desc=A razor sharp longsword.
-cost=960
+cost=4780
 model=model_2602_obj
 recol1s=15855
 recol1d=0
@@ -127,7 +127,7 @@ param=stab_sound,hacksword_stab
 [mithril_longsword]
 name=Mithril longsword
 desc=A razor sharp longsword.
-cost=1300
+cost=8555
 model=model_2602_obj
 recol1s=15855
 recol1d=6346
@@ -159,7 +159,7 @@ param=stab_sound,hacksword_stab
 [adamant_longsword]
 name=Adamant longsword
 desc=A razor sharp longsword.
-cost=3200
+cost=12475
 model=model_2602_obj
 recol1s=15855
 recol1d=6438

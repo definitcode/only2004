@@ -1,7 +1,7 @@
 [iron_plateskirt]
 name=Iron plateskirt
 desc=Designer leg protection.
-cost=280
+cost=750
 model=model_2542_obj
 recol1s=15855
 recol1d=8456
@@ -28,7 +28,7 @@ param=rangedefence,10
 [steel_plateskirt]
 name=Steel plateskirt
 desc=Designer leg protection.
-cost=1000
+cost=4150
 model=model_2542_obj
 recol1s=2340
 recol1d=10570
@@ -134,7 +134,7 @@ param=rangedefence,20
 [adamant_plateskirt]
 name=Adamant plateskirt
 desc=Designer leg protection.
-cost=6400
+cost=14253
 model=model_2542_obj
 recol1s=15855
 recol1d=6438

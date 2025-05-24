@@ -67,7 +67,7 @@ param=crush_sound,2H_crush
 [steel_2h_sword]
 name=Steel 2h sword
 desc=A two handed sword.
-cost=1000
+cost=2785
 model=model_2754_obj
 2dxof=3
 2dyof=-9
@@ -98,7 +98,7 @@ param=crush_sound,2H_crush
 [black_2h_sword]
 name=Black 2h sword
 desc=A two handed sword.
-cost=1920
+cost=4875
 model=model_2754_obj
 recol1s=15855
 recol1d=0
@@ -131,7 +131,7 @@ param=crush_sound,2H_crush
 [mithril_2h_sword]
 name=Mithril 2h sword
 desc=A two handed sword.
-cost=2600
+cost=8500
 model=model_2754_obj
 recol1s=15855
 recol1d=6346
@@ -164,7 +164,7 @@ param=crush_sound,2H_crush
 [adamant_2h_sword]
 name=Adamant 2h sword
 desc=A two handed sword.
-cost=6400
+cost=12850
 model=model_2754_obj
 recol1s=15855
 recol1d=6438

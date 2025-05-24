@@ -33,7 +33,7 @@ recol2d=8456
 2dxan=440
 members=yes
 stackable=yes
-cost=2
+cost=5
 weight=4g
 
 [steel_arrowheads]
@@ -48,7 +48,7 @@ model=model_2551_obj
 2dxan=440
 members=yes
 stackable=yes
-cost=6
+cost=10
 weight=4g
 
 [mithril_arrowheads]
@@ -67,7 +67,7 @@ recol2d=6346
 2dxan=440
 members=yes
 stackable=yes
-cost=16
+cost=15
 weight=3g
 
 [adamant_arrowheads]

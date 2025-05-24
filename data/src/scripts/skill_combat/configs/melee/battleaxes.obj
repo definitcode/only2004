@@ -1,7 +1,7 @@
 [iron_battleaxe]
 name=Iron battleaxe
 desc=A vicious looking axe.
-cost=182
+cost=250
 model=model_2778_obj
 recol1s=15855
 recol1d=8456
@@ -31,7 +31,7 @@ param=crush_sound,baxe_crush
 [steel_battleaxe]
 name=Steel battleaxe
 desc=A vicious looking axe.
-cost=650
+cost=2785
 model=model_2778_obj
 2dxof=-7
 2dyof=-2
@@ -59,7 +59,7 @@ param=crush_sound,baxe_crush
 [black_battleaxe]
 name=Black battleaxe
 desc=A vicious looking axe.
-cost=1248
+cost=4875
 model=model_2778_obj
 recol1s=15855
 recol1d=0
@@ -89,7 +89,7 @@ param=crush_sound,baxe_crush
 [mithril_battleaxe]
 name=Mithril battleaxe
 desc=A vicious looking axe.
-cost=1690
+cost=8500
 model=model_2778_obj
 recol1s=15855
 recol1d=6346
@@ -119,7 +119,7 @@ param=crush_sound,baxe_crush
 [adamant_battleaxe]
 name=Adamant battleaxe
 desc=A vicious looking axe.
-cost=4160
+cost=12850
 model=model_2778_obj
 recol1s=15855
 recol1d=6438

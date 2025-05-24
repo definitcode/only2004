@@ -1,7 +1,7 @@
 [iron_chainbody]
 name=Iron chainbody
 desc=A series of connected metal rings.
-cost=210
+cost=250
 model=model_2558_obj
 recol1s=15855
 recol1d=8456
@@ -48,7 +48,7 @@ param=rangedefence,9
 [steel_chainbody]
 name=Steel chainbody
 desc=A series of connected metal rings.
-cost=750
+cost=2785
 model=model_2439_obj
 2dzoom=1100
 2dxan=576
@@ -68,7 +68,7 @@ param=rangedefence,19
 [black_chainbody]
 name=Black chainbody
 desc=A series of connected metal rings.
-cost=1440
+cost=4870
 model=model_2558_obj
 recol1s=15855
 recol1d=0
@@ -90,7 +90,7 @@ param=rangedefence,24
 [mithril_chainbody]
 name=Mithril chainbody
 desc=A series of connected metal rings.
-cost=1950
+cost=8450
 model=model_2558_obj
 recol1s=15855
 recol1d=6346
@@ -113,7 +113,7 @@ param=rangedefence,27
 [adamant_chainbody]
 name=Adamant chainbody
 desc=A series of connected metal rings.
-cost=4800
+cost=12875
 model=model_2558_obj
 recol1s=15855
 recol1d=6438
