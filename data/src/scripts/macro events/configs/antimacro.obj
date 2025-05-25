@@ -7,6 +7,7 @@ members=yes
 2dyan=56
 2dxan=116
 weight=3oz
+cost=2500
 iop1=Eat
 param=cures_poison,yes
 
