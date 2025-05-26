@@ -11,6 +11,7 @@ data=stun_ticks,13
 data=stun_damage,1
 data=success_chance,180,240
 data=loot,coins,3,3,128
+data=loot,bronze_arrow,2,2,125
 data=pocket,man's pocket
 
 [pickpocket_woman]
@@ -25,6 +26,8 @@ data=stun_ticks,13
 data=stun_damage,1
 data=success_chance,180,240
 data=loot,coins,3,3,128
+data=loot,mindrune,1,1,128
+data=loot,mindrune,1,1,128
 data=pocket,woman's pocket
 
 [pickpocket_farmer]
@@ -36,6 +39,7 @@ data=stun_ticks,13
 data=stun_damage,1
 data=success_chance,150,240
 data=loot,coins,9,9,123
+data=loot,bread,1,1,128
 data=pocket,farmer's pocket
 
 [pickpocket_warrior]
@@ -60,6 +64,7 @@ data=stun_damage,2
 data=success_chance,74,240
 data=loot,coins,25,40,108
 data=loot,airrune,8,8,8
+data=loot,mindrune,8,8,8
 data=loot,jug_wine,1,1,6
 data=loot,lockpick,1,1,5
 data=loot,iron_dagger_p,1,1,1
@@ -76,6 +81,7 @@ data=stun_ticks,13
 data=stun_damage,2
 data=success_chance,50,240
 data=loot,coins,30,30,128
+data=loot,trout,1,1,120
 data=pocket,guard's pocket
 
 [pickpocket_knight_of_ardougne]
