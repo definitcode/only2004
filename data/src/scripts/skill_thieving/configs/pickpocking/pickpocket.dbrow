@@ -27,7 +27,7 @@ data=stun_damage,1
 data=success_chance,180,240
 data=loot,coins,3,3,128
 data=loot,mindrune,1,1,128
-data=loot,mindrune,1,1,128
+data=loot,airrune,1,1,128
 data=pocket,woman's pocket
 
 [pickpocket_farmer]
