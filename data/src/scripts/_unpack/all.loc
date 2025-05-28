@@ -442,8 +442,8 @@ recol1s=10570
 recol1d=15621
 
 [closed_crystal_chest]
-name=Closed chest
-desc=I wonder what's inside.
+name=Crystal Chest
+desc=Use a Crystal Key for a reward.
 model=wooden_chest
 op1=Open
 forceapproach=north

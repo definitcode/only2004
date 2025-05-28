@@ -83,16 +83,16 @@ if ($dropint < 3) {
         obj_add(npc_coord, bronze_spear, 1, ^lootdrop_duration);
     } else {
         // it gets replaced by coins according to OSRS
-        obj_add(npc_coord, coins, 10, ^lootdrop_duration);
+        obj_add(npc_coord, coins, 100, ^lootdrop_duration);
     }
 } else if ($dropint < 16) {
-    obj_add(npc_coord, bronze_arrow, 7, ^lootdrop_duration);
+    obj_add(npc_coord, bronze_arrow, 25, ^lootdrop_duration);
 } else if ($dropint < 19) {
-    obj_add(npc_coord, mindrune, 2, ^lootdrop_duration);
+    obj_add(npc_coord, mindrune, 20, ^lootdrop_duration);
 } else if ($dropint < 22) {
-    obj_add(npc_coord, earthrune, 4, ^lootdrop_duration);
+    obj_add(npc_coord, earthrune, 25, ^lootdrop_duration);
 } else if ($dropint < 25) {
-    obj_add(npc_coord, bodyrune, 2, ^lootdrop_duration);
+    obj_add(npc_coord, bodyrune, 50, ^lootdrop_duration);
 } else if ($dropint < 27) {
     if (map_members = true) {
         obj_add(npc_coord, bronze_javelin, 5, ^lootdrop_duration);
@@ -100,9 +100,9 @@ if ($dropint < 3) {
         obj_add(npc_coord, coins, 10, ^lootdrop_duration);
     }
 } else if ($dropint < 28) {
-    obj_add(npc_coord, chaosrune, 1, ^lootdrop_duration);
+    obj_add(npc_coord, chaosrune, 3, ^lootdrop_duration);
 } else if ($dropint < 29) {
-    obj_add(npc_coord, naturerune, 1, ^lootdrop_duration);
+    obj_add(npc_coord, naturerune, 5, ^lootdrop_duration);
 } else if ($dropint < 31) {
     obj_add(npc_coord, ~randomherb, ^lootdrop_duration);
 } else if ($dropint < 65) {
@@ -118,7 +118,7 @@ if ($dropint < 3) {
 } else if ($dropint < 106) {
     obj_add(npc_coord, goblin_armour, 1, ^lootdrop_duration);
 } else if ($dropint < 107) {
-    obj_add(npc_coord, grapes, 1, ^lootdrop_duration);
+    obj_add(npc_coord, jug_wine, 2, ^lootdrop_duration);
 } else if ($dropint < 108) {
     obj_add(npc_coord, red_cape, 1, ^lootdrop_duration);
 } else if ($dropint < 109) {

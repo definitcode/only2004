@@ -10,7 +10,7 @@ obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 def_int $random = random(128);
 
 if ($random < 7)  {
-    obj_add(npc_coord, lawrune, 2, ^lootdrop_duration);
+    obj_add(npc_coord, lawrune, 5, ^lootdrop_duration);
 } else if ($random < 10) {
     obj_add(npc_coord, airrune, 36, ^lootdrop_duration);
 } else if ($random < 12) {
@@ -20,7 +20,7 @@ if ($random < 7)  {
 } else if ($random < 16) {
     obj_add(npc_coord, mindrune, 12, ^lootdrop_duration);
 } else if ($random < 17) {
-    obj_add(npc_coord, naturerune, 3, ^lootdrop_duration);
+    obj_add(npc_coord, naturerune, 5, ^lootdrop_duration);
 } else if ($random < 52) {
     obj_add(npc_coord, ~randomherb, ^lootdrop_duration);
 } else if ($random < 63) {

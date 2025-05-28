@@ -28,7 +28,7 @@ if ($random < 7) {
 } else if ($random < 24) {
     obj_add(npc_coord, naturerune, 3, ^lootdrop_duration);
 } else if ($random < 25) {
-    obj_add(npc_coord, steel_arrow, 1, ^lootdrop_duration);
+    obj_add(npc_coord, steel_arrow, 5, ^lootdrop_duration);
 } else if ($random < 46) {
     obj_add(npc_coord, ~randomherb, ^lootdrop_duration);
 } else if ($random < 64) {
@@ -79,23 +79,23 @@ if ($random < 6) {
 } else if ($random < 13) {
     obj_add(npc_coord, iron_scimitar, 1, ^lootdrop_duration);
 } else if ($random < 16) {
-    obj_add(npc_coord, airrune, 15, ^lootdrop_duration);
+    obj_add(npc_coord, airrune, 35, ^lootdrop_duration);
 } else if ($random < 19) {
-    obj_add(npc_coord, waterrune, 9, ^lootdrop_duration);
+    obj_add(npc_coord, waterrune, 30, ^lootdrop_duration);
 } else if ($random < 22) {
-    obj_add(npc_coord, chaosrune, 5, ^lootdrop_duration);
+    obj_add(npc_coord, chaosrune, 20, ^lootdrop_duration);
 } else if ($random < 24) {
-    obj_add(npc_coord, iron_arrow, 12, ^lootdrop_duration);
+    obj_add(npc_coord, iron_arrow, 30, ^lootdrop_duration);
 } else if ($random < 26) {
-    obj_add(npc_coord, lawrune, 2, ^lootdrop_duration);
+    obj_add(npc_coord, lawrune, 5, ^lootdrop_duration);
 } else if ($random < 27) {
-    obj_add(npc_coord, cosmicrune, 2, ^lootdrop_duration);
+    obj_add(npc_coord, cosmicrune, 5, ^lootdrop_duration);
 } else if ($random < 47) {
     obj_add(npc_coord, ~randomherb, ^lootdrop_duration);
 } else if ($random < 71) {
     obj_add(npc_coord, coins, 10, ^lootdrop_duration);
 } else if ($random < 96) {
-    obj_add(npc_coord, coins, 5, ^lootdrop_duration);
+    obj_add(npc_coord, coins, 50, ^lootdrop_duration);
 } else if ($random < 104) {
     obj_add(npc_coord, coins, 25, ^lootdrop_duration);
 } else if ($random < 108) {
@@ -103,7 +103,7 @@ if ($random < 6) {
 } else if ($random < 111) {
     obj_add(npc_coord, coins, 65, ^lootdrop_duration);
 } else if ($random < 113) {
-    obj_add(npc_coord, coins, 1, ^lootdrop_duration);
+    obj_add(npc_coord, coins, 10, ^lootdrop_duration);
 } else if ($random < 118) {
     obj_add(npc_coord, bronze_bar, 1, ^lootdrop_duration);
 } else if ($random < 120) {

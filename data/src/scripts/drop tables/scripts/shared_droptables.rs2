@@ -126,7 +126,8 @@ if ($random < 3) {
 
 // Name unconfirmed
 [proc,megararetable]()(namedobj, int)
-def_int $random = random(128);
+def_int $random = 0;
+$random = random(128);
 
 if ($random < 8) {
     return (rune_spear, 1);
@@ -144,6 +145,10 @@ if ($random < 8) {
     return (boots_ranger, 1);
 } else if ($random < 19) {
     return (robinhoodhat, 1);
+} else if ($random < 50) {
+    return (crystal_key, 1);
+} else if ($random < 128) {
+    return (~legendarytable);
 }
 
 
@@ -158,4 +163,19 @@ switch_int (random(8)) {
     case 6 : return(pot_empty, 1);
     case 7 : return(digsitesword, 1);
     case default : return(pot_empty, 1);
+}
+
+[proc,legendarytable]()(namedobj,int)
+def_int $random = 0;
+$random = random(128);
+
+if ($random < 25) {
+    return (~randomjewel);
+    return (~randomjewel);
+    return (~randomjewel);
+    return (~randomjewel);
+} else if ($random < 127) {
+    return (~megararetable);
+    return (~megararetable);
+    return (~megararetable);
 }
