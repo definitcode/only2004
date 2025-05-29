@@ -12,21 +12,21 @@ obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 def_int $random = random(128);
 
 if ($random < 7) {
-    obj_add(npc_coord, bronze_arrow, 2, ^lootdrop_duration);
+    obj_add(npc_coord, bronze_arrow, 15, ^lootdrop_duration);
 } else if ($random < 11) {
-    obj_add(npc_coord, bronze_arrow, 5, ^lootdrop_duration);
+    obj_add(npc_coord, bronze_arrow, 25, ^lootdrop_duration);
 } else if ($random < 15) {
-    obj_add(npc_coord, iron_arrow, 1, ^lootdrop_duration);
+    obj_add(npc_coord, iron_arrow, 10, ^lootdrop_duration);
 } else if ($random < 17) {
-    obj_add(npc_coord, airrune, 15, ^lootdrop_duration);
+    obj_add(npc_coord, airrune, 75, ^lootdrop_duration);
 } else if ($random < 19) {
-    obj_add(npc_coord, earthrune, 3, ^lootdrop_duration);
+    obj_add(npc_coord, earthrune, 30, ^lootdrop_duration);
 } else if ($random < 21) {
-    obj_add(npc_coord, firerune, 2, ^lootdrop_duration);
+    obj_add(npc_coord, firerune, 25, ^lootdrop_duration);
 } else if ($random < 23) {
-    obj_add(npc_coord, chaosrune, 3, ^lootdrop_duration);
+    obj_add(npc_coord, chaosrune, 5, ^lootdrop_duration);
 } else if ($random < 24) {
-    obj_add(npc_coord, naturerune, 3, ^lootdrop_duration);
+    obj_add(npc_coord, naturerune, 10, ^lootdrop_duration);
 } else if ($random < 25) {
     obj_add(npc_coord, steel_arrow, 5, ^lootdrop_duration);
 } else if ($random < 46) {
@@ -55,6 +55,7 @@ if ($random < 7) {
     obj_add(npc_coord, grain, 1, ^lootdrop_duration);
 } else if ($random < 110) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
+    obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
 }
 
 [ai_queue3,skeleton3] @skeleton_armed;
@@ -79,15 +80,15 @@ if ($random < 6) {
 } else if ($random < 13) {
     obj_add(npc_coord, iron_scimitar, 1, ^lootdrop_duration);
 } else if ($random < 16) {
-    obj_add(npc_coord, airrune, 35, ^lootdrop_duration);
+    obj_add(npc_coord, airrune, 125, ^lootdrop_duration);
 } else if ($random < 19) {
-    obj_add(npc_coord, waterrune, 30, ^lootdrop_duration);
+    obj_add(npc_coord, waterrune, 75, ^lootdrop_duration);
 } else if ($random < 22) {
-    obj_add(npc_coord, chaosrune, 20, ^lootdrop_duration);
+    obj_add(npc_coord, chaosrune, 25, ^lootdrop_duration);
 } else if ($random < 24) {
     obj_add(npc_coord, iron_arrow, 30, ^lootdrop_duration);
 } else if ($random < 26) {
-    obj_add(npc_coord, lawrune, 5, ^lootdrop_duration);
+    obj_add(npc_coord, lawrune, 10, ^lootdrop_duration);
 } else if ($random < 27) {
     obj_add(npc_coord, cosmicrune, 5, ^lootdrop_duration);
 } else if ($random < 47) {
@@ -108,4 +109,5 @@ if ($random < 6) {
     obj_add(npc_coord, bronze_bar, 1, ^lootdrop_duration);
 } else if ($random < 120) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
+    obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
 }

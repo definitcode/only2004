@@ -71,6 +71,8 @@ if ($random < 10) { // osrs
     obj_add(npc_coord, dragon_mace, 1, ^lootdrop_duration);        
 } else if ($random < 126) { // osrs
     obj_add(npc_coord, ~ultrarare_getitem, ^lootdrop_duration);
+} else if ($random < 127) { // osrs
+    obj_add(npc_coord, ~megararetable, ^lootdrop_duration);    
 } else { // osrs
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
 }

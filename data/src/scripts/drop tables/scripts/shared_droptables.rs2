@@ -174,10 +174,10 @@ if ($random < 1) {
     return (iron_arrow, 10);
     return (steel_arrow,5);
 } else if ($random < 4) {
-    return (mindrun,25);
+    return (mindrune,25);
     return (airrune,50);    
 } else if ($random < 8) {
-    return (coins,500);
+    return (coins,150);
     return (trout,2);
 }
 
@@ -194,15 +194,20 @@ if ($random < 25) {
 } else if ($random < 50) {
     return (bunnyears,1);
 } else if ($random < 51) {
-    return (boots_ranger,1);
+    return (~grindingtable);
+    return (~grindingtable);
+    return (~grindingtable);        
 } else if ($random < 55) {
     return (robinhoodhat,1);
+    return (boots_ranger,1);
 } else if ($random < 57) {
     return (crystal_key,5);
     return (~randomjewel);
 } else if ($random < 58) {
     return (magic_shortbow,1);
     return (steel_arrow,150);
+} else if ($random < 124) {
+    return (dragon_boots,1);
 } else if ($random < 125) {
     return (dragon_pickaxe,1);
 } else if ($random < 126) {
