@@ -24,6 +24,32 @@ param=slashdefence,3
 param=crushdefence,4
 param=magicdefence,2
 
+[dragon_boots]
+name=Dragon Boots
+desc=Boots made from the scales of a Dragon
+category=category_17
+cost=12450
+weight=4lb
+members=yes
+wearpos=feet
+model=model_2837_obj
+recol1s=7298
+recol1d=14336
+manwear=model_185_obj_wear,0
+womanwear=model_361_obj_wear,0
+iop2=Wear
+2dxof=1
+2dyof=-6
+2dzoom=770
+2dyan=160
+2dxan=152
+param=magicattack,-10
+param=rangeattack,-5
+param=stabdefence,15
+param=slashdefence,15
+param=crushdefence,15
+param=magicdefence,15
+
 [boots_wizard]
 name=Wizard's boots
 desc=Slightly magical boots.
