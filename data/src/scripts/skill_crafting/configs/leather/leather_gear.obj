@@ -175,34 +175,6 @@ param=crushdefence,10
 param=magicdefence,4
 param=rangedefence,9
 
-[goblin_armour_p]
-name=Goblin Armour
-desc=Armour designed to fit goblins...
-model=model_2574_obj
-recol1s=10240
-recol1d=28097
-cost=175
-2dyof=14
-2dzoom=1290
-2dxan=424
-iop2=Wear
-wearpos=torso
-wearpos2=arms
-manwear=model_306_obj_wear,0
-manwear2=model_164_obj_wear
-womanwear=model_468_obj_wear,0
-womanwear2=model_344_obj_wear
-category=armour_body
-weight=6lb
-param=magicattack,-2
-param=rangeattack,2
-param=stabdefence,6
-param=slashdefence,7
-param=crushdefence,8
-param=magicdefence,3
-param=rangedefence,8
-tradeable=yes
-
 [hardleather_body]
 cost=170
 name=Hardleather body
