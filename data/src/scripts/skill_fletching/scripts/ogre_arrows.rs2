@@ -38,6 +38,10 @@ inv_add(inv, ogre_arrow_shaft, $shaft_count);
 mes("You carefully cut the wood into <tostring($shaft_count)> arrow shafts.");
 
 stat_advance(fletching, multiply($shaft_count, 18));
+if (inv_total(worn, headband_red) > 0) {
+            stat_advance(fletching, multiply($shaft_count, 18));
+            mes("Your fletching skills are showing!");
+}
 
 
 [label,make_wolf_bone_tips]

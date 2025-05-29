@@ -49,6 +49,10 @@ if ($fish2 ! null) { // if fish2 isnt null and roll for 2nd fish passes
         // give fish and display message
         inv_add(inv, $fish2, 1);
         stat_advance(fishing, struct_param($struct2, productexp));
+        if (inv_total(worn, piratehat) > 0) {
+            stat_advance(fishing, struct_param($struct2, productexp));
+            mes("Your fishing skills are showing!");
+        }
         mes(struct_param($struct2, productmessage));
         return;
     }
@@ -63,6 +67,10 @@ if ($fish1 ! null) { // else if fish1 isnt null and roll for 1st fish passes
         // give fish and display message
         inv_add(inv, $fish1, 1);
         stat_advance(fishing, struct_param($struct1, productexp));
+        if (inv_total(worn, piratehat) > 0) {
+            stat_advance(fishing, struct_param($struct1, productexp));
+            mes("Your fishing skills are showing!");
+        }
         mes(struct_param($struct1, productmessage));
         return;
     }
@@ -79,6 +87,10 @@ if ($fish2 ! null) { // if fish2 isnt null and roll for 2nd fish passes
         // give fish and display message
         inv_add(inv, $fish2, 1);
         stat_advance(fishing, struct_param($struct2, productexp));
+        if (inv_total(worn, piratehat) > 0) {
+            stat_advance(fishing, struct_param($struct2, productexp));
+            mes("Your fishing skills are showing!");
+        }
         mes(struct_param($struct2, productmessage));
         return;
     }
@@ -93,6 +105,10 @@ if ($fish1 ! null) { // else if fish1 isnt null and roll for 1st fish passes
         // give fish and display message
         inv_add(inv, $fish1, 1);
         stat_advance(fishing, struct_param($struct1, productexp));
+        if (inv_total(worn, piratehat) > 0) {
+            stat_advance(fishing, struct_param($struct1, productexp));
+            mes("Your fishing skills are showing!");
+        }
         mes(struct_param($struct1, productmessage));
     }
 }

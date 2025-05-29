@@ -1589,6 +1589,13 @@ recol1d=6476
 recol2s=14798
 recol2d=6476
 
+[dragon_tknife_travel]
+model=model_3139_spotanim
+recol1s=15855
+recol1d=14336
+recol2s=14798
+recol2d=14336
+
 [bronze_tknife_launch]
 model=model_3145_spotanim
 anim=tknife_launch
@@ -1649,6 +1656,15 @@ recol1s=15855
 recol1d=6476
 recol2s=14798
 recol2d=6476
+
+[dragon_tknife_launch]
+model=model_3145_spotanim
+anim=tknife_launch
+hasalpha=yes
+recol1s=15855
+recol1d=14336
+recol2s=14798
+recol2d=14336
 
 [bronze_dart_travel]
 model=model_3131_spotanim

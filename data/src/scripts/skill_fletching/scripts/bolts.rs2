@@ -34,6 +34,10 @@ inv_del(inv, $item, 1);
 // includes count
 inv_add(inv, db_getfield($data, fletching_table:product, 0));
 stat_advance(fletching, db_getfield($data, fletching_table:experience, 0));
+if (inv_total(worn, headband_red) > 0) {
+            stat_advance(fletching, db_getfield($data, fletching_table:experience, 0));
+            mes("Your fletching skills are showing!");
+}
 // osrs
 def_seq $anim = db_getfield($data, fletching_table:skill_anim, 0);
 def_synth $sound = db_getfield($data, fletching_table:skill_sound, 0);

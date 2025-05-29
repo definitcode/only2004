@@ -72,6 +72,10 @@ p_delay(0);
 ~change_merged_loc(movecoord(coord, 0, 0, 1));
 ~agility_exactmove(human_doublepipesqueeze, 30, 4, coord, movecoord(coord, 0, 0, 3), 30, 126, ^exact_north, true);
 stat_advance(agility, 75);
+if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 75);
+            mes("Your agility skills are showing!");
+}
 ~update_gnome_varp(7);
 
 [proc,gnome_trainer_say](string $line)
@@ -85,5 +89,9 @@ if(calc(%gnome_course_progress + 1) >= $completed) {
 }
 if(%gnome_course_progress = 7) {
     stat_advance(agility, 390);
+    if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 390);
+            mes("Your agility skills are showing!");
+    }
     %gnome_course_progress = 0;
 }

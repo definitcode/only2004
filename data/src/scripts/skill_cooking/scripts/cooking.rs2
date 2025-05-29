@@ -132,6 +132,10 @@ if ($passes_roll = true) {
         mes($succesmessage);
     }
     stat_advance(cooking, $experience);
+    if (inv_total(worn, chefshat) > 0) {
+        stat_advance(cooking, $experience);
+        mes("Your cooking skills are showing!");
+    }
     // these dont give additional items
     if ($cooked_item = half_baked_batta | $cooked_item = half_baked_bowl | $cooked_item = half_baked_crunchies) {
         return;

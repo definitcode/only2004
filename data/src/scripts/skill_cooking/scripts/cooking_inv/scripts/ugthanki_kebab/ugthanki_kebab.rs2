@@ -130,3 +130,7 @@ mes("You make a delicious ugthanki kebab.");
 // gives 120 xp each, the case in rsc too. https://web.archive.org/web/20040905213850/http ://www.runehq.com/CookingSkillGuide.php
 //stat_advance(crafting, 400);
 stat_advance(cooking, 1200);
+if (inv_total(worn, chefshat) > 0) {
+        stat_advance(cooking, 1200);
+        mes("Your cooking skills are showing!");
+}
