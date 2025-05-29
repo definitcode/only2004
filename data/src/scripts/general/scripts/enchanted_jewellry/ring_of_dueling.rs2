@@ -3,10 +3,10 @@
 mes("You rub the ring...");
 def_obj $item = last_item;
 def_int $slot = last_slot;
-if (~wilderness_level(coord) > 20) {
+if (~wilderness_level(coord) > 0) {
     // yes it actually says this in osrs
     mes("A mysterious force blocks your teleport spell!");
-    mes("You can't use this teleport after level 20 wilderness.");
+    mes("You can't use this in the wilderness.");
     return;
 }
 if (~pre_tele_checks(coord) = false) {

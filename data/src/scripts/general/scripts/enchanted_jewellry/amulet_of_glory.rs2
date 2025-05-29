@@ -16,10 +16,10 @@ if ($choice = 5) {
     mes("You remain where you were.");
     return;
 }
-if (~wilderness_level(coord) > 30) {
+if (~wilderness_level(coord) > 0) {
     // osrs
     mes("A mysterious force blocks your teleport.");
-    mes("You can't use this teleport after level 30 wilderness.");
+    mes("You can't use this teleport in the wilderness.");
     return;
 }
 if (~pre_tele_checks(coord) = false) {

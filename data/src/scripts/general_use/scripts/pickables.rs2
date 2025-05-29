@@ -18,7 +18,11 @@ if(inv_freespace(inv) = 0) {
     p_teleport(loc_coord);
     p_delay(0);
 } else {
+    anim(human_pickupfloor, 0);
+    sound_synth(pick, 0, 0);
+    inv_add(inv, grain, 4);
     ~pickup_loc_floor(loc_coord, grain, 20, true);
+    loc_del(25); // 10t after update
     mes("You pick some grain.");
 }
 
@@ -56,6 +60,6 @@ if(inv_freespace(inv) = 0) {
     p_delay(0);
     sound_synth(pick, 0, 0);
     mes("You pick some flax.");
-    inv_add(inv, flax, 1);
+    inv_add(inv, flax, 4);
     loc_del(25); // 10t after update
 }
