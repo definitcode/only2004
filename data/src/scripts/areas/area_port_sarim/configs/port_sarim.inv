@@ -79,10 +79,10 @@ stackall=yes
 allstock=no
 stock1=bronze_battleaxe,4,200
 stock2=iron_battleaxe,3,300
-stock3=steel_battleaxe,2,500
-stock4=black_battleaxe,1,700
-stock5=mithril_battleaxe,1,1000
-stock6=adamant_battleaxe,1,15000
+stock3=steel_battleaxe,0,500
+stock4=black_battleaxe,0,700
+stock5=mithril_battleaxe,0,1000
+stock6=adamant_battleaxe,0,15000
 
 [wydinstore]
 // https://oldschool.runescape.wiki/w/Food_Store

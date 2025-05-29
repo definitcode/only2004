@@ -4,8 +4,8 @@ size=40
 restock=yes
 stackall=yes
 allstock=no
-stock1=dragon_battleaxe,2,500
-stock2=dragon_mace,2,500
+stock1=dragon_pickaxe,1,500
+stock2=dragon_axe,1,500
 // https://discord.com/channels/953326730632904844/1126857544523063367/1278446787681845259
 // 2004
 // https://web.archive.org/web/20050212165608/http://www.tip.it/runescape/index.php?page=rs2gld_heroes.htm

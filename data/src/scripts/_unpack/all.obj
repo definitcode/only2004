@@ -1194,3 +1194,24 @@ womanwear=model_3333_obj_wear,6
 2dxan=40
 weight=50g
 iop1=Play-with
+
+[stick]
+name=Stick
+desc=Just a stick.
+model=model_2597_obj
+2dxof=-2
+2dyof=-19
+2dzoom=1070
+2dyan=1056
+2dxan=224
+wearpos=righthand
+iop2=Wear
+weight=1lb
+category=weapon_blunt
+manwear=model_558_obj_wear,0
+womanwear=model_558_obj_wear,6
+cost=1
+param=attackrate,5
+param=crushattack_anim,human_blunt_pound
+param=defend_anim,human_axe_block
+param=crush_sound,baxe_crush

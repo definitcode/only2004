@@ -117,19 +117,19 @@ stock5=longbow,2,200
 stock6=crossbow,2,400
 stock7=bronze_arrowheads,200,10
 stock8=iron_arrowheads,180,20
-stock9=steel_arrowheads,160,40
-stock10=mithril_arrowheads,140,80
+stock9=steel_arrowheads,0,40
+stock10=mithril_arrowheads,0,80
 stock11=iron_axe,5,200
-stock12=steel_axe,3,400
+stock12=steel_axe,0,400
 stock13=iron_battleaxe,5,100
-stock14=steel_battleaxe,2,200
-stock15=mithril_battleaxe,1,3000
+stock14=steel_battleaxe,0,200
+stock15=mithril_battleaxe,0,3000
 stock16=bronze_2h_sword,4,200
 stock17=iron_2h_sword,3,300
-stock18=steel_2h_sword,2,500
-stock19=black_2h_sword,1,700
-stock20=mithril_2h_sword,1,1000
-stock21=adamant_2h_sword,1,15000
+stock18=steel_2h_sword,0,500
+stock19=black_2h_sword,0,700
+stock20=mithril_2h_sword,0,1000
+stock21=adamant_2h_sword,0,15000
 
 [gnomeshop]
 // dated July 05, 2005

@@ -15,7 +15,7 @@ if ($random < 3) {
 } else if ($random < 6) {
     obj_add(npc_coord, fire_battlestaff, 1, ^lootdrop_duration);
 } else if ($random < 7) {
-    obj_add(npc_coord, rune_scimitar, 1, ^lootdrop_duration);
+    obj_add(npc_coord, mithril_scimitar, 1, ^lootdrop_duration);
 } else if ($random < 17) {
     obj_add(npc_coord, firerune, 150, ^lootdrop_duration);
 } else if ($random < 24) {
@@ -50,6 +50,7 @@ if ($random < 3) {
     obj_add(npc_coord, macro_genilamp, 1, ^lootdrop_duration);
 } else if ($random < 127) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
+    obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
 } else if ($random <  128) {
     obj_add(npc_coord, ~ultrarare_getitem, ^lootdrop_duration);
 }

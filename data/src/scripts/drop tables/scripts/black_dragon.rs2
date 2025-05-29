@@ -30,15 +30,16 @@ if ($random < 4) {
 } else if ($random < 36) {
     obj_add(npc_coord, adamant_javelin, 30, ^lootdrop_duration);
 } else if ($random < 44) {
-    obj_add(npc_coord, firerune, 50, ^lootdrop_duration);
+    obj_add(npc_coord, firerune, 80, ^lootdrop_duration);
 } else if ($random < 51) {
     obj_add(npc_coord, adamant_dart_p, 16, ^lootdrop_duration);
 } else if ($random < 56) {
-    obj_add(npc_coord, lawrune, 10, ^lootdrop_duration);
+    obj_add(npc_coord, lawrune, 25, ^lootdrop_duration);
 } else if ($random < 59) {
     obj_add(npc_coord, bloodrune, 15, ^lootdrop_duration);
 } else if ($random < 60) {
-    obj_add(npc_coord, airrune, 75, ^lootdrop_duration);
+    obj_add(npc_coord, airrune, 200, ^lootdrop_duration);
+    obj_add(npc_coord, mindrune, 200, ^lootdrop_duration);
 } else if ($random < 100) {
     obj_add(npc_coord, coins, 196, ^lootdrop_duration);
 } else if ($random < 110) {
@@ -51,8 +52,11 @@ if ($random < 4) {
     obj_add(npc_coord, chocolate_cake, 1, ^lootdrop_duration);
 } else if ($random < 120) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
+    obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
 } else if ($random < 122) {
     obj_add(npc_coord, ~ultrarare_getitem, ^lootdrop_duration);
 } else if ($random < 121) {
     obj_add(npc_coord, macro_genilamp, 1, ^lootdrop_duration);
+    obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
+    obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
 }
