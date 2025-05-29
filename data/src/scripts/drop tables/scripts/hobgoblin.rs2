@@ -66,6 +66,9 @@ if ($random < 3) {
     obj_add(npc_coord, goblin_armour, 1, ^lootdrop_duration);
 } else if ($random < 109) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
+    obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
+} else if ($random < 128) {
+    obj_add(npc_coord, ~mid_tier_items, ^lootdrop_duration);
 }
 
 [ai_queue3,hobgoblin_armed] // LVL 42 Hobgoblins
@@ -85,19 +88,19 @@ if ($random < 3) {
 } else if ($random < 7) {
     obj_add(npc_coord, steel_longsword, 1, ^lootdrop_duration);
 } else if ($random < 10) {
-    obj_add(npc_coord, lawrune, 2, ^lootdrop_duration);
+    obj_add(npc_coord, lawrune, 10, ^lootdrop_duration);
 } else if ($random < 12) {
-    obj_add(npc_coord, waterrune, 2, ^lootdrop_duration);
+    obj_add(npc_coord, waterrune, 25, ^lootdrop_duration);
 } else if ($random < 14) {
-    obj_add(npc_coord, firerune, 7, ^lootdrop_duration);
+    obj_add(npc_coord, firerune, 34, ^lootdrop_duration);
 } else if ($random < 16) {
-    obj_add(npc_coord, bodyrune, 6, ^lootdrop_duration);
+    obj_add(npc_coord, bodyrune, 60, ^lootdrop_duration);
 } else if ($random < 18) {
-    obj_add(npc_coord, chaosrune, 3, ^lootdrop_duration);
+    obj_add(npc_coord, chaosrune, 25, ^lootdrop_duration);
 } else if ($random < 20) {
-    obj_add(npc_coord, naturerune, 4, ^lootdrop_duration);
+    obj_add(npc_coord, naturerune, 25, ^lootdrop_duration);
 } else if ($random < 21) {
-    obj_add(npc_coord, cosmicrune, 2, ^lootdrop_duration);
+    obj_add(npc_coord, cosmicrune, 5, ^lootdrop_duration);
 } else if ($random < 22) {
     if (map_members = true) {
         obj_add(npc_coord, iron_javelin, 5, ^lootdrop_duration);
@@ -107,7 +110,7 @@ if ($random < 3) {
 } else if ($random < 63) {
     obj_add(npc_coord, coins, 15, ^lootdrop_duration);
 } else if ($random < 75) {
-    obj_add(npc_coord, coins, 5, ^lootdrop_duration);
+    obj_add(npc_coord, coins, 500, ^lootdrop_duration);
 } else if ($random < 79) {
     obj_add(npc_coord, coins, 28, ^lootdrop_duration);
 } else if ($random < 83) {
@@ -126,4 +129,5 @@ if ($random < 3) {
     obj_add(npc_coord, goblin_armour, 1, ^lootdrop_duration);
 } else if ($random < 115) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
+    obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
 }

@@ -1,5 +1,5 @@
 [opnpc1,jakut]
-~chatnpc("<p,neutral>Dragon swords! Here, Dragon swords!|Straight from Frenaskrae!");
+~chatnpc("<p,neutral>Dragon weapons! Here, Dragon weapons!|Straight from Frenaskrae!");
 def_int $option = ~p_choice2("Yes please.", 1, "No thanks, I'm just browsing.", 2);
 if($option = 1) {
     ~chatplayer("<p,happy>Yes please!");

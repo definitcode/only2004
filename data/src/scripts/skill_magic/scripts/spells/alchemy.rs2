@@ -3,6 +3,11 @@
 
 [label,magic_spell_high_alch](int $spell, obj $item)
 if_close;
+if (getqueue(high_alch_repeat) > 0) {
+    clearqueue(high_alch_repeat);
+    return;
+}
+
 // look for spell in db
 def_dbrow $spell_data = ~get_spell_data($spell);
 if (~check_spell_requirements($spell_data) = false) {
@@ -19,23 +24,35 @@ spotanim_pl(highlvlalchemy_casting, 92, 0);
 // delete runes and give xp
 ~delete_spell_runes($spell_data);
 ~give_spell_xp($spell_data);
-// give 1.0x of item's value and delete item
-def_int $profit = max(scale(10, 10, oc_cost($item)), 1);
+if (inv_total(worn, gauntlets_of_chaos) > 0) {
+        ~give_spell_xp($spell_data);
+        mes("Your magic skills are showing!");
+}
+// give 0.6x of item's value and delete item
+def_int $profit = max(scale(6, 10, oc_cost($item)), 1);
 wealth_log(^wealth_gained, $profit, "High alching <oc_debugname($item)>");
 wealth_event(^wealth_high_alch, oc_debugname($item), 1, $profit);
 inv_del(inv, $item, 1);
 inv_add(inv, coins, $profit);
-// delay by 5 ticks
-// https://oldschool.runescape.wiki/w/Update:Patch_Notes_(11_April_2013), in osrs it weakqueues the spell. Early osrs it was delay'd
-// https://www.neoseeker.com/forums/2410/t960058-useless-rs-facts/2.htm
-// > When you high alch while your cannon is spinning, it stops spinning until you finish alching
-// Also this video: https://www.youtube.com/watch?v=P_o3Cxg73Tg&t=91s
-if_settabactive(^tab_magic);
-p_delay(3);
+queue(high_alch_repeat, 5, $item);
+
+
+[queue,high_alch_repeat](obj $item)
+if(inv_total(inv, $item) > 0) {
+    def_int $slot = ~inv_find(inv, $item, 0);
+    if ($slot >= 0) {
+        @magic_spell_high_alch(^highlvl_alchemy, inv_getobj(inv, $slot));
+    }
+}
 
 
 [label,magic_spell_low_alch](int $spell, obj $item)
 if_close;
+if (getqueue(low_alch_repeat) > 0) {
+    clearqueue(low_alch_repeat);
+    return;
+}
+
 // look for spell in db
 def_dbrow $spell_data = ~get_spell_data($spell);
 if (~check_spell_requirements($spell_data) = false) {
@@ -52,15 +69,25 @@ spotanim_pl(lowlvlalchemy_casting, 92, 0);
 // delete runes and give xp
 ~delete_spell_runes($spell_data);
 ~give_spell_xp($spell_data);
-// give 0.7x of item's value and delete item
-def_int $profit = max(scale(7, 10, oc_cost($item)), 1);
+if (inv_total(worn, gauntlets_of_chaos) > 0) {
+        ~give_spell_xp($spell_data);
+        mes("Your magic skills are showing!");
+}
+// give 0.4x of item's value and delete item
+def_int $profit = max(scale(4, 10, oc_cost($item)), 1);
 wealth_log(^wealth_gained, $profit, "Low alching <oc_debugname($item)>");
 wealth_event(^wealth_low_alch, oc_debugname($item), 1, $profit);
 inv_del(inv, $item, 1);
 inv_add(inv, coins, $profit);
-if_settabactive(^tab_magic);
-// delay by 3 ticks
-p_delay(1);
+queue(low_alch_repeat, 3, $item);
+
+[queue,low_alch_repeat](obj $item)
+if(inv_total(inv, $item) > 0) {
+    def_int $slot = ~inv_find(inv, $item, 0);
+    if ($slot >= 0) {
+        @magic_spell_low_alch(^lowlvl_alchemy, inv_getobj(inv, $slot));
+    }
+}
 
 [proc,is_alchable](obj $item, dbrow $spell_data)(boolean)
 def_namedobj $rune1;

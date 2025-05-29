@@ -127,6 +127,7 @@ p_opnpc(4);
 
 [proc,fish_roll_big_net]
 def_int $level = stat(fishing);
+def_int $random = random(128);
 // leather boots
 if (stat_random($level, 10, 10) = true) {
     inv_add(inv, leather_boots, 1);
@@ -134,40 +135,89 @@ if (stat_random($level, 10, 10) = true) {
     stat_advance(fishing, 10);
 }
 // seaweed
-if (stat_random($level, 10, 10) = true) {
-    inv_add(inv, seaweed, 1);
-    mes("You catch some seaweed.");
-    stat_advance(fishing, 1);
+
+if (stat_random($level, 5, 50) = true) {
+    inv_add(inv, raw_mantaray, 1);
+    mes("You catch a mantaray.");
+    stat_advance(fishing, 690);
+    if (inv_total(worn, piratehat) > 0) {
+        mes("Your fishing skills are showing!");
+        stat_advance(fishing, 690);
+        if ($random < 127) {
+            ~mesbox("You have received a Casket!");
+            inv_add(inv, casket, 1);
+        }
+    }
 }
 // leather gloves
-if (stat_random($level, 5, 5) = true) {
-    inv_add(inv, leather_gloves, 1);
-    mes("You catch some gloves.");
-    stat_advance(fishing, 10);
+if (stat_random($level, 5, 50) = true) {
+    inv_add(inv, raw_seaturtle, 1);
+    mes("You catch a mantaray.");
+    stat_advance(fishing, 570);
+    if (inv_total(worn, piratehat) > 0) {
+        mes("Your fishing skills are showing!");
+        stat_advance(fishing, 570);
+        if ($random < 127) {
+            ~mesbox("You have received a Casket!");
+            inv_add(inv, casket, 1);
+        }
+    }
 }
 // mackerel
 if (stat_random($level, 5, 65) = true) {
     inv_add(inv, raw_mackerel, 1);
     mes("You catch a mackerel.");
     stat_advance(fishing, 200);
+    if (inv_total(worn, piratehat) > 0) {
+        mes("Your fishing skills are showing!");
+        stat_advance(fishing, 200);
+        if ($random < 127) {
+            ~mesbox("You have received a Casket!");
+            inv_add(inv, casket, 1);
+        }
+    }
 }
 // another mackerel
 if (stat_random($level, 10, 10) = true) {
     inv_add(inv, raw_mackerel, 1);
     mes("You catch a mackerel.");
     stat_advance(fishing, 200);
+    if (inv_total(worn, piratehat) > 0) {
+        mes("Your fishing skills are showing!");
+        stat_advance(fishing, 200);
+        if ($random < 127) {
+            ~mesbox("You have received a Casket!");
+            inv_add(inv, casket, 1);
+        }
+    }    
 }
 // oyster
 if (stat_random($level, 3, 7) = true) {
     inv_add(inv, oystershell, 1);
     mes("You catch an oyster shell.");
     stat_advance(fishing, 100);
+    if (inv_total(worn, piratehat) > 0) {
+        mes("Your fishing skills are showing!");
+        stat_advance(fishing, 100);
+        if ($random < 127) {
+            ~mesbox("You have received a Casket!");
+            inv_add(inv, casket, 1);
+        }
+    }
 }
 // casket
 if (stat_random($level, 1, 2) = true) {
     inv_add(inv, casket, 1);
     mes("You catch a casket.");
     stat_advance(fishing, 100);
+    if (inv_total(worn, piratehat) > 0) {
+        mes("Your fishing skills are showing!");
+        stat_advance(fishing, 100);
+        if ($random < 127) {
+            ~mesbox("You have received a Casket!");
+            inv_add(inv, casket, 1);
+        }
+    }
 }
 // cod
 if ($level < 23) {
@@ -177,6 +227,14 @@ if (stat_random($level, 4, 55) = true) {
     inv_add(inv, raw_cod, 1);
     mes("You catch a cod.");
     stat_advance(fishing, 450);
+    if (inv_total(worn, piratehat) > 0) {
+        mes("Your fishing skills are showing!");
+        stat_advance(fishing, 450);
+        if ($random < 127) {
+            ~mesbox("You have received a Casket!");
+            inv_add(inv, casket, 1);
+        }
+    }    
 }
 // bass
 if ($level < 46) {
@@ -186,6 +244,14 @@ if (stat_random($level, 3, 40) = true) {
     inv_add(inv, raw_bass, 1);
     mes("You catch a bass.");
     stat_advance(fishing, 1000);
+    if (inv_total(worn, piratehat) > 0) {
+        mes("Your fishing skills are showing!");
+        stat_advance(fishing, 1000);
+        if ($random < 127) {
+            ~mesbox("You have received a Casket!");
+            inv_add(inv, casket, 1);
+        }
+    }    
 }
 
 // oysters and casket ops
@@ -197,7 +263,7 @@ inv_del(inv, oystershell, 1);
 def_int $random = random(32);
 
 if ($random < 25) {
-    inv_add(inv, smalloysterpearls, 1);
+    inv_add(inv, smalloysterpearls, 10);
 } else {
     inv_add(inv, oysterempty, 1);
 }
@@ -216,12 +282,15 @@ if ($random < 60) { // 10/128 coins for each
     ~objbox(coins_250, "You open the casket. Inside you find some coins.", 250, 0, divide(^objbox_height, 2));
 } else if ($random < 92) { // 32/128 uncut sapphire
     inv_add(inv, uncut_sapphire, 1);
+    inv_add(inv,~mining_gem_table,1);
     ~objbox(uncut_sapphire, "You open the casket. Inside you find an uncut|sapphire.", 250, 0, divide(^objbox_height, 2));
 } else if ($random < 108) { // 16/128 uncut emerald
     inv_add(inv, uncut_emerald, 1);
+    inv_add(inv,~mining_gem_table,1);
     ~objbox(uncut_emerald, "You open the casket. Inside you find an uncut|emerald.", 250, 0, divide(^objbox_height, 2));
 } else if ($random < 116) { // 8/128 uncut ruby
     inv_add(inv, uncut_ruby, 1);
+    inv_add(inv,~mining_gem_table,1);
     ~objbox(uncut_ruby, "You open the casket. Inside you find an uncut ruby.", 250, 0, divide(^objbox_height, 2));
 } else if ($random < 124) { // 8/128 cosmic talisman
     inv_add(inv, cosmic_talisman, 1);

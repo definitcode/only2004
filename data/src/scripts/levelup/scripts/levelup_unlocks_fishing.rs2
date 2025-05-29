@@ -18,4 +18,5 @@ switch_int(stat_base(fishing)) {
     case 76 : ~doubleobjbox(raw_shark,harpoon,"Members can now try harpooning @dbl@Sharks.", 200); //imgur.com/SvV4b4p
     case 79 : ~doubleobjbox(raw_seaturtle,bucket_empty,"Members can now catch @dbl@Sea Turtles on the Trawler.|", 200); //imgur.com/T0raUc4
     case 81 : ~doubleobjbox(raw_mantaray,bucket_empty,"Members can now catch @dbl@Manta Rays on the Trawler.|", 200); //imgur.com/DVv0WDM
+    case 99 : ~mesbox("Fishing Cape is now wearable!");
 }

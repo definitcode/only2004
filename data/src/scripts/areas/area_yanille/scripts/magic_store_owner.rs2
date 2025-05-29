@@ -1,9 +1,34 @@
 [opnpc1,magic_store_owner]
 ~chatnpc("<p,happy>Welcome to the Magic Guild Store.|Would you like to buy some magic supplies?");
-switch_int(~p_choice2("Yes please.", 1, "No thank you.", 2)) {
-    case 1 :
+switch_int(~p_choice3("Yes please.", 1, "No thank you.", 2, "I would like if you would imbue my longbow!", 3)) {
+    case 1 : {
         ~chatplayer("<p,happy>Yes please.");
         ~openshop_activenpc;
-    case 2 :
+    }
+    case 2 : {
         ~chatplayer("<p,neutral>No thank you.");
-} 
+    }
+    case 3 : {
+        ~chatplayer("<p,happy>Let me see if I have something you can imbue!");
+        if (inv_total(inv, magic_longbow) > 0) {
+            ~chatnpc("<p,quiz>Oh you do have an item I can imbue! | It will cost you 1M Coins though.");
+            switch_int(~p_choice2("Yes please.", 1, "No thank you.", 2)) {
+                case 1 : {
+                    ~chatplayer("<p,happy>Yes please.");
+                    if (inv_total(inv, coins) > 1000000) {
+                        inv_del(inv, magic_longbow, 1);
+                        inv_del(inv, coins, 1000000);
+                        inv_add(inv, magic_longbow_i, 1); 
+                        anim(emote_dance, 0);
+                        ~mesbox("You receive a Magic Longbow (i)!");
+                    } else {
+                        ~chatnpc("<p,sad>I am afraid you do not have enough coins!");
+                    }
+                }
+                case 2 : {
+                    ~chatplayer("<p,angry>No thank you.");
+                }
+            }
+        }
+    }
+}

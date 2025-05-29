@@ -226,3 +226,35 @@ param=defend_anim,human_sword_def
 param=slash_sound,2H_slash
 param=crush_sound,2H_crush
 // osrs 2h sword defend human_dhsword_block
+
+[dragon_2h_sword]
+name=Dragon 2h sword
+desc=A two handed sword.
+cost=1000000
+model=model_2754_obj
+recol1s=15855
+recol1d=14336
+2dxof=3
+2dyof=-9
+2dzoom=1380
+2dyan=1396
+2dxan=204
+iop2=Wield
+wearpos=righthand
+wearpos2=lefthand
+manwear=model_546_obj_wear,0
+womanwear=model_546_obj_wear,6
+category=weapon_2h_sword
+weight=8lb
+param=stabattack,-10
+param=slashattack,70
+param=crushattack,65
+param=magicattack,-4
+param=rangedefence,-1
+param=strengthbonus,140
+param=attackrate,9
+param=slashattack_anim,human_dhsword_slash
+param=crushattack_anim,human_dhsword_chop
+param=defend_anim,human_sword_def
+param=slash_sound,2H_slash
+param=crush_sound,2H_crush

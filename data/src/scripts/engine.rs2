@@ -228,6 +228,10 @@
 [command,stat_sub](stat $stat, int $constant, int $percent)
 // info: Drain base level of $stat for the secondary player
 [command,.stat_sub](stat $stat, int $constant, int $percent)
+// info: Reset Stats to level 1
+[command,stat_reset2]()
+// info: Reset other player stats to level 1
+[command,.stat_reset2]()
 // info: Heal $stat back to base
 [command,stat_heal](stat $stat, int $constant, int $percent)
 // info: Heal $stat back to base for the secondary player

@@ -5,12 +5,21 @@
 [opheld2,dragon_mace] @levelrequire_heroes_quest_attack(90, last_slot);
 [opheld2,dragon_longsword] @levelrequire_zanaris_quest_attack(90, last_slot);
 [opheld2,dragon_battleaxe] @levelrequire_heroes_quest_attack(90, last_slot);
-[opheld2,dragon_spear] @levelrequire_attack(90, last_slot);
-[opheld2,dragon_spear_p] @levelrequire_attack(90, last_slot);
+[opheld2,dragon_spear] @levelrequire_heroes_quest_attack(90, last_slot);
+[opheld2,dragon_spear_p] @levelrequire_heroes_quest_attack(90, last_slot);
+[opheld2,dragon_pickaxe] @levelrequire_heroes_quest_attack(90, last_slot);
+[opheld2,dragon_axe] @levelrequire_heroes_quest_attack(90, last_slot);
+[opheld2,dragon_warhammer] @levelrequire_heroes_quest_attack(90, last_slot);
+[opheld2,dragon_scimitar] @levelrequire_heroes_quest_attack(90, last_slot);
 
-[opheld2,dragon_med_helm] @levelrequire_defence(90, last_slot);
+[opheld2,dragon_chainbody] @levelrequire_legends_quest_defence(90, last_slot);
+[opheld2,dragon_med_helm] @levelrequire_legends_quest_defence(90, last_slot);
 [opheld2,dragon_sq_shield] @levelrequire_legends_quest_defence(90, last_slot);
-[opheld2,dragon_boots] @levelrequire_defence(90, last_slot);
+[opheld2,dragon_boots] @levelrequire_legends_quest_defence(90, last_slot);
+[opheld2,dragon_full_helm] @levelrequire_legends_quest_defence(99, last_slot);
+[opheld2,dragon_platebody] @levelrequire_legends_quest_defence(99, last_slot);
+[opheld2,dragon_platelegs] @levelrequire_legends_quest_defence(99, last_slot);
+[opheld2,dragon_plateskirt] @levelrequire_legends_quest_defence(99, last_slot);
 
 // Ranged
 [opheld2,red_dragon_vambraces] @levelrequire_ranged(70, last_slot);
@@ -18,3 +27,23 @@
 [opheld2,red_dragonhide_body] @levelrequire_ranged_and_defence(70, 50, last_slot);
 
 // Magic
+[opheld2,gnome_boots_blue] @levelrequire_magic_and_defence(50, 50, last_slot);
+[opheld2,gnome_boots_cream] @levelrequire_magic_and_defence(50, 50, last_slot);
+[opheld2,gnome_boots_green] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_boots_pink] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_boots_turqoise] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_hat_blue] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_hat_cream] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_hat_green] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_hat_pink] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_hat_turqoise] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_robebottoms_blue] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_robebottoms_craem] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_robebottoms_green] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_robebottoms_pink] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_robebottoms_turquoise] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_robetop_blue] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_robetop_cream] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_robetop_green] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_robetop_pink] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,gnome_robetop_turquoise] @levelrequire_magic_and_defence(50, 50,last_slot);

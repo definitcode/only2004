@@ -134,6 +134,23 @@ category=category_151
 param=smelting_struct,smelting_runite_bar
 param=smithing_anvil_struct,smithing_runite_bar
 
+[dragon_bar]
+name=Dragon bar
+desc=It's a bar of dragon.
+cost=5000
+model=model_2408_obj
+recol1s=11488
+recol1d=14336
+2dxof=1
+2dyof=-8
+2dzoom=820
+2dyan=1180
+2dxan=196
+weight=4lb
+category=category_151
+param=smelting_struct,smelting_dragon_bar
+param=smithing_anvil_struct,smithing_dragon_bar
+
 [perfect_gold_bar]
 name='perfect' gold bar
 desc=It's a bar of 'perfect' gold.

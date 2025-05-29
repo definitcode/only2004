@@ -99,6 +99,10 @@ p_delay(1);
 mes("You find treasure inside!");
 anim(human_openchest, 0);
 stat_advance(thieving, $experience);
+if (inv_total(worn, highwaymanmask) > 0) {
+            stat_advance(thieving, $experience);
+            mes("Your thieving skills are showing!");
+}
 ~trapped_chest_check_for_reward($data);
 // Temp note: dur updated
 loc_change(loc_2574, 4); //opened chest

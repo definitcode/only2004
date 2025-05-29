@@ -1,0 +1,33 @@
+[opnpc1,notnurmof]
+
+~chatnpc("<p,happy>Welcome to the Not Nurmof Store.| What can I do for you?");
+switch_int(~p_choice3("Yes please.", 1, "No thank you.", 2, "Run Essence For Me (500gp)!", 3)) {
+    case 1 : {
+        ~chatplayer("<p,happy>Yes please.");
+        ~openshop_activenpc;
+    }
+    case 2 : {
+        ~chatplayer("<p,neutral>No thank you.");
+    }
+    case 3 : {
+        ~chatplayer("<p,happy>Run Essence For Me (500gp)!");
+        // @notnurmofcheck;
+        def_int $total_ess = inv_total(inv, blankrune);
+
+        if (inv_total(inv, coins) > 499) {
+            inv_del(inv, coins, 500);
+        } else {
+            ~chatnpc("<p,sad>You do not have enough coins!");
+            return;
+        }
+        
+        if (inv_freespace(bank) > 0) {
+            inv_del(inv, blankrune, $total_ess);
+            inv_add(bank, blankrune, $total_ess);
+        } else {
+            ~chatnpc("<p,sad>I am afraid you don't have bank space! | Here is your Coins back!");
+            inv_add(inv, coins, 500);
+            ~mesbox("You receive 500gp!");
+        }
+    }
+}

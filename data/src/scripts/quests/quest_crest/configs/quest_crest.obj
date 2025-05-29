@@ -64,7 +64,7 @@ param=stabdefence,8
 param=slashdefence,9
 param=crushdefence,7
 param=strengthbonus,2
-tradeable=no
+tradeable=yes
 
 [gauntlets_of_goldsmithing]
 category=category_16
@@ -91,7 +91,7 @@ param=stabdefence,8
 param=slashdefence,9
 param=crushdefence,7
 param=strengthbonus,2
-tradeable=no
+tradeable=yes
 
 [gauntlets_of_chaos]
 category=category_16
@@ -118,7 +118,7 @@ param=stabdefence,8
 param=slashdefence,9
 param=crushdefence,7
 param=strengthbonus,2
-tradeable=no
+tradeable=yes
 
 [steel_gauntlets]
 category=category_16
@@ -145,7 +145,7 @@ param=stabdefence,8
 param=slashdefence,9
 param=crushdefence,7
 param=strengthbonus,2
-tradeable=no
+tradeable=yes
 
 [avan_crest]
 model=model_2688_obj

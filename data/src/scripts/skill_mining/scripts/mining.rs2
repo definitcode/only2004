@@ -231,6 +231,7 @@ p_oploc(3);
 
 [proc,mining_gem_table]()(namedobj)
 def_int $rand = random(128);
+if ($rand < 1) return (uncut_dragonstone);
 if ($rand < 2) return (uncut_diamond);
 if ($rand < 10) return (uncut_ruby);
 if ($rand < 26) return (uncut_emerald);

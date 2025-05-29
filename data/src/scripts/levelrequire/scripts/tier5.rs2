@@ -1,8 +1,6 @@
 // Melee
 [opheld2,steel_dagger] @levelrequire_attack(30, last_slot);
 [opheld2,steel_dagger_p] @levelrequire_attack(30, last_slot);
-[opheld2,steel_axe] @levelrequire_attack(1, last_slot);
-[opheld2,steel_pickaxe] @levelrequire_attack(1, last_slot);
 [opheld2,steel_mace] @levelrequire_attack(30, last_slot);
 [opheld2,steel_sword] @levelrequire_attack(30, last_slot);
 [opheld2,steel_scimitar] @levelrequire_attack(30, last_slot);
@@ -12,6 +10,9 @@
 [opheld2,steel_spear] @levelrequire_attack(30, last_slot);
 [opheld2,steel_spear_p] @levelrequire_attack(30, last_slot);
 [opheld2,steel_2h_sword] @levelrequire_attack(30, last_slot);
+[opheld2,steel_pickaxe] @levelrequire_attack(30, last_slot);
+[opheld2,steel_axe] @levelrequire_attack(30, last_slot);
+
 
 [opheld2,steel_med_helm] @levelrequire_defence(30, last_slot);
 [opheld2,steel_full_helm] @levelrequire_defence(30, last_slot);
@@ -33,3 +34,9 @@
 [opheld2,steel_thrownaxe] @levelrequire_ranged(30, last_slot);
 [opheld2,steel_javelin] @levelrequire_ranged(30, last_slot);
 [opheld2,steel_javelin_p] @levelrequire_ranged(30, last_slot);
+
+
+// Magic
+[opheld2,blackwizhat] @levelrequire_magic_and_defence(30, 30, last_slot);
+[opheld2,black_robe] @levelrequire_magic_and_defence(30, 30, last_slot);
+[opheld2,black_skirt] @levelrequire_magic_and_defence(30, 30, last_slot);

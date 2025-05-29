@@ -57,7 +57,8 @@ if ($dropint < 30) {
     obj_add(npc_coord, bones, 1, 200);
 } else if ($dropint < 80) {
     // 1/129
-    obj_add(npc_coord, ~randomjewel, 200);
+    obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
+    obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
 } else if ($dropint < 85) {
     // 1/129
     obj_add(npc_coord, unidentified_snake_weed, 1, 200);

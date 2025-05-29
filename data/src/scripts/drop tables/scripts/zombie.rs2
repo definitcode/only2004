@@ -128,5 +128,5 @@ if ($dropint < 50) {
     obj_add(npc_coord, coins, 18, ^lootdrop_duration);
 } else if ($dropint < 120) {
     obj_add(npc_coord, coins, 28, ^lootdrop_duration);
-}
+}   
 // Nothing - 8/128

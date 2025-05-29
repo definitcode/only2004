@@ -23,7 +23,7 @@ if ($rare > 0) {
 ~trail_complete;
 
 [proc,trail_clue_hard_normal]
-def_int $random = random(20);
+def_int $random = random(21);
 
 switch_int ($random) {
     case 0 : inv_add(trail_rewardinv, coins, calc(1000 + random(4001)));
@@ -46,10 +46,12 @@ switch_int ($random) {
     case 17 : inv_add(trail_rewardinv, black_dragonhide_chaps, 1);
     case 18 : inv_add(trail_rewardinv, magic_shortbow, 1);
     case 19 : inv_add(trail_rewardinv, magic_longbow, 1);
+    case 20 : inv_add(trail_rewardinv, boots_ranger_b, 1);
+    
 }
 
 [proc,trail_clue_hard_rare]
-def_int $random = random(25);
+def_int $random = random(30);
 
 switch_int ($random) {
     case 0 : inv_add(trail_rewardinv, robinhoodhat, 1);
@@ -77,4 +79,9 @@ switch_int ($random) {
     case 22 : inv_add(trail_rewardinv, rune_platebody_saradomin, 1);
     case 23 : inv_add(trail_rewardinv, rune_platelegs_saradomin, 1);
     case 24 : inv_add(trail_rewardinv, rune_kiteshield_saradomin, 1);
+    case 25 : inv_add(trail_rewardinv, zamhat, 1);
+    case 26 : inv_add(trail_rewardinv, gauntlets_of_chaos, 1);
+    case 27 : inv_add(trail_rewardinv, gauntlets_of_cooking, 1);
+    case 28 : inv_add(trail_rewardinv, gauntlets_of_goldsmithing, 1);
+    case 29 : inv_add(trail_rewardinv, steel_gauntlets, 1);
 }

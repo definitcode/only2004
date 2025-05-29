@@ -177,6 +177,24 @@ weight=5lb
 category=category_91
 param=smeltsto,runite_bar
 
+[dragon_ore]
+name=Dragon ore
+desc=This needs refining.
+cost=25000
+model=model_2748_obj
+recol1s=6476
+recol1d=14336
+recol1s=11488
+recol2d=8623
+2dxof=1
+2dyof=15
+2dzoom=1400
+2dyan=1576
+2dxan=368
+weight=10lb
+category=category_91
+param=smeltsto,dragon_bar
+
 [coal]
 cost=45
 name=Coal

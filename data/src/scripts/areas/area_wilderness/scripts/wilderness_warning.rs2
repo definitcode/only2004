@@ -8,7 +8,7 @@
 if (%wilderness = ^false) {
     %wilderness = ^true;
     p_stopaction;
-    if_openmain(wilderness_warning);
+//    if_openmain(wilderness_warning);
 }
 
 [zone,0_45_54_48_56] queue(wilderness_warning, 0);

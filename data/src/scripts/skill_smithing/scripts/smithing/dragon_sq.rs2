@@ -23,8 +23,8 @@ if (inv_total(inv, dragonshield_a) < 1 | inv_total(inv, dragonshield_b) < 1) {
     return;
 }
 // check if high enough level
-if (stat(smithing) < 60) {
-    ~mesbox("You need a Smithing level of at least 60 to repair this shield.");
+if (stat(smithing) < 98) {
+    ~mesbox("You need a Smithing level of at least 99 to repair this shield.");
     return;
 }
 // check if player has a hammer
@@ -50,3 +50,7 @@ inv_del(inv, dragonshield_b, 1);
 inv_add(inv, dragon_sq_shield, 1);
 // osrs has 75 xp gain
 stat_advance(smithing, 750);
+if (inv_total(worn, faladian_sword) > 0) {
+        stat_advance(smithing, 750);
+        mes("Your smithing skills are showing!");
+}

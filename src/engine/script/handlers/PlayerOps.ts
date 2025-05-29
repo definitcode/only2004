@@ -518,7 +518,19 @@ const PlayerOps: CommandHandlers = {
             player.changeStat(stat);
         }
     }),
+    [ScriptOpcode.STAT_RESET2]: checkedHandler(ActivePlayer, state => {
 
+        const player = state.activePlayer;
+        
+                for (let i = 0; i < 21; i++) {
+                    if (i === PlayerStat.HITPOINTS) {
+                        player.setLevel(i, 10);
+                    } else {
+                        player.setLevel(i, 1);
+                    }
+
+        }
+    }),
     [ScriptOpcode.SPOTANIM_PL]: checkedHandler(ActivePlayer, state => {
         const delay = check(state.popInt(), NumberNotNull);
         const height = state.popInt();

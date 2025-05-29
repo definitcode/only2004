@@ -3459,21 +3459,29 @@ anim=gas
 hasalpha=yes
 
 [gas_chest]
+name=Gas Chest
+desc=This is a dangerous chest!
 model=model_loc_674
 anim=smokepuff
 hasalpha=yes
 
 [gas_rocks1]
+name=Gas Rock
 model=macro_plainrock1
+desc=This is a dangerous rock!
 anim=gas
 hasalpha=yes
 
 [gas_rocks2]
+name=Gas Rock
 model=macro_plainrock2
+desc=This is a dangerous rock!
 anim=gas
 hasalpha=yes
 
 [gas_rocks3]
+name=Gas Rock
+desc=This is a dangerous rock!
 model=macro_plainrock3
 anim=gas
 hasalpha=yes

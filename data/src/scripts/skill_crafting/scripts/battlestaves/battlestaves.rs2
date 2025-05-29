@@ -5,10 +5,26 @@ switch_obj(last_useitem)
     case default : ~displaymessage(^dm_default);
 };
 
+
+
+[opheldu,magicstaff]
+switch_obj(last_useitem)
+{
+    case white_bead, red_bead, blue_bead, brown_bead : @craft_magicstaff(last_useslot);
+    case default : ~displaymessage(^dm_default);
+};
+
 [opheldu,_craft_orb]
 switch_obj(last_useitem)
 {
     case battlestaff : @craft_staff(last_slot);
+    case default : ~displaymessage(^dm_default);
+};
+
+[opheldu,_craft_bead]
+switch_obj(last_useitem)
+{
+    case magicstaff : @craft_magicstaff(last_slot);
     case default : ~displaymessage(^dm_default);
 };
 
@@ -20,23 +36,40 @@ if (map_members = false) {
 def_obj $orb = inv_getobj(inv, $last);
 def_struct $struct = oc_param($orb, crafting_staff_struct);
 def_namedobj $product = struct_param($struct, product);
-
 def_int $level = struct_param($struct, levelrequire);
-// check level
-if (stat(crafting) < $level)
-{
+def_int $exp = struct_param($struct, productexp);
+if (stat(crafting) < $level) {
     ~mesbox("You need a Crafting level of <tostring($level)> to make <oc_name($product)>");
     return;
 }
-
-// delete items
 inv_del(inv, struct_param($struct, ingredient), 1);
 inv_del(inv, battlestaff, 1);
-// add product
 inv_add(inv, $product, 1);
-// add exp
-stat_advance(crafting, struct_param($struct, productexp));
+stat_advance(crafting, $exp);
+if (inv_total(worn, brown_apron) > 0) {
+    stat_advance(crafting, $exp);
+    mes("Your crafting skills are showing!");
+}
 
-
-
-
+[label,craft_magicstaff](int $last)
+if (map_members = false) {
+    mes(^mes_members_feature);
+    return;
+}
+def_obj $bead = inv_getobj(inv, $last);
+def_struct $struct = oc_param($bead, crafting_staff_struct);
+def_namedobj $product = struct_param($struct, product);
+def_int $level = struct_param($struct, levelrequire);
+def_int $exp = struct_param($struct, productexp);
+if (stat(crafting) < $level) {
+    ~mesbox("You need a Crafting level of <tostring($level)> to make <oc_name($product)>");
+    return;
+}
+inv_del(inv, struct_param($struct, ingredient), 1);
+inv_del(inv, magicstaff, 1);
+inv_add(inv, $product, 1);
+stat_advance(crafting, $exp);
+if (inv_total(worn, brown_apron) > 0) {
+    stat_advance(crafting, $exp);
+    mes("Your crafting skills are showing!");
+}

@@ -47,6 +47,19 @@ if (p_finduid(uid) = true) {
 [proc,player_teleport_normal](coord $coord)
 if_close;
 p_stopaction;
+clearqueue(cooking_repeat);
+clearqueue(string_repeat);
+clearqueue(fletching_repeat);
+clearqueue(high_alch_repeat);
+clearqueue(low_alch_repeat);
+clearqueue(superheat_repeat);
+clearqueue(smelting_repeat);
+clearqueue(crafting_gem_repeat);
+clearqueue(fill_container_water_repeat);
+clearqueue(make_softclay_repeat);
+clearqueue(craft_pottery_repeat);
+clearqueue(fire_pottery_repeat);
+
 if(inv_total(inv, thanainabarrel) > 0) {
     ~chatnpc_specific("Ana (in a Barrel)", anabarrel, "<p,idle>@dbl@-- You can't teleport while holding the barrel, it's just @dbl@too difficult to concentrate. --");
     return;

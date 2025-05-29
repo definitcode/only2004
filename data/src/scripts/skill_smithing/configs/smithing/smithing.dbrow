@@ -64,6 +64,17 @@ data=levelfailmessage,a Rune Dagger
 data=bar,runite_bar
 data=bar_amount,1
 
+[dragon_dagger]
+table=smithing
+data=ifproduct,dragon_dagger
+data=product,dragon_dagger
+data=product_amount,1
+data=levelrequired,99
+data=end_message,a dagger
+data=levelfailmessage,a Dragon Dagger
+data=bar,dragon_bar
+data=bar_amount,1
+
 [bronze_sword]
 table=smithing
 data=ifproduct,bronze_sword
@@ -128,6 +139,17 @@ data=levelrequired,89
 data=end_message,a sword
 data=levelfailmessage,a Rune Sword
 data=bar,runite_bar
+data=bar_amount,1
+
+[dragon_sword]
+table=smithing
+data=ifproduct,dragon_sword
+data=product,dragon_sword
+data=product_amount,1
+data=levelrequired,99
+data=end_message,a sword
+data=levelfailmessage,a Dragon Sword
+data=bar,dragon_bar
 data=bar_amount,1
 
 [bronze_scimitar]
@@ -196,6 +218,17 @@ data=levelfailmessage,a Rune Scimitar
 data=bar,runite_bar
 data=bar_amount,2
 
+[dragon_scimitar]
+table=smithing
+data=ifproduct,dragon_scimitar
+data=product,dragon_scimitar
+data=product_amount,1
+data=levelrequired,90
+data=end_message,a scimitar
+data=levelfailmessage,a Dragon Scimitar
+data=bar,dragon_bar
+data=bar_amount,2
+
 [bronze_longsword]
 table=smithing
 data=ifproduct,bronze_longsword
@@ -260,6 +293,17 @@ data=levelrequired,91
 data=end_message,a longsword
 data=levelfailmessage,a Rune Longsword
 data=bar,runite_bar
+data=bar_amount,2
+
+[dragon_longsword]
+table=smithing
+data=ifproduct,dragon_longsword
+data=product,dragon_longsword
+data=product_amount,1
+data=levelrequired,99
+data=end_message,a longsword
+data=levelfailmessage,a Dragon Longsword
+data=bar,dragon_bar
 data=bar_amount,2
 
 [bronze_2h_sword]
@@ -328,6 +372,17 @@ data=levelfailmessage,a Rune 2h Sword
 data=bar,runite_bar
 data=bar_amount,3
 
+[dragon_2h_sword]
+table=smithing
+data=ifproduct,dragon_2h_sword
+data=product,dragon_2h_sword
+data=product_amount,1
+data=levelrequired,99
+data=end_message,a two handed sword
+data=levelfailmessage,a Dragon 2h Sword
+data=bar,dragon_bar
+data=bar_amount,3
+
 [bronze_axe]
 table=smithing
 data=ifproduct,bronze_axe
@@ -392,6 +447,17 @@ data=levelrequired,86
 data=end_message,an axe
 data=levelfailmessage,a Rune Axe
 data=bar,runite_bar
+data=bar_amount,1
+
+[dragon_axe]
+table=smithing
+data=ifproduct,dragon_axe
+data=product,dragon_axe
+data=product_amount,1
+data=levelrequired,99
+data=end_message,an axe
+data=levelfailmessage,a Dragon Axe
+data=bar,dragon_bar
 data=bar_amount,1
 
 [bronze_mace]
@@ -460,6 +526,17 @@ data=levelfailmessage,a Rune Mace
 data=bar,runite_bar
 data=bar_amount,1
 
+[dragon_mace]
+table=smithing
+data=ifproduct,dragon_mace
+data=product,dragon_mace
+data=product_amount,1
+data=levelrequired,99
+data=end_message,a mace
+data=levelfailmessage,a Dragon Mace
+data=bar,dragon_bar
+data=bar_amount,1
+
 [bronze_warhammer]
 table=smithing
 data=ifproduct,bronze_warhammer
@@ -524,6 +601,17 @@ data=levelrequired,94
 data=end_message,a warhammer
 data=levelfailmessage,a Rune Warhammer
 data=bar,runite_bar
+data=bar_amount,3
+
+[dragon_warhammer]
+table=smithing
+data=ifproduct,dragon_warhammer
+data=product,dragon_warhammer
+data=product_amount,1
+data=levelrequired,99
+data=end_message,a warhammer
+data=levelfailmessage,a Dragon Warhammer
+data=bar,dragon_bar
 data=bar_amount,3
 
 [bronze_battleaxe]
@@ -592,6 +680,18 @@ data=levelfailmessage,a Rune Battleaxe
 data=bar,runite_bar
 data=bar_amount,3
 
+[dragon_battleaxe]
+table=smithing
+data=ifproduct,dragon_battleaxe
+data=product,dragon_battleaxe
+data=product_amount,1
+data=levelrequired,99
+data=end_message,a battleaxe
+data=levelfailmessage,a Dragon Battleaxe
+data=bar,dragon_bar
+data=bar_amount,3
+
+
 [bronze_chainbody]
 table=smithing
 data=ifproduct,bronze_chainbody
@@ -656,6 +756,17 @@ data=levelrequired,96
 data=end_message,a chain mail body
 data=levelfailmessage,a Rune Chainbody
 data=bar,runite_bar
+data=bar_amount,3
+
+[dragon_chainbody]
+table=smithing
+data=ifproduct,dragon_chainbody
+data=product,dragon_chainbody
+data=product_amount,1
+data=levelrequired,99
+data=end_message,a chain mail body
+data=levelfailmessage,a Dragon Chainbody
+data=bar,dragon_bar
 data=bar_amount,3
 
 [bronze_platelegs]
@@ -724,6 +835,17 @@ data=levelfailmessage,a pair of Rune Platelegs
 data=bar,runite_bar
 data=bar_amount,3
 
+[dragon_platelegs]
+table=smithing
+data=ifproduct,dragon_platelegs
+data=product,dragon_platelegs
+data=product_amount,1
+data=levelrequired,99
+data=end_message,a pair of plate legs
+data=levelfailmessage,a pair of Dragon Platelegs
+data=bar,dragon_bar
+data=bar_amount,3
+
 [bronze_plateskirt]
 table=smithing
 data=ifproduct,bronze_plateskirt
@@ -788,6 +910,17 @@ data=levelrequired,99
 data=end_message,a plate skirt
 data=levelfailmessage,a Rune Plateskirt
 data=bar,runite_bar
+data=bar_amount,3
+
+[dragon_plateskirt]
+table=smithing
+data=ifproduct,dragon_plateskirt
+data=product,dragon_plateskirt
+data=product_amount,1
+data=levelrequired,99
+data=end_message,a plate skirt
+data=levelfailmessage,a Dragon Plateskirt
+data=bar,dragon_bar
 data=bar_amount,3
 
 [bronze_platebody]
@@ -856,6 +989,17 @@ data=levelfailmessage,a Rune Platebody
 data=bar,runite_bar
 data=bar_amount,5
 
+[dragon_platebody]
+table=smithing
+data=ifproduct,dragon_platebody
+data=product,dragon_platebody
+data=product_amount,1
+data=levelrequired,99
+data=end_message,a plate body
+data=levelfailmessage,a Dragon Platebody
+data=bar,dragon_bar
+data=bar_amount,5
+
 [bronze_med_helm]
 table=smithing
 data=ifproduct,bronze_med_helm
@@ -922,6 +1066,17 @@ data=levelfailmessage,a Rune Med Helm
 data=bar,runite_bar
 data=bar_amount,1
 
+[dragon_med_helm]
+table=smithing
+data=ifproduct,dragon_med_helm
+data=product,dragon_med_helm
+data=product_amount,1
+data=levelrequired,99
+data=end_message,a medium helmet
+data=levelfailmessage,a Dragon Med Helm
+data=bar,dragon_bar
+data=bar_amount,2
+
 [bronze_full_helm]
 table=smithing
 data=ifproduct,bronze_full_helm
@@ -986,6 +1141,17 @@ data=levelrequired,92
 data=end_message,a full helm
 data=levelfailmessage,a Rune Full Helm
 data=bar,runite_bar
+data=bar_amount,2
+
+[dragon_full_helm]
+table=smithing
+data=ifproduct,dragon_full_helm
+data=product,dragon_full_helm
+data=product_amount,1
+data=levelrequired,99
+data=end_message,a full helm
+data=levelfailmessage,a Dragon Full Helm
+data=bar,dragon_bar
 data=bar_amount,2
 
 [bronze_sq_shield]
@@ -1054,6 +1220,17 @@ data=levelfailmessage,a Rune Sq Shield
 data=bar,runite_bar
 data=bar_amount,2
 
+[dragon_sq_shield_r]
+table=smithing
+data=ifproduct,dragon_sq_shield_r
+data=product,dragon_sq_shield_r
+data=product_amount,1
+data=levelrequired,93
+data=end_message,a square shield
+data=levelfailmessage,a Dragon Sq Shield
+data=bar,dragon_bar
+data=bar_amount,2
+
 [bronze_kiteshield]
 table=smithing
 data=ifproduct,bronze_kiteshield
@@ -1118,6 +1295,17 @@ data=levelrequired,97
 data=end_message,a kiteshield
 data=levelfailmessage,a Rune Kiteshield
 data=bar,runite_bar
+data=bar_amount,3
+
+[dragon_kiteshield]
+table=smithing
+data=ifproduct,dragon_kiteshield
+data=product,dragon_kiteshield
+data=product_amount,1
+data=levelrequired,99
+data=end_message,a kiteshield
+data=levelfailmessage,a Dragon Kiteshield
+data=bar,dragon_bar
 data=bar_amount,3
 
 [bronze_dart_tip]
@@ -1186,6 +1374,17 @@ data=levelfailmessage,Rune Dart Tips
 data=bar,runite_bar
 data=bar_amount,1
 
+[dragon_dart_tip]
+table=smithing
+data=ifproduct,dragon_dart_tip
+data=product,dragon_dart_tip
+data=product_amount,10
+data=levelrequired,99
+data=end_message,ten dart tips
+data=levelfailmessage,Dragon Dart Tips
+data=bar,dragon_bar
+data=bar_amount,1
+
 [bronze_arrowheads]
 table=smithing
 data=ifproduct,bronze_arrowheads
@@ -1250,6 +1449,17 @@ data=levelrequired,90
 data=end_message,fifteen arrow heads
 data=levelfailmessage,Rune Arrowheads
 data=bar,runite_bar
+data=bar_amount,1
+
+[dragon_arrowheads]
+table=smithing
+data=ifproduct,dragon_arrowheads
+data=product,dragon_arrowheads
+data=product_amount,15
+data=levelrequired,99
+data=end_message,fifteen arrow heads
+data=levelfailmessage,Dragon Arrowheads
+data=bar,dragon_bar
 data=bar_amount,1
 
 [bronze_knife]
@@ -1318,6 +1528,17 @@ data=levelfailmessage,Rune Knives
 data=bar,runite_bar
 data=bar_amount,1
 
+[dragon_knife]
+table=smithing
+data=ifproduct,dragon_knife
+data=product,dragon_knife
+data=product_amount,5
+data=levelrequired,99
+data=end_message,five throwing knives
+data=levelfailmessage,Dragon Knives
+data=bar,dragon_bar
+data=bar_amount,1
+
 [bronze_wire]
 table=smithing
 data=ifproduct,bronzecraftwire
@@ -1344,9 +1565,9 @@ data=bar_amount,1
 table=smithing
 data=ifproduct,nails
 data=product,nails
-data=product_amount,2
+data=product_amount,6
 data=levelrequired,34
-data=end_message,two nails
+data=end_message,six nails
 data=levelfailmessage,Nails
 data=bar,steel_bar
 data=bar_amount,1

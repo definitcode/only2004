@@ -6,3 +6,33 @@
 [opheld2,black_dragonhide_body] @levelrequire_ranged_and_defence(80, 80, last_slot);
 
 // Magic
+[opheld2,zamhat] @levelrequire_magic_and_defence(90, 90, last_slot);
+[opheld2,zamrobebottom] @levelrequire_magic_and_defence(90, 90, last_slot);
+[opheld2,zamrobetop] @levelrequire_magic_and_defence(90, 90, last_slot);
+[opheld2,zamboots] @levelrequire_magic_and_defence(90, 90, last_slot);
+[opheld2,dragon_crossbow] @levelrequire_ranged(99, last_slot);
+
+
+
+//Skill Capes
+
+[opheld2,attack_cape]         @levelrequire_skill_cape(attack, last_slot);
+[opheld2,strength_cape]       @levelrequire_skill_cape(strength, last_slot);
+[opheld2,defence_cape]        @levelrequire_skill_cape(defence, last_slot);
+[opheld2,ranged_cape]         @levelrequire_skill_cape(ranged, last_slot);
+[opheld2,prayer_cape]         @levelrequire_skill_cape(prayer, last_slot);
+[opheld2,magic_cape]          @levelrequire_skill_cape(magic, last_slot);
+[opheld2,runecrafting_cape]   @levelrequire_skill_cape(runecraft, last_slot);
+[opheld2,hitpoints_cape]      @levelrequire_skill_cape(hitpoints, last_slot);
+[opheld2,agility_cape]        @levelrequire_skill_cape(agility, last_slot);
+[opheld2,herblore_cape]       @levelrequire_skill_cape(herblore, last_slot);
+[opheld2,thieving_cape]       @levelrequire_skill_cape(thieving, last_slot);
+[opheld2,crafting_cape]       @levelrequire_skill_cape(crafting, last_slot);
+[opheld2,fletching_cape]      @levelrequire_skill_cape(fletching, last_slot);
+[opheld2,mining_cape]         @levelrequire_skill_cape(mining, last_slot);
+[opheld2,blacksmithing_cape]  @levelrequire_skill_cape(smithing, last_slot);
+[opheld2,fishing_cape]        @levelrequire_skill_cape(fishing, last_slot);
+[opheld2,cooking_cape]        @levelrequire_skill_cape(cooking, last_slot);
+[opheld2,firemaking_cape]     @levelrequire_skill_cape(firemaking, last_slot);
+[opheld2,woodcutting_cape]    @levelrequire_skill_cape(woodcutting, last_slot);
+[opheld2,max_cape]            @levelrequire_max_cape(99, last_slot);

@@ -1,2 +1,24 @@
 [queue,oghometele]
 p_teleport(0_50_50_32_32);
+
+
+[proc,inv_find](inv $inv, obj $item, int $start_slot)(int)
+if ($inv = null) {
+    return(-1);
+}
+def_int $int3 = inv_size($inv);
+if ($start_slot < 0 | $start_slot >= $int3) {
+    return(-1);
+}
+if (inv_total($inv, $item) < 1) {
+    return(-1);
+}
+def_obj $obj4 = null;
+while ($start_slot < $int3) {
+    $obj4 = inv_getobj($inv, $start_slot);
+    if ($obj4 = $item) {
+        return($start_slot);
+    }
+    $start_slot = calc($start_slot + 1);
+}
+return(-1);

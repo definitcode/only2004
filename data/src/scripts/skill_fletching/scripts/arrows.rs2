@@ -83,4 +83,8 @@ if ($arrows_count > 1) {
     mes("You attach <~add_article($metal)> head to your arrow."); // guess
 }
 stat_advance(fletching, multiply($arrows_count, db_getfield($data, fletching_table:experience, 0)));
+if (inv_total(worn, headband_red) > 0) {
+            stat_advance(fletching, multiply($arrows_count, db_getfield($data, fletching_table:experience, 0)));
+            mes("Your fletching skills are showing!");
+}
 inv_add(inv, $product, $arrows_count);

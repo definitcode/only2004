@@ -45,7 +45,6 @@ if_settab(null, ^tab_musicplayer);
 
 ~tutorial_set_active_tabs;
 ~tutorial_set_npc_hints;
-
 if (%tutorial_progress = ^runescape_guide_start) {
     p_telejump(0_48_48_22_34);
     if_openmain(player_kit);
@@ -307,32 +306,48 @@ tut_close();
 if_close;
 
 %tutorial_progress = ^tutorial_complete;
-p_telejump(0_50_50_22_22);
 
-inv_clear(inv);
-inv_add(inv, bronze_axe, 1);
-inv_add(inv, tinderbox, 1);
-inv_add(inv, net, 1);
-inv_add(inv, shrimp, 1);
-inv_add(inv, bucket_empty, 1);
-inv_add(inv, pot_empty, 1);
-inv_add(inv, bread, 1);
-inv_add(inv, bronze_pickaxe, 1);
-inv_add(inv, bronze_dagger, 1);
-inv_add(inv, bronze_sword, 1);
-inv_add(inv, wooden_shield, 1);
-inv_add(inv, shortbow, 1);
-inv_add(inv, bronze_arrow, 25);
-inv_add(inv, airrune, 25);
-inv_add(inv, mindrune, 15);
-inv_add(inv, waterrune, 6);
-inv_add(inv, earthrune, 4);
-inv_add(inv, bodyrune, 2);
+def_int $choice = ~p_choice2_header("Normal.", 1, "Hardcore.", 2, "Which gamemode would you like to play ?");
+
+switch_int($choice) {
+    case 1 : %gamemode_selected = ^gamemode_none;
+    case 2 : %gamemode_selected = ^gamemode_hardcore;
+}
+
+p_telejump(0_50_50_22_22);
 
 inv_clear(worn);
 inv_clear(bank);
-inv_add(bank, coins, 25);
 
+if (%gamemode_selected = ^gamemode_none) {
+    inv_clear(inv);
+    inv_add(inv, bronze_axe, 1);
+    inv_add(inv, tinderbox, 1);
+    inv_add(inv, net, 1);
+    inv_add(inv, shrimp, 1);
+    inv_add(bank, bucket_empty, 1);
+    inv_add(bank, pot_empty, 1);
+    inv_add(inv, bread, 1);
+    inv_add(inv, bronze_pickaxe, 1);
+    inv_add(bank, bronze_dagger, 1);
+    inv_add(inv, bronze_sword, 1);
+    inv_add(inv, wooden_shield, 1);
+    inv_add(inv, shortbow, 1);
+    inv_add(inv, bronze_arrow, 25);
+    inv_add(inv, airrune, 25);
+    inv_add(inv, mindrune, 15);
+    inv_add(inv, waterrune, 6);
+    inv_add(inv, earthrune, 4);
+    inv_add(inv, bodyrune, 2);
+} else if (%gamemode_selected = ^gamemode_hardcore) {
+    inv_clear(inv);
+    inv_add(inv, hc_bronze_scimitar, 1);
+    inv_add(inv, hc_iron_full_helm, 1);
+    inv_add(inv, hc_iron_platebody, 1);
+    inv_add(inv, hc_iron_platelegs, 1);
+    inv_add(inv, hc_iron_kiteshield, 1);    
+}
+inv_add(bank, coins, 25);
 ~stat_reset_all;
 healenergy(10000);
 

@@ -60,7 +60,7 @@ param=owned_shop,runiteshop
 param=shop_sell_multiplier,1000
 param=shop_buy_multiplier,600
 param=shop_delta,20
-param=shop_title,Scavvo's Rune Store.
+param=shop_title,Scavvo's Armor Store.
 moverestrict=indoors
 
 [guild_master]

@@ -31,6 +31,17 @@ stock4=mithril_pickaxe,3,300
 stock5=adamant_pickaxe,2,500
 stock6=rune_pickaxe,1,700
 
+[essencemine_shop]
+scope=shared
+size=40
+restock=yes
+stackall=yes
+allstock=no
+stock1=bronze_pickaxe,1,100
+stock2=iron_pickaxe,2,12000
+stock3=steel_pickaxe,1,25000
+
+
 [generaldwarf]
 // https://oldschool.runescape.wiki/w/Dwarven_shopping_store
 // https://storage.googleapis.com/tannerdino/images/ShopsgeneralDwarf.png (date 2006-11-06)

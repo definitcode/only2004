@@ -47,6 +47,10 @@ mes("You see a flash as something travels from Viyeldi into the dagger.");
 p_delay(2);
 mes("The dagger glows brightly as Viyeldi crumples to the floor.");
 npc_del;
+if(inv_total(worn, deathdaggerdone) > 0) {
+    inv_del(worn,deathdaggerdone, 1);
+    inv_add(inv, deathdaggerdone,1);
+}
 
 // not checked in ap script, not checked on manual cast
 [opnpc2,viyeldi]

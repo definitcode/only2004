@@ -43,7 +43,9 @@ if ((inv_totalcat(inv, armour_hands) > 0 | inv_totalcat(worn, armour_hands) > 0)
     | (inv_totalcat(inv, weapon_spear) > 0 | inv_totalcat(worn, weapon_spear) > 0) 
     | (inv_totalcat(inv, weapon_spiked) > 0 | inv_totalcat(worn, weapon_spiked) > 0) 
     | (inv_totalcat(inv, weapon_thrown) > 0 | inv_totalcat(worn, weapon_thrown) > 0) 
-    | (inv_totalcat(inv, weapon_scythe) > 0 | inv_totalcat(worn, weapon_scythe) > 0) 
+    | (inv_totalcat(inv, weapon_scythe) > 0 | inv_totalcat(worn, weapon_scythe) > 0)
+    | (inv_totalcat(inv, hc_armour) > 0 | inv_totalcat(worn, hc_armour) > 0) 
+    | (inv_totalcat(inv, hc_weapon) > 0 | inv_totalcat(worn, hc_weapon) > 0)  
     | (inv_totalcat(inv, weapon_bow) > 0 | inv_totalcat(worn, weapon_bow) > 0) 
     | (inv_totalcat(inv, cannon_parts) > 0)) {
     return(true);

@@ -42,7 +42,7 @@ if (%npc_action_delay > map_clock) {
     return;
 }
 if (~npc_can_attack_player = false) {
-    npc_setmode(null);
+    ~dragon_fire;
     return;
 }
 // edit: elvarg was reworked after the dragon slayer rework.
@@ -89,12 +89,14 @@ def_int $attack_roll = ~npc_magic_attack_roll_no_prot;
 def_int $defence_roll = ~player_defence_roll_specific(npc_param(damagetype));
 
 // damage player
-def_int $maxhit = 30;
+def_int $maxhit = 50;
 if (inv_total(worn, antidragonbreathshield) > 0) {
-    $maxhit = 5;
+    $maxhit = 30;
     mes("Your shield absorbs most of the dragon fire!"); // late 2004
 } else if (%prayer_protectfrommagic = ^true) {
-    $maxhit = 10;
+    $maxhit = 25;
+} else if (inv_total(worn,dragon_sq_shield) > 0) {
+    $maxhit = 15;
 } else if (randominc($attack_roll) > randominc($defence_roll)) {
     $maxhit = add($maxhit, 20);
     // these messages only show for unprotected or antifire protected players

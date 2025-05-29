@@ -751,7 +751,7 @@ script1op1=pushvar,smithing_level
 script1=gt,6
 center=yes
 font=p12
-text=Long sword
+text=Longsword
 activecolour=0xFFFFFF
 
 [com_92]

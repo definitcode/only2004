@@ -1,6 +1,6 @@
 [newcomer_map]
 name=Newcomer map
-desc=Issued by RuneScape Council to all new citizens.
+desc=Issued by The Shadow Council to all new citizens.
 model=model_2774_obj
 2dxof=-1
 2dyof=56
@@ -8,5 +8,6 @@ model=model_2774_obj
 2dyan=1716
 2dxan=264
 iop1=Read
+iop4=Menu
 weight=18oz
 cost=1

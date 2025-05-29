@@ -52,6 +52,10 @@ if (oc_param($ingredient, next_obj_stage) ! null) {
 // if finished cocktail, give xp
 if (oc_category($next_gnome_food) = gnome_cocktail) {
     stat_advance(cooking, 600);
+    if (inv_total(worn, chefshat) > 0) {
+            stat_advance(cooking, 600);
+            mes("Your cooking skills are showing!");
+    }
 }
 
 if (string_length(oc_param($ingredient, cocktail_message)) < 1) {

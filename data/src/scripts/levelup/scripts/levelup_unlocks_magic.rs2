@@ -44,4 +44,6 @@ switch_int(stat_base(magic)) {
     case 75 : ~objbox(battlestaff, "Members can now cast @dbl@Fire Wave@bla@!", 250, 0, 0);
     case 79 : ~objbox(battlestaff, "Members can now cast @dbl@Entangle@bla@!", 250, 0, 0);
     case 80 : ~objbox(battlestaff, "Members can now cast @dbl@Stun@bla@!", 250, 0, 0);
+    case 90 : ~objbox(zamorak_staff, "Members can now use @dbl@Zamorak Items@bla@!", 250, 0, 0);
+    case 99 : ~mesbox("Magic Cape is now wearable!");
 }

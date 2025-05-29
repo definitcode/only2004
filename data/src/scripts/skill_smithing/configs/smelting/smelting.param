@@ -6,6 +6,15 @@ default=0
 type=namedobj
 default=null
 
+
+[ingredient_third_count]
+type=int
+default=0
+
+[ingredient_third]
+type=namedobj
+default=null
+
 [smelting_struct]
 type=struct
 default=null

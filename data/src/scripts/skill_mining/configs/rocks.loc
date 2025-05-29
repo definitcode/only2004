@@ -331,6 +331,34 @@ category=mining_rock_normal
 param=next_loc_stage_mining,plainrock2
 param=macro_gas,macro_runiterock2
 
+[dragonrock1]
+name=Rocks
+desc=A rocky outcrop.
+model=plainrock1
+op1=Mine
+op2=Prospect
+op3=hidden
+mapscene=12
+blockrange=no
+recol1s=6342
+recol1d=14336
+category=mining_rock_normal
+param=next_loc_stage_mining,plainrock1
+
+[dragonrock2]
+name=Rocks
+desc=A rocky outcrop.
+model=plainrock2
+op1=Mine
+op2=Prospect
+op3=hidden
+mapscene=12
+blockrange=no
+recol1s=6342
+recol1d=14336
+category=mining_rock_normal
+param=next_loc_stage_mining,plainrock2
+
 [clayrock1]
 name=Rocks
 desc=A rocky outcrop.

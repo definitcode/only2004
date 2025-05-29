@@ -27,6 +27,10 @@ loc_anim(ropeswing_long);
 ~agility_exactmove(human_ropeswing_long, 20, 1, $start_pos, movecoord($start_pos, 0, 0, -5), 45, 70, ^exact_south, false);
 mes("You skillfully swing across.");
 stat_advance(agility, 200);
+if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 200);
+            mes("Your agility skills are showing!");
+}
 ~update_barbarian_varp(1);
 
 [oploc1,barbarian_log_balance]
@@ -86,6 +90,10 @@ p_teleport(movecoord(coord, 0, 0, -1));
 mes("You skillfully edge across the gap.");
 p_delay(0);
 stat_advance(agility, 200);
+if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 200);
+            mes("Your agility skills are showing!");
+}
 ~update_barbarian_varp(4);
 
 [oploc1,barbarian_crumblingwall] 
@@ -98,6 +106,10 @@ def_coord $start = movecoord(loc_coord, -1, 0, 0);
 ~forcewalk2($start);
 ~agility_exactmove(human_walk_crumbledwall, 30, 2, $start, movecoord($start, 2, 0, 0), 30, 100, ^exact_east, true);
 stat_advance(agility, 125);
+if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 125);
+            mes("Your agility skills are showing!");
+}
 if(loc_coord = 0_39_55_46_33) {
     ~update_barbarian_varp(5);
 }
@@ -123,6 +135,10 @@ if(%barb_obstacle_pipe_used >= map_clock) {
 %barb_obstacle_pipe_used = calc(map_clock + 4);
 ~agility_exactmove(human_doublepipesqueeze, 30, 3, $start_coord, movecoord($start_coord, 0, 0, $dist), 30, 126, $dir, true);
 stat_advance(agility, 100);
+if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 100);
+            mes("Your agility skills are showing!");
+}
 p_delay(0);
 
 [proc,update_barbarian_varp](int $completed)
@@ -131,5 +147,9 @@ if(calc(%barbarian_course_progress + 1) >= $completed) {
 }
 if(%barbarian_course_progress = 5) {
     stat_advance(agility, 420);
+    if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 400);
+            mes("Your agility skills are showing!");
+}
     %barbarian_course_progress = 0;
 }

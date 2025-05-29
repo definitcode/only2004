@@ -60,6 +60,10 @@ p_delay(0);
 ~change_merged_loc(movecoord(coord, 0, 0, 1));
 ~agility_exactmove(human_doublepipesqueeze, 30, 3, movecoord(loc_coord, 0, 0, -1), movecoord(loc_coord, 0, 0, 2), 30, 126, ^exact_north, true);
 stat_advance(agility, 125);
+if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 125);
+            mes("Your agility skills are showing!");
+}
 ~update_wilderness_varp(1);
 
 [oploc1,wilderness_rope_swing]
@@ -86,6 +90,10 @@ loc_anim(ropeswing_long);
 ~agility_exactmove(human_ropeswing_long, 20, 1, $start_pos, movecoord($start_pos, 0, 0, 5), 45, 70, ^exact_north, false);
 mes("You skillfully swing across.");
 stat_advance(agility, 200);
+if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 200);
+            mes("Your agility skills are showing!");
+}
 ~update_wilderness_varp(2);
 
 [oploc1,wilderness_stepping_stone]
@@ -103,6 +111,10 @@ if(stat_random(stat(agility), 185, 240) = false) {
 ~agility_exactmove(human_spot_jump, 0, 1, movecoord(loc_coord, -3, 0, 0), movecoord(loc_coord, -4, 0, 0), 15, 30, ^exact_west, false);
 ~agility_exactmove(human_spot_jump, 0, 1, movecoord(loc_coord, -4, 0, 0), movecoord(loc_coord, -5, 0, 0), 15, 30, ^exact_west, false);
 stat_advance(agility, 200);
+if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 200);
+            mes("Your agility skills are showing!");
+}
 mes("...You safely cross to the other side.");
 ~update_wilderness_varp(3);
 
@@ -171,5 +183,9 @@ if(calc(%wilderness_course_progress + 1) >= $completed) {
 }
 if(%wilderness_course_progress = 5) {
     stat_advance(agility, 4989);
+    if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 4989);
+            mes("Your agility skills are showing!");
+    }
     %wilderness_course_progress = 0;
 }

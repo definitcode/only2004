@@ -184,6 +184,7 @@ export const enum ScriptOpcode {
     STAT_SUB,
     STAT_BOOST, // official
     STAT_DRAIN,
+    STAT_RESET2,
     STRONGQUEUE,
     UID, // official
     WEAKQUEUE, // official
@@ -628,6 +629,7 @@ export const ScriptOpcodeMap: Map<string, number> = new Map([
     ['STAT_SUB', ScriptOpcode.STAT_SUB],
     ['STAT_BOOST', ScriptOpcode.STAT_BOOST],
     ['STAT_DRAIN', ScriptOpcode.STAT_DRAIN],
+    ['STAT_RESET2', ScriptOpcode.STAT_RESET2],
     ['STRONGQUEUE', ScriptOpcode.STRONGQUEUE],
     ['UID', ScriptOpcode.UID],
     ['WEAKQUEUE', ScriptOpcode.WEAKQUEUE],

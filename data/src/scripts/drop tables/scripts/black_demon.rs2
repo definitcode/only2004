@@ -22,9 +22,9 @@ if ($random < 4) {
 } else if ($random < 12) {
     obj_add(npc_coord, rune_chainbody, 1, ^lootdrop_duration);
 }else if ($random < 20) {
-    obj_add(npc_coord, airrune, 50, ^lootdrop_duration);
+    obj_add(npc_coord, airrune, 250, ^lootdrop_duration);
 } else if ($random < 27) {
-    obj_add(npc_coord, chaosrune, 50, ^lootdrop_duration);
+    obj_add(npc_coord, chaosrune, 75, ^lootdrop_duration);
 } else if ($random < 31) {
     obj_add(npc_coord, bloodrune, 7, ^lootdrop_duration);
 } else if ($random < 32) {
@@ -51,8 +51,11 @@ if ($random < 4) {
     obj_add(npc_coord, 3dose1defense, 1, ^lootdrop_duration);
 } else if ($random < 123) {
     obj_add(npc_coord, macro_genilamp, 1, ^lootdrop_duration);
+    obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
+    obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
 } else if ($random < 127) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
+    obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
 } else if ($random < 128) {
     obj_add(npc_coord, ~ultrarare_getitem, ^lootdrop_duration);
 }

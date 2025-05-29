@@ -51,7 +51,10 @@ sound_synth(furnace,0,0);
 mes("You heat the sand and soda ash in the furnace to make glass.");
 // give xp
 stat_advance(crafting, 200);
-
+if (inv_total(worn, brown_apron) > 0) {
+    stat_advance(crafting, 200);
+    mes("Your crafting skills are showing!");
+}
 
 [label,craft_glass_interface]
 if (map_members = false) {
@@ -89,3 +92,7 @@ anim(human_glassblowing,0);
 mes("You make <$name>.");
 // give xp
 stat_advance(crafting, struct_param($struct, productexp));
+if (inv_total(worn, brown_apron) > 0) {
+    stat_advance(crafting, struct_param($struct, productexp));
+    mes("Your crafting skills are showing!");
+}

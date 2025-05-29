@@ -76,6 +76,11 @@ model=model_3136_spotanim
 recol1s=15855
 recol1d=3272
 
+[dragon_arrow_travel]
+model=model_3136_spotanim
+recol1s=15855
+recol1d=14336
+
 [ice_arrow_travel]
 model=model_3136_spotanim
 recol1s=14798
@@ -138,6 +143,13 @@ anim=arrow_launch
 hasalpha=yes
 recol1s=15855
 recol1d=6476
+
+[dragon_arrow_launch]
+model=model_3142_spotanim
+anim=arrow_launch
+hasalpha=yes
+recol1s=15855
+recol1d=14336
 
 [ice_arrow_launch]
 model=model_3142_spotanim
@@ -1589,6 +1601,13 @@ recol1d=6476
 recol2s=14798
 recol2d=6476
 
+[dragon_tknife_travel]
+model=model_3139_spotanim
+recol1s=15855
+recol1d=14336
+recol2s=14798
+recol2d=14336
+
 [bronze_tknife_launch]
 model=model_3145_spotanim
 anim=tknife_launch
@@ -1650,6 +1669,15 @@ recol1d=6476
 recol2s=14798
 recol2d=6476
 
+[dragon_tknife_launch]
+model=model_3145_spotanim
+anim=tknife_launch
+hasalpha=yes
+recol1s=15855
+recol1d=14336
+recol2s=14798
+recol2d=14336
+
 [bronze_dart_travel]
 model=model_3131_spotanim
 recol1s=21140
@@ -1679,6 +1707,11 @@ recol1d=6438
 model=model_3131_spotanim
 recol1s=21140
 recol1d=6476
+
+[dragon_dart_travel]
+model=model_3131_spotanim
+recol1s=21140
+recol1d=14336
 
 [bronze_dart_launch]
 model=model_3146_spotanim
@@ -1721,6 +1754,13 @@ anim=dart_launch
 hasalpha=yes
 recol1s=21140
 recol1d=6476
+
+[dragon_dart_launch]
+model=model_3146_spotanim
+anim=dart_launch
+hasalpha=yes
+recol1s=21140
+recol1d=14336
 
 [enchant_ring]
 model=model_3370_spotanim

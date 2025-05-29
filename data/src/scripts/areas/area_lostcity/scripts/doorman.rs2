@@ -4,23 +4,23 @@
 [label,door_man_chat]
 ~chatnpc("<p,neutral>You cannot pass through this door without paying the trading tax.");
 ~chatplayer("<p,quiz>What do I need to pay?");
-~chatnpc("<p,neutral>One diamond.");
-def_int $option = ~p_choice3("Okay...", 1, "A diamond? Are you crazy?", 2, "I haven't brought my diamonds with me.", 3);
+~chatnpc("<p,neutral>50,000 coins.");
+def_int $option = ~p_choice3("Okay...", 1, "50,000 coins?! Are you crazy?", 2, "I haven't brought my coin purse with me...", 3);
 if($option = 1) {
     ~chatplayer("<p,neutral>Okay...");
-    if(inv_total(inv, diamond) = 0) {
-        ~chatplayer("<p,sad>I haven't brought my diamonds with me.");
+    if(inv_total(inv, coins) < 50000) {
+        ~chatplayer("<p,sad>I haven't brought my coin purse with me...");
         return;
     }
     if_close;
-    inv_del(inv, diamond, 1);
-    mes("You give the doorman a diamond.");
+    inv_del(inv, coins,50000);
+    mes("You give the doorman 50,000!");
     ~open_and_close_door(loc_1535, ~check_axis(coord, loc_coord, loc_angle), false);
 } else if($option = 2) {
-    ~chatplayer("<p,confused>A diamond?|Are you crazy?");
+    ~chatplayer("<p,confused>50,000?!|Are you crazy?");
     ~chatnpc("<p,neutral>Nope. Those are the rules.");
 } else if($option = 3) {
-    ~chatplayer("<p,sad>I haven't brought my diamonds with me.");
+    ~chatplayer("<p,sad>I haven't brought my coin purse with me...");
 }
 
 [oploc1,loc_2411]

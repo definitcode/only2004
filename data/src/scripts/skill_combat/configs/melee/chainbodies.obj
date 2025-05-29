@@ -155,3 +155,26 @@ param=slashdefence,72
 param=crushdefence,78
 param=magicdefence,-3
 param=rangedefence,65
+
+[dragon_chainbody]
+cost=1000000
+model=model_2558_obj
+recol1s=15855
+recol1d=14336
+2dyof=2
+2dzoom=1100
+2dxan=568
+wearpos=torso
+manwear=model_301_obj_wear,0
+womanwear=model_464_obj_wear,0
+name=Dragon chainbody
+desc=A series of connected metal rings.
+category=armour_body
+iop2=Wear
+weight=15lb
+param=magicattack,-25
+param=stabdefence,75
+param=slashdefence,110
+param=crushdefence,72
+param=magicdefence,-3
+param=rangedefence,75

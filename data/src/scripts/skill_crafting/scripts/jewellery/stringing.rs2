@@ -65,7 +65,10 @@ inv_add(inv, struct_param($struct, strung), 1);
 
 // always 4 crafting xp
 stat_advance(crafting, 40);
-
+if (inv_total(worn, brown_apron) > 0) {
+    stat_advance(crafting, 40);
+    mes("Your crafting skills are showing!");
+}
 // display game message
 def_string $name = struct_param($struct, stringing_name);
 if (string_length($name) < 1) {

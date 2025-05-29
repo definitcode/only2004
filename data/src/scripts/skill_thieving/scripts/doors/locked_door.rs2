@@ -166,6 +166,10 @@ if ($locked = true) {
 
     def_int $experience = db_getfield($data, locked_door:experience, 0);
     stat_advance(thieving, $experience);
+    if (inv_total(worn, highwaymanmask) > 0) {
+            stat_advance(thieving, $experience);
+            mes("Your thieving skills are showing!");
+    }
 
     if ($gate = true) {
         ~open_and_close_metal_gate2($replacement, $entering, $mirror);

@@ -19,6 +19,10 @@ if ($dropint < 5) {
 } else if ($dropint < 20) {
     // 5 slots
     obj_add(npc_coord, yellow_bead, 1, 200);
+} else if ($dropint < 22) {
+    obj_add(npc_coord, blue_bead,1,200);
+} else if ($dropint < 24) {
+    obj_add(npc_coord, brown_bead,1, 200);
 } else if ($dropint < 28) {
     // 8 slots
     obj_add(npc_coord, bolt, 1, 200);

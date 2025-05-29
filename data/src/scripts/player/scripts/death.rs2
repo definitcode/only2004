@@ -17,8 +17,6 @@ p_delay(3);
 [queue,player_death_default]
 ~player_death;
 midi_jingle(^death_jingle_2, ^death_jingle_2_millis);
-// https://storage.googleapis.com/tannerdino/images/6543.jpg
-// https://youtu.be/gWmwSYxzUfo
 mes("Oh dear you are dead!");
 
 ~combat_clearqueue;
@@ -30,23 +28,41 @@ if (findhero = true) {
     session_log(^log_moderator, "Player died to <.displayname>");
 } else {
     ~player_death_lose_items;
-    // todo: what npc killed the player
     session_log(^log_moderator, "Player died");
 }
+
+if (%gamemode_selected = ^gamemode_hardcore){
+    inv_clear(bank);
+    inv_clear(inv);
+    inv_clear(worn);
+    ~reset();
+    ~stat_reset_all;
+    p_teleport(0_48_48_22_35);
+    buildappearance(worn);
+    ~prayer_deactivate_all;
+    ~follower_death;
+    anim(null, 0);
+    p_stopaction;
+    healenergy(10000);
+    ~clear_pk_skull;
+    ~clear_poison;
+    ~update_all($prev_wep);
+    ~initalltabs;
+    @start_tutorial;
+}
+
 p_teleport(map_findsquare(0_50_50_21_18, 0, 2, ^map_findsquare_lineofwalk));
 buildappearance(worn);
 ~prayer_deactivate_all;
 ~follower_death;
 anim(null, 0);
 p_stopaction;
-
 ~stat_reset_all;
 healenergy(10000);
 ~clear_pk_skull;
 ~clear_poison;
 ~update_all($prev_wep);
 ~initalltabs;
-// todo: end poison timer ~player_end_poison
 
 [proc,player_death_lose_items]
 if (staffmodlevel > 1 & map_production = true) { return; }

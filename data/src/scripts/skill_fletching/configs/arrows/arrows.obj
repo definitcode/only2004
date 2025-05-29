@@ -108,6 +108,25 @@ stackable=yes
 cost=200
 weight=4g
 
+[dragon_arrowheads]
+category=category_968
+name=Dragon arrowtips
+desc=I can make an arrow with these.
+model=model_2551_obj
+recol1s=14798
+recol1d=14336
+recol2s=14798
+recol2d=14336
+2dxof=4
+2dyof=4
+2dzoom=780
+2dyan=176
+2dxan=440
+members=yes
+stackable=yes
+cost=200
+weight=4g
+
 [arrow_shaft]
 name=Arrow shaft
 desc=A wooden arrow shaft

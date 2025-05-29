@@ -25,7 +25,7 @@ maxrange=20
 // https://youtu.be/KhI0x-fSKac?list=PLn23LiLYLb1bYAFU3Vdk3N9niuHs-b-4-&t=147
 // best video i could find
 huntrange=20
-attackrange=15
+attackrange=20
 // based on this video. Should be double the respawn of this https://youtu.be/P8BxiqEV7ws
 respawnrate=360
 hitpoints=255
@@ -33,11 +33,11 @@ attack=255
 strength=255
 defence=200
 magic=255
-param=stabdefence,255
-param=slashdefence,255
-param=crushdefence,175
-param=magicdefence,175
-param=rangedefence,175
+param=stabdefence,160
+param=slashdefence,160
+param=crushdefence,90
+param=magicdefence,190
+param=rangedefence,190
 param=damagetype,^stab_style
 param=attack_anim,dragon_attack
 param=defend_anim,dragon_block

@@ -22,6 +22,9 @@ switch_obj (last_useitem)
 
 
 [label,make_softclay](obj $water_source)
+if (getqueue(make_softclay_repeat) > 0) {
+    clearqueue(make_softclay_repeat);
+}
 // https://youtu.be/48JsDRNXWAc?list=PLn23LiLYLb1bQ7Hwp77KoNBjKvpZQTfJT&t=240
 /// clay works the same as rsc
 def_namedobj $empty_source = oc_param($water_source, next_obj_stage);
@@ -35,6 +38,15 @@ inv_add(inv, $empty_source, 1);
 inv_add(inv, softclay, 1);
 p_delay(1); // 2 ticks
 mes("You now have some soft workable clay.");
+queue(make_softclay_repeat, 2, $water_source);
+
+[queue,make_softclay_repeat](obj $water_source)
+if (inv_total(inv, $water_source) > 0 & inv_total(inv, clay) > 0) {
+    def_int $slot = ~inv_find(inv, $water_source, 0);
+    if ($slot >= 0) {
+        @make_softclay(inv_getobj(inv, $slot));
+    }
+}
 
 [label,craft_pottery_interface] 
 def_namedobj $choice = ~multiobj3(
@@ -54,6 +66,9 @@ if ($choice = null) {
 // Before sep 2004, it was likely just a p_delay()
 [label,craft_pottery](namedobj $item)
 if_close;
+if (getqueue(craft_pottery_repeat) > 0) {
+    clearqueue(craft_pottery_repeat);
+}
 def_struct $struct = oc_param($item, crafting_pottery_struct);
 def_string $name = lowercase(oc_name($item));
 // Check level
@@ -69,10 +84,23 @@ p_delay(2);
 inv_del(inv, softclay, 1);
 inv_add(inv, $item, 1);
 stat_advance(crafting, struct_param($struct, processexp));
+if (inv_total(worn, brown_apron) > 0) {
+    stat_advance(crafting, struct_param($struct, processexp));
+    mes("Your crafting skills are showing!");
+}
 mes("You make the clay into a <substring($name, 8, string_length($name))>.");
+queue(craft_pottery_repeat, 2, $item);
+
+[queue,craft_pottery_repeat](namedobj $last)
+if (inv_total(inv, softclay) > 0) {
+    @craft_pottery($last);
+}
 
 // No level req for some reason (does have a success chance though)
 [label,fire_pottery](int $last)
+if (getqueue(fire_pottery_repeat) > 0) {
+    clearqueue(fire_pottery_repeat);
+}
 def_obj $last_obj = inv_getobj(inv, $last);
 def_struct $struct = oc_param($last_obj, crafting_pottery_struct);
 mes("You put the <oc_name(struct_param($struct, product))> in the oven.");
@@ -92,51 +120,20 @@ inv_del(inv, $last_obj, 1);
 if (stat_random(stat(crafting), 180, 800) = true) {
     inv_add(inv, $product, 1);
     stat_advance(crafting, struct_param($struct, productexp));
+    if (inv_total(worn, brown_apron) > 0) {
+        stat_advance(crafting, struct_param($struct, processexp));
+        mes("Your crafting skills are showing!");
+    }
     mes("You remove the <oc_name($product)> from the oven.");
 } else {
     mes("The <oc_name($product)> cracks in the oven.");
 }
+queue(fire_pottery_repeat, 2, $last_obj);
 
-
-//-------------------------------
-
-// // No level req for some reason (does have a success chance though)
-// [label,fire_pottery](int $last)
-// def_namedobj $last_obj = inv_getobj(inv, $last);
-// def_struct $struct = oc_param($last, crafting_pottery_struct);
-// // skill clock used to prevent spamming.
-// if (%action_delay < map_clock) {
-//     %action_delay = calc(map_clock + 5);
-//     // "You put a x in the oven."
-//     mes("You put the <oc_name(struct_param($struct, product))> in the oven.");
-//     sound_synth(furnace, 0, 0);
-//     anim(human_furnace, 0); //plays once here and once in weak queue
-//     weakqueue(firing_pottery, 1, $struct);
-// } else {
-//     weakqueue(start_firing_pottery, calc(%action_delay - map_clock - 1), $struct);
-// }
-// //-------------------------------
-
-// [weakqueue,start_firing_pottery](struct $struct)
-// mes(tostring(map_clock));
-// %action_delay = calc(map_clock + 5);
-// mes("You put the <oc_name(struct_param($struct, product))> in the oven.");
-// sound_synth(furnace, 0, 0);
-// anim(human_furnace, 0); //plays once here and once in weak queue
-// weakqueue(firing_pottery, 1, $struct); //idk why its delay of 5 but it works
-
-// [weakqueue,firing_pottery](struct $struct)
-// mes("The <oc_name(struct_param($struct, product))> hardens in the oven.");
-// weakqueue(finish_firing_pottery, 3, $struct);
-
-// [weakqueue,finish_firing_pottery](struct $struct)
-// def_namedobj $product = struct_param($struct, product);
-// //anim(human_furnace, 0);
-// //todo success chances
-
-// // delete unfired item
-// inv_del(inv, struct_param($struct, namedobj), 1);
-// // add fired item
-// inv_add(inv, $product, 1);
-// mes("You remove the <oc_name($product)> from the oven.");
-// stat_advance(crafting, struct_param($struct, productexp));
+[queue,fire_pottery_repeat](obj $last)
+if (inv_total(inv, $last) > 0 & busy2 = false) {
+    def_int $slot = ~inv_find(inv, $last, 0);
+    if ($slot >= 0) {
+        @fire_pottery($slot);
+    }
+}

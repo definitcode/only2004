@@ -41,4 +41,5 @@ if ($random < 3) {
     obj_add(npc_coord, coins, 15, ^lootdrop_duration);
 } else if ($random < 97) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
+    obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
 }

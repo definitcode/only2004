@@ -6,9 +6,9 @@ if (inv_freespace(inv) = 0) {
 
 // Temp note: dur does not need updated
 loc_change(loc_param(next_loc_stage), 500);
-inv_add(inv, banana, 1);
+inv_add(inv, banana, 4);
 
-mes("You pick a banana.");
+mes("You pick a bunch of bananas.");
 sound_synth(pick, 0, 0);
 
 [oploc1,banana_tree_0]

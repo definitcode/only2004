@@ -28,3 +28,7 @@ mes("You carefully construct a small parcel out of the palm leaf.");
 mes("The palm leaf should protect the meat from being burnt.");
 
 stat_advance(cooking, 100);
+if (inv_total(worn, chefshat) > 0) {
+            stat_advance(cooking, 100);
+            mes("Your cooking skills are showing!");
+}

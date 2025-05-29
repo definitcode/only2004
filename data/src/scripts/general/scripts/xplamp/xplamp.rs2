@@ -109,6 +109,11 @@ inv_del(inv, macro_genilamp, 1);
 
 def_int $base_level = stat_base($stat);
 stat_advance($stat, multiply($base_level, 100)); // stat level * 10
+if (inv_total(inv, max_cape) > 0){
+    stat_advance($stat, multiply($base_level, 100)); // stat level * 10
+    ~mesbox("You have shown your excellence in action!");
+    anim(emote_dance,0);
+}
 sound_synth(found_gem, 0, 0);
 
 ~mesbox("Your wish has been granted!|You have been awarded <tostring(multiply($base_level, 10))> <enum(stat, string, stat_names, $stat)> experience!");

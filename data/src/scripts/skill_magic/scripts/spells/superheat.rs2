@@ -1,6 +1,10 @@
 [opheldt,magic:superheat_item]@magic_spell_superheat(^superheat_item, last_item);
 
 [label,magic_spell_superheat](int $spell, obj $ore1)
+if (getqueue(superheat_repeat) > 0) {
+    clearqueue(superheat_repeat);
+    return;
+}
 // look for spell in db
 def_dbrow $spell_data = ~get_spell_data($spell);
 if (~check_spell_requirements($spell_data)= false) {
@@ -49,6 +53,10 @@ def_int $smith_xp = struct_param($bar_struct, productexp);
 if ($bar = gold_bar & inv_total(worn, gauntlets_of_goldsmithing) > 0) {
     $smith_xp = scale(5, 2, $smith_xp); // 2.5x
 }
+if ($bar = steel_bar & inv_total(worn, steel_gauntlets) > 0) {
+    $smith_xp = scale(5, 2, $smith_xp); // 2.5x
+    mes("Your smithing skills are showing!");
+}
 stat_advance(smithing, $smith_xp);
 // delete ores and give bar
 inv_del(inv, $ore1, 1);
@@ -56,5 +64,16 @@ if ($ore2 ! null) {
     inv_del(inv, $ore2, struct_param($bar_struct, ingredient_secondary_count));
 }
 inv_add(inv, $bar, 1);
-if_settabactive(^tab_magic);
-p_delay(1);
+// if_settabactive(^tab_magic);
+// p_delay(1);
+
+queue(superheat_repeat, 3, $ore1);
+
+//---queue to repeat superheating.
+[queue,superheat_repeat](obj $ore1)
+if(inv_total(inv, $ore1) > 0) {
+    def_int $slot = ~inv_find(inv, $ore1, 0);
+    if ($slot >= 0) {
+        @magic_spell_superheat(^superheat_item, inv_getobj(inv, $slot));
+    }
+}

@@ -21,6 +21,10 @@ if(coordx(coord) > coordx(loc_coord)) {
 p_delay(0);
 ~agility_exactmove(human_walk_crumbledwall, 30, 2, coord, $end, 30, 100, $dir, true);
 stat_advance(agility, 5);
+if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 5);
+            mes("Your agility skills are showing!");
+}
 
 [oploc1,loc_2298]
 if(stat(agility) < 5) {
@@ -29,6 +33,10 @@ if(stat(agility) < 5) {
 }
 p_telejump(movecoord(loc_coord, 0, 0, 3));
 stat_advance(agility, 250);
+if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 250);
+            mes("Your agility skills are showing!");
+}
 mes("You climb over the wall.");
 
 [oploc1,loc_2296]
@@ -135,6 +143,10 @@ loc_anim(ropeswing_long);
 ~agility_exactmove(human_ropeswing_long, 20, 1, coord, loc_param(end_coord), 45, 70, loc_param(dir), false);
 mes("You skillfully swing across.");
 stat_advance(agility, 30);
+if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 30);
+            mes("Your agility skills are showing!");
+}
 
 [oploc1,_monkeybars]
 if(stat(agility) < loc_param(agil_level_req) & coordz(loc_coord) ! 9489 & coordz(loc_coord) ! 9969) {
@@ -175,6 +187,10 @@ p_delay(0);
 ~forcemove(movecoord(coord, 0, 0, calc($dist_mod * 1)));
 ~update_bas;
 stat_advance(agility, 200);
+if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 200);
+            mes("Your agility skills are showing!");
+}
 anim(human_monkeybars_off, 0);
 p_delay(0);
 
@@ -207,7 +223,11 @@ p_teleport($start_coord);
 p_delay(0);
 ~agility_exactmove(human_walk_style, 30, 2, $start_coord, $end_coord, 30, 94, $dir, true);
 p_teleport($walk_coord);
-
+stat_advance(agility, 5);
+if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+        stat_advance(agility, 5);
+        mes("Your agility skills are showing!");
+}
 [oploc1,_karamja_stepping_stone]
 if(coord = loc_coord) {
     mes("You can't do that from here.");
@@ -241,7 +261,15 @@ if(stat_random(stat(agility), 140, 250) = false) {
     mes("After being nearly half drowned.");
     ~damage_self(calc($damage_bound + random($damage_bound) + 1)); // 10 - 20%?
     stat_advance(agility, 10);
+    if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 10);
+            mes("Your agility skills are showing!");
+    }
     return;
 }
 stat_advance(agility, 30);
+if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+            stat_advance(agility, 30);
+            mes("Your agility skills are showing!");
+}
 mes("You manage to make the jump.");

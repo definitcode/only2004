@@ -460,6 +460,10 @@ iop2=Wear
 wearpos=front
 manwear=model_281_obj_wear,0
 womanwear=model_445_obj_wear,0
+param=attackbonus,5
+param=strengthbonus,5
+param=crushdefence,2
+param=magicdefence,2
 weight=10g
 
 [blue_skirt]
@@ -476,6 +480,8 @@ iop2=Wear
 wearpos=legs
 manwear=model_265_obj_wear,0
 womanwear=model_428_idk,0
+param=magicattack,10
+param=magicdefence,5
 weight=2lb
 
 [pink_skirt]
@@ -495,12 +501,12 @@ womanwear=model_428_idk,0
 weight=2lb
 
 [black_skirt]
-cost=2
+cost=3450
 name=Black skirt
 desc=Clothing favoured by women and dark wizards.
 model=model_2521_obj
 recol1s=2340
-recol1d=4226
+recol1d=2112
 2dyof=1
 2dzoom=1940
 2dxan=572
@@ -509,6 +515,8 @@ wearpos=legs
 manwear=model_265_obj_wear,0
 womanwear=model_428_idk,0
 weight=2lb
+param=magicattack,15
+param=magicdefence,5
 
 [eye_patch]
 name=Eye patch
@@ -530,7 +538,7 @@ members=yes
 [zamrobebottom]
 name=Robe of zamorak
 desc=A robe worn by worshippers of Zamorak.
-cost=30
+cost=32000
 model=model_2521_obj
 recol1s=2340
 recol1d=19489
@@ -544,8 +552,8 @@ womanwear=model_428_idk,0
 weight=2lb
 members=yes
 param=zamorakitem,1
-param=magicattack,2
-param=magicdefence,3
+param=magicattack,60
+param=magicdefence,10
 param=prayerbonus,3
 
 [zamrobetop]
@@ -554,7 +562,7 @@ desc=A robe worn by worshippers of Zamorak.
 model=model_2786_obj
 recol1s=14724
 recol1d=19489
-cost=40
+cost=1000000
 2dyof=7
 2dzoom=1370
 2dxan=536
@@ -568,8 +576,8 @@ womanwear2=model_456_idk
 weight=2lb
 members=yes
 param=zamorakitem,1
-param=magicattack,2
-param=magicdefence,3
+param=magicattack,60
+param=magicdefence,10
 param=prayerbonus,3
 
 [cape_of_legends]
@@ -698,14 +706,14 @@ wearpos2=lefthand
 manwear=model_507_obj_wear,0
 womanwear=model_507_obj_wear,0
 weight=7lb
-param=stabattack,3
-param=slashattack,8
+param=stabattack,48
+param=slashattack,145
 param=crushattack,3
 param=slashdefence,3
 param=crushdefence,1
-param=strengthbonus,10
+param=strengthbonus,130
 param=ready_baseanim,human_ready_scythe
-param=attackrate,7
+param=attackrate,9
 param=slashattack_anim,human_scythe_sweep
 param=crushattack_anim,human_scythe_lunge
 param=stabattack_anim,human_scythe_slash
@@ -1194,3 +1202,24 @@ womanwear=model_3333_obj_wear,6
 2dxan=40
 weight=50g
 iop1=Play-with
+
+[stick]
+name=Stick
+desc=Just a stick.
+model=model_2597_obj
+2dxof=-2
+2dyof=-19
+2dzoom=1070
+2dyan=1056
+2dxan=224
+wearpos=righthand
+iop2=Wear
+weight=1lb
+category=weapon_blunt
+manwear=model_558_obj_wear,0
+womanwear=model_558_obj_wear,6
+cost=1
+param=attackrate,5
+param=crushattack_anim,human_blunt_pound
+param=defend_anim,human_axe_block
+param=crush_sound,baxe_crush

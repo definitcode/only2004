@@ -9,7 +9,7 @@ allstock=yes
 stock1=swordfish,20,200
 stock2=apple_pie,5,200
 stock3=3dose1attack,3,100
-stock4=steel_arrow,500,100
+stock4=steel_arrow,100,100
 
 [legendsguildshop]
 // https://classic.runescape.wiki/w/Legends%27_Guild_Shop
@@ -26,3 +26,6 @@ stock3=silverlight,4,100
 stock3=melzarkey,3,300
 stock4=dragonshield_b,1,500
 stock5=cape_of_legends,3,500
+stock6=faladian_sword,4,300
+stock7=phoenix_crossbow,4,500
+

@@ -80,9 +80,9 @@ stackall=yes
 allstock=no
 stock1=bronze_platebody,3,100
 stock2=iron_platebody,1,200
-stock3=steel_platebody,1,400
-stock4=black_platebody,1,3000
-stock5=mithril_platebody,1,3000
+stock3=steel_platebody,0,400
+stock4=black_platebody,0,3000
+stock5=mithril_platebody,0,3000
 
 [adventurershop]
 // empty vials could be a default stock of 300

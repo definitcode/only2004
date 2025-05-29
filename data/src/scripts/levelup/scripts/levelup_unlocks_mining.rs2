@@ -13,4 +13,5 @@ switch_int(stat_base(mining)) {
     case 60 : ~objbox(mithril_ore,"You can now enter the world famous @dbl@Mining Guild.", 250, 0, 0); //imgur.com/BPWbfAD
     case 70 : ~objbox(adamantite_ore,"You can now mine @dbl@Adamantite.", 250, 0, 0);
     case 85 : ~objbox(runite_ore,"You can now mine @dbl@Runite.", 250, 0, 0); //imgur.com/jIwPpTa
+    case 99 : ~mesbox("@dbl@Mining Cape is now wearable!");
 }

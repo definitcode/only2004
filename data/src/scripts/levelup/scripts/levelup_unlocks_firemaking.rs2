@@ -6,4 +6,6 @@ switch_int(stat_base(firemaking)) {
     case 45 : ~objbox(maple_logs,"You can now burn @dbl@Maple Logs.", 180, 0, divide(^objbox_height, 3));
     case 60 : ~objbox(yew_logs,"You can now burn @dbl@Yew Logs.", 180, 0, divide(^objbox_height, 3));
     case 75 : ~objbox(magic_logs,"Members can now burn @dbl@Magic Logs.", 180, 0, divide(^objbox_height, 3));
+    case 99 : ~mesbox("Firemaking Cape is now wearable!");
+
 }

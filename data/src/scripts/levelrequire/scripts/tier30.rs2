@@ -1,8 +1,6 @@
 // Melee
 [opheld2,adamant_dagger] @levelrequire_attack(70, last_slot);
 [opheld2,adamant_dagger_p] @levelrequire_attack(70, last_slot);
-[opheld2,adamant_axe] @levelrequire_attack(1, last_slot);
-[opheld2,adamant_pickaxe] @levelrequire_attack(1, last_slot);
 [opheld2,adamant_mace] @levelrequire_attack(70, last_slot);
 [opheld2,adamant_sword] @levelrequire_attack(70, last_slot);
 [opheld2,adamant_scimitar] @levelrequire_attack(70, last_slot);
@@ -12,6 +10,8 @@
 [opheld2,adamant_spear] @levelrequire_attack(70, last_slot);
 [opheld2,adamant_spear_p] @levelrequire_attack(70, last_slot);
 [opheld2,adamant_2h_sword] @levelrequire_attack(70, last_slot);
+[opheld2,adamant_pickaxe] @levelrequire_attack(70, last_slot);
+[opheld2,adamant_axe] @levelrequire_attack(70, last_slot);
 
 [opheld2,adamant_med_helm] @levelrequire_defence(70, last_slot);
 [opheld2,adamant_full_helm] @levelrequire_defence(70, last_slot);

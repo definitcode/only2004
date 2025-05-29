@@ -9,6 +9,8 @@ recol1d=30753
 2dyan=68
 2dxan=68
 weight=3g
+category=craft_bead
+param=crafting_staff_struct,red_bead
 
 [yellow_bead]
 cost=4
@@ -34,6 +36,34 @@ recol1d=0
 2dxan=68
 weight=3g
 
+[brown_bead]
+cost=4
+name=Brown bead
+desc=A small round brown bead.
+model=model_2456_obj
+recol1s=32767
+recol1d=11520
+2dzoom=1020
+2dyan=68
+2dxan=68
+weight=3g
+category=craft_bead
+param=crafting_staff_struct,brown_bead
+
+[blue_bead]
+cost=4
+name=Brown bead
+desc=A small round brown bead.
+model=model_2456_obj
+recol1s=32767
+recol1d=31
+2dzoom=1020
+2dyan=68
+2dxan=68
+weight=3g
+category=craft_bead
+param=crafting_staff_struct,blue_bead
+
 [white_bead]
 cost=4
 name=White bead
@@ -43,3 +73,5 @@ model=model_2456_obj
 2dyan=68
 2dxan=68
 weight=3g
+category=craft_bead
+param=crafting_staff_struct,white_bead

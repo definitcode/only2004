@@ -45,3 +45,11 @@ data=metal,rune
 data=product,rune_arrow,15
 data=level,80
 data=experience,125
+
+[fletching_dragon_arrow]
+table=fletching_table
+data=item,dragon_arrowheads
+data=metal,dragon
+data=product,dragon_arrow,15
+data=level,99
+data=experience,375

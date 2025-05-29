@@ -90,8 +90,8 @@ stock3=airrune,10000,5
 stock4=earthrune,10000,5
 stock5=mindrune,10000,5
 stock6=bodyrune,10000,5
-stock7=chaosrune,1000,50
-stock8=deathrune,1000,75
+stock7=chaosrune,750,50
+stock8=deathrune,500,75
 
 [swordshop]
 // https://classic.runescape.wiki/w/Varrock_Swords
@@ -103,22 +103,22 @@ stackall=yes
 allstock=no
 stock1=bronze_sword,5,100
 stock2=iron_sword,4,200
-stock3=steel_sword,4,400
-stock4=black_sword,3,1000
-stock5=mithril_sword,3,3000
-stock6=adamant_sword,2,12000
+stock3=steel_sword,0,400
+stock4=black_sword,0,1000
+stock5=mithril_sword,0,3000
+stock6=adamant_sword,0,12000
 stock7=bronze_longsword,4,100
 stock8=iron_longsword,3,200
-stock9=steel_longsword,3,400
-stock10=black_longsword,2,1000
-stock11=mithril_longsword,2,3000
-stock12=adamant_longsword,1,12000
+stock9=steel_longsword,0,400
+stock10=black_longsword,0,1000
+stock11=mithril_longsword,0,3000
+stock12=adamant_longsword,0,12000
 stock13=bronze_dagger,10,100
 stock14=iron_dagger,6,200
-stock15=steel_dagger,5,400
-stock16=black_dagger,4,1000
-stock17=mithril_dagger,3,3000
-stock18=adamant_dagger,2,12000
+stock15=steel_dagger,0,400
+stock16=black_dagger,0,1000
+stock17=mithril_dagger,0,3000
+stock18=adamant_dagger,0,12000
 
 [archeryshop]
 // https://oldschool.runescape.wiki/w/Lowe%27s_Archery_Emporium
@@ -129,15 +129,19 @@ size=40
 restock=yes
 stackall=yes
 allstock=no
-stock1=bronze_arrow,2000,10
-stock2=iron_arrow,1500,15
-stock3=steel_arrow,1000,20
-stock4=bolt,1500,10
-stock5=shortbow,4,100
-stock6=longbow,4,100
-stock7=oak_shortbow,2,200
-stock8=oak_longbow,2,200
-stock9=crossbow,2,400
+stock1=bronze_arrow,5000,10
+stock2=iron_arrow,2500,15
+stock3=bronze_arrowheads,750,15
+stock4=iron_arrowheads,500,25
+stock5=bolt,1500,10
+stock6=shortbow,4,100
+stock7=longbow,4,100
+stock8=oak_shortbow,2,200
+stock9=oak_longbow,2,200
+stock10=willow_shortbow,0,100
+stock11=crossbow,2,400
+stock12=studded_body,0,700
+stock13=studded_chaps,0,700
 
 [armourshop]
 // https://classic.runescape.wiki/w/Horvik%27s_Armour_Shop
@@ -149,16 +153,15 @@ stackall=yes
 allstock=no
 stock1=bronze_chainbody,5,100
 stock2=iron_chainbody,3,200
-stock3=steel_chainbody,3,400
-stock4=mithril_chainbody,1,3000
+stock3=steel_chainbody,0,400
+stock4=mithril_chainbody,0,3000
 stock5=bronze_platebody,3,100
 stock6=iron_platebody,1,200
-stock7=steel_platebody,1,400
-stock8=mithril_platebody,1,3000
-stock9=black_platebody,1,3000
+stock7=steel_platebody,0,400
+stock8=mithril_platebody,0,3000
+stock9=black_platebody,0,3000
 stock10=iron_platelegs,1,100
-stock11=studded_body,1,700
-stock12=studded_chaps,1,700
+
 
 [generalshop2]
 // https://classic.runescape.wiki/w/Varrock_General_Store

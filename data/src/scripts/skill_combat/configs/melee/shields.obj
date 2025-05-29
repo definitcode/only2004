@@ -199,8 +199,33 @@ param=slashdefence,40
 param=crushdefence,36
 param=rangedefence,38
 
-[dragon_sq_shield]
+[dragon_sq_shield_r]
 name=Dragon sq shield
+desc=An un-imbued Dragon sq shield.
+cost=1000000
+model=model_2720_obj
+recol1s=14798
+recol1d=14336
+2dxof=2
+2dyof=174
+2dzoom=1410
+2dyan=60
+2dxan=268
+iop2=Wield
+wearpos=lefthand
+manwear=model_541_obj_wear,0
+womanwear=model_541_obj_wear,6
+category=armour_shield
+weight=8lb
+param=rangeattack,-2
+param=magicattack,-6
+param=stabdefence,42
+param=slashdefence,49
+param=crushdefence,41
+param=rangedefence,42
+
+[dragon_sq_shield]
+name=Dragon sq shield(i)
 desc=An ancient and powerful looking Dragon Square shield.
 cost=5000000
 members=yes

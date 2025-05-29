@@ -35,6 +35,22 @@ if (stat_base(magic) < $magic_level | stat_base(attack) < $attack_level) {
 }
 ~equip($slot);
 
+[label,levelrequire_magic_and_defence](int $magic_level, int $defence_level, int $slot)
+if (stat_base(magic) < $magic_level | stat_base(defence) < $defence_level) {
+    mes("You are not a high enough level to use this item.");
+    mes("You need to have a Magic level of <tostring($magic_level)> and an Defence level of <tostring($defence_level)>.");
+    return;
+}
+~equip($slot);
+
+
+[label,hardcore_items](int $slot)
+if (%gamemode_selected = ^gamemode_none){
+    ~mesbox("You need to be a Hardcore player to wear this.");
+    return;
+}
+~equip($slot);
+
 [label,levelrequire_ranged_and_defence](int $ranged_level, int $defence_level, int $slot)
 if (stat_base(ranged) < $ranged_level | stat_base(defence) < $defence_level) {
     mes("You are not a high enough level to use this item.");
@@ -151,4 +167,28 @@ if (stat(attack) < 50) {
 }
 // https://youtu.be/n_ip_vEDbCA?si=0uESoOC98Fvl7HqS&t=2333
 mes("You equip the staff of Iban.");
+~equip($slot);
+
+[label,levelrequire_skill_cape](stat $stat, int $slot)
+def_int $required_level = 99;
+
+if (stat_base($stat) < $required_level) {
+    ~mesbox("You are not a high enough level to use this item.");
+    ~mesbox("You need to have a level of 99 in this skill.");
+    return;
+}
+
+~mesbox("You equip the cape, and display your skills.");
+anim(emote_dance, 0);
+~equip($slot);
+
+[label,levelrequire_max_cape](int $required_level, int $slot)
+
+if ( stat_base(attack) < $required_level | stat_base(strength) < $required_level | stat_base(defence) < $required_level | stat_base(ranged) < $required_level | stat_base(prayer) < $required_level | stat_base(magic) < $required_level | stat_base(runecraft) < $required_level | stat_base(hitpoints) < $required_level | stat_base(agility) < $required_level | stat_base(herblore) < $required_level | stat_base(thieving) < $required_level | stat_base(crafting) < $required_level | stat_base(fletching) < $required_level | stat_base(mining) < $required_level | stat_base(smithing) < $required_level | stat_base(fishing) < $required_level | stat_base(cooking) < $required_level | stat_base(firemaking) < $required_level | stat_base(woodcutting) < $required_level ) {
+    ~mesbox("You must have level 99 in all skills to equip the Max Cape.");
+    return;
+}
+
+~mesbox("You equip the Max Cape, a symbol of triumph!");
+anim(emote_dance,0);
 ~equip($slot);

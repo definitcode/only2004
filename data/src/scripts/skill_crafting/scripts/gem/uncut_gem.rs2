@@ -16,6 +16,9 @@ if (oc_members($uncut_gem) = true) {
         return;
     }
 }
+if (getqueue(crafting_gem_repeat) > 0) {
+    clearqueue(crafting_gem_repeat);
+}
 db_find(gem_cutting_table:uncut_gem, $uncut_gem);
 def_dbrow $data = db_findnext;
 if ($data = null) {
@@ -58,4 +61,17 @@ if ($low ! null & $high ! null & stat_random(stat(crafting), $low, $high) = fals
 mes("You cut the <$product_name>.");
 inv_add(inv, $cut_gem, 1);
 stat_advance(crafting, db_getfield($data, gem_cutting_table:experience, 0));
+if (inv_total(worn, brown_apron) > 0) {
+    stat_advance(crafting, db_getfield($data, gem_cutting_table:experience, 0));
+    mes("Your crafting skills are showing!");
+}
+queue(crafting_gem_repeat, 2, $uncut_gem);
 //-----------------------
+
+[queue,crafting_gem_repeat](obj $last)
+if (inv_total(inv, $last) > 0) {
+    def_int $slot = ~inv_find(inv, $last, 0);
+    if ($slot >= 0) {
+        @crafting_gem(inv_getobj(inv, $slot));
+    }
+}

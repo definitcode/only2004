@@ -15,7 +15,7 @@ stock5=lobster_pot,2,400
 stock6=fishing_bait,1500,1
 stock7=feather,1000,1
 stock8=raw_shrimp,0,300
-stock9=raw_sardine,200,1
+stock9=raw_sardine,10,1200
 stock10=raw_herring,0,900
 stock11=raw_anchovies,0,1200
 stock12=raw_trout,0,1500
@@ -64,10 +64,11 @@ stock5=mindrune,10000,5
 stock6=bodyrune,10000,5
 stock7=chaosrune,1000,50
 stock8=deathrune,1000,75
-stock9=eye_of_newt,300,10
-stock10=bluewizhat,1,100
-stock11=wizards_robe,1,100
-stock12=blackwizhat,1,100
+stock9=blankrune,500,15000
+stock10=eye_of_newt,300,10
+stock11=bluewizhat,1,100
+stock12=wizards_robe,1,100
+stock13=blackwizhat,1,100
 
 [battleaxeshop]
 // https://classic.runescape.wiki/w/Brian%27s_Great_Axes
@@ -79,10 +80,10 @@ stackall=yes
 allstock=no
 stock1=bronze_battleaxe,4,200
 stock2=iron_battleaxe,3,300
-stock3=steel_battleaxe,2,500
-stock4=black_battleaxe,1,700
-stock5=mithril_battleaxe,1,1000
-stock6=adamant_battleaxe,1,15000
+stock3=steel_battleaxe,0,500
+stock4=black_battleaxe,0,700
+stock5=mithril_battleaxe,0,1000
+stock6=adamant_battleaxe,0,15000
 
 [wydinstore]
 // https://oldschool.runescape.wiki/w/Food_Store
@@ -93,13 +94,15 @@ restock=yes
 stackall=yes
 allstock=no
 stock1=pot_flour,1000,100
-stock2=raw_beef,1,100
-stock3=raw_chicken,1,100
-stock4=cabbage,1000,100
-stock5=banana,1000,100
-stock6=redberry,1000,100
-stock7=bread,0,100
-stock8=chocolate_bar,1000,100
-stock9=cheese,1000,100
-stock10=tomato,1000,100
-stock11=potato,1000,100
+stock2=raw_beef,5,15000
+stock3=raw_chicken,5,15000
+stock4=raw_rat_meat,5,15000
+stock5=raw_bear_meat,5,15000
+stock6=cabbage,1000,100
+stock7=banana,1000,100
+stock8=redberry,1000,100
+stock9=bread,0,100
+stock10=chocolate_bar,1000,100
+stock11=cheese,1000,100
+stock12=tomato,1000,100
+stock13=potato,1000,100

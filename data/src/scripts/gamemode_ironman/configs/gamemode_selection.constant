@@ -1,0 +1,3 @@
+^gamemode_none = 0
+^gamemode_ironman = 1
+^gamemode_hardcore = 2

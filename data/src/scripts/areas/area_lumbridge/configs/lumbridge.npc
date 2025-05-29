@@ -20,6 +20,12 @@ model8=model_181_idk
 model9=model_323_obj_wear
 head1=model_67_idk_head
 head2=model_83_idk_head
+category=shop_keeper
+param=owned_shop,max_shop
+param=shop_sell_multiplier,1000
+param=shop_buy_multiplier,0
+param=shop_delta,20
+param=shop_title,Max Shop
 
 [cook]
 vislevel=hide

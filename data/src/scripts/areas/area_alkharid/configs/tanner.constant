@@ -1,3 +1,3 @@
-^tanner_soft_leather_cost = 1
-^tanner_hard_leather_cost = 3
-^tanner_dragonhide_cost = 20
+^tanner_soft_leather_cost = 25
+^tanner_hard_leather_cost = 50
+^tanner_dragonhide_cost = 100

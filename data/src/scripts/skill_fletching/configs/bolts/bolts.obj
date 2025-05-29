@@ -44,3 +44,20 @@ cost=95
 2dxan=492
 weight=4g
 category=category_530
+
+[dragonstone_bolttips]
+name=Dragon bolttips
+desc=I can make bolts with these.
+model=model_2780_obj
+recol1s=20159
+recol1d=12307
+2dxof=-1
+2dyof=7
+2dzoom=490
+2dyan=608
+2dxan=492
+members=yes
+stackable=yes
+cost=30
+weight=4g
+category=category_530

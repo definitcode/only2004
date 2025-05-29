@@ -55,6 +55,8 @@ if ($dropint < 1) {
     obj_add(npc_coord, waterrune, 6, ^lootdrop_duration);
 } else if ($dropint < 63) {
     obj_add(npc_coord, coins, 100, ^lootdrop_duration);
+} else if ($dropint < 65) {
+    obj_add(npc_coord, ~low_tier_items, ^lootdrop_duration);
 }
 
 
@@ -123,4 +125,6 @@ if ($dropint < 3) {
     obj_add(npc_coord, red_cape, 1, ^lootdrop_duration);
 } else if ($dropint < 109) {
     obj_add(npc_coord, tin_ore, 1, ^lootdrop_duration);
+} else if ($dropint < 128) {
+    obj_add(npc_coord, ~mid_tier_items, ^lootdrop_duration);
 }

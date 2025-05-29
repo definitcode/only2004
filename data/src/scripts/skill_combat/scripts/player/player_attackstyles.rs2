@@ -121,6 +121,8 @@ switch_category (oc_category($obj)) {
     case weapon_spear : ~weapon_category_tab_attack(combat_spear:preview, combat_spear:name, combat_spear, $obj);
     case weapon_spiked : ~weapon_category_tab_attack(combat_spiked:preview, combat_spiked:name, combat_spiked, $obj);
     case weapon_stab : ~weapon_category_tab_attack(combat_stabsword:preview, combat_stabsword:name, combat_stabsword, $obj);
+    case hc_weapon : ~weapon_category_tab_attack(combat_hacksword:preview, combat_hacksword:name, combat_hacksword, $obj);
+    
     // ranged
     case weapon_bow : ~weapon_category_tab_attack(combat_bow:preview, combat_bow:name, combat_bow, $obj);
     case weapon_crossbow : ~weapon_category_tab_attack(combat_crossbow:preview, combat_crossbow:name, combat_crossbow, $obj);
@@ -174,6 +176,7 @@ switch_category (oc_category($obj)) {
     case weapon_pickaxe : ~.weapon_category_tab_attack(combat_pickaxe:preview, combat_pickaxe:name, combat_pickaxe, $obj);
     case weapon_scythe : ~.weapon_category_tab_attack(combat_scythe:preview, combat_scythe:name, combat_scythe, $obj);
     case weapon_slash : ~.weapon_category_tab_attack(combat_hacksword:preview, combat_hacksword:name, combat_hacksword, $obj);
+    case hc_weapon : ~weapon_category_tab_attack(combat_hacksword:preview, combat_hacksword:name, combat_hacksword, $obj);
     case weapon_spear : ~.weapon_category_tab_attack(combat_spear:preview, combat_spear:name, combat_spear, $obj);
     case weapon_spiked : ~.weapon_category_tab_attack(combat_spiked:preview, combat_spiked:name, combat_spiked, $obj);
     case weapon_stab : ~.weapon_category_tab_attack(combat_stabsword:preview, combat_stabsword:name, combat_stabsword, $obj);

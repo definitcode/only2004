@@ -1,0 +1,28 @@
+[opheld4,max_cape] @max_cape_interface("You charge your cape.");
+
+[label,max_cape_interface](string $message)
+def_obj $item = last_item;
+def_int $slot = last_slot;
+
+def_int $choice = ~p_choice5_header("Edgeville.", 1, "Dueling Arena.", 2, "Brimhaven.", 3, "KBD.", 4, "Nowhere.", 5, "Where would you like to teleport to ?");
+
+if ($choice = 5) {
+    mes("You remain where you were.");
+    return;
+}
+if (~wilderness_level(coord) > 0) {
+    // osrs
+    mes("A mysterious force blocks your teleport.");
+    mes("You can't use this teleport in the wilderness.");
+    return;
+}
+if (~pre_tele_checks(coord) = false) {
+    return;
+}
+mes($message);
+switch_int($choice) {
+    case 1 : ~player_teleport_normal(0_48_54_15_40);
+    case 2 : ~player_teleport_normal(map_findsquare(0_51_50_51_35, 0, 2, ^map_findsquare_lineofwalk));
+    case 3 : ~player_teleport_normal(0_43_49_50_41);
+    case 4 : ~player_teleport_normal(0_46_60_62_10);
+}

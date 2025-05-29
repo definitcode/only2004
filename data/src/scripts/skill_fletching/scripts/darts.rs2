@@ -59,4 +59,8 @@ if ($darts_count > 1) {
     mes("You finish making one dart.");
 }
 stat_advance(fletching, multiply($darts_count, db_getfield($data, fletching_table:experience, 0)));
+if (inv_total(worn, headband_red) > 0) {
+            stat_advance(fletching, multiply($darts_count, db_getfield($data, fletching_table:experience, 0)));
+            mes("Your fletching skills are showing!");
+}
 inv_add(inv, $product, $darts_count);

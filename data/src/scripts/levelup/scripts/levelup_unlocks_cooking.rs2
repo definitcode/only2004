@@ -22,4 +22,5 @@ switch_int(stat_base(cooking)) {
     case 80 : ~objbox(raw_shark,"Members can now cook @dbl@Shark@bla@.", 250, 0, 0);
     case 82 : ~objbox(raw_seaturtle,"Members can now cook @dbl@Sea Turtle@bla@.", 250, 0, 0);
     case 91 : ~objbox(raw_mantaray,"Members can now cook @dbl@Manta Rays@bla@.", 250, 0, 0);
+    case 99 : ~mesbox("Cooking Cape is now wearable!");
 }

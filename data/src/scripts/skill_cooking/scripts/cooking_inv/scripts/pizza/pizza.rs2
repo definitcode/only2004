@@ -128,5 +128,9 @@ inv_del(inv, plain_pizza, 1);
 inv_add(inv, struct_param($struct, product), 1);
 //give xp
 stat_advance(cooking, struct_param($struct, productexp));
+if (inv_total(worn, chefshat) > 0) {
+            stat_advance(cooking, struct_param($struct, productexp));
+            mes("Your cooking skills are showing!");
+}
 //display message
 mes("You add the <struct_param($struct, productmessage)> to the pizza.");

@@ -242,7 +242,10 @@ if ($gem ! null) {
 inv_add(inv, $product, 1);
 
 stat_advance(crafting, $productexp);
-
+if (inv_total(worn, brown_apron) > 0) {
+    stat_advance(crafting, $productexp);
+    mes("Your crafting skills are showing!");
+}
 if ($bar = gold_bar) {
     // No message for perfect gold items https://youtu.be/e8btuenT4nE?t=729
     mes("You make <~add_article(lowercase(oc_name($product)))>.");
@@ -307,6 +310,10 @@ p_delay(2);
 inv_del(inv, silver_bar, 1);
 inv_add(inv, $product, 1);
 stat_advance(crafting, struct_param($struct, productexp));
+if (inv_total(worn, brown_apron) > 0) {
+    stat_advance(crafting, struct_param($struct, productexp));
+    mes("Your crafting skills are showing!");
+}
 // Confirmed, no period at the end. https://i.imgur.com/sCKRVO9.png
 mes("You make <~add_article(struct_param($struct, name))>");
 
