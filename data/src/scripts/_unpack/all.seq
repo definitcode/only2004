@@ -7131,6 +7131,25 @@ iframe88=anim_400
 iframe89=anim_407
 iframe90=anim_412
 
+[human_mining_dragon_pickaxe]
+lefthand=dragon_pickaxe
+righthand=dragon_pickaxe
+priority=0
+replayoff=8
+replaycount=3
+frame1=anim_584
+frame2=anim_876
+frame3=anim_1156
+frame4=anim_1444
+frame5=anim_1743
+frame6=anim_2042
+frame7=anim_2345
+frame8=anim_626
+frame9=anim_7085
+frame10=anim_7084
+frame11=anim_7086
+frame12=anim_7087
+
 [human_mining_rune_pickaxe]
 lefthand=rune_pickaxe
 righthand=rune_pickaxe
@@ -11802,6 +11821,31 @@ frame22=anim_1157
 frame23=anim_877
 frame24=anim_585
 
+[human_woodcutting_dragon_axe]
+righthand=dragon_axe
+lefthand=hide
+priority=0
+replayoff=6
+replaycount=4
+frame1=anim_2020
+frame2=anim_2321
+frame3=anim_599
+frame4=anim_896
+frame5=anim_1176
+frame6=anim_1463
+
+[seq_1028]
+righthand=dragon_axe
+lefthand=hide
+frame1=anim_688
+frame2=anim_978
+frame3=anim_1263
+frame4=anim_1544
+frame5=anim_1837
+frame6=anim_2136
+frame7=anim_2434
+frame8=anim_722
+
 [human_woodcutting_rune_axe]
 righthand=rune_axe
 lefthand=hide
@@ -11814,6 +11858,8 @@ frame3=anim_599
 frame4=anim_896
 frame5=anim_1176
 frame6=anim_1463
+
+
 
 [seq_868]
 righthand=rune_axe

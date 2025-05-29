@@ -10,6 +10,7 @@
 
 [opheld2,dragon_med_helm] @levelrequire_defence(90, last_slot);
 [opheld2,dragon_sq_shield] @levelrequire_legends_quest_defence(90, last_slot);
+[opheld2,dragon_boots] @levelrequire_defence(90, last_slot);
 
 // Ranged
 [opheld2,red_dragon_vambraces] @levelrequire_ranged(70, last_slot);

@@ -1,6 +1,9 @@
 [proc,pickaxe_checker]()(obj)
 def_int $lvl0 = stat(mining);
 def_obj $obj1 = inv_getobj(worn, ^wearpos_rhand);
+if ($lvl0 >= oc_param(dragon_pickaxe, levelrequire) & ($obj1 = dragon_pickaxe | inv_total(inv, dragon_pickaxe) > 0)) {
+    return(dragon_pickaxe);
+}
 if ($lvl0 >= oc_param(rune_pickaxe, levelrequire) & ($obj1 = rune_pickaxe | inv_total(inv, rune_pickaxe) > 0)) {
     return(rune_pickaxe);
 }

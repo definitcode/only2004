@@ -162,6 +162,9 @@ def_obj $obj1 = inv_getobj(worn, ^wearpos_rhand);
 // if (($obj1 = bronze_axe | inv_total(inv, bronze_axe) > 0) & $level > 0) {
 //     return (bronze_axe);
 // }
+if (($obj1 = dragon_axe | inv_total(inv, dragon_axe) > 0)) {
+    return (dragon_axe);
+}
 if (($obj1 = rune_axe | inv_total(inv, rune_axe) > 0)) {
     return (rune_axe);
 }
