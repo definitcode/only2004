@@ -79,8 +79,12 @@ if ($bar = iron_bar) {
 def_int $xp = struct_param($struct, productexp);
 if ($bar = gold_bar & inv_total(worn, gauntlets_of_goldsmithing) > 0) {
     $xp = scale(5, 2, $xp); // 2.5x
+    mes("Your smithing skills are showing!");
 }
-
+if ($bar = steel_bar & inv_total(worn, steel_gauntlets) > 0) {
+    $xp = scale(5, 2, $xp); // 2.5x
+    mes("Your smithing skills are showing!");
+}
 stat_advance(smithing, $xp);
 
 // add bar

@@ -67,4 +67,8 @@ if (stat(fletching) < $level) {
 inv_del(inv, $log, 1);
 mes($message);
 stat_advance(fletching, $fletching_experience);
+if (inv_total(worn, headband_red) > 0) {
+            stat_advance(fletching, $fletching_experience);
+            mes("Your fletching skills are showing!");
+}
 inv_add(inv, $product, $count);

@@ -17,6 +17,10 @@ mes($message);
 anim(human_herbing_vial, 0);
 sound_synth(grind, 0, 0);
 stat_advance(herblore, $experience);
+if (inv_total(worn, gasmask) > 0) {
+            stat_advance(herblore, $experience);
+            mes("Your herblore skills are showing!");
+}
 
 /** Grind a herblore ingredient. */
 [proc,grind_ingredient](obj $grindable, namedobj $refined, string $message, int $slot)

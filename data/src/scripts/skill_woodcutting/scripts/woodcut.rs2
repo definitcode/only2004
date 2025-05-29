@@ -125,6 +125,10 @@ if (stat_random(stat(woodcutting), $tree_chance_low, $tree_chance_high) = true) 
     def_namedobj $product = db_getfield($data, woodcutting_trees:product, 0);
     mes("You get some <lowercase(oc_name($product))>.");
     stat_advance(woodcutting, db_getfield($data, woodcutting_trees:productexp, 0));
+    if (inv_total(worn, cavalier_brown) > 0) {
+            stat_advance(woodcutting, db_getfield($data, woodcutting_trees:productexp, 0));
+            mes("Your woodcutting skills are showing!");
+    }
     inv_add(inv, $product, 1);
     if (random($deplete_chance) = 0) {
         $respawnrate = ~scale_by_playercount($respawnrate);
@@ -141,51 +145,52 @@ def_int $level = stat(woodcutting);
 def_obj $obj1 = inv_getobj(worn, ^wearpos_rhand);
 // no wc req in 2004, this is also the case in rsc. Heres a guide from 2004 that says so :
 // https://web.archive.org/web/20040622013913/http://runehq.com/viewguidedb.php?id=00330
-// if (($obj1 = rune_axe | inv_total(inv, rune_axe) > 0) & $level > 40) {
-//     return (rune_axe);
-// }
-// if (($obj1 = adamant_axe | inv_total(inv, adamant_axe) > 0) & $level > 30) {
-//     return (adamant_axe);
-// }
-// if (($obj1 = mithril_axe | inv_total(inv, mithril_axe) > 0) & $level > 20) {
-//     return (mithril_axe);
-// }
-// if (($obj1 = black_axe | inv_total(inv, black_axe) > 0) & $level > 10) {
-//     return (black_axe);
-// }
-// if (($obj1 = steel_axe | inv_total(inv, steel_axe) > 0) & $level > 5) {
-//     return (steel_axe);
-// }
-// if (($obj1 = iron_axe | inv_total(inv, iron_axe) > 0) & $level > 0) {
-//     return (iron_axe);
-// }
-// if (($obj1 = bronze_axe | inv_total(inv, bronze_axe) > 0) & $level > 0) {
-//     return (bronze_axe);
-// }
-if (($obj1 = dragon_axe | inv_total(inv, dragon_axe) > 0)) {
+if (($obj1 = dragon_axe | inv_total(inv, dragon_axe) > 0) & $level > 90) {
     return (dragon_axe);
 }
-if (($obj1 = rune_axe | inv_total(inv, rune_axe) > 0)) {
+if (($obj1 = rune_axe | inv_total(inv, rune_axe) > 0) & $level > 80) {
     return (rune_axe);
 }
-if (($obj1 = adamant_axe | inv_total(inv, adamant_axe) > 0)) {
+if (($obj1 = adamant_axe | inv_total(inv, adamant_axe) > 0) & $level > 70) {
     return (adamant_axe);
 }
-if (($obj1 = mithril_axe | inv_total(inv, mithril_axe) > 0)) {
+if (($obj1 = mithril_axe | inv_total(inv, mithril_axe) > 0) & $level > 50) {
     return (mithril_axe);
 }
-if (($obj1 = black_axe | inv_total(inv, black_axe) > 0)) {
+if (($obj1 = black_axe | inv_total(inv, black_axe) > 0) & $level > 35) {
     return (black_axe);
 }
-if (($obj1 = steel_axe | inv_total(inv, steel_axe) > 0)) {
+if (($obj1 = steel_axe | inv_total(inv, steel_axe) > 0) & $level > 30) {
     return (steel_axe);
 }
-if (($obj1 = iron_axe | inv_total(inv, iron_axe) > 0)) {
+if (($obj1 = iron_axe | inv_total(inv, iron_axe) > 0) & $level > 15) {
     return (iron_axe);
 }
-if (($obj1 = bronze_axe | inv_total(inv, bronze_axe) > 0)) {
+if (($obj1 = bronze_axe | inv_total(inv, bronze_axe) > 0) & $level > 0) {
     return (bronze_axe);
 }
+
+//if (($obj1 = rune_axe | inv_total(inv, rune_axe) > 0)) {
+//    return (rune_axe);
+//}
+//if (($obj1 = adamant_axe | inv_total(inv, adamant_axe) > 0)) {
+//    return (adamant_axe);
+//}
+//if (($obj1 = mithril_axe | inv_total(inv, mithril_axe) > 0)) {
+//    return (mithril_axe);
+//}
+//if (($obj1 = black_axe | inv_total(inv, black_axe) > 0)) {
+//    return (black_axe);
+//}
+//if (($obj1 = steel_axe | inv_total(inv, steel_axe) > 0)) {
+//    return (steel_axe);
+//}
+//if (($obj1 = iron_axe | inv_total(inv, iron_axe) > 0)) {
+//    return (iron_axe);
+//}
+//if (($obj1 = bronze_axe | inv_total(inv, bronze_axe) > 0)) {
+//    return (bronze_axe);
+//}
 
 
 // mes("You need an axe to chop down this tree."); // this message was added in 2005 when they fixed axe wc reqs

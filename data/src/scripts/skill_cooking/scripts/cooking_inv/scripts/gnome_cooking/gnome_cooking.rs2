@@ -62,6 +62,10 @@ inv_add(inv, $next_gnome_food, 1);
 // if finished, give xp
 if (oc_param($next_gnome_food, gnome_cooking_type) = null) {
     stat_advance(cooking, 300);
+    if (inv_total(worn, chefshat) > 0) {
+            stat_advance(cooking, 300);
+            mes("Your cooking skills are showing!");
+    }
 }
 def_string $name;
 def_string $message;

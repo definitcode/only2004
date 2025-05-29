@@ -33,6 +33,10 @@ while ($i < 15 & $wines_per_batch > 0) {
     if (stat_random(stat(cooking), 48, 352) = true) {
         inv_add(bank, jug_wine, $wines_per_batch);
         stat_advance(cooking, calc(1100 * $wines_per_batch));
+        if (inv_total(worn, chefshat) > 0) {
+            stat_advance(cooking, calc(1100 * $wines_per_batch));
+            mes("Your cooking skills are showing!");
+        }
     } else {
         // if skilling roll is failed
         inv_add(bank, jug_bad_wine, $wines_per_batch);
@@ -47,6 +51,10 @@ while ($i < calc($bank_total % 15)) {
     if (stat_random(stat(cooking), 48, 352) = true) {
         inv_add(bank, jug_wine, 1);
         stat_advance(cooking, 1100);
+        if (inv_total(worn, chefshat) > 0) {
+            stat_advance(cooking, 1100);
+            mes("Your cooking skills are showing!");
+        }
     } else {
         // if skilling roll is failed
         inv_add(bank, jug_bad_wine, 1);
@@ -61,6 +69,10 @@ while ($i < $inv_total) {
     if (stat_random(stat(cooking), 48, 352) = true) {
         inv_add(inv, jug_wine, 1);
         stat_advance(cooking, 1100);
+        if (inv_total(worn, chefshat) > 0) {
+            stat_advance(cooking, 1100);
+            mes("Your cooking skills are showing!");
+        }
     } else {
         // if skilling roll is failed
         inv_add(inv, jug_bad_wine, 1);

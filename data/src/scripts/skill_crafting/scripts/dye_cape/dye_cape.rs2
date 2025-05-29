@@ -118,7 +118,10 @@ inv_del(inv, $cape, 1);
 inv_add(inv, struct_param($dye_struct, cape), 1);
 
 stat_advance(crafting, 25);
-
+if (inv_total(worn, brown_apron) > 0) {
+    stat_advance(crafting, 25);
+    mes("Your crafting skills are showing!");
+}
 // send message
 // "You dye the red cape blue."
 mes("You dye the <struct_param($cape_struct, color)> cape <struct_param($dye_struct, color)>.");
