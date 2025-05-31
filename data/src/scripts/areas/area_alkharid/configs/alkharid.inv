@@ -8,10 +8,10 @@ stackall=yes
 allstock=no
 stock1=bronze_plateskirt,5,100
 stock2=iron_plateskirt,3,400
-stock3=steel_plateskirt,2,900
-stock4=black_plateskirt,1,1200
-stock5=mithril_plateskirt,1,2000
-stock6=adamant_plateskirt,1,13000
+stock3=steel_plateskirt,0,900
+stock4=black_plateskirt,0,1200
+stock5=mithril_plateskirt,0,2000
+stock6=adamant_plateskirt,0,13000
 
 [legsshop]
 // https://classic.runescape.wiki/w/Louie%27s_Legs
@@ -23,10 +23,10 @@ stackall=yes
 allstock=no
 stock1=bronze_platelegs,5,100
 stock2=iron_platelegs,3,400
-stock3=steel_platelegs,2,900
-stock4=black_platelegs,1,1200
-stock5=mithril_platelegs,1,2000
-stock6=adamant_platelegs,1,13000
+stock3=steel_platelegs,0,900
+stock4=black_platelegs,0,1200
+stock5=mithril_platelegs,0,2000
+stock6=adamant_platelegs,0,13000
 
 [gemshop2]
 // https://classic.runescape.wiki/w/Al_Kharid_gem_stall
@@ -55,8 +55,8 @@ stackall=yes
 allstock=no
 stock1=bronze_scimitar,5,100
 stock2=iron_scimitar,3,200
-stock3=steel_scimitar,2,600
-stock4=mithril_scimitar,1,4000
+stock3=steel_scimitar,0,600
+stock4=mithril_scimitar,0,4000
 
 [generalshop3]
 // https://classic.runescape.wiki/w/Al_Kharid_General_Store

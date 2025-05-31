@@ -15,7 +15,7 @@ if ($random < 3) {
 } else if ($random < 6) {
     obj_add(npc_coord, fire_battlestaff, 1, ^lootdrop_duration);
 } else if ($random < 7) {
-    obj_add(npc_coord, rune_scimitar, 1, ^lootdrop_duration);
+    obj_add(npc_coord, mithril_scimitar, 1, ^lootdrop_duration);
 } else if ($random < 17) {
     obj_add(npc_coord, firerune, 150, ^lootdrop_duration);
 } else if ($random < 24) {
