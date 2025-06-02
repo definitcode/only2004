@@ -160,9 +160,10 @@ def_int $attack_roll = ~npc_magic_attack_roll_no_prot;
 def_int $defence_roll = ~player_defence_roll_specific(^magic_style);
 if (randominc($attack_roll) > randominc($defence_roll)) {
     $damage = randominc(~kbd_fiery_breath_maxhit);
-    if (%prayer_protectfrommagic = ^false & inv_total(worn, dragon_sq_shield) < 1) {
+    if (%prayer_protectfrommagic = ^false & inv_total(worn, dragon_sq_shield) < 1 & inv_total(worn, antidragonbreathshield) < 1) {
         mes("You're horribly burnt by the dragon's fiery breath!");
     }
+
 }
 queue(combat_damage_player, calc($duration / 30), $damage);
 queue(playerhit_n_retaliate, calc($duration / 30), npc_uid); // this should be a queue* command
@@ -185,8 +186,8 @@ def_int $attack_roll = ~npc_magic_attack_roll_no_prot;
 def_int $defence_roll = ~player_defence_roll_specific(^magic_style);
 if (randominc($attack_roll) > randominc($defence_roll)) {
     $damage = randominc(~kbd_fiery_breath_maxhit);
-    if (%prayer_protectfrommagic = ^false & inv_total(worn, dragon_sq_shield) < 1) {
-        mes("You're horribly burnt by the dragon's fiery breath!"); // https://youtu.be/R3ozXHcQkgs?list=PLn23LiLYLb1bYAFU3Vdk3N9niuHs-b-4-&t=78
+    if (%prayer_protectfrommagic = ^false & inv_total(worn, dragon_sq_shield) < 1 & inv_total(worn, antidragonbreathshield) < 1) {
+        mes("You're horribly burnt by the dragon's fiery breath!");
     }
 
 }
@@ -216,6 +217,9 @@ if (randominc($attack_roll) > randominc($defence_roll)) {
         if ($random ! 0) {
             mes("Your shield absorbs most of the dragon's toxic breath!"); // https://youtu.be/KhI0x-fSKac?list=PLn23LiLYLb1bYAFU3Vdk3N9niuHs-b-4-&t=157
         }
+    }
+    if (inv_total(worn, antidragonbreathshield) > 0) {
+        $random = 0;
     }
     if ($random = 0) {
         queue(poison_player, 0, 36); // poison the player starting at 8 damage
@@ -247,6 +251,9 @@ if (randominc($attack_roll) > randominc($defence_roll)) {
         if ($random ! 0) {
             mes("Your shield absorbs most of the dragon's shocking breath!"); // https://youtu.be/iXYRtqL-GNw?t=9
         }
+    }
+    if (inv_total(worn, antidragonbreathshield) > 0) {
+        $random = 0;
     }
     if ($random = 0) {
         // mes("You're shocked and weakened!"); // https://youtu.be/R3ozXHcQkgs?list=PLn23LiLYLb1bYAFU3Vdk3N9niuHs-b-4-&t=106
@@ -294,6 +301,9 @@ if (randominc($attack_roll) > randominc($defence_roll)) {
             mes("Your shield absorbs most of the dragon's icy breath!"); // https://youtu.be/91eqk3Lu_Qw?list=PLn23LiLYLb1bYAFU3Vdk3N9niuHs-b-4-&t=70
         }
     }
+    if (inv_total(worn, antidragonbreathshield) > 0) {
+        $random = 0;
+    }
     if ($random = 0) { 
         queue(kbd_freeze_player, 0, 10); // freeze the player
     }
@@ -333,11 +343,22 @@ if ($random_attack = 0) {
 def_int $maxhit = 65;
 if (%prayer_protectfrommagic = ^true) {
     mes("You manage to resist some of the dragon's fiery breath!"); // https://youtu.be/R3ozXHcQkgs?list=PLn23LiLYLb1bYAFU3Vdk3N9niuHs-b-4-&t=78
-    $maxhit = 20;
+    $maxhit = 55;
 }
 if (inv_total(worn, dragon_sq_shield) > 0) {
     mes("Your shield absorbs most of the dragon's fiery breath!");
-    $maxhit = 15;
+    $maxhit = 45;
+}
+if (%prayer_protectfrommagic = ^true & inv_total(worn, dragon_sq_shield) > 0) {
+    mes("Your shield absorbs most of the dragon's fiery breath!");
+    $maxhit = 10;
+}
+if (%prayer_protectfrommagic = ^true & inv_total(worn, antidragonbreathshield) > 0) {
+    mes("Your shield absorbs most of the dragon's fiery breath!");
+    $maxhit = 50;
+}
+if (inv_total(worn, antidragonbreathshield) > 0){
+    $maxhit = 60;
 }
 if (map_clock < %antifire) {
     mes("Your potion protects you from the heat of the dragon's breath!"); // https://youtu.be/7nY0kuIooZk?list=PLn23LiLYLb1bYAFU3Vdk3N9niuHs-b-4-&t=45
@@ -349,12 +370,20 @@ return($maxhit);
 [proc,kbd_special_breath_maxhit]()(int)
 def_int $maxhit = 50;
 if (%prayer_protectfrommagic = ^true) {
-    $maxhit = 15;
+    $maxhit = 45;
 }
 if (inv_total(worn, dragon_sq_shield) > 0) {
+    $maxhit = 40;
+}
+if (inv_total(worn, antidragonbreathshield) > 0) {
+    $maxhit = 45;
+}
+if (%prayer_protectfrommagic = ^true & inv_total(worn, dragon_sq_shield) > 0) {
     $maxhit = 10;
 }
-
+if (%prayer_protectfrommagic = ^true & inv_total(worn, antidragonbreathshield) > 0) {
+    $maxhit = 40;
+}
 return($maxhit);
 
 [oploc1,loc_1816]

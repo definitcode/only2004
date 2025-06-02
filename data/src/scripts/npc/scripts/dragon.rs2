@@ -91,10 +91,12 @@ def_int $defence_roll = ~player_defence_roll_specific(npc_param(damagetype));
 // damage player
 def_int $maxhit = 30;
 if (inv_total(worn, antidragonbreathshield) > 0) {
-    $maxhit = 5;
+    $maxhit = 15;
     mes("Your shield absorbs most of the dragon fire!"); // late 2004
 } else if (%prayer_protectfrommagic = ^true) {
     $maxhit = 10;
+} else if (inv_total(worn,dragon_sq_shield) > 0) {
+    $maxhit = 5;
 } else if (randominc($attack_roll) > randominc($defence_roll)) {
     $maxhit = add($maxhit, 20);
     // these messages only show for unprotected or antifire protected players
