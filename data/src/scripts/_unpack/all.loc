@@ -3459,6 +3459,7 @@ anim=gas
 hasalpha=yes
 
 [gas_chest]
+name=Gas Chest
 desc=This is a dangerous chest!
 model=model_loc_674
 anim=smokepuff
