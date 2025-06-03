@@ -196,6 +196,39 @@ param=proj_travel,rune_dart_travel
 param=weapon_poisoned,rune_dart_p
 param=weapon_poisoned_message,You poison some darts.
 
+[dragon_dart]
+stackable=yes
+members=yes
+cost=350
+name=Dragon dart
+desc=A deadly throwing dart with a dragon tip.
+model=model_2379_obj
+recol1s=21140
+recol1d=14336
+2dxof=8
+2dyof=11
+2dzoom=720
+2dyan=336
+2dxan=396
+manwear=model_492_obj_wear,0
+womanwear=model_492_obj_wear,6
+wearpos=righthand
+category=weapon_thrown
+weight=10g
+iop2=Wield
+param=rangeattack,45
+param=rangebonus,65
+param=levelrequire,99
+param=attackrate,3
+param=attackrange,3
+param=rangeattack_anim,human_stake2
+param=defend_anim,human_unarmedblock
+param=rangeattack_sound,dart
+param=proj_launch,dragon_dart_launch
+param=proj_travel,dragon_dart_travel
+param=weapon_poisoned,dragon_dart_p
+param=weapon_poisoned_message,You poison some darts.
+
 [bronze_dart_p]
 stackable=yes
 members=yes
@@ -400,6 +433,40 @@ param=defend_anim,human_unarmedblock
 param=rangeattack_sound,dart
 param=proj_launch,rune_dart_launch
 param=proj_travel,rune_dart_travel
+param=poison_severity,20
+
+[dragon_dart_p]
+stackable=yes
+members=yes
+cost=25500
+name=Dragon dart(p)
+desc=A deadly poisoned dart with a rune tip.
+model=model_2454_obj
+recol1s=21140
+recol1d=14336
+recol2s=928
+recol2d=14881
+2dxof=8
+2dyof=11
+2dzoom=720
+2dyan=336
+2dxan=396
+manwear=model_500_obj_wear,0
+womanwear=model_500_obj_wear,6
+wearpos=righthand
+category=weapon_thrown
+weight=10g
+iop2=Wield
+param=rangeattack,45
+param=rangebonus,65
+param=levelrequire,99
+param=attackrate,3
+param=attackrange,3
+param=rangeattack_anim,human_stake2
+param=defend_anim,human_unarmedblock
+param=rangeattack_sound,dart
+param=proj_launch,dragon_dart_launch
+param=proj_travel,dragon_dart_travel
 param=poison_severity,20
 
 [dart_poisoned_p]

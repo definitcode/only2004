@@ -236,7 +236,27 @@ if ($random < 1) {
 def_int $random = 0;
 $random = random(128);
 if ($random < 1) {
-    return (dragon_knife,25);
+    return (dragon_knife,50);
+} else if ($random < 50) {
+    return (dragon_arrow, 25);
+} else if ($random < 75) {
+    return (dragon_dart, 75);
+} else if ($random < 112) {
+    return (dragonstone_bolt, 50);
+} else if ($random < 105) {
+    return (dragon_scimitar, 1);
+} else if ($random < 106) {
+    return (dragon_kiteshield, 1);
+} else if ($random < 107) {
+    return (dragon_dagger, 1);
+} else if ($random < 108) {
+    return (dragon_2h_sword, 1);
+} else if ($random < 109) {
+    return (dragon_sword, 1);
+} else if ($random < 110) {
+    return (dragon_dagger, 1);
+} else if ($random < 111) {
+    return (dragon_sq_shield_r, 1);
 } else if ($random < 112) {
     return (dragon_dagger, 1);
 } else if ($random < 113) {

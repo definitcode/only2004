@@ -224,7 +224,7 @@ param=rangedefence,12
 [dragon_full_helm]
 name=Dragon full helm
 desc=Forged with the bones of a dragon!
-cost=15
+cost=1000000
 weight=12oz
 model=model_2438_obj
 wearpos=hat

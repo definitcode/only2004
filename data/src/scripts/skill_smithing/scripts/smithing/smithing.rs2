@@ -163,6 +163,17 @@ switch_obj ($last_item)
         inv_transmit(smithing_rune3, smithing:column3);
         inv_transmit(smithing_rune4, smithing:column4);
         inv_transmit(smithing_rune5, smithing:column5);
+    case dragon_bar :
+        if ($player_level > 98) {
+            %smithing_level = 19;
+        } else {
+            %smithing_level = calc($player_level - 84);
+        }
+        inv_transmit(smithing_dragon1, smithing:column1);
+        inv_transmit(smithing_dragon2, smithing:column2);
+        inv_transmit(smithing_dragon3, smithing:column3);
+        inv_transmit(smithing_dragon4, smithing:column4);
+        inv_transmit(smithing_dragon5, smithing:column5);
     case default :
         ~displaymessage(^dm_default);
         return;

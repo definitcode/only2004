@@ -63,3 +63,14 @@ param=invcolumn2,smithing_rune2
 param=invcolumn3,smithing_rune3
 param=invcolumn4,smithing_rune4
 param=invcolumn5,smithing_rune5
+
+[smithing_dragon_bar]
+param=name,dragon bar
+param=levelrequired,99
+param=xpperbar,1350
+param=namedobj,dragon_bar
+param=invcolumn1,smithing_dragon1
+param=invcolumn2,smithing_dragon2
+param=invcolumn3,smithing_dragon3
+param=invcolumn4,smithing_dragon4
+param=invcolumn5,smithing_dragon5

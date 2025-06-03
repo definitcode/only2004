@@ -21,6 +21,15 @@ data=product,pearl_bolttips,24
 data=level,16
 data=experience,32
 
+[fletching_dragonstone_tips]
+table=fletching_table
+data=item,dragonstone
+data=product,dragonstone_bolttips,12
+data=level,99
+data=experience,150
+data=skill_anim,human_opalcutting
+data=skill_sound,chisel
+
 [fletching_opal_bolts]
 table=fletching_table
 data=item,opal_bolttips
@@ -32,7 +41,7 @@ data=experience,16
 table=fletching_table
 data=item,pearl_bolttips
 data=product,pearl_bolt,10
-data=level,16
+data=level,35
 data=experience,32
 
 [fletching_barb_bolts]
@@ -41,3 +50,10 @@ data=item,barbed_bolttips
 data=product,barbed_bolt,10
 data=level,51
 data=experience,95
+
+[fletching_dragonstone_bolts]
+table=fletching_table
+data=item,dragonstone_bolttips
+data=product,dragonstone_bolt,10
+data=level,99
+data=experience,345

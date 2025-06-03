@@ -23,8 +23,8 @@ if (inv_total(inv, dragonshield_a) < 1 | inv_total(inv, dragonshield_b) < 1) {
     return;
 }
 // check if high enough level
-if (stat(smithing) < 60) {
-    ~mesbox("You need a Smithing level of at least 60 to repair this shield.");
+if (stat(smithing) < 98) {
+    ~mesbox("You need a Smithing level of at least 99 to repair this shield.");
     return;
 }
 // check if player has a hammer

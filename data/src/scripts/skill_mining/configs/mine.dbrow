@@ -107,7 +107,7 @@ data=rock,macro_mithrilrock1
 data=rock,macro_mithrilrock2
 data=ore_name,mithril
 data=rock_output,mithril_ore
-data=rock_level,55
+data=rock_level,50
 data=rock_exp,800
 data=rock_successchance,5,50
 data=rock_respawnrate,250
@@ -133,10 +133,21 @@ data=rock,macro_runiterock1
 data=rock,macro_runiterock2
 data=ore_name,runite
 data=rock_output,runite_ore
-data=rock_level,85
+data=rock_level,80
 data=rock_exp,1250
 data=rock_successchance,1,18
 data=rock_respawnrate,2400
+
+[dragon_rock_table]
+table=mining_table
+data=rock,dragonrock1
+data=rock,dragonrock2
+data=ore_name,dragon
+data=rock_output,dragon_ore
+data=rock_level,99
+data=rock_exp,2450
+data=rock_successchance,1,18
+data=rock_respawnrate,4800
 
 // TODO: add the correct success rates here (not currently on wiki)
 // using limestone rates (lvl-10 mining req) for now

@@ -40,3 +40,10 @@ data=item,rune_dart_tip
 data=product,rune_dart,10
 data=level,81
 data=experience,188
+
+[fletching_dragon_dart]
+table=fletching_table
+data=item,dragon_dart_tip
+data=product,dragon_dart,10
+data=level,99
+data=experience,375
