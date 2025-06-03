@@ -38,6 +38,7 @@ return(true);
 
 // proc for fish rolls
 [proc,fish_roll](namedobj $fish1, namedobj $fish2, namedobj $equipment, namedobj $bait)
+def_int $random = random(128);
 
 if ($fish2 ! null) { // if fish2 isnt null and roll for 2nd fish passes
     def_struct $struct2 = oc_param($fish2, fishing_struct);
@@ -50,8 +51,13 @@ if ($fish2 ! null) { // if fish2 isnt null and roll for 2nd fish passes
         inv_add(inv, $fish2, 1);
         stat_advance(fishing, struct_param($struct2, productexp));
         if (inv_total(worn, piratehat) > 0) {
+            
             stat_advance(fishing, struct_param($struct2, productexp));
             mes("Your fishing skills are showing!");
+            if ($random > 127) {
+                ~mesbox("You have received a Casket!");
+                inv_add(inv, casket, 1);
+            }
         }
         mes(struct_param($struct2, productmessage));
         return;
@@ -59,6 +65,7 @@ if ($fish2 ! null) { // if fish2 isnt null and roll for 2nd fish passes
 }
 if ($fish1 ! null) { // else if fish1 isnt null and roll for 1st fish passes
     def_struct $struct1 = oc_param($fish1, fishing_struct);
+    
     if (stat_random(stat(fishing), struct_param($struct1, success_low), struct_param($struct1, success_high)) = true) {
         if ($bait ! null) {
             // delete bait
@@ -70,6 +77,10 @@ if ($fish1 ! null) { // else if fish1 isnt null and roll for 1st fish passes
         if (inv_total(worn, piratehat) > 0) {
             stat_advance(fishing, struct_param($struct1, productexp));
             mes("Your fishing skills are showing!");
+            if ($random > 127) {
+                ~mesbox("You have received a Casket!");
+                inv_add(inv, casket, 1);
+            }
         }
         mes(struct_param($struct1, productmessage));
         return;
@@ -77,8 +88,10 @@ if ($fish1 ! null) { // else if fish1 isnt null and roll for 1st fish passes
 }
 
 [proc,fish_roll_loc](namedobj $fish1, namedobj $fish2, namedobj $bait)
+def_int $random = random(128);
 if ($fish2 ! null) { // if fish2 isnt null and roll for 2nd fish passes
     def_struct $struct2 = oc_param($fish2, fishing_struct);
+    
     if (stat_random(stat(fishing), struct_param($struct2, success_low), struct_param($struct2, success_high)) = true) {
         if ($bait ! null) {
             // delete bait
@@ -90,6 +103,10 @@ if ($fish2 ! null) { // if fish2 isnt null and roll for 2nd fish passes
         if (inv_total(worn, piratehat) > 0) {
             stat_advance(fishing, struct_param($struct2, productexp));
             mes("Your fishing skills are showing!");
+            if ($random > 127) {
+                ~mesbox("You have received a Casket!");
+                inv_add(inv, casket, 1);
+            }
         }
         mes(struct_param($struct2, productmessage));
         return;
@@ -108,6 +125,10 @@ if ($fish1 ! null) { // else if fish1 isnt null and roll for 1st fish passes
         if (inv_total(worn, piratehat) > 0) {
             stat_advance(fishing, struct_param($struct1, productexp));
             mes("Your fishing skills are showing!");
+            if ($random > 127) {
+                ~mesbox("You have received a Casket!");
+                inv_add(inv, casket, 1);
+            }
         }
         mes(struct_param($struct1, productmessage));
     }

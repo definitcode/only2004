@@ -14,7 +14,7 @@
 [opheld2,dragon_chainbody] @levelrequire_legends_quest_defence(90, last_slot);
 [opheld2,dragon_med_helm] @levelrequire_legends_quest_defence(90, last_slot);
 [opheld2,dragon_sq_shield] @levelrequire_legends_quest_defence(90, last_slot);
-[opheld2,dragon_boots] @levelrequire_legends_quest_defence(0, last_slot);
+[opheld2,dragon_boots] @levelrequire_legends_quest_defence(90, last_slot);
 [opheld2,dragon_full_helm] @levelrequire_legends_quest_defence(99, last_slot);
 [opheld2,dragon_platebody] @levelrequire_legends_quest_defence(99, last_slot);
 [opheld2,dragon_platelegs] @levelrequire_legends_quest_defence(99, last_slot);

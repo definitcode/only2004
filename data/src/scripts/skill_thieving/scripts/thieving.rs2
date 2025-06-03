@@ -12,8 +12,12 @@ if(npc_stat(hitpoints) = 0) {
 if (~check_if_success_pick_pocket($data) = false) {
     def_int $stun_ticks = db_getfield($data, pickpocket:stun_ticks, 0);
     def_int $stun_damage = db_getfield($data, pickpocket:stun_damage, 0);
-    ~fail_pick_pocket($stun_damage, $stun_ticks, $pocket);
-    return;
+    if (inv_total(worn, highwaymanmask) = 0) {
+        ~fail_pick_pocket($stun_damage, $stun_ticks, $pocket);
+        return;
+    } else if (inv_total(worn, highwaymanmask) = 1) {
+        mes("You avoid getting stunned!");
+    }
 }
 
 def_int $experience = db_getfield($data, pickpocket:experience, 0);

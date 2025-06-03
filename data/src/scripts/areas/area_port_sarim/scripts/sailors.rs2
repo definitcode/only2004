@@ -13,13 +13,18 @@ if (%dragon_progress >= ^quest_dragon_spoken_to_oziach & %dragon_progress < ^dra
 switch_int ($option) {
     case 1 :
         ~chatplayer("<p,happy>Yes please.");
+        if (inv_total(worn,piratehat) > 0) {
+            ~chatnpc("<p,happy>Oh a fellow sailor! come on aboard!");
+            ~set_sail($dest, "and board the ship.", $coord, $ship_dest, 7); 
+            return;
+        }
         if (inv_total(inv, coins) < 30) {
             ~chatplayer("<p,sad>Oh dear, I don't actually seem to have enough money.");
             return;
         }
-
+        
         inv_del(inv, coins, 30);
-        mes("You pay the 30 coins..."); // https://imgur.com/myiOU5N may 2004
+        mes("You pay the 30 coins...");
         ~set_sail($dest, "and board the ship.", $coord, $ship_dest, 7); 
     case 2 :
         ~chatplayer("<p,neutral>No, thank you.");
