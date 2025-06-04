@@ -4,3 +4,5 @@ table=coord_pair_table
 data=coord_pair,0_46_55_0_0,3_52_99_63_63
 // edgeville dungeon wildy
 data=coord_pair,0_46_155_0_0,0_52_199_63_63
+// KBD Lair
+data=coord_pair,0_42_153_13_5,0_42_153_47_41

@@ -155,6 +155,41 @@ if ($random < 8) {
     return (~legendarytable);
 }
 
+[proc,low_tier_items]()(namedobj,int)
+def_int $random = 0;
+$random = random(128);
+
+if ($random < 8) {
+    return (bronze_sword, 1);
+} else if ($random < 9){
+    return (trout,3);
+    return (coins,25);
+} else if ($random < 12) {
+    return (bronze_chainbody, 1);
+} else if ($random < 13) {
+    return (bronze_platebody, 1);
+} else if ($random < 14) {
+    return (bronze_platelegs, 1);
+} else if ($random < 15) {
+    return (bronze_plateskirt, 1);
+} else if ($random < 16) {
+    return (bronze_full_helm, 1);    
+} else if ($random < 18) {
+    return (bronze_med_helm, 1);
+} else if ($random < 19) {
+    return (bronze_mace, 1);
+} else if ($random < 50) {
+    return (bronze_battleaxe, 1);
+} else if ($random < 125) {
+    return (iron_chainbody,1);
+} else if ($random < 126) {
+    return (iron_sword,1);
+}  else if ($random < 127) {
+    return (iron_mace,1);
+}  else if ($random < 128) {
+    return (iron_arrowheads,50);
+}
+
 [proc,mid_tier_items]()(namedobj,int)
 def_int $random = 0;
 $random = random(128);

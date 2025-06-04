@@ -42,7 +42,7 @@ if (%npc_action_delay > map_clock) {
     return;
 }
 if (~npc_can_attack_player = false) {
-    npc_setmode(null);
+    ~dragon_fire;
     return;
 }
 // edit: elvarg was reworked after the dragon slayer rework.

@@ -1,9 +1,8 @@
 [opheld4,max_cape] @max_cape_interface("You charge your cape.");
+
 [label,max_cape_interface](string $message)
 def_obj $item = last_item;
 def_int $slot = last_slot;
-// https://youtu.be/Zv7Wh3TIDOc
-mes("You shroud yourself in the cape...");
 
 def_int $choice = ~p_choice5_header("Edgeville.", 1, "Dueling Arena.", 2, "Brimhaven.", 3, "KBD.", 4, "Nowhere.", 5, "Where would you like to teleport to ?");
 
