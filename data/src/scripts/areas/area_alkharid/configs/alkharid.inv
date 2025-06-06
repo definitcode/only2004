@@ -36,14 +36,16 @@ size=40
 restock=yes
 stackall=yes
 allstock=no
-stock1=uncut_sapphire,1,25000
-stock2=uncut_emerald,1,40000
-stock3=uncut_ruby,0,2000
-stock4=uncut_diamond,0,4000
-stock5=sapphire,1,15000
-stock6=emerald,1,35000
-stock7=ruby,0,2000
-stock8=diamond,0,4000
+stock1=uncut_jade,3,7500
+stock2=uncut_sapphire,1,25000
+stock3=uncut_emerald,1,40000
+stock4=uncut_ruby,0,2000
+stock5=uncut_diamond,0,4000
+stock6=jade,1,7500
+stock7=sapphire,1,15000
+stock8=emerald,1,35000
+stock9=ruby,0,2000
+stock10=diamond,0,4000
 
 [scimitarshop]
 // https://classic.runescape.wiki/w/Zeke%27s_Scimitar_Shop
@@ -57,6 +59,16 @@ stock1=bronze_scimitar,5,100
 stock2=iron_scimitar,3,200
 stock3=steel_scimitar,0,600
 stock4=mithril_scimitar,0,4000
+
+[leathershop]
+scope=shared
+size=40
+restock=yes
+stackall=yes
+allstock=no
+stock1=cow_hide,10,400
+stock2=leather,5,800
+stock3=hard_leather,1,1000
 
 [generalshop3]
 // https://classic.runescape.wiki/w/Al_Kharid_General_Store

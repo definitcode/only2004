@@ -10,6 +10,7 @@ recol1d=8416
 2dyan=116
 2dxan=440
 weight=5lb
+cost=100
 
 [hard_leather]
 name=Hard leather
@@ -23,6 +24,7 @@ recol1d=5250
 2dyan=116
 2dxan=440
 weight=7lb
+cost=500
 
 
 //green
@@ -39,6 +41,7 @@ recol1d=256
 2dxan=440
 weight=7lb
 members=yes
+cost=15000
 
 //blue
 [dragon_leather_blue]
@@ -54,6 +57,7 @@ recol1d=11
 2dxan=440
 weight=7lb
 members=yes
+cost=25000
 
 //red
 [dragon_leather_red]
@@ -69,6 +73,7 @@ recol1d=8192
 2dxan=440
 weight=7lb
 members=yes
+cost=50000
 
 //black
 [dragon_leather_black]
@@ -84,3 +89,4 @@ recol1d=3171
 2dxan=440
 weight=7lb
 members=yes
+cost=100000

@@ -63,9 +63,10 @@ if ($random < 32) {
     if (map_members = true) {
         return (keyhalf2, 1);
     }
-} else if ($random < 62) {
+} else if ($random < 125) {
     if (map_members = true) {
-        return (~megararetable);
+        //return (~megararetable);
+        return(coins,100);
     }
 } else if($random < 65) {
     if (map_members = true) {
@@ -262,8 +263,8 @@ if ($random < 1) {
     return (mindrune,25);
     return (airrune,50);    
 } else if ($random < 8) {
-    return (coins,150);
-    return (coins,150);
+    return (coins,300);
+    //return (coins,150);
     return (trout,2);
 }
 

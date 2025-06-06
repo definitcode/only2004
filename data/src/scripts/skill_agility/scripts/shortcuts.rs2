@@ -223,7 +223,11 @@ p_teleport($start_coord);
 p_delay(0);
 ~agility_exactmove(human_walk_style, 30, 2, $start_coord, $end_coord, 30, 94, $dir, true);
 p_teleport($walk_coord);
-
+stat_advance(agility, 5);
+if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
+        stat_advance(agility, 5);
+        mes("Your agility skills are showing!");
+}
 [oploc1,_karamja_stepping_stone]
 if(coord = loc_coord) {
     mes("You can't do that from here.");
