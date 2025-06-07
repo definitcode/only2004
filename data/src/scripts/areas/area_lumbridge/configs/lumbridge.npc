@@ -5,6 +5,7 @@ desc=Duke Horacio of Lumbridge.
 walkanim=human_walk_f,human_walk_b,human_walk_l,human_walk_r
 readyanim=human_ready
 op1=Talk-to
+op3=Trade
 recol1s=2340
 recol1d=21702
 recol2s=14724
@@ -20,6 +21,12 @@ model8=model_181_idk
 model9=model_323_obj_wear
 head1=model_67_idk_head
 head2=model_83_idk_head
+category=shop_keeper
+param=owned_shop,max_shop
+param=shop_sell_multiplier,1000
+param=shop_buy_multiplier,0
+param=shop_delta,20
+param=shop_title,Max Shop.
 
 [cook]
 vislevel=hide

@@ -179,7 +179,7 @@ param=rangedefence,2
 param=crafting_capes_struct,orange_cape
 
 [max_cape]
-cost=33200
+cost=10000000
 name=Max Cape
 desc=A cape for prestige!
 model=model_3196_obj
@@ -205,7 +205,7 @@ category=skill_cape
 param=no_alchemy,^true
 
 [attack_cape]
-cost=33200
+cost=1000000
 name=Attack Cape
 desc=A cape for mastery in Attack!
 model=model_3196_obj
@@ -230,7 +230,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [strength_cape]
-cost=33200
+cost=1000000
 name=Strength Cape
 desc=A cape for mastery in Strength!
 model=model_3196_obj
@@ -255,7 +255,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [defence_cape]
-cost=33200
+cost=1000000
 name=Defence Cape
 desc=A cape for mastery in Defence!
 model=model_3196_obj
@@ -280,7 +280,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [ranged_cape]
-cost=33200
+cost=1000000
 name=Ranged Cape
 desc=A cape for mastery in Ranged!
 model=model_3196_obj
@@ -305,7 +305,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [prayer_cape]
-cost=33200
+cost=1000000
 name=Prayer Cape
 desc=A cape for mastery in Prayer!
 model=model_3196_obj
@@ -330,7 +330,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [magic_cape]
-cost=33200
+cost=1000000
 name=Magic Cape
 desc=A cape for mastery in Magic!
 model=model_3196_obj
@@ -355,7 +355,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [runecrafting_cape]
-cost=33200
+cost=1000000
 name=Runecrafting Cape
 desc=A cape for mastery in Runecrafting!
 model=model_3196_obj
@@ -380,7 +380,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [hitpoints_cape]
-cost=33200
+cost=1000000
 name=Hitpoints Cape
 desc=A cape for mastery in Hitpoints!
 model=model_3196_obj
@@ -405,7 +405,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [agility_cape]
-cost=33200
+cost=1000000
 name=Agility Cape
 desc=A cape for mastery in Agility!
 model=model_3196_obj
@@ -430,7 +430,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [herblore_cape]
-cost=33200
+cost=1000000
 name=Herblore Cape
 desc=A cape for mastery in Herblore!
 model=model_3196_obj
@@ -455,7 +455,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [thieving_cape]
-cost=33200
+cost=1000000
 name=Thieving Cape
 desc=A cape for mastery in Thieving!
 model=model_3196_obj
@@ -480,7 +480,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [crafting_cape]
-cost=33200
+cost=1000000
 name=Crafting Cape
 desc=A cape for mastery in Crafting!
 model=model_3196_obj
@@ -505,7 +505,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [fletching_cape]
-cost=33200
+cost=1000000
 name=Fletching Cape
 desc=A cape for mastery in Fletching!
 model=model_3196_obj
@@ -530,7 +530,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [mining_cape]
-cost=33200
+cost=1000000
 name=Mining Cape
 desc=A cape for mastery in Mining!
 model=model_3196_obj
@@ -555,7 +555,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [blacksmithing_cape]
-cost=33200
+cost=1000000
 name=Smithing Cape
 desc=A cape for mastery in Smithing!
 model=model_3196_obj
@@ -580,7 +580,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [fishing_cape]
-cost=33200
+cost=1000000
 name=Fishing Cape
 desc=A cape for mastery in Fishing!
 model=model_3196_obj
@@ -605,7 +605,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [cooking_cape]
-cost=33200
+cost=1000000
 name=Cooking Cape
 desc=A cape for mastery in Cooking!
 model=model_3196_obj
@@ -630,7 +630,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [firemaking_cape]
-cost=33200
+cost=1000000
 name=Firemaking Cape
 desc=A cape for mastery in Firemaking!
 model=model_3196_obj
@@ -655,7 +655,7 @@ param=no_alchemy,^true
 category=skill_cape
 
 [woodcutting_cape]
-cost=33200
+cost=1000000
 name=Woodcutting Cape
 desc=A cape for mastery in Woodcutting!
 model=model_3196_obj

@@ -2,9 +2,9 @@
 ~chatnpc("<p,neutral>Greetings. Welcome to my castle.");
 
 if ((%dragon_shield = ^quest_dragon_knows_about_shield | %dragon_progress >= ^dragon_complete) & inv_total(inv, antidragonbreathshield) < 1 & inv_total(worn, antidragonbreathshield) < 1) {
-    @multi3("I seek a shield that will protect me from the dragon's breath.", duke_horacio_shield, "Have you any quests for me?", ~duke_handle_rune_mysteries, "Where can I find money?", duke_horacio_money);
+    @multi3("I seek a shield that will protect me from the dragon's breath.", duke_horacio_shield, "Have you any quests for me?", ~duke_handle_rune_mysteries, "Where can I find skill capes?", duke_horacio_money);
 } else {
-    @multi2("Have you any quests for me?", ~duke_handle_rune_mysteries, "Where can I find money?", duke_horacio_money);
+    @multi2("Have you any quests for me?", ~duke_handle_rune_mysteries, "Where can I find skill capes?", duke_horacio_money);
 
 }
 
@@ -16,8 +16,9 @@ else if (%runemysteries_progress = ^runemysteries_complete) return(duke_rune_mys
 else return (duke_rune_mysteries_in_progress);
 
 [label,duke_horacio_money]
-~chatplayer("<p,quiz>Where can I find money?");
-~chatnpc("<p,neutral>I've heard that the blacksmiths are prosperous amongst the peasantry. Maybe you could try your hand at that?");
+~chatnpc("<p,neutral>Let's see if you got the skills!");
+~openshop_activenpc;
+
 
 [label,duke_rune_mysteries_start]
 ~chatplayer("<p,quiz>Have you any quests for me?");
