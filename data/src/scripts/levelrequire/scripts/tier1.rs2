@@ -78,4 +78,4 @@
 [opheld2,staff_of_water] @levelrequire_magic_and_attack(10, 1, last_slot);
 [opheld2,staff_of_earth] @levelrequire_magic_and_attack(10, 1, last_slot);
 [opheld2,staff_of_fire] @levelrequire_magic_and_attack(10, 1, last_slot);
-[opheld2,magicstaff] @levelrequire_magic_and_attack(1, 1, last_slot);
+[opheld2,magicstaff] @levelrequire_magic_and_attack(5, 1, last_slot);

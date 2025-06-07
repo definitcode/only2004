@@ -460,6 +460,10 @@ iop2=Wear
 wearpos=front
 manwear=model_281_obj_wear,0
 womanwear=model_445_obj_wear,0
+param=attackbonus,5
+param=strengthbonus,5
+param=crushdefence,2
+param=magicdefence,2
 weight=10g
 
 [blue_skirt]
@@ -476,6 +480,8 @@ iop2=Wear
 wearpos=legs
 manwear=model_265_obj_wear,0
 womanwear=model_428_idk,0
+param=magicattack,10
+param=magicdefence,5
 weight=2lb
 
 [pink_skirt]
@@ -530,7 +536,7 @@ members=yes
 [zamrobebottom]
 name=Robe of zamorak
 desc=A robe worn by worshippers of Zamorak.
-cost=30
+cost=32000
 model=model_2521_obj
 recol1s=2340
 recol1d=19489
@@ -554,7 +560,7 @@ desc=A robe worn by worshippers of Zamorak.
 model=model_2786_obj
 recol1s=14724
 recol1d=19489
-cost=40
+cost=1000000
 2dyof=7
 2dzoom=1370
 2dxan=536

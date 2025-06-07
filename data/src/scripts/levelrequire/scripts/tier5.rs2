@@ -34,3 +34,8 @@
 [opheld2,steel_thrownaxe] @levelrequire_ranged(30, last_slot);
 [opheld2,steel_javelin] @levelrequire_ranged(30, last_slot);
 [opheld2,steel_javelin_p] @levelrequire_ranged(30, last_slot);
+
+
+// Magic
+[opheld2,blackwizhat] @levelrequire_magic_and_defence(30, 30, last_slot);
+[opheld2,black_robe] @levelrequire_magic_and_defence(30, 30, last_slot);
