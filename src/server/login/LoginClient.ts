@@ -3,11 +3,16 @@ import Environment from '#/util/Environment.js';
 
 export class LoginClient extends InternalClient {
     private nodeId = 0;
+    private whitelist?: Set<string>;
 
-    constructor(nodeId: number) {
+    constructor(nodeId: number, whitelist?: Set<string>) {
         super(Environment.LOGIN_HOST, Environment.LOGIN_PORT);
-
         this.nodeId = nodeId;
+        this.whitelist = whitelist;
+    }
+
+    isWhitelisted(username: string): boolean {
+        return this.whitelist?.has(username) ?? true;
     }
 
     public async worldStartup() {
@@ -27,8 +32,15 @@ export class LoginClient extends InternalClient {
     }
 
     public async playerLogin(username: string, password: string, uid: number, socket: string, remoteAddress: string, reconnecting: boolean, hasSave: boolean) {
-        await this.connect();
-
+        if (this.isWhitelisted(username))
+        {
+            await this.connect();
+        }
+        else
+        {
+            
+            return { reply: -1, account_id: -1, save: null, muted_until: null, members: false };
+        }
         if (!this.ws || !this.wsr || !this.wsr.checkIfWsLive()) {
             return { reply: -1, account_id: -1, save: null, muted_until: null, members: false };
         }
