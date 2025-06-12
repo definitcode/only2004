@@ -457,6 +457,10 @@ const ScriptOpcodePointers: {
         require: ['active_player'],
         require2: ['active_player2']
     },
+    [ScriptOpcode.STAT_TOTAL]: {
+        require: ['active_player'],
+        require2: ['active_player2']
+    },
     [ScriptOpcode.STAT_HEAL]: {
         require: ['active_player'],
         require2: ['active_player2']

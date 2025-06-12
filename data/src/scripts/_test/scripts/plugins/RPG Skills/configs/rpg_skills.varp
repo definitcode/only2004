@@ -1,0 +1,16 @@
+
+// info: total of all the new skills added
+[rpg_level]
+scope=perm
+// ifno: new rpg skill (total all skills + rpg skills)
+[rpg_prestige]
+scope=perm
+
+[rpg_hunter]
+scope=perm
+
+
+
+// Variable Storage
+[total_level]
+scope=perm

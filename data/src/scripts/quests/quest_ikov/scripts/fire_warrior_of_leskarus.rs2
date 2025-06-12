@@ -24,6 +24,7 @@ gosub(npc_death);
 if(npc_findhero = true) {
     if_close;
     queue(queue_defeat_fire_warrior, 0);
+    obj_add(npc_coord, medium_boss_token, 1, ^lootdrop_duration);
 }
 
 [queue,queue_defeat_fire_warrior] 

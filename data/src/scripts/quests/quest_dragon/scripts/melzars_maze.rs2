@@ -121,6 +121,7 @@ if (npc_findhero = false) {
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 // Drop magenta key.
 obj_add(npc_coord, magentakey, 1, ^lootdrop_duration);
+obj_add(npc_coord, medium_boss_token, 1, ^lootdrop_duration);
 
 
 // lesser demon

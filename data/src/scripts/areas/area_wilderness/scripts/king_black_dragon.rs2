@@ -8,6 +8,7 @@ if (npc_findhero = false) {
 // Default drop
 obj_add(npc_coord, dragon_bones, 1, ^lootdrop_duration);
 obj_add(npc_coord, dragonhide_black, 1, ^lootdrop_duration);
+obj_add(npc_coord, elite_boss_token, 1, ^lootdrop_duration);
 
 // sources used:
 // - https://web.archive.org/web/20050305120920/http://runehq.com:80/cache/viewMonster57.htm
