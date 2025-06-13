@@ -1,0 +1,177 @@
+//Boss Tokens
+//Version: v0.1
+//Created By: Shadowfall
+
+[opnpc1,sir_slaughter] ~bt_main_menu;
+
+[proc,bt_main_menu]
+def_int $c1 = (~p_choice2_header("Task Menu.", 1, "Trading Menu.", 2, "What would you like to do?"));
+
+//switch_int($c1){
+//    case 1 : ~bt_taskmenu;
+//    case 2 : ~bt_tradingmenu;
+//}
+return;
+[proc,bt_check_task_completed]
+//if ((%bt_task_status = ^bt_on_task) & (%bt_on_task_kc >= %bt_task_kr)) {
+//    ~bt_task_completed;
+//} else if (%bt_task_kr > %bt_on_task_kc){
+//    %bt_task_status = ^bt_on_task;
+//    ~bt_taskstatus;
+//    return;
+//}
+
+[proc,bt_task_completed]
+//%bt_task_status = ^bt_off_task;
+//%bt_on_task_kc = 0;
+//%bt_task_kr = 0;
+
+[proc,bt_taskmenu]
+if (%bt_task_status = ^bt_on_task){
+    def_int $c2 = (~p_choice4_header("Task Status.", 1, "Cancel Task.", 2, "View KC.", 3,"Nothing.", 4,"What would you like to do?"));
+    switch_int($c2){
+        case 1 : ~bt_taskstatus;
+        case 2 : ~bt_cancel_task;
+        case 3 : ~bt_view_kc;
+        case 4 : ~chatnpc("Thank you for coming by!");
+    }
+} else if (%bt_task_status = ^bt_off_task) {
+    def_int $c2 = (~p_choice3_header("New Task.", 1, "View KC.", 2, "Go Back.", 3, "What would you like to do?"));
+    switch_int($c2){
+        case 1 : ~bt_newtask;
+        case 2 : ~bt_view_kc;
+        case 3 : ~bt_main_menu;
+    }
+    
+
+}
+
+[proc,bt_taskstatus]
+//if (%bt_task_kr < %bt_on_task_kc){
+//    ~bt_task_completed; 
+//}
+//~chatnpc("You are on task to kill @bla@<tostring(%bt_task_kr)> @bla@<tostring(%bt_task_boss)>.");
+//%bt_task_status = ^bt_on_task;
+return;
+
+[proc,bt_newtask]
+//def_int $c3 = (~p_choice5_header("Elite.", 1, "Hard.", 2, "Medium.", 3,"Easy.", 4, "Go Back.", 5, "Which task difficulty would you like?"));
+//switch_int($c3){
+//    case 1 : ~bt_elitetask;
+//    case 2 : ~bt_hardtask;
+//    case 3 : ~bt_medtask;
+//    case 4 : ~bt_easytask;
+//    case 5 : ~bt_taskmenu;
+//
+//}
+//~chatnpc("You have been assigned a new task to kill @bla@<tostring(%bt_task_kr)> @bla@<tostring(%bt_task_boss)>.");
+return;
+
+
+[proc,bt_cancel_task]
+//def_int $confirm = (~p_choice2("Yes", 1, "No", 2, "Are you sure you want to cancel your task?"));
+//if ($confirm = 1) {
+//    %bt_task_status = ^bt_off_task;
+//    ~chatnpc("Your task has been cancelled.");
+//} else {
+//    ~bt_taskmenu;
+//}
+return;
+
+
+[proc,bt_view_kc]
+~mesbox("Coming Soon!");
+return;
+
+[proc,bt_elitetask]
+//def_int $boss = random(5);
+//def_int $count = random(500);
+//switch_int($boss){
+//    case 1 : %bt_task_boss = nc_op(king_black_dragon);
+//    case 2 : %bt_task_boss = nc_op(king_black_dragon);
+//    case 3 : %bt_task_boss = nc_op(king_black_dragon);
+//    case 4 : %bt_task_boss = nc_op(king_black_dragon);
+//    case 5 : %bt_task_boss = nc_op(king_black_dragon);
+//}
+//%bt_task_kr = $count;
+//~bt_taskstatus;
+return;
+
+[proc,bt_hardtask]
+//def_int $boss = random(5);
+//def_int $count = random(250);
+//switch_int($boss){
+//    case 1 : %bt_task_boss = nc_op(donny_the_lad);
+//    case 2 : %bt_task_boss = nc_op(salarin_the_twisted);
+//    case 3 : %bt_task_boss = nc_op(black_heather);
+//    case 4 : %bt_task_boss = nc_op(speedy_keith);
+//    case 5 : %bt_task_boss = nc_op(wizard_grayzag);
+//}
+//%bt_task_kr = $count;
+//~bt_taskstatus;
+return;
+[proc,bt_medtask]
+~mesbox("Coming Soon!");
+return;
+[proc,bt_easytask]
+~mesbox("Coming Soon!");
+return;
+
+
+[proc,bt_tradingmenu]
+//def_int $c = (~p_choice4_header("Redeem Tokens.", 1, "Buy Tokens.", 2, "View Prices.", 3, "Go Back.", 4, "What would you like to do?"));
+//
+//switch_int($c) {
+//    case 1 : ~bt_redeem_menu;
+//    case 2 : ~bt_buy_menu;
+//    case 3 : ~bt_view_prices;
+//    case 4 : ~bt_main_menu;
+//}
+return;
+
+[proc,bt_redeem_menu]
+//def_int $c = (~p_choice5_header("Elite Shop.", 1, "Hard Shop.", 2, "Medium Shop.", 3, "Easy Shop.", 4, "Go Back.", 5, "Which shop would you like to view?"));
+//
+//switch_int($c) {
+//    case 1 : ~bt_shop_elite;
+//    case 2 : ~bt_shop_hard;
+//    case 3 : ~bt_shop_medium;
+//    case 4 : ~bt_shop_easy;
+//    case 5 : ~bt_tradingmenu;
+//}
+return;
+[proc,bt_shop_elite]
+//def_int $c = (~p_choice3_header("Shield left half (10 Elite Boss Tokens).", 1, "Death's Sting (100 tokens)", 2, "Go Back", 3, "Choose an item to redeem."));
+//
+//switch_int($c) {
+//    case 1 : ~bt_redeem_item(2456, 10, dragonshield_a, "Shield left half"); // Elite token ID 2456
+//    case 2 : ~bt_redeem_item(2456, 100, deathdaggerdone, "Death's Sting");
+//    case 3 : ~bt_redeem_menu;
+//}
+return;
+[proc,bt_shop_hard]
+~mesbox("Coming Soon!");
+return;
+[proc,bt_shop_medium]
+~mesbox("Coming Soon!");
+return;
+[proc,bt_shop_easy]
+~mesbox("Coming Soon!");
+return;
+
+[proc,bt_redeem_item](int $token_id, int $cost, int $item_id, string $item_name)
+//if (inv_total($token_id) < $cost) {
+//    ~chatnpc("You need more tokens to exchange for this item.");
+//    return;
+//}
+//
+//def_int $confirm = (~p_choice2("Yes", 1, "No", 2, "Redeem Tokens An Item?"));
+//switch_int($confirm) {
+//    case 1 : $confirm = ^true; // used to pass outside of switch_int
+//    case 2 : ~bt_main_menu;
+//}
+//
+//inv_del(inv, $token_id, $cost);
+//inv_add(inv, $item_id, 1);
+//~chatnpc("You have exchanged your tokens for a new item!");
+return;

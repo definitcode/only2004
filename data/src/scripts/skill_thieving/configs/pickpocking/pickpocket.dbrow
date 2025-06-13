@@ -10,8 +10,7 @@ data=experience,80
 data=stun_ticks,13
 data=stun_damage,1
 data=success_chance,180,240
-data=loot,coins,3,3,128
-data=loot,bronze_arrow,2,2,125
+data=loot,coins,5,10,128
 data=pocket,man's pocket
 
 [pickpocket_woman]
@@ -27,7 +26,7 @@ data=stun_damage,1
 data=success_chance,180,240
 data=loot,coins,3,3,128
 data=loot,mindrune,1,1,128
-data=loot,airrune,1,1,128
+data=loot,airrune,1,3,128
 data=pocket,woman's pocket
 
 [pickpocket_farmer]

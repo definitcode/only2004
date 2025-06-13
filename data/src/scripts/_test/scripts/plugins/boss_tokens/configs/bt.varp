@@ -1,0 +1,37 @@
+//Boss Tokens
+//Version: v0.1
+//Created By: Shadowfall
+
+// Task Tracking
+[bt_task_status]
+type=int
+scope=perm
+
+// Task Kill Requirements
+[bt_task_kr]
+type=int
+scope=perm
+[bt_task_boss]
+type=string
+scope=perm
+
+// Task Quality
+[bt_task_quality]
+type=int
+scope=perm
+
+// Kill Counters
+[bt_kbd_kc]
+type=int
+scope=perm
+[bt_hellhound_kc]
+type=int
+scope=perm
+[bt_salarin_kc]
+type=int
+scope=perm
+
+//##Bandit Leaders##
+[bt_bandits_kc]
+type=int
+scope=perm

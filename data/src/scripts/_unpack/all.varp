@@ -211,6 +211,9 @@ scope=perm
 [mill_flour]
 scope=perm
 
+[grain_to_process]
+scope=perm
+
 [smithing_bars]
 transmit=yes
 

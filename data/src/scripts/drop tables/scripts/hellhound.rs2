@@ -5,7 +5,8 @@ if (npc_findhero = false) {
 }
 
 def_int $random = random(128);
-
+//def_int $number = 1;
+//%bt_hellhound_kc = add(%bt_hellhound_kc, $number);
 // Tertiary
 ~trail_hardcluedrop(64, npc_coord);
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);

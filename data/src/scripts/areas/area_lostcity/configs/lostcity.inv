@@ -16,8 +16,8 @@ size=40
 restock=yes
 stackall=yes
 allstock=no
-stock1=dragon_battleaxe,1,500
-stock2=dragon_mace,1,500
+stock1=dragon_battleaxe,0,25000
+stock2=dragon_mace,0,25000
 
 [generalshop8]
 // https://classic.runescape.wiki/w/Zanaris_General_Store

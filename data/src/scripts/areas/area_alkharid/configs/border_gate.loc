@@ -3,6 +3,7 @@ name=Gate
 desc=The toll gate from Lumbridge to Al-Kharid.
 model=model_loc_52
 op1=Open
+op3=Pay-toll(10gp)
 category=border_gate_toll_left
 param=next_loc_stage,loc_1562
 
@@ -11,6 +12,7 @@ name=Gate
 desc=The toll gate from Lumbridge to Al-Kharid.
 model=model_loc_52
 op1=Open
+op3=Pay-toll(10gp)
 mirror=yes
 category=border_gate_toll_right
 param=next_loc_stage,loc_1563

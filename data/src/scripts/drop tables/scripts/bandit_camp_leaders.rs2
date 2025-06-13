@@ -7,6 +7,10 @@ if (npc_findhero = false) {
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 obj_add(npc_coord, hard_boss_token, 1, ^lootdrop_duration);
+
+//def_int $number = 1;
+//%bt_bandits_kc = add(%bt_bandits_kc, $number);
+
 // Tertiary
 ~trail_mediumcluedrop(128, npc_coord);
 ~trail_checkmediumdrop;

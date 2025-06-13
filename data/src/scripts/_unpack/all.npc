@@ -1472,7 +1472,7 @@ param=defend_sound,dragon_hit
 param=death_sound,dragon_death
 param=death_drop,dragon_bones
 huntmode=aggressive_melee
-huntrange=4
+huntrange=10
 // Stats match osrs version but our version Vislvl is different.
 
 [blue_dragon]
@@ -1719,7 +1719,7 @@ param=death_anim,giantspider_death
 param=attack_sound,insect_attack
 param=defend_sound,insect_hit
 param=death_sound,insect_death
-param=death_drop,null
+param=death_drop,red_spiders_eggs
 huntmode=aggressive_melee
 huntrange=3
 // Stats match osrs version but our version Vislvl is different.
@@ -3046,7 +3046,7 @@ model2=model_2864_npc
 wanderrange=3
 maxrange=5
 respawnrate=60
-hitpoints=111
+hitpoints=120
 attack=65
 strength=65
 defence=65
@@ -3063,7 +3063,7 @@ param=attack_sound,giant_attack
 param=defend_sound,giant_hit
 param=death_sound,giant_death
 param=death_drop,big_bones
-huntmode=cowardly
+huntmode=aggressive_melee
 huntrange=2
 // Stats match osrs version but our version Vislvl is different.
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2075
@@ -3081,7 +3081,7 @@ recol1d=22431
 model1=model_2870_npc
 model2=model_2868_npc
 respawnrate=60
-hitpoints=70
+hitpoints=110
 attack=40
 strength=40
 defence=40
@@ -3098,7 +3098,7 @@ param=attack_sound,giant_attack
 param=defend_sound,giant_hit
 param=death_sound,giant_death
 param=death_drop,big_bones
-huntmode=cowardly
+huntmode=aggressive_melee
 huntrange=2
 // Stats match osrs version but our version Vislvl is different.
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2085
@@ -3120,7 +3120,7 @@ model2=model_2865_npc
 wanderrange=3
 maxrange=5
 respawnrate=60
-hitpoints=60
+hitpoints=90
 attack=30
 strength=30
 defence=30
@@ -3135,7 +3135,7 @@ param=attack_sound,giant_attack
 param=defend_sound,giant_hit
 param=death_sound,giant_death
 param=death_drop,big_bones
-huntmode=cowardly
+huntmode=aggressive_melee
 huntrange=2
 // Stats match osrs version but our version Vislvl is different.
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2090
@@ -3174,7 +3174,7 @@ param=attack_sound,giant_attack
 param=defend_sound,giant_hit
 param=death_sound,giant_death
 param=death_drop,big_bones
-huntmode=cowardly
+huntmode=aggressive_melee
 huntrange=2
 // Stats match osrs version but our version Vislvl is different.
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2094
@@ -3204,7 +3204,7 @@ param=attack_sound,giant_attack
 param=defend_sound,giant_hit
 param=death_sound,giant_death
 param=death_drop,big_bones
-huntmode=cowardly
+huntmode=aggressive_melee
 huntrange=2
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2097
@@ -3222,7 +3222,7 @@ model2=model_2862_npc
 wanderrange=3
 maxrange=5
 respawnrate=60
-hitpoints=35
+hitpoints=50
 attack=18
 strength=22
 defence=26
@@ -3237,7 +3237,7 @@ param=attack_sound,giant_attack
 param=defend_sound,giant_hit
 param=death_sound,giant_death
 param=death_drop,big_bones
-huntmode=cowardly
+huntmode=aggressive_melee
 huntrange=2
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2098
@@ -3283,7 +3283,7 @@ readyanim=dwarf_ready
 name=Chaos dwarf
 desc=A dwarf gone bad.
 op2=Attack
-vislevel=48
+vislevel=68
 recol1s=15785
 recol1d=15855
 recol2s=24075
@@ -3303,13 +3303,13 @@ hitpoints=61
 attack=38
 strength=42
 defence=28
-param=attackbonus,13
-param=strengthbonus,9
-param=stabdefence,40
+param=attackbonus,15
+param=strengthbonus,12
+param=stabdefence,45
 param=slashdefence,34
-param=crushdefence,25
-param=magicdefence,10
-param=rangedefence,35
+param=crushdefence,60
+param=magicdefence,15
+param=rangedefence,40
 param=damagetype,^crush_style
 param=attack_anim,dwarf_attack
 param=defend_anim,dwarf_block
