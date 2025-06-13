@@ -846,16 +846,16 @@ sharelight=yes
 active=no
 
 [loc_245]
-name=Ship's ladder
-desc=Allows access to other parts of the ship.
+name=Ladder
+desc=Does what ladders do.
 model=model_loc_245
 sharelight=yes
 op1=Climb-up
 forceapproach=south
 
 [loc_246]
-name=Ship's ladder
-desc=Allows access to other parts of the ship.
+name=Ladder
+desc=Does what ladders do.
 model=model_loc_246
 sharelight=yes
 op1=Climb-down

@@ -1694,8 +1694,8 @@ export default class Player extends PathingEntity {
         this.stats[stat] += xp * multi;
 
         // cap to 200m, this is represented as "2 billion" because we use 32-bit signed integers and divide by 10 to give us a decimal point
-        if (this.stats[stat] > 2_000_000_000) {
-            this.stats[stat] = 2_000_000_000;
+        if (this.stats[stat] > 4_000_000_000) {
+            this.stats[stat] = 4_000_000_000;
         }
 
         const before = this.baseLevels[stat];

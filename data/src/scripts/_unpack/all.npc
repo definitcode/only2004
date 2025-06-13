@@ -1703,7 +1703,7 @@ model1=model_2884_npc
 wanderrange=10
 maxrange=12
 respawnrate=60
-hitpoints=35
+hitpoints=75
 attack=30
 strength=25
 defence=30
@@ -1720,8 +1720,8 @@ param=attack_sound,insect_attack
 param=defend_sound,insect_hit
 param=death_sound,insect_death
 param=death_drop,null
-huntmode=cowardly
-huntrange=1
+huntmode=aggressive_melee
+huntrange=3
 // Stats match osrs version but our version Vislvl is different.
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_3021
 
@@ -1754,8 +1754,8 @@ param=attack_sound,insect_attack
 param=defend_sound,insect_hit
 param=death_sound,insect_death
 param=death_drop,null
-huntmode=cowardly
-huntrange=1
+huntmode=aggressive_melee
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_3022
 
@@ -3316,8 +3316,8 @@ param=defend_anim,dwarf_block
 param=death_anim,dwarf_death
 param=attack_sound,baxe_crush
 // param=defend_sound,
-huntmode=cowardly
-huntrange=1
+huntmode=aggressive_melee
+huntrange=10
 // Osrs sounds warhammer_crush, dwarf_hit, dwarf_death
 // osrs stats and Vislvl match 1:1
 // TODO SOUNDS
