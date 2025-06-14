@@ -13,7 +13,7 @@ def_obj $last_item = inv_getobj(inv, $slot);
 inv_delslot(inv, $slot);
 stat_advance(prayer, oc_param($last_item, bone_exp));
 
-if (inv_total(worn, blessedstar) > 0) {
+if (inv_total(worn, amulet_of_ghostspeak) > 0) {
     stat_advance(prayer, oc_param($last_item, bone_exp));
     mes("Your prayer skills are showing!");
 }

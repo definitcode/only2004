@@ -1,0 +1,42 @@
+//[opnpc1,sir_slaughter]
+//// this is a talk opt and probably(?) had a dialogue, but the op was replaced with trade
+//// in mid-2005 so I have no idea what the dialogue would've been and would rather not guess
+//// todo: find out what the dialogue was
+//
+//
+//
+//def_int $c1 = (~p_choice5_header("Elite.", 1, "Hard.", 2, "Medium.", 3,"Easy.", 4, "Go Back.", 5, "Which shop would like you to view?"));
+//switch_int($c3){
+//    case 1 : if_openmain(bt_elite_shop);
+//    case 2 : ~bt_hardtask;
+//    case 3 : ~bt_medtask;
+//    case 4 : ~bt_easytask;
+//    case 5 : ~bt_taskmenu;
+//
+//}
+//~chatnpc("You have been assigned a new task to kill @bla@<tostring(%bt_task_kr)> @bla@<tostring(%bt_task_boss)>.");
+//
+//if_openmain(elite_token_shop);
+//
+//[if_button,tickets_shop:com_88] @elite_shop_buy(dragon_warhammer, 30, "50", 50);
+//[if_button,tickets_shop:com_89] @elite_shop_buy(dragon_chainbody, 1, "250", 250);
+//[if_button,tickets_shop:com_90] @elite_shop_buy(rune_arrow, 50, "2,000", 500);
+//[if_button,tickets_shop:com_92] @elite_shop_buy(coif, 1, "100", 750);
+//[if_button,tickets_shop:com_95] @elite_shop_buy(dragonhide_body, 1, "1,000", 1000);
+//[if_button,tickets_shop:com_97] @elite_shop_buy(adamant_javelin, 20, "10,000", 10000);
+//
+//
+//[label,elite_shop_buy](namedobj $obj, int $count, string $price_str, int $price)
+//if(inv_total(inv, archery_ticket) < $price) {
+//    mes("You'd need <$price_str> Elite Boss Tokens to buy that.");
+//    return;
+//}
+//if(inv_itemspace(inv, $obj, $count, inv_size(inv)) = false & $price ! inv_total(inv, archery_ticket)) {
+//    mes("You don't have enough inventory space to buy that.");
+//    return;
+//}
+//inv_del(inv, archery_ticket, $price);
+//inv_add(inv, $obj, $count);
+//
+//
+//[if_button,tickets_shop:com_101] if_close;
