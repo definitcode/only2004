@@ -51,6 +51,6 @@ if (npc_find(coord, weakened_delrith, 8, 0) = true) {
 if_close;
 if (npc_find(coord, weakened_delrith, 8, 0) = true) {
     gosub(npc_death);
-    obj_add(npc_coord, easy_boss_token, 1, ^lootdrop_duration);
+    //obj_add(npc_coord, easy_boss_token, 1, ^lootdrop_duration);
 }
 queue(demon_slayer_complete, 1);

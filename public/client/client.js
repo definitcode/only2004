@@ -16826,9 +16826,8 @@ class Client extends GameShell {
       for (let i = 0;i < 9; i++) {
         this.archiveChecksums[i] = checksums.g4();
       }
-      if (!Client.lowMemory) {
-        await this.setMidi("scape_main", 12345678, 40000, false);
-      }
+      await this.setMidi("scape_main", 12345678, 40000, false);
+
       const title = await this.loadArchive("title", "title screen", this.archiveChecksums[1], 10);
       this.titleArchive = title;
       this.fontPlain11 = PixFont.fromArchive(title, "p11");
@@ -17074,7 +17073,7 @@ class Client extends GameShell {
     const x = 360;
     const y = 200;
     const offsetY = 20;
-    this.fontBold12?.drawStringCenter(x / 2 | 0, (y / 2 | 0) - offsetY - 26, "only2004 is loading - please wait...", 16777215 /* WHITE */);
+    this.fontBold12?.drawStringCenter(x / 2 | 0, (y / 2 | 0) - offsetY - 26, "still killing gnomes - please wait...", 16777215 /* WHITE */);
     const midY = (y / 2 | 0) - 18 - offsetY;
     Pix2D.drawRect((x / 2 | 0) - 152, midY, 304, 34, 9179409 /* PROGRESS_RED */);
     Pix2D.drawRect((x / 2 | 0) - 151, midY + 1, 302, 32, 0 /* BLACK */);
@@ -17424,8 +17423,8 @@ class Client extends GameShell {
         return;
       }
       if (reply === 9) {
-        this.loginMessage0 = "Login limit exceeded.";
-        this.loginMessage1 = "Too many connections from your address.";
+        this.loginMessage0 = "Verify Your Account On Discord.";
+        this.loginMessage1 = "Type /setname <username> into the bot.";
         return;
       }
       if (reply === 10) {
@@ -17583,7 +17582,7 @@ class Client extends GameShell {
           this.nextMusicDelay = 0;
         }
         if (this.nextMusicDelay === 0 && this.midiActive && !Client.lowMemory && this.currentMidi) {
-          await this.setMidi(this.currentMidi, this.midiCrc, this.midiSize, false);
+          await this.setMidi(this.currentMidi, this.midiCrc, this.midiSize, true);
         }
       }
       const tracking = InputTracking.flush();

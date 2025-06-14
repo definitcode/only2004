@@ -69,7 +69,7 @@ p_delay(1);
 mes("You hammer the stake into the vampire's chest!");
 inv_del(inv, stake, 1);
 anim(human_stake, 0);
-obj_add(npc_coord, easy_boss_token, 1, ^lootdrop_duration);
+//obj_add(npc_coord, easy_boss_token, 1, ^lootdrop_duration);
 npc_setmode(none);
 npc_queue(4, 0, 0);
 if (%vampire_progress < ^vampire_complete) {

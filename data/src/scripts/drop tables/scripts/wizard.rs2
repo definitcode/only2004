@@ -72,7 +72,7 @@ if (npc_findhero = false) {
 }
 // Default drop from config.
 obj_add(npc_coord, bones, 1, ^lootdrop_duration);
-obj_add(npc_coord, easy_boss_token, 1, ^lootdrop_duration);
+//obj_add(npc_coord, easy_boss_token, 1, ^lootdrop_duration);
 def_int $random = random(128);
 
 if ($random < 8) {
