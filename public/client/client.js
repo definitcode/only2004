@@ -20487,12 +20487,16 @@ class Client extends GameShell {
     } else if (this.menuArea === 0) {
       this.drawMenu();
     }
-    if (this.inMultizone === 1) {
-      if (this.wildernessLevel > 0 || this.worldLocationState === 1) {
-        this.imageHeadicons[1]?.draw(472, 258);
-      } else {
-        this.imageHeadicons[1]?.draw(472, 296);
-      }
+    // ✅ Always draw multi-combat icon at top location
+    this.imageHeadicons[1]?.draw(472, 258);
+    if (this.wildernessLevel > 0) {
+      this.imageHeadicons[0]?.draw(472, 296);
+      this.fontPlain12?.drawStringCenter(484, 329, "Level: " + this.wildernessLevel, 16776960 /* YELLOW */);
+    }
+  
+    if (this.worldLocationState === 1) {
+      this.imageHeadicons[6]?.draw(472, 296);
+      this.fontPlain12?.drawStringCenter(484, 329, "Arena", 16776960 /* YELLOW */);
     }
     if (this.wildernessLevel > 0) {
       this.imageHeadicons[0]?.draw(472, 296);

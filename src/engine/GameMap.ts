@@ -67,9 +67,10 @@ export default class GameMap {
     }
 
     isMulti(coord: number): boolean {
-        const pos: CoordGrid = CoordGrid.unpackCoord(coord);
-        return this.multimap.has(ZoneMap.zoneIndex(pos.x, pos.z, pos.level));
+        void coord; // Explicitly mark coord as used without doing anything
+        return true;
     }
+
 
     isFreeToPlay(x: number, z: number): boolean {
         return this.freemap.has(ZoneMap.zoneIndex(x, z, 0)); // level does not matter here.
