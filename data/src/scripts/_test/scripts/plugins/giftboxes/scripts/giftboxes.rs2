@@ -1,0 +1,106 @@
+[opheld1,gift_box] ~open_giftbox;
+[opheld1,gamble_box] ~gamble_box;
+
+
+[proc,open_giftbox]
+if (inv_freespace(inv) > 3){
+
+    def_int $random = random(4);
+
+    switch_int($random){
+        case 1 : {
+            inv_add(inv, scythe, 1);
+            inv_del(inv, gift_box, 1);
+        }
+        case 2 : {
+            inv_add(inv, bunnyears, 1);
+            inv_del(inv, gift_box, 1);
+        }
+        case 3 : {
+            inv_add(inv, santa_hat, 1);
+            inv_del(inv, gift_box, 1);
+        }
+        case 4 : {
+            inv_del(inv, gift_box, 1);
+        }
+    }
+} else if (inv_freespace(inv) < 3) {
+    ~mesbox("You don't have enough space in your inventory to open the gift box.");
+    return;
+}
+
+[proc,gamble_box]
+
+switch_int(~p_choice3_header("Match.", 1, "Straight GP.", 2, "High/Low.", 3,"How do you want to gamble?")){
+    case 1 : {
+        ~match_gamble;
+    }
+    case 2 : {
+        ~straight_gamble;
+    }
+    case 3 : {
+        ~high_low_gamble;
+    }
+}
+
+[proc,match_gamble]
+def_int $obj1 = random(3);
+def_int $obj2 = random(3);
+def_int $obj3 = random(3);
+def_string $obj1n = "-empty-";
+def_string $obj2n = "-empty-";
+def_string $obj3n = "-empty-";
+
+// Ask for wager amount and set a value
+def_int $wager_choice = (~p_choice3_header("10,000gp", 1, "25,000gp", 2, "100,000gp", 3,"How much do you want to wager?"));
+def_int $wager_amount = 0;
+
+switch_int($wager_choice){
+    case 1 : $wager_amount = 10000;
+    case 2 : $wager_amount = 25000;
+    case 3 : $wager_amount = 100000;
+}
+
+// Check if player has enough coins
+if (inv_total(inv, coins) < $wager_amount){
+    ~mesbox("You don't have enough coins to place a bet.");
+    return;
+} else {
+    inv_del(inv, coins, $wager_amount);
+}
+
+// Generate fruit names
+switch_int($obj1){
+    case 1 : $obj1n = oc_name(lime);
+    case 2 : $obj1n = oc_name(grapes);
+    case 3 : $obj1n = oc_name(pineapple);
+}
+switch_int($obj2){
+    case 1 : $obj2n = oc_name(lime);
+    case 2 : $obj2n = oc_name(grapes);
+    case 3 : $obj2n = oc_name(pineapple);
+}
+switch_int($obj3){
+    case 1 : $obj3n = oc_name(lime);
+    case 2 : $obj3n = oc_name(grapes);
+    case 3 : $obj3n = oc_name(pineapple);
+}
+
+// Show the result
+~mesbox("[##] <$obj1n> [##] <$obj2n> [##] <$obj3n> [##]");
+
+// Calculate result
+if ($obj1 = $obj2 & $obj2 = $obj3) {
+    def_int $jackpot = multiply($wager_amount, 5);
+    ~mesbox("JACKPOT! You win <tostring($jackpot)> coins!");
+    inv_add(inv, coins, $jackpot);
+} else {
+    ~mesbox("No match. You lost your wager of <tostring($wager_amount)> coins.");
+}
+
+
+
+[proc,straight_gamble]
+return;
+[proc,high_low_gamble]
+return;

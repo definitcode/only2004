@@ -86,5 +86,5 @@ switch_int(stat_base(smithing)) {
     case 95 : ~objbox(rune_battleaxe,"You can now make @dbl@Rune Battleaxes.", 250, 0, 0);
     case 96 : ~objbox(rune_chainbody,"You can now make @dbl@Rune Chainmail Bodies.", 250, 0, 0);
     case 97 : ~objbox(rune_kiteshield,"You can now make @dbl@Rune Kite Shields.", 250, 0, 0);
-    case 99 : ~mesbox("Smithing Cape@ is now wearable.");
+    case 99 : ~mesbox("Smithing Cape is now wearable.");
 }

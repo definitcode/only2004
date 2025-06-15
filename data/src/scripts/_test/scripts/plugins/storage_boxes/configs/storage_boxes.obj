@@ -1,0 +1,22 @@
+[ore_box]
+name=Ore Box
+desc=This is used to store ores [100 Slots].
+cost=2
+model=model_2450_obj
+recol1s=11630
+recol1d=0
+recol2s=11488 
+recol2d=6476
+recol3s=25537 
+recol3d=134
+iop1=Store
+iop2=Withdraw
+iop3=View
+2dxof=3
+2dyof=-6
+2dzoom=1410
+2dyan=1592
+2dxan=164
+weight=2lb
+param=no_alchemy,^true
+tradeable=no

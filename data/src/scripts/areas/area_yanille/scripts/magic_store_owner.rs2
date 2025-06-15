@@ -1,12 +1,73 @@
 [opnpc1,magic_store_owner]
 ~chatnpc("<p,happy>Welcome to the Magic Guild Store.|Would you like to buy some magic supplies?");
-switch_int(~p_choice3("Yes please.", 1, "No thank you.", 2, "I would like if you would imbue my longbow!", 3)) {
+switch_int(~p_choice3("Yes please.", 1, "No thank you.", 2, "I am looking for item upgrades!", 3)) {
     case 1 : {
         ~chatplayer("<p,happy>Yes please.");
         ~openshop_activenpc;
     }
     case 2 : {
         ~chatplayer("<p,neutral>No thank you.");
+    }
+    case 3 : {
+        ~chatnpc("<p,happy>I can imbue certain items for a fee!");
+        ~chatplayer("<p,neutral>Ohh imbued items?! I will do it.");
+        ~imbue_shop;
+    }
+}
+
+[proc,imbue_shop]
+switch_int(~p_choice4_header("Gas Mask. [1M]", 1, "Dramen Staff. [5M]", 2, "Magic Longbow. [1M]", 3, "Scythe. [100M]", 4, "What would you like for me to imbue?")) {
+    case 1 : {
+        ~chatplayer("<p,happy>Let me see if I have something you can imbue!");
+        if (inv_total(inv, gasmask_i) > 0) {
+            ~chatnpc("<p,quiz>Oh you do have an item I can imbue! | It will cost you 1M Coins though.");
+            switch_int(~p_choice2("Yes please.", 1, "No thank you.", 2)) {
+                case 1 : {
+                    ~chatplayer("<p,happy>Yes please.");
+                    if (inv_total(inv, coins) > 1000000) {
+                        inv_del(inv, gasmask, 1);
+                        inv_del(inv, coins, 1000000);
+                        inv_add(inv, gasmask_i, 1); 
+                        anim(emote_dance, 0);
+                        ~mesbox("You receive a Gas Mask (i)!");
+                    } else {
+                        ~chatnpc("<p,sad>I am afraid you do not have enough coins!");
+                    }
+                }
+                case 2 : {
+                    ~chatplayer("<p,angry>No thank you.");
+                }
+            }
+        } else {
+            ~chatnpc("<p,sad> You do not have a Gas Mask for me to imbue!");
+            return;
+        }
+    }
+    case 2 : {
+        ~chatplayer("<p,happy>Let me see if I have something you can imbue!");
+        if (inv_total(inv, dramen_staff) > 0) {
+            ~chatnpc("<p,quiz>Oh you do have an item I can imbue! | It will cost you 5M Coins though.");
+            switch_int(~p_choice2("Yes please.", 1, "No thank you.", 2)) {
+                case 1 : {
+                    ~chatplayer("<p,happy>Yes please.");
+                    if (inv_total(inv, coins) > 5000000) {
+                        inv_del(inv, dramen_staff, 1);
+                        inv_del(inv, coins, 5000000);
+                        inv_add(inv, dramen_staff_i, 1); 
+                        anim(emote_dance, 0);
+                        ~mesbox("You receive a Dramen Staff (i)!");
+                    } else {
+                        ~chatnpc("<p,sad>I am afraid you do not have enough coins!");
+                    }
+                }
+                case 2 : {
+                    ~chatplayer("<p,angry>No thank you.");
+                }
+            }
+        } else {
+            ~chatnpc("<p,sad> You do not have a Dramen Staff for me to imbue!");
+            return;
+        }
     }
     case 3 : {
         ~chatplayer("<p,happy>Let me see if I have something you can imbue!");
@@ -29,6 +90,35 @@ switch_int(~p_choice3("Yes please.", 1, "No thank you.", 2, "I would like if you
                     ~chatplayer("<p,angry>No thank you.");
                 }
             }
+        } else {
+            ~chatnpc("<p,sad> You do not have a Magic Longbow for me to imbue!");
+            return;
+        }
+    }
+    case 4 : {
+        ~chatplayer("<p,happy>Let me see if I have something you can imbue!");
+        if (inv_total(inv, scythe) > 0) {
+            ~chatnpc("<p,quiz>Oh you do have an item I can imbue! | It will cost you 100M Coins though.");
+            switch_int(~p_choice2("Yes please.", 1, "No thank you.", 2)) {
+                case 1 : {
+                    ~chatplayer("<p,happy>Yes please.");
+                    if (inv_total(inv, coins) > 100000000) {
+                        inv_del(inv, scythe, 1);
+                        inv_del(inv, coins, 100000000);
+                        inv_add(inv, scythe_i, 1); 
+                        anim(emote_dance, 0);
+                        ~mesbox("You receive a Scythe (i)!");
+                    } else {
+                        ~chatnpc("<p,sad>I am afraid you do not have enough coins!");
+                    }
+                }
+                case 2 : {
+                    ~chatplayer("<p,angry>No thank you.");
+                }
+            }
+        } else {
+            ~chatnpc("<p,sad> You do not have a Scythe for me to imbue!");
+            return;
         }
     }
 }

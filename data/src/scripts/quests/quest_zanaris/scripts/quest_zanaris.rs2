@@ -98,6 +98,14 @@ if($entering = false) {
         p_delay(1);
         ~player_teleport_normal(0_50_149_20_56);
     }
+        if(inv_total(worn, dramen_staff_i) > 0 & map_members = true) {
+        mes("The world starts to shimmer..."); // not sure what seq/spotanim would've been played here, just going to assume it was like a normal tele
+        if(%zanaris_progress = ^zanaris_staff_made) {
+            queue(zanaris_quest_complete, 0);
+        }
+        p_delay(1);
+        ~player_teleport_normal(0_50_149_20_56);
+    }
 }
 
 [queue,zanaris_quest_complete]

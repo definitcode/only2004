@@ -1,0 +1,39 @@
+[gift_box]
+name=Gift Box
+desc=This contains gifts.
+cost=2
+model=model_2426_obj
+recol1s=26817
+recol1d=10580
+recol2s=160
+recol2d=10410
+iop1=Open
+2dyof=-14
+2dzoom=1180
+2dyan=172
+2dxan=160
+weight=2lb
+param=no_alchemy,^true
+tradeable=no
+
+
+[gamble_box]
+name=Gamble Box
+desc=This contains ways to gamble.
+cost=2
+model=model_2450_obj
+recol1s=11630
+recol1d=0
+recol2s=11488 
+recol2d=30561
+recol3s=25537 
+recol3d=26817
+iop1=Gamble
+2dxof=3
+2dyof=-6
+2dzoom=1410
+2dyan=1592
+2dxan=164
+weight=2lb
+param=no_alchemy,^true
+tradeable=no

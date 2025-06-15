@@ -171,43 +171,6 @@ param=crushdefence,8
 param=magicdefence,4
 param=rangedefence,4
 
-[gasmask_i]
-name=Gas Mask(i)
-desc=Imbued Gas Mask.
-category=armour_helmet
-cost=890000
-recol1s=11488
-recol1d=1024
-recol2s=0
-recol2d=15360
-recol3s=8320 
-recol3d=1024
-recol4s=8456
-recol4d=24311
-weight=10oz
-members=yes
-model=model_2442_obj
-2dxof=-3
-2dyof=-2
-2dzoom=650
-2dyan=256
-2dxan=2044
-iop2=Wear
-wearpos=hat
-wearpos2=head
-wearpos3=jaw
-manwear=model_212_obj_wear,0
-womanwear=model_389_obj_wear,0
-manhead=model_51_obj_wear
-womanhead=model_112_obj_wear
-param=magicattack,-10
-param=rangeattack,65
-param=stabdefence,13
-param=slashdefence,9
-param=crushdefence,14
-param=magicdefence,10
-param=rangedefence,6
-
 [robinhoodhat_b]
 name=Robin hood hat(b)
 desc=Endorsed by Robin Hood.

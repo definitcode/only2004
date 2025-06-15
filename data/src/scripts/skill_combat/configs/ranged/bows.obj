@@ -311,35 +311,6 @@ param=defend_anim,human_unarmedblock
 param=rangeattack_sound,longbow
 param=damagetype,^ranged_style
 
-[magic_longbow_i]
-members=yes
-cost=32000
-name=Magic longbow(i)
-desc=A nice sturdy imbued magical longbow.
-model=model_2832_obj
-recol1s=6273
-recol1d=3033
-2dxof=2
-2dyof=15
-2dzoom=1820
-2dyan=1004
-2dxan=460
-iop2=Wield
-wearpos=righthand
-wearpos2=lefthand
-manwear=model_563_obj_wear,0
-womanwear=model_563_obj_wear,6
-category=weapon_bow
-weight=4lb
-param=rangeattack,160
-param=levelrequire,99
-param=attackrate,6
-param=attackrange,10
-param=rangeattack_anim,human_bow
-param=defend_anim,human_unarmedblock
-param=rangeattack_sound,longbow
-param=damagetype,^ranged_style
-
 [magic_shortbow]
 members=yes
 cost=31450
