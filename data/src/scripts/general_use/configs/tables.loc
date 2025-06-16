@@ -226,21 +226,6 @@ hasalpha=yes
 blockrange=no
 category=usable_table
 
-[loc_618]
-name=Chemistry Table
-desc=There are some strange chemicals here.
-model=model_loc_618
-width=2
-blockrange=no
-category=unusable_table
-
-[loc_619]
-name=Chemistry Table
-desc=There are some strange chemicals here.
-model=model_loc_619
-width=2
-blockrange=no
-category=unusable_table
 
 [loc_620]
 name=Table

@@ -19,5 +19,16 @@ if($rand = 0) {
 } else if ($rand = 2) {
     mes("You don't find anything that you'd ever want to read.");
 } else {
-    mes("It's full of books, but none of them look very interesting.");
+    ~intel_check;
+    if (%intelligence > 189) {
+        mes("You find a certificate for Rune Essence!");
+        mes("Your Intelligence is showing!");
+        sound_synth(dice_roll, 1, 0);
+        if (inv_freespace(inv) > 0) {
+            inv_add(inv, cert_blankrune,15);
+        } else if (inv_freespace(inv) < 0) {
+            ~mesbox("You can't fit it in your inventory.");
+        } 
+    }
+
 }

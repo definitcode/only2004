@@ -1,0 +1,26 @@
+// =============================
+// ||      Skill Checks       ||
+// =============================
+// || Created By: Shadowfall  ||
+// =============================
+// ||     Version: 0.1.0      ||
+// =============================
+
+
+[proc,intel_check]
+
+def_int $magic = stat_base(magic);
+def_int $runecraft = stat_base(runecraft);
+%intelligence = add($magic, $runecraft);
+%intelligence = add($magic, $runecraft);
+
+return;
+
+[proc,hunter_check]
+
+def_int $ranged = stat_base(ranged);
+def_int $fletching = stat_base(fletching);
+
+%hunter = add($ranged, $fletching);
+
+return;

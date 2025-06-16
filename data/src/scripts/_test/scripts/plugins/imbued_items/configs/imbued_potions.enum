@@ -1,0 +1,41 @@
+// =============================
+// ||    Imbued Potions       ||
+// =============================
+// || Created By: Shadowfall  ||
+// =============================
+// ||     Version: 0.1.0      ||
+// =============================
+
+[potion_2prayerrestore]
+inputtype=int
+outputtype=namedobj
+val=1,1dose2prayerrestore
+val=2,2dose2prayerrestore
+val=3,3dose2prayerrestore
+val=4,4dose2prayerrestore
+
+[potion_3strength]
+inputtype=int
+outputtype=namedobj
+val=1,1dose3strength
+val=2,2dose3strength
+val=3,3dose3strength
+val=4,4dose3strength
+
+[potion_3defense]
+inputtype=int
+outputtype=namedobj
+val=1,1dose3defense
+val=2,2dose3defense
+val=3,3dose3defense
+val=4,4dose3defense
+
+[potion_2rangerspotion]
+inputtype=int
+outputtype=namedobj
+val=1,1dose2rangerspotion
+val=2,2dose2rangerspotion
+val=3,3dose2rangerspotion
+val=4,4dose2rangerspotion
+
+

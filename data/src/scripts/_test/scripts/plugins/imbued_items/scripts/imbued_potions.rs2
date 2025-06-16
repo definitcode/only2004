@@ -1,0 +1,224 @@
+// =============================
+// ||    Imbued Potions       ||
+// =============================
+// || Created By: Shadowfall  ||
+// =============================
+// ||     Version: 0.1.0      ||
+// =============================
+
+
+
+// Chemistry Tables in the Mage Guild
+[oplocu,loc_618] ~imbuepotion;
+// Category Wide Proc
+[oplocu,_chem_table]
+~imbuepotion;
+// I don't know if this does anything important or if the oplocu,loc_618 is functional.
+[opheldu,4doseprayerrestore] ~imbuepotion;
+[proc,imbuepotion]
+def_int $random = random(3);
+def_int $random1 = random(3);
+def_int $choice1 = (~p_choice2_header("Yes.", 1,"No.", 2,"Would you like to imbue this potion?"));
+switch_int($choice1){
+    case 1 : $choice1;
+    case 2 : return;
+}
+def_int $choice2 = (~p_choice5_header("Prayer.", 1,"Attack.", 2,"Strength.", 3, "Defence.", 4,"Ranged.", 5,"Which potion would you like to imbue?"));
+switch_int($choice2){
+    case 1 : ~prayerpotion_i;
+    case 2 : ~attackpotion_i;
+    case 3 : ~strengthpotion_i;
+    case 4 : ~defpotion_i;
+    case 5 : ~ranpotion_i;
+}
+
+[proc,prayerpotion_i]
+def_int $random = random(3);
+def_int $random1 = random(3);
+if (inv_total(inv, 4doseprayerrestore) > 0){
+    if (inv_total(inv, cosmicrune) > 49);
+        if (%intelligence > 120){
+            switch_int($random){
+                case 1 : sound_synth(triffid_appear, 1, 0);
+                case 2 : sound_synth(grind, 1, 0);
+                case 3 : sound_synth(pop1, 1, 0);
+            }
+            inv_del(inv, 4doseprayerrestore, 1);
+            inv_del(inv, cosmicrune, 50);
+            p_delay(1);
+            switch_int($random1){
+                case 1 : sound_synth(triffid_appear, 1, 0);
+                case 2 : sound_synth(grind, 1, 0);
+                case 3 : sound_synth(pop1, 1, 0);
+            }
+            anim(human_casthighlvlalchemy,0);
+            p_delay(1);
+            sound_synth(high_alchemy, 1,0);
+            p_delay(1);
+            sound_synth(low_alchemy, 1,0);
+            inv_add(inv, 4dose2prayerrestore, 1);
+            stat_advance(herblore, 3200);
+            stat_advance(magic, 3200);
+        } else if (%intelligence < 119){
+            ~mesbox("You do not not have the Intelligence to imbue this potion!");
+        }
+
+    } else if (inv_total(inv, cosmicrune) < 50) {
+        ~mesbox("You need 50 Cosmic Runes to imbue this potion!");
+
+} else {
+    ~mesbox("You need to use a 4-dose Potion to imbue it!");
+}
+
+[proc,attackpotion_i]
+def_int $random = random(3);
+def_int $random1 = random(3);
+if (inv_total(inv, 4dose2attack) > 0){
+    if (inv_total(inv, cosmicrune) > 49);
+        if (%intelligence > 120){
+            switch_int($random){
+                case 1 : sound_synth(triffid_appear, 1, 0);
+                case 2 : sound_synth(grind, 1, 0);
+                case 3 : sound_synth(pop1, 1, 0);
+            }
+            inv_del(inv, 4dose2attack, 1);
+            inv_del(inv, cosmicrune, 50);
+            p_delay(1);
+            switch_int($random1){
+                case 1 : sound_synth(triffid_appear, 1, 0);
+                case 2 : sound_synth(grind, 1, 0);
+                case 3 : sound_synth(pop1, 1, 0);
+            }
+            anim(human_casthighlvlalchemy,0);
+            p_delay(1);
+            sound_synth(high_alchemy, 1,0);
+            p_delay(1);
+            sound_synth(low_alchemy, 1,0);
+            inv_add(inv, 4dose3attack, 1);
+            stat_advance(herblore, 3200);
+            stat_advance(magic, 3200);
+        } else if (%intelligence < 119){
+            ~mesbox("You do not not have the Intelligence to imbue this potion!");
+        }
+
+    } else if (inv_total(inv, cosmicrune) < 50) {
+        ~mesbox("You need 50 Cosmic Runes to imbue this potion!");
+
+} else {
+    ~mesbox("You need to use a 4-dose Potion to imbue it!");
+}
+
+[proc,strengthpotion_i]
+def_int $random = random(3);
+def_int $random1 = random(3);
+if (inv_total(inv, 4dose2strength) > 0){
+    if (inv_total(inv, cosmicrune) > 49);
+        if (%intelligence > 120){
+            switch_int($random){
+                case 1 : sound_synth(triffid_appear, 1, 0);
+                case 2 : sound_synth(grind, 1, 0);
+                case 3 : sound_synth(pop1, 1, 0);
+            }
+            inv_del(inv, 4dose2strength, 1);
+            inv_del(inv, cosmicrune, 50);
+            p_delay(1);
+            switch_int($random1){
+                case 1 : sound_synth(triffid_appear, 1, 0);
+                case 2 : sound_synth(grind, 1, 0);
+                case 3 : sound_synth(pop1, 1, 0);
+            }
+            anim(human_casthighlvlalchemy,0);
+            p_delay(1);
+            sound_synth(high_alchemy, 1,0);
+            p_delay(1);
+            sound_synth(low_alchemy, 1,0);
+            inv_add(inv, 4dose3strength, 1);
+            stat_advance(herblore, 3200);
+            stat_advance(magic, 3200);
+        } else if (%intelligence < 119){
+            ~mesbox("You do not not have the Intelligence to imbue this potion!");
+        }
+
+    } else if (inv_total(inv, cosmicrune) < 50) {
+        ~mesbox("You need 50 Cosmic Runes to imbue this potion!");
+
+} else {
+    ~mesbox("You need to use a 4-dose Potion to imbue it!");
+}
+[proc,defpotion_i]
+def_int $random = random(3);
+def_int $random1 = random(3);
+if (inv_total(inv, 4dose2defense) > 0){
+    if (inv_total(inv, cosmicrune) > 49);
+        if (%intelligence > 120){
+            switch_int($random){
+                case 1 : sound_synth(triffid_appear, 1, 0);
+                case 2 : sound_synth(grind, 1, 0);
+                case 3 : sound_synth(pop1, 1, 0);
+            }
+            inv_del(inv, 4dose2defense, 1);
+            inv_del(inv, cosmicrune, 50);
+            p_delay(1);
+            switch_int($random1){
+                case 1 : sound_synth(triffid_appear, 1, 0);
+                case 2 : sound_synth(grind, 1, 0);
+                case 3 : sound_synth(pop1, 1, 0);
+            }
+            anim(human_casthighlvlalchemy,0);
+            p_delay(1);
+            sound_synth(high_alchemy, 1,0);
+            p_delay(1);
+            sound_synth(low_alchemy, 1,0);
+            inv_add(inv, 4dose3defense, 1);
+            stat_advance(herblore, 3200);
+            stat_advance(magic, 3200);
+        } else if (%intelligence < 119){
+            ~mesbox("You do not not have the Intelligence to imbue this potion!");
+        }
+
+    } else if (inv_total(inv, cosmicrune) < 50) {
+        ~mesbox("You need 50 Cosmic Runes to imbue this potion!");
+
+} else {
+    ~mesbox("You need to use a 4-dose Potion to imbue it!");
+}
+[proc,ranpotion_i]
+def_int $random = random(3);
+def_int $random1 = random(3);
+if (inv_total(inv, 4doserangerspotion) > 0){
+    if (inv_total(inv, cosmicrune) > 49);
+        if (%intelligence > 120){
+            switch_int($random){
+                case 1 : sound_synth(triffid_appear, 1, 0);
+                case 2 : sound_synth(grind, 1, 0);
+                case 3 : sound_synth(pop1, 1, 0);
+            }
+            inv_del(inv, 4doserangerspotion, 1);
+            inv_del(inv, cosmicrune, 50);
+            p_delay(1);
+            switch_int($random1){
+                case 1 : sound_synth(triffid_appear, 1, 0);
+                case 2 : sound_synth(grind, 1, 0);
+                case 3 : sound_synth(pop1, 1, 0);
+            }
+            anim(human_casthighlvlalchemy,0);
+            p_delay(1);
+            sound_synth(high_alchemy, 1,0);
+            p_delay(1);
+            sound_synth(low_alchemy, 1,0);
+            inv_add(inv, 4dose2rangerspotion, 1);
+            stat_advance(herblore, 3200);
+            stat_advance(magic, 3200);
+        } else if (%intelligence < 119){
+            ~mesbox("You do not not have the Intelligence to imbue this potion!");
+        }
+
+    } else if (inv_total(inv, cosmicrune) < 50) {
+        ~mesbox("You need 50 Cosmic Runes to imbue this potion!");
+
+} else {
+    ~mesbox("You need to use a 4-dose Potion to imbue it!");
+}
+
+
+// To create more just copy and paste these procs and create a new menu system that allows for paging of potions.

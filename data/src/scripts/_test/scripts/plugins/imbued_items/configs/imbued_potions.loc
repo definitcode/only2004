@@ -1,0 +1,16 @@
+
+[loc_618]
+name=Chemistry Table
+desc=There are some strange chemicals here.
+model=model_loc_618
+width=2
+blockrange=no
+category=chem_table
+
+[loc_619]
+name=Chemistry Table
+desc=There are some strange chemicals here.
+model=model_loc_619
+width=2
+blockrange=no
+category=chem_table

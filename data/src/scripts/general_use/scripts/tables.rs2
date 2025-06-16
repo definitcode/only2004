@@ -42,3 +42,5 @@ inv_dropslot(inv, $obj_coord, last_useslot, 1000); // 1 min to be visible, 9 min
 
 [oplocu,_unusable_table]
 mes("The table appears to be in use.");
+
+

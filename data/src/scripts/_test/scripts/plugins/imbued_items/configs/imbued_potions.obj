@@ -1,0 +1,380 @@
+// =============================
+// ||    Imbued Potions       ||
+// =============================
+// || Created By: Shadowfall  ||
+// =============================
+// ||     Version: 0.1.0      ||
+// =============================
+
+
+[4dose2prayerrestore]
+name=Prayer potion [i](4)
+desc=4 doses of restore prayer potion.
+iop1=Drink
+cost=190
+model=model_2789_obj
+recol1s=15855
+recol1d=4063
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=35g
+category=category_69
+members=yes
+param=next_obj_stage,3dose2prayerrestore
+param=decant_potion_enum,potion_prayerrestore
+param=dose_count,4
+[3dose2prayerrestore]
+name=Prayer potion [i](3)
+desc=3 doses of restore prayer potion.
+iop1=Drink
+cost=152
+model=model_2697_obj
+recol1s=15855
+recol1d=4063
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=30g
+category=category_69
+members=yes
+param=next_obj_stage,2dose2prayerrestore
+param=decant_potion_enum,potion_prayerrestore
+param=dose_count,3
+[2dose2prayerrestore]
+name=Prayer potion [i](2)
+desc=2 doses of restore prayer potion.
+iop1=Drink
+cost=114
+model=model_2384_obj
+recol1s=15855
+recol1d=4063
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=25g
+category=category_69
+members=yes
+param=next_obj_stage,1dose2prayerrestore
+param=decant_potion_enum,potion_prayerrestore
+param=dose_count,2
+[1dose2prayerrestore]
+name=Prayer potion [i](1)
+desc=1 dose of restore prayer potion.
+iop1=Drink
+cost=76
+model=model_2621_obj
+recol1s=15855
+recol1d=4063
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=20g
+category=category_69
+members=yes
+param=next_obj_stage,vial_empty
+param=decant_potion_enum,potion_prayerrestore
+param=dose_count,1
+[4dose3attack]
+name=Super attack [i](4)
+desc=4 doses of imbued attack potion.
+category=category_69
+iop1=Drink
+cost=15
+model=model_2789_obj
+recol1s=15855
+recol1d=10493
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=35g
+members=yes
+param=next_obj_stage,3dose3attack
+param=decant_potion_enum,potion_1attack
+param=dose_count,4
+[3dose3attack]
+name=Super attack [i](3)
+desc=3 doses of Super attack[i] potion.
+iop1=Drink
+cost=180
+model=model_2697_obj
+recol1s=15855
+recol1d=10493
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=30g
+category=category_69
+members=yes
+param=next_obj_stage,2dose3attack
+param=decant_potion_enum,potion_2attack
+param=dose_count,3
+[2dose3attack]
+name=Super attack [i](2)
+desc=2 doses of Super attack [i] potion.
+iop1=Drink
+cost=135
+model=model_2384_obj
+recol1s=15855
+recol1d=10493
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=25g
+category=category_69
+members=yes
+param=next_obj_stage,1dose3attack
+param=decant_potion_enum,potion_2attack
+param=dose_count,2
+[1dose3attack]
+name=Super attack [i](1)
+desc=1 dose of Super attack [i] potion.
+iop1=Drink
+cost=90
+model=model_2621_obj
+recol1s=15855
+recol1d=10493
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=20g
+category=category_69
+members=yes
+param=next_obj_stage,vial_empty
+param=decant_potion_enum,potion_2attack
+param=dose_count,1
+[4dose3strength]
+name=Super strength [i](4)
+desc=4 doses of imbued super strength potion.
+iop1=Drink
+cost=275
+model=model_2789_obj
+recol1s=15855
+recol1d=30653
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=35g
+category=category_69
+members=yes
+param=next_obj_stage,3dose3strength
+param=decant_potion_enum,potion_3strength
+param=dose_count,4
+[3dose3strength]
+name=Super strength [i](3)
+desc=3 doses of super strength potion.
+iop1=Drink
+cost=220
+model=model_2697_obj
+recol1s=15855
+recol1d=30653
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=30g
+category=category_69
+members=yes
+param=next_obj_stage,2dose3strength
+param=decant_potion_enum,potion_3strength
+param=dose_count,3
+[2dose3strength]
+name=Super strength [i](2)
+desc=2 doses of super strength potion.
+iop1=Drink
+cost=165
+model=model_2384_obj
+recol1s=15855
+recol1d=30653
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=25g
+category=category_69
+members=yes
+param=next_obj_stage,1dose3strength
+param=decant_potion_enum,potion_3strength
+param=dose_count,2
+[1dose3strength]
+name=Super strength [i](1)
+desc=1 dose of super strength potion.
+iop1=Drink
+cost=110
+model=model_2621_obj
+recol1s=15855
+recol1d=30653
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=20g
+category=category_69
+members=yes
+param=next_obj_stage,vial_empty
+param=decant_potion_enum,potion_3strength
+param=dose_count,1
+[4dose2rangerspotion]
+name=Ranging potion [i](4)
+desc=4 doses of ranging potion.
+iop1=Drink
+cost=360
+model=model_2789_obj
+recol1s=15855
+recol1d=6845
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=35g
+category=category_69
+members=yes
+param=next_obj_stage,3dose2rangerspotion
+param=decant_potion_enum,potion_rangerspotion
+param=dose_count,4
+[3dose2rangerspotion]
+name=Ranging potion [i](3)
+desc=3 doses of ranging potion.
+iop1=Drink
+cost=288
+model=model_2697_obj
+recol1s=15855
+recol1d=6845
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=30g
+category=category_69
+members=yes
+param=next_obj_stage,2dose2rangerspotion
+param=decant_potion_enum,potion_rangerspotion
+param=dose_count,3
+// jagex name
+
+[2dose2rangerspotion]
+name=Ranging potion [i](2)
+desc=2 doses of ranging potion.
+iop1=Drink
+cost=216
+model=model_2384_obj
+recol1s=15855
+recol1d=6845
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=25g
+category=category_69
+members=yes
+param=next_obj_stage,1dose2rangerspotion
+param=decant_potion_enum,potion_rangerspotion
+param=dose_count,2
+// jagex name
+
+[1dose2rangerspotion]
+name=Ranging potion [i](1)
+desc=1 dose of ranging potion.
+iop1=Drink
+cost=144
+model=model_2621_obj
+recol1s=15855
+recol1d=6845
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=20g
+category=category_69
+members=yes
+param=next_obj_stage,vial_empty
+param=decant_potion_enum,potion_rangerspotion
+param=dose_count,1
+
+
+[4dose3defense]
+name=Super defence [i](4)
+desc=4 doses of imbued super defence potion.
+iop1=Drink
+cost=330
+model=model_2789_obj
+recol1s=15855
+recol1d=29351
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=35g
+category=category_69
+members=yes
+param=next_obj_stage,3dose3defense
+param=decant_potion_enum,potion_3defense
+param=dose_count,4
+
+[3dose3defense]
+name=Super defence [i](3)
+desc=3 doses of super defence potion.
+iop1=Drink
+cost=264
+model=model_2697_obj
+recol1s=15855
+recol1d=29351
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=30g
+category=category_69
+members=yes
+param=next_obj_stage,2dose3defense
+param=decant_potion_enum,potion_3defense
+param=dose_count,3
+// jagex name
+
+[2dose3defense]
+name=Super defence [i](2)
+desc=2 doses of super defence potion.
+iop1=Drink
+cost=198
+model=model_2384_obj
+recol1s=15855
+recol1d=29351
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=25g
+category=category_69
+members=yes
+param=next_obj_stage,1dose3defense
+param=decant_potion_enum,potion_3defense
+param=dose_count,2
+// jagex name
+
+[1dose3defense]
+name=Super defence [i](1)
+desc=1 dose of super defence potion.
+iop1=Drink
+cost=132
+model=model_2621_obj
+recol1s=15855
+recol1d=29351
+2dyof=-1
+2dzoom=550
+2dyan=1996
+2dxan=84
+weight=20g
+category=category_69
+members=yes
+param=next_obj_stage,vial_empty
+param=decant_potion_enum,potion_3defense
+param=dose_count,1

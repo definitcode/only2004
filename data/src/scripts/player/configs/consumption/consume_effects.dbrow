@@ -46,6 +46,8 @@ data=consumable,3dose2strength
 data=consumable,4dose2strength
 data=stat_change,strength,5,15
 
+
+
 [super_defence_consumable_effect]
 table=consume_table
 data=consumable,1dose2defense
@@ -171,6 +173,14 @@ data=consumable,3doseprayerrestore
 data=consumable,2doseprayerrestore
 data=consumable,1doseprayerrestore
 data=stat_heal,prayer,7,25
+
+[2prayer_potion_effect]
+table=consume_table
+data=consumable,4dose2prayerrestore
+data=consumable,3dose2prayerrestore
+data=consumable,2dose2prayerrestore
+data=consumable,1dose2prayerrestore
+data=stat_heal,prayer,7,50
 
 [zamorak_brew_effect]
 table=consume_table

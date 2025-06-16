@@ -85,7 +85,10 @@ switch_int($obj3){
     case 2 : $obj3n = oc_name(grapes);
     case 3 : $obj3n = oc_name(pineapple);
 }
-
+sound_synth(dice_shake, 1, 0);
+~mesbox("[##]#########[##]#########[##]#########[##]");
+p_delay(3);
+sound_synth(dice_roll, 1, 0);
 // Show the result
 ~mesbox("[##] <$obj1n> [##] <$obj2n> [##] <$obj3n> [##]");
 
@@ -95,7 +98,7 @@ if ($obj1 = $obj2 & $obj2 = $obj3) {
     ~mesbox("JACKPOT! You win <tostring($jackpot)> coins!");
     inv_add(inv, coins, $jackpot);
 } else {
-    ~mesbox("No match. You lost your wager of <tostring($wager_amount)> coins.");
+    ~mesbox("You lost your wager of <tostring($wager_amount)> coins.");
 }
 
 

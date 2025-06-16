@@ -1,0 +1,41 @@
+// =============================
+// ||    Imbued Potions       ||
+// =============================
+// || Created By: Shadowfall  ||
+// =============================
+// ||     Version: 0.1.0      ||
+// =============================
+
+
+[super_2strength_consumable_effect]
+table=consume_table
+data=consumable,1dose3strength
+data=consumable,2dose3strength
+data=consumable,3dose3strength
+data=consumable,4dose3strength
+data=stat_change,strength,5,25
+
+[super_2attack_consumable_effect]
+table=consume_table
+data=consumable,1dose3attack
+data=consumable,2dose3attack
+data=consumable,3dose3attack
+data=consumable,4dose3attack
+data=stat_change,attack,5,25
+
+
+[super_2defence_consumable_effect]
+table=consume_table
+data=consumable,1dose3defense
+data=consumable,2dose3defense
+data=consumable,3dose3defense
+data=consumable,4dose3defense
+data=stat_change,defence,5,25
+
+[range_2consumable_effect]
+table=consume_table
+data=consumable,1dose2rangerspotion
+data=consumable,2dose2rangerspotion
+data=consumable,3dose2rangerspotion
+data=consumable,4dose2rangerspotion
+data=stat_change,ranged,4,25
