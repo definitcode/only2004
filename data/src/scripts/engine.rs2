@@ -246,8 +246,6 @@
 [command,.stat_drain](stat $stat, int $constant, int $percent)
 // info: Get the player's UID to use in finduid/p_finduid later
 [command,uid]()(player_uid)
-// info: Get the player's total level
-[command,stat_total]
 // info: Get the secondary player's UID to use in finduid/p_finduid later
 [command,.uid]()(player_uid)
 // info: Request the player to log out

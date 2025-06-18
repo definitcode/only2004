@@ -57,6 +57,8 @@ if ($dropint < 1) {
     obj_add(npc_coord, coins, 100, ^lootdrop_duration);
 } else if ($dropint < 65) {
     obj_add(npc_coord, ~low_tier_items, ^lootdrop_duration);
+} else if ($dropint < 66) {
+    obj_add(npc_coord, lumbyscroll, 1, ^lootdrop_duration);
 }
 
 

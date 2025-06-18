@@ -66,9 +66,11 @@ stock7=chaosrune,1000,50
 stock8=deathrune,1000,75
 stock9=blankrune,500,15000
 stock10=eye_of_newt,300,10
-stock11=bluewizhat,1,100
-stock12=wizards_robe,1,100
-stock13=blackwizhat,1,100
+stock11=blankscroll,1000,100
+stock12=bluewizhat,1,100
+stock13=wizards_robe,1,100
+stock14=blackwizhat,1,100
+stock15=black_robe,1,100
 
 [battleaxeshop]
 // https://classic.runescape.wiki/w/Brian%27s_Great_Axes

@@ -1,0 +1,157 @@
+// =============================
+// ||   Scroll Inscriptions   ||
+// =============================
+// || Created By: Shadowfall  ||
+// =============================
+// ||     Version: 0.1.0      ||
+// =============================
+
+
+[blankscroll]
+name=Blank Scroll
+desc=a blank scroll that seems it can be inscribed.
+model=model_2774_obj
+2dxof=-1
+2dyof=56
+2dzoom=990
+2dyan=1716
+2dxan=264
+recol1s=9248
+recol1d=581
+iop1=Inscribe
+weight=18oz
+cost=75
+param=no_alchemy,^true
+
+[expscroll]
+name=Experience Scroll
+desc=a scroll that contains various sets of information.
+model=model_2774_obj
+2dxof=-1
+2dyof=56
+2dzoom=990
+2dyan=1716
+2dxan=264
+recol1s=9248
+recol1d=31648
+recol2s=24174
+recol2d=1786
+recol3s=21003 
+recol3d=1587
+recol4s=17832 
+recol4d=1356
+iop1=Learn
+weight=18oz
+cost=1
+param=no_alchemy,^true
+
+[draynorscroll]
+name=Draynor Scroll
+desc=a scroll that allows you to teleport to Draynor Village.
+model=model_2774_obj
+2dxof=-1
+2dyof=56
+2dzoom=990
+2dyan=1716
+2dxan=264
+recol1s=9248
+recol1d=31648
+recol2s=24174
+recol2d=14680
+recol3s=21003 
+recol3d=10452
+recol4s=17832 
+recol4d=7281
+iop1=Teleport
+weight=18oz
+cost=1
+param=no_alchemy,^true
+
+[lumbyscroll]
+name=Lumbridge Scroll
+desc=a scroll that allows you to teleport to Lumbridge Castle.
+model=model_2774_obj
+2dxof=-1
+2dyof=56
+2dzoom=990
+2dyan=1716
+2dxan=264
+recol1s=9248
+recol1d=31648
+recol2s=24174
+recol2d=10776
+recol3s=21003 
+recol3d=7605
+recol4s=17832 
+recol4d=3377
+iop1=Teleport
+weight=18oz
+cost=1
+param=no_alchemy,^true
+
+
+[seersscroll]
+name=Seers' Scroll
+desc=a scroll that allows you to teleport to Seers' Village.
+model=model_2774_obj
+2dxof=-1
+2dyof=56
+2dzoom=990
+2dyan=1716
+2dxan=264
+recol1s=9248
+recol1d=31648
+recol2s=24174
+recol2d=12058
+recol3s=21003 
+recol3d=7797
+recol4s=17832 
+recol4d=4526
+iop1=Teleport
+weight=18oz
+cost=1
+param=no_alchemy,^true
+
+[yanillescroll]
+name=Yanille Scroll
+desc=a scroll that allows you to teleport to Yanille.
+model=model_2774_obj
+2dxof=-1
+2dyof=56
+2dzoom=990
+2dyan=1716
+2dxan=264
+recol1s=9248
+recol1d=31648
+recol2s=24174
+recol2d=28194
+recol3s=21003 
+recol3d=22945
+recol4s=17832 
+recol4d=21921
+iop1=Teleport
+weight=18oz
+cost=1
+param=no_alchemy,^true
+
+[edgevillescroll]
+name=Edgeville Scroll
+desc=a scroll that allows you to teleport to Edgeville.
+model=model_2774_obj
+2dxof=-1
+2dyof=56
+2dzoom=990
+2dyan=1716
+2dxan=264
+recol1s=9248
+recol1d=31648
+recol2s=24174
+recol2d=22561
+recol3s=21003 
+recol3d=16417
+recol4s=17832 
+recol4d=12288
+iop1=Teleport
+weight=18oz
+cost=1
+param=no_alchemy,^true

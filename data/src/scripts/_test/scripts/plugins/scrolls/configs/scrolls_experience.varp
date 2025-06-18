@@ -1,20 +1,10 @@
 // =============================
-// ||      Skill Checks       ||
+// ||   Scroll Inscriptions   ||
 // =============================
 // || Created By: Shadowfall  ||
 // =============================
 // ||     Version: 0.1.0      ||
 // =============================
 
-[intelligence]
-scope=perm
-[hunter]
-scope=perm
-[fortitude]
-scope=perm
-[engineering]
-scope=perm
-[prestige]
-scope=perm
-[total_level]
+[expscroll1]
 scope=perm

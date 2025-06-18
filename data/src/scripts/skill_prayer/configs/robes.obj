@@ -93,6 +93,7 @@ manwear2=model_292_idk
 womanwear2=model_456_idk
 weight=2lb
 param=prayerbonus,5
+cost=1350
 
 [blackrobebottom]
 model=model_2521_obj
@@ -110,3 +111,4 @@ manwear=model_265_obj_wear,0
 womanwear=model_428_idk,0
 weight=2lb
 param=prayerbonus,4
+cost=1350

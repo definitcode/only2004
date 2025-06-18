@@ -68,6 +68,8 @@ if ($random < 4) {
     obj_add(npc_coord, water_talisman, 1, ^lootdrop_duration);
 } else if ($random < 112) {
     obj_add(npc_coord, fire_talisman, 1, ^lootdrop_duration);
+} else if ($random < 113) {
+    obj_add(npc_coord, draynorscroll, 1, ^lootdrop_duration);
 }
 
 [ai_queue3,dark_wizard_water] // Level 7

@@ -1,0 +1,28 @@
+// =============================
+// ||   Scroll Inscriptions   ||
+// =============================
+// || Created By: Shadowfall  ||
+// =============================
+// ||     Version: 0.1.0      ||
+// =============================
+
+^xpscroll_none = 0
+^xpscroll_attack = 1
+^xpscroll_strength = 2
+^xpscroll_ranged = 3
+^xpscroll_magic = 4
+^xpscroll_defence = 5
+^xpscroll_hitpoints = 6
+^xpscroll_prayer = 7
+^xpscroll_agility = 8
+^xpscroll_herblore = 9
+^xpscroll_thieving = 10
+^xpscroll_crafting = 11
+^xpscroll_runecraft = 12
+^xpscroll_mining = 13
+^xpscroll_smithing = 14
+^xpscroll_fishing = 15
+^xpscroll_cooking = 16
+^xpscroll_firemaking = 17
+^xpscroll_woodcutting = 18
+^xpscroll_fletching = 19

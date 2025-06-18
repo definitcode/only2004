@@ -1,5 +1,5 @@
 [wizards_robe]
-cost=15
+cost=350
 name=Wizards robe
 desc=I can do magic better in this.
 model=model_2786_obj
@@ -20,7 +20,7 @@ param=magicattack,10
 param=magicdefence,3
 
 [bluewizhat]
-cost=2
+cost=350
 name=Wizards hat
 desc=A silly pointed hat.
 model=model_2483_obj
@@ -40,7 +40,7 @@ param=magicattack,10
 param=magicdefence,3
 
 [black_robe]
-cost=13
+cost=1350
 name=Black robe
 desc=I can do magic better in this.
 model=model_2786_obj
@@ -62,7 +62,7 @@ param=magicdefence,5
 
 
 [blackwizhat]
-cost=2
+cost=1350
 name=Wizards hat
 desc=A silly pointed hat.
 model=model_2483_obj

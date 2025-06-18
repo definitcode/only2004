@@ -8,7 +8,7 @@ import { type GenericLoginThreadResponse } from './index.d.js';
 import { trackLoginAttempts, trackLoginTime } from './LoginMetrics.js';
 
 const WHITELIST_PATH = 'data/discordwhitelist.txt';
-let whitelistSet = new Set<string>();
+const whitelistSet = new Set<string>();
 
 function normalize(name: string): string {
     return name.trim().toLowerCase().replace(/\s+/g, '_');
@@ -191,7 +191,7 @@ async function processLoginQueue() {
                     });
                     stopTimer();
                 } else {
-                    let staffmodlevel = Environment.NODE_PRODUCTION ? 0 : 4;
+                    const staffmodlevel = Environment.NODE_PRODUCTION ? 0 : 4;
                     const profile = Environment.NODE_PROFILE;
                     if (!fs.existsSync(`data/players/${profile}`)) {
                         fs.mkdirSync(`data/players/${profile}`, { recursive: true });

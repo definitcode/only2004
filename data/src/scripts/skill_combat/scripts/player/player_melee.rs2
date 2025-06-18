@@ -25,6 +25,9 @@ if (~player_npc_hit_roll(%damagetype) = true) {
     if (npc_param(demonbane_vulnerable) = true & inv_total(worn, silverlight) > 0) {
         $maxhit = divide(multiply($maxhit, 160), 100);
     }
+    if (npc_param(demonbane_vulnerable) = true & inv_total(worn, hc_bronze_scimitar) > 0) {
+        $maxhit = divide(multiply($maxhit, 160), 100);
+    }
     $damage = randominc(min($maxhit, npc_param(max_dealt)));
     def_int $damage_capped = min($damage, npc_stat(hitpoints));
     ~give_combat_experience(%damagestyle, $damage_capped, %npc_combat_xp_multiplier);

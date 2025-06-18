@@ -1,0 +1,237 @@
+// =============================
+// ||   Scroll Inscriptions   ||
+// =============================
+// || Created By: Shadowfall  ||
+// =============================
+// ||     Version: 0.1.0      ||
+// =============================
+
+
+[opheld1,blankscroll] ~inscribe_scroll;
+[opheld1,draynorscroll] ~drayport;
+[opheld1,yanillescroll] ~yanport;
+[opheld1,seersscroll] ~seersport;
+[opheld1,edgevillescroll] ~edgeport;
+[opheld1,lumbyscroll] ~lumbport;
+
+[proc,inscribe_scroll]
+if (inv_total(inv, cosmicrune) < 24){
+    mes("You need 25 Cosmic Runes to Inscribe a Blank Scroll!");
+    return;
+}
+def_int $c1 = (~p_choice2_header("Teleportation.", 1, "Experience.", 2, "What kind of inscription would you like to make?"));
+
+if (%intelligence > 75){
+
+    if ($c1 = 1){
+        ~teleport_inscribe;
+    } else if ($c1 = 2) {
+        ~experience_inscribe;
+    }
+} else if (%intelligence < 74) {
+    mes("You need at least 75 Intelligence to Inscribe!");
+}
+
+
+[proc,teleport_inscribe]
+
+def_int $c2 = (~p_choice4_header("Draynor.", 1, "Yanille.", 2, "Seers' Village.", 3, "Edgeville.", 4, "Which Teleportation Scroll would you like to inscribe?"));
+switch_int($c2){
+    case 1 : ~draynor_inscription;
+    case 2 : ~yanille_inscription;
+    case 3 : ~seers_inscription;
+    case 4 : ~edgeville_inscription;
+}
+
+[proc,experience_inscribe]
+
+def_int $c3 = (~p_choice2_header("Inscribe.", 1,"Go Back.", 2,"Are you sure you would like to inscribe this?"));
+switch_int($c3){
+    case 1 : ~inscribe_exp_scroll;
+    case 2 : return;
+}
+
+
+[proc,inscribe_exp_scroll]
+anim(human_casthighlvlalchemy, 0);
+sound_synth(high_alchemy, 2, 0);
+inv_del(inv, cosmicrune,25);
+inv_del(inv, blankscroll, 1);
+p_delay(3);
+mes("You have succesfully created an Experience Scroll!");
+stat_advance(runecraft, 450);
+stat_advance(magic, 450);
+if (inv_total(worn, dramen_staff) > 0) {
+    if (%intelligence > 149){
+        stat_advance(runecraft, 650);
+        stat_advance(magic, 650);
+        mes("Your Intelligence skills are showing!");
+    } else {
+        stat_advance(runecraft, 450);
+        stat_advance(magic, 450);
+        mes("Your Intelligence skills are showing!");        
+    }
+}
+inv_add(inv, expscroll, 1);
+
+
+[proc,draynor_inscription]
+anim(human_casthighlvlalchemy, 0);
+sound_synth(high_alchemy, 2, 0);
+inv_del(inv, cosmicrune,25);
+inv_del(inv, blankscroll, 1);
+p_delay(3);
+mes("You have succesfully created an Draynor Scroll!");
+stat_advance(runecraft, 450);
+stat_advance(magic, 450);
+if (inv_total(worn, dramen_staff) > 0) {
+    if (%intelligence > 149){
+        stat_advance(runecraft, 650);
+        stat_advance(magic, 650);
+        mes("Your Intelligence skills are showing!");
+    } else {
+        stat_advance(runecraft, 450);
+        stat_advance(magic, 450);
+        mes("Your Intelligence skills are showing!");        
+    }
+}
+inv_add(inv,draynorscroll, 1);
+
+[proc,yanille_inscription]
+anim(human_casthighlvlalchemy, 0);
+sound_synth(high_alchemy, 2, 0);
+inv_del(inv, cosmicrune,25);
+inv_del(inv, blankscroll, 1);
+p_delay(3);
+mes("You have succesfully created an Yanille Scroll!");
+stat_advance(runecraft, 450);
+stat_advance(magic, 450);
+if (inv_total(worn, dramen_staff) > 0) {
+    if (%intelligence > 149){
+        stat_advance(runecraft, 650);
+        stat_advance(magic, 650);
+        mes("Your Intelligence skills are showing!");
+    } else {
+        stat_advance(runecraft, 450);
+        stat_advance(magic, 450);
+        mes("Your Intelligence skills are showing!");        
+    }
+}
+inv_add(inv, yanillescroll, 1);
+
+[proc,seers_inscription]
+anim(human_casthighlvlalchemy, 0);
+sound_synth(high_alchemy, 2, 0);
+inv_del(inv, cosmicrune, 25);
+inv_del(inv, blankscroll, 1);
+p_delay(3);
+mes("You have succesfully created a Seers' Village Scroll!");
+stat_advance(runecraft, 450);
+stat_advance(magic, 450);
+if (inv_total(worn, dramen_staff) > 0) {
+    if (%intelligence > 149){
+        stat_advance(runecraft, 650);
+        stat_advance(magic, 650);
+        mes("Your Intelligence skills are showing!");
+    } else {
+        stat_advance(runecraft, 450);
+        stat_advance(magic, 450);
+        mes("Your Intelligence skills are showing!");        
+    }
+}
+inv_add(inv, seersscroll, 1);
+
+[proc,edgeville_inscription]
+anim(human_casthighlvlalchemy, 0);
+sound_synth(high_alchemy, 2, 0);
+inv_del(inv, cosmicrune, 25);
+inv_del(inv, blankscroll, 1);
+p_delay(3);
+mes("You have succesfully created an Edgeville Scroll!");
+stat_advance(runecraft, 450);
+stat_advance(magic, 450);
+if (inv_total(worn, dramen_staff) > 0) {
+    if (%intelligence > 149){
+        stat_advance(runecraft, 650);
+        stat_advance(magic, 650);
+        mes("Your Intelligence skills are showing!");
+    } else {
+        stat_advance(runecraft, 450);
+        stat_advance(magic, 450);
+        mes("Your Intelligence skills are showing!");        
+    }
+}
+inv_add(inv, edgevillescroll, 1);
+
+[proc,drayport]
+if (inv_total(inv, draynorscroll) < 1){
+    mes("You need to have a Draynor Scroll to use this portal!");
+}
+if (~wilderness_level(coord) > 0) {
+    // osrs
+    mes("A mysterious force blocks your teleport.");
+    mes("You can't use this teleport in the wilderness.");
+    return;
+}
+inv_del(inv, draynorscroll, 1);
+~player_teleport_normal(0_48_50_8_50);
+mes("You have used a Draynor Scroll!");
+
+[proc,yanport]
+if (inv_total(inv, yanillescroll) < 1){
+    mes("You need to have a Yanille Scroll to use this portal!");
+}
+if (~wilderness_level(coord) > 0) {
+    // osrs
+    mes("A mysterious force blocks your teleport.");
+    mes("You can't use this teleport in the wilderness.");
+    return;
+}
+inv_del(inv,yanillescroll, 1);
+~player_teleport_normal(0_40_48_43_16);
+mes("You have used a Seers' Scroll!");
+
+[proc,seersport]
+if (inv_total(inv,seersscroll) < 1){
+    mes("You need to have a Seers' Scroll to use this portal!");
+}
+if (~wilderness_level(coord) > 0) {
+    // osrs
+    mes("A mysterious force blocks your teleport.");
+    mes("You can't use this teleport in the wilderness.");
+    return;
+}
+inv_del(inv,seersscroll, 1);
+~player_teleport_normal(0_42_54_44_29);
+mes("You have used a Seers' Scroll!");
+
+[proc,edgeport]
+if (inv_total(inv,edgevillescroll) < 1){
+    mes("You need to have a Edgeville Scroll to use this portal!");
+}
+if (~wilderness_level(coord) > 0) {
+    // osrs
+    mes("A mysterious force blocks your teleport.");
+    mes("You can't use this teleport in the wilderness.");
+    return;
+}
+inv_del(inv,edgevillescroll, 1);
+~player_teleport_normal(0_48_54_22_40);
+mes("You have used a Edgeville Scroll!");
+
+
+
+
+[proc,lumbport]
+if (inv_total(inv,lumbyscroll) < 1){
+    mes("You need to have a Lumbridge Scroll to use this portal!");
+}
+if (~wilderness_level(coord) > 0) {
+    // osrs
+    mes("A mysterious force blocks your teleport.");
+    mes("You can't use this teleport in the wilderness.");
+    return;
+}
+inv_del(inv,lumbyscroll, 1);
+~player_teleport_normal(0_50_50_22_22);
+mes("You have used a Lumbridge Scroll!");

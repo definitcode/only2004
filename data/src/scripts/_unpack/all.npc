@@ -3205,7 +3205,7 @@ param=defend_sound,giant_hit
 param=death_sound,giant_death
 param=death_drop,big_bones
 huntmode=aggressive_melee
-huntrange=2
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2097
 
@@ -3238,7 +3238,7 @@ param=defend_sound,giant_hit
 param=death_sound,giant_death
 param=death_drop,big_bones
 huntmode=aggressive_melee
-huntrange=2
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2098
 

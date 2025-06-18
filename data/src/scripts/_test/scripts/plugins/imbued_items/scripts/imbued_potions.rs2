@@ -11,8 +11,7 @@
 // Chemistry Tables in the Mage Guild
 [oplocu,loc_618] ~imbuepotion;
 // Category Wide Proc
-[oplocu,_chem_table]
-~imbuepotion;
+[oplocu,_chem_table] ~imbuepotion;
 // I don't know if this does anything important or if the oplocu,loc_618 is functional.
 [opheldu,4doseprayerrestore] ~imbuepotion;
 [proc,imbuepotion]

@@ -17,7 +17,7 @@ if ($mapsquare_x < 46 | $mapsquare_y < 49 | $mapsquare_x > 51 | $mapsquare_y > 5
 if_openmain(playermap_east);
 
 [label,newcomer_map_menu]
-def_int $choice1 = ~p_choice3_header("Players Online.", 1, "Account Status.", 2, "Secondary Skills", 3,"What do you want to choose?");
+def_int $choice1 = ~p_choice3_header("Players Online.", 1, "Account Status.", 2, "Secondary Skills.", 3,"What do you want to choose?");
 //def_int $choice1 = ~p_choice2_header("Players Online.", 1, "Account Status.", 2, "What do you want to choose?");
 
 
@@ -44,7 +44,11 @@ if (%gamemode_selected = ^gamemode_hardcore){
 [proc,show_ss]
 ~intel_check;
 ~hunter_check;
-switch_int(~p_choice2_header("Intelligence.", 1,"Hunter.", 2,"Which skill do you want to check?")) {
-    case 1 : ~mesbox("Your Intelligence Level: <tostring(%intelligence)>");
-    case 2 : ~mesbox("Your Hunter Level: <tostring(%hunter)>");
+~engineering_check;
+~prestige_check;
+switch_int(~p_choice4_header("Intelligence.", 1,"Hunter.", 2,"Engineering.", 3,"Prestige.", 4,"Which skill do you want to check?")) {
+    case 1 : ~mesbox("Your Intelligence Level: [<tostring(%intelligence)>]");
+    case 2 : ~mesbox("Your Hunter Level: [<tostring(%hunter)>]");
+    case 3 : ~mesbox("Your Engineering Level: [<tostring(%engineering)>]");
+    case 4 : ~mesbox("Your Prestige Level: [<tostring(%prestige)>]");
 }

@@ -7,20 +7,110 @@
 // =============================
 
 
-[proc,intel_check]
+[proc,show_skill_total]
+def_int $att = stat_base(attack);
+def_int $str = stat_base(strength);
+def_int $def = stat_base(defence);
+def_int $ran = stat_base(ranged);
+def_int $mag = stat_base(magic);
+def_int $pra = stat_base(prayer);
+def_int $run = stat_base(runecraft);
+def_int $fle = stat_base(fletching);
+def_int $min = stat_base(mining);
+def_int $cra = stat_base(crafting);
+def_int $woo = stat_base(woodcutting);
+def_int $coo = stat_base(cooking);
+def_int $fir = stat_base(firemaking);
+def_int $agi = stat_base(agility);
+def_int $hit = stat_base(hitpoints);
+def_int $her = stat_base(herblore);
+def_int $smi = stat_base(smithing);
+def_int $thi = stat_base(thieving);
+def_int $fis = stat_base(fishing);
+// First layer of additions
+def_int $sum1 = add($att, $str);
+def_int $sum2 = add($def, $ran);
+def_int $sum3 = add($mag, $pra);
+def_int $sum4 = add($run, $fle);
+def_int $sum5 = add($min, $cra);
+def_int $sum6 = add($woo, $coo);
+def_int $sum7 = add($fir, $agi);
+def_int $sum8 = add($her, $smi);
+def_int $sum9 = add($thi, $fis);
+// Second layer of additions
+def_int $mid1 = add($sum1, $sum2);
+def_int $mid2 = add($sum3, $sum4);
+def_int $mid3 = add($sum5, $sum6);
+def_int $mid4 = add($sum7, $sum8);
+def_int $mid5 = add($hit, $sum9); // Assuming hitpoints + remainder
+// Third layer of additions
+def_int $top1 = add($mid1, $mid2);
+def_int $top2 = add($mid3, $mid4);
+def_int $top3 = add($top1, $top2);
+def_int $total_level = add($top3, $mid5);
+%total_level = $total_level;
+return;
 
+
+[proc,intel_check]
 def_int $magic = stat_base(magic);
 def_int $runecraft = stat_base(runecraft);
-%intelligence = add($magic, $runecraft);
-%intelligence = add($magic, $runecraft);
 
+
+def_int $brewing = add($magic,$runecraft);
+
+%intelligence = $brewing;
 return;
 
 [proc,hunter_check]
-
 def_int $ranged = stat_base(ranged);
 def_int $fletching = stat_base(fletching);
+def_int $firemaking = stat_base(firemaking);
+def_int $cooking = stat_base(cooking);
 
-%hunter = add($ranged, $fletching);
+def_int $ranger = add($ranged,$fletching);
+def_int $camping = add($firemaking,$cooking);
 
+def_int $total = add($ranger,$camping);
+%hunter = $total;
+
+return;
+[proc,fortitude_check]
+def_int $defence = stat_base(defence);
+def_int $smithing = stat_base(smithing);
+def_int $strength = stat_base(strength);
+def_int $mining = stat_base(mining);
+
+def_int $splunker = add($mining,$smithing);
+def_int $knight = add($defence,$strength);
+
+def_int $total = add($splunker,$knight);
+%fortitude = $total;
+return;
+
+[proc,engineering_check]
+def_int $crafting = stat_base(crafting);
+def_int $fletching = stat_base(fletching);
+def_int $smithing = stat_base(smithing);
+
+def_int $crafter = add($crafting,$fletching);
+def_int $engineer = add($smithing,$crafter);
+
+def_int $total = $engineer;
+%engineering = $total;
+
+[proc,prestige_check]
+~show_skill_total;
+~engineering_check;
+~hunter_check;
+~fortitude_check;
+~intel_check;
+def_int $p1 = add(%intelligence,%fortitude);
+def_int $p2 = add(%hunter,%engineering);
+def_int $total = add($p1,$p2);
+
+def_int $stat_total = %total_level;
+
+def_int $total_level = add($total,%total_level);
+%prestige = $total_level;
 return;

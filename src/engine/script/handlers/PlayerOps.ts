@@ -442,17 +442,7 @@ const PlayerOps: CommandHandlers = {
 
         state.pushInt(state.activePlayer.baseLevels[stat]);
     }),
-    [ScriptOpcode.STAT_TOTAL]: checkedHandler(ActivePlayer, state => {
-        const player = state.activePlayer;
-        const stat: PlayerStat = check(state.popInt(), PlayerStatValid);
-
-        let totalLevel = 0;
-        for (let i = 0; i < 21; i++) {
-            totalLevel += player.baseLevels[i];
-        }
-
-        state.pushInt(totalLevel);
-    }),
+    
     [ScriptOpcode.STAT_ADD]: checkedHandler(ActivePlayer, state => {
         const [stat, constant, percent] = state.popInts(3);
 
@@ -528,19 +518,21 @@ const PlayerOps: CommandHandlers = {
             player.changeStat(stat);
         }
     }),
+    
     [ScriptOpcode.STAT_RESET2]: checkedHandler(ActivePlayer, state => {
 
         const player = state.activePlayer;
         
-                for (let i = 0; i < 21; i++) {
-                    if (i === PlayerStat.HITPOINTS) {
-                        player.setLevel(i, 10);
-                    } else {
-                        player.setLevel(i, 1);
-                    }
+        for (let i = 0; i < 21; i++) {
+            if (i === PlayerStat.HITPOINTS) {
+                player.setLevel(i, 10);
+            } else {
+                player.setLevel(i, 1);
+            }
 
         }
     }),
+    
     [ScriptOpcode.SPOTANIM_PL]: checkedHandler(ActivePlayer, state => {
         const delay = check(state.popInt(), NumberNotNull);
         const height = state.popInt();
