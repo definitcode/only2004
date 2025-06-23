@@ -73,6 +73,7 @@ if (inv_total(worn, headband_red) > 0) {
     stat_advance(fletching, $fletching_experience);
     mes("Your fletching skills are showing!");
 };
+anim(human_casthighlvlalchemy, 0);
 inv_add(inv, $product, $count);
 queue(fletching_repeat, 2, $log, $product, $count, $message, $fletching_experience);
 
@@ -89,7 +90,7 @@ if(inv_total(inv, $log) > 0) {
             mes("Your fletching skills are showing!");
         }
         inv_add(inv, $product, $count);
-
+        anim(human_casthighlvlalchemy, 0);
         queue(fletching_repeat, 2, $log, $product, $count, $message, $fletching_experience);
     }
 }

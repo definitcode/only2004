@@ -164,7 +164,7 @@ if ($random < 8) {
     return (bronze_sword, 1);
 } else if ($random < 9){
     return (trout,3);
-    return (coins,25);
+    return (coins_25,25);
 } else if ($random < 12) {
     return (bronze_chainbody, 1);
 } else if ($random < 13) {
@@ -181,6 +181,10 @@ if ($random < 8) {
     return (bronze_mace, 1);
 } else if ($random < 50) {
     return (bronze_battleaxe, 1);
+} else if ($random < 55) {
+    return (lumbyscroll,1);
+} else if ($random < 110) {
+    return (draynorscroll,1);
 } else if ($random < 125) {
     return (iron_chainbody,1);
 } else if ($random < 126) {
@@ -199,7 +203,7 @@ if ($random < 8) {
     return (black_sword, 1);
 } else if ($random < 9){
     return (trout,3);
-    return (coins,25);
+    return (coins_25,25);
 } else if ($random < 12) {
     return (black_chainbody, 1);
 } else if ($random < 13) {
@@ -214,6 +218,13 @@ if ($random < 8) {
     return (black_med_helm, 1);
 } else if ($random < 19) {
     return (black_mace, 1);
+} else if ($random < 20) {
+    return (coins_250,300);
+    return (yanillescroll,1);
+} else if ($random < 25) {
+    return (lumbyscroll, 2);
+} else if ($random < 35) {
+    return (draynorscroll, 2);
 } else if ($random < 50) {
     return (black_battleaxe, 1);
 } else if ($random < 125) {
@@ -225,6 +236,107 @@ if ($random < 8) {
 }  else if ($random < 128) {
     return (mithril_arrowheads,50);
 }
+
+[proc,high_tier_items]()(namedobj,int)
+def_int $random = 0;
+$random = random(128);
+
+if ($random < 8) {
+    return (mithril_sword, 1);
+} else if ($random < 9){
+    return (trout,3);
+    return (coins_25,25);
+} else if ($random < 12) {
+    return (mithril_chainbody, 1);
+} else if ($random < 13) {
+    return (mithril_platebody, 1);
+} else if ($random < 14) {
+    return (mithril_platelegs, 1);
+} else if ($random < 15) {
+    return (mithril_plateskirt, 1);
+} else if ($random < 16) {
+    return (mithril_full_helm, 1);    
+} else if ($random < 18) {
+    return (mithril_med_helm, 1);
+} else if ($random < 19) {
+    return (mithril_mace, 1);
+} else if ($random < 20) {
+    return (coins_250,300);
+    return (yanillescroll,1);
+} else if ($random < 25) {
+    return (shiloscroll,1);
+    return (coins_250,250);
+} else if ($random < 50) {
+    return (mithril_battleaxe, 1);
+} else if ($random < 125) {
+    return (adamant_chainbody,1);
+} else if ($random < 126) {
+    return (adamant_sword,1);
+}  else if ($random < 127) {
+    return (adamant_mace,1);
+}  else if ($random < 128) {
+    return (adamant_arrowheads,50);
+}
+
+[proc,elite_tier_items]()(namedobj,int)
+def_int $random = 0;
+$random = random(128);
+
+if ($random < 8) {
+    return (adamant_sword, 1);
+} else if ($random < 9){
+    return (trout,3);
+    return (coins_25,25);
+} else if ($random < 12) {
+    return (adamant_chainbody, 1);
+} else if ($random < 13) {
+    return (adamant_platebody, 1);
+} else if ($random < 14) {
+    return (adamant_platelegs, 1);
+} else if ($random < 15) {
+    return (adamant_plateskirt, 1);
+} else if ($random < 16) {
+    return (adamant_full_helm, 1);    
+} else if ($random < 18) {
+    return (adamant_med_helm, 1);
+} else if ($random < 19) {
+    return (adamant_mace, 1);
+} else if ($random < 20) {
+    return (yanillescroll,5);
+    return (coins_250,300);
+} else if ($random < 25) {
+    return (shiloscroll,5);
+    return (coins_250,250);
+} else if ($random < 28) {
+    return (edgevillescroll,1);
+    return (coins_250,250);
+} else if ($random < 50) {
+    return (adamant_battleaxe, 1);
+} else if ($random < 125) {
+    return (rune_chainbody,1);
+} else if ($random < 126) {
+    return (rune_sword,1);
+}  else if ($random < 127) {
+    return (rune_mace,1);
+}  else if ($random < 128) {
+    return (rune_arrowheads,50);
+}
+
+
+
+[proc,scrollpack]()(namedobj, int)
+
+def_int $scroll = random(6);
+
+switch_int($scroll) {
+    case 1 : return(lumbyscroll, 1);
+    case 2 : return(draynorscroll, 1);
+    case 3 : return(yanillescroll, 1);
+    case 4 : return(shiloscroll, 1);
+    case 5 : return(blankscroll, 1);
+    case 6 : ~scrollpack;
+}
+
 
 [proc,randomjunk]()(namedobj, int) // guess
 switch_int (random(8)) {
@@ -259,13 +371,18 @@ if ($random < 1) {
     return (iron_arrow,10);
     return (steel_arrow,5);
 } else if ($random < 4) {
-    return (mindrune,25);
-    return (mindrune,25);
+    return (mindrune,50);
     return (airrune,50);    
 } else if ($random < 8) {
     return (coins,300);
     //return (coins,150);
     return (trout,2);
+} else if ($random < 9) {
+    return (coins_100,150);
+    return (lumbyscroll,1);
+} else if ($random > 11) {
+    return (coins_250,300);
+    return (draynorscroll,1);
 }
 
 [proc,dragon_table]()(namedobj,int)

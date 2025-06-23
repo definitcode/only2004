@@ -475,6 +475,8 @@ param=attack_anim,human_axe_hack
 param=defend_anim,human_axe_def
 param=attack_sound,baxe_slash
 category=barbarian
+huntmode=cowardly
+huntrange=5
 // animations and taken Gunthor the Brave
 // attack bonus is guess taken from gunthor the brave
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_3256
@@ -599,6 +601,8 @@ param=attack_sound,staff_stab
 param=defend_sound,female_hit
 param=death_sound,female_death
 category=barbarian
+huntmode=cowardly
+huntrange=5
 // data taken from this npc https://oldschool.runescape.wiki/w/Barbarian (wander 5 / maxrange 7).
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_3262
@@ -1326,8 +1330,8 @@ param=defend_anim,hell_block
 param=death_anim,hell_death
 param=attack_sound,growl6
 param=defend_sound,growl5
-huntmode=cowardly
-huntrange=2
+huntmode=aggressive_melee
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_104
 
@@ -1433,8 +1437,8 @@ param=attack_sound,dragon_attack
 param=defend_sound,dragon_hit
 param=death_sound,dragon_death
 param=death_drop,dragon_bones
-huntmode=cowardly
-huntrange=4
+huntmode=aggressive_melee
+huntrange=5
 // Stats match osrs version but our version Vislvl is different.
 
 [black_dragon]
@@ -1507,8 +1511,8 @@ param=attack_sound,dragon_attack
 param=defend_sound,dragon_hit
 param=death_sound,dragon_death
 param=death_drop,dragon_bones
-huntmode=cowardly
-huntrange=4
+huntmode=aggressive_melee
+huntrange=5
 // Stats match osrs version but our version Vislvl is different.
 
 [dryad]
@@ -2173,7 +2177,7 @@ param=attack_sound,demon_attack
 param=defend_sound,demon_hit
 param=death_sound,demon_death
 param=death_drop,ashes
-huntmode=cowardly
+huntmode=aggressive_melee
 huntrange=2
 // huntrange: https://youtu.be/bU8sQbojKH4?list=PLn23LiLYLb1aqrojPTi1_Np81LJku2Nd0&t=127
 // osrs stats and Vislvl match 1:1
@@ -2207,7 +2211,7 @@ param=attack_sound,demon_attack
 param=defend_sound,demon_hit
 param=death_sound,demon_death
 param=death_drop,ashes
-huntmode=cowardly
+huntmode=aggressive_melee
 huntrange=3
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2025
@@ -2245,7 +2249,7 @@ param=defend_sound,black_demon_hit
 param=death_sound,black_demon_death
 param=death_drop,ashes
 category=black_demon
-huntmode=cowardly
+huntmode=aggressive_melee
 huntrange=3
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2048
@@ -2831,9 +2835,9 @@ param=death_anim,ghost_death
 param=attack_sound,ghost_attack
 param=defend_sound,ghost_hit
 param=death_sound,ghost_death
-param=death_drop,null
+param=death_drop,ashes
 param=undead,^true
-huntmode=cowardly
+huntmode=aggressive_melee
 huntrange=1
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_85
@@ -2884,10 +2888,10 @@ model1=model_2966_npc
 wanderrange=13
 maxrange=15
 respawnrate=100
-hitpoints=27
-attack=17
-strength=18
-defence=15
+hitpoints=55
+attack=30
+strength=35
+defence=20
 param=damagetype,^slash_style
 param=attack_anim,bear_attack
 param=defend_anim,bear_block
@@ -2896,8 +2900,8 @@ param=attack_sound,bear_attack
 param=defend_sound,bear_hit
 param=death_sound,bear_death
 category=bear
-huntmode=cowardly
-huntrange=1
+huntmode=aggressive_melee
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2838
 
@@ -2915,10 +2919,10 @@ model1=model_2966_npc
 wanderrange=8
 maxrange=10
 respawnrate=100
-hitpoints=25
-attack=15
-strength=16
-defence=13
+hitpoints=75
+attack=45
+strength=25
+defence=25
 param=damagetype,^slash_style
 param=attack_anim,bear_attack
 param=defend_anim,bear_block
@@ -2927,8 +2931,8 @@ param=attack_sound,bear_attack
 param=defend_sound,bear_hit
 param=death_sound,bear_death
 category=bear
-huntmode=cowardly
-huntrange=1
+huntmode=aggressive_melee
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_2839
 
@@ -5015,9 +5019,9 @@ readyanim=human_staffready
 op2=Attack
 vislevel=32
 recol1s=24075
-recol1d=9410
+recol1d=4193
 recol2s=14801
-recol2d=9410
+recol2d=4193
 model1=model_231_npc
 model2=model_181_idk
 model3=model_246_idk
@@ -5028,7 +5032,7 @@ model7=model_279_npc
 model8=model_540_obj_wear
 model9=model_201_obj_wear
 respawnrate=100
-hitpoints=39
+hitpoints=75
 attack=23
 strength=27
 defence=26
@@ -5043,8 +5047,8 @@ param=defend_anim,human_spear_block
 param=attack_sound,staff_stab
 param=poison_severity,55
 // huntmode is just a guess
-huntmode=cowardly
-huntrange=1
+huntmode=aggressive_melee
+huntrange=10
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_530
 
@@ -5133,7 +5137,7 @@ walkanim=human_walk_f,human_walk_b,human_walk_l,human_walk_r
 readyanim=human_ready
 op1=Talk-to
 op2=Attack
-vislevel=29
+vislevel=86
 recol1s=2340
 recol1d=8354
 recol2s=15360
@@ -5156,18 +5160,18 @@ head1=model_57_obj_wear
 head2=model_83_idk_head
 head3=model_75_npc_head
 respawnrate=100
-hitpoints=35
-attack=22
-strength=22
-defence=25
+hitpoints=90
+attack=53
+strength=48
+defence=42
 param=attackrate,6
 param=attackbonus,8
-param=strengthbonus,13
-param=stabdefence,12
-param=slashdefence,14
-param=crushdefence,10
-param=magicdefence,-1
-param=rangedefence,11
+param=strengthbonus,15
+param=stabdefence,25
+param=slashdefence,22
+param=crushdefence,14
+param=magicdefence,35
+param=rangedefence,15
 param=damagetype,^slash_style
 param=attack_anim,human_axe_hack
 param=defend_anim,human_axe_def

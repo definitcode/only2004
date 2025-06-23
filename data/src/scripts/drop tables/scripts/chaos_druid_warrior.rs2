@@ -14,13 +14,13 @@ if ($random < 1) {
 } else if ($random < 6) {
     obj_add(npc_coord, firerune, 12, ^lootdrop_duration);
 } else if ($random < 10) {
-    obj_add(npc_coord, lawrune, 2, ^lootdrop_duration);
+    obj_add(npc_coord, lawrune, 5, ^lootdrop_duration);
 } else if ($random < 12) {
     obj_add(npc_coord, earthrune, 9, ^lootdrop_duration);
 } else if ($random < 13) {
-    obj_add(npc_coord, airrune, 36, ^lootdrop_duration);
+    obj_add(npc_coord, airrune, 57, ^lootdrop_duration);
 } else if ($random < 14) {
-    obj_add(npc_coord, naturerune, 3, ^lootdrop_duration);
+    obj_add(npc_coord, naturerune, 5, ^lootdrop_duration);
 } else if ($random < 48) {
     obj_add(npc_coord, ~randomherb, ^lootdrop_duration);
 } else if ($random < 58) {

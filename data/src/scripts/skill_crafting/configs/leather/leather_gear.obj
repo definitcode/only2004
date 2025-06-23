@@ -176,7 +176,7 @@ param=magicdefence,4
 param=rangedefence,9
 
 [hardleather_body]
-cost=170
+cost=450
 name=Hardleather body
 desc=Harder than normal leather.
 model=model_2474_obj

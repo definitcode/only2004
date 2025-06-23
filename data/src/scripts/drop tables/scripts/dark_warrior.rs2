@@ -18,7 +18,7 @@ if ($random < 3) {
 } else if ($random < 6) {
     obj_add(npc_coord, black_mace, 1, ^lootdrop_duration);
 } else if ($random < 9) {
-    obj_add(npc_coord, mindrune, 2, ^lootdrop_duration);
+    obj_add(npc_coord, mindrune, 25, ^lootdrop_duration);
 } else if ($random < 11) {
     obj_add(npc_coord, waterrune, 3, ^lootdrop_duration);
 } else if ($random < 12) {
@@ -26,9 +26,9 @@ if ($random < 3) {
 } else if ($random < 16) {
     obj_add(npc_coord, bronze_arrow, 8, ^lootdrop_duration);
 } else if ($random < 17) {
-    obj_add(npc_coord, chaosrune, 2, ^lootdrop_duration);
+    obj_add(npc_coord, chaosrune, 5, ^lootdrop_duration);
 } else if ($random < 19) {
-    obj_add(npc_coord, naturerune, 3, ^lootdrop_duration);
+    obj_add(npc_coord, naturerune, 5, ^lootdrop_duration);
 } else if ($random < 22) {
     obj_add(npc_coord, ~randomherb, ^lootdrop_duration);
 } else if ($random < 53) {
@@ -46,5 +46,5 @@ if ($random < 3) {
 } else if ($random < 109) {
     obj_add(npc_coord, iron_ore, 1, ^lootdrop_duration);
 } else if ($random < 110) {
-    obj_add(npc_coord, sardine, 1, ^lootdrop_duration);
+    obj_add(npc_coord, trout, 1, ^lootdrop_duration);
 }

@@ -8,5 +8,26 @@ if (npc_findhero = false) {
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
 // Normal drop
-obj_add(npc_coord, raw_beef, 1, ^lootdrop_duration);
-obj_add(npc_coord, cow_hide, 1, ^lootdrop_duration);
+//obj_add(npc_coord, raw_beef, 1, ^lootdrop_duration);
+//obj_add(npc_coord, cow_hide, 1, ^lootdrop_duration);
+
+
+if (%hunter > 349) {
+    obj_add(npc_coord, raw_beef, 4, ^lootdrop_duration);
+    mes("-----");
+    mes("[4x] Resources!");
+} else if (%hunter > 189) {
+    obj_add(npc_coord, raw_beef, 2, ^lootdrop_duration);
+    mes("-----");
+    mes("[2x] Resources!");
+} else {
+    obj_add(npc_coord, raw_beef, 1, ^lootdrop_duration);
+}
+
+if (%hunter > 349) {
+    obj_add(npc_coord, cow_hide, 4, ^lootdrop_duration);
+} else if (%hunter > 189) {
+    obj_add(npc_coord, cow_hide, 2, ^lootdrop_duration);
+} else {
+    obj_add(npc_coord, cow_hide, 1, ^lootdrop_duration);
+}

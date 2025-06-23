@@ -71,7 +71,7 @@ param=next_obj_stage,bowl_empty
 [bowl_empty]
 name=Bowl
 desc=Useful for mixing things.
-cost=4
+cost=50
 model=model_2807_obj
 2dzoom=910
 2dyan=1856

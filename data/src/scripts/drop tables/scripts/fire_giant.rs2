@@ -27,7 +27,7 @@ if ($random < 3) {
 } else if ($random < 34) {
     obj_add(npc_coord, firerune, 37, ^lootdrop_duration);
 } else if ($random < 35) {
-    obj_add(npc_coord, lawrune, 2, ^lootdrop_duration);
+    obj_add(npc_coord, lawrune, 5, ^lootdrop_duration);
 } else if ($random < 54) {
     obj_add(npc_coord, ~randomherb, ^lootdrop_duration);
 } else if ($random < 94) {
@@ -48,6 +48,8 @@ if ($random < 3) {
     obj_add(npc_coord, 2dose1strength, 1, ^lootdrop_duration);
 } else if ($random < 120) {
     obj_add(npc_coord, macro_genilamp, 1, ^lootdrop_duration);
+} else if ($random < 121) {
+    obj_add(npc_coord, ~mid_tier_items, ^lootdrop_duration);
 } else if ($random < 127) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
     obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);

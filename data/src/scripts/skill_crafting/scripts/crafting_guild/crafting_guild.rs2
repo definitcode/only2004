@@ -18,10 +18,4 @@ if (~check_axis(coord, loc_coord, loc_angle) = true) {
 }
 
 [opnpc1,master_crafter]
-~chatnpc("<p,confused>Yeah?"); // animationId = 575
-~chatplayer("<p,happy>Hello."); // animationId = 567
-~chatnpc("<p,confused>Whassup?"); // animationId = 575
-~chatplayer("<p,quiz>So... are you here to give crafting tips?"); // animationId = 554
-~chatnpc("<p,confused>Dude, do I look like I wanna talk to you?"); // animationId = 575
-~chatplayer("<p,neutral>I suppose not."); // animationId = 588
-~chatnpc("<p,happy>Right on!"); // animationId = 567
+~openshop_activenpc;

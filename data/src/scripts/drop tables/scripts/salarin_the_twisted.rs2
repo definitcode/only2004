@@ -52,4 +52,6 @@ if ($random < 1) {
 } else if ($random < 91) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
     obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
+} else if ($random < 127) {
+    obj_add(npc_coord, ~high_tier_items, ^lootdrop_duration);
 }

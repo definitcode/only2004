@@ -49,12 +49,12 @@
 [opheld2,crossbow] @levelrequire_ranged(1, last_slot);
 [opheld2,longbow] @levelrequire_ranged(1, last_slot);
 [opheld2,shortbow] @levelrequire_ranged(1, last_slot);
-[opheld2,leather_gloves] @levelrequire_ranged(1, last_slot);
-[opheld2,leather_boots] @levelrequire_ranged(1, last_slot);
-[opheld2,leather_vambraces] @levelrequire_ranged(1, last_slot);
-[opheld2,leather_chaps] @levelrequire_ranged(1, last_slot);
-[opheld2,leather_body] @levelrequire_ranged(1, last_slot);
-[opheld2,leather_cowl] @levelrequire_ranged(1, last_slot);
+[opheld2,leather_gloves] @levelrequire_ranged_and_defence(1, 1, last_slot);
+[opheld2,leather_boots] @levelrequire_ranged_and_defence(1, 1, last_slot);
+[opheld2,leather_vambraces] @levelrequire_ranged_and_defence(1, 1, last_slot);
+[opheld2,leather_chaps] @levelrequire_ranged_and_defence(1, 1, last_slot);
+[opheld2,leather_body] @levelrequire_ranged_and_defence(1, 1, last_slot);
+[opheld2,leather_cowl] @levelrequire_ranged_and_defence(1, 1, last_slot);
 
 [opheld2,bronze_dart] @levelrequire_ranged(1, last_slot);
 [opheld2,bronze_dart_p] @levelrequire_ranged(1, last_slot);

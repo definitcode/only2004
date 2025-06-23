@@ -1,0 +1,10 @@
+[opheld3,combat_ring] @toggle_combo;
+
+[label,toggle_combo]
+if (%e_ctoggle = 1) {
+    %e_ctoggle = ^e_toggle_off;
+    mes("Combo Score: Off");
+} else if (%e_ctoggle = 0) {
+    %e_ctoggle = ^e_toggle_on;
+    mes("Combo Score: On");
+}

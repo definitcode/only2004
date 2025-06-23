@@ -48,6 +48,8 @@ if ($random < 4) {
 } else if ($random < 121) {
     obj_add(npc_coord, adamantite_bar, 1, ^lootdrop_duration);
 } else if ($random < 122) {
+    obj_add(npc_coord, ~high_tier_items, ^lootdrop_duration);
+} else if ($random < 122) {
     obj_add(npc_coord, 3dose1defense, 1, ^lootdrop_duration);
 } else if ($random < 123) {
     obj_add(npc_coord, macro_genilamp, 1, ^lootdrop_duration);

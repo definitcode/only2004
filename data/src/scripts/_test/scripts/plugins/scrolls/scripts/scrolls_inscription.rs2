@@ -10,7 +10,7 @@
 [opheld1,blankscroll] ~inscribe_scroll;
 [opheld1,draynorscroll] ~drayport;
 [opheld1,yanillescroll] ~yanport;
-[opheld1,seersscroll] ~seersport;
+[opheld1,shiloscroll] ~shiloport;
 [opheld1,edgevillescroll] ~edgeport;
 [opheld1,lumbyscroll] ~lumbport;
 
@@ -139,7 +139,7 @@ if (inv_total(worn, dramen_staff) > 0) {
         mes("Your Intelligence skills are showing!");        
     }
 }
-inv_add(inv, seersscroll, 1);
+inv_add(inv, shiloscroll, 1);
 
 [proc,edgeville_inscription]
 anim(human_casthighlvlalchemy, 0);
@@ -191,9 +191,13 @@ inv_del(inv,yanillescroll, 1);
 ~player_teleport_normal(0_40_48_43_16);
 mes("You have used a Seers' Scroll!");
 
-[proc,seersport]
-if (inv_total(inv,seersscroll) < 1){
-    mes("You need to have a Seers' Scroll to use this portal!");
+[proc,shiloport]
+if (inv_total(inv,shiloscroll) < 1){
+    mes("You need to have a Shilo Village Scroll to use this portal!");
+}
+if (%zombiequeen_progress ! ^zombiequeen_complete) {
+    ~mesbox("You must complete the Shilo Village quest before using this!");
+    return;
 }
 if (~wilderness_level(coord) > 0) {
     // osrs
@@ -201,9 +205,9 @@ if (~wilderness_level(coord) > 0) {
     mes("You can't use this teleport in the wilderness.");
     return;
 }
-inv_del(inv,seersscroll, 1);
-~player_teleport_normal(0_42_54_44_29);
-mes("You have used a Seers' Scroll!");
+inv_del(inv,shiloscroll, 1);
+~player_teleport_normal(0_44_46_36_15);
+mes("You have used a Shilo Village Scroll!");
 
 [proc,edgeport]
 if (inv_total(inv,edgevillescroll) < 1){

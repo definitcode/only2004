@@ -22,8 +22,8 @@
 [opheld2,dragon_plateskirt] @levelrequire_legends_quest_defence(99, last_slot);
 
 // Ranged
-[opheld2,red_dragon_vambraces] @levelrequire_ranged(70, last_slot);
-[opheld2,red_dragonhide_chaps] @levelrequire_ranged(70, last_slot);
+[opheld2,red_dragon_vambraces] @levelrequire_ranged_and_defence(70, 70, last_slot);
+[opheld2,red_dragonhide_chaps] @levelrequire_ranged_and_defence(70, 70, last_slot);
 [opheld2,red_dragonhide_body] @levelrequire_ranged_and_defence(70, 50, last_slot);
 
 // Magic

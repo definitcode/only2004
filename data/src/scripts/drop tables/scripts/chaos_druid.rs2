@@ -12,15 +12,17 @@ def_int $random = random(128);
 if ($random < 7)  {
     obj_add(npc_coord, lawrune, 5, ^lootdrop_duration);
 } else if ($random < 10) {
-    obj_add(npc_coord, airrune, 36, ^lootdrop_duration);
+    obj_add(npc_coord, airrune, 57, ^lootdrop_duration);
 } else if ($random < 12) {
     obj_add(npc_coord, bodyrune, 9, ^lootdrop_duration);
 } else if ($random < 14) {
     obj_add(npc_coord, earthrune, 9, ^lootdrop_duration);
 } else if ($random < 16) {
-    obj_add(npc_coord, mindrune, 12, ^lootdrop_duration);
+    obj_add(npc_coord, mindrune, 35, ^lootdrop_duration);
 } else if ($random < 17) {
-    obj_add(npc_coord, naturerune, 5, ^lootdrop_duration);
+    obj_add(npc_coord, naturerune, 10, ^lootdrop_duration);
+} else if ($random < 50) {
+    obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
 } else if ($random < 52) {
     obj_add(npc_coord, ~randomherb, ^lootdrop_duration);
 } else if ($random < 63) {
@@ -44,4 +46,7 @@ if ($random < 7)  {
     obj_add(npc_coord, unholy_symbol_mould, 1, ^lootdrop_duration);
 } else if ($random < 91) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
+} else if ($random < 126) {
+    obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
+    obj_add(npc_coord, ~low_tier_items, ^lootdrop_duration);
 }

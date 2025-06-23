@@ -1,0 +1,13 @@
+[master_crafter]
+size=40
+restock=yes
+stackall=yes
+allstock=no
+stock1=bowl_empty,0,400
+stock2=pot_empty,0,300
+stock3=piedish,0,200
+stock4=thread,500,400
+stock5=needle,10,400
+stock6=hardleather_body,0,4000
+stock7=unstrung_gold_amulet,0,4000
+stock8=nostringstar,0,4000

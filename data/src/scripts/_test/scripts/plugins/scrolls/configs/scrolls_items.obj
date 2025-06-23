@@ -90,9 +90,9 @@ cost=1
 param=no_alchemy,^true
 
 
-[seersscroll]
-name=Seers' Scroll
-desc=a scroll that allows you to teleport to Seers' Village.
+[shiloscroll]
+name=Shilo Village Scroll
+desc=a scroll that allows you to teleport to Shilo Village.
 model=model_2774_obj
 2dxof=-1
 2dyof=56

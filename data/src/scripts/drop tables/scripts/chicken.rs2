@@ -11,12 +11,41 @@ obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 gosub(trail_checkmediumdrop);
 
 // Normal drop
-obj_add(npc_coord, raw_chicken, 1, ^lootdrop_duration);
-
+//obj_add(npc_coord, raw_chicken, 1, ^lootdrop_duration);
 // Other
+
+
+if (%hunter > 349) {
+    obj_add(npc_coord, raw_chicken, 4, ^lootdrop_duration);
+    mes("[4x] Resources!");
+} else if (%hunter > 189) {
+    obj_add(npc_coord, raw_chicken, 2, ^lootdrop_duration);
+    mes("[2x] Resources!");
+} else {
+    obj_add(npc_coord, raw_chicken, 1, ^lootdrop_duration);
+}
+
 def_int $rng = random(128);
 if ($rng < 32) {
-    obj_add(npc_coord, feather, 15, ^lootdrop_duration);
+    if (%hunter > 349) {
+        obj_add(npc_coord, feather, 35, ^lootdrop_duration);
+    } else if (%hunter > 189) {
+        obj_add(npc_coord, feather, 25, ^lootdrop_duration);
+    } else {
+        obj_add(npc_coord, feather, 15, ^lootdrop_duration);
+    }
 } else if ($rng < 64) {
-    obj_add(npc_coord, feather, 5, ^lootdrop_duration);
+    if (%hunter > 349) {
+        obj_add(npc_coord, feather, 15, ^lootdrop_duration);
+    } else if (%hunter > 189) {
+        obj_add(npc_coord, feather, 10, ^lootdrop_duration);
+    } else {
+        obj_add(npc_coord, feather, 5, ^lootdrop_duration);
+    }
 }
+
+
+
+
+
+

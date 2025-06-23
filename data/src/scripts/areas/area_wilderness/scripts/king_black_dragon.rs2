@@ -67,13 +67,13 @@ if ($random < 10) { // osrs
 } else if ($random < 118) { // missing from osrs
     obj_add(npc_coord, cert_rune_battleaxe, 10, ^lootdrop_duration); // https://youtu.be/KDkdsTPeb_8?t=358
 } else if ($random < 119) { 
-    obj_add(npc_coord, ~dragon_table, ^lootdrop_duration);
+    obj_add(npc_coord, ~elite_tier_items, ^lootdrop_duration);
 } else if ($random < 120) { 
     obj_add(npc_coord, ~dragon_table, ^lootdrop_duration);        
 } else if ($random < 126) { // osrs
     obj_add(npc_coord, ~ultrarare_getitem, ^lootdrop_duration);
 } else if ($random < 127) { // osrs
-    obj_add(npc_coord, ~megararetable, ^lootdrop_duration);    
+    obj_add(npc_coord, ~megararetable, ^lootdrop_duration);
 } else { // osrs
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
 }

@@ -117,4 +117,56 @@ if ($random < 6) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
 } else if ($random < 97) {
     obj_add(npc_coord, ~low_tier_items, ^lootdrop_duration);
+} else if ($random < 127) {
+    obj_add(npc_coord, ~mid_tier_items, ^lootdrop_duration);
+}
+
+
+[ai_queue1,gunthor_the_brave]
+def_npc_mode $npc_mode = npc_getmode;
+~npc_default_retaliate;
+if (finduid(%npc_attacking_uid) = true & $npc_mode ! opplayer2) { // in osrs it checks mode rather than ~npc_out_of_combat
+    npc_huntall(npc_coord, 5, 0);
+    while (npc_huntnext = true) {
+        if (npc_getmode = opplayer2) {
+            npc_say("WE must PROTECT our LEADER!");
+            %npc_aggressive_player = uid;
+            ~npc_default_retaliate;
+        }
+    }
+}
+
+[ai_queue1,barbarian_woman]
+def_npc_mode $npc_mode = npc_getmode;
+~npc_default_retaliate;
+if (finduid(%npc_attacking_uid) = true & $npc_mode ! opplayer2) { // in osrs it checks mode rather than ~npc_out_of_combat
+    npc_huntall(npc_coord, 5, 0);
+    while (npc_huntnext = true) {
+        if (npc_category ! barbarian) {
+            return;
+        }
+        
+        if (npc_getmode ! opplayer2) {
+            npc_say("WE must PROTECT our sisters!");
+            %npc_aggressive_player = uid;
+            ~npc_default_retaliate;
+        }
+    }
+}
+
+[ai_queue1,barbarian]
+def_npc_mode $npc_mode = npc_getmode;
+~npc_default_retaliate;
+if (finduid(%npc_attacking_uid) = true & $npc_mode ! opplayer2) { // in osrs it checks mode rather than ~npc_out_of_combat
+    npc_huntall(npc_coord, 5, 0);
+    while (npc_huntnext = true) {
+        if (npc_category ! barbarian) {
+            return;
+        }        
+        if (npc_getmode ! opplayer2) {
+            npc_say("WE must PROTECT our brothers!");
+            %npc_aggressive_player = uid;
+            ~npc_default_retaliate;
+        }
+    }
 }

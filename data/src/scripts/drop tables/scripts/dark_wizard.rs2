@@ -25,7 +25,7 @@ if ($random < 4) {
 } else if ($random < 27) {
     obj_add(npc_coord, firerune, 10, ^lootdrop_duration);
 } else if ($random < 29) {
-    obj_add(npc_coord, airrune, 18, ^lootdrop_duration);
+    obj_add(npc_coord, airrune, 37, ^lootdrop_duration);
 } else if ($random < 31) {
     obj_add(npc_coord, waterrune, 18, ^lootdrop_duration);
 } else if ($random < 33) {
@@ -33,11 +33,11 @@ if ($random < 4) {
 } else if ($random < 35) {
     obj_add(npc_coord, firerune, 18, ^lootdrop_duration);
 } else if ($random < 42) {
-    obj_add(npc_coord, naturerune, 4, ^lootdrop_duration);
+    obj_add(npc_coord, naturerune, 10, ^lootdrop_duration);
 } else if ($random < 48) {
     obj_add(npc_coord, chaosrune, 4, ^lootdrop_duration);
 } else if ($random < 51) {
-    obj_add(npc_coord, mindrune, 10, ^lootdrop_duration);
+    obj_add(npc_coord, mindrune, 27, ^lootdrop_duration);
 } else if ($random < 54) {
     obj_add(npc_coord, bodyrune, 10, ^lootdrop_duration);
 } else if ($random < 56) {
@@ -53,7 +53,7 @@ if ($random < 4) {
 } else if ($random < 61) {
     obj_add(npc_coord, cosmicrune, 2, ^lootdrop_duration);
 } else if ($random < 62) {
-    obj_add(npc_coord, lawrune, 3, ^lootdrop_duration);
+    obj_add(npc_coord, lawrune, 5, ^lootdrop_duration);
 } else if ($random < 79) {
     obj_add(npc_coord, coins, 1, ^lootdrop_duration);
 } else if ($random < 95) {
@@ -99,7 +99,7 @@ if ($random < 8) {
 } else if ($random < 31) {
     obj_add(npc_coord, firerune, 10, ^lootdrop_duration);
 } else if ($random < 33) {
-    obj_add(npc_coord, airrune, 18, ^lootdrop_duration);
+    obj_add(npc_coord, airrune, 53, ^lootdrop_duration);
 } else if ($random < 35) {
     obj_add(npc_coord, waterrune, 18, ^lootdrop_duration);
 } else if ($random < 37) {
@@ -111,7 +111,7 @@ if ($random < 8) {
 } else if ($random < 52) {
     obj_add(npc_coord, chaosrune, 5, ^lootdrop_duration);
 } else if ($random < 55) {
-    obj_add(npc_coord, mindrune, 10, ^lootdrop_duration);
+    obj_add(npc_coord, mindrune, 35, ^lootdrop_duration);
 } else if ($random < 58) {
     obj_add(npc_coord, bodyrune, 10, ^lootdrop_duration);
 } else if ($random < 60) {

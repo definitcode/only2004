@@ -9,3 +9,12 @@ obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
 // Normal drop
 obj_add(npc_coord, black_cape, 1, ^lootdrop_duration);
+
+
+def_int $random = random(10000);
+if ($random < 9997) {
+    obj_add(npc_coord, lockpick, 1, ^lootdrop_duration);
+    return;
+} else if ($random > 9998)  {
+    obj_add(npc_coord, highwaymanmask, 1, ^lootdrop_duration);
+}

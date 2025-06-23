@@ -9,3 +9,13 @@ obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
 // Normal drop
 obj_add(npc_coord, unicorn_horn, 1, ^lootdrop_duration);
+
+if (%hunter > 349) {
+    obj_add(npc_coord, unicorn_horn, 4, ^lootdrop_duration);
+    mes("Your Hunter skills are showing, and you are rewarded with [4x] Unicorn Horns!");
+} else if (%hunter > 189) {
+    obj_add(npc_coord, unicorn_horn, 2, ^lootdrop_duration);
+    mes("Your Hunter skills are showing, and you are rewarded with [2x] Unicorn Horns!");
+} else {
+    obj_add(npc_coord, unicorn_horn, 1, ^lootdrop_duration);
+}

@@ -3070,8 +3070,8 @@
 3069=cert_draynorscroll
 3070=yanillescroll
 3071=cert_yanillescroll
-3072=seersscroll
-3073=cert_seersscroll
+3072=shiloscroll
+3073=cert_shiloscroll
 3074=edgevillescroll
 3075=cert_edgevillescroll
 3076=reset_box
@@ -3084,3 +3084,5 @@
 3083=cert_hc_knife
 3084=hc_box
 3085=cert_hc_box
+3086=combat_ring
+3087=cert_combat_ring

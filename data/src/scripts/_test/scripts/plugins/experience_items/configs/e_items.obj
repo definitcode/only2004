@@ -1,0 +1,21 @@
+[combat_ring]
+name=Combat Ring
+desc=A meaningful ring.
+cost=15000
+model=model_2677_obj
+recol1s=32767
+recol1d=0
+2dxof=3
+2dyof=-35
+2dzoom=830
+2dyan=180
+2dzan=2024
+2dxan=268
+iop2=Wear
+iop3=Toggle
+wearpos=ring
+weight=6g
+category=e_items
+respawnrate=500
+param=no_alchemy,^true
+tradeable=no

@@ -6,8 +6,16 @@ if (npc_findhero = false) {
 
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
-obj_add(npc_coord, dragonhide_black, 1, ^lootdrop_duration);
-
+//obj_add(npc_coord, dragonhide_black, 1, ^lootdrop_duration);
+if (%hunter = 396) {
+    obj_add(npc_coord, dragonhide_black, 4, ^lootdrop_duration);
+    mes("Your Hunter skills are showing, and you are rewarded with [4x] Dragonhide!");
+} else if (%hunter > 349) {
+    obj_add(npc_coord, dragonhide_black, 2, ^lootdrop_duration);
+    mes("Your Hunter skills are showing, and you are rewarded with [2x] Dragonhide!");
+} else {
+    obj_add(npc_coord, dragonhide_black, 1, ^lootdrop_duration);
+}
 // Tertiary
 ~trail_hardcluedrop(128, npc_coord);
 
@@ -59,4 +67,6 @@ if ($random < 4) {
     obj_add(npc_coord, macro_genilamp, 1, ^lootdrop_duration);
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
     obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
+} else if ($random < 125) {
+    obj_add(npc_coord, ~high_tier_items, ^lootdrop_duration);
 }

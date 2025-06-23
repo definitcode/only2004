@@ -25,3 +25,11 @@ data=staff,staff_of_fire
 data=staff,fire_battlestaff
 data=staff,mystic_fire_staff
 data=rune,firerune
+
+[magic_imbued_dramenstaff]
+table=magic_staff_table
+data=staff,dramen_staff_i
+data=rune,firerune
+data=rune,earthrune
+data=rune,airrune
+data=rune,waterrune

@@ -44,4 +44,10 @@ if ($random < 4) {
     obj_add(npc_coord, limpwurt_root, 1, ^lootdrop_duration);
 } else if ($random < 91) {
     obj_add(npc_coord, 3doseantipoison, 1, ^lootdrop_duration);
+} else if ($random < 100) {
+    obj_add(npc_coord, ~mid_tier_items, ^lootdrop_duration);
+} else if ($random < 127) {
+    obj_add(npc_coord, ~randomherb, ^lootdrop_duration);
+    obj_add(npc_coord, ~randomherb, ^lootdrop_duration);
+    obj_add(npc_coord, ~randomherb, ^lootdrop_duration);        
 }

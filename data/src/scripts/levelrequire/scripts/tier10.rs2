@@ -32,4 +32,4 @@
 [opheld2,black_knife_p] @levelrequire_ranged(35, last_slot);
 
 // Ranged
-[opheld2,hardleather_body] @levelrequire_defence(28, last_slot);
+[opheld2,hardleather_body] @levelrequire_ranged_and_defence(28, 28, last_slot);

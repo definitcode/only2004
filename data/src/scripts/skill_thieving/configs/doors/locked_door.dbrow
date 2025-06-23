@@ -3,6 +3,7 @@ table=locked_door
 data=loc,loc_2550
 data=replacement,loc_2055
 data=level,1
+data=tool,lockpick,lockpick
 data=experience,38
 
 [locked_door_loc_2551]
@@ -10,6 +11,7 @@ table=locked_door
 data=loc,loc_2551
 data=replacement,loc_2055
 data=level,16
+data=tool,lockpick,lockpick
 data=experience,150
 
 [locked_door_east_ardy_sewer_gate_north]
@@ -35,6 +37,7 @@ data=gate,true
 table=locked_door
 data=loc,loc_2554
 data=replacement,loc_2055
+data=tool,lockpick,lockpick
 data=level,46
 data=experience,375
 
@@ -43,6 +46,7 @@ table=locked_door
 data=loc,loc_2555
 data=replacement,loc_2001
 data=level,61
+data=tool,lockpick,lockpick
 data=experience,500
 
 [locked_door_loc_2556]
@@ -50,6 +54,7 @@ table=locked_door
 data=loc,loc_2556
 data=replacement,loc_2001
 data=level,13
+data=tool,lockpick,lockpick
 data=experience,150
 
 [locked_door_loc_2557]

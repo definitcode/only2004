@@ -21,6 +21,7 @@
 [advancestat,fletching] @levelup(enum(int, stat, stats, ^fletching));
 
 [label,levelup](stat $stat)
+~prestige_check;
 db_find(levelup:stat, $stat);
 def_dbrow $unlock_row = db_findnext;
 if ($unlock_row = null) {

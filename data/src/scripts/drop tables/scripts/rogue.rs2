@@ -44,6 +44,8 @@ if ($dropint < 2) {
 } else if ($dropint < 96) {
     // 38/128
     obj_add(npc_coord, coins, 3, 200);
+} else if ($dropint < 98) {
+    obj_add(npc_coord, lockpick, 1, ^lootdrop_duration);
 } else if ($dropint < 105) {
     // 9/128
     obj_add(npc_coord, coins, 5, 200);
@@ -67,6 +69,8 @@ if ($dropint < 2) {
 } else if ($dropint < 120) {
     // 1/128
     obj_add(npc_coord, cabbage, 1, 200);
+} else if ($dropint < 126) {
+    obj_add(npc_coord, ~scrollpack, 200);
 }
 
 // 8/128 nothing

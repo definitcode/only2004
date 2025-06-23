@@ -39,11 +39,11 @@ if ($random < 7){
 } else if ($random < 109) {
     obj_add(npc_coord, coins, 28, ^lootdrop_duration);
 } else if ($random < 117) {
-    obj_add(npc_coord, naturerune, 3, ^lootdrop_duration);
+    obj_add(npc_coord, naturerune, 25, ^lootdrop_duration);
 } else if ($random < 122) {
     obj_add(npc_coord, coins, 62, ^lootdrop_duration);
 } else if ($random < 127) {
-    obj_add(npc_coord, gold_ore, 1, ^lootdrop_duration);
+    obj_add(npc_coord, cert_gold_ore, 10, ^lootdrop_duration);
 } else if ($random < 130) {
     obj_add(npc_coord, 2dose2antipoison, 1, ^lootdrop_duration);
 } else if ($random < 131) {
@@ -57,4 +57,6 @@ if ($random < 7){
 } else if ($random < 136) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
     obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
+} else if ($random < 137) {
+    obj_add(npc_coord, ~mid_tier_items, ^lootdrop_duration);
 }
