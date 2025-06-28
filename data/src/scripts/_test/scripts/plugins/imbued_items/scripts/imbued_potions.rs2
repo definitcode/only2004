@@ -43,7 +43,7 @@ if (inv_total(inv, 4doseprayerrestore) > 0){
                 case 3 : sound_synth(pop1, 1, 0);
             }
             inv_del(inv, 4doseprayerrestore, 1);
-            inv_del(inv, cosmicrune, 50);
+            inv_del(inv, imbued_dust, 10000);
             p_delay(1);
             switch_int($random1){
                 case 1 : sound_synth(triffid_appear, 1, 0);
@@ -62,8 +62,8 @@ if (inv_total(inv, 4doseprayerrestore) > 0){
             ~mesbox("You do not not have the Intelligence to imbue this potion!");
         }
 
-    } else if (inv_total(inv, cosmicrune) < 50) {
-        ~mesbox("You need 50 Cosmic Runes to imbue this potion!");
+    } else if (inv_total(inv, imbued_dust) < 10000) {
+        ~mesbox("You need 10,000 Imbued Dust to imbue this potion!");
 
 } else {
     ~mesbox("You need to use a 4-dose Potion to imbue it!");
@@ -81,7 +81,7 @@ if (inv_total(inv, 4dose2attack) > 0){
                 case 3 : sound_synth(pop1, 1, 0);
             }
             inv_del(inv, 4dose2attack, 1);
-            inv_del(inv, cosmicrune, 50);
+            inv_del(inv, imbued_dust, 10000);
             p_delay(1);
             switch_int($random1){
                 case 1 : sound_synth(triffid_appear, 1, 0);
@@ -100,8 +100,8 @@ if (inv_total(inv, 4dose2attack) > 0){
             ~mesbox("You do not not have the Intelligence to imbue this potion!");
         }
 
-    } else if (inv_total(inv, cosmicrune) < 50) {
-        ~mesbox("You need 50 Cosmic Runes to imbue this potion!");
+    } else if (inv_total(inv, imbued_dust) < 10000) {
+        ~mesbox("You need 10,000 Imbued Dust to imbue this potion!");
 
 } else {
     ~mesbox("You need to use a 4-dose Potion to imbue it!");
@@ -119,7 +119,7 @@ if (inv_total(inv, 4dose2strength) > 0){
                 case 3 : sound_synth(pop1, 1, 0);
             }
             inv_del(inv, 4dose2strength, 1);
-            inv_del(inv, cosmicrune, 50);
+            inv_del(inv, imbued_dust, 10000);
             p_delay(1);
             switch_int($random1){
                 case 1 : sound_synth(triffid_appear, 1, 0);
@@ -138,8 +138,8 @@ if (inv_total(inv, 4dose2strength) > 0){
             ~mesbox("You do not not have the Intelligence to imbue this potion!");
         }
 
-    } else if (inv_total(inv, cosmicrune) < 50) {
-        ~mesbox("You need 50 Cosmic Runes to imbue this potion!");
+    } else if (inv_total(inv, imbued_dust) < 10000) {
+        ~mesbox("You need 10,000 Imbued Dust to imbue this potion!");
 
 } else {
     ~mesbox("You need to use a 4-dose Potion to imbue it!");
@@ -156,7 +156,7 @@ if (inv_total(inv, 4dose2defense) > 0){
                 case 3 : sound_synth(pop1, 1, 0);
             }
             inv_del(inv, 4dose2defense, 1);
-            inv_del(inv, cosmicrune, 50);
+            inv_del(inv, imbued_dust, 10000);
             p_delay(1);
             switch_int($random1){
                 case 1 : sound_synth(triffid_appear, 1, 0);
@@ -175,8 +175,8 @@ if (inv_total(inv, 4dose2defense) > 0){
             ~mesbox("You do not not have the Intelligence to imbue this potion!");
         }
 
-    } else if (inv_total(inv, cosmicrune) < 50) {
-        ~mesbox("You need 50 Cosmic Runes to imbue this potion!");
+    } else if (inv_total(inv, imbued_dust) < 10000) {
+        ~mesbox("You need 10,000 Imbued Dust to imbue this potion!");
 
 } else {
     ~mesbox("You need to use a 4-dose Potion to imbue it!");
@@ -193,7 +193,7 @@ if (inv_total(inv, 4doserangerspotion) > 0){
                 case 3 : sound_synth(pop1, 1, 0);
             }
             inv_del(inv, 4doserangerspotion, 1);
-            inv_del(inv, cosmicrune, 50);
+            inv_del(inv, imbued_dust, 10000);
             p_delay(1);
             switch_int($random1){
                 case 1 : sound_synth(triffid_appear, 1, 0);
@@ -212,8 +212,8 @@ if (inv_total(inv, 4doserangerspotion) > 0){
             ~mesbox("You do not not have the Intelligence to imbue this potion!");
         }
 
-    } else if (inv_total(inv, cosmicrune) < 50) {
-        ~mesbox("You need 50 Cosmic Runes to imbue this potion!");
+    } else if (inv_total(inv, imbued_dust) < 10000) {
+        ~mesbox("You need 10,000 Imbued Dust to imbue this potion!");
 
 } else {
     ~mesbox("You need to use a 4-dose Potion to imbue it!");

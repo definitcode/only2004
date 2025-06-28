@@ -6,6 +6,7 @@
 [if_button,magic:watchtower_teleport] @magic_teleport(^watchtower_teleport);
 
 [label,magic_teleport](int $spell)
+%teleportlocation = ^reset_tele;
 if_close;
 if (p_finduid(uid) = true) {
     // look for spell in db
@@ -38,6 +39,7 @@ if (p_finduid(uid) = true) {
     // give additional affects
     // teleport player. Always a radius of 2
     ~player_teleport_normal(map_findsquare(db_getfield($spell_data, magic_spell_table:tele_coord, 0), 0, 2, ^map_findsquare_lineofwalk));
+    
 }
 
 [proc,player_teleport_normal](coord $coord)

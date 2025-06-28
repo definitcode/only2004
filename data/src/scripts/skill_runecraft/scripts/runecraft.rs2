@@ -7,7 +7,7 @@ if ($data = null) {
 sound_synth(teleport_all, 0, 0);
 mes("You step through the portal...");
 p_telejump(map_findsquare(db_getfield($data, runecraft_table:exit_coord, random(db_getfieldcount($data, runecraft_table:exit_coord)))));
-
+%teleportlocation = ^reset_tele;
 [oplocu,_rc_altar]
 switch_obj(last_useitem) {
     case blankrune : @runecraft_runes;
@@ -42,7 +42,7 @@ mes("You hold the <oc_name(last_useitem)> towards the mysterious ruins.");
 mes("You feel a powerful force take hold of you...");
 p_delay(1);
 p_telejump(map_findsquare(db_getfield($data, runecraft_table:enter_coord, random(db_getfieldcount($data, runecraft_table:enter_coord)))));
-
+%teleportlocation = ^reset_tele;
 
 [label,runecraft_runes]
 def_dbrow $data = ~get_runecraft_data(loc_param(rune_type));
@@ -102,6 +102,7 @@ if (inv_total(worn, dramen_staff_i) > 0) {
 // later revs they just use oc_name($rune), i think after 2007 or so
 mes("You bind the temple's power into <db_getfield($data, runecraft_table:name, 0)> Runes.");
 inv_add(inv, $rune, calc($total_ess * $rune_count_per_ess));
+inv_add(inv, rune_dust, calc($total_ess * $rune_count_per_ess * 25));
 p_delay(3);
 
 

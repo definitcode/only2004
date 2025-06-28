@@ -1,0 +1,12 @@
+[proc,imbue_runedust]
+def_int $runedust = inv_total(inv,rune_dust);
+if (%intelligence > 99) {
+    if ($runedust > 0) {
+        inv_del(inv, rune_dust, $runedust);
+        inv_add(inv, imbued_dust, $runedust);
+        ~chatnpc("Here is [<tostring($runedust)>x] Imbued Dust!");
+    }
+} else {
+    ~chatnpc("<p,sad>You must have at least 100 Intelligence for me to consider doing this.");
+    return;
+}
