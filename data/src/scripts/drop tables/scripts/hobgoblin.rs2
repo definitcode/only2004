@@ -69,6 +69,7 @@ if ($random < 3) {
     obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
 } else if ($random < 127) {
     obj_add(npc_coord, ~mid_tier_items, ^lootdrop_duration);
+    obj_add(npc_coord, ~talisman_table, ^lootdrop_duration);
 } else if ($random < 128){
     obj_add(npc_coord,yanillescroll, 1, ^lootdrop_duration);
 }
@@ -132,6 +133,9 @@ if ($random < 3) {
 } else if ($random < 115) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
     obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
+} else if ($random < 127) {
+    obj_add(npc_coord, ~mid_tier_items, ^lootdrop_duration);
+    obj_add(npc_coord, ~talisman_table, ^lootdrop_duration);
 } else if ($random < 128){
     obj_add(npc_coord,yanillescroll, 1, ^lootdrop_duration);
 }

@@ -1,0 +1,18 @@
+^air_talismaninv = 1
+^earth_talismaninv = 1
+^water_talismaninv = 1
+^fire_talismaninv = 1
+^body_talismaninv = 1
+^mind_talismaninv = 1
+^chaos_talismaninv = 1
+^nature_talismaninv = 1
+^law_talismaninv = 1
+^death_talismaninv = 1
+^blood_talismaninv = 1
+^soul_talismaninv = 1
+
+^talisman_count = 0
+
+
+^mageguild = 1
+^reset_tele = 0

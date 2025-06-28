@@ -1,0 +1,10 @@
+[opheld4,imbued_talisman] @returntomageguild;
+
+[label,returntomageguild]
+
+if (%teleportlocation = ^mageguild) {
+    ~player_teleport_normal(0_40_48_43_16);
+    %teleportlocation = ^reset_tele;
+} else {
+    ~mesbox("You need to have teleported from the Mage Guild to use this!");
+}

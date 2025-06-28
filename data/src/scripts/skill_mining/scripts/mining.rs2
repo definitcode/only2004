@@ -191,6 +191,19 @@ if ($data = null) {
     ~displaymessage(^dm_default);
     return;
 }
+def_int $random = random(100);
+def_int $fragments = random(7);
+if ($random > 49) {
+    if ($fragments = 0){
+        inv_add(inv, db_getfield($data, mining_table:rock_output, 0), 1);
+        stat_advance(mining, db_getfield($data, mining_table:rock_exp, 0));
+        mes("You manage to mine an unbound rune stone.");
+        p_oploc(3);
+        return;
+    }
+    inv_add(inv, rune_fragment, $fragments);
+    mes("Some fragments are knocked loose.");
+}
 inv_add(inv, db_getfield($data, mining_table:rock_output, 0), 1);
 stat_advance(mining, db_getfield($data, mining_table:rock_exp, 0));
 mes("You manage to mine an unbound rune stone.");

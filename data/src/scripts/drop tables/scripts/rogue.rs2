@@ -71,6 +71,8 @@ if ($dropint < 2) {
     obj_add(npc_coord, cabbage, 1, 200);
 } else if ($dropint < 126) {
     obj_add(npc_coord, ~scrollpack, 200);
+} else if ($dropint < 128) {
+    obj_add(npc_coord, ~talisman_table, ^lootdrop_duration);
 }
 
 // 8/128 nothing

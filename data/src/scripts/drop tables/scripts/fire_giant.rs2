@@ -46,6 +46,8 @@ if ($random < 3) {
     obj_add(npc_coord, steel_bar, 1, ^lootdrop_duration);
 } else if ($random < 116) {
     obj_add(npc_coord, 2dose1strength, 1, ^lootdrop_duration);
+} else if ($random < 117) {
+    obj_add(npc_coord, ~talisman_table, ^lootdrop_duration);
 } else if ($random < 120) {
     obj_add(npc_coord, macro_genilamp, 1, ^lootdrop_duration);
 } else if ($random < 121) {

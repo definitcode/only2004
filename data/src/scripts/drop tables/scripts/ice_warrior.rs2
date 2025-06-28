@@ -42,4 +42,6 @@ if ($random < 3) {
 } else if ($random < 97) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
     obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
+} else if ($random < 120) {
+    obj_add(npc_coord, ~talisman_table, ^lootdrop_duration);
 }

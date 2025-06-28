@@ -227,14 +227,16 @@ if ($random < 8) {
     return (draynorscroll, 2);
 } else if ($random < 50) {
     return (black_battleaxe, 1);
+}  else if ($random < 123) {
+    return (mithril_arrowheads,25);
 } else if ($random < 125) {
     return (mithril_chainbody,1);
 } else if ($random < 126) {
     return (mithril_sword,1);
 }  else if ($random < 127) {
     return (mithril_mace,1);
-}  else if ($random < 128) {
-    return (mithril_arrowheads,50);
+} else if ($random = 128 ) {
+    return (~talisman_table);
 }
 
 [proc,high_tier_items]()(namedobj,int)
@@ -266,6 +268,8 @@ if ($random < 8) {
 } else if ($random < 25) {
     return (shiloscroll,1);
     return (coins_250,250);
+} else if ($random < 34) {
+    return (~talisman_table);
 } else if ($random < 50) {
     return (mithril_battleaxe, 1);
 } else if ($random < 125) {
@@ -310,6 +314,8 @@ if ($random < 8) {
 } else if ($random < 28) {
     return (edgevillescroll,1);
     return (coins_250,250);
+} else if ($random < 34) {
+    return (~talisman_table);
 } else if ($random < 50) {
     return (adamant_battleaxe, 1);
 } else if ($random < 125) {
@@ -487,4 +493,40 @@ if ($random < 25) {
 } else if ($random < 127) {
     return (~megararetable);
     return (~megararetable);
+}
+
+
+[proc,talisman_table]()(namedobj,int)
+
+def_int $random = random(128);
+
+if ($random < 1) {
+    return (earth_talisman, 1);
+} else if ($random < 4) {
+    return (air_talisman, 1);
+} else if ($random < 5) {
+    return (fire_talisman, 1);
+} else if ($random < 10) {
+    return (water_talisman, 1);
+} else if ($random < 14) {
+    return (mind_talisman, 1);
+} else if ($random < 16) {
+    return (body_talisman, 1);
+} else if ($random < 23) {
+    return (blood_talisman, 1);
+} else if ($random < 24) {
+    return (nature_talisman, 1);
+} else if ($random < 49) {
+    return (law_talisman, 1);
+} else if ($random < 74) {
+    return (soul_talisman, 1);
+} else if ($random < 84) {
+    return (chaos_talisman, 1);
+} else if ($random < 94) {
+    return (death_talisman, 1);    
+} else if ($random < 99) {
+    return (death_talisman, 1);
+} else if ($random < 128) {
+    return (cosmic_talisman, 1);
+    return (~talisman_table);
 }

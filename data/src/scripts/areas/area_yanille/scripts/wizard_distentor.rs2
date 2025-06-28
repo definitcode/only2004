@@ -1,13 +1,208 @@
+[opnpcu,wizard_distentor]
+switch_obj(last_useitem) {
+    case imbued_talisman : @rc_dialogue;
+    case rune_dust : @essencemine;
+    case default : ~chatnpc("<p,confused>Er... Thanks, but no thanks!");
+}
 [opnpc1,wizard_distentor]
 ~chatnpc("<p,neutral>Welcome to the Magicians' Guild!");
 ~chatplayer("<p,neutral>Hello there.");
 ~chatnpc("<p,quiz>What can I do for you?");
+
+def_int $choice1 = ~p_choice3_header("Altars.", 1, "Craft an Imbued Talisman.", 2, "Dust and Essence.", 3,"What would you like to do?");
+
+switch_int($choice1) {
+    case 1 :  @rc_dialogue;
+    case 2 :  ~createtalisman;
+    case 3 :  @essencemine;
+}
+
+[label,rc_dialogue]
+if (inv_total(inv, imbued_talisman) > 0){
+    ~chatnpc("Which altar would you like to go to?");
+    def_int $op1 = ~p_choice5("Air.", 1, "Water.", 2, "Earth.", 3, "Fire.", 4, "Next.", 5);
+    switch_int($op1) {
+        case 1 :  ~airaltar;
+        case 2 :  ~wateraltar;
+        case 3 :  ~earthaltar;
+        case 4 :  ~firealtar;
+        case 5 :  {
+            def_int $op2 = ~p_choice5("Mind.", 1, "Body.", 2, "Cosmic.", 3, "Chaos.", 4, "Nature.",  5);
+            switch_int($op2) {
+                case 1 : ~mindaltar;
+                case 2 : ~bodyaltar;
+                case 3 : ~cosmicaltar;
+                case 4 : ~chaosaltar;
+                case 5 : ~naturealtar;
+            }
+        }
+    }
+}
+
+[label,essencemine]
+
 if(%runemysteries_progress = ^runemysteries_complete) {
-    def_int $option = ~p_choice2("Nothing thanks, I'm just looking around.", 1, "Can you teleport me to the Rune Essence?", 2);
-    if ($option = 2) {
+    def_int $option = ~p_choice2("Can you Imbue my Rune Dust?", 1, "Can you teleport me to the Rune Essence?", 2);
+    if ($option = 1) {
+        ~imbue_runedust;
+    } else if ($option = 2) {
         ~chatplayer("<p,quiz>Can you teleport me to the Rune Essence?");
         @teleport_to_essence_mine(^essence_mine_to_disentor);
     }
+} else {
+    ~chatnpc("<p,sad>You need to learn about the Rune Mysteries before trying this!");
 }
-~chatplayer("<p,neutral>Nothing thanks, I'm just looking around.");
-~chatnpc("<p,neutral>That's fine with me.");
+
+
+[proc,createtalisman]
+%talismancount = 0;
+~intel_check;
+if (%intelligence < 100) {
+    ~chatnpc("<p,sad>You must have at least 100 Intelligence for me to consider doing this.");
+    return;
+}
+
+//mes("#1)<tostring(%talismancount)>");
+if (inv_total(inv, air_talisman) > 0){
+    %talismancount = add(%talismancount,1);
+}
+if (inv_total(inv, earth_talisman) > 0){
+    %talismancount = add(%talismancount,1);
+}
+if (inv_total(inv, water_talisman) > 0) {
+    %talismancount = add(%talismancount,1);
+}
+if (inv_total(inv, fire_talisman) > 0){
+    %talismancount = add(%talismancount,1);
+}
+if (inv_total(inv, mind_talisman) > 0){
+    %talismancount = add(%talismancount,1);
+}
+if (inv_total(inv, body_talisman) > 0){
+    %talismancount = add(%talismancount,1);
+}
+if (inv_total(inv, cosmic_talisman) > 0){
+    %talismancount = add(%talismancount,1);
+}
+if (inv_total(inv, nature_talisman) > 0){
+    %talismancount = add(%talismancount,1);
+}
+if (inv_total(inv, blood_talisman) > 0){
+    %talismancount = add(%talismancount,1);
+}
+if (inv_total(inv, soul_talisman) > 0){
+    %talismancount = add(%talismancount,1);
+}
+if (inv_total(inv, chaos_talisman) > 0){
+    %talismancount = add(%talismancount,1);
+}
+if (inv_total(inv, law_talisman) > 0){
+    %talismancount = add(%talismancount,1);
+}
+if (inv_total(inv, death_talisman) > 0){
+    %talismancount = add(%talismancount,1);
+}
+//mes("#2<tostring(%talismancount)>");
+if (add(%talismancount, 1) > 12) {
+    inv_del(inv, air_talisman,1);    
+    inv_del(inv, earth_talisman,1);
+    inv_del(inv, fire_talisman,1);
+    inv_del(inv, water_talisman,1);
+    inv_del(inv, chaos_talisman,1);
+    inv_del(inv, mind_talisman,1);
+    inv_del(inv, body_talisman,1);
+    inv_del(inv, soul_talisman,1);
+    inv_del(inv, nature_talisman,1);
+    inv_del(inv, law_talisman,1);
+    inv_del(inv, death_talisman,1);
+    inv_del(inv, blood_talisman,1);
+    inv_del(inv, cosmic_talisman,1);
+    inv_add(inv, imbued_talisman,1);
+    ~objbox(imbued_talisman, "Congrats! You receive an Imbued Talisman!!", 250, 0, divide(^objbox_height, 2));
+    return;
+}
+~chatnpc("Sorry you do not have enough talismans for me to imbue! You need one of each.");
+
+//mes("<tostring(%talismancount)>");
+
+
+[proc,airaltar]
+if (inv_total(inv, imbued_dust) > 2499) {
+    p_telejump(0_44_75_25_30);
+    inv_del(inv, imbued_dust, 2500);
+    %teleportlocation = ^mageguild;
+} else {
+    ~chatnpc("Sorry, you need at least 2500 Imbued Dust to use the Air Altar!");
+}
+
+[proc,mindaltar]
+if (inv_total(inv, imbued_dust) > 2499) {
+    p_telejump(0_43_75_41_29);
+    inv_del(inv, imbued_dust, 2500);
+    %teleportlocation = ^mageguild;
+} else {
+    ~chatnpc("Sorry, you need at least 2500 Imbued Dust to use the Mind Altar!");
+}
+
+[proc,wateraltar]
+if (inv_total(inv, imbued_dust) > 2499) {
+    p_telejump(0_42_75_37_32);
+    inv_del(inv, imbued_dust, 2500);
+    %teleportlocation = ^mageguild;
+} else {
+    ~chatnpc("Sorry, you need at least 2500 Imbued Dust to use the Water Altar!");
+}
+
+[proc,earthaltar]
+if (inv_total(inv, imbued_dust) > 2499) {
+    p_telejump(0_41_75_33_30);
+    inv_del(inv, imbued_dust, 2500);
+    %teleportlocation = ^mageguild;    
+} else {
+    ~chatnpc("Sorry, you need at least 2500 Imbued Dust to use the Earth Altar!");
+}
+
+[proc,firealtar]
+if (inv_total(inv, imbued_dust) > 2499) {
+    p_telejump(0_40_75_16_48);
+    inv_del(inv, imbued_dust, 2500);
+    %teleportlocation = ^mageguild;
+} else {
+    ~chatnpc("Sorry, you need at least 2500 Imbued Dust to use the Fire Altar!");
+}
+
+[proc,bodyaltar]
+if (inv_total(inv, imbued_dust) > 2499) {
+    p_telejump(0_39_75_27_38);
+    inv_del(inv, imbued_dust, 2500);
+    %teleportlocation = ^mageguild;
+} else {
+    ~chatnpc("Sorry, you need at least 2500 Imbued Dust to use the Body Altar!");
+}
+
+[proc,cosmicaltar]
+if (inv_total(inv, imbued_dust) > 2499) {
+    p_telejump(0_33_75_30_13);
+    inv_del(inv, imbued_dust, 2500);
+    %teleportlocation = ^mageguild;
+} else {
+    ~chatnpc("Sorry, you need at least 2500 Imbued Dust to use the Cosmic Altar!");
+}
+
+[proc,chaosaltar]
+if (inv_total(inv, imbued_dust) > 2499) {
+    p_telejump(3_35_75_35_47);
+    inv_del(inv, imbued_dust, 2500);
+    %teleportlocation = ^mageguild;
+} else {
+    ~chatnpc("Sorry, you need at least 2500 Imbued Dust to use the Chaos Altar!");
+}
+
+[proc,naturealtar]
+if (inv_total(inv, imbued_dust) > 2499) {
+    p_telejump(0_37_75_32_35);
+    inv_del(inv, imbued_dust, 2500);
+    %teleportlocation = ^mageguild;
+} else {
+    ~chatnpc("Sorry, you need at least 2500 Imbued Dust to use the Nature Altar!");
+}

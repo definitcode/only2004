@@ -164,6 +164,7 @@ if (inv_total(worn, dramen_staff) > 0) {
 inv_add(inv, edgevillescroll, 1);
 
 [proc,drayport]
+%teleportlocation = ^reset_tele;
 if (inv_total(inv, draynorscroll) < 1){
     mes("You need to have a Draynor Scroll to use this portal!");
 }
@@ -178,6 +179,7 @@ inv_del(inv, draynorscroll, 1);
 mes("You have used a Draynor Scroll!");
 
 [proc,yanport]
+%teleportlocation = ^reset_tele;
 if (inv_total(inv, yanillescroll) < 1){
     mes("You need to have a Yanille Scroll to use this portal!");
 }
@@ -192,6 +194,7 @@ inv_del(inv,yanillescroll, 1);
 mes("You have used a Seers' Scroll!");
 
 [proc,shiloport]
+%teleportlocation = ^reset_tele;
 if (inv_total(inv,shiloscroll) < 1){
     mes("You need to have a Shilo Village Scroll to use this portal!");
 }
@@ -210,6 +213,7 @@ inv_del(inv,shiloscroll, 1);
 mes("You have used a Shilo Village Scroll!");
 
 [proc,edgeport]
+%teleportlocation = ^reset_tele;
 if (inv_total(inv,edgevillescroll) < 1){
     mes("You need to have a Edgeville Scroll to use this portal!");
 }
@@ -227,6 +231,7 @@ mes("You have used a Edgeville Scroll!");
 
 
 [proc,lumbport]
+%teleportlocation = ^reset_tele;
 if (inv_total(inv,lumbyscroll) < 1){
     mes("You need to have a Lumbridge Scroll to use this portal!");
 }

@@ -1,0 +1,66 @@
+[imbued_talisman]
+cost=4
+name=Imbued Talisman
+desc=A mysterious power emanates from the talisman...
+model=model_2475_obj
+recol1s=15855
+recol1d=1226 
+recol2s=15360 
+recol2d=5649
+2dxof=2
+2dyof=20
+2dzoom=1160
+2dyan=160
+2dxan=352
+iop4=Teleport
+weight=15g
+category=talismans
+
+
+[rune_dust]
+cost=4
+name=Rune Dust
+desc=A handful of a mysterious material.
+model=model_2742_obj
+recol1s=32767
+recol1d=15855
+2dzoom=1020
+2dyan=68
+2dxan=68
+weight=3g
+category=runecraft_material
+param=no_alchemy,^true
+tradeable=yes
+stackable=yes
+
+[imbued_dust]
+cost=4
+name=Imbued Dust
+desc=A handful of imbued Rune Dust.
+model=model_2742_obj
+recol1s=21140
+recol1d=5649
+2dzoom=1020
+2dyan=68
+2dxan=68
+weight=3g
+category=runecraft_material
+param=no_alchemy,^true
+tradeable=yes
+stackable=yes
+
+
+[rune_fragment]
+cost=25
+name=Rune Fragment
+desc=A chunk of mysterious material.
+model=model_2456_obj
+recol1s=32767
+recol1d=15855
+2dzoom=1020
+2dyan=68
+2dxan=68
+weight=3g
+param=no_alchemy,^true
+tradeable=yes
+stackable=yes
