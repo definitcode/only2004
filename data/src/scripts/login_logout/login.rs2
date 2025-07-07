@@ -63,7 +63,7 @@ queue(follower_login, 0);
 if (map_production = true) {
     last_login_info;
 }
-
+~prestige_check;
 [proc,initalltabs]
 ~update_weapon_category(inv_getobj(worn, ^wearpos_rhand));
 if_settab(stats, ^tab_skills);

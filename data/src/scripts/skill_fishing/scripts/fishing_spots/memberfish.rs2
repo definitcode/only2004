@@ -282,15 +282,12 @@ if ($random < 60) { // 10/128 coins for each
     ~objbox(coins_250, "You open the casket. Inside you find some coins.", 250, 0, divide(^objbox_height, 2));
 } else if ($random < 92) { // 32/128 uncut sapphire
     inv_add(inv, uncut_sapphire, 1);
-    inv_add(inv,~mining_gem_table,1);
     ~objbox(uncut_sapphire, "You open the casket. Inside you find an uncut|sapphire.", 250, 0, divide(^objbox_height, 2));
 } else if ($random < 108) { // 16/128 uncut emerald
     inv_add(inv, uncut_emerald, 1);
-    inv_add(inv,~mining_gem_table,1);
     ~objbox(uncut_emerald, "You open the casket. Inside you find an uncut|emerald.", 250, 0, divide(^objbox_height, 2));
 } else if ($random < 116) { // 8/128 uncut ruby
     inv_add(inv, uncut_ruby, 1);
-    inv_add(inv,~mining_gem_table,1);
     ~objbox(uncut_ruby, "You open the casket. Inside you find an uncut ruby.", 250, 0, divide(^objbox_height, 2));
 } else if ($random < 124) { // 8/128 cosmic talisman
     inv_add(inv, cosmic_talisman, 1);

@@ -11445,6 +11445,15 @@ name=Obelisk
 desc=An imposing stone structure.
 model=model_loc_2149
 
+[essence_pillar]
+name=Essence Pillar
+desc=A pillar of essence.
+model=model_loc_2149
+op1=Mine
+op2=Prospect
+op3=hidden
+active=yes
+
 [loc_2150]
 name=Obelisk of Earth
 desc=A column of elemental power.

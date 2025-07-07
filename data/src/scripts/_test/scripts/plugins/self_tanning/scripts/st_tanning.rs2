@@ -1,0 +1,149 @@
+[opheldu,bucket_dye] @self_tanhides;
+[oplocu,loc_1029]
+switch_obj (last_useitem) {
+    case bucket_empty : @bucket_dye_fill;
+    case default : ~displaymessage(^dm_default);
+}
+
+
+[label,bucket_dye_fill]
+inv_del(inv, bucket_empty, 1);
+inv_add(inv, bucket_dye, 1);
+anim(human_pickuptable, 0);
+sound_synth(well_fill, 0, 0);
+mes("You fill the bucket from the vat of dye.");
+// strongqueued in osrs but that was likely changed in Sept 2005 
+p_delay(0);
+
+[label,self_tanhides]
+
+switch_obj(last_useitem) {
+    case cow_hide, dragonhide_green, dragonhide_blue, dragonhide_red, dragonhide_black : @self_tan;
+    case leather, hard_leather, dragon_leather, dragon_leather_blue, dragon_leather_red, dragon_leather_black : ~chatplayer("<p,confused>Err... I have no use for that, I make the stuff!");
+    case default : ~chatplayer("<p,confused>Er... Thanks, but no thanks!");
+}
+
+
+[label,self_tan]
+// https://web.archive.org/web/20110920233323im_/http://runehq.com/images/cityguides/canifistanner.jpg
+def_int $choice = ~p_choice4_header("Soft leather", 1, "Hard leather", 2, "Dragon hide", 3, "Cancel", 4, "What kind of leather do you wish to wet?");
+switch_int($choice) {
+    case 1 : @s_wet_soft_leather;
+    case 2 : @s_wet_hard_leather;
+    case 3 : @s_wet_dragon_leather;
+}
+
+[label,s_wet_soft_leather]
+def_int $hide_count = inv_total(inv, cow_hide);
+def_int $hide_multiplier = multiply($hide_count,100);
+if (%hunter < 99) {
+    ~mesbox("You need to have a total Hunter Level of 100 to do this!");
+    return;
+}
+if ($hide_count > 0) {
+    inv_del(inv, cow_hide, 1);
+    inv_del(inv, bucket_dye, 1);
+    inv_add(inv, bucket_empty, 1);
+    p_delay(1);
+    inv_add(inv, wet_leather, 1);
+    anim(human_casthighlvlalchemy, 0);
+    sound_synth(holy_water_pour, 0, 0);
+    stat_advance(crafting, $hide_multiplier);
+} else {
+    ~chatplayer("You do not have enough hides to tan!");
+}
+
+[label,s_wet_hard_leather]
+def_int $hide_count = inv_total(inv, cow_hide);
+def_int $hide_multiplier = multiply($hide_count,150);
+if (%hunter < 144) {
+    ~mesbox("You need to have a total Hunter Level of 145 to do this!");
+    return;
+}
+if ($hide_count > 0) {
+    inv_del(inv, cow_hide, $hide_count);
+    inv_del(inv, bucket_dye, 1);
+    inv_add(inv, bucket_empty, 1);
+    p_delay(1);
+    inv_add(inv, wet_hard_leather, $hide_count);
+    anim(human_casthighlvlalchemy, 0);
+    sound_synth(holy_water_pour, 0, 0);
+    stat_advance(crafting, $hide_multiplier);
+} else {
+    ~chatplayer("You do not have enough hides to tan!");
+}
+
+[label,s_wet_dragon_leather]
+def_int $dry_green = (inv_total(inv, dragonhide_green));
+def_int $dry_red = (inv_total(inv, dragonhide_red));
+def_int $dry_blu = (inv_total(inv, dragonhide_blue));
+def_int $dry_bla = (inv_total(inv, dragonhide_black)); 
+def_int $hide_count = calc($dry_green + $dry_red + $dry_bla + $dry_blu);
+def_int $hide_multiplier = multiply($hide_count,250);
+if ($dry_green > 0) {
+    if (%hunter < 199) {
+        ~mesbox("You need to have a total Hunter Level of 200 to do this!");
+        return;
+    }
+    inv_del(inv, dragonhide_green, $dry_green);
+    inv_del(inv, bucket_dye, 1);
+    inv_add(inv, bucket_empty, 1);
+    p_delay(1);
+    anim(human_casthighlvlalchemy, 0);
+    sound_synth(holy_water_pour, 0, 0);
+    stat_advance(crafting, $hide_multiplier);
+    p_delay(3);
+    inv_add(inv, wet_dragon_leather, $dry_green);
+    return;
+}
+
+if ($dry_blu > 0) {
+    if (%hunter < 229) {
+        ~mesbox("You need to have a total Hunter Level of 230 to do this!");
+        return;
+    }
+    inv_del(inv, dragonhide_blue, $dry_blu);
+    inv_del(inv, bucket_dye, 1);
+    inv_add(inv, bucket_empty, 1);
+    p_delay(1);
+    anim(human_casthighlvlalchemy, 0);
+    sound_synth(holy_water_pour, 0, 0);
+    stat_advance(crafting, $hide_multiplier);
+    p_delay(3);
+    inv_add(inv, wet_dragon_leather_blue, $dry_blu);
+    return;
+}
+
+if ($dry_red > 0) {
+    if (%hunter < 239) {
+        ~mesbox("You need to have a total Hunter Level of 240 to do this!");
+        return;
+    }
+    inv_del(inv, dragonhide_red, $dry_red);
+    inv_del(inv, bucket_dye, 1);
+    inv_add(inv, bucket_empty, 1);
+    p_delay(1);
+    anim(human_casthighlvlalchemy, 0);
+    sound_synth(holy_water_pour, 0, 0);
+    stat_advance(crafting, $hide_multiplier);
+    p_delay(3);
+    inv_add(inv, wet_dragon_leather_red, $dry_red);
+    return;
+}
+
+if ($dry_bla > 0) {
+    if (%hunter < 249) {
+    ~mesbox("You need to have a total Hunter Level of 250 to do this!");
+    return;
+    }
+    inv_del(inv, dragonhide_black, $dry_bla);
+    inv_del(inv, bucket_dye, 1);
+    inv_add(inv, bucket_empty, 1);
+    p_delay(1);
+    anim(human_casthighlvlalchemy, 0);
+    sound_synth(holy_water_pour, 0, 0);
+    stat_advance(crafting, $hide_multiplier);
+    p_delay(3);
+    inv_add(inv, wet_dragon_leather_black, $dry_bla);
+    return;
+}

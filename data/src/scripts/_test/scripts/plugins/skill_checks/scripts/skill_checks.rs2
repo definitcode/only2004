@@ -73,8 +73,8 @@ def_int $camping = add($firemaking,$cooking);
 
 def_int $total = add($ranger,$camping);
 %hunter = $total;
-
 return;
+
 [proc,fortitude_check]
 def_int $defence = stat_base(defence);
 def_int $smithing = stat_base(smithing);

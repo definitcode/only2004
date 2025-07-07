@@ -1,0 +1,109 @@
+[bucket_dye]
+name=Bucket of Dye
+desc=It's a bucket of dye for tanning hides.
+cost=6
+model=model_2504_obj
+recol1s=173
+recol1d=5250
+members=yes
+2dyof=-18
+2dzoom=1020
+2dyan=1688
+2dxan=204
+weight=2500g
+
+
+[wet_leather]
+name=Leather(w)
+desc=It's a piece of unprepared leather.
+model=model_2338_obj
+recol1s=32767
+recol1d=8416
+2dxof=-1
+2dyof=-2
+2dzoom=1190
+2dyan=116
+2dxan=440
+weight=5lb
+cost=100
+param=no_alchemy,^true
+
+[wet_hard_leather]
+name=Hard leather(w)
+desc=It's a piece of unprepared hard leather.
+model=model_2338_obj
+recol1s=32767
+recol1d=3137
+2dxof=-1
+2dyof=-2
+2dzoom=1190
+2dyan=116
+2dxan=440
+weight=7lb
+cost=500
+param=no_alchemy,^true
+
+//green
+[wet_dragon_leather]
+name=Dragon leather(w)
+desc=It's a piece of unprepared dragonhide.
+model=model_2338_obj
+recol1s=32767
+recol1d=192
+2dxof=-1
+2dyof=-2
+2dzoom=1190
+2dyan=116
+2dxan=440
+weight=7lb
+members=yes
+cost=15000
+param=no_alchemy,^true
+//blue
+[wet_dragon_leather_blue]
+name=Dragon leather(w)
+desc=It's a piece of unprepared dragonhide.
+model=model_2338_obj
+recol1s=32767
+recol1d=1063
+2dxof=-1
+2dyof=-2
+2dzoom=1190
+2dyan=116
+2dxan=440
+weight=7lb
+members=yes
+cost=25000
+param=no_alchemy,^true
+//red
+[wet_dragon_leather_red]
+name=Dragon leather(w)
+desc=It's a piece of unprepared dragonhide.
+model=model_2338_obj
+recol1s=32767
+recol1d=6144
+2dxof=-1
+2dyof=-2
+2dzoom=1190
+2dyan=116
+2dxan=440
+weight=7lb
+members=yes
+cost=50000
+param=no_alchemy,^true
+//black
+[wet_dragon_leather_black]
+name=Dragon leather(w)
+desc=It's a piece of unprepared dragonhide.
+model=model_2338_obj
+recol1s=32767
+recol1d=2114
+2dxof=-1
+2dyof=-2
+2dzoom=1190
+2dyan=116
+2dxan=440
+weight=7lb
+members=yes
+cost=100000
+param=no_alchemy,^true

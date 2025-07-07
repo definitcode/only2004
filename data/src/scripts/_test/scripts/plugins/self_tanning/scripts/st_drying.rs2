@@ -1,0 +1,124 @@
+[oplocu,loc_1027]
+switch_obj(last_useitem) {
+    case wet_leather, wet_hard_leather, wet_dragon_leather, wet_dragon_leather_blue, wet_dragon_leather_red, wet_dragon_leather_black : @dryhide;
+    case leather, hard_leather, dragon_leather, dragon_leather_blue, dragon_leather_red, dragon_leather_black : ~chatplayer("<p,confused>Err... these are already dried!");
+    case default : ~chatplayer("<p,confused>What did you expect to happen?!");
+}
+
+
+[label,dryhide]
+def_int $wl_c = (inv_total(inv, wet_leather));
+def_int $whl_c = (inv_total(inv, wet_hard_leather));
+def_int $wdl_c = (inv_total(inv, wet_dragon_leather));
+def_int $wdlbe_c = (inv_total(inv, wet_dragon_leather_blue));
+def_int $wdlr_c = (inv_total(inv, wet_dragon_leather_red));
+def_int $wdlbk_c = (inv_total(inv, wet_dragon_leather_black));
+
+if ($wl_c > 0) {
+    if (%hunter < 99) {
+        ~mesbox("You need to have a total Hunter Level of 100 to do this!");
+        return;
+    }
+    def_int $leather_multiplier = multiply($wl_c,100);
+    inv_del(inv, wet_leather, $wl_c);
+    anim(human_pickuptable,0);
+    p_delay(1);
+    sound_synth(sand_bucket, 1, 0);
+    stat_advance(crafting, $leather_multiplier);
+    p_delay(3);
+    anim(human_pickuptable,0);
+    inv_add(inv, leather, $wl_c);
+    ~mesbox("You have processed [<tostring($wl_c)>x Leather!]");
+    return;
+}
+
+if ($whl_c > 0) {
+    if (%hunter < 144) {
+        ~mesbox("You need to have a total Hunter Level of 145 to do this!");
+        return;
+    }
+    def_int $leather_multiplier = multiply($whl_c,125);
+    inv_del(inv, wet_hard_leather, $whl_c);
+    anim(human_pickuptable,0);
+    p_delay(1);
+    sound_synth(sand_bucket, 1, 0);
+    stat_advance(crafting, $leather_multiplier);
+    p_delay(3);
+    anim(human_pickuptable,0);
+    inv_add(inv, hard_leather, $whl_c);
+    ~mesbox("You have processed [<tostring($whl_c)>x Hard leather!]");
+    return;
+}
+
+if ($wdl_c > 0) {
+    if (%hunter < 199) {
+        ~mesbox("You need to have a total Hunter Level of 200 to do this!");
+        return;
+    }    
+    def_int $leather_multiplier = multiply($wdl_c,150);
+    inv_del(inv, wet_dragon_leather, $wdl_c);
+    anim(human_pickuptable,0);
+    p_delay(1);
+    sound_synth(sand_bucket, 1, 0);
+    stat_advance(crafting, $leather_multiplier);
+    p_delay(3);
+    anim(human_pickuptable,0);
+    inv_add(inv, dragon_leather, $wdl_c);
+    ~mesbox("You have processed [<tostring($wdl_c)>x Dragon leather!]");
+    return;
+}
+
+if ($wdlbe_c > 0) {
+    if (%hunter < 229) {
+        ~mesbox("You need to have a total Hunter Level of 230 to do this!");
+        return;
+    }
+    def_int $leather_multiplier = multiply($wdlbe_c,175);
+    inv_del(inv, wet_dragon_leather_blue, $wdlbe_c);
+    anim(human_pickuptable,0);
+    p_delay(1);
+    sound_synth(sand_bucket, 1, 0);
+    stat_advance(crafting, $leather_multiplier);
+    p_delay(3);
+    anim(human_pickuptable,0);
+    inv_add(inv, dragon_leather_blue, $wdlbe_c);
+    ~mesbox("You have processed [<tostring($wdlbe_c)>x Dragon leather!]");
+    return;
+}
+
+if ($wdlr_c > 0) {
+    if (%hunter < 239) {
+        ~mesbox("You need to have a total Hunter Level of 240 to do this!");
+        return;
+    }
+    def_int $leather_multiplier = multiply($wdlr_c,200);
+    inv_del(inv, wet_dragon_leather_red, $wdlr_c);
+    anim(human_pickuptable,0);
+    p_delay(1);
+    sound_synth(sand_bucket, 1, 0);
+    stat_advance(crafting, $leather_multiplier);
+    p_delay(3);
+    anim(human_pickuptable,0);
+    inv_add(inv, dragon_leather_red, $wdlr_c);
+    ~mesbox("You have processed [<tostring($wdlr_c)>x Dragon leather!]");
+    return;
+}
+
+
+if ($wdlbk_c > 0) {
+    if (%hunter < 249) {
+    ~mesbox("You need to have a total Hunter Level of 250 to do this!");
+    return;
+    }
+    def_int $leather_multiplier = multiply($wdlbk_c,275);
+    inv_del(inv, wet_dragon_leather_black, $wdlbk_c);
+    anim(human_pickuptable,0);
+    p_delay(1);
+    sound_synth(sand_bucket, 1, 0);
+    stat_advance(crafting, $leather_multiplier);
+    p_delay(3);
+    anim(human_pickuptable,0);    
+    inv_add(inv, dragon_leather_black, $wdlbk_c);
+    ~mesbox("You have processed [<tostring($wdlbk_c)>x Dragon leather!]");
+    return;
+}

@@ -8,6 +8,16 @@ data=rock_level,1
 data=rock_exp,125
 data=rock_successchance,256,256
 
+[rune_frag_table]
+table=mining_table
+data=rock,essence_pillar
+data=ore_name,rune fragments
+data=success_message,You manage to mine some fragments.
+data=rock_output,rune_fragment
+data=rock_level,1
+data=rock_exp,50
+data=rock_successchance,256,256
+
 [clay_rock_table]
 table=mining_table
 data=rock,clayrock1
