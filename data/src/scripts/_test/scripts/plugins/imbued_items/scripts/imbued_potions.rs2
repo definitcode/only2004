@@ -88,6 +88,7 @@ if (inv_total(inv, 4dose2attack) > 0){
                 case 2 : sound_synth(grind, 1, 0);
                 case 3 : sound_synth(pop1, 1, 0);
             }
+            spotanim_pl(highlvlalchemy_casting, 92, 0);
             anim(human_casthighlvlalchemy,0);
             p_delay(1);
             sound_synth(high_alchemy, 1,0);
@@ -126,6 +127,7 @@ if (inv_total(inv, 4dose2strength) > 0){
                 case 2 : sound_synth(grind, 1, 0);
                 case 3 : sound_synth(pop1, 1, 0);
             }
+            spotanim_pl(highlvlalchemy_casting, 92, 0);
             anim(human_casthighlvlalchemy,0);
             p_delay(1);
             sound_synth(high_alchemy, 1,0);
@@ -163,6 +165,7 @@ if (inv_total(inv, 4dose2defense) > 0){
                 case 2 : sound_synth(grind, 1, 0);
                 case 3 : sound_synth(pop1, 1, 0);
             }
+            spotanim_pl(highlvlalchemy_casting, 92, 0);
             anim(human_casthighlvlalchemy,0);
             p_delay(1);
             sound_synth(high_alchemy, 1,0);
@@ -200,6 +203,7 @@ if (inv_total(inv, 4doserangerspotion) > 0){
                 case 2 : sound_synth(grind, 1, 0);
                 case 3 : sound_synth(pop1, 1, 0);
             }
+            spotanim_pl(highlvlalchemy_casting, 92, 0);
             anim(human_casthighlvlalchemy,0);
             p_delay(1);
             sound_synth(high_alchemy, 1,0);

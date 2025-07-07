@@ -53,6 +53,7 @@ switch_int($c3){
 
 
 [proc,inscribe_exp_scroll]
+spotanim_pl(highlvlalchemy_casting, 92, 0);
 anim(human_casthighlvlalchemy, 0);
 sound_synth(high_alchemy, 2, 0);
 inv_del(inv, cosmicrune,25);
@@ -76,6 +77,7 @@ inv_add(inv, expscroll, 1);
 
 
 [proc,draynor_inscription]
+spotanim_pl(highlvlalchemy_casting, 92, 0);
 anim(human_casthighlvlalchemy, 0);
 sound_synth(high_alchemy, 2, 0);
 inv_del(inv, cosmicrune,25);
@@ -98,6 +100,7 @@ if (inv_total(worn, dramen_staff) > 0) {
 inv_add(inv,draynorscroll, 1);
 
 [proc,yanille_inscription]
+spotanim_pl(highlvlalchemy_casting, 92, 0);
 anim(human_casthighlvlalchemy, 0);
 sound_synth(high_alchemy, 2, 0);
 inv_del(inv, cosmicrune,25);
@@ -120,6 +123,7 @@ if (inv_total(worn, dramen_staff) > 0) {
 inv_add(inv, yanillescroll, 1);
 
 [proc,seers_inscription]
+spotanim_pl(highlvlalchemy_casting, 92, 0);
 anim(human_casthighlvlalchemy, 0);
 sound_synth(high_alchemy, 2, 0);
 inv_del(inv, cosmicrune, 25);
@@ -142,6 +146,7 @@ if (inv_total(worn, dramen_staff) > 0) {
 inv_add(inv, shiloscroll, 1);
 
 [proc,edgeville_inscription]
+spotanim_pl(highlvlalchemy_casting, 92, 0);
 anim(human_casthighlvlalchemy, 0);
 sound_synth(high_alchemy, 2, 0);
 inv_del(inv, cosmicrune, 25);

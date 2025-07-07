@@ -1,0 +1,25 @@
+[book_of_prayers]
+name=Book of Prayers
+desc=An ancient tome on Prayers.
+model=model_2509_obj
+recol1s=13472
+recol1d=0
+recol2s=10570
+recol2d=0
+recol3s=15855
+recol3d=0
+recol4s=20033
+recol4d=0
+recol5s=29594
+recol5d=30688
+2dyof=5
+2dzoom=1340
+2dyan=1940
+2dxan=412
+members=yes
+iop1=Melee
+iop2=Ranged
+iop3=Magic
+iop4=Pray
+weight=18oz
+tradeable=no
