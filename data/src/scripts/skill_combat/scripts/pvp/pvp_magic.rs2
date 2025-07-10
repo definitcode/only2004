@@ -187,7 +187,8 @@ $damage = min($damage, .stat(hitpoints));
 // didnt have a flinch anim until sept 20 2006: https://oldschool.runescape.wiki/w/Update:Slug_Menace
 // ~give_combat_experience_pvp($damagestyle, $damage, ~pvp_xp_multiplier(~.player_combat_level));
 both_heropoints($damage);
-
+~effect_check;
+%pvp_damage = $damage;
 .spotanim_pl(db_getfield($spell_data, magic_spell_table:spotanim_target, 0), $duration);
 .queue(pvp_retaliate, calc($duration / 30 + 1), uid);
 
@@ -212,7 +213,7 @@ sound_synth($sound, 0, 0);
 ~set_pk_vars;
 .if_close;
 ~delete_spell_runes($spell_data);
-~give_spell_xp($spell_data);
+//~give_spell_xp($spell_data);
 
 // spell anim
 anim(db_getfield($spell_data, magic_spell_table:anim, 0), 0);

@@ -238,6 +238,8 @@ if ($maxhit ! null) {
         }
     }
     npc_heropoints($damage_capped);
+    %p_damage = $damage_capped;
+    ~effect_check;
 }
 // spell visual
 spotanim_npc(db_getfield($spell_data, magic_spell_table:spotanim_target, 0), $duration);

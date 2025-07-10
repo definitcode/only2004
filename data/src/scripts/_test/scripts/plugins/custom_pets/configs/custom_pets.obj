@@ -1,0 +1,53 @@
+[imp_lamp]
+name=Dark Imp
+desc=Wonder what happens if I rub it...
+model=model_2887_npc
+2dxof=2
+2dyof=-2
+2dzoom=1555
+2dyan=228
+2dxan=28
+recol1s=27425 
+recol1d=16481 
+recol2s=23201 
+recol2d=10305 
+weight=100g
+iop1=Summon
+tradeable=no
+param=follower_id,pet_imp
+param=no_alchemy,^true
+
+[burger]
+iop1=Eat
+name=Burger
+desc=A plain burger.
+cost=50
+model=model_2531_obj
+recol1s=32767 
+recol1d=25157 
+recol2s=15680 
+recol2d=20964
+recol3s=19489 
+recol3d=7234 
+2dyof=-8
+2dzoom=670
+2dyan=120
+2dxan=164
+weight=300g
+category=category_130
+
+[woman_whistle]
+name=Woman whistle
+desc=Call a fair maiden to serve you.
+cost=10
+members=yes
+model=model_2433_obj
+2dyof=-2
+2dzoom=490
+2dyan=1208
+2dxan=152
+iop1=Blow
+weight=5g
+tradeable=no
+param=follower_id,pet_woman
+param=no_alchemy,^true

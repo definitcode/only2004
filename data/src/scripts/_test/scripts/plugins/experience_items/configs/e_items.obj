@@ -19,3 +19,29 @@ category=e_items
 respawnrate=500
 param=no_alchemy,^true
 tradeable=no
+
+
+[thieving_gloves]
+name=Sticky Gloves
+desc=These gloves will surely obtain more!
+cost=6
+model=model_2649_obj
+recol1s=9473
+recol1d=34
+recol2s=10468
+recol2d=33
+2dxof=8
+2dyof=-8
+2dzoom=930
+2dyan=828
+2dxan=420
+iop2=Wear
+wearpos=hands
+manwear=model_179_obj_wear,0
+womanwear=model_356_obj_wear,0
+weight=8oz
+members=yes
+param=slashdefence,3
+param=crushdefence,4
+param=rangedefence,2
+tradeable=no

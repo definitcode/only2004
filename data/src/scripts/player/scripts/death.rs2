@@ -50,6 +50,25 @@ if (%gamemode_selected = ^gamemode_hardcore){
     ~initalltabs;
     @start_tutorial;
 }
+//} else if (%gamemode_selected = ^gamemode_survival) {
+//    inv_clear(bank);
+//    inv_clear(inv);
+//    inv_clear(worn);
+//    ~reset();
+//    ~stat_reset_all;
+//    p_teleport(0_48_48_22_35);
+//    buildappearance(worn);
+//    ~prayer_deactivate_all;
+//    ~follower_death;
+//    anim(null, 0);
+//    p_stopaction;
+//    healenergy(10000);
+//    ~clear_pk_skull;
+//    ~clear_poison;
+//    ~update_all($prev_wep);
+//    ~initalltabs;
+//    @start_tutorial;
+//}
 
 p_teleport(map_findsquare(0_50_50_21_18, 0, 2, ^map_findsquare_lineofwalk));
 buildappearance(worn);

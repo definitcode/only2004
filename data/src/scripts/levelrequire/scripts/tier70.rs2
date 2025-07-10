@@ -4,13 +4,14 @@
 [opheld2,black_dragon_vambraces] @levelrequire_ranged_and_defence(80, 80, last_slot);
 [opheld2,black_dragonhide_chaps] @levelrequire_ranged_and_defence(80, 80, last_slot);
 [opheld2,black_dragonhide_body] @levelrequire_ranged_and_defence(80, 80, last_slot);
+[opheld2,dragon_bow] @levelrequire_ranged(99, last_slot);
+[opheld2,dragon_crossbow] @levelrequire_ranged(99, last_slot);
 
 // Magic
 [opheld2,zamhat] @levelrequire_magic_and_defence(90, 90, last_slot);
 [opheld2,zamrobebottom] @levelrequire_magic_and_defence(90, 90, last_slot);
 [opheld2,zamrobetop] @levelrequire_magic_and_defence(90, 90, last_slot);
 [opheld2,zamboots] @levelrequire_magic_and_defence(90, 90, last_slot);
-[opheld2,dragon_crossbow] @levelrequire_ranged(99, last_slot);
 
 
 

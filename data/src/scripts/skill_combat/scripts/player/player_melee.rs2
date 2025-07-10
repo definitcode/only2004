@@ -47,6 +47,8 @@ if (~player_npc_hit_roll(%damagetype) = true) {
         }
     }
     npc_heropoints($damage_capped);
+    %p_damage = $damage_capped;
+    ~effect_check;
 }
 
 def_obj $weapon = inv_getobj(worn, ^wearpos_rhand);

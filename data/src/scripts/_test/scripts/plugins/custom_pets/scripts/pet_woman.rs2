@@ -1,0 +1,54 @@
+[opheld1,woman_whistle] @woman_drop;
+[opnpc2,pet_woman] ~woman_caress;
+[opnpc3,pet_woman] ~woman_talk;
+
+[proc,woman_caress]
+anim(human_pickpocket,0);
+p_delay(2);
+
+[proc,receive_burger]
+if (inv_freespace(inv) > 0) {
+    inv_add(inv,burger, 1);
+    ~chatnpc("Enjoy sweetheart!");
+} else {
+    ~chatnpc("I am sorry but you don't have enough space!");
+}
+
+[proc,woman_talk]
+def_int $t = (~p_choice2_header("Give me a burger please!", 1, "Nothing!", 2,"What do you want to say?"));
+switch_int($t){
+    case 1 : ~receive_burger;
+    case 2 : mes("Come again xoxo!");
+}
+npc_setmode(playerfollow);
+[ai_timer,pet_woman]
+def_int $random = random(3);
+switch_int($random) {
+    case 0 : npc_say("Are we there yet!?");
+    case 1 : npc_say("Who is this other pet I hear of?");
+    case 2 : npc_say("We're lovers til the end!");
+    case 3 : npc_say("You know you are wasting experience right now?");
+}
+
+[label,woman_drop]
+if (map_members = false) {
+    mes(^mes_members_do_that); //todo: verify if there is a specific message for trying to drop in f2p
+    return;
+}
+if (npc_finduid(%follower_uid) = true) {
+    mes("You already have a follower."); //osrs
+    return;
+}
+inv_delslot(inv, last_slot);
+sound_synth(put_down, 0, 0);
+~woman_spawn(oc_param(last_item, follower_id));
+
+[proc,woman_spawn](npc $type)
+npc_add(coord, $type, ^max_32bit_int);
+%follower_obj = nc_param(npc_type, pet_item_id);
+%follower_uid = npc_uid;
+%npc_attacking_uid = uid;
+npc_setmode(playerfollow);
+npc_say("Yes Dear!");
+npc_settimer(30);
+

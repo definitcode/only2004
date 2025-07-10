@@ -311,3 +311,11 @@
 310=active_prayer1
 311=active_prayer2
 312=active_prayer3
+313=weapon_effect
+314=p_damage
+315=p_health
+316=pvp_damage
+317=pvp_health
+318=vh_effect
+319=npc_damage
+320=shield_effect

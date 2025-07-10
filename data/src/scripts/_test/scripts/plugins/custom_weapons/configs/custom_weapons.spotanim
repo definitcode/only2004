@@ -1,0 +1,17 @@
+[piss_bottle_travel]
+model=model_3151_spotanim
+anim=vial_travel
+hasalpha=yes
+recol1s=15855
+recol1d=28480
+recol2s=32767
+recol2d=15967
+
+[piss_bottle_launch]
+model=model_3149_spotanim
+anim=vial_launch
+hasalpha=yes
+recol1s=15855
+recol1d=28480
+recol2s=32767
+recol2d=15967

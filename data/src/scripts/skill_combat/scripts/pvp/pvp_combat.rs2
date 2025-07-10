@@ -128,32 +128,32 @@ return(false);
 return(min(1125, add(1000, divide(multiply(divide($combat_level, 20), 1000), 40))));
 
 [proc,give_combat_experience_pvp](int $damagestyle, int $damage, int $multiplier)
-def_int $base = multiply($damage, 10);
-switch_int($damagestyle) {
-    case ^style_melee_accurate :
-        stat_advance(attack, scale($multiplier, 1000, scale(400, 100, $base)));
-    case ^style_melee_aggressive :
-        stat_advance(strength, scale($multiplier, 1000, scale(400, 100, $base)));
-    case ^style_melee_defensive :
-        stat_advance(defence, scale($multiplier, 1000, scale(400, 100, $base)));
-    case ^style_melee_controlled :
-        stat_advance(attack, scale($multiplier, 1000, scale(133, 100, $base)));
-        stat_advance(strength, scale($multiplier, 1000, scale(133, 100, $base)));
-        stat_advance(defence, scale($multiplier, 1000, scale(133, 100, $base)));
-    case ^style_ranged_accurate, ^style_ranged_rapid :
-        stat_advance(ranged, scale($multiplier, 1000, scale(400, 100, $base)));
-    case ^style_ranged_longrange :
-        stat_advance(ranged, scale($multiplier, 1000, scale(200, 100, $base)));
-        stat_advance(defence, scale($multiplier, 1000, scale(200, 100, $base)));
-    case ^style_magic_normal :
-        stat_advance(magic, scale($multiplier, 1000, scale(200, 100, $base)));
-    case ^style_magic_defensive :
-        stat_advance(magic, scale($multiplier, 1000, scale(133, 100, $base)));
-        stat_advance(defence, scale($multiplier, 1000, scale(100, 100, $base)));
-    case default : return;
-}
-stat_advance(hitpoints, scale($multiplier, 1000, scale(133, 100, $base)));
-
+//def_int $base = multiply($damage, 10);
+//switch_int($damagestyle) {
+//    case ^style_melee_accurate :
+//        stat_advance(attack, scale($multiplier, 1000, scale(400, 100, $base)));
+//    case ^style_melee_aggressive :
+//        stat_advance(strength, scale($multiplier, 1000, scale(400, 100, $base)));
+//    case ^style_melee_defensive :
+//        stat_advance(defence, scale($multiplier, 1000, scale(400, 100, $base)));
+//    case ^style_melee_controlled :
+//        stat_advance(attack, scale($multiplier, 1000, scale(133, 100, $base)));
+//        stat_advance(strength, scale($multiplier, 1000, scale(133, 100, $base)));
+//        stat_advance(defence, scale($multiplier, 1000, scale(133, 100, $base)));
+//    case ^style_ranged_accurate, ^style_ranged_rapid :
+//        stat_advance(ranged, scale($multiplier, 1000, scale(400, 100, $base)));
+//    case ^style_ranged_longrange :
+//        stat_advance(ranged, scale($multiplier, 1000, scale(200, 100, $base)));
+//        stat_advance(defence, scale($multiplier, 1000, scale(200, 100, $base)));
+//    case ^style_magic_normal :
+//        stat_advance(magic, scale($multiplier, 1000, scale(200, 100, $base)));
+//    case ^style_magic_defensive :
+//        stat_advance(magic, scale($multiplier, 1000, scale(133, 100, $base)));
+//        stat_advance(defence, scale($multiplier, 1000, scale(100, 100, $base)));
+//    case default : return;
+//}
+//stat_advance(hitpoints, scale($multiplier, 1000, scale(133, 100, $base)));
+return;
 [proc,.pvp_damage](int $delay, int $damage)
 .if_close;
 if (.p_finduid(.uid) = true) {
@@ -176,6 +176,7 @@ if (inv_getobj(worn, ^wearpos_ring) = ring_of_recoil & .finduid(%pk_predator1) =
     ~ring_of_recoil_lose_charge($recoil_damage);
 }
 ~damage_self($damage);
+%pvp_damage = $damage;
 
 [queue,recoil_damage](int $damage) // seperate queue to avoid infinite recoil loop
 ~damage_self($damage);

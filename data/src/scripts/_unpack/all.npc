@@ -4653,7 +4653,8 @@ magic=10
 attackrange=8
 huntrange=3
 param=damagetype,^crush_style
-huntmode=ranged
+huntmode=aggressive_ranged
+huntrange=1
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_520
 

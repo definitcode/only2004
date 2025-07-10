@@ -1,0 +1,57 @@
+[vampiric_hammer]
+cost=2000000
+name=Vampiric Hammer
+desc=I don't think it's intended for joinery.
+iop2=Wield
+wearpos=righthand
+manwear=model_542_obj_wear,0
+womanwear=model_542_obj_wear,6
+model=model_2731_obj
+recol1s=15855
+recol1d=27747
+2dxof=3
+2dyof=3
+2dzoom=1050
+2dyan=456
+2dxan=344
+category=weapon_blunt
+weight=56oz
+param=attackrate,6
+param=stabattack,-4
+param=slashattack,-4
+param=crushattack,45
+param=magicattack,-4
+param=strengthbonus,45
+param=crushattack_anim,human_blunt_pound
+param=defend_anim,human_blunt_block
+param=crush_sound,baxe_crush
+
+
+[piss_bottle]
+name=Piss Bottle
+desc=A bottle of actual piss.
+model=model_1736_obj
+recol1s=15855
+recol1d=28480
+members=yes
+stackable=yes
+2dyof=-2
+2dzoom=710
+2dyan=1516
+2dxan=80
+wearpos=righthand
+manwear=model_552_obj_wear,0
+womanwear=model_552_obj_wear,6
+iop2=Wield
+category=weapon_thrown
+weight=2lb
+param=rangeattack,35
+param=rangebonus,57
+param=levelrequire,1
+param=attackrange,4
+param=rangeattack_anim,human_throw
+param=defend_anim,human_unarmedblock
+param=proj_launch,piss_bottle_launch
+param=proj_travel,piss_bottle_travel
+param=rangeattack_sound,thrown
+tradeable=no

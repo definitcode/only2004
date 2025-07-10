@@ -1,0 +1,13 @@
+[proc,sticky_gloves]
+def_int $random = random(2);
+
+switch_int($random) {
+    case 1 : {
+        say("Nothing to see here... *whistles*");
+        sound_synth(dwarf_whistle, 0, 0);
+        mes("Aha! I have achieved more resources");
+    }
+    case 2 : {
+        say("Do you know where I can get my armour trimmed?");
+    }
+}

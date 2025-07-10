@@ -307,14 +307,24 @@ if_close;
 
 %tutorial_progress = ^tutorial_complete;
 
+//def_int $choice = ~p_choice3_header("Normal.", 1, "Hardcore.", 2, "Survival.", 3, "Which gamemode would you like to play ?");
 def_int $choice = ~p_choice2_header("Normal.", 1, "Hardcore.", 2, "Which gamemode would you like to play ?");
 
 switch_int($choice) {
     case 1 : %gamemode_selected = ^gamemode_none;
     case 2 : %gamemode_selected = ^gamemode_hardcore;
+    //case 3 : %gamemode_selected = ^gamemode_survival;
 }
 
-p_telejump(0_50_50_22_22);
+if (%gamemode_selected = ^gamemode_none) {
+    p_telejump(0_50_50_22_22);
+} else if (%gamemode_selected = ^gamemode_hardcore) {
+    p_telejump(0_50_50_22_22);
+}
+//} else if (%gamemode_selected = ^gamemode_survival) {
+//    // future location for gamemode.
+//
+//}
 
 inv_clear(worn);
 inv_clear(bank);
@@ -345,8 +355,16 @@ if (%gamemode_selected = ^gamemode_none) {
     inv_add(inv, hc_iron_full_helm, 1);
     inv_add(inv, hc_iron_platebody, 1);
     inv_add(inv, hc_iron_platelegs, 1);
-    inv_add(inv, hc_iron_kiteshield, 1);    
+    inv_add(inv, hc_iron_kiteshield, 1);
 }
+//} else if (%gamemode_selected = ^gamemode_survival) {
+//    inv_clear(inv);
+//    inv_add(inv, knife, 1);
+//    inv_add(inv, tinderbox, 1);
+//    inv_add(inv, bronze_axe, 1);
+//    inv_add(inv, newcomer_map, 1);
+//}
+
 inv_add(bank, coins, 25);
 ~stat_reset_all;
 healenergy(10000);

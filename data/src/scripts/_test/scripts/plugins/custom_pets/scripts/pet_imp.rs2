@@ -1,0 +1,32 @@
+[opheld1,imp_lamp] @imp_drop;
+[ai_timer,pet_imp]
+def_int $random = random(3);
+switch_int($random) {
+    case 0 : npc_say("Are we there yet!?");
+    case 1 : npc_say("Who is this other pet I hear of?");
+    case 2 : npc_say("We're friends til the end!");
+    case 3 : npc_say("You know you are wasting experience right now?");
+}
+
+[label,imp_drop]
+if (map_members = false) {
+    mes(^mes_members_do_that); //todo: verify if there is a specific message for trying to drop in f2p
+    return;
+}
+if (npc_finduid(%follower_uid) = true) {
+    mes("You already have a follower."); //osrs
+    return;
+}
+inv_delslot(inv, last_slot);
+sound_synth(put_down, 0, 0);
+~imp_spawn(oc_param(last_item, follower_id));
+
+[proc,imp_spawn](npc $type)
+npc_add(coord, $type, ^max_32bit_int);
+%follower_obj = nc_param(npc_type, pet_item_id);
+%follower_uid = npc_uid;
+%npc_attacking_uid = uid;
+npc_setmode(playerfollow);
+npc_say("ahaha!");
+npc_settimer(30);
+

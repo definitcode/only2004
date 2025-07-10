@@ -1,0 +1,26 @@
+// Effect Vars
+[weapon_effect]
+scope=perm
+
+[shield_effect]
+scope=perm
+
+//Equipment Vars
+[vh_effect]
+scope=perm
+
+// Information
+[p_damage]
+scope=perm
+
+[npc_damage]
+scope=perm
+
+[p_health]
+scope=perm
+
+[pvp_damage]
+scope=perm
+
+[pvp_health]
+scope=perm

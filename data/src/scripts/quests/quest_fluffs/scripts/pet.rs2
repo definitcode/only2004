@@ -268,7 +268,14 @@ if (%follower_obj ! null) {
         %npc_attacking_uid = uid;
         %follower_uid = npc_uid;
         npc_setmode(playerfollow);
-        npc_say("Meeeew!"); //youtu.be/6y_cOu5OQf4?t=110
-        settimer(petcat_growth, 150);
+        if (%follower_obj = imp_lamp) {
+            return;
+        } else if (%follower_obj = woman_whistle) {
+            return;
+        } else {
+            npc_say("Meeeew!"); //youtu.be/6y_cOu5OQf4?t=110
+            settimer(petcat_growth, 150);
+        }
+        
     }
 }

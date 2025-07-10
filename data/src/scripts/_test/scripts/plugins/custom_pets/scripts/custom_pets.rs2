@@ -1,0 +1,15 @@
+[opnpc1,_custompet]
+if (%npc_attacking_uid ! uid | %follower_uid ! npc_uid) {
+    mes("That isn't yours to take."); //youtu.be/WsvTr-1bZwM?t=175
+    return;
+}
+if (inv_freespace(inv) = 0) {
+    mes("You don't have enough inventory space to pick up your pet."); //todo: verify the message for this
+    return;
+}
+p_delay(0);
+%follower_obj = null;
+%follower_uid = null;
+inv_add(inv, npc_param(pet_item_id), 1);
+sound_synth(pick, 0, 0);
+npc_del;
