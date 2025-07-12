@@ -13,7 +13,12 @@ switch_int(~p_choice4("I'd like to check your shop.", 1, "Nothing!", 2, "Run Ess
         ~chatplayer("<p,happy>Run Essence For Me (150gp)!");
         // @notnurmofcheck;
         def_int $total_ess = inv_total(inv, blankrune);
-
+        
+        if ($total_ess = 0) {
+            ~chatnpc("<p,sad>You don't have any Blank Rune Essence!");
+            return;
+        }
+        
         if (inv_total(inv, coins) > 149) {
             inv_del(inv, coins, 150);
         } else {
