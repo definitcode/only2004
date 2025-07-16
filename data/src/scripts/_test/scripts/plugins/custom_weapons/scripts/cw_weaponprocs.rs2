@@ -1,23 +1,26 @@
 [proc,effect_check]
-def_int $weapon_effect = %weapon_effect;
-def_int $shield_effect = %shield_effect;
-if (inv_total(worn, vampiric_hammer) > 0) {
-    %weapon_effect = ^cw_lifesteal;
-}
-
-
-
-switch_int($weapon_effect) {
-    case 0 : ~lifesteal;
-}
+//weapon_effect = ^cw_none;
+//ef_int $weapon_effect = %weapon_effect;
+//ef_int $shield_effect = %shield_effect;
+//f (inv_total(worn, vampiric_hammer) > 0) {
+//   %weapon_effect = ^cw_lifesteal;
+// else {
+//   %weapon_effect = ^cw_none;
+//
+//
+//
+//
+//witch_int($weapon_effect) {
+//   case 0 : ~lifesteal;
+//
 //switch_int($shield_effect) {
 //    
 //}
-
-[proc,lifesteal]
-if (%weapon_effect = ^cw_lifesteal) {
-    stat_heal(hitpoints, %p_damage, 0);
-}
+return;
+//proc,lifesteal]
+//f (%weapon_effect = ^cw_lifesteal) {
+//   stat_heal(hitpoints, %p_damage, 0);
+//
 
 
 
