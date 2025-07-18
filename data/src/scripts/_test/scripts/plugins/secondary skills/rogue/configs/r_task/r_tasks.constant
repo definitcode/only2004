@@ -1,0 +1,19 @@
+//Task Item
+^r_casket = 0
+^r_badge = 1
+^r_trap_casket = 2
+
+//Task Amount
+// TODO: Condense To Universal Task Constants
+// Instead of ^r_ it will be ^ss_
+^r_easy = 1000
+^r_medium = 2500
+^r_hard = 5000
+^r_insane = 10000
+
+//Task Statuses
+// TODO: Condense To Universal Task Constants
+// Instead of ^r_ it will be ^ss_
+^r_notstarted = 0
+^r_inprogress = 1
+

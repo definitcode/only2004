@@ -45,10 +45,12 @@ if (%gamemode_selected = ^gamemode_hardcore){
 ~intel_check;
 ~hunter_check;
 ~engineering_check;
+~rogue_check;
 ~prestige_check;
-switch_int(~p_choice4_header("Intelligence.", 1,"Hunter.", 2,"Engineering.", 3,"Prestige.", 4,"Which skill do you want to check?")) {
-    case 1 : ~mesbox("Your Intelligence Level: [<tostring(%intelligence)>]");
-    case 2 : ~mesbox("Your Hunter Level: [<tostring(%hunter)>]");
-    case 3 : ~mesbox("Your Engineering Level: [<tostring(%engineering)>]");
-    case 4 : ~mesbox("Your Prestige Level: [<tostring(%prestige)>]");
+switch_int(~p_choice5_header("Intelligence.", 1,"Hunter.", 2,"Engineering.", 3, "Rogue.", 4,"Prestige.", 5,"Which skill do you want to check?")) {
+    case 1 : ~mesbox("Your Intelligence Level: <tostring(%intelligence)>");
+    case 2 : ~mesbox("Your Hunter Level: <tostring(%hunter)>");
+    case 3 : ~mesbox("Your Engineering Level: <tostring(%engineering)>");
+    case 4 : ~mesbox("Your Rogue Level: <tostring(%rogue)>");
+    case 5 : ~mesbox("Your Prestige Level: <tostring(%prestige)>");
 }

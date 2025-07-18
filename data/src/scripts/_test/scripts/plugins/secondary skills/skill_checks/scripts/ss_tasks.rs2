@@ -1,0 +1,114 @@
+//[proc,r_tasks]
+//if (%r_taskstatus = ^r_notstarted) {
+//    %r_taskstatus = ^r_inprogress;
+//    def_int $r1 = ~p_choice2_header("Casket.", 1, "Badge.", 2 "What item would you like to turn in?");
+//    switch_int($r1) {
+//        case 1 : %r_taskitem = ^r_casket;
+//        case 2 : %r_taskitem = ^r_badge;
+//        case 3 : %r_taskitem = ^r_ironnails;
+//    
+//    }
+//    def_int $r2 = ~p_choice4_header("Easy.", 1, "Medium.", 2, "Hard.", 3, "Insane.", 4, "What difficulty would you like?");
+//    switch_int($r2) {
+//        case 1 : %r_taskamount = ^r_easy;
+//        case 2 : %r_taskamount = ^r_medium;
+//        case 3 : %r_taskamount = ^r_hard;
+//        case 4 : %r_taskamount = ^r_insane;
+//    }
+//    def_int $choice = ~p_choice3_header("Check Task.", 1, "Reputation Experience.", 2, "Cancel Task.", 3, "What would you like to do?");
+//
+//    switch_int($choice) {
+//        case 1 : ~r_ct;
+//        case 2 : ~roguedefectorrep;
+//        case 3 : ~r_canceltask;
+//    }
+//
+//} else if (%r_taskstatus = ^r_inprogress) {
+//    def_int $choice2 = ~p_choice3_header("Complete Task.", 1, "Reputation Experience.", 2, "Cancel Task.", 3, "What would you like to do?");
+//
+//    switch_int($choice2) {
+//        case 1 : ~r_ct;
+//        case 2 : ~roguedefectorrep;
+//        case 3 : ~r_canceltask;
+//    }
+//
+//}   
+//
+//[proc,r_canceltask]
+//def_int $choice3 = ~p_choice2_header("Yes.", 1, "No.", 2, "Are you sure you want to cancel this task?");
+//
+//switch_int($choice3) {
+//    case 1 : %r_taskstatus = ^r_notstarted;
+//    case 2 : ~r_tasks;
+//}
+//
+//[proc,roguedefectorrep]
+//~mesbox("Reputation Level: |<tostring(%r_roguedefectorrep)>");
+//~e_tasks;
+//
+//[proc,r_rep_multi]
+//if (%r_taskamount = ^r_easy) {
+//    %r_repmulti = 1;
+//} else if (%r_taskamount = ^r_medium) {
+//    %r_repmulti = 10;
+//} else if (%r_taskamount = ^r_hard) {
+//    %r_repmulti = 100;
+//} else if (%r_taskamount = ^r_insane) {
+//    %r_repmulti = 1000;
+//}
+//
+//[proc,r_ct]
+//~r_rep_multi;
+//
+//
+//if (%r_taskamount = ^r_easy) {}
+//
+//else if (%r_taskamount = ^r_easy) {}
+//
+//else if (%r_taskamount = ^r_easy) {}
+//
+//else if (%r_taskamount = ^r_easy) {}3
+//
+//
+//
+//if (%r_taskstatus = ^r_inprogress) {
+//    if (%r_taskitem = ^r_casket) {
+//        ~mesbox("You are currently on a task to get [<tostring(%r_taskamount)>x] Iron Cogs.");
+//        if (inv_total(inv, cog) > %r_taskamount) {
+//            inv_del(inv, cog, %r_taskamount);
+//            ~mesbox("You have completed the task and have been rewarded!");
+//            %r_taskstatus = ^r_notstarted;
+//            %r_roguedefectorrep = add(%r_roguedefectorrep,%r_repmulti);
+//            spotanim_pl(levelup_anim, 124, 0);
+//            midi_jingle(^advance_thieving_jingle, ^advance_thieving_millis);
+//            return;
+//        } 
+//    } else if (%r_taskitem = ^r_badge) {
+//        ~mesbox("You are currently on a task to get [<tostring(%r_taskamount)>x] Barbed Rope.");
+//        if (inv_total(inv, barbed_rope) > %r_taskamount) {
+//            inv_del(inv, barbed_rope, %r_taskamount);
+//            ~mesbox("You have completed the task and have been rewarded!");
+//            %r_taskstatus = ^e_notstarted;
+//            %r_roguedefectorrep = add(%r_roguedefectorrep,%r_repmulti);
+//            spotanim_pl(levelup_anim, 124, 0);
+//            midi_jingle(^advance_thieving_jingle, ^advance_thieving_millis);
+//            return;
+//        }
+//    } else if (%r_taskitem = ^r_ironnails) {
+//        ~mesbox("You are currently on a task to get [<tostring(%r_taskamount)>x] Iron Nails.");
+//        if (inv_total(inv, iron_nails) > %r_taskamount) {
+//            inv_del(inv, iron_nails, %r_taskamount);
+//            ~mesbox("You have completed the task and have been rewarded!");
+//            %r_taskstatus = ^r_notstarted;
+//            %r_roguedefectorrep = add(%r_roguedefectorrep,%r_repmulti);
+//            spotanim_pl(levelup_anim, 124, 0);
+//            midi_jingle(^advance_thieving_jingle, ^advance_thieving_millis);
+//            return;
+//        }
+//    }
+//
+//} else {
+//    ~mesbox("You are not currently on a task.");
+//    ~e_tasks;
+//}
+

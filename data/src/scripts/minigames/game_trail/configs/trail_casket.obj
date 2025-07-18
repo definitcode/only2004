@@ -11,7 +11,7 @@ cost=50
 iop1=Open
 members=yes
 category=trail_casket_hard
-tradeable=no
+tradeable=yes
 
 [trail_clue_hard_sextant005_casket]
 name=Casket
@@ -26,7 +26,7 @@ cost=50
 iop1=Open
 members=yes
 category=trail_casket_hard
-tradeable=no
+tradeable=yes
 
 [trail_clue_hard_sextant006_casket]
 name=Casket
@@ -41,4 +41,4 @@ cost=50
 iop1=Open
 members=yes
 category=trail_casket_hard
-tradeable=no
+tradeable=yes

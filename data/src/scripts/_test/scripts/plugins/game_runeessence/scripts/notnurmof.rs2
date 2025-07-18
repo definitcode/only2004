@@ -1,16 +1,16 @@
+[opnpc2,notnurmof] ~run_essence;
 [opnpc1,notnurmof]
-
 ~chatnpc("<p,happy>Welcome to the Not Nurmof Store.| What can I do for you?");
-switch_int(~p_choice4("I'd like to check your shop.", 1, "Nothing!", 2, "Run Essence For Me (150gp)!", 3, "Can you combine my Rune Fragments?", 4)) {
+switch_int(~p_choice4("I'd like to check your shop.", 1, "Engineering Tasks.", 2, "Run Essence For Me (150gp)!", 3, "Can you combine my Rune Fragments?", 4)) {
     case 1 : {
         ~chatplayer("<p,happy>I'd like to check your shop.");
         ~openshop_activenpc;
     }
     case 2 : {
-        ~chatplayer("<p,neutral>Nothing!");
+        ~e_tasks;
     }
     case 3 : {
-        ~chatplayer("<p,happy>Run Essence For Me (150gp)!");
+        ~chatplayer("<p,happy>Run Essence For Me!(150gp)");
         // @notnurmofcheck;
         def_int $total_ess = inv_total(inv, blankrune);
         
@@ -18,12 +18,15 @@ switch_int(~p_choice4("I'd like to check your shop.", 1, "Nothing!", 2, "Run Ess
             ~chatnpc("<p,sad>You don't have any Blank Rune Essence!");
             return;
         }
-        
-        if (inv_total(inv, coins) > 149) {
-            inv_del(inv, coins, 150);
+        if (%e_nurmofrep > 9999) {
+            ~chatnpc("Oh of course anything for you!");
         } else {
-            ~chatnpc("<p,sad>You do not have enough coins!");
-            return;
+            if (inv_total(inv, coins) > 149) {
+                inv_del(inv, coins, 150);
+            } else {
+                ~chatnpc("<p,sad>You do not have enough coins!");
+                return;
+            }
         }
         
         if (inv_freespace(bank) > 0) {
@@ -40,13 +43,58 @@ switch_int(~p_choice4("I'd like to check your shop.", 1, "Nothing!", 2, "Run Ess
         def_int $rune_fragmentcount = inv_total(inv, rune_fragment);
         def_int $rune_count = divide($rune_fragmentcount, 10); // Whole runes to give
         def_int $used_fragments = multiply($rune_count, 10);   // Actual fragments used
-    
+
         if ($rune_count > 0) {
+            if (%e_nurmofrep > 9999) {
+                $rune_count = multiply($rune_count, 5);
+                ~chatnpc("I am giving you five times as much |because of your duty to me!");
+            } else if (%e_nurmofrep > 4999) {
+                $rune_count = multiply($rune_count, 4);
+                ~chatnpc("I am giving you four times as much |because of your duty to me!");
+            } else if (%e_nurmofrep > 1499) {
+                $rune_count = multiply($rune_count, 2);
+                ~chatnpc("I am giving you double because of your duty to me!");
+            } else if (%e_nurmofrep > 499) {
+                $rune_count = add($rune_count,5);
+                ~chatnpc("I gave you five extra because of your duty to me!");
+            }
             inv_del(inv, rune_fragment, $used_fragments);
             inv_add(inv, cert_blankrune, $rune_count);
             ~chatnpc("Here is a certificate for [<tostring($rune_count)>x] Blank Runes!");
         } else {
             ~chatnpc("You need at least 10 fragments to get a Blank Rune.");
         }
+    }
+}
+
+[proc,run_essence]
+def_int $total_ess = inv_total(inv, blankrune);
+
+if ($total_ess = 0) {
+    ~chatnpc("<p,sad>You don't have any Blank Rune Essence!");
+    return;
+}
+if (%e_nurmofrep > 9999) {
+    ~chatnpc("Oh of course anything for you!");
+    if (inv_freespace(bank) > 0) {
+        inv_del(inv, blankrune, $total_ess);
+        inv_add(bank, blankrune, $total_ess);
+        ~chatnpc("I have moved [<tostring($total_ess)>x] to your bank!");
+        return;
+    }
+} else {
+    if (inv_total(inv, coins) > 149) {
+        if (inv_freespace(bank) > 0) {
+            inv_del(inv, blankrune, $total_ess);
+            inv_add(bank, blankrune, $total_ess);
+            inv_del(inv, coins, 150);
+            ~chatnpc("I have moved [<tostring($total_ess)>x] to your bank!");
+        } else {
+            ~chatnpc("<p,sad>I am afraid you don't have bank space!");
+            return;
+        }
+    } else {
+        ~chatnpc("<p,sad>You do not have enough coins!");
+        return;
     }
 }

@@ -1,0 +1,17 @@
+[opheld1,trap_casket] @e_tc;
+
+[label,e_tc]
+~prestige_check;
+if (%engineering > 249) {
+    say("This casket is trapped!");
+    inv_del(inv, trap_casket, 1);
+} else {
+    spotanim_pl(fireblast_impact, 120, 0);
+    sound_synth(explosion, 1, 0);
+    def_int $damage = 140;
+    if (%prayer_protectfrommagic = ^true) {
+        $damage = 50;
+    }
+    ~damage_self($damage);
+    inv_del(inv, trap_casket, 1);
+}

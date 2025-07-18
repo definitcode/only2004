@@ -32,7 +32,9 @@ if (findhero = true) {
 }
 
 if (%gamemode_selected = ^gamemode_hardcore){
+    
     inv_clear(bank);
+    ~founders_protection;
     inv_clear(inv);
     inv_clear(worn);
     ~reset();
@@ -92,6 +94,7 @@ def_boolean $protecting_item = false;
 if (%prayer_protectitems = ^true) { $protecting_item = true; }
 inv_clear(deathkeep);
 
+
 if($skulled = false) {
     ~move_priciest_item_on_hero_to_death;
     ~move_priciest_item_on_hero_to_death;
@@ -123,9 +126,9 @@ while ($i < $size) {
     $i = calc($i + 1);
 }
 
-inv_dropall(inv, coord, 200);
-inv_dropall(worn, coord, 200);
-obj_addall(coord, bones, 1, 200);
+inv_dropall(inv, coord, 300);
+inv_dropall(worn, coord, 300);
+obj_addall(coord, bones, 1, 300);
 ~moveallinv(deathkeep, inv);
 inv_clear(deathkeep);
 
@@ -138,7 +141,6 @@ if (%pk_skull > 0) { $skulled = true; }
 def_boolean $protecting_item = false;
 if (%prayer_protectitems = ^true) { $protecting_item = true; }
 inv_clear(deathkeep);
-
 if($skulled = false) {
     ~move_priciest_item_on_hero_to_death;
     ~move_priciest_item_on_hero_to_death;
@@ -175,6 +177,7 @@ while ($i < $size) {
     }
     $i = calc($i + 1);
 }
+
 .obj_add(coord, bones, 1, 200);
 ~moveallinv(deathkeep, inv);
 inv_clear(deathkeep);

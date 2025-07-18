@@ -1,0 +1,175 @@
+[opheld2,_rogue_casket] ~rogue_tools;
+
+
+[proc,rogue_tools]
+if (inv_total(inv, rogue_tools) > 0){
+    if (inv_total(inv, rogue_casket_easy) > 0){
+        inv_del(inv, rogue_casket_easy, 1);
+        ~r_ec;
+        return;
+    }
+    if (inv_total(inv, rogue_casket_medium) > 0){
+        inv_del(inv, rogue_casket_medium, 1);
+        ~r_mc;
+        return;
+    }
+    if (inv_total(inv, rogue_casket_hard) > 0){
+        inv_del(inv, rogue_casket_hard, 1);
+        ~r_hc;
+        return;
+    }
+    if (inv_total(inv, rogue_casket_insane) > 0){
+        inv_del(inv, rogue_casket_insane, 1);
+        ~r_ic;
+        return;
+    }
+}
+
+[proc,r_ec]
+if (%rogue > 39) {
+        sound_synth(lever, 0, 0);
+        def_int $random = random(128);
+        // drop rates are from https://oldschool.runescape.wiki/w/Casket
+        // todo: find screenshots for these objbox's
+        if ($random < 60) { // 10/128 coins for each
+            // 20, 40, 80, 160, 320, 640
+            inv_add(inv, coins, multiply(pow(2, add(random(6), 1)), 10)); // 2 ^ (random(6) + 1) * 10
+            ~objbox(coins_250, "You open the casket. Inside you find some coins.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 92) { // 32/128 uncut sapphire
+            inv_add(inv, uncut_sapphire, 1);
+            ~objbox(uncut_sapphire, "You open the casket. Inside you find an uncut|sapphire.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 108) { // 16/128 uncut emerald
+            inv_add(inv, uncut_emerald, 1);
+            ~objbox(uncut_emerald, "You open the casket. Inside you find an uncut|emerald.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 116) { // 8/128 uncut ruby
+            inv_add(inv, uncut_ruby, 1);
+            ~objbox(uncut_ruby, "You open the casket. Inside you find an uncut ruby.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 124) { // 8/128 cosmic talisman
+            inv_add(inv, cosmic_talisman, 1);
+            ~objbox(cosmic_talisman, "You open the casket. Inside you find a cosmic talisman.", 250, 0, 0);
+        } else if ($random < 126) { // 2/128 uncut diamond
+            inv_add(inv, uncut_diamond, 1);
+            ~objbox(uncut_diamond, "You open the casket. Inside you find an uncut|diamond.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 127) { // 1/128 tooth half key
+            inv_add(inv, keyhalf1, 1);
+            ~objbox(keyhalf1, "You open the casket. Inside you find half a key.", 250, 0, 0);
+        } else if ($random < 128) { // 1/128 loop half of key
+            inv_add(inv, ~low_tier_items);
+            ~mesbox("You open the casket. |Inside you find a Low Tier Item!");
+        }
+        sound_synth(found_gem, 0, 0); // https://youtu.be/fWox14AFvEM 
+} else {
+    ~mesbox("You need Rogue Level: 40 to open this.");
+}
+
+[proc,r_mc]
+if (%rogue > 59) {
+        sound_synth(lever, 0, 0);
+        def_int $random = random(128);
+        // drop rates are from https://oldschool.runescape.wiki/w/Casket
+        // todo: find screenshots for these objbox's
+        if ($random < 60) { // 10/128 coins for each
+            // 20, 40, 80, 160, 320, 640
+            inv_add(inv, coins, multiply(pow(2, add(random(6), 1)), 10)); // 2 ^ (random(6) + 1) * 10
+            ~objbox(coins_250, "You open the casket. Inside you find some coins.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 92) { // 32/128 uncut sapphire
+            inv_add(inv, uncut_sapphire, 1);
+            ~objbox(uncut_sapphire, "You open the casket. Inside you find an uncut|sapphire.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 108) { // 16/128 uncut emerald
+            inv_add(inv, uncut_emerald, 1);
+            ~objbox(uncut_emerald, "You open the casket. Inside you find an uncut|emerald.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 116) { // 8/128 uncut ruby
+            inv_add(inv, uncut_ruby, 1);
+            ~objbox(uncut_ruby, "You open the casket. Inside you find an uncut ruby.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 124) { // 8/128 cosmic talisman
+            inv_add(inv, cosmic_talisman, 1);
+            ~objbox(cosmic_talisman, "You open the casket. Inside you find a cosmic talisman.", 250, 0, 0);
+        } else if ($random < 126) { // 2/128 uncut diamond
+            inv_add(inv, uncut_diamond, 1);
+            ~objbox(uncut_diamond, "You open the casket. Inside you find an uncut|diamond.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 127) { // 1/128 tooth half key
+            inv_add(inv, keyhalf1, 1);
+            ~objbox(keyhalf1, "You open the casket. Inside you find half a key.", 250, 0, 0);
+        } else if ($random < 128) { // 1/128 loop half of key
+            inv_add(inv,  ~mid_tier_items);
+            ~mesbox("You open the casket. |Inside you find a Mid Tier Item!");
+        }
+        sound_synth(found_gem, 0, 0); // https://youtu.be/fWox14AFvEM 
+} else {
+    ~mesbox("You need Rogue Level: 60 to open this.");
+}
+
+[proc,r_hc]
+if (%rogue > 99) {
+        sound_synth(lever, 0, 0);
+        def_int $random = random(128);
+        // drop rates are from https://oldschool.runescape.wiki/w/Casket
+        // todo: find screenshots for these objbox's
+        if ($random < 10) { // 10/128 coins for each
+            // 20, 40, 80, 160, 320, 640
+            inv_add(inv, coins, 1000); // 2 ^ (random(6) + 1) * 10
+            ~objbox(coins_1000, "You open the casket. Inside you find 1,000 coins.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 92) { // 32/128 uncut sapphire
+            inv_add(inv, uncut_sapphire, 1);
+            ~objbox(uncut_sapphire, "You open the casket. Inside you find an uncut|sapphire.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 108) { // 16/128 uncut emerald
+            inv_add(inv, uncut_emerald, 1);
+            ~objbox(uncut_emerald, "You open the casket. Inside you find an uncut|emerald.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 116) { // 8/128 uncut ruby
+            inv_add(inv, uncut_ruby, 1);
+            ~objbox(uncut_ruby, "You open the casket. Inside you find an uncut ruby.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 124) { // 8/128 cosmic talisman
+            inv_add(inv, ~talisman_table);
+            ~mesbox("You open the casket. Inside you find a cosmic talisman.");
+        } else if ($random < 126) { // 2/128 uncut diamond
+            inv_add(inv, uncut_diamond, 1);
+            ~objbox(uncut_diamond, "You open the casket. Inside you find an uncut|diamond.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 127) { // 1/128 tooth half key
+            inv_add(inv, keyhalf1, 1);
+            ~objbox(keyhalf1, "You open the casket. Inside you find half a key.", 250, 0, 0);
+        } else if ($random < 128) { // 1/128 loop half of key
+            inv_add(inv, ~high_tier_items);
+            ~mesbox("You open the casket. |Inside you find a High Tier Item!");
+        }
+        sound_synth(found_gem, 0, 0); // https://youtu.be/fWox14AFvEM 
+} else {
+    ~mesbox("You need Rogue Level: 100 to open this.");
+}
+
+[proc,r_ic]
+if (%rogue > 179) {
+        sound_synth(lever, 0, 0);
+        def_int $random = random(128);
+        // drop rates are from https://oldschool.runescape.wiki/w/Casket
+        // todo: find screenshots for these objbox's
+        if ($random < 10 ) { // 10/128 coins for each
+            // 20, 40, 80, 160, 320, 640
+            inv_add(inv, coins, 5000);
+            ~objbox(coins_10000, "You open the casket. Inside you find 5,000 coins.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 92) { // 32/128 uncut sapphire
+            inv_add(inv, uncut_sapphire, 1);
+            ~objbox(uncut_sapphire, "You open the casket. Inside you find an uncut|sapphire.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 108) { // 16/128 uncut emerald
+            inv_add(inv, uncut_sapphire, 1);
+            ~objbox(uncut_sapphire, "You open the casket. Inside you find an uncut|emerald.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 116) { // 8/128 uncut ruby
+            inv_add(inv, uncut_diamond, 1);
+            ~objbox(uncut_diamond, "You open the casket. Inside you find an uncut ruby.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 124) { // 8/128 cosmic talisman
+            inv_add(inv, ~talisman_table);
+            ~mesbox("You open the casket. Inside you find a cosmic talisman.");
+            ~mesbox("You open the casket. Inside you find a cosmic talisman.");
+        } else if ($random < 126) { // 2/128 uncut diamond
+            inv_add(inv, uncut_dragonstone, 1);
+            ~objbox(uncut_dragonstone, "You open the casket. Inside you find an uncut|diamond.", 250, 0, divide(^objbox_height, 2));
+        } else if ($random < 127) { // 1/128 tooth half key
+            inv_add(inv, keyhalf1, 1);
+            ~objbox(keyhalf1, "You open the casket. Inside you find half a key.", 250, 0, 0);
+        } else if ($random < 128) { // 1/128 loop half of key
+            inv_add(inv, ~legendarytable);
+            ~mesbox("You open the casket. Inside you find a legendary item!");
+        }
+        sound_synth(found_gem, 0, 0); // https://youtu.be/fWox14AFvEM 
+} else {
+    ~mesbox("You need Rogue Level: 180 to open this.");
+}

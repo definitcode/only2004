@@ -1,3 +1,4 @@
+[opnpc2,brimstail] @teleport_to_essence_mine(^essence_mine_to_brimstail);
 [opnpc1,brimstail]
 ~chatnpc("<p,neutral>Hello adventurer, what can I do for you?");
 if(%runemysteries_progress = ^runemysteries_complete) {

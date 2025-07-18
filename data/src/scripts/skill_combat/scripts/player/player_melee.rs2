@@ -25,7 +25,7 @@ if (~player_npc_hit_roll(%damagetype) = true) {
     if (npc_param(demonbane_vulnerable) = true & inv_total(worn, silverlight) > 0) {
         $maxhit = divide(multiply($maxhit, 160), 100);
     }
-    if (npc_param(demonbane_vulnerable) = true & inv_total(worn, hc_bronze_scimitar) > 0) {
+    if (npc_param(demonbane_vulnerable) = true & inv_total(worn, hc_iron_scimitar) > 0) {
         $maxhit = divide(multiply($maxhit, 160), 100);
     }
     $damage = randominc(min($maxhit, npc_param(max_dealt)));

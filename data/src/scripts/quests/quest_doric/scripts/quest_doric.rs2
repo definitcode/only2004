@@ -107,6 +107,21 @@ if (inv_total(inv, clay) > 5 & inv_total(inv, copper_ore) > 3 & inv_total(inv, i
 ~chatnpc("<p,neutral>Hello traveller, how is your metalworking coming along?");
 ~chatplayer("<p,neutral>Not too bad, thanks Doric.");
 ~chatnpc("<p,happy>Good, the love of metal is a thing close to my heart.");
+if (inv_total(inv, e_bellows) = 0){
+    def_int $c1 = ~p_choice2_header("Yes.", 1, "No.", 2, "Would you like another Bellow?");
+    switch_int($c1){
+        case 1 : ~add_bellows;
+        case 2 : return;
+    }
+}
+
+[proc,add_bellows]
+if (inv_freespace(inv) = 0) {
+    ~chatplayer("<p,angry>Sorry, I don't have any space in my inventory!");
+} else {
+    inv_add(inv, e_bellows, 1);
+    ~chatnpc("Here you go!");
+}
 
 // Reward Scroll
 [queue,doric_quest_complete]
@@ -114,6 +129,7 @@ if (inv_total(inv, clay) > 5 & inv_total(inv, copper_ore) > 3 & inv_total(inv, i
 stat_advance(mining, 13000);
 session_log(^log_adventure, "Quest complete: Doric's Quest");
 ~send_quest_complete(questlist:doric, steel_pickaxe, 250, ^doric_questpoints, "You have completed\\nDoric's Quest!");
+inv_add(inv, e_bellows, 1);
 
 [label,trail_doric]
 // https://www.youtube.com/watch?v=Smadil97tFc

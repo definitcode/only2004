@@ -22,4 +22,7 @@ if ($lvl0 >= oc_param(iron_pickaxe, levelrequire) & ($obj1 = iron_pickaxe | inv_
 if ($lvl0 >= oc_param(bronze_pickaxe, levelrequire) & ($obj1 = bronze_pickaxe | inv_total(inv, bronze_pickaxe) > 0)) {
     return(bronze_pickaxe);
 }
+if ($lvl0 >= oc_param(founders_pickaxe, levelrequire) & ($obj1 = founders_pickaxe | inv_total(inv, founders_pickaxe) > 0)) {
+    return(founders_pickaxe);
+}
 return(null);

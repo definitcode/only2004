@@ -8,109 +8,11 @@
 
 
 [opheld1,expscroll]
-%expscroll1 = ^xpscroll_none;
-if_openmain(xpscroll);
-
-[if_button,xpscroll:attack] @xpscroll_select(attack);
-[if_button,xpscroll:strength] @xpscroll_select(strength);
-[if_button,xpscroll:ranged] @xpscroll_select(ranged);
-[if_button,xpscroll:magic] @xpscroll_select(magic);
-[if_button,xpscroll:defence] @xpscroll_select(defence);
-[if_button,xpscroll:hitpoints] @xpscroll_select(hitpoints);
-[if_button,xpscroll:prayer] @xpscroll_select(prayer);
-[if_button,xpscroll:agility] @xpscroll_select(agility);
-[if_button,xpscroll:herblore] @xpscroll_select(herblore);
-[if_button,xpscroll:thieving] @xpscroll_select(thieving);
-[if_button,xpscroll:crafting] @xpscroll_select(crafting);
-[if_button,xpscroll:runecraft] @xpscroll_select(runecraft);
-[if_button,xpscroll:mining] @xpscroll_select(mining);
-[if_button,xpscroll:smithing] @xpscroll_select(smithing);
-[if_button,xpscroll:fishing] @xpscroll_select(fishing);
-[if_button,xpscroll:cooking] @xpscroll_select(cooking);
-[if_button,xpscroll:firemaking] @xpscroll_select(firemaking);
-[if_button,xpscroll:woodcutting] @xpscroll_select(woodcutting);
-[if_button,xpscroll:fletching] @xpscroll_select(fletching);
-
-[if_button,xpscroll:confirm]
-switch_int (%expscroll1) {
-    case ^xpscroll_none :
-        mes("You need to choose which skill you wish to be advanced.");
-        return;
-    case ^xpscroll_attack : @xpscroll_confirm(attack);
-    case ^xpscroll_strength : @xpscroll_confirm(strength);
-    case ^xpscroll_ranged : @xpscroll_confirm(ranged);
-    case ^xpscroll_magic : @xpscroll_confirm(magic);
-    case ^xpscroll_defence : @xpscroll_confirm(defence);
-    case ^xpscroll_hitpoints : @xpscroll_confirm(hitpoints);
-    case ^xpscroll_prayer : @xpscroll_confirm(prayer);
-    case ^xpscroll_agility : @xpscroll_confirm(agility);
-    case ^xpscroll_herblore : @xpscroll_confirm(herblore);
-    case ^xpscroll_thieving : @xpscroll_confirm(thieving);
-    case ^xpscroll_crafting : @xpscroll_confirm(crafting);
-    case ^xpscroll_runecraft : @xpscroll_confirm(runecraft);
-    case ^xpscroll_mining : @xpscroll_confirm(mining);
-    case ^xpscroll_smithing : @xpscroll_confirm(smithing);
-    case ^xpscroll_fishing : @xpscroll_confirm(fishing);
-    case ^xpscroll_cooking : @xpscroll_confirm(cooking);
-    case ^xpscroll_firemaking : @xpscroll_confirm(firemaking);
-    case ^xpscroll_woodcutting : @xpscroll_confirm(woodcutting);
-    case ^xpscroll_fletching : @xpscroll_confirm(fletching);
-}
-error("case not found for xpscroll varp: <tostring(%expscroll1)>");
-
-[label,xpscroll_select](stat $stat)
-if (map_members = false & ~stat_members($stat) = ^true) {
-    mes("You need to be on a members' world to gain experience in <~stat_name($stat)>.");
-    %expscroll1 = ^xpscroll_none;
-    return;
-}
-switch_stat ($stat) {
-    case attack : @xpscroll_select_stat(^xpscroll_attack);
-    case strength : @xpscroll_select_stat(^xpscroll_strength);
-    case ranged : @xpscroll_select_stat(^xpscroll_ranged);
-    case magic : @xpscroll_select_stat(^xpscroll_magic);
-    case defence : @xpscroll_select_stat(^xpscroll_defence);
-    case hitpoints : @xpscroll_select_stat(^xpscroll_hitpoints);
-    case prayer : @xpscroll_select_stat(^xpscroll_prayer);
-    case agility : @xpscroll_select_stat(^xpscroll_agility);
-    case herblore : @xpscroll_select_stat(^xpscroll_herblore);
-    case thieving : @xpscroll_select_stat(^xpscroll_thieving);
-    case crafting : @xpscroll_select_stat(^xpscroll_crafting);
-    case runecraft : @xpscroll_select_stat(^xpscroll_runecraft);
-    case mining : @xpscroll_select_stat(^xpscroll_mining);
-    case smithing : @xpscroll_select_stat(^xpscroll_smithing);
-    case fishing : @xpscroll_select_stat(^xpscroll_fishing);
-    case cooking : @xpscroll_select_stat(^xpscroll_cooking);
-    case firemaking : @xpscroll_select_stat(^xpscroll_firemaking);
-    case woodcutting : @xpscroll_select_stat(^xpscroll_woodcutting);
-    case fletching : @xpscroll_select_stat(^xpscroll_fletching);
-}
-error("case not found for stat: <enum(stat, string, stat_names, $stat)>");
-
-[label,xpscroll_select_stat](int $selection)
-switch_int ($selection) {
-    case ^xpscroll_runecraft :
-        if (%runemysteries_progress ! ^runemysteries_complete) {
-            %expscroll1 = ^xpscroll_none;
-            mes("You need to complete the Rune Mysteries quest to choose that option.");
-            return;
-        }
-}
-%expscroll1 = $selection;
+%xplamp = ^xplamp_none;
+if_openmain(xplamp);
 
 
-[label,xpscroll_confirm](stat $stat)
+[proc,expscroll_used]
 if_close;
 inv_del(inv, expscroll, 1);
-%expscroll1 = ^xpscroll_none;
-
-def_int $base_level = stat_base($stat);
-stat_advance($stat, multiply($base_level, 100)); // stat level * 10
-if (inv_total(inv, max_cape) > 0){
-    stat_advance($stat, multiply($base_level, 100)); // stat level * 10
-    ~mesbox("You have shown your excellence in action!");
-    anim(emote_dance,0);
-}
-sound_synth(found_gem, 0, 0);
-
-~mesbox("Your wish has been granted!|You have been awarded <tostring(multiply($base_level, 10))> <enum(stat, string, stat_names, $stat)> experience!");
+%xplamp = ^xplamp_none;

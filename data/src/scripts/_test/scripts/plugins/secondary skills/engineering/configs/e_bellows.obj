@@ -1,0 +1,12 @@
+[e_bellows]
+name=Doric's Bellows
+desc=A large pair of bellows.
+members=yes
+model=model_3440_obj
+2dyof=-4
+2dzoom=970
+2dyan=36
+2dxan=112
+weight=18oz
+tradeable=no
+category=_ebellows

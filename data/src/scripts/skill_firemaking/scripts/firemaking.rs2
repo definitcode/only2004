@@ -1,9 +1,21 @@
+[opheldu,hc_tinderbox]
+if (last_useitem = newbielogs) {
+    @tut_light_logs_inv(last_useslot);
+} else if (oc_param(last_useitem, unlit_arrow) = ^true) {
+    @light_firearrow(last_useitem);
+} else if (oc_category(last_useitem) = category_22) {
+    @light_logs_inv(last_useslot);
+} else if (oc_category(last_useitem) = light_source_unlit) {
+    @ignite_light_source(last_useitem);
+} else {
+    ~displaymessage(^dm_default);
+}
 // trigger for logs on ground
 [opobj4,_category_22]
     @light_logs_ground;
 
 [opobju,_category_22]
-if (last_useitem = tinderbox) {
+if (last_useitem = tinderbox | last_useitem = hc_tinderbox | last_useitem = dragon_tinderbox | last_useitem = rune_tinderbox | last_useitem = adamant_tinderbox | last_useitem = mithril_tinderbox | last_useitem = steel_tinderbox | last_useitem = iron_tinderbox | last_useitem = bronze_tinderbox) {
     @light_logs_ground;
 } else {
     ~displaymessage(^dm_default);
@@ -13,12 +25,22 @@ if (last_useitem = tinderbox) {
 [opheldu,tinderbox]
 if (last_useitem = newbielogs) {
     @tut_light_logs_inv(last_useslot);
-} else if(oc_param(last_useitem, unlit_arrow) = ^true) { // might not work on every fire?
+} else if (oc_param(last_useitem, unlit_arrow) = ^true) {
     @light_firearrow(last_useitem);
-} else switch_category(oc_category(last_useitem)) {
-    case category_22 : @light_logs_inv(last_useslot);
-    case light_source_unlit : @ignite_light_source(last_useitem);
-    case default : ~displaymessage(^dm_default);
+} else if (oc_category(last_useitem) = category_22) {
+    @light_logs_inv(last_useslot);
+} else if (oc_category(last_useitem) = light_source_unlit) {
+    @ignite_light_source(last_useitem);
+} else {
+    ~displaymessage(^dm_default);
+}
+// support for hc_tinderbox used on logs in inventory
+if (oc_category(last_useitem) = category_22) {
+    @light_logs_inv(last_useslot);
+} else if (oc_category(last_useitem) = light_source_unlit) {
+    @ignite_light_source(last_useitem);
+} else {
+    ~displaymessage(^dm_default);
 }
 
 [label,light_logs_ground]
@@ -33,16 +55,65 @@ if (~area_allow_loc_add(obj_coord) = false) {
     mes("You can't light a fire here.");
     return;
 }
-// check if they have tinderbox
-if(inv_total(inv, tinderbox) < 1) {
+
+// --- tinderbox detection ---
+def_namedobj $tbox = null;
+if (inv_total(inv, tinderbox) > 0) {
+    $tbox = tinderbox;
+} else if (inv_total(inv, hc_tinderbox) > 0) {
+    $tbox = hc_tinderbox;
+} else if (inv_total(inv, dragon_tinderbox) > 0) {
+    $tbox = dragon_tinderbox;
+} else if (inv_total(inv, rune_tinderbox) > 0) {
+    $tbox = rune_tinderbox;
+} else if (inv_total(inv, adamant_tinderbox) > 0) {
+    $tbox = adamant_tinderbox;
+} else if (inv_total(inv, mithril_tinderbox) > 0) {
+    $tbox = mithril_tinderbox;
+} else if (inv_total(inv, steel_tinderbox) > 0) {
+    $tbox = steel_tinderbox;
+} else if (inv_total(inv, iron_tinderbox) > 0) {
+    $tbox = iron_tinderbox;
+} else if (inv_total(inv, bronze_tinderbox) > 0) {
+    $tbox = bronze_tinderbox;
+} else if (inv_total(inv, founders_tinderbox) > 0) {
+    $tbox = founders_tinderbox;
+}
+
+if ($tbox = null) {
     mes("You need a tinderbox to light a fire.");
     return;
+}
+// --- tinderbox animation selection ---
+def_seq $anim_id = null;
+if ($tbox = tinderbox) {
+    $anim_id = human_createfire;
+} else if ($tbox = hc_tinderbox) {
+    $anim_id = human_hccreatefire;
+} else if ($tbox = dragon_tinderbox) {
+    $anim_id = human_dragoncreatefire;
+} else if ($tbox = rune_tinderbox) {
+    $anim_id = human_runecreatefire;
+} else if ($tbox = adamant_tinderbox) {
+    $anim_id = human_adacreatefire;
+} else if ($tbox = mithril_tinderbox) {
+    $anim_id = human_mithrilcreatefire;
+} else if ($tbox = steel_tinderbox) {
+    $anim_id = human_steelcreatefire;
+} else if ($tbox = iron_tinderbox) {
+    $anim_id = human_ironcreatefire;
+} else if ($tbox = bronze_tinderbox) {
+    $anim_id = human_bronzecreatefire;
+} else if ($tbox = founders_tinderbox){
+    $anim_id = human_founderscreatefire;
+} else {
+    $anim_id = human_createfire;
 }
 // 4t cycle
 // mes(tostring(sub(map_clock, %action_delay)));
 if (%action_delay < map_clock) {
     p_stopaction;
-    anim(human_createfire, 0);
+    anim($anim_id, 0);
     sound_synth(tinderbox_strike, 0, 0);
     mes("You attempt to light the logs.");
     %action_delay = calc(map_clock + 3);
@@ -57,7 +128,7 @@ if (%action_delay < map_clock) {
         return;
     } else {
         // if fails, then reattempt to light
-        anim(human_createfire, 0);
+        anim($anim_id, 0);
         sound_synth(tinderbox_strike, 0, 0);
         %action_delay = calc(map_clock + 4);
     }
@@ -78,15 +149,76 @@ if (~area_allow_loc_add(coord) = false) {
     mes("You can't light a fire here.");
     return;
 }
-// check if they have tinderbox
-if(inv_total(inv, tinderbox) < 1) {
+// --- tinderbox detection ---
+def_namedobj $tbox = null;
+if (inv_total(inv, tinderbox) > 0) {
+    $tbox = tinderbox;
+} else if (inv_total(inv, hc_tinderbox) > 0) {
+    $tbox = hc_tinderbox;
+} else if (inv_total(inv, dragon_tinderbox) > 0) {
+    $tbox = dragon_tinderbox;
+} else if (inv_total(inv, rune_tinderbox) > 0) {
+    $tbox = rune_tinderbox;
+} else if (inv_total(inv, adamant_tinderbox) > 0) {
+    $tbox = adamant_tinderbox;
+} else if (inv_total(inv, mithril_tinderbox) > 0) {
+    $tbox = mithril_tinderbox;
+} else if (inv_total(inv, steel_tinderbox) > 0) {
+    $tbox = steel_tinderbox;
+} else if (inv_total(inv, iron_tinderbox) > 0) {
+    $tbox = iron_tinderbox;
+} else if (inv_total(inv, bronze_tinderbox) > 0) {
+    $tbox = bronze_tinderbox;
+} else if (inv_total(inv, founders_tinderbox) > 0) {
+    $tbox = founders_tinderbox;
+}
+
+if ($tbox = null) {
     mes("You need a tinderbox to light a fire.");
     return;
+}
+
+
+// --- tinderbox animation selection ---
+def_seq $anim_id = null;
+def_int $xp_mul = 0;
+if ($tbox = tinderbox) {
+    $anim_id = human_createfire;
+    $xp_mul = 1;
+} else if ($tbox = hc_tinderbox) {
+    $anim_id = human_hccreatefire;
+    $xp_mul = 1;
+} else if ($tbox = dragon_tinderbox) {
+    $anim_id = human_dragoncreatefire;
+    $xp_mul = 4;
+} else if ($tbox = rune_tinderbox) {
+    $anim_id = human_runecreatefire;
+    $xp_mul = 3;
+} else if ($tbox = adamant_tinderbox) {
+    $anim_id = human_adacreatefire;
+    $xp_mul = 2;
+} else if ($tbox = mithril_tinderbox) {
+    $anim_id = human_mithrilcreatefire;
+    $xp_mul = 2;
+} else if ($tbox = steel_tinderbox) {
+    $anim_id = human_steelcreatefire;
+    $xp_mul = 1;
+} else if ($tbox = iron_tinderbox) {
+    $anim_id = human_ironcreatefire;
+    $xp_mul = 1;
+} else if ($tbox = bronze_tinderbox) {
+    $anim_id = human_bronzecreatefire;
+    $xp_mul = 1;
+} else if ($tbox = founders_tinderbox){
+    $anim_id = human_founderscreatefire;
+    $xp_mul = 1;
+} else {
+    $anim_id = human_createfire;
 }
 inv_dropslot(inv, coord, $slot, ^lootdrop_duration);
 if (%action_delay < map_clock) {
     p_stopaction;
-    anim(human_createfire, 0);
+    anim($anim_id, 0);
     sound_synth(tinderbox_strike, 0, 0);
     mes("You attempt to light the logs.");
     %action_delay = calc(map_clock + 3);
@@ -98,7 +230,7 @@ if (%action_delay < map_clock) {
         return;
     } else {
         // if fails, then reattempt to light
-        anim(human_createfire, 0);
+        anim($anim_id, 0);
         sound_synth(tinderbox_strike, 0, 0);
         %action_delay = calc(map_clock + 4);
     }
@@ -106,10 +238,56 @@ if (%action_delay < map_clock) {
 p_opobj(4);
 
 [proc,firemaking_success](coord $fire_coord, obj $log)
+def_int $xp_mul = 0;
+def_namedobj $tbox = null;
+def_seq $anim_id = null;
+if (inv_total(inv, tinderbox) > 0) {
+    $tbox = tinderbox;
+} else if (inv_total(inv, hc_tinderbox) > 0) {
+    $tbox = hc_tinderbox;
+} else if (inv_total(inv, dragon_tinderbox) > 0) {
+    $tbox = dragon_tinderbox;
+} else if (inv_total(inv, rune_tinderbox) > 0) {
+    $tbox = rune_tinderbox;
+} else if (inv_total(inv, adamant_tinderbox) > 0) {
+    $tbox = adamant_tinderbox;
+} else if (inv_total(inv, mithril_tinderbox) > 0) {
+    $tbox = mithril_tinderbox;
+} else if (inv_total(inv, steel_tinderbox) > 0) {
+    $tbox = steel_tinderbox;
+} else if (inv_total(inv, iron_tinderbox) > 0) {
+    $tbox = iron_tinderbox;
+} else if (inv_total(inv, bronze_tinderbox) > 0) {
+    $tbox = bronze_tinderbox;
+} else if (inv_total(inv, founders_tinderbox) > 0) {
+    $tbox = founders_tinderbox;
+}
+if ($tbox = tinderbox) {
+    $xp_mul = 1;
+} else if ($tbox = hc_tinderbox) {
+    $xp_mul = 1;
+} else if ($tbox = dragon_tinderbox) {
+    $xp_mul = 4;
+} else if ($tbox = rune_tinderbox) {
+    $xp_mul = 3;
+} else if ($tbox = adamant_tinderbox) {
+    $xp_mul = 2;
+} else if ($tbox = mithril_tinderbox) {
+    $xp_mul = 2;
+} else if ($tbox = steel_tinderbox) {
+    $xp_mul = 1;
+} else if ($tbox = iron_tinderbox) {
+    $xp_mul = 1;
+} else if ($tbox = bronze_tinderbox) {
+    $xp_mul = 1;
+} else if ($tbox = founders_tinderbox){
+    $xp_mul = 1;
+} else {
+}
 obj_del;
-stat_advance(firemaking, oc_param($log, productexp));
+stat_advance(firemaking, multiply(oc_param($log, productexp), $xp_mul));
 if (inv_total(worn, cavalier_brown) > 0) {
-            stat_advance(firemaking, oc_param($log, productexp));
+            stat_advance(firemaking, multiply(oc_param($log, productexp), $xp_mul));
             mes("Your firemaking skills are showing!");
 }
 

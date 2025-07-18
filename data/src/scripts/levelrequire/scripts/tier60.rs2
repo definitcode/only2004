@@ -11,6 +11,7 @@
 [opheld2,dragon_axe] @levelrequire_heroes_quest_attack(90, last_slot);
 [opheld2,dragon_warhammer] @levelrequire_heroes_quest_attack(90, last_slot);
 [opheld2,dragon_scimitar] @levelrequire_heroes_quest_attack(90, last_slot);
+[opheld2,vampiric_hammer] @levelrequire_heroes_quest_attack(99, last_slot);
 
 [opheld2,dragon_chainbody] @levelrequire_legends_quest_defence(90, last_slot);
 [opheld2,dragon_med_helm] @levelrequire_legends_quest_defence(90, last_slot);
@@ -20,7 +21,7 @@
 [opheld2,dragon_platebody] @levelrequire_legends_quest_defence(99, last_slot);
 [opheld2,dragon_platelegs] @levelrequire_legends_quest_defence(99, last_slot);
 [opheld2,dragon_plateskirt] @levelrequire_legends_quest_defence(99, last_slot);
-
+[opheld2,dragon_gauntlets]  @levelrequire_crestquest_defence(99, last_slot);
 // Ranged
 [opheld2,red_dragon_vambraces] @levelrequire_ranged_and_defence(70, 70, last_slot);
 [opheld2,red_dragonhide_chaps] @levelrequire_ranged_and_defence(70, 70, last_slot);
@@ -47,3 +48,4 @@
 [opheld2,gnome_robetop_green] @levelrequire_magic_and_defence(50, 50,last_slot);
 [opheld2,gnome_robetop_pink] @levelrequire_magic_and_defence(50, 50,last_slot);
 [opheld2,gnome_robetop_turquoise] @levelrequire_magic_and_defence(50, 50,last_slot);
+[opheld2,dramen_staff_i] @levelrequire_zanaris_quest_magic(99, last_slot);

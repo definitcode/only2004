@@ -1,0 +1,675 @@
+// Fletching knives: bronze to rune
+[e_bronze_knife]
+name=Bronze knife
+desc=A bronze fletching knife.
+cost=6
+model=model_2559_obj
+recol1s=15855
+recol1d=8354 
+recol2s=10400
+recol2d=0
+recol3s=26425
+recol3d=4096
+2dxof=-11
+2dyof=-4
+2dzoom=580
+2dyan=1260
+2dxan=444
+weight=1lb
+
+[e_iron_knife]
+name=Iron knife
+desc=An iron fletching knife.
+cost=12
+model=model_2559_obj
+recol1s=15855
+recol1d=8456  
+recol2s=10400
+recol2d=0
+recol3s=26425
+recol3d=4096
+2dxof=-11
+2dyof=-4
+2dzoom=580
+2dyan=1260
+2dxan=444
+weight=1lb
+
+[e_steel_knife]
+name=Steel knife
+desc=A steel fletching knife.
+cost=24
+model=model_2559_obj
+recol1s=15855
+recol1d=15855 
+recol2s=10400
+recol2d=0
+recol3s=26425
+recol3d=4096
+2dxof=-11
+2dyof=-4
+2dzoom=580
+2dyan=1260
+2dxan=444
+weight=1lb
+
+[e_mithril_knife]
+name=Mithril knife
+desc=A mithril fletching knife.
+cost=48
+model=model_2559_obj
+recol1s=15855
+recol1d=6346 
+recol2s=10400
+recol2d=0
+recol3s=26425
+recol3d=4096
+2dxof=-11
+2dyof=-4
+2dzoom=580
+2dyan=1260
+2dxan=444
+weight=1lb
+
+[e_adamant_knife]
+name=Adamant knife
+desc=An adamant fletching knife.
+cost=96
+model=model_2559_obj
+recol1s=15855
+recol1d=6438 
+recol2s=10400
+recol2d=0
+recol3s=26425
+recol3d=4096
+2dxof=-11
+2dyof=-4
+2dzoom=580
+2dyan=1260
+2dxan=444
+weight=1lb
+
+[e_rune_knife]
+name=Rune knife
+desc=A rune fletching knife.
+cost=192
+model=model_2559_obj
+recol1s=15855w 
+recol1d=6438
+recol2s=10400
+recol2d=0
+recol3s=26425
+recol3d=4096
+2dxof=-11
+2dyof=-4
+2dzoom=580
+2dyan=1260
+2dxan=444
+weight=1lb
+
+[e_dragon_knife]
+name=Dragon knife
+desc=A dragon fletching knife.
+cost=192
+model=model_2559_obj
+recol1s=15855
+recol1d=15360
+recol2s=10400
+recol2d=0
+recol3s=26425
+recol3d=4096
+2dxof=-11
+2dyof=-4
+2dzoom=580
+2dyan=1260
+2dxan=444
+weight=1lb
+
+// Tinderboxes: bronze to rune
+[bronze_tinderbox]
+name=Bronze tinderbox
+desc=Useful for lighting a fire.
+model=model_2348_obj
+recol1s=32767
+recol1d=8354 
+recol2s=11456
+recol2d=0
+manwear=model_488_obj_wear,0
+womanwear=model_488_obj_wear,0
+2dxof=1
+2dyof=-10
+2dzoom=660
+2dyan=1968
+2dxan=196
+weight=35g
+
+[iron_tinderbox]
+name=Iron tinderbox
+desc=Useful for lighting a fire.
+model=model_2348_obj
+recol1s=32767
+recol1d=15855 
+recol2s=11456
+recol2d=0
+manwear=model_488_obj_wear,0
+womanwear=model_488_obj_wear,0
+2dxof=1
+2dyof=-10
+2dzoom=660
+2dyan=1968
+2dxan=196
+weight=35g
+
+[steel_tinderbox]
+name=Steel tinderbox
+desc=Useful for lighting a fire.
+model=model_2348_obj
+recol1s=32767
+recol1d=15855 
+recol2s=11456
+recol2d=0
+manwear=model_488_obj_wear,0
+womanwear=model_488_obj_wear,0
+2dxof=1
+2dyof=-10
+2dzoom=660
+2dyan=1968
+2dxan=196
+weight=35g
+
+[mithril_tinderbox]
+name=Mithril tinderbox
+desc=Useful for lighting a fire.
+model=model_2348_obj
+recol1s=32767
+recol1d=6346 
+recol2s=11456
+recol2d=0
+manwear=model_488_obj_wear,0
+womanwear=model_488_obj_wear,0
+2dxof=1
+2dyof=-10
+2dzoom=660
+2dyan=1968
+2dxan=196
+weight=35g
+
+[adamant_tinderbox]
+name=Adamant tinderbox
+desc=Useful for lighting a fire.
+model=model_2348_obj
+recol1s=32767
+recol1d=6438 
+recol2s=11456
+recol2d=0
+manwear=model_488_obj_wear,0
+womanwear=model_488_obj_wear,0
+2dxof=1
+2dyof=-10
+2dzoom=660
+2dyan=1968
+2dxan=196
+weight=35g
+
+[rune_tinderbox]
+name=Rune tinderbox
+desc=Useful for lighting a fire.
+model=model_2348_obj
+recol1s=32767
+recol1d=6476 
+recol2s=11456
+recol2d=0
+manwear=model_488_obj_wear,0
+womanwear=model_488_obj_wear,0
+2dxof=1
+2dyof=-10
+2dzoom=660
+2dyan=1968
+2dxan=196
+weight=35g
+
+[dragon_tinderbox]
+name=Dragon tinderbox
+desc=Useful for lighting a fire.
+model=model_2348_obj
+recol1s=32767
+recol1d=15360
+recol2s=11456
+recol2d=0
+manwear=model_488_obj_wear,0
+womanwear=model_488_obj_wear,0
+2dxof=1
+2dyof=-10
+2dzoom=660
+2dyan=1968
+2dxan=196
+weight=35g
+
+// Hammers: bronze to rune
+[bronze_hammer]
+name=Bronze hammer
+desc=Good for hitting things!
+model=model_2376_obj
+manwear=model_491_obj_wear,0
+womanwear=model_491_obj_wear,6
+recol1s=11627
+recol1d=8354 
+2dxof=-3
+2dyof=-1
+2dzoom=900
+2dyan=2012
+2dxan=356
+weight=2lb
+category=hammer
+[iron_hammer]
+name=Iron hammer
+desc=Good for hitting things!
+model=model_2376_obj
+manwear=model_491_obj_wear,0
+womanwear=model_491_obj_wear,6
+recol1s=11627 
+recol1d=8456 
+2dxof=-3
+2dyof=-1
+2dzoom=900
+2dyan=2012
+2dxan=356
+weight=2lb
+category=hammer
+[steel_hammer]
+name=Steel hammer
+desc=Good for hitting things!
+model=model_2376_obj
+manwear=model_491_obj_wear,0
+womanwear=model_491_obj_wear,6
+recol1s=11627  
+recol1d=15855 
+2dxof=-3
+2dyof=-1
+2dzoom=900
+2dyan=2012
+2dxan=356
+weight=2lb
+category=hammer
+[mithril_hammer]
+name=Mithril hammer
+desc=Good for hitting things!
+model=model_2376_obj
+manwear=model_491_obj_wear,0
+womanwear=model_491_obj_wear,6
+recol1s=11627 
+recol1d=6346 
+2dxof=-3
+2dyof=-1
+2dzoom=900
+2dyan=2012
+2dxan=356
+weight=2lb
+category=hammer
+[adamant_hammer]
+name=Adamant hammer
+desc=Good for hitting things!
+model=model_2376_obj
+manwear=model_491_obj_wear,0
+womanwear=model_491_obj_wear,6
+recol1s=11627 
+recol1d=6438 
+2dxof=-3
+2dyof=-1
+2dzoom=900
+2dyan=2012
+2dxan=356
+weight=2lb
+category=hammer
+[rune_hammer]
+name=Rune hammer
+desc=Good for hitting things!
+model=model_2376_obj
+manwear=model_491_obj_wear,0
+womanwear=model_491_obj_wear,6
+recol1s=11627 
+recol1d=6476
+2dxof=-3
+2dyof=-1
+2dzoom=900
+2dyan=2012
+2dxan=356
+weight=2lb
+category=hammer
+
+[dragon_hammer]
+name=Dragon hammer
+desc=Good for hitting things!
+model=model_2376_obj
+manwear=model_491_obj_wear,0
+womanwear=model_491_obj_wear,6
+recol1s=11627 
+recol1d=14336
+recol2s=8320
+recol2d=3072 
+2dxof=-3
+2dyof=-1
+2dzoom=900
+2dyan=2012
+2dxan=356
+weight=2lb
+category=hammer
+
+
+// Graded harpoons
+[bronze_harpoon]
+name=Bronze harpoon
+desc=Useful for catching really big fish.
+model=model_2469_obj
+recol1s=15855
+recol1d=8354 
+2dxof=2
+2dyof=-85
+2dzoom=1030
+2dyan=416
+2dxan=244
+cost=2
+manwear=model_503_obj_wear,0
+womanwear=model_503_obj_wear,6
+weight=3lb
+param=fish_equipment_struct,fish_equipment_harpoon
+
+[iron_harpoon]
+name=Iron harpoon
+desc=Useful for catching really big fish.
+model=model_2469_obj
+recol1s=15855
+recol1d=8456 
+2dxof=2
+2dyof=-85
+2dzoom=1030
+2dyan=416
+2dxan=244
+cost=4
+manwear=model_503_obj_wear,0
+womanwear=model_503_obj_wear,6
+weight=3lb
+param=fish_equipment_struct,fish_equipment_harpoon
+
+[steel_harpoon]
+name=Steel harpoon
+desc=Useful for catching really big fish.
+model=model_2469_obj
+recol1s=15855
+recol1d=15855
+2dxof=2
+2dyof=-85
+2dzoom=1030
+2dyan=416
+2dxan=244
+cost=8
+manwear=model_503_obj_wear,0
+womanwear=model_503_obj_wear,6
+weight=3lb
+param=fish_equipment_struct,fish_equipment_harpoon
+
+[mithril_harpoon]
+name=Mithril harpoon
+desc=Useful for catching really big fish.
+model=model_2469_obj
+recol1s=15855
+recol1d=6346
+2dxof=2
+2dyof=-85
+2dzoom=1030
+2dyan=416
+2dxan=244
+cost=16
+manwear=model_503_obj_wear,0
+womanwear=model_503_obj_wear,6
+weight=3lb
+param=fish_equipment_struct,fish_equipment_harpoon
+
+[adamant_harpoon]
+name=Adamant harpoon
+desc=Useful for catching really big fish.
+model=model_2469_obj
+recol1s=15855
+recol1d=6438
+2dxof=2
+2dyof=-85
+2dzoom=1030
+2dyan=416
+2dxan=244
+cost=32
+manwear=model_503_obj_wear,0
+womanwear=model_503_obj_wear,6
+weight=3lb
+param=fish_equipment_struct,fish_equipment_harpoon
+
+[rune_harpoon]
+name=Rune harpoon
+desc=Useful for catching really big fish.
+model=model_2469_obj
+recol1s=15855
+recol1d=6476
+2dxof=2
+2dyof=-85
+2dzoom=1030
+2dyan=416
+2dxan=244
+cost=64
+manwear=model_503_obj_wear,0
+womanwear=model_503_obj_wear,6
+weight=3lb
+param=fish_equipment_struct,fish_equipment_harpoon
+
+[dragon_harpoon]
+name=Dragon Harpoon
+desc=Useful for catching really big fish.
+model=model_2469_obj
+recol1s=15855
+recol1d=14336
+recol2s=15648
+recol2d=3072
+2dxof=2
+2dyof=-85
+2dzoom=1030
+2dyan=416
+2dxan=244
+cost=5
+manwear=model_503_obj_wear,0
+womanwear=model_503_obj_wear,6
+weight=3lb
+param=fish_equipment_struct,fish_equipment_harpoon
+tradeable=no
+param=no_alchemy,^true
+// Graded lobster pots
+[lobster_pot_oak]
+name=Oak lobster pot
+desc=Useful for catching lobsters.
+model=model_2663_obj
+recol1s=10400
+recol1d=23009 
+2dzoom=1180
+2dyan=1668
+2dxan=192
+cost=25
+manwear=model_531_obj_wear,0
+womanwear=model_531_obj_wear,6
+weight=9oz
+param=fish_equipment_struct,fish_equipment_lobster_pot
+
+[lobster_pot_willow]
+name=Willow lobster pot
+desc=Useful for catching lobsters.
+model=model_2663_obj
+recol1s=10400 
+recol1d=20004 
+recol2s=10570 
+recol2d=15855 
+2dzoom=1180
+2dyan=1668
+2dxan=192
+cost=30
+manwear=model_531_obj_wear,0
+womanwear=model_531_obj_wear,6
+weight=9oz
+param=fish_equipment_struct,fish_equipment_lobster_pot
+
+[lobster_pot_maple]
+name=Maple lobster pot
+desc=Useful for catching lobsters.
+model=model_2663_obj
+recol1s=10400
+recol1d=21040
+recol2s=10570 
+recol2d=6346  
+2dzoom=1180
+2dyan=1668
+2dxan=192
+cost=35
+manwear=model_531_obj_wear,0
+womanwear=model_531_obj_wear,6
+weight=9oz
+param=fish_equipment_struct,fish_equipment_lobster_pot
+
+[lobster_pot_yew]
+name=Yew lobster pot
+desc=Useful for catching lobsters.
+model=model_2663_obj
+recol1s=10400
+recol1d=23073
+recol2s=10570 
+recol2d=6438   
+2dzoom=1180
+2dyan=1668
+2dxan=192
+cost=40
+manwear=model_531_obj_wear,0
+womanwear=model_531_obj_wear,6
+weight=9oz
+param=fish_equipment_struct,fish_equipment_lobster_pot
+
+[lobster_pot_magic]
+name=Magic lobster pot
+desc=Useful for catching lobsters.
+model=model_2663_obj
+recol1s=10400
+recol1d=1451
+recol2s=10570
+recol2d=6476
+2dzoom=1180
+2dyan=1668
+2dxan=192
+cost=50
+manwear=model_531_obj_wear,0
+womanwear=model_531_obj_wear,6
+weight=9oz
+param=fish_equipment_struct,fish_equipment_lobster_pot
+
+
+
+
+[mithril_gauntlets]
+category=category_16
+name=Mithril gauntlets
+desc=Upgraded gauntlets from Steel Gauntlets.
+members=yes
+model=model_2649_obj
+recol1s=9473
+recol1d=6346
+2dxof=8
+2dyof=-8
+2dzoom=930
+2dyan=828
+2dxan=420
+iop2=Wear
+wearpos=hands
+manwear=model_179_obj_wear,0
+womanwear=model_356_obj_wear,0
+weight=8oz
+param=stabattack,3
+param=slashattack,3
+param=crushattack,3
+param=stabdefence,9
+param=slashdefence,10
+param=crushdefence,78
+param=strengthbonus,3
+tradeable=yes
+
+[adamant_gauntlets]
+category=category_16
+name=Adamant gauntlets
+desc=Upgraded gauntlets from Mithril Gauntlets.
+members=yes
+model=model_2649_obj
+recol1s=9473
+recol1d=6438
+2dxof=8
+2dyof=-8
+2dzoom=930
+2dyan=828
+2dxan=420
+iop2=Wear
+wearpos=hands
+manwear=model_179_obj_wear,0
+womanwear=model_356_obj_wear,0
+weight=8oz
+param=stabattack,4
+param=slashattack,4
+param=crushattack,4
+param=stabdefence,10
+param=slashdefence,11
+param=crushdefence,9
+param=strengthbonus,4
+tradeable=yes
+
+[rune_gauntlets]
+category=category_16
+name=Rune gauntlets
+desc=Upgraded gauntlets from Rune Gauntlets.
+members=yes
+model=model_2649_obj
+recol1s=9473
+recol1d=6476
+2dxof=8
+2dyof=-8
+2dzoom=930
+2dyan=828
+2dxan=420
+iop2=Wear
+wearpos=hands
+manwear=model_179_obj_wear,0
+womanwear=model_356_obj_wear,0
+weight=8oz
+param=stabattack,5
+param=slashattack,5
+param=crushattack,5
+param=stabdefence,11
+param=slashdefence,12
+param=crushdefence,10
+param=strengthbonus,5
+tradeable=yes
+
+[dragon_gauntlets]
+category=category_16
+name=Dragon gauntlets
+desc=Upgraded gauntlets from Dragon Gauntlets.
+members=yes
+model=model_2649_obj
+recol1s=9473
+recol1d=14336
+2dxof=8
+2dyof=-8
+2dzoom=930
+2dyan=828
+2dxan=420
+iop2=Wear
+wearpos=hands
+manwear=model_179_obj_wear,0
+womanwear=model_356_obj_wear,0
+weight=8oz
+param=stabattack,6
+param=slashattack,6
+param=crushattack,6
+param=stabdefence,12
+param=slashdefence,13
+param=crushdefence,11
+param=strengthbonus,6
+tradeable=yes

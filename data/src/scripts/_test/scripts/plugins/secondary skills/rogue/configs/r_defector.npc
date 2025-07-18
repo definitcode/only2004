@@ -1,0 +1,34 @@
+[rogue_defector]
+name=Rogue Defector
+desc=Defected from the Rogue Order and now teaches others their secrets.
+walkanim=human_walk_f,human_walk_b,human_walk_l,human_walk_r
+readyanim=human_ready
+vislevel=255
+recol1s=8386
+recol1d=3171
+recol2s=31649
+recol2d=7271
+recol3s=15360
+recol3d=3171
+op1=Talk-to
+model1=model_215_idk
+model2=model_246_idk
+model3=model_292_idk
+model4=model_170_idk
+model5=model_176_idk
+model6=model_254_idk
+model7=model_185_obj_wear
+model8=model_243_obj_wear
+model9=model_323_obj_wear
+model10=model_519_obj_wear
+head1=model_53_idk_head
+head2=model_76_obj_wear
+wanderrange=2
+param=owned_shop,defectorshop
+param=shop_sell_multiplier,1300
+param=shop_buy_multiplier,400
+param=shop_delta,30
+param=shop_title,Rogue Defector Shop
+moverestrict=indoors
+// Stats match osrs version but our version Vislvl is different.
+// https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_526

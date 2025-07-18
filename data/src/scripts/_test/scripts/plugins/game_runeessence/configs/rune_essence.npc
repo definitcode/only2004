@@ -5,6 +5,7 @@ desc=Definitely NOT Nurmof!
 walkanim=dwarf_walk
 readyanim=dwarf_ready
 op1=Talk-to
+op2=Essence
 op3=Trade
 recol1s=15855
 recol1d=24075

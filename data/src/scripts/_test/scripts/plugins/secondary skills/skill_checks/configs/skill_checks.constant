@@ -1,0 +1,19 @@
+//Task Item
+^ss_casket = 0
+^ss_badge = 1
+^ss_trap_casket = 2
+^ss_cog = 3
+^ss_barbedrope = 4
+^ss_ironnails = 5
+
+//Task Amount
+
+^ss_easy = 1000
+^ss_medium = 2500
+^ss_hard = 5000
+^ss_insane = 100000
+
+//Task Statuses
+^ss_notstarted = 0
+^ss_inprogress = 1
+

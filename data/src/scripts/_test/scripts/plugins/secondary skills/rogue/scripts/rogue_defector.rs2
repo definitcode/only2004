@@ -1,0 +1,44 @@
+[opnpc1,rogue_defector]
+
+~chatnpc("<p,evillaugh> What can I do for you, shadow?");
+switch_int(~p_choice3_header("Equipment.", 1, "Tasks.", 2, "Rogue Shop.", 3,"What would you like to do?")) {
+    case 1 : {
+        def_int $ch1 = ~p_choice2_header("Rogue Tools.", 1, "Rogue Magnet.", 2, "Which tools do you need?");
+        switch_int($ch1){
+            case 1 : {
+                if (%r_roguedefectorrep > 249){
+                    if (inv_total(inv, rogue_tools) < 1) {
+                        inv_add(inv, rogue_tools, 1);
+                    } else {
+                        ~chatnpc("You already have a pair of Rogue Tools.");
+                    }
+                } else {
+                    ~chatnpc("<p,evillaugh> You don't have enough reputation.");
+                }
+            }
+            case 2 : {
+                if (%r_roguedefectorrep > 999){
+                    if (inv_total(inv, rogue_magnet) < 1) {
+                        inv_add(inv, rogue_magnet, 1);
+                    } else {
+                        ~chatnpc("You already have a Rogue Magnet.");
+                    }
+                } else {
+                    ~chatnpc("<p,evillaugh> You don't have enough reputation.");
+                }
+            }
+        }
+    }
+    case 2 : {
+        ~r_tasks;
+    }
+    case 3 : ~rogue_shop;
+}
+
+[proc,rogue_shop]
+
+if (%r_roguedefectorrep > 2499) {
+    ~openshop_activenpc;
+} else {
+    ~chatnpc("<p,evillaugh> You don't have enough reputation to shop here.");
+}

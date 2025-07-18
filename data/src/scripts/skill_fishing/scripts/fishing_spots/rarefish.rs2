@@ -12,134 +12,334 @@
 [opnpcu,_rarefish]
 switch_obj(last_useitem) {
     case harpoon : @attempt_fish_swordfish;
+    case bronze_harpoon : @attempt_fish_swordfish;
+    case iron_harpoon : @attempt_fish_swordfish;
+    case steel_harpoon : @attempt_fish_swordfish;
+    case mithril_harpoon : @attempt_fish_swordfish;
+    case adamant_harpoon : @attempt_fish_swordfish;
+    case rune_harpoon : @attempt_fish_swordfish;
+    case founders_harpoon : @attempt_fish_swordfish;
+    case dragon_harpoon : @attempt_fish_swordfish;
     case lobster_pot : @attempt_fish_lobster;
+    case lobster_pot_oak : @attempt_fish_lobster;
+    case lobster_pot_willow : @attempt_fish_lobster;
+    case lobster_pot_maple : @attempt_fish_lobster;
+    case lobster_pot_yew : @attempt_fish_lobster;
+    case lobster_pot_magic : @attempt_fish_lobster;
     case big_net : ~mesbox("The fish here aren't suitable for catching with a big net.");
     case default : @fishing_wrong_spot_message(last_useitem);
 }
 
-
+//--- Lobster Fishing
 [label,attempt_fish_lobster]
-// check level
 if (stat(fishing) < 40) {
     anim(null, 0);
     ~mesbox("You need at least 40 Fishing to catch Lobsters.");
     return;
 }
-// check if they have fishing equipment
-if (~check_fish_equipment(lobster_pot) = false) {
-    return;
+def_namedobj $pot = null;
+def_seq $anim = human_lobster;
+%lobster_pot_varp = null;
+%fishing_animation = null;
+
+if (inv_total(inv, lobster_pot_magic) > 0) {
+    $pot = lobster_pot_magic;
+    $anim = human_lobster_pot_magic;
+    %lobster_pot_varp = ^f_magic;
+    %fishing_animation = ^f_magic;
+} else if (inv_total(inv, lobster_pot_yew) > 0) {
+    $pot = lobster_pot_yew;
+    $anim = human_lobster_pot_yew;
+    %lobster_pot_varp = ^f_yew;
+    %fishing_animation = ^f_yew;
+} else if (inv_total(inv, lobster_pot_maple) > 0) {
+    $pot = lobster_pot_maple;
+    $anim = human_lobster_pot_maple;
+    %lobster_pot_varp = ^f_maple;
+    %fishing_animation = ^f_maple;
+} else if (inv_total(inv, lobster_pot_willow) > 0) {
+    $pot = lobster_pot_willow;
+    $anim = human_lobster_pot_willow;
+    %lobster_pot_varp = ^f_willow;
+    %fishing_animation = ^f_willow;
+} else if (inv_total(inv, lobster_pot_oak) > 0) {
+    $pot = lobster_pot_oak;
+    $anim = human_lobster_pot_oak;
+    %lobster_pot_varp = ^f_oak;
+    %fishing_animation = ^f_oak;
+} else if (inv_total(inv, lobster_pot) > 0) {
+    $pot = lobster_pot;
+    $anim = human_lobster;
+    %fishing_animation = null;
 }
 
-// check if inv is full
+if ($pot = null) {
+    ~mesbox("You need a lobster pot to fish here.");
+    return;
+}
 if (inv_freespace(inv) < 1) {
     anim(null, 0);
     ~mesbox("You can't carry any more lobsters.");
     return;
 }
+
 if (%action_delay < map_clock) {
-    %action_delay = calc(map_clock + 4);
+    %action_delay = calc(map_clock + 5);
     p_opnpc(1);
     return;
-} else if (%action_delay = calc(map_clock + 3)) {
-    anim(human_lobster, 0);
+} else if (%action_delay = calc(map_clock + 4)) {
+    anim($anim, 0);
     sound_synth(fishing_cast, 0, 20);
-    // https://youtu.be/WGq6FZpnH7Y?t=70
     mes("You attempt to catch a Lobster.");
     p_opnpc(4);
+    return;
 } else if (%action_delay = map_clock) { 
-    ~fish_roll(raw_lobster, null, lobster_pot, null);
-    anim(human_lobster, 0);
+    anim($anim, 0);
+    ~fish_roll(raw_lobster, null, $pot, null);
+    p_opnpc(4);
+    return;
 }
 
-
-
 [label,fish_lobster]
-// check level
 if (stat(fishing) < 40) {
     anim(null, 0);
     ~mesbox("You need at least 40 Fishing to catch Lobsters.");
     return;
 }
-// check if they have fishing equipment
-if (~check_fish_equipment(lobster_pot) = false) {
+def_namedobj $pot = null;
+def_seq $anim = human_lobster;
+%fishing_animation = null;
+
+if (inv_total(inv, lobster_pot_magic) > 0) {
+    $pot = lobster_pot_magic;
+    $anim = human_lobster_pot_magic;
+    %fishing_animation = ^f_magic;
+} else if (inv_total(inv, lobster_pot_yew) > 0) {
+    $pot = lobster_pot_yew;
+    $anim = human_lobster_pot_yew;
+    %fishing_animation = ^f_yew;
+} else if (inv_total(inv, lobster_pot_maple) > 0) {
+    $pot = lobster_pot_maple;
+    $anim = human_lobster_pot_maple;
+    %fishing_animation = ^f_maple;
+} else if (inv_total(inv, lobster_pot_willow) > 0) {
+    $pot = lobster_pot_willow;
+    $anim = human_lobster_pot_willow;
+    %fishing_animation = ^f_willow;
+} else if (inv_total(inv, lobster_pot_oak) > 0) {
+    $pot = lobster_pot_oak;
+    $anim = human_lobster_pot_oak;
+    %fishing_animation = ^f_oak;
+} else if (inv_total(inv, lobster_pot) > 0) {
+    $pot = lobster_pot;
+    $anim = human_lobster;
+    %fishing_animation = null;
+}
+
+if ($pot = null) {
+    ~mesbox("You need a lobster pot to fish here.");
     return;
 }
-// check if inv is full again
 if (inv_freespace(inv) < 1) {
     anim(null, 0);
     ~mesbox("You can't carry any more lobsters.");
     return;
 }
+
 if (%action_delay < map_clock) {
     %action_delay = calc(map_clock + 5);
 } else if (%action_delay = map_clock) {
-    ~fish_roll(raw_lobster, null, lobster_pot, null);
-    anim(human_lobster, 0);
+    anim($anim, 0);
+    ~fish_roll(raw_lobster, null, $pot, null);
+
 }
 p_opnpc(4);
 
-//--- Tuna and swordfish
+//--- Tuna and swordfish fishing
 [label,attempt_fish_swordfish]
-// check level for tuna
 if (stat(fishing) < 35) {
     anim(null, 0);
     ~mesbox("You need at least 35 Fishing to harpoon these fish.");
     return;
 }
-// check if they have fishing equipment
-if (~check_fish_equipment(harpoon) = false) {
+def_namedobj $harpoon = null;
+%harpoon_varp = null;
+
+if (inv_total(inv, dragon_harpoon) > 0) {
+    $harpoon = dragon_harpoon;
+    %harpoon_varp = ^f_dragon;
+} else if (inv_total(inv, founders_harpoon) > 0) {
+    $harpoon = founders_harpoon;
+    %harpoon_varp = ^f_founders;
+} else if (inv_total(inv, rune_harpoon) > 0) {
+    $harpoon = rune_harpoon;
+    %harpoon_varp = ^f_rune;
+} else if (inv_total(inv, adamant_harpoon) > 0) {
+    $harpoon = adamant_harpoon;
+    %harpoon_varp = ^f_adamant;
+} else if (inv_total(inv, mithril_harpoon) > 0) {
+    $harpoon = mithril_harpoon;
+    %harpoon_varp = ^f_mithril;
+} else if (inv_total(inv, steel_harpoon) > 0) {
+    $harpoon = steel_harpoon;
+    %harpoon_varp = ^f_steel;
+} else if (inv_total(inv, iron_harpoon) > 0) {
+    $harpoon = iron_harpoon;
+    %harpoon_varp = ^f_iron;
+} else if (inv_total(inv, bronze_harpoon) > 0) {
+    $harpoon = bronze_harpoon;
+    %harpoon_varp = ^f_bronze;
+} else if (inv_total(inv, harpoon) > 0) {
+    $harpoon = harpoon;
+}
+
+if ($harpoon = null) {
+    ~mesbox("You need a harpoon to fish here.");
     return;
 }
-// check if inv is full
+
+def_seq $anim = human_harpoon;
+%fishing_animation = null;
+
+if ($harpoon = dragon_harpoon) {
+    $anim = human_dragonharpoon;
+    %fishing_animation = ^f_dragon;
+} else if ($harpoon = rune_harpoon) {
+    $anim = human_runeharpoon;
+    %fishing_animation = ^f_rune;
+} else if ($harpoon = adamant_harpoon) {
+    $anim = human_adamantharpoon;
+    %fishing_animation = ^f_adamant;
+} else if ($harpoon = mithril_harpoon) {
+    $anim = human_mithrilharpoon;
+    %fishing_animation = ^f_mithril;
+} else if ($harpoon = steel_harpoon) {
+    $anim = human_steelharpoon;
+    %fishing_animation = ^f_steel;
+} else if ($harpoon = iron_harpoon) {
+    $anim = human_ironharpoon;
+    %fishing_animation = ^f_iron;
+} else if ($harpoon = bronze_harpoon) {
+    $anim = human_bronzeharpoon;
+    %fishing_animation = ^f_bronze;
+} else if ($harpoon = founders_harpoon) {
+    $anim = human_foundersharpoon;
+    %fishing_animation = ^f_founders;
+}
+
 if (inv_freespace(inv) < 1) {
     anim(null, 0);
     ~mesbox("You can't carry any more fish.");
     return;
 }
+
 if (%action_delay < map_clock) {
     %action_delay = calc(map_clock + 5);
     p_opnpc(3);
     return;
 } else if (%action_delay = calc(map_clock + 4)) {
     mes("You start Harpooning fish.");
-    anim(human_harpoon, 0);
+    anim($anim, 0);
     sound_synth(fishing_cast, 0, 0);
     p_opnpc(5);
+    return;
 } else if (%action_delay = map_clock) { 
+    anim($anim, 0);
     if (stat(fishing) >= 50) {
-        ~fish_roll(raw_swordfish, raw_tuna, harpoon, null);
+        ~fish_roll(raw_swordfish, raw_tuna, $harpoon, null);
     } else {
-        ~fish_roll(raw_tuna, null, harpoon, null);
+        ~fish_roll(raw_tuna, null, $harpoon, null);
     }
-    anim(human_harpoon, 0);
+
 }
 
-
 [label,fish_swordfish]
-// check level for tuna
 if (stat(fishing) < 35) {
     anim(null, 0);
     ~mesbox("You need at least 35 Fishing to harpoon these fish.");
     return;
 }
-// check if they have fishing equipment
-if (~check_fish_equipment(harpoon) = false) {
+
+def_namedobj $harpoon = null;
+%harpoon_varp = null;
+
+if (inv_total(inv, dragon_harpoon) > 0) {
+    $harpoon = dragon_harpoon;
+    %harpoon_varp = ^f_dragon;
+} else if (inv_total(inv, founders_harpoon) > 0) {
+    $harpoon = founders_harpoon;
+    %harpoon_varp = ^f_founders;
+} else if (inv_total(inv, rune_harpoon) > 0) {
+    $harpoon = rune_harpoon;
+    %harpoon_varp = ^f_rune;
+} else if (inv_total(inv, adamant_harpoon) > 0) {
+    $harpoon = adamant_harpoon;
+    %harpoon_varp = ^f_adamant;
+} else if (inv_total(inv, mithril_harpoon) > 0) {
+    $harpoon = mithril_harpoon;
+    %harpoon_varp = ^f_mithril;
+} else if (inv_total(inv, steel_harpoon) > 0) {
+    $harpoon = steel_harpoon;
+    %harpoon_varp = ^f_steel;
+} else if (inv_total(inv, iron_harpoon) > 0) {
+    $harpoon = iron_harpoon;
+    %harpoon_varp = ^f_iron;
+} else if (inv_total(inv, bronze_harpoon) > 0) {
+    $harpoon = bronze_harpoon;
+    %harpoon_varp = ^f_bronze;
+} else if (inv_total(inv, harpoon) > 0) {
+    $harpoon = harpoon;
+}
+
+if ($harpoon = null) {
+    ~mesbox("You need a harpoon to fish here.");
     return;
 }
-// check if inv is full again
+
+def_seq $anim = human_harpoon;
+%fishing_animation = null;
+
+if ($harpoon = dragon_harpoon) {
+    $anim = human_dragonharpoon;
+    %fishing_animation = ^f_dragon;
+} else if ($harpoon = rune_harpoon) {
+    $anim = human_runeharpoon;
+    %fishing_animation = ^f_rune;
+} else if ($harpoon = adamant_harpoon) {
+    $anim = human_adamantharpoon;
+    %fishing_animation = ^f_adamant;
+} else if ($harpoon = mithril_harpoon) {
+    $anim = human_mithrilharpoon;
+    %fishing_animation = ^f_mithril;
+} else if ($harpoon = steel_harpoon) {
+    $anim = human_steelharpoon;
+    %fishing_animation = ^f_steel;
+} else if ($harpoon = iron_harpoon) {
+    $anim = human_ironharpoon;
+    %fishing_animation = ^f_iron;
+} else if ($harpoon = bronze_harpoon) {
+    $anim = human_bronzeharpoon;
+    %fishing_animation = ^f_bronze;
+} else if ($harpoon = founders_harpoon) {
+    $anim = human_foundersharpoon;
+    %fishing_animation = ^f_founders;
+}
+
 if (inv_freespace(inv) < 1) {
     anim(null, 0);
     ~mesbox("You can't carry any more fish.");
     return;
 }
+
 if (%action_delay < map_clock) {
     %action_delay = calc(map_clock + 5);
 } else if (%action_delay = map_clock) {
+    anim($anim, 0);
     if (stat(fishing) >= 50) {
-        ~fish_roll(raw_swordfish, raw_tuna, harpoon, null);
+        ~fish_roll(raw_swordfish, raw_tuna, $harpoon, null);
     } else {
-        ~fish_roll(raw_tuna, null, harpoon, null);
+        ~fish_roll(raw_tuna, null, $harpoon, null);
     }
-    anim(human_harpoon, 0);
+
 }
 p_opnpc(5);

@@ -57,9 +57,10 @@ def_int $magic = stat_base(magic);
 def_int $runecraft = stat_base(runecraft);
 
 
-def_int $brewing = add($magic,$runecraft);
-
-%intelligence = $brewing;
+def_int $sorcery = add($magic,$runecraft);
+def_int $brewing = stat_base(herblore);
+def_int $total = calc($brewing + $sorcery);
+%intelligence = $total;
 return;
 
 [proc,hunter_check]
@@ -99,15 +100,24 @@ def_int $engineer = add($smithing,$crafter);
 def_int $total = $engineer;
 %engineering = $total;
 
+[proc,rogue_check]
+def_int $nimble = stat_base(agility);
+def_int $sleight = stat_base(thieving);
+
+def_int $rogue = calc($nimble + $sleight);
+
+%rogue = $rogue;
 [proc,prestige_check]
 ~show_skill_total;
 ~engineering_check;
 ~hunter_check;
 ~fortitude_check;
 ~intel_check;
-def_int $p1 = add(%intelligence,%fortitude);
+~rogue_check;
+def_int $p1 = add(%intelligence,%rogue);
 def_int $p2 = add(%hunter,%engineering);
-def_int $total = add($p1,$p2);
+def_int $p3 = %fortitude;
+def_int $total = calc($p1 + $p2 + $p3);
 
 def_int $stat_total = %total_level;
 

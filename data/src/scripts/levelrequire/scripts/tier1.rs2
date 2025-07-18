@@ -81,7 +81,7 @@
 [opheld2,magicstaff] @levelrequire_magic_and_attack(5, 1, last_slot);
 
 //Hardcore Items
-[opheld2,hc_bronze_scimitar] @hardcore_items(last_slot);
+[opheld2,hc_iron_scimitar] @hardcore_items(last_slot);
 [opheld2,hc_iron_full_helm] @hardcore_items(last_slot);
 [opheld2,hc_iron_platebody] @hardcore_items(last_slot);
 [opheld2,hc_iron_platelegs] @hardcore_items(last_slot);

@@ -1,3 +1,4 @@
 ^cw_lifesteal = 0
 ^cw_stun_proc= 1
-^cw_retaliation = 0
+^cw_retaliation = 2
+^cw_none = 3

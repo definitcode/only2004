@@ -1,3 +1,4 @@
+[opnpc2,sedridor] @teleport_to_essence_mine(^essence_mine_to_sedridor);
 [opnpc1,sedridor]
 ~chatnpc("<p,neutral>Welcome adventurer, to the world renowned|Wizards' Tower. How may I help you?");
 // we don't support teleporting until the quest is complete

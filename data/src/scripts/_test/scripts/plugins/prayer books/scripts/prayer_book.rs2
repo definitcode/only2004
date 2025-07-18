@@ -1,8 +1,7 @@
 [opheld1,book_of_prayers] @meleeprayer;
-[opheld2,book_of_prayers] @rangedprayer;
-[opheld3,book_of_prayers] @magicprayer;
-[opheld4,book_of_prayers] @cast_prayer;
-
+[opheld3,book_of_prayers] @rangedprayer;
+[opheld4,book_of_prayers] @magicprayer;
+[opheld5,book_of_prayers] @cast_prayer;
 [label,cast_prayer]
 if (stat(prayer) > 9){
     def_int $random = random(10);

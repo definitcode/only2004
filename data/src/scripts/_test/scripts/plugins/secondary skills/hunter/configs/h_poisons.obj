@@ -1,0 +1,12 @@
+[poison_cake]
+iop1=Eat
+name=Cake
+desc=A plain sponge cake.
+cost=50
+model=model_2531_obj
+2dyof=-8
+2dzoom=670
+2dyan=120
+2dxan=164
+weight=300g
+category=poisonfood

@@ -12,7 +12,9 @@ stock1=vial_empty,800,100
 stock3=pestle_and_mortar,3,100
 stock4=eye_of_newt,800,200
 stock5=unidentified_guam,15,450
-stock10=limpwurt_root,30,5000
+stock6=limpwurt_root,30,2000
+stock7=salt_petre,5000,500
+stock8=gunpowder,100,1000
 
 [2handedshop]
 // https://classic.runescape.wiki/w/Gaius%27_Two_Handed_Sword_Shop

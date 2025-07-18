@@ -1,0 +1,191 @@
+[cog]
+name=Iron Cog
+desc=A cog for Engineering.
+cost=1500
+model=model_2351_obj
+recol1s=32767
+recol1d=0
+members=yes
+2dyan=2040
+2dxan=292
+weight=1kg
+category=e_part
+tradeable=yes
+stackable=yes
+
+[gunpowder]
+name=Gun Powder
+desc=Ingredient for explosives.
+cost=2500
+members=yes
+model=model_2742_obj
+recol1s=21140
+recol1d=0
+2dxof=-6
+2dzoom=1210
+2dyan=1892
+2dxan=264
+weight=2oz
+stackable=yes
+
+[salt_petre]
+name=Salt Petre
+desc=One of the ingredients for making Gunpowder.
+cost=125
+members=yes
+model=model_2742_obj
+recol1s=21140
+recol1d=23254
+2dxof=-6
+iop1=Grind
+2dzoom=1210
+2dyan=1892
+2dxan=264
+weight=2oz
+stackable=yes
+
+[iron_nails]
+name=Iron Nails
+desc=Keeps things in place fairly permanently.
+cost=750
+model=model_2580_obj
+recol1s=7399
+recol1d=14798
+stackable=yes
+2dxof=3
+2dyof=4
+2dzoom=650
+2dyan=1984
+2dxan=308
+weight=5g
+category=category_74
+tradeable=yes
+
+
+[bucket_peter]
+name=Bucket of Salt Petre
+desc=It's a bucket of Salt Petre (4).
+cost=6
+model=model_2504_obj
+recol1s=173
+recol1d=23254
+members=yes
+2dyof=-18
+2dzoom=1020
+2dyan=1688
+2dxan=204
+weight=2500g
+
+[bucket_powder]
+name=Bucket of Gunpowder
+desc=It's a bucket of Gunpowder (4).
+cost=6
+model=model_2504_obj
+recol1s=173
+recol1d=0
+members=yes
+2dyof=-18
+2dzoom=1020
+2dyan=1688
+2dxan=204
+weight=2500g
+
+
+[bronze_rod]
+name=Bronze Rod
+desc=A rod made of bronze.
+model=model_2597_obj
+recol1s=4160 
+recol1d=8354 
+2dxof=-2
+2dyof=-19
+2dzoom=1070
+2dyan=1056
+2dxan=224
+stackable=yes
+
+[iron_rod]
+name=Iron Rod
+desc=A rod made of iron.
+model=model_2597_obj
+recol1s=4160 
+recol1d=8456
+2dxof=-2
+2dyof=-19
+2dzoom=1070
+2dyan=1056
+2dxan=224
+stackable=yes
+
+[steel_rod]
+name=Steel Rod
+desc=A rod made of steel.
+model=model_2597_obj
+recol1s=4160
+recol1d=15855  
+2dxof=-2
+2dyof=-19
+2dzoom=1070
+2dyan=1056
+2dxan=224
+stackable=yes
+
+[mithril_rod]
+name=Mithril Rod
+desc=A rod made of mithril.
+model=model_2597_obj
+recol1s=4160
+recol1d=6346  
+2dxof=-2
+2dyof=-19
+2dzoom=1070
+2dyan=1056
+2dxan=224
+stackable=yes
+
+[adamant_rod]
+name=Adamant Rod
+desc=A rod made of adamant.
+model=model_2597_obj
+recol1s=4160
+recol1d=6438  
+2dxof=-2
+2dyof=-19
+2dzoom=1070
+2dyan=1056
+2dxan=224
+stackable=yes
+
+[rune_rod]
+name=Rune Rod
+desc=A rod made of rune.
+model=model_2597_obj
+recol1s=4160
+recol1d=6476  
+2dxof=-2
+2dyof=-19
+2dzoom=1070
+2dyan=1056
+2dxan=224
+stackable=yes
+
+[dragon_rod]
+name=Dragon Rod
+desc=A rod made of dragon.
+model=model_2597_obj
+recol1s=4160
+recol1d=14336 
+2dxof=-2
+2dyof=-19
+2dzoom=1070
+2dyan=1056
+2dxan=224
+stackable=yes
+
+
+
+
+
+
+
+

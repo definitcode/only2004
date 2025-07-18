@@ -12,7 +12,7 @@
 [opheld2,adamant_2h_sword] @levelrequire_attack(70, last_slot);
 [opheld2,adamant_pickaxe] @levelrequire_attack(70, last_slot);
 [opheld2,adamant_axe] @levelrequire_attack(70, last_slot);
-
+[opheld2,adamant_gauntlets]  @levelrequire_crestquest_defence(70, last_slot);
 [opheld2,adamant_med_helm] @levelrequire_defence(70, last_slot);
 [opheld2,adamant_full_helm] @levelrequire_defence(70, last_slot);
 [opheld2,adamant_sq_shield] @levelrequire_defence(70, last_slot);

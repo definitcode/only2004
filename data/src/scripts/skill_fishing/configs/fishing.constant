@@ -1,0 +1,17 @@
+// Harpoons
+^f_bronze = 0
+^f_iron = 1
+^f_steel = 2
+^f_mithril = 3
+^f_adamant = 4
+^f_rune = 5
+^f_dragon = 6
+^f_founders = 7
+
+
+// Pots
+^f_oak = 0
+^f_willow = 1
+^f_maple = 2
+^f_yew = 3
+^f_magic = 4

@@ -275,6 +275,21 @@ weight=4lb
 cost=31999
 param=fixed,rune_pickaxe
 
+[macro_dragon_pickaxehead]
+name=Pickaxe head
+desc=It's missing a handle.
+model=model_2732_obj
+recol1s=15855
+recol1d=10273
+2dxof=-2
+2dyof=-19
+2dzoom=1070
+2dyan=1056
+2dxan=224
+weight=4lb
+cost=31999
+param=fixed,dragon_pickaxe
+
 [macro_hatchethandle]
 name=Axe handle
 desc=Useless without the head.

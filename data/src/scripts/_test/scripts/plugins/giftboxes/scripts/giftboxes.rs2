@@ -111,7 +111,7 @@ return;
 
 [proc,hc_box]
 if (inv_freespace(inv) > 6){
-    inv_add(inv, hc_bronze_scimitar, 1);
+    inv_add(inv, hc_iron_scimitar, 1);
     inv_add(inv, hc_iron_full_helm, 1);
     inv_add(inv, hc_iron_platebody, 1);
     inv_add(inv, hc_iron_platelegs, 1);

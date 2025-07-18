@@ -1,11 +1,126 @@
+[opheldu,hc_knife] @knife_item_use;
+[opheldu,e_bronze_knife] @knife_item_use;
+
+[opheldu,e_iron_knife] @knife_item_use;
+
+[opheldu,e_steel_knife] @knife_item_use;
+
+[opheldu,e_mithril_knife] @knife_item_use;
+
+[opheldu,e_adamant_knife] @knife_item_use;
+
+[opheldu,e_rune_knife] @knife_item_use;
+
+[opheldu,e_dragon_knife] @knife_item_use;
+
+[opheldu,founders_knife] @knife_item_use;
+
 [opheldu,_category_22]
+// Multi-knife support for fletching logs, prioritizing best first
+if (last_useitem = e_dragon_knife) {
+    @fletch_log(last_useitem);
+} else if (last_useitem = e_rune_knife) {
+    @fletch_log(last_item);
+} else if (last_useitem = e_adamant_knife) {
+    @fletch_log(last_item);
+} else if (last_useitem = e_mithril_knife) {
+    @fletch_log(last_item);
+} else if (last_useitem = e_steel_knife) {
+    @fletch_log(last_item);
+} else if (last_useitem = e_iron_knife) {
+    @fletch_log(last_item);
+} else if (last_useitem = e_bronze_knife) {
+    @fletch_log(last_item);
+} else if (last_useitem = founders_knife) {
+    @fletch_log(last_item);
+} else if (last_useitem = knife) {
+    @fletch_log(last_item);
+} else if (
+    last_useitem = founders_tinderbox |
+    last_useitem = dragon_tinderbox |
+    last_useitem = rune_tinderbox |
+    last_useitem = adamant_tinderbox |
+    last_useitem = mithril_tinderbox |
+    last_useitem = steel_tinderbox |
+    last_useitem = iron_tinderbox |
+    last_useitem = bronze_tinderbox |
+    last_useitem = tinderbox
+) {
+    @light_logs_inv(last_slot);
+} else {
+    ~displaymessage(^dm_default);
+}
+// Unified logic for all knives
+[label,knife_item_use]
 switch_obj(last_useitem) {
-    case knife : @fletch_log(last_item);
-    case tinderbox : @light_logs_inv(last_slot);
-    case default : ~displaymessage(^dm_default);
+    case lemon, orange, lime, pineapple, tentipineapple : @slice_or_dice_interface(last_useitem);
+    case achey_tree_logs : @make_ogre_shafts;
+    case dramen_branch : @cut_dramenstaff;
+    case tentipineapple : mes("This pineapple is too small to cut up into rings. But it's very, very juicy!");
+    case default :
+        if (oc_category(last_useitem) = category_22) {
+            @fletch_log(last_useitem);
+        } else {
+            ~displaymessage(^dm_default);
+        }
 }
 
 [label,fletch_log](obj $log)
+def_int $xp_mult = 1;
+def_int $shaft_mult = 1;
+def_namedobj $knife = null;
+if (inv_total(inv, e_dragon_knife) > 0) {
+    $knife = e_dragon_knife;
+} else if (inv_total(inv, e_rune_knife) > 0) {
+    $knife = e_rune_knife;
+} else if (inv_total(inv, e_adamant_knife) > 0) {
+    $knife = e_adamant_knife;
+} else if (inv_total(inv, e_mithril_knife) > 0) {
+    $knife = e_mithril_knife;
+} else if (inv_total(inv, e_steel_knife) > 0) {
+    $knife = e_steel_knife;
+} else if (inv_total(inv, e_iron_knife) > 0){
+    $knife = e_iron_knife;
+}
+switch_namedobj($knife) {
+    case e_bronze_knife : {
+    }
+        $xp_mult = 1; 
+        $shaft_mult = 1;
+    case e_iron_knife   : {
+    }
+        $xp_mult = 1; 
+        $shaft_mult = 1;
+    case e_steel_knife  : {
+    }
+        $xp_mult = 2;
+        $shaft_mult = 2;
+    case e_mithril_knife : {
+    }
+        $xp_mult = 1; 
+        $shaft_mult = 2;
+    case e_adamant_knife : {
+        $xp_mult = 1; 
+        $shaft_mult = 3;
+    }
+    case e_rune_knife   : {
+        $xp_mult = 2; 
+        $shaft_mult = 3;
+    }
+    case e_dragon_knife : {
+        $xp_mult = 2; 
+        $shaft_mult = 4;
+    }
+    case founders_knife : {
+        $xp_mult = 10; 
+        $shaft_mult = 10;
+    }
+    case default : {
+        $xp_mult = 1; 
+        $shaft_mult = 1;
+    }
+}
+
 if (map_members = false) {
     mes(^mes_members_fletching); // guess
     return;
@@ -21,10 +136,10 @@ if ($data = null) {
 }
 def_namedobj $obj1 = arrow_shaft;
 def_int $shaft_count = db_getfield($data, fletch_bow_table:shafts, 0);
-def_namedobj $obj2;
-def_namedobj $obj3;
+def_namedobj $obj2 = null;
+def_namedobj $obj3 = null;
 $obj2, $obj3 = db_getfield($data, fletch_bow_table:objchoices, 0);
-def_namedobj $product;
+def_namedobj $product = null;
 // guess based off 2004
 if ($shaft_count < 1) {
     $product = ~multiobj2("What would you like to make?", 
@@ -47,7 +162,7 @@ def_int $level = 1;
 // default to shafts
 def_int $count = 1;
 def_int $fletching_experience = multiply($shaft_count, 5);
-def_string $message;
+def_string $message = null;
 // 2005-osrs, rsc
 if ($product = $obj2) {
     $product, $level, $fletching_experience = db_getfield($data, fletch_bow_table:shortbow, 0);
@@ -58,7 +173,8 @@ if ($product = $obj2) {
 } else {
     $message = "You carefully cut the wood into <tostring($shaft_count)> arrow shafts.";
     $count = $shaft_count;
-    $fletching_experience = multiply($shaft_count, 5);
+    $shaft_count = calc($shaft_count * $shaft_mult);
+    $fletching_experience = multiply($shaft_count, $xp_mult);
 }
 if (stat(fletching) < $level) {
     // osrs has a level 1 fail message for arrow shafts but i doubt 2004 used it
@@ -66,11 +182,24 @@ if (stat(fletching) < $level) {
     return;
 }
 // make one bow at a time
+if ($log = logs) {
+    inv_add(inv, tree_bark, 1);
+} else if ($log = oak_logs) {
+    inv_add(inv, oak_bark, 2);
+} else if ($log = willow_logs) {
+    inv_add(inv, willow_bark, 3);
+} else if ($log = maple_logs) {
+    inv_add(inv, maple_bark, 4);
+} else if ($log = yew_logs) {
+    inv_add(inv, yew_bark, 5);
+} else if ($log = magic_logs) {
+    inv_add(inv, magic_bark, 5);
+}
 inv_del(inv, $log, 1);
 mes($message);
-stat_advance(fletching, $fletching_experience);
+stat_advance(fletching, calc($fletching_experience * $xp_mult));
 if (inv_total(worn, headband_red) > 0) {
-    stat_advance(fletching, $fletching_experience);
+    stat_advance(fletching, calc($fletching_experience * $xp_mult));
     mes("Your fletching skills are showing!");
 };
 anim(human_casthighlvlalchemy, 0);
@@ -79,20 +208,101 @@ inv_add(inv, $product, $count);
 queue(fletching_repeat, 2, $log, $product, $count, $message, $fletching_experience);
 
 [queue,fletching_repeat](obj $log, namedobj $product, int $count, string $message, int $fletching_experience)
+def_int $xp_mult = 1;
+def_int $shaft_mult = 1;
+def_namedobj $knife = null;
+if (inv_total(inv, e_dragon_knife) > 0) {
+    $knife = e_dragon_knife;
+} else if (inv_total(inv, e_rune_knife) > 0) {
+    $knife = e_rune_knife;
+} else if (inv_total(inv, e_adamant_knife) > 0) {
+    $knife = e_adamant_knife;
+} else if (inv_total(inv, e_mithril_knife) > 0) {
+    $knife = e_mithril_knife;
+} else if (inv_total(inv, e_steel_knife) > 0) {
+    $knife = e_steel_knife;
+} else if (inv_total(inv, e_iron_knife) > 0){
+    $knife = e_iron_knife;
+}
+switch_namedobj($knife) {
+    case e_bronze_knife : {
+    }
+        $xp_mult = 1; 
+        $shaft_mult = 1;
+    case e_iron_knife   : {
+    }
+        $xp_mult = 1; 
+        $shaft_mult = 1;
+    case e_steel_knife  : {
+    }
+        $xp_mult = 2;
+        $shaft_mult = 2;
+    case e_mithril_knife : {
+    }
+        $xp_mult = 1; 
+        $shaft_mult = 2;
+    case e_adamant_knife : {
+        $xp_mult = 1; 
+        $shaft_mult = 3;
+    }
+    case e_rune_knife   : {
+        $xp_mult = 2; 
+        $shaft_mult = 3;
+    }
+    case e_dragon_knife : {
+        $xp_mult = 2; 
+        $shaft_mult = 4;
+    }
+    case founders_knife : {
+        $xp_mult = 10; 
+        $shaft_mult = 10;
+    }
+    case default : {
+        $xp_mult = 1; 
+        $shaft_mult = 1;
+    }
+}
+// make one bow at a time
+
+
 if(inv_total(inv, $log) > 0) {
     def_int $slot = ~inv_find(inv, $log, 0);
     if ($slot >= 0) {
         // make one bow at a time
+        if ($log = logs) {
+        inv_add(inv, tree_bark, 1);
+        } else if ($log = oak_logs) {
+            inv_add(inv, oak_bark, 2);
+        } else if ($log = willow_logs) {
+            inv_add(inv, willow_bark, 3);
+        } else if ($log = maple_logs) {
+            inv_add(inv, maple_bark, 4);
+        } else if ($log = yew_logs) {
+            inv_add(inv, yew_bark, 5);
+        } else if ($log = magic_logs) {
+            inv_add(inv, magic_bark, 5);
+        }
         inv_del(inv, $log, 1);
-        mes($message);
-        stat_advance(fletching, $fletching_experience);
+        mes("You have obtained some tree bark.");
+        stat_advance(fletching, calc($fletching_experience * $xp_mult));
         if (inv_total(worn, headband_red) > 0) {
-            stat_advance(fletching, $fletching_experience);
+            stat_advance(fletching, calc($fletching_experience * $xp_mult));
             mes("Your fletching skills are showing!");
         }
+
         inv_add(inv, $product, $count);
         anim(human_casthighlvlalchemy, 0);
         sound_synth(tinderbox_strike, 1, 0);
         queue(fletching_repeat, 2, $log, $product, $count, $message, $fletching_experience);
     }
 }
+
+
+
+inv_del(inv, $log, 1);
+mes($message);
+stat_advance(fletching, calc($fletching_experience * $xp_mult));
+if (inv_total(worn, headband_red) > 0) {
+    stat_advance(fletching, calc($fletching_experience * $xp_mult));
+    mes("Your fletching skills are showing!");
+};

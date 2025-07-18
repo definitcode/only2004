@@ -16,5 +16,7 @@ scope=perm
 scope=perm
 [prestige]
 scope=perm
+[rogue]
+scope=perm
 [total_level]
 scope=perm

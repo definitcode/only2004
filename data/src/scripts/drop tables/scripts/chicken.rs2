@@ -17,10 +17,14 @@ gosub(trail_checkmediumdrop);
 
 if (%hunter > 349) {
     obj_add(npc_coord, raw_chicken, 4, ^lootdrop_duration);
-    mes("[4x] Resources!");
+    if (%e_ctoggle = ^e_toggle_on) {
+        mes("[4x] Resources!");
+    }
 } else if (%hunter > 189) {
     obj_add(npc_coord, raw_chicken, 2, ^lootdrop_duration);
-    mes("[2x] Resources!");
+    if (%e_ctoggle = ^e_toggle_on) {
+        mes("[2x] Resources!");
+    }
 } else {
     obj_add(npc_coord, raw_chicken, 1, ^lootdrop_duration);
 }

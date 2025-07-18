@@ -1,0 +1,1460 @@
+[oploc1,loc_609] @engineering;
+[oploc1,loc_610] @engineering;
+
+
+
+[label,engineering]
+    ~hammercheck;
+    ~e_workbenchmenu;
+
+[proc,e_workbenchmenu]
+def_int $choice1 = (~p_choice2_header("Upgrade Item.", 1, "Craft New.", 2, "~Workbench Menu~"));
+switch_int($choice1){
+        case 1 : ~e_upgradeitem;
+        case 2 : ~e_createitem;
+}
+
+[proc,e_upgradeitem]
+def_int $choice1 = (~p_choice2_header("Tools.", 1, "Armour.", 2, "~Workbench Menu~"));
+switch_int($choice1){
+        case 1 : ~e_tools;
+        case 2 : ~e_armour;
+}
+[proc,e_createitem]
+def_int $choice1 = (~p_choice2_header("Parts.", 1, "Traps.", 2, "~Workbench Menu.~"));
+switch_int($choice1){
+        case 1 : ~e_parts;
+        case 2 : ~e_traps;
+}
+
+[proc,e_tools]
+def_int $e_tools = (~p_choice3_header("Woodsman.", 1, "Angler.", 2, "Splunker.", 3, "What kind of tool would you like to upgrade?"));
+
+switch_int($e_tools){
+    case 1 : ~logging_tools;
+    case 2 : ~angler_tools;
+    case 3 : ~splunker_tools;
+}
+
+[proc,logging_tools]
+
+def_int $choice2 = (~p_choice2_header("Tinderbox.", 1, "Knife.", 2, "What kind of tool would you like to upgrade?"));
+switch_int($choice2){
+    case 1 : ~e_tinderbox;
+    case 2 : ~e_knife;
+}
+
+[proc,angler_tools]
+def_int $choice3 = (~p_choice2_header("Harpoon.", 1, "Lobster Pot.", 2, "What kind of tool would you like to upgrade?"));
+switch_int($choice3){
+    case 1 : ~e_harpoon;
+    case 2 : ~e_lobster_pot;
+}
+
+[proc,splunker_tools]
+def_int $choice4 = (~p_choice3_header("Hammer.", 1, "Pickaxe.", 2, "Pickaxehead.", 3, "What kind of tool would you like to upgrade?"));
+switch_int($choice4){
+    case 1 : ~e_hammer;
+    case 2 : ~e_pickaxe;
+    case 3 : ~e_pickaxehead;
+}
+
+
+[proc,e_tinderbox]
+def_int $tinderbox = null;
+if (inv_total(inv, tinderbox) > 0) {
+    if (%engineering > 9) {   
+        if (inv_total(inv, bronze_bar) > 0) {
+            inv_del(inv, bronze_bar, 1);
+            inv_del(inv, tinderbox, 1);
+            ~crafting_action;
+            stat_advance(smithing, 50);
+            stat_advance(crafting, 50);
+            stat_advance(fletching, 50);
+            inv_add(inv, bronze_tinderbox, 1);
+            ~objbox(bronze_tinderbox, "You have upgraded your Tinderbox to a Bronze Tinderbox.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 1 Bronze Bar to upgrade your Tinderbox to a Bronze Tinderbox.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 10 Engineering to upgrade your Tinderbox to a Bronze Tinderbox.");
+        return;
+    }
+} else if (inv_total(inv,bronze_tinderbox) > 0) {
+    if (%engineering > 14) {   
+        if (inv_total(inv, iron_bar) > 1) {
+            inv_del(inv, iron_bar, 2);
+            inv_del(inv, bronze_tinderbox, 1);
+            ~crafting_action;
+            stat_advance(smithing, 150);
+            stat_advance(crafting, 150);
+            stat_advance(fletching, 150);
+            inv_add(inv, iron_tinderbox, 1);
+            ~objbox(iron_tinderbox, "You have upgraded your Bronze Tinderbox to a Iron Tinderbox.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Iron Bars to upgrade your Bronze Tinderbox to a Iron Tinderbox.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 15 Engineering to upgrade your Bronze Tinderbox to a Iron Tinderbox.");
+        return;
+    }    
+} else if (inv_total(inv,iron_tinderbox) > 0) {
+    if (%engineering > 29) {   
+        if (inv_total(inv, steel_bar) > 1) {
+            inv_del(inv, steel_bar, 2);
+            inv_del(inv, iron_tinderbox, 1);
+            ~crafting_action;
+            stat_advance(smithing, 200);
+            stat_advance(crafting, 200);
+            stat_advance(fletching, 200);
+            inv_add(inv, steel_tinderbox, 1);
+            ~objbox(steel_tinderbox, "You have upgraded your Iron Tinderbox to a Steel Tinderbox.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Steel Bars to upgrade your Iron Tinderbox to a Steel Tinderbox.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 30 Engineering to upgrade your Iron Tinderbox to a Steel Tinderbox.");
+        return;
+    }
+} else if (inv_total(inv,steel_tinderbox) > 0) {
+    if (%engineering > 49) {   
+        if (inv_total(inv, mithril_bar) > 4) {
+            inv_del(inv, mithril_bar, 5);
+            inv_del(inv, steel_tinderbox, 1);
+            ~crafting_action;
+            stat_advance(smithing, 450);
+            stat_advance(crafting, 450);
+            stat_advance(fletching, 450);
+            inv_add(inv, mithril_tinderbox, 1);
+            ~objbox(mithril_tinderbox, "You have upgraded your Steel Tinderbox to a Mithril Tinderbox.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Mithril Bars to upgrade your Steel Tinderbox to a Mithril Tinderbox.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 50 Engineering to upgrade your Steel Tinderbox to a Mithril Tinderbox.");
+        return;
+    }
+} else if (inv_total(inv,mithril_tinderbox) > 0) {
+    if (%engineering > 199) {   
+        if (inv_total(inv, adamantite_bar) > 6) {
+            inv_del(inv, adamantite_bar, 7);
+            inv_del(inv, mithril_tinderbox, 1);
+            ~crafting_action;
+            stat_advance(smithing, 750);
+            stat_advance(crafting, 750);
+            stat_advance(fletching, 750);
+            inv_add(inv, adamant_tinderbox, 1);
+            ~objbox(adamant_tinderbox,"You have upgraded your Mithril Tinderbox to an Adamant Tinderbox.",250,0,0);
+            return;
+        } else {
+            ~mesbox("You need 7 Adamant Bars to upgrade your Mithril Tinderbox to an Adamant Tinderbox.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 200 Engineering to upgrade your Mithril Tinderbox to an Adamant Tinderbox.");
+        return;
+    }
+} else if (inv_total(inv,adamant_tinderbox) > 0) {
+    if (%engineering > 249) {
+        if (inv_total(inv, runite_bar) > 9) {
+            inv_del(inv, runite_bar, 10);
+            inv_del(inv, adamant_tinderbox, 1);
+            ~crafting_action;
+            stat_advance(smithing, 850);
+            stat_advance(crafting, 850);
+            stat_advance(fletching, 850);
+            inv_add(inv, rune_tinderbox, 1);
+            ~objbox(rune_tinderbox,"You have upgraded your Adamant Tinderbox to a Rune Tinderbox.",250,0,0);
+            return;
+        } else {
+            ~mesbox("You need 10 Rune Bars to upgrade your Adamant Tinderbox to a Rune Tinderbox.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 250 Engineering to upgrade your Adamant Tinderbox to a Rune Tinderbox.");
+        return;
+    }
+} else if (inv_total(inv,rune_tinderbox) > 0) {
+    if (%engineering > 295) {
+        if (inv_total(inv, dragon_bar) > 19) {
+            inv_del(inv, dragon_bar, 20);
+            inv_del(inv, rune_tinderbox, 1);
+            ~crafting_action;
+            stat_advance(smithing, 950);
+            stat_advance(crafting, 950);
+            stat_advance(fletching, 950);
+            inv_add(inv, dragon_tinderbox, 1);
+            ~objbox(dragon_tinderbox,"You have upgraded your Rune Tinderbox to a Dragon Tinderbox.",250,0,0);
+            return;
+        } else {
+            ~mesbox("You need 20 Dragon Bars to upgrade your Rune Tinderbox to a Dragon Tinderbox.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 296 Engineering to upgrade your Rune Tinderbox to a Dragon Tinderbox.");
+        return;
+    }
+} else {
+    ~mesbox("You do not have a tinderbox!");
+}
+
+[proc,e_hammer]
+def_int $hammer = null;
+if (inv_total(inv, hammer) > 0) {
+    if (%engineering > 9) {   
+        if (inv_total(inv, bronze_bar) > 0) {
+            inv_del(inv, bronze_bar, 1);
+            ~crafting_action;
+            inv_del(inv, hammer, 1);
+            stat_advance(smithing, 150);
+            stat_advance(crafting, 150);
+            stat_advance(fletching, 150);
+            inv_add(inv, bronze_hammer, 1);
+            ~objbox(bronze_hammer, "You have upgraded your Hammer to a Bronze Hammer.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 1 Bronze Bar to upgrade your Hammer to a Bronze Hammer.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 10 Engineering to upgrade your Hammer to a Bronze Hammer.");
+        return;
+    }
+} else if (inv_total(inv,bronze_hammer) > 0) {
+    if (%engineering > 14) {   
+        if (inv_total(inv, iron_bar) > 1) {
+            inv_del(inv, iron_bar, 2);
+            ~crafting_action;
+            inv_del(inv, bronze_hammer, 1);
+            stat_advance(smithing, 200);
+            stat_advance(crafting, 200);
+            stat_advance(fletching, 200);
+            inv_add(inv, iron_hammer, 1);
+            ~objbox(iron_hammer, "You have upgraded your Bronze Hammer to an Iron Hammer.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Iron Bars to upgrade your Bronze Hammer to an Iron Hammer.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 15 Engineering to upgrade your Bronze Hammer to an Iron Hammer.");
+        return;
+    }    
+} else if (inv_total(inv,iron_hammer) > 0) {
+    if (%engineering > 29) {   
+        if (inv_total(inv, steel_bar) > 1) {
+            inv_del(inv, steel_bar, 2);
+            ~crafting_action;
+            inv_del(inv, iron_hammer, 1);
+            stat_advance(smithing, 250);
+            stat_advance(crafting, 250);
+            stat_advance(fletching, 250);
+            inv_add(inv, steel_hammer, 1);
+            ~objbox(steel_hammer, "You have upgraded your Iron Hammer to a Steel Hammer.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Steel Bars to upgrade your Iron Hammer to a Steel Hammer.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 30 Engineering to upgrade your Iron Hammer to a Steel Hammer.");
+        return;
+    }
+} else if (inv_total(inv,steel_hammer) > 0) {
+    if (%engineering > 49) {   
+        if (inv_total(inv, mithril_bar) > 4) {
+            inv_del(inv, mithril_bar, 5);
+            ~crafting_action;
+            inv_del(inv, steel_hammer, 1);
+            stat_advance(smithing, 550);
+            stat_advance(crafting, 550);
+            stat_advance(fletching, 550);
+            inv_add(inv, mithril_hammer, 1);
+            ~objbox(mithril_hammer, "You have upgraded your Steel Hammer to a Mithril Hammer.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 5 Mithril Bars to upgrade your Steel Hammer to a Mithril Hammer.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 50 Engineering to upgrade your Steel Hammer to a Mithril Hammer.");
+        return;
+    }
+} else if (inv_total(inv,mithril_hammer) > 0) {
+    if (%engineering > 199) {   
+        if (inv_total(inv, adamantite_bar) > 6) {
+            inv_del(inv, adamantite_bar, 7);
+            ~crafting_action;
+            inv_del(inv, mithril_hammer, 1);
+            stat_advance(smithing, 650);
+            stat_advance(crafting, 650);
+            stat_advance(fletching, 650);
+            inv_add(inv, adamant_hammer, 1);
+            ~objbox(adamant_hammer,"You have upgraded your Mithril Hammer to an Adamant Hammer.", 250,0,0);
+            return;
+        } else {
+            ~mesbox("You need 7 Adamant Bars to upgrade your Mithril Hammer to an Adamant Hammer.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 200 Engineering to upgrade your Mithril Hammer to an Adamant Hammer.");
+        return;
+    }
+} else if (inv_total(inv,adamant_hammer) > 0) {
+    if (%engineering > 249) {
+        if (inv_total(inv, runite_bar) > 9) {
+            inv_del(inv, runite_bar, 10);
+            ~crafting_action;
+            inv_del(inv, adamant_hammer, 1);
+            stat_advance(smithing, 750);
+            stat_advance(crafting, 750);
+            stat_advance(fletching, 750);
+            inv_add(inv, rune_hammer, 1);
+            ~objbox(rune_hammer,"You have upgraded your Adamant Hammer to a Rune Hammer.",250,0,0);
+            return;
+        } else {
+            ~mesbox("You need 10 Rune Bars to upgrade your Adamant Hammer to a Rune Hammer.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 250 Engineering to upgrade your Adamant Hammer to a Rune Hammer.");
+        return;
+    }
+} else if (inv_total(inv,rune_hammer) > 0) {
+    if (%engineering > 295) {
+        if (inv_total(inv, dragon_bar) > 19) {
+            inv_del(inv, dragon_bar, 20);
+            ~crafting_action;
+            inv_del(inv, rune_hammer, 1);
+            stat_advance(smithing, 950);
+            stat_advance(crafting, 950);
+            stat_advance(fletching, 950);
+            inv_add(inv, dragon_hammer, 1);
+            ~objbox(dragon_hammer,"You have upgraded your Rune Hammer to a Dragon Hammer.",250,0,0);
+            return;
+        } else {
+            ~mesbox("You need 20 Dragon Bars to upgrade your Rune Hammer to a Dragon Hammer.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 296 Engineering to upgrade your Rune Hammer to a Dragon Hammer.");
+        return;
+    }
+} else {
+    ~mesbox("You do not have a hammer!");
+}
+
+[proc,e_pickaxe]
+def_int $pickaxe = null;
+
+if (inv_total(inv, bronze_pickaxe) > 0) {
+    if (%engineering > 14) {
+        if (inv_total(inv, oak_logs) > 1 & inv_total(inv, macro_iron_pickaxehead) > 0) {
+            inv_del(inv, oak_logs, 2);
+            inv_del(inv, macro_iron_pickaxehead, 1);
+            inv_del(inv, bronze_pickaxe, 1);
+            ~crafting_action;
+            p_delay(1);
+            anim(highlvlalchemy,0);
+            stat_advance(smithing, 50);
+            stat_advance(crafting, 50);
+            stat_advance(fletching, 50);
+            inv_add(inv, iron_pickaxe, 1);
+            ~objbox(iron_pickaxe, "You have upgraded your Bronze Pickaxe to an Iron Pickaxe.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Oak Logs and an Iron Pickaxehead to upgrade your Bronze Pickaxe to an Iron Pickaxe.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 15 Engineering to upgrade your Bronze Pickaxe to an Iron Pickaxe.");
+        return;
+    }
+} else if (inv_total(inv, iron_pickaxe) > 0) {
+    if (%engineering > 29) {
+        if (inv_total(inv, willow_logs) > 1 & inv_total(inv, macro_steel_pickaxehead) > 0) {
+            inv_del(inv, willow_logs, 2);
+            inv_del(inv, macro_steel_pickaxehead, 1);
+            inv_del(inv, iron_pickaxe, 1);
+            ~crafting_action;
+            p_delay(1);
+            anim(highlvlalchemy,0);
+            stat_advance(smithing, 200);
+            stat_advance(crafting, 200);
+            stat_advance(fletching, 200);   
+            inv_add(inv, steel_pickaxe, 1);
+            ~objbox(steel_pickaxe, "You have upgraded your Iron Pickaxe to a Steel Pickaxe.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Willow Logs and a Steel Pickaxehead to upgrade your Iron Pickaxe to a Steel Pickaxe.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 30 Engineering to upgrade your Iron Pickaxe to a Steel Pickaxe.");
+        return;
+    }
+} else if (inv_total(inv, steel_pickaxe) > 0) {
+    if (%engineering > 49) {
+        if (inv_total(inv, maple_logs) > 1 & inv_total(inv, macro_mithril_pickaxehead) > 0) {
+            inv_del(inv, maple_logs, 2);
+            inv_del(inv, macro_mithril_pickaxehead, 1);
+            inv_del(inv, steel_pickaxe, 1);
+            ~crafting_action;
+            p_delay(1);
+            anim(highlvlalchemy,0);
+            stat_advance(smithing, 450);
+            stat_advance(crafting, 450);
+            stat_advance(fletching, 450);   
+            inv_add(inv, mithril_pickaxe, 1);
+            ~objbox(mithril_pickaxe, "You have upgraded your Steel Pickaxe to a Mithril Pickaxe.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Maple Logs and a Mithril Pickaxehead to upgrade your Steel Pickaxe to a Mithril Pickaxe.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 50 Engineering to upgrade your Steel Pickaxe to a Mithril Pickaxe.");
+        return;
+    }
+} else if (inv_total(inv, mithril_pickaxe) > 0) {
+    if (%engineering > 199) {
+        if (inv_total(inv, yew_logs) > 1 & inv_total(inv, macro_adamant_pickaxehead) > 0) {
+            inv_del(inv, yew_logs, 2);
+            inv_del(inv, macro_mithril_pickaxehead, 1);
+            inv_del(inv, mithril_pickaxe, 1);
+            ~crafting_action;
+            p_delay(1);
+            anim(highlvlalchemy,0);
+            stat_advance(smithing, 550);
+            stat_advance(crafting, 550);
+            stat_advance(fletching, 550);            
+            inv_add(inv, adamant_pickaxe, 1);
+            ~objbox(adamant_pickaxe, "You have upgraded your Mithril Pickaxe to an Adamant Pickaxe.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Yew Logs and a Adamant Pickaxehead to upgrade your Mithril Pickaxe to an Adamant Pickaxe.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 200 Engineering to upgrade your Mithril Pickaxe to an Adamant Pickaxe.");
+        return;
+    }
+} else if (inv_total(inv, adamant_pickaxe) > 0) {
+    if (%engineering > 249) {
+        if (inv_total(inv, magic_logs) > 1 & inv_total(inv, macro_rune_pickaxehead) > 0) {
+            inv_del(inv, magic_logs, 2);
+            inv_del(inv, macro_rune_pickaxehead, 1);
+            inv_del(inv, adamant_pickaxe, 1);
+            ~crafting_action;
+            p_delay(1);
+            anim(highlvlalchemy,0);
+            stat_advance(smithing, 650);
+            stat_advance(crafting, 650);
+            stat_advance(fletching, 650);
+            inv_add(inv, rune_pickaxe, 1);
+            ~objbox(rune_pickaxe, "You have upgraded your Adamant Pickaxe to a Rune Pickaxe.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Magic Logs and a Rune Pickaxehead to upgrade your Adamant Pickaxe to a Rune Pickaxe.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 250 Engineering to upgrade your Adamant Pickaxe to a Rune Pickaxe.");
+        return;
+    }
+} else if (inv_total(inv, rune_pickaxe) > 0) {
+    if (%engineering > 295) {
+        if (inv_total(inv, magic_logs) > 1 & inv_total(inv, macro_rune_pickaxehead) > 0) {
+            inv_del(inv, magic_logs, 2);
+            inv_del(inv, rune_pickaxe, 1);
+            ~crafting_action;
+            stat_advance(smithing, 950);
+            stat_advance(crafting, 950);
+            stat_advance(fletching, 950);
+            inv_add(inv, dragon_pickaxe, 1);
+            ~objbox(dragon_pickaxe,"You have upgraded your Rune Harpoon to a Dragon Harpoon.",250,0,0);
+            return;
+        } else {
+            ~mesbox("You need 2 Magic Logs and a Dragon Pickaxehead to upgrade your Rune Pickaxe to a Dragon Pickaxe.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 296 Engineering to upgrade your Rune Pickaxe to a Dragon Pickaxe.");
+        return;
+    }
+} else {
+    ~mesbox("You do not have a Pickaxe to upgrade!");
+}
+
+[proc,e_knife]
+def_int $knife = null;
+if (inv_total(inv, knife) > 0) {
+    if (%engineering > 9) {   
+        if (inv_total(inv, bronze_bar) > 0) {
+            inv_del(inv, bronze_bar, 1);
+            inv_del(inv, knife, 1);
+            ~crafting_action;
+            stat_advance(smithing, 50);
+            stat_advance(crafting, 50);
+            stat_advance(fletching, 50);
+            inv_add(inv, e_bronze_knife, 1);
+            ~objbox(e_bronze_knife, "You have upgraded your Knife to a Bronze Knife.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 1 Bronze Bar to upgrade your Knife to a Bronze Knife.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 10 Engineering to upgrade your Knife to a Bronze Knife.");
+        return;
+    }
+} else if (inv_total(inv,e_bronze_knife) > 0) {
+    if (%engineering > 14) {   
+        if (inv_total(inv, iron_bar) > 1) {
+            inv_del(inv, iron_bar, 2);
+            inv_del(inv, e_bronze_knife, 1);
+            ~crafting_action;
+            stat_advance(smithing, 200);
+            stat_advance(crafting, 200);
+            stat_advance(fletching, 200);
+            inv_add(inv, e_iron_knife, 1);
+            ~objbox(e_iron_knife, "You have upgraded your Bronze Knife to an Iron Knife.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Iron Bars to upgrade your Bronze Knife to an Iron Knife.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 15 Engineering to upgrade your Bronze Knife to an Iron Knife.");
+        return;
+    }    
+} else if (inv_total(inv,e_iron_knife) > 0) {
+    if (%engineering > 29) {   
+        if (inv_total(inv, steel_bar) > 1) {
+            inv_del(inv, steel_bar, 2);
+            inv_del(inv, e_iron_knife, 1);
+            ~crafting_action;
+            stat_advance(smithing, 250);
+            stat_advance(crafting, 250);
+            stat_advance(fletching, 250);
+            inv_add(inv, e_steel_knife, 1);
+            ~objbox(e_steel_knife, "You have upgraded your Iron Knife to a Steel Knife.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Steel Bars to upgrade your Iron Knife to a Steel Knife.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 30 Engineering to upgrade your Iron Knife to a Steel Knife.");
+        return;
+    }
+} else if (inv_total(inv,e_steel_knife) > 0) {
+    if (%engineering > 49) {   
+        if (inv_total(inv, mithril_bar) > 4) {
+            inv_del(inv, mithril_bar, 5);
+            inv_del(inv, e_steel_knife, 1);
+            ~crafting_action;
+            stat_advance(smithing, 550);
+            stat_advance(crafting, 550);
+            stat_advance(fletching, 550);
+            inv_add(inv, e_mithril_knife, 1);
+            ~objbox(e_mithril_knife, "You have upgraded your Steel Knife to a Mithril Knife.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 5 Mithril Bars to upgrade your Steel Knife to a Mithril Knife.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 50 Engineering to upgrade your Steel Knife to a Mithril Knife.");
+        return;
+    }
+} else if (inv_total(inv,e_mithril_knife) > 0) {
+    if (%engineering > 199) {   
+        if (inv_total(inv, adamantite_bar) > 6) {
+            inv_del(inv, adamantite_bar, 7);
+            inv_del(inv, e_mithril_knife, 1);
+            ~crafting_action;
+            stat_advance(smithing, 650);
+            stat_advance(crafting, 650);
+            stat_advance(fletching, 650);
+            inv_add(inv, e_adamant_knife, 1);
+            ~objbox(e_adamant_knife,"You have upgraded your Mithril Knife to an Adamant Knife.",250,0,0);
+            return;
+        } else {
+            ~mesbox("You need 7 Adamant Bars to upgrade your Mithril Knife to an Adamant Knife.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 200 Engineering to upgrade your Mithril Knife to an Adamant Knife.");
+        return;
+    }
+} else if (inv_total(inv,e_adamant_knife) > 0) {
+    if (%engineering > 249) {
+        if (inv_total(inv, runite_bar) > 9) {
+            inv_del(inv, runite_bar, 10);
+            inv_del(inv, e_adamant_knife, 1);
+            ~crafting_action;
+            stat_advance(smithing, 750);
+            stat_advance(crafting, 750);
+            stat_advance(fletching, 750);
+            inv_add(inv, e_rune_knife, 1);
+            ~objbox(e_rune_knife,"You have upgraded your Adamant Knife to a Rune Knife.",250,0,0);
+            return;
+        } else {
+            ~mesbox("You need 10 Rune Bars to upgrade your Adamant Knife to a Rune Knife.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 250 Engineering to upgrade your Adamant Knife to a Rune Knife.");
+        return;
+    }
+} else if (inv_total(inv,e_rune_knife) > 0) {
+    if (%engineering > 295) {
+        if (inv_total(inv, dragon_bar) > 19) {
+            inv_del(inv, dragon_bar, 20);
+            inv_del(inv, e_rune_knife, 1);
+            ~crafting_action;
+            stat_advance(smithing, 950);
+            stat_advance(crafting, 950);
+            stat_advance(fletching, 950);
+            inv_add(inv, e_dragon_knife, 1);
+            ~objbox(e_dragon_knife,"You have upgraded your Rune Knife to a Dragon Knife.",250,0,0);
+            return;
+        } else {
+            ~mesbox("You need 20 Dragon Bars to upgrade your Rune Knife to a Dragon Knife.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 296 Engineering to upgrade your Rune Knife to a Dragon Knife.");
+        return;
+    }
+} else {
+    ~mesbox("You do not have a knife!");
+}
+
+[proc,e_harpoon]
+def_int $harpoon = null;
+if (inv_total(inv, harpoon) > 0) {
+    if (%engineering > 9) {   
+        if (inv_total(inv, bronze_bar) > 0) {
+            inv_del(inv, bronze_bar, 1);
+            inv_del(inv, harpoon, 1);
+            ~crafting_action;
+            stat_advance(smithing, 150);
+            stat_advance(crafting, 150);
+            stat_advance(fletching, 150);
+            inv_add(inv, bronze_harpoon, 1);
+            ~objbox(bronze_harpoon, "You have upgraded your Harpoon to a Bronze Harpoon.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 1 Bronze Bar to upgrade your Harpoon to a Bronze Harpoon.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 10 Engineering to upgrade your Harpoon to a Bronze Harpoon.");
+        return;
+    }
+} else if (inv_total(inv, bronze_harpoon) > 0) {
+    if (%engineering > 14) {   
+        if (inv_total(inv, iron_bar) > 1) {
+            inv_del(inv, iron_bar, 2);
+            inv_del(inv, bronze_harpoon, 1);
+            ~crafting_action;
+            stat_advance(smithing, 50);
+            stat_advance(crafting, 50);
+            stat_advance(fletching, 50);
+            inv_add(inv, iron_harpoon, 1);
+            ~objbox(iron_harpoon, "You have upgraded your Bronze Harpoon to a Iron Harpoon.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Iron Bars to upgrade your Bronze Harpoon to a Iron Harpoon.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 15 Engineering to upgrade your Bronze Harpoon to a Iron Harpoon.");
+        return;
+    }    
+} else if (inv_total(inv, iron_harpoon) > 0) {
+    if (%engineering > 29) {   
+        if (inv_total(inv, steel_bar) > 1) {
+            inv_del(inv, steel_bar, 2);
+            inv_del(inv, iron_harpoon, 1);
+            ~crafting_action;
+            stat_advance(smithing, 150);
+            stat_advance(crafting, 150);
+            stat_advance(fletching, 150);
+            inv_add(inv, steel_harpoon, 1);
+            ~objbox(steel_harpoon, "You have upgraded your Iron Harpoon to a Steel Harpoon.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Steel Bars to upgrade your Iron Harpoon to a Steel Harpoon.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 30 Engineering to upgrade your Iron Harpoon to a Steel Harpoon.");
+        return;
+    }
+} else if (inv_total(inv, steel_harpoon) > 0) {
+    if (%engineering > 49) {   
+        if (inv_total(inv, mithril_bar) > 4) {
+            inv_del(inv, mithril_bar, 5);
+            inv_del(inv, steel_harpoon, 1);
+            ~crafting_action;
+            stat_advance(smithing, 250);
+            stat_advance(crafting, 250);
+            stat_advance(fletching, 250);
+            inv_add(inv, mithril_harpoon, 1);
+            ~objbox(mithril_harpoon, "You have upgraded your Steel Harpoon to a Mithril Harpoon.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 5 Mithril Bars to upgrade your Steel Harpoon to a Mithril Harpoon.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 50 Engineering to upgrade your Steel Harpoon to a Mithril Harpoon.");
+        return;
+    }
+} else if (inv_total(inv, mithril_harpoon) > 0) {
+    if (%engineering > 199) {   
+        if (inv_total(inv, adamantite_bar) > 6) {
+            inv_del(inv, adamantite_bar, 7);
+            inv_del(inv, mithril_harpoon, 1);
+            ~crafting_action;
+            stat_advance(smithing, 650);
+            stat_advance(crafting, 650);
+            stat_advance(fletching, 650);
+            inv_add(inv, adamant_harpoon, 1);
+            ~objbox(adamant_harpoon,"You have upgraded your Mithril Harpoon to an Adamant Harpoon.",250,0,0);
+            return;
+        } else {
+            ~mesbox("You need 7 Adamant Bars to upgrade your Mithril Harpoon to an Adamant Harpoon.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 200 Engineering to upgrade your Mithril Harpoon to an Adamant Harpoon.");
+        return;
+    }
+} else if (inv_total(inv, adamant_harpoon) > 0) {
+    if (%engineering > 249) {
+        if (inv_total(inv, runite_bar) > 9) {
+            inv_del(inv, runite_bar, 10);
+            inv_del(inv, adamant_harpoon, 1);
+            ~crafting_action;
+            stat_advance(smithing, 750);
+            stat_advance(crafting, 750);
+            stat_advance(fletching, 750);
+            inv_add(inv, rune_harpoon, 1);
+            ~objbox(rune_harpoon,"You have upgraded your Adamant Harpoon to a Rune Harpoon.",250,0,0);
+            return;
+        } else {
+            ~mesbox("You need 10 Rune Bars to upgrade your Adamant Harpoon to a Rune Harpoon.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 250 Engineering to upgrade your Adamant Harpoon to a Rune Harpoon.");
+        return;
+    }
+} else if (inv_total(inv, rune_harpoon) > 0) {
+    if (%engineering > 295) {
+        if (inv_total(inv, dragon_bar) > 19) {
+            inv_del(inv, dragon_bar, 20);
+            inv_del(inv, rune_harpoon, 1);
+            ~crafting_action;
+            stat_advance(smithing, 950);
+            stat_advance(crafting, 950);
+            stat_advance(fletching, 950);
+            inv_add(inv, dragon_harpoon, 1);
+            ~objbox(dragon_harpoon,"You have upgraded your Rune Harpoon to a Dragon Harpoon.",250,0,0);
+            return;
+        } else {
+            ~mesbox("You need 20 Dragon Bars to upgrade your Rune Harpoon to a Dragon Harpoon.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 296 Engineering to upgrade your Rune Harpoon to a Dragon Harpoon.");
+        return;
+    }
+} else {
+    ~mesbox("You do not have a harpoon!");
+}
+
+[proc,e_lobster_pot]
+def_int $pot = null;
+if (inv_total(inv, lobster_pot) > 0) {
+    if (%engineering > 24) {
+        if (inv_total(inv, oak_logs) > 1 & inv_total(inv, bronze_rod) > 11) {
+            inv_del(inv, oak_logs, 2);
+            inv_del(inv, bronze_rod, 12);
+            inv_del(inv, lobster_pot, 1);
+            ~crafting_action;
+            p_delay(1);
+            anim(highlvlalchemy,0);
+            stat_advance(smithing, 150);
+            stat_advance(crafting, 150);
+            stat_advance(fletching, 150);
+            inv_add(inv, lobster_pot_oak, 1);
+            ~objbox(lobster_pot_oak, "You have upgraded your Lobster Pot to an Oak Lobster Pot.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Oak Logs and 12 Bronze Rods to upgrade your Lobster Pot to an Oak Lobster Pot.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 25 Engineering to upgrade your Lobster Pot to an Oak Lobster Pot.");
+        return;
+    }
+} else if (inv_total(inv, lobster_pot_oak) > 0) {
+    if (%engineering > 29) {
+        if (inv_total(inv, willow_logs) > 1 & inv_total(inv, iron_rod) > 11) {
+            inv_del(inv, willow_logs, 2);
+            inv_del(inv, iron_rod, 12);
+            inv_del(inv, lobster_pot_oak, 1);
+            ~crafting_action;
+            p_delay(1);
+            anim(highlvlalchemy,0);
+            stat_advance(smithing, 250);
+            stat_advance(crafting, 250);
+            stat_advance(fletching, 250);   
+            inv_add(inv, lobster_pot_willow, 1);
+            ~objbox(lobster_pot_willow, "You have upgraded your Oak Lobster Pot to a Willow Lobster Pot.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Willow Logs and 12 Iron Rods to upgrade your Oak Lobster Pot to a Willow Lobster Pot.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 30 Engineering to upgrade your Oak Lobster Pot to a Willow Lobster Pot.");
+        return;
+    }
+} else if (inv_total(inv, lobster_pot_willow) > 0) {
+    if (%engineering > 39) {
+        if (inv_total(inv, maple_logs) > 1 & inv_total(inv, steel_rod) > 11) {
+            inv_del(inv, maple_logs, 2);
+            inv_del(inv, steel_rod, 12);
+            inv_del(inv, lobster_pot_willow, 1);
+            ~crafting_action;
+            p_delay(1);
+            anim(highlvlalchemy,0);
+            stat_advance(smithing, 450);
+            stat_advance(crafting, 450);
+            stat_advance(fletching, 450);   
+            inv_add(inv, lobster_pot_maple, 1);
+            ~objbox(lobster_pot_maple, "You have upgraded your Willow Lobster Pot to a Maple Lobster Pot.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Maple Logs and 12 Steel Rods to upgrade your Willow Lobster Pot to a Maple Lobster Pot.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 40 Engineering to upgrade your Willow Lobster Pot to a Maple Lobster Pot.");
+        return;
+    }
+} else if (inv_total(inv, lobster_pot_maple) > 0) {
+    if (%engineering > 149) {
+        if (inv_total(inv, yew_logs) > 1 & inv_total(inv, mithril_rod) > 11) {
+            inv_del(inv, yew_logs, 2);
+            inv_del(inv, mithril_rod, 12);
+            inv_del(inv, lobster_pot_maple, 1);
+            ~crafting_action;
+            p_delay(1);
+            anim(highlvlalchemy,0);
+            stat_advance(smithing, 550);
+            stat_advance(crafting, 550);
+            stat_advance(fletching, 550);            
+            inv_add(inv, lobster_pot_yew, 1);
+            ~objbox(lobster_pot_yew, "You have upgraded your Maple Lobster Pot to a Yew Lobster Pot.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Yew Logs and 12 Mithril Rods to upgrade your Maple Lobster Pot to a Yew Lobster Pot.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 150 Engineering to upgrade your Maple Lobster Pot to a Yew Lobster Pot.");
+        return;
+    }
+} else if (inv_total(inv, lobster_pot_yew) > 0) {
+    if (%engineering > 249) {
+        if (inv_total(inv, magic_logs) > 1 & inv_total(inv, rune_rod) > 11) {
+            inv_del(inv, magic_logs, 2);
+            inv_del(inv, rune_rod, 12);
+            inv_del(inv, lobster_pot_yew, 1);
+            ~crafting_action;
+            p_delay(1);
+            anim(highlvlalchemy,0);
+            stat_advance(smithing, 650);
+            stat_advance(crafting, 650);
+            stat_advance(fletching, 650);
+            inv_add(inv, lobster_pot_magic, 1);
+            ~objbox(lobster_pot_magic, "You have upgraded your Yew Lobster Pot to a Magic Lobster Pot.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Magic Logs and 12 Rune Rods to upgrade your Yew Lobster Pot to a Magic Lobster Pot.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 250 Engineering to upgrade your Yew Lobster Pot to a Magic Lobster Pot.");
+        return;
+    }
+} else {
+    ~mesbox("You do not have a lobster pot!");
+}
+
+
+
+[proc,e_parts]
+
+def_int $e_parts = (~p_choice4_header("Iron Cog.", 1,"Barbed Rope.", 2, "Iron Nails.", 3, "Metal Rods.", 4, "What kind of part would you like to make?"));
+
+switch_int($e_parts) {
+    case 1 : {
+        if (inv_total(inv, iron_bar) > 1) {
+            inv_del(inv, iron_bar, 2);
+            ~crafting_action;
+            stat_advance(smithing, 200);
+            stat_advance(crafting, 150);
+            inv_add(inv, cog, 1);
+            ~objbox(cog,"You have made an Iron Cog.", 250, 0, 0);
+        } else {
+            ~mesbox("You need 2 iron bars to make an Iron Cog.");
+        }
+    }
+    case 2 : {
+        if (inv_total(inv, rope) > 0 & inv_total(inv, barbed_bolttips) > 4) {
+            inv_del(inv, rope, 1);
+            inv_del(inv, barbed_bolttips, 50);
+            ~crafting_action;
+            stat_advance(smithing, 350);
+            stat_advance(crafting, 250);
+            inv_add(inv, barbed_rope, 1);
+            ~objbox(barbed_rope,"You have made a Barbed Rope.", 250, 0, 0);
+        } else {
+            ~mesbox("You need 1 Rope and 50 Barbed Tips to make a Barbed Rope.");
+        }
+    }
+    case 3 : {
+        if (inv_total(inv, iron_bar) > 1) {
+            inv_del(inv, iron_bar, 2);
+            ~crafting_action;
+            stat_advance(smithing, 300);
+            stat_advance(crafting, 100);
+            inv_add(inv, iron_nails, 12);
+            ~objbox(iron_nails,"You have made 12x Iron Nails.", 250, 0, 0);
+        } else {
+            ~mesbox("You need 2 Iron Bars to make Iron Nails!");
+        }
+    }
+
+    case 4 : ~e_rodhead;
+    
+}
+
+[proc,e_rodhead]
+def_int $rod = null;
+
+def_int $rodhead = (~p_choice5_header("Bronze Rod.", 1, "Iron Rod.", 2, "Steel Rod.", 3, "Mithril Rod.", 4, "Next.", 5, "What kind of Metal Rod would you like to make?"));
+
+switch_int($rodhead) {
+    case 1 : {
+        if (%engineering > 9){
+            if (inv_total(inv, bronze_bar) > 0) {
+                inv_del(inv, bronze_bar, 1);
+                ~crafting_action;
+                stat_advance(smithing, 150);
+                stat_advance(crafting, 150);
+                stat_advance(fletching, 150);
+                inv_add(inv, bronze_rod, 12);
+                ~objbox(bronze_rod,"You have made a Bronze Rod.", 250, 0, 0);
+            } else {
+                ~mesbox("You need a Bronze Bar to make 12x Bronze Rods.");
+            }
+        } else {
+            ~mesbox("You need to be at least level 10 Engineering to make a Bronze Rod.");
+        }
+    }
+
+    case 2 : {
+        if (%engineering > 14){
+            if (inv_total(inv, iron_bar) > 1) {
+                inv_del(inv, iron_bar, 2);
+                ~crafting_action;
+                stat_advance(smithing, 250);
+                stat_advance(crafting, 250);
+                stat_advance(fletching, 250);
+                inv_add(inv, iron_rod, 12);
+                ~objbox(iron_rod,"You have made an Iron Rod.", 250, 0, 0);
+            } else {
+                ~mesbox("You need 2 Iron Bars to make 12x Iron Rods.");
+            }
+        } else {
+            ~mesbox("You need to be at least level 15 Engineering to make an Iron Rod.");
+        }
+    }
+
+    case 3 : {
+        if (%engineering > 29){
+            if (inv_total(inv, steel_bar) > 1) {
+                inv_del(inv, steel_bar, 2);
+                ~crafting_action;
+                stat_advance(smithing, 450);
+                stat_advance(crafting, 450);
+                stat_advance(fletching, 450);
+                inv_add(inv, steel_rod, 12);
+                ~objbox(steel_rod,"You have made a Steel Rod.", 250, 0, 0);
+            } else {
+                ~mesbox("You need 2 Steel Bars to make 12x Steel Rod.");
+            }
+        } else {
+            ~mesbox("You need to be at least level 30 Engineering to make a Steel Rod.");
+        }
+    }
+
+    case 4 : {
+        if (%engineering > 49){
+            if (inv_total(inv, mithril_bar) > 4) {
+                inv_del(inv, mithril_bar, 5);
+                ~crafting_action;
+                stat_advance(smithing, 550);
+                stat_advance(crafting, 550);
+                stat_advance(fletching, 550);
+                inv_add(inv, mithril_rod, 12);
+                ~objbox(mithril_rod,"You have made a Mithril Rod.", 250, 0, 0);
+            } else {
+                ~mesbox("You need 5 Mithril Bars to make 12x Mithril Rods.");
+            }
+        } else {
+            ~mesbox("You need to be at least level 50 Engineering to make a Mithril Rod.");
+        }
+    }
+
+    case 5 : ~e_rodhead2;
+}
+
+
+[proc,e_rodhead2]
+def_int $choice = (~p_choice3_header("Adamant Rod.", 1, "Rune Rod.", 2, "Back.", 3, "What kind of Metal Rod would you like to make?"));
+
+switch_int($choice) {
+    case 1 : {
+        if (%engineering > 199){
+            if (inv_total(inv, adamantite_bar) > 1) {
+                inv_del(inv, adamantite_bar, 2);
+                ~crafting_action;
+                stat_advance(smithing, 650);
+                stat_advance(crafting, 650);
+                stat_advance(fletching, 650);
+                inv_add(inv, adamant_rod, 12);
+                ~objbox(adamant_rod,"You have made an Adamant Rod.", 250, 0, 0);
+            } else {
+                ~mesbox("You need 2 Adamant Bars to make 12x Adamant Rods.");
+            }
+        } else {
+            ~mesbox("You need to be at least level 200 Engineering to make an Adamant Rod.");
+        }
+    }
+
+    case 2 : {
+        if (%engineering > 249){
+            if (inv_total(inv, runite_bar) > 1) {
+                inv_del(inv, runite_bar, 2);
+                ~crafting_action;
+                stat_advance(smithing, 750);
+                stat_advance(crafting, 750);
+                stat_advance(fletching, 750);
+                inv_add(inv, rune_rod, 12);
+                ~objbox(rune_rod,"You have made a Rune Rod.", 250, 0, 0);
+            } else {
+                ~mesbox("You need 2 Runite Bars to make 12x Rune Rods.");
+            }
+        } else {
+            ~mesbox("You need to be at least level 250 Engineering to make a Rune Rod.");
+        }
+    }
+
+    case 3 : ~e_rodhead;
+}
+
+
+[proc,e_traps]
+def_int $e_traps = (~p_choice2_header("Empty Casket.", 1,"Trapped Casket.", 2, "What kind of part would you like to make?"));
+
+switch_int($e_traps) {
+    case 1 : {
+        if (inv_total(inv, woodplank) > 14 & inv_total(inv, iron_bar) > 8 & inv_total(inv, iron_nails) > 79) {
+            inv_del(inv, iron_bar, 9);
+            inv_del(inv, woodplank, 15);
+            inv_del(inv, iron_nails, 80);
+            ~crafting_action;
+            stat_advance(smithing, 650);
+            stat_advance(crafting, 650);
+            stat_advance(fletching, 650);
+            inv_add(inv, empty_casket, 1);
+            ~objbox(empty_casket,"You have made an Empty Casket.", 250, 0, 0);
+        } else {
+            ~mesbox("You need 15 Planks, 9 Iron Bars, and 80 Iron Nails |to make an Empty Casket.");
+        }
+    }
+    case 2 : {
+        if (%engineering > 295) {
+            if (inv_total(inv, empty_casket) > 0 & inv_total(inv, cog) > 9 & inv_total(inv, rope) > 0 & inv_total(inv, gunpowder) > 49) {
+                inv_del(inv, rope, 1);
+                inv_del(inv, empty_casket, 1);
+                inv_del(inv, gunpowder, 10);
+                inv_del(inv, cog, 12);
+                ~crafting_action;
+                stat_advance(smithing, 1200);
+                stat_advance(crafting, 1200);
+                stat_advance(fletching, 700);
+                inv_add(inv, trap_casket, 1);
+                ~objbox(trap_casket,"You have made a Trapped Casket.", 250, 0, 0);
+            } else {
+                ~mesbox("You need 1 Rope, 1 Empty Casket, 10 Gunpowder, and 12 Cogs |to make a Trapped Casket.");
+            }
+        } else {
+            ~mesbox("You need to be at least Engineering 295 to make a Trapped Casket.");
+        }
+    }
+}
+
+[proc,crafting_action]
+def_int $crafting_speed = 5;
+def_seq $anim = null;
+def_namedobj $hammer = null;
+if (inv_total(inv, dragon_hammer) > 0) {
+    $hammer = dragon_hammer;
+    $anim = human_smithing_dragon;
+    $crafting_speed = 0;
+} else if (inv_total(inv, founders_hammer) > 0) {
+    $hammer = founders_hammer;
+    $anim = human_smithing_founders;
+    $crafting_speed = 1;
+} else if (inv_total(inv, rune_hammer) > 0) {
+    $hammer = rune_hammer;
+    $anim = human_smithing_rune;
+    $crafting_speed = 1;
+} else if (inv_total(inv, adamant_hammer) > 0) {
+    $hammer = adamant_hammer;
+    $anim = human_smithing_adamant;
+    $crafting_speed = 2;
+} else if (inv_total(inv, mithril_hammer) > 0) {
+    $hammer = mithril_hammer;
+    $anim = human_smithing_mithril;
+    $crafting_speed = 2;
+} else if (inv_total(inv, steel_hammer) > 0) {
+    $hammer = steel_hammer;
+    $anim = human_smithing_steel;
+    $crafting_speed = 3;
+} else if (inv_total(inv, iron_hammer) > 0) {
+    $hammer = iron_hammer;
+    $anim = human_smithing_iron;
+    $crafting_speed = 3;
+} else if (inv_total(inv, bronze_hammer) > 0) {
+    $hammer = bronze_hammer;
+    $anim = human_smithing_bronze;
+    $crafting_speed = 4;
+} else if (inv_total(inv, hammer) > 0) {
+    $hammer = hammer;
+    $anim = human_smithing;
+    $crafting_speed = 4;
+}
+//if (%engineering > 44) {
+//    $crafting_speed = 4;
+//} else if (%engineering > 49) {
+//    $crafting_speed = 3;
+//} else if (%engineering > 249) {
+//    $crafting_speed = 2;
+//}
+anim($anim,$crafting_speed);
+sound_synth(anvil, $crafting_speed, 0);
+p_delay($crafting_speed);
+anim($anim,$crafting_speed);
+sound_synth(anvil, $crafting_speed, 0);
+anim(human_pickuptable,0);
+sound_synth(grind, $crafting_speed, 0);
+
+[proc,grinding_action]
+def_int $crafting_speed = 5;
+if (%engineering > 44) {
+    $crafting_speed = 4;
+} else if (%engineering > 49) {
+    $crafting_speed = 3;
+} else if (%engineering > 249) {
+    $crafting_speed = 2;
+}
+anim(human_herbing_grind,0);
+sound_synth(grind, $crafting_speed, 0);
+p_delay($crafting_speed);
+anim(human_herbing_grind,0);
+sound_synth(grind, $crafting_speed, 0);
+p_delay($crafting_speed);
+
+[proc,filling_action]
+def_int $crafting_speed = 5;
+if (%engineering > 44) {
+    $crafting_speed = 4;
+} else if (%engineering > 49) {
+    $crafting_speed = 3;
+} else if (%engineering > 249) {
+    $crafting_speed = 2;
+}
+anim(human_opencupboard,0);
+sound_synth(grind, $crafting_speed, 0);
+p_delay($crafting_speed);
+anim(human_redtopazcutting,0);
+sound_synth(grind, $crafting_speed, 0);
+p_delay($crafting_speed);
+
+[proc,material_message]
+~mesbox("You do not have the required materials to craft this!");
+
+
+[proc,hammercheck]
+if (inv_total(inv, dragon_hammer) < 1) {
+    return;
+} else if (inv_total(inv, founders_hammer) < 1) {
+    return;
+} else if (inv_total(inv, rune_hammer)   < 1) {
+    return;
+} else if (inv_total(inv, adamant_hammer)   < 1) {
+    return;
+} else if (inv_total(inv, mithril_hammer)   < 1) {
+    return;
+} else if (inv_total(inv, steel_hammer)   < 1) {
+    return;
+} else if (inv_total(inv, iron_hammer)   < 1) {
+    return;
+} else if (inv_total(inv, bronze_hammer)   < 1) {
+    return;
+} else if (inv_total(inv, hammer)   < 1) {
+    return;
+}
+
+[proc,e_pickaxehead]
+def_int $pickaxe = null;
+
+def_int $pickaxehead = (~p_choice5_header("Bronze.", 1,"Iron.", 2, "Steel.", 3, "Mithril.", 4, "Next.", 5, "What kind of Pickaxehead would you like to make?"));
+
+switch_int($pickaxehead) {
+    case 1 : {
+        if (%engineering > 9){
+            if (inv_total(inv, bronze_bar) > 0) {
+                inv_del(inv, bronze_bar, 1);
+                ~crafting_action;
+                stat_advance(smithing, 150);
+                stat_advance(crafting, 150);
+                stat_advance(fletching, 150);
+                inv_add(inv, macro_bronze_pickaxehead, 1);
+                ~objbox(macro_bronze_pickaxehead,"You have made a Bronze Pickaxehead.", 250, 0, 0);
+            } else {
+                ~mesbox("You need a Bronze Bar to make a Bronze Pickaxehead.");
+            }
+        } else {
+            ~mesbox("You need to be at least level 10 Engineering to make a Bronze Pickaxehead.");
+        }
+    }
+    case 2 : {
+        if (%engineering > 14){
+            if (inv_total(inv, iron_bar) > 1) {
+                inv_del(inv, iron_bar, 2);
+                ~crafting_action;
+                stat_advance(smithing, 250);
+                stat_advance(crafting, 250);
+                stat_advance(fletching, 250);
+                inv_add(inv, macro_iron_pickaxehead, 1);
+                ~objbox(macro_iron_pickaxehead,"You have made an Iron Pickaxehead.", 250, 0, 0);
+            } else {
+                ~mesbox("You need 2 Iron Bars to make an Iron Pickaxehead.");
+            }
+        } else {
+            ~mesbox("You need to be at least level 15 Engineering to make an Iron Pickaxehead.");
+        }
+    }
+    case 3 : {
+        if (%engineering > 29){
+            if (inv_total(inv, steel_bar) > 1) {
+                inv_del(inv, steel_bar, 2);
+                ~crafting_action;
+                stat_advance(smithing, 450);
+                stat_advance(crafting, 450);
+                stat_advance(fletching, 450);
+                inv_add(inv, macro_steel_pickaxehead, 1);
+                ~objbox(macro_steel_pickaxehead,"You have made a Steel Pickaxehead.", 250, 0, 0);
+            } else {
+                ~mesbox("You need 2 Steel Bars to make a Steel Pickaxehead.");
+            }
+        } else {
+            ~mesbox("You need to be at least level 30 Engineering to make a Steel Pickaxehead.");
+        }
+    }
+    case 4 : {
+        if (%engineering > 49){
+            if (inv_total(inv, mithril_bar) > 4) {
+                inv_del(inv, mithril_bar, 5);
+                ~crafting_action;
+                stat_advance(smithing, 550);
+                stat_advance(crafting, 550);
+                stat_advance(fletching, 550);
+                inv_add(inv, macro_mithril_pickaxehead, 1);
+                ~objbox(macro_mithril_pickaxehead,"You have made a Mithril Pickaxehead.", 250, 0, 0);
+            } else {
+                ~mesbox("You need 5 Mithril Bars to make a Mithril Pickaxehead.");
+            }
+        } else {
+            ~mesbox("You need to be at least level 50 Engineering to make a Mithril Pickaxehead.");
+        }
+    }
+    case 5 : ~e_pickaxehead2;
+
+}
+
+
+[proc,e_pickaxehead2]
+
+def_int $choice = (~p_choice4_header("Adamant.", 1, "Rune.", 2, "Dragon.", 3, "Back.", 4, "What kind of Pickaxehead would you like to make?"));
+
+switch_int($choice){
+    case 1 : {
+        if (%engineering > 199){
+            if (inv_total(inv, adamantite_bar) > 1) {
+                inv_del(inv, adamantite_bar, 2);
+                ~crafting_action;
+                stat_advance(smithing, 650);
+                stat_advance(crafting, 650);
+                stat_advance(fletching, 650);
+                inv_add(inv, macro_adamant_pickaxehead, 1);
+                ~objbox(macro_adamant_pickaxehead,"You have made an Adamant Pickaxehead.", 250, 0, 0);
+            } else {
+                ~mesbox("You need 2 Adamant Bars to make an Adamant Pickaxehead.");
+            }
+        } else {
+            ~mesbox("You need to be at least level 200 Engineering to make an Adamant Pickaxehead.");
+        }
+    }
+    case 2 : {
+        if (%engineering > 249){
+            if (inv_total(inv, runite_bar) > 1) {
+                inv_del(inv, runite_bar, 2);
+                ~crafting_action;
+                stat_advance(smithing, 750);
+                stat_advance(crafting, 750);
+                stat_advance(fletching, 750);
+                inv_add(inv, macro_rune_pickaxehead, 1);
+                ~objbox(macro_rune_pickaxehead,"You have made a Rune Pickaxehead.", 250, 0, 0);
+            } else {
+                ~mesbox("You need 2 Runite Bars to make a Rune Pickaxehead.");
+            }
+        } else {
+            ~mesbox("You need to be at least level 250 Engineering to make a Rune Pickaxehead");
+        }
+    }
+    case 3 : {
+        if (%engineering > 295){
+            if (inv_total(inv, dragon_bar) > 4) {
+                inv_del(inv, dragon_bar, 5);
+                ~crafting_action;
+                stat_advance(smithing, 850);
+                stat_advance(crafting, 850);
+                stat_advance(fletching, 850);
+                inv_add(inv, macro_dragon_pickaxehead, 1);
+                ~objbox(macro_dragon_pickaxehead,"You have made a Dragon Pickaxehead.", 250, 0, 0);
+            } else {
+                ~mesbox("You need 5 Dragon Bars to make a Dragon Pickaxehead.");
+            }
+        } else {
+            ~mesbox("You need to be at least level 295 Engineering to make a Dragon Pickaxehead");
+        }
+    }
+    case 4 : ~e_pickaxehead;
+}
+
+
+[proc,e_armour]
+
+def_int $choice = (~p_choice2_header("Gauntlets.", 1, "Back.", 2, "What kind of Armour would you like upgrade?"));
+switch_int($choice){
+    case 1 : ~e_gauntlets;
+    case 2 : return;
+}
+
+[proc,e_gauntlets]
+
+def_int $choice = (~p_choice4_header("Mithril.", 1, "Adamant", 2, "Rune.", 3, "Dragon.", 4, "What kind of Gauntlets would you like upgrade?"));
+
+switch_int($choice){
+    case 1 : {
+        if (%engineering > 99) {
+            if (inv_total(inv, steel_gauntlets) > 0 & inv_total(inv, mithril_bar) > 14) {
+                inv_del(inv, mithril_bar, 15);
+                ~crafting_action;
+                stat_advance(smithing, 250);
+                stat_advance(crafting, 250);
+                stat_advance(fletching, 250);
+                inv_add(inv, mithril_gauntlets, 1);
+                ~objbox(mithril_gauntlets,"You have upgraded your gauntlets to Mithril gauntlets.", 250, 0, 0);
+            } else {
+                ~mesbox("You need Steel gauntlets and 15 Mithril Bars to upgrade your gauntlets.");
+            }
+        } else {
+            ~mesbox("You need 100 Engineering to upgrade your gauntlets.");
+        }
+    }
+    case 2 : {
+        if (%engineering > 149) {
+            if (inv_total(inv, mithril_gauntlets) > 0 & inv_total(inv, adamantite_bar) > 24) {
+                inv_del(inv, adamantite_bar, 25);
+                ~crafting_action;
+                stat_advance(smithing, 750);
+                stat_advance(crafting, 750);
+                stat_advance(fletching, 750);
+                inv_add(inv, adamant_gauntlets, 1);
+                ~objbox(adamant_gauntlets,"You have upgraded your gauntlets to Adamant gauntlets.", 250, 0, 0);
+            } else {
+                ~mesbox("You need Mithril gauntlets and 25 Adamantite Bars to upgrade your gauntlets.");
+            }
+        } else {
+            ~mesbox("You need 150 Engineering to upgrade your gauntlets.");
+        }
+    }
+    case 3 : {
+        if (%engineering > 199) {
+            if (inv_total(inv, adamant_gauntlets) > 0 & inv_total(inv, runite_bar) > 49) {
+                inv_del(inv, runite_bar, 50);
+                ~crafting_action;
+                stat_advance(smithing, 750);
+                stat_advance(crafting, 750);
+                stat_advance(fletching, 750);
+                inv_add(inv, rune_gauntlets, 1);
+                ~objbox(rune_gauntlets,"You have upgraded your gauntlets to Rune gauntlets.", 250, 0, 0);
+            } else {
+                ~mesbox("You need Adamant gauntlets and 50 Runite Bars to upgrade your gauntlets.");
+            }
+        } else {
+            ~mesbox("You need 200 Engineering to upgrade your gauntlets.");
+        }
+    }
+    case 4 : {
+            if (%engineering > 296) {
+            if (inv_total(inv, rune_gauntlets) > 0 & inv_total(inv, dragon_bar) > 49) {
+                inv_del(inv, dragon_bar, 50);
+                ~crafting_action;
+                stat_advance(smithing, 750);
+                stat_advance(crafting, 750);
+                stat_advance(fletching, 750);
+                inv_add(inv, dragon_gauntlets, 1);
+                ~objbox(dragon_gauntlets,"You have upgraded your gauntlets to Dragon gauntlets.", 250, 0, 0);
+            } else {
+                ~mesbox("You need Rune gauntlets and 50 Dragon Bars to upgrade your gauntlets.");
+            }
+        } else {
+            ~mesbox("You need 297 Engineering to upgrade your gauntlets.");
+        }
+    }
+    case 5 : ~e_pickaxehead;
+}

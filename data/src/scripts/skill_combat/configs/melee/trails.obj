@@ -86,7 +86,7 @@ members=yes
 wearpos=feet
 model=model_2837_obj
 recol1s=7298
-recol1d=14336
+recol1d=10240
 manwear=model_185_obj_wear,0
 womanwear=model_361_obj_wear,0
 iop2=Wear
@@ -207,7 +207,7 @@ param=rangedefence,8
 [highwaymanmask]
 name=Highwayman mask
 desc=Your money or your life!
-cost=40
+cost=1000000
 weight=20g
 members=yes
 model=model_2500_obj
@@ -221,6 +221,7 @@ manwear=model_243_obj_wear,0
 womanwear=model_416_obj_wear,0
 manhead=model_76_obj_wear
 womanhead=model_134_obj_wear
+param=no_alchemy,^true
 
 [berret_blue]
 name=Berret

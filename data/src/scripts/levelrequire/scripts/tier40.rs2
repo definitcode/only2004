@@ -30,7 +30,7 @@
 [opheld2,rune_platelegs_gold] @levelrequire_defence(80, last_slot);
 [opheld2,rune_full_helm_gold] @levelrequire_defence(80, last_slot);
 [opheld2,rune_kiteshield_gold] @levelrequire_defence(80, last_slot);
-
+[opheld2,rune_gauntlets] @levelrequire_crestquest_defence(80, last_slot);
 [opheld2,rune_platebody_zamorak] @levelrequire_defence(80, last_slot);
 [opheld2,rune_platelegs_zamorak] @levelrequire_defence(80, last_slot);
 [opheld2,rune_full_helm_zamorak] @levelrequire_defence(80, last_slot);

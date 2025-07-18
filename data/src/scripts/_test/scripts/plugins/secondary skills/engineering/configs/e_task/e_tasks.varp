@@ -1,0 +1,14 @@
+[e_taskitem]
+scope=perm
+
+[e_taskamount]
+scope=perm
+
+[e_taskstatus]
+scope=perm
+
+[e_nurmofrep]
+scope=perm
+
+[e_repmulti]
+scope=perm

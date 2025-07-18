@@ -1,5 +1,4 @@
 // when you use your equipment on the wrong fishing spot
-// example: net -> harpoon spot
 [label,fishing_wrong_spot_message](obj $item)
 def_struct $struct = oc_param($item, fish_equipment_struct);
 if ($struct = null) {
@@ -15,17 +14,13 @@ if (string_length($message) > 0) {
 
 
 // checks if you actually have the fish equipment required.
-// usually called right after level check, and right before inv space check.
-// inv space check doesnt seem to have consistent behavior so its not included in this proc.
 [proc,check_fish_equipment](namedobj $fish_equipment)(boolean)
 def_struct $struct = oc_param($fish_equipment, fish_equipment_struct);
-// check if they have fishing equipment
 if (inv_total(inv, $fish_equipment) < 1) {
     anim(null, 0);
     ~mesbox(struct_param($struct, fish_equipment_failmessage));
     return(false);
 }
-// check if player has enough bait
 if ($struct ! null) {
     def_namedobj $bait = struct_param($struct, baitrequired);
     if ($bait ! null & inv_total(inv, $bait) < 1) {
@@ -36,99 +31,88 @@ if ($struct ! null) {
 }
 return(true);
 
+
+// helper proc to determine bonus fish count
+[proc,get_fish_bonus](namedobj $equipment)(int)
+if ($equipment = null) return(1);
+
+switch_obj($equipment) {
+    case dragon_harpoon : return(4);
+    case rune_harpoon : return(3);
+    case adamant_harpoon : return(2);
+    case mithril_harpoon : return(2);
+    case lobster_pot_magic : return(4);
+    case lobster_pot_yew : return(3);
+    case lobster_pot_maple : return(2);
+    case lobster_pot_willow : return(2);
+    case default : return(1);
+}
+
+
 // proc for fish rolls
 [proc,fish_roll](namedobj $fish1, namedobj $fish2, namedobj $equipment, namedobj $bait)
-def_int $random = random(128);
 
-if ($fish2 ! null) { // if fish2 isnt null and roll for 2nd fish passes
+def_int $bonus = ~get_fish_bonus($equipment);
+
+// --- fish2 check
+if ($fish2 ! null) {
     def_struct $struct2 = oc_param($fish2, fishing_struct);
     if (stat_random(stat(fishing), struct_param($struct2, success_low), struct_param($struct2, success_high)) = true) {
-        if ($bait ! null) {
-            // delete bait
-            inv_del(inv, $bait, 1);
-        }
-        // give fish and display message
-        inv_add(inv, $fish2, 1);
-        stat_advance(fishing, struct_param($struct2, productexp));
+        if ($bait ! null) inv_del(inv, $bait, 1);
+        if (inv_freespace(inv) < $bonus) $bonus = 1;
+        inv_add(inv, $fish2, $bonus);
+        stat_advance(fishing, multiply(struct_param($struct2, productexp), $bonus));
         if (inv_total(worn, piratehat) > 0) {
-            
-            stat_advance(fishing, struct_param($struct2, productexp));
+            stat_advance(fishing, multiply(struct_param($struct2, productexp), $bonus));
             mes("Your fishing skills are showing!");
-            if ($random > 127) {
-                ~mesbox("You have received a Casket!");
-                inv_add(inv, casket, 1);
-            }
         }
         mes(struct_param($struct2, productmessage));
         return;
     }
 }
-if ($fish1 ! null) { // else if fish1 isnt null and roll for 1st fish passes
+
+// --- fish1 check
+if ($fish1 ! null) {
     def_struct $struct1 = oc_param($fish1, fishing_struct);
-    
     if (stat_random(stat(fishing), struct_param($struct1, success_low), struct_param($struct1, success_high)) = true) {
-        if ($bait ! null) {
-            // delete bait
-            inv_del(inv, $bait, 1);
-        }
-        // give fish and display message
-        inv_add(inv, $fish1, 1);
-        stat_advance(fishing, struct_param($struct1, productexp));
+        if ($bait ! null) inv_del(inv, $bait, 1);
+        if (inv_freespace(inv) < $bonus) $bonus = 1;
+        inv_add(inv, $fish1, $bonus);
+        stat_advance(fishing, multiply(struct_param($struct1, productexp), $bonus));
         if (inv_total(worn, piratehat) > 0) {
-            stat_advance(fishing, struct_param($struct1, productexp));
+            stat_advance(fishing, multiply(struct_param($struct1, productexp), $bonus));
             mes("Your fishing skills are showing!");
-            if ($random > 127) {
-                ~mesbox("You have received a Casket!");
-                inv_add(inv, casket, 1);
-            }
         }
         mes(struct_param($struct1, productmessage));
-        return;
     }
 }
 
+
+// alternate roll for fishing spots tied to locs, not NPCs
 [proc,fish_roll_loc](namedobj $fish1, namedobj $fish2, namedobj $bait)
-def_int $random = random(128);
-if ($fish2 ! null) { // if fish2 isnt null and roll for 2nd fish passes
+if ($fish2 ! null) {
     def_struct $struct2 = oc_param($fish2, fishing_struct);
-    
     if (stat_random(stat(fishing), struct_param($struct2, success_low), struct_param($struct2, success_high)) = true) {
-        if ($bait ! null) {
-            // delete bait
-            inv_del(inv, $bait, 1);
-        }
-        // give fish and display message
+        if ($bait ! null) inv_del(inv, $bait, 1);
         inv_add(inv, $fish2, 1);
         stat_advance(fishing, struct_param($struct2, productexp));
         if (inv_total(worn, piratehat) > 0) {
             stat_advance(fishing, struct_param($struct2, productexp));
             mes("Your fishing skills are showing!");
-            if ($random > 127) {
-                ~mesbox("You have received a Casket!");
-                inv_add(inv, casket, 1);
-            }
         }
         mes(struct_param($struct2, productmessage));
         return;
     }
 }
-if ($fish1 ! null) { // else if fish1 isnt null and roll for 1st fish passes
+if ($fish1 ! null) {
     def_struct $struct1 = oc_param($fish1, fishing_struct);
     if (stat_random(stat(fishing), struct_param($struct1, success_low), struct_param($struct1, success_high)) = true) {
-        if ($bait ! null) {
-            // delete bait
-            inv_del(inv, $bait, 1);
-        }
-        // give fish and display message
+        if ($bait ! null) inv_del(inv, $bait, 1);
         inv_add(inv, $fish1, 1);
         stat_advance(fishing, struct_param($struct1, productexp));
         if (inv_total(worn, piratehat) > 0) {
             stat_advance(fishing, struct_param($struct1, productexp));
             mes("Your fishing skills are showing!");
-            if ($random > 127) {
-                ~mesbox("You have received a Casket!");
-                inv_add(inv, casket, 1);
-            }
         }
         mes(struct_param($struct1, productmessage));
     }

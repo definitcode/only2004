@@ -1,0 +1,114 @@
+[rogue_badge_easy]
+model=model_2759_obj
+name=Rogue Badge
+desc=the Tier 0 badge of a Rogue.
+members=yes
+recol1s=15855
+recol1d=0
+recol2s=26348
+recol2d=612
+recol4s=10650
+recol4d=999
+2dxof=-2
+2dyof=3
+2dzoom=580
+2dyan=156
+2dxan=444
+weight=10lb
+tradeable=no
+stackable=yes
+
+[rogue_badge_medium]
+model=model_2759_obj
+name=Rogue Badge
+desc=the Tier 1 badge of a Rogue.
+members=yes
+recol1s=15855
+recol1d=0
+recol2s=26348
+recol2d=20000
+recol4s=10650
+recol4d=32736
+2dxof=-2
+2dyof=3
+2dzoom=580
+2dyan=156
+2dxan=444
+weight=10lb
+tradeable=no
+stackable=yes
+
+[rogue_badge_hard]
+model=model_2759_obj
+name=Rogue Badge
+desc=the Tier 2 badge of a Rogue.
+members=yes
+recol1s=15855
+recol1d=0
+recol2s=26348
+recol2d=19840
+recol4s=10650
+recol4d=32320
+2dxof=-2
+2dyof=3
+2dzoom=580
+2dyan=156
+2dxan=444
+weight=10lb
+tradeable=no
+stackable=yes
+
+[rogue_badge_insane]
+model=model_2759_obj
+name=Rogue Badge
+desc=the Tier 4 badge of a Rogue.
+members=yes
+recol1s=15855
+recol1d=0
+recol2s=26348
+recol2d=19456
+recol4s=10650
+recol4d=31744
+2dxof=-2
+2dyof=3
+2dzoom=580
+2dyan=156
+2dxan=444
+weight=10lb
+tradeable=no
+stackable=yes
+
+[rogue_magnet]
+name=Rogue Magnet
+desc=A very attractive magnet.
+cost=3
+model=model_2798_obj
+recol1s=0
+recol1d=23254
+2dxof=3
+2dyof=7
+2dzoom=1130
+2dyan=132
+2dxan=440
+weight=20g
+members=yes
+tradeable=no
+
+[rogue_tools]
+name=Rogue Tools
+desc=These could be handy.
+model=model_2679_obj
+recol1s=10468
+recol1d=0
+recol2s=12582
+recol2d=13378
+recol3s=9411
+recol3d=6144
+2dxof=-2
+2dyof=-2
+2dzoom=780
+2dyan=104
+2dxan=432
+weight=1lb
+members=yes
+tradeable=no

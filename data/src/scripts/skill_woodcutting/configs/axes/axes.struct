@@ -21,3 +21,6 @@ param=skill_anim,human_woodcutting_rune_axe
 
 [woodcutting_dragon_axe]
 param=skill_anim,human_woodcutting_dragon_axe
+
+[woodcutting_founders_axe]
+param=skill_anim,human_woodcutting_founders_axe

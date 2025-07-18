@@ -27,6 +27,15 @@ if (stat_base(ranged) < $level) {
 }
 ~equip($slot);
 
+[label,levelrequire_prayer](int $level, int $slot)
+if (stat_base(ranged) < $level) {
+    mes("You are not a high enough level to use this item.");
+    mes("You need to have a Ranged level of <tostring($level)>.");
+    return;
+}
+~equip($slot);
+
+
 [label,levelrequire_magic_and_attack](int $magic_level, int $attack_level, int $slot)
 if (stat_base(magic) < $magic_level | stat_base(attack) < $attack_level) {
     mes("You are not a high enough level to use this item.");
@@ -98,6 +107,17 @@ if (stat_base(attack) < $level) {
 }
 ~equip($slot);
 
+[label,levelrequire_crestquest_defence](int $level, int $slot)
+if (%crest_progress ! ^crest_complete){
+    return;
+}
+if (stat_base(defence) < $level) {
+    mes("You are not a high enough level to use this item.");
+    mes("You need to have an Defence level of <tostring($level)>.");
+    return;
+}
+~equip($slot);
+
 [label,levelrequire_legends_quest_defence](int $level, int $slot)
 if (~levelrequire_legends_quest = false) {
     return;
@@ -119,6 +139,18 @@ if (stat_base(attack) < $level) {
     return;
 }
 ~equip($slot);
+
+[label,levelrequire_zanaris_quest_magic](int $level, int $slot)
+if (~levelrequire_zanaris_quest = false) {
+    return;
+}
+if (stat_base(magic) < $level) {
+    mes("You are not a high enough level to use this item.");
+    mes("You need to have an Magic level of <tostring($level)>.");
+    return;
+}
+~equip($slot);
+
 
 [proc,levelrequire_dragon_slayer_quest]()(boolean)
 if (%dragon_progress < ^dragon_complete) {
@@ -191,4 +223,15 @@ if ( stat_base(attack) < $required_level | stat_base(strength) < $required_level
 
 ~mesbox("You equip the Max Cape, a symbol of triumph!");
 anim(emote_dance,0);
+spotanim_pl(levelup_anim, 120, 0);
+midi_jingle(^advance_prayer_2_jingle, ^advance_prayer_2_millis);
+~equip($slot);
+
+
+[label,levelrequire_founderscape](int $required_level, int $slot)
+
+~mesbox("You equip the Founders Cape, a token of appreciation!");
+anim(emote_dance,0);
+spotanim_pl(levelup_anim, 120, 0);
+midi_jingle(^advance_prayer_2_jingle, ^advance_prayer_2_millis);
 ~equip($slot);

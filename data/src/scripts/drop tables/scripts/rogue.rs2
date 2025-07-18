@@ -50,13 +50,23 @@ if ($dropint < 2) {
     // 9/128
     obj_add(npc_coord, coins, 5, 200);
 } else if ($dropint < 109) {
-    // 4/128
+    if (%r_taskstatus = ^r_inprogress) {
+        if (%r_taskamount = ^r_easy) {
+            obj_add(npc_coord, rogue_casket_easy, 1,^lootdrop_duration);
+        } else if (%r_taskamount = ^r_medium) {
+            obj_add(npc_coord, rogue_casket_medium, 1,^lootdrop_duration);
+        } else if (%r_taskamount = ^r_hard) {
+            obj_add(npc_coord, rogue_casket_hard, 1,^lootdrop_duration);
+        } else if (%r_taskamount = ^r_insane) {
+            obj_add(npc_coord, rogue_casket_insane, 1,^lootdrop_duration);
+        }
+    }
     obj_add(npc_coord, coins, 15, 200);
 } else if ($dropint < 110) {
     // 1/128
     obj_add(npc_coord, coins, 25, 200);
 } else if ($dropint < 112) {
-    obj_add(npc_coord, macro_genilamp, 1, ^lootdrop_duration);
+    obj_add(npc_coord, trout, 5, ^lootdrop_duration);
 } else if ($dropint < 115) {
     // 5/128
     obj_add(npc_coord, fishing_bait, 1, 200);

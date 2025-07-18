@@ -1,0 +1,8 @@
+[human_middlegrip]
+lefthand=witchs_broomstick
+righthand=witchs_broomstick
+stretches=yes
+frame1=anim_1517
+frame2=anim_1812
+frame3=anim_1517
+frame4=anim_1812

@@ -342,27 +342,25 @@ if ($random_attack = 0) {
 
 [proc,kbd_fiery_breath_maxhit]()(int)
 def_int $maxhit = 65;
-if (%prayer_protectfrommagic = ^true) {
-    mes("You manage to resist some of the dragon's fiery breath!"); // https://youtu.be/R3ozXHcQkgs?list=PLn23LiLYLb1bYAFU3Vdk3N9niuHs-b-4-&t=78
-    $maxhit = 55;
-}
-if (inv_total(worn, dragon_sq_shield) > 0) {
-    mes("Your shield absorbs most of the dragon's fiery breath!");
-    $maxhit = 45;
-}
+// Strongest protection first
 if (%prayer_protectfrommagic = ^true & inv_total(worn, dragon_sq_shield) > 0) {
     mes("Your shield absorbs most of the dragon's fiery breath!");
     $maxhit = 10;
-}
-if (%prayer_protectfrommagic = ^true & inv_total(worn, antidragonbreathshield) > 0) {
+} else if (%prayer_protectfrommagic = ^true & inv_total(worn, antidragonbreathshield) > 0) {
     mes("Your shield absorbs most of the dragon's fiery breath!");
-    $maxhit = 50;
-}
-if (inv_total(worn, antidragonbreathshield) > 0){
+    $maxhit = 40;
+} else if (inv_total(worn, dragon_sq_shield) > 0) {
+    mes("Your shield absorbs most of the dragon's fiery breath!");
+    $maxhit = 45;
+} else if (inv_total(worn, antidragonbreathshield) > 0) {
     $maxhit = 60;
+} else if (%prayer_protectfrommagic = ^true) {
+    mes("You manage to resist some of the dragon's fiery breath!");
+    $maxhit = 55;
 }
+// Antifire potion always reduces damage further
 if (map_clock < %antifire) {
-    mes("Your potion protects you from the heat of the dragon's breath!"); // https://youtu.be/7nY0kuIooZk?list=PLn23LiLYLb1bYAFU3Vdk3N9niuHs-b-4-&t=45
+    mes("Your potion protects you from the heat of the dragon's breath!");
     $maxhit = sub($maxhit, 15);
 }
 return($maxhit);
@@ -370,20 +368,21 @@ return($maxhit);
 
 [proc,kbd_special_breath_maxhit]()(int)
 def_int $maxhit = 50;
-if (%prayer_protectfrommagic = ^true) {
-    $maxhit = 45;
-}
-if (inv_total(worn, dragon_sq_shield) > 0) {
-    $maxhit = 40;
-}
-if (inv_total(worn, antidragonbreathshield) > 0) {
-    $maxhit = 45;
-}
+// Strongest protection first
 if (%prayer_protectfrommagic = ^true & inv_total(worn, dragon_sq_shield) > 0) {
     $maxhit = 10;
-}
-if (%prayer_protectfrommagic = ^true & inv_total(worn, antidragonbreathshield) > 0) {
+} else if (%prayer_protectfrommagic = ^true & inv_total(worn, antidragonbreathshield) > 0) {
     $maxhit = 40;
+} else if (inv_total(worn, dragon_sq_shield) > 0) {
+    $maxhit = 40;
+} else if (inv_total(worn, antidragonbreathshield) > 0) {
+    $maxhit = 45;
+} else if (%prayer_protectfrommagic = ^true) {
+    $maxhit = 45;
+}
+// Antifire potion always reduces damage further
+if (map_clock < %antifire) {
+    $maxhit = sub($maxhit, 15);
 }
 return($maxhit);
 

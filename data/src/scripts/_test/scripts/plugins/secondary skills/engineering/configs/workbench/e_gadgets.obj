@@ -1,0 +1,16 @@
+[barbed_rope]
+name=Barbed Rope
+desc=A coil of barbed rope.
+cost=140
+model=model_loc_227_8
+recol1s=11524
+recol1d=7296
+recol2s=9410
+recol2d=12650
+2dxof=-2
+2dyof=-30
+2dzoom=1240
+2dyan=1976
+2dxan=188
+weight=3lb
+stackable=yes

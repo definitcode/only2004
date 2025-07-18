@@ -1,3 +1,4 @@
+[opnpc2,wizard_cromperty] @teleport_to_essence_mine(^essence_mine_to_cromperty);
 [opnpc1,wizard_cromperty]
 ~chatnpc("<p,neutral>Hello there.|My name is Cromperty.|I am a Wizard, and an inventor.");
 if(%runemysteries_progress = ^runemysteries_complete) {

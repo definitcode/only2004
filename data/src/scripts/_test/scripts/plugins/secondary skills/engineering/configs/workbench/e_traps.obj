@@ -1,0 +1,27 @@
+[trap_casket]
+name=Casket
+desc=I hope there's treasure in it.
+model=model_2450_obj
+2dxof=3
+2dyof=-6
+2dzoom=1410
+2dyan=1592
+2dxan=164
+cost=13450
+iop1=Open
+members=yes
+category=traps
+tradeable=yes
+
+[empty_casket]
+name=Empty Casket
+desc=Ready to be turned into a trap!
+model=model_2450_obj
+2dxof=3
+2dyof=-6
+2dzoom=1410
+2dyan=1592
+2dxan=164
+cost=3500
+members=yes
+tradeable=yes

@@ -1,0 +1,175 @@
+[proc,r_tasks]
+def_namedobj $task_item = null;
+
+if (%r_taskstatus = ^r_notstarted) {
+    def_int $choice = ~p_choice3_header("Start New Task.", 1, "Reputation Experience.", 2, "Cancel.", 3, "What would you like to do?");
+    switch_int($choice) {
+        case 1 : {
+            def_int $r1 = ~p_choice2_header("Casket.", 1, "Badge.", 2, "Choose item to turn in:");
+            switch_int($r1) {
+                case 1 : %r_taskitem = ^r_casket;
+                case 2 : %r_taskitem = ^r_badge;
+            }
+
+            def_int $r2 = ~p_choice4_header("Easy.", 1, "Medium.", 2, "Hard.", 3, "Insane.", 4, "Choose difficulty:");
+            switch_int($r2) {
+                case 1 : %r_taskamount = ^r_easy;
+                case 2 : %r_taskamount = ^r_medium;
+                case 3 : %r_taskamount = ^r_hard;
+                case 4 : %r_taskamount = ^r_insane;
+            }
+
+            %r_taskstatus = ^r_inprogress;
+
+            // Choose the actual task item based on type + difficulty
+            if (%r_taskitem = ^r_casket) {
+                if (%r_taskamount = ^r_easy) {
+                    $task_item = rogue_casket_easy;
+                } else if (%r_taskamount = ^r_medium) {
+                    $task_item = rogue_casket_medium;
+                } else if (%r_taskamount = ^r_hard) {
+                    $task_item = rogue_casket_hard;
+                } else if (%r_taskamount = ^r_insane) {
+                    $task_item = rogue_casket_insane;
+                }
+            } else if (%r_taskitem = ^r_badge) {
+                if (%r_taskamount = ^r_easy) {
+                    $task_item = rogue_badge_easy;
+                } else if (%r_taskamount = ^r_medium) {
+                    $task_item = rogue_badge_medium;
+                } else if (%r_taskamount = ^r_hard) {
+                    $task_item = rogue_badge_hard;
+                } else if (%r_taskamount = ^r_insane) {
+                    $task_item = rogue_badge_insane;
+                }
+            }
+
+            ~mesbox("Assigned: [<tostring(%r_taskamount)>x] [<oc_name($task_item)>]. Turn them in to complete the task.");
+            mes("Your task has begun. Good luck!");
+        }
+
+        case 2 : {
+            ~roguedefectorrep;
+        }
+
+        case 3 : {
+            mes("Task selection cancelled.");
+            %r_taskstatus = ^r_notstarted;
+            %r_taskamount = 0;
+            %r_taskitem = 0;
+        }
+    }
+
+} else if (%r_taskstatus = ^r_inprogress) {
+    def_int $choice2 = ~p_choice3_header("Active Task Menu.", 1, "Reputation Experience.", 2, "Cancel Task.", 3, "What would you like to do?");
+    switch_int($choice2) {
+        case 1 : ~r_ct;
+        case 2 : ~roguedefectorrep;
+        case 3 : ~r_canceltask;
+    }
+}
+
+[proc,r_canceltask]
+def_int $choice3 = ~p_choice2_header("Yes.", 1, "No.", 2, "Are you sure you want to cancel this task?");
+
+switch_int($choice3) {
+    case 1 : {
+            mes("Task selection cancelled.");
+            %r_taskstatus = ^r_notstarted;
+            %r_taskamount = 0;
+            %r_taskitem = 0;
+        }
+    case 2 : ~r_tasks;
+}
+
+[proc,roguedefectorrep]
+~mesbox("Reputation Level: |<tostring(%r_roguedefectorrep)>");
+~r_tasks;
+
+[proc,r_rep_multi]
+if (%r_taskamount = ^r_easy) {
+    %r_repmulti = 1;
+} else if (%r_taskamount = ^r_medium) {
+    %r_repmulti = 10;
+} else if (%r_taskamount = ^r_hard) {
+    %r_repmulti = 100;
+} else if (%r_taskamount = ^r_insane) {
+    %r_repmulti = 1000;
+}
+
+[proc,r_ct]
+~r_rep_multi;
+def_obj $task_item = $task_item;
+def_int $exp_gain = multiply(%r_repmulti,95);
+if (%r_taskitem = ^r_casket){
+    if (%r_taskamount = ^r_easy) {
+        $task_item = rogue_casket_easy;
+    }
+
+    else if (%r_taskamount = ^r_medium) {
+        $task_item = rogue_casket_medium;
+    }
+
+    else if (%r_taskamount = ^r_hard) {
+        $task_item = rogue_casket_hard;
+    }
+
+    else if (%r_taskamount = ^r_insane) {
+        $task_item = rogue_casket_insane;
+    }
+} else if (%r_taskitem = ^r_badge) {
+    if (%r_taskamount = ^r_easy) {
+        $task_item = rogue_badge_easy;
+    }
+    else if (%r_taskamount = ^r_medium) {
+        $task_item = rogue_badge_medium;
+    }
+    else if (%r_taskamount = ^r_hard) {
+        $task_item = rogue_badge_hard;
+    }
+    else if (%r_taskamount = ^r_insane) {
+        $task_item = rogue_badge_insane;
+    }    
+}
+
+
+if (%r_taskstatus = ^r_inprogress) {
+    if (%r_taskitem = ^r_casket) {
+        def_int $task_amount = sub(%r_taskamount, %r_at_count);
+        ~mesbox("You are currently on a task to get [<tostring($task_amount)>x] Caskets.");
+        if (inv_total(inv, $task_item) > %r_taskamount & $task_amount = 0) {
+            inv_del(inv, $task_item, %r_taskamount);
+            %r_taskstatus = ^r_notstarted;
+            %r_roguedefectorrep = add(%r_roguedefectorrep,%r_repmulti);
+            spotanim_pl(levelup_anim, 124, 0);
+            midi_jingle(^advance_thieving_jingle, ^advance_thieving_millis);
+            stat_advance(agility,$exp_gain);
+            stat_advance(thieving,$exp_gain);
+            ~mesbox("You have completed the task and have been rewarded!");
+            return;
+        } else {
+            ~mesbox("You still have [<tostring(%r_taskamount)>x] Caskets to go!");
+        }
+    } else if (%r_taskitem = ^r_badge) {
+        def_int $task_amount = sub(%r_taskamount, %r_at_count);
+        ~mesbox("You are currently on a task to get [<tostring($task_amount)>x] Badges.");
+        if (inv_total(inv, $task_item) > %r_taskamount) {
+            inv_del(inv, $task_item, %r_taskamount);
+            %r_taskstatus = ^r_notstarted;
+            %r_roguedefectorrep = add(%r_roguedefectorrep,%r_repmulti);
+            spotanim_pl(levelup_anim, 124, 0);
+            midi_jingle(^advance_thieving_jingle, ^advance_thieving_millis);
+            stat_advance(agility,$exp_gain);
+            stat_advance(thieving,$exp_gain);
+            ~mesbox("You have completed the task and have been rewarded!");
+            return;
+        } else {
+            ~mesbox("You still have [<tostring($task_amount)>x] Badges to go!");
+        }
+    }
+
+} else {
+    ~mesbox("You are not currently on a task.");
+    ~r_tasks;
+}
+

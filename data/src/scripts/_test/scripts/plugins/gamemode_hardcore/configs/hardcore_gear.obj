@@ -127,7 +127,7 @@ param=crushdefence,9
 param=magicdefence,-1
 param=rangedefence,9
 
-[hc_bronze_scimitar]
+[hc_iron_scimitar]
 name=Silverlight (HC)
 desc=A razor sharp scimitar.
 cost=1

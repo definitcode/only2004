@@ -1,4 +1,57 @@
-[ai_queue4,count_draynor] gosub(npc_death);
+[ai_queue4,count_draynor] @vampire_drop;
+
+[label,vampire_drop]
+gosub(npc_death);
+if (npc_findhero = false) {
+    return;
+}
+obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
+def_int $dropint = random(128);
+if ($dropint < 3) {
+    obj_add(npc_coord, iron_mace, 1, ^lootdrop_duration);
+} else if ($dropint < 5) {
+    obj_add(npc_coord, iron_dagger, 1, ^lootdrop_duration);
+} else if ($dropint < 6) {
+    obj_add(npc_coord, bronze_kiteshield, 1, ^lootdrop_duration);
+} else if ($dropint < 9) {
+    obj_add(npc_coord, mithril_arrow, 1, ^lootdrop_duration);
+} else if ($dropint < 12) {
+    obj_add(npc_coord, airrune, 3, ^lootdrop_duration);
+} else if ($dropint < 14) {
+    obj_add(npc_coord, bodyrune, 3, ^lootdrop_duration);
+} else if ($dropint < 15) {
+    obj_add(npc_coord, chaosrune, 4, ^lootdrop_duration);
+} else if ($dropint < 16) {
+    obj_add(npc_coord, cosmicrune, 2, ^lootdrop_duration);
+} else if ($dropint < 17) {
+    obj_add(npc_coord, firerune, 7, ^lootdrop_duration);
+} else if ($dropint < 47) {
+    obj_add(npc_coord, ~randomherb, ^lootdrop_duration);
+} else if ($dropint < 57) {
+    obj_add(npc_coord, coins, 10, ^lootdrop_duration);
+} else if ($dropint < 78) {
+    obj_add(npc_coord, coins, 18, ^lootdrop_duration);
+} else if ($dropint < 86) {
+    obj_add(npc_coord, coins, 26, ^lootdrop_duration);
+} else if ($dropint < 92) {
+    obj_add(npc_coord, coins, 35, ^lootdrop_duration);
+} else if ($dropint < 94) {
+    obj_add(npc_coord, coins, 1, ^lootdrop_duration);
+} else if ($dropint < 120) {
+    obj_add(npc_coord, fishing_bait, 7, ^lootdrop_duration);
+} else if ($dropint < 122) {
+    obj_add(npc_coord, tinderbox, 1, ^lootdrop_duration);
+} else if ($dropint < 123) {
+    obj_add(npc_coord, eye_of_newt, 1, ^lootdrop_duration);
+} else if ($dropint < 124) {
+    obj_add(npc_coord, tin_ore, 1, ^lootdrop_duration);
+} else if ($dropint < 125) {
+    obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
+} else if ($dropint < 126) {
+    obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
+} else if ($dropint < 127) {
+    obj_add(npc_coord, ~mid_tier_items, ^lootdrop_duration);
+}
 
 // https://youtu.be/67aR5-_INcU
 // - seems to be called on npc damage, and on npc hit
@@ -52,7 +105,13 @@ if (npc_findhero = true) {
 npc_statheal(hitpoints, 1, 0);
 
 [label,count_draynor_use_stake]
-if (inv_total(inv, stake) = 0) {
+if (
+    inv_total(inv, stake) = 0 |
+    inv_total(inv, stake_dagger) = 0 |
+    inv_total(worn, stake_dagger) = 0 |
+    inv_total(inv, stake_dagger_p) = 0 |
+    inv_total(worn, stake_dagger_p) = 0
+) {
     mes("The vampire seems to regenerate!");
     npc_statheal(hitpoints, 0, 100);
     npc_setmode(opplayer2);
@@ -75,7 +134,9 @@ npc_queue(4, 0, 0);
 if (%vampire_progress < ^vampire_complete) {
     queue(quest_vampire_complete, 3);
 }
-
+if (%vampire_progress = ^vampire_complete) {
+    
+}
 [ai_timer,count_draynor]
 if (finduid(%npc_attacking_uid) = true) {
     if (npc_range(coord) > 10 | coordy(coord) ! coordy(npc_coord)) {

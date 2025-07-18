@@ -1,0 +1,104 @@
+[proc,e_tasks]
+
+
+if (%e_taskstatus = ^e_notstarted) {
+    %e_taskstatus = ^e_inprogress;
+    def_int $r1 = ~p_choice3_header("Cog.", 1, "Barbed Rope.", 2, "Iron Nails.", 3, "What item would you like to turn in?");
+    switch_int($r1) {
+        case 1 : %e_taskitem = ^e_cog;
+        case 2 : %e_taskitem = ^e_barbedrope;
+        case 3 : %e_taskitem = ^e_ironnails;
+    
+    }
+    def_int $r2 = ~p_choice4_header("Easy.", 1, "Medium.", 2, "Hard.", 3, "Insane.", 4, "What difficulty would you like?");
+    switch_int($r2) {
+        case 1 : %e_taskamount = ^e_easy;
+        case 2 : %e_taskamount = ^e_medium;
+        case 3 : %e_taskamount = ^e_hard;
+        case 4 : %e_taskamount = ^e_insane;
+    }
+    def_int $choice = ~p_choice3_header("Check Task.", 1, "Reputation Experience.", 2, "Cancel Task.", 3, "What would you like to do?");
+
+    switch_int($choice) {
+        case 1 : ~e_ct;
+        case 2 : ~notnurmofrep;
+        case 3 : ~e_canceltask;
+    }
+
+} else if (%e_taskstatus = ^e_inprogress) {
+    def_int $choice2 = ~p_choice3_header("Complete Task.", 1, "Reputation Experience.", 2, "Cancel Task.", 3, "What would you like to do?");
+
+    switch_int($choice2) {
+        case 1 : ~e_ct;
+        case 2 : ~notnurmofrep;
+        case 3 : ~e_canceltask;
+    }
+
+}   
+
+[proc,e_canceltask]
+def_int $choice3 = ~p_choice2_header("Yes.", 1, "No.", 2, "Are you sure you want to cancel this task?");
+
+switch_int($choice3) {
+    case 1 : %e_taskstatus = ^e_notstarted;
+    case 2 : ~e_tasks;
+}
+
+[proc,notnurmofrep]
+~mesbox("Reputation Level: |<tostring(%e_nurmofrep)>");
+~e_tasks;
+
+[proc,e_rep_multi]
+if (%e_taskamount = ^e_easy) {
+    %e_repmulti = 1;
+} else if (%e_taskamount = ^e_medium) {
+    %e_repmulti = 10;
+} else if (%e_taskamount = ^e_hard) {
+    %e_repmulti = 100;
+} else if (%e_taskamount = ^e_insane) {
+    %e_repmulti = 1000;
+}
+
+[proc,e_ct]
+~e_rep_multi;
+if (%e_taskstatus = ^e_inprogress) {
+    if (%e_taskitem = ^e_cog) {
+        ~mesbox("You are currently on a task to get [<tostring(%e_taskamount)>x] Iron Cogs.");
+        if (inv_total(inv, cog) > %e_taskamount) {
+            inv_del(inv, cog, %e_taskamount);
+            %e_taskstatus = ^e_notstarted;
+            %e_nurmofrep = add(%e_nurmofrep,%e_repmulti);
+            spotanim_pl(levelup_anim, 124, 0);
+            midi_jingle(^advance_agility_jingle, ^advance_agility_millis);
+            ~mesbox("You have completed the task and have been rewarded!");
+            return;
+        } 
+    } else if (%e_taskitem = ^e_barbedrope) {
+        ~mesbox("You are currently on a task to get [<tostring(%e_taskamount)>x] Barbed Rope.");
+        if (inv_total(inv, barbed_rope) > %e_taskamount) {
+            inv_del(inv, barbed_rope, %e_taskamount);
+            %e_taskstatus = ^e_notstarted;
+            %e_nurmofrep = add(%e_nurmofrep,%e_repmulti);
+            spotanim_pl(levelup_anim, 124, 0);
+            midi_jingle(^advance_agility_jingle, ^advance_agility_millis);
+            ~mesbox("You have completed the task and have been rewarded!");
+            return;
+        }
+    } else if (%e_taskitem = ^e_ironnails) {
+        ~mesbox("You are currently on a task to get [<tostring(%e_taskamount)>x] Iron Nails.");
+        if (inv_total(inv, iron_nails) > %e_taskamount) {
+            inv_del(inv, iron_nails, %e_taskamount);
+            %e_taskstatus = ^e_notstarted;
+            %e_nurmofrep = add(%e_nurmofrep,%e_repmulti);
+            spotanim_pl(levelup_anim, 124, 0);
+            midi_jingle(^advance_agility_jingle, ^advance_agility_millis);
+            ~mesbox("You have completed the task and have been rewarded!");
+            return;
+        }
+    }
+
+} else {
+    ~mesbox("You are not currently on a task.");
+    ~e_tasks;
+}
+

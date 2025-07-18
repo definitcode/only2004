@@ -79,5 +79,5 @@ stock4=cake_tin,2,100
 stock5=tinderbox,2,100
 stock6=chisel,2,100
 stock7=hammer,5,100
-stock8=rope,2,300
+stock8=rope,500,100
 stock9=pot_empty,2,100

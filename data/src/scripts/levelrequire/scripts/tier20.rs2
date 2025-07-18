@@ -22,7 +22,7 @@
 [opheld2,mithril_plateskirt] @levelrequire_defence(50, last_slot);
 [opheld2,mithril_chainbody] @levelrequire_defence(50, last_slot);
 [opheld2,mithril_platebody] @levelrequire_defence(50, last_slot);
-
+[opheld2,mithril_gauntlets]  @levelrequire_crestquest_defence(50, last_slot);
 // Ranged
 [opheld2,willow_longbow] @levelrequire_ranged(40, last_slot);
 [opheld2,willow_shortbow] @levelrequire_ranged(35, last_slot);

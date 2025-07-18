@@ -170,7 +170,6 @@ while ($count >= 0) {
     def_int $reward_quantity_max;
     def_int $reward_rarity_numerator;
     $reward, $reward_quantity_min, $reward_quantity_max, $reward_rarity_numerator = db_getfield($data, pickpocket:loot, $count);
-
     def_int $roll = random($reward_rarity_denominator);
     $reward_rarity_denominator = sub($reward_rarity_denominator, $reward_rarity_numerator);
     if ($roll >= $reward_rarity_denominator) {

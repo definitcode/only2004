@@ -1,0 +1,110 @@
+[opheld5,mithril_gauntlets] @drop_gauntlets;
+[opheld5,adamant_gauntlets] @drop_gauntlets;
+[opheld5,rune_gauntlets] @drop_gauntlets;
+[opheld5,dragon_gauntlets] @drop_gauntlets;
+
+
+[opheldu,bronze_tinderbox]
+if (last_useitem = newbielogs) {
+    @tut_light_logs_inv(last_useslot);
+} else if (oc_param(last_useitem, unlit_arrow) = ^true) {
+    @light_firearrow(last_useitem);
+} else if (oc_category(last_useitem) = category_22) {
+    @light_logs_inv(last_useslot);
+} else if (oc_category(last_useitem) = light_source_unlit) {
+    @ignite_light_source(last_useitem);
+} else {
+    ~displaymessage(^dm_default);
+}
+
+[opheldu,iron_tinderbox]
+if (last_useitem = newbielogs) {
+    @tut_light_logs_inv(last_useslot);
+} else if (oc_param(last_useitem, unlit_arrow) = ^true) {
+    @light_firearrow(last_useitem);
+} else if (oc_category(last_useitem) = category_22) {
+    @light_logs_inv(last_useslot);
+} else if (oc_category(last_useitem) = light_source_unlit) {
+    @ignite_light_source(last_useitem);
+} else {
+    ~displaymessage(^dm_default);
+}
+
+[opheldu,steel_tinderbox]
+if (last_useitem = newbielogs) {
+    @tut_light_logs_inv(last_useslot);
+} else if (oc_param(last_useitem, unlit_arrow) = ^true) {
+    @light_firearrow(last_useitem);
+} else if (oc_category(last_useitem) = category_22) {
+    @light_logs_inv(last_useslot);
+} else if (oc_category(last_useitem) = light_source_unlit) {
+    @ignite_light_source(last_useitem);
+} else {
+    ~displaymessage(^dm_default);
+}
+
+[opheldu,mithril_tinderbox]
+if (last_useitem = newbielogs) {
+    @tut_light_logs_inv(last_useslot);
+} else if (oc_param(last_useitem, unlit_arrow) = ^true) {
+    @light_firearrow(last_useitem);
+} else if (oc_category(last_useitem) = category_22) {
+    @light_logs_inv(last_useslot);
+} else if (oc_category(last_useitem) = light_source_unlit) {
+    @ignite_light_source(last_useitem);
+} else {
+    ~displaymessage(^dm_default);
+}
+
+[opheldu,adamant_tinderbox]
+if (last_useitem = newbielogs) {
+    @tut_light_logs_inv(last_useslot);
+} else if (oc_param(last_useitem, unlit_arrow) = ^true) {
+    @light_firearrow(last_useitem);
+} else if (oc_category(last_useitem) = category_22) {
+    @light_logs_inv(last_useslot);
+} else if (oc_category(last_useitem) = light_source_unlit) {
+    @ignite_light_source(last_useitem);
+} else {
+    ~displaymessage(^dm_default);
+}
+
+[opheldu,dragon_tinderbox]
+if (last_useitem = newbielogs) {
+    @tut_light_logs_inv(last_useslot);
+} else if (oc_param(last_useitem, unlit_arrow) = ^true) {
+    @light_firearrow(last_useitem);
+} else if (oc_category(last_useitem) = category_22) {
+    @light_logs_inv(last_useslot);
+} else if (oc_category(last_useitem) = light_source_unlit) {
+    @ignite_light_source(last_useitem);
+} else {
+    ~displaymessage(^dm_default);
+}
+
+
+[opheldu,rune_tinderbox]
+if (last_useitem = newbielogs) {
+    @tut_light_logs_inv(last_useslot);
+} else if (oc_param(last_useitem, unlit_arrow) = ^true) {
+    @light_firearrow(last_useitem);
+} else if (oc_category(last_useitem) = category_22) {
+    @light_logs_inv(last_useslot);
+} else if (oc_category(last_useitem) = light_source_unlit) {
+    @ignite_light_source(last_useitem);
+} else {
+    ~displaymessage(^dm_default);
+}
+
+[opheldu,founders_tinderbox]
+if (last_useitem = newbielogs) {
+    @tut_light_logs_inv(last_useslot);
+} else if (oc_param(last_useitem, unlit_arrow) = ^true) {
+    @light_firearrow(last_useitem);
+} else if (oc_category(last_useitem) = category_22) {
+    @light_logs_inv(last_useslot);
+} else if (oc_category(last_useitem) = light_source_unlit) {
+    @ignite_light_source(last_useitem);
+} else {
+    ~displaymessage(^dm_default);
+}

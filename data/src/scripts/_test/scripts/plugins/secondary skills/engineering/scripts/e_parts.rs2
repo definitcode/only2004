@@ -1,0 +1,24 @@
+[opheld1,salt_petre] @attempt_grind_gunpowder;
+[opheldu,salt_petre] @attempt_grind_gunpowder;
+[opheldu,gunpowder] @gp;
+[opheldu,iron_nails] @gp;
+[opheldu,book_of_prayers] @gp;
+[label,attempt_grind_gunpowder]
+
+if (inv_total(inv, pestle_and_mortar) > 0) {
+    if (inv_total(inv, salt_petre) > 9 & (inv_total(inv, coal) > 4)){
+        inv_del(inv, salt_petre, 10);
+        inv_del(inv, coal, 5);
+        ~grinding_action;
+        stat_advance(herblore, 450);
+        stat_advance(crafting, 450);
+        inv_add(inv, gunpowder, 1);
+    } else {
+        ~mesbox("You need 10 Salt Petre and 5 Coal to make Gunpowder!");
+    }
+} else {
+    ~mesbox("You need a Pestle and Mortar to make Gunpowder!");
+}
+
+[label,gp]
+mes("Nothing intersting happened..");

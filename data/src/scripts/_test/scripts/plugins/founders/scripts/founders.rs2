@@ -1,0 +1,186 @@
+[opheld1,founders_box] ~fb_open;
+[opheld1,founders_scroll] ~fb_status;
+[opheld1,founders_partyhat] ~f_check;
+[opheld5,founders_box] ~drop_founders_item(last_slot);
+[opheld5,founders_scroll] ~drop_founders_item(last_slot);
+[opheld5,founders_partyhat] ~drop_founders_item(last_slot);
+[opheld5,founders_harpoon] ~drop_founders_item(last_slot);
+[opheld5,founders_hammer] ~drop_founders_item(last_slot);
+[opheld5,founders_tinderbox] ~drop_founders_item(last_slot);
+[opheld5,founders_knife] ~drop_founders_item(last_slot);
+[opheld5,founders_axe] ~drop_founders_item(last_slot);
+[opheld5,founders_pickaxe] ~drop_founders_item(last_slot);
+[opheld5,founders_boots] ~drop_founders_item(last_slot);
+[opheld5,founders_bottoms] ~drop_founders_item(last_slot);
+[opheld5,founders_robetop] ~drop_founders_item(last_slot);
+[opheld5,founders_cape] ~drop_founders_item(last_slot);
+
+
+[proc,founders_protection]
+if (inv_total(worn, founders_axe) > 0) {
+    inv_del(worn, founders_axe, 1);
+    inv_add(bank, founders_axe, 1);
+} else if (inv_total(inv, founders_axe) > 0) {
+    inv_del(inv, founders_axe, 1);
+    inv_add(bank, founders_axe, 1);
+}
+
+if (inv_total(worn, founders_partyhat) > 0) {
+    inv_del(worn, founders_partyhat, 1);
+    inv_add(bank, founders_partyhat, 1);
+} else if (inv_total(inv, founders_partyhat) > 0) {
+    inv_del(inv, founders_partyhat, 1);
+    inv_add(bank, founders_partyhat, 1);
+}
+
+if (inv_total(worn, founders_harpoon) > 0) {
+    inv_del(worn, founders_harpoon, 1);
+    inv_add(bank, founders_harpoon, 1);
+} else if (inv_total(inv, founders_harpoon) > 0) {
+    inv_del(inv, founders_harpoon, 1);
+    inv_add(bank, founders_harpoon, 1);
+}
+
+if (inv_total(worn, founders_hammer) > 0) {
+    inv_del(worn, founders_hammer, 1);
+    inv_add(bank, founders_hammer, 1);
+} else if (inv_total(inv, founders_hammer) > 0) {
+    inv_del(inv, founders_hammer, 1);
+    inv_add(bank, founders_hammer, 1);
+}
+
+if (inv_total(worn, founders_tinderbox) > 0) {
+    inv_del(worn, founders_tinderbox, 1);
+    inv_add(bank, founders_tinderbox, 1);
+} else if (inv_total(inv, founders_tinderbox) > 0) {
+    inv_del(inv, founders_tinderbox, 1);
+    inv_add(bank, founders_tinderbox, 1);
+}
+
+if (inv_total(worn, founders_cape) > 0) {
+    inv_del(worn, founders_cape, 1);
+    inv_add(bank, founders_cape, 1);
+} else if (inv_total(inv, founders_cape) > 0) {
+    inv_del(inv, founders_cape, 1);
+    inv_add(bank, founders_cape, 1);
+}
+
+if (inv_total(worn, founders_pickaxe) > 0) {
+    inv_del(worn, founders_pickaxe, 1);
+    inv_add(bank, founders_pickaxe, 1);
+} else if (inv_total(inv, founders_pickaxe) > 0) {
+    inv_del(inv, founders_pickaxe, 1);
+    inv_add(bank, founders_pickaxe, 1);
+}
+
+if (inv_total(worn, founders_knife) > 0) {
+    inv_del(worn, founders_knife, 1);
+    inv_add(bank, founders_knife, 1);
+} else if (inv_total(inv, founders_knife) > 0) {
+    inv_del(inv, founders_knife, 1);
+    inv_add(bank, founders_knife, 1);
+}
+
+if (inv_total(worn, founders_boots) > 0) {
+    inv_del(worn, founders_boots, 1);
+    inv_add(bank, founders_boots, 1);
+} else if (inv_total(inv, founders_boots) > 0) {
+    inv_del(inv, founders_boots, 1);
+    inv_add(bank, founders_boots, 1);
+}
+
+if (inv_total(worn, founders_bottoms) > 0) {
+    inv_del(worn, founders_bottoms, 1);
+    inv_add(bank, founders_bottoms, 1);
+} else if (inv_total(inv, founders_bottoms) > 0) {
+    inv_del(inv, founders_bottoms, 1);
+    inv_add(bank, founders_bottoms, 1);
+}
+
+if (inv_total(worn, founders_robetop) > 0) {
+    inv_del(worn, founders_robetop, 1);
+    inv_add(bank, founders_robetop, 1);
+} else if (inv_total(inv, founders_robetop) > 0) {
+    inv_del(inv, founders_robetop, 1);
+    inv_add(bank, founders_robetop, 1);
+}
+return;
+
+[proc,fb_open]
+if (%founders_status = ^notfounder) {
+    if (inv_freespace(inv) > 9) {
+        inv_add(inv, founders_partyhat, 1);
+        inv_add(inv, founders_harpoon, 1);
+        inv_add(inv, founders_hammer, 1);
+        inv_add(inv, founders_tinderbox, 1);
+        inv_add(inv, founders_cape, 1);
+        inv_add(inv, founders_axe, 1);
+        inv_add(inv, founders_pickaxe, 1);
+        inv_add(inv, founders_knife, 1);
+        inv_add(inv, founders_boots, 1);
+        inv_add(inv, founders_bottoms, 1);
+        inv_add(inv, founders_robetop, 1);
+        //remove the box
+        inv_del(inv, founders_box, 1);
+    } else {
+        ~mesbox("You need to have 10 free slots to open this!");
+        return;
+    }
+} else {
+    ~mesbox("You are not a Founder, you cannot open this box.");
+}
+
+[proc,f_check]
+if (%founders_status = ^notfounder) {
+    ~mesbox("You cannot wear this item, you are not a Founder.");
+    return;
+}
+[proc,fb_status]
+
+if(%gamemode_selected = ^gamemode_hardcore){
+    if (%founders_status = ^notfounder) {
+        %founders_status = ^hcfounder;
+        ~mesbox("You are now a Hardcore Founder, you can open this scroll once.");
+        spotanim_pl(levelup_anim, 120, 0);
+        midi_jingle(^advance_firemaking_2_jingle, ^advance_firemaking_2_millis);
+        inv_del(inv, founders_scroll, 1);
+        return;
+    }
+}
+
+if (%founders_status = ^notfounder) {
+    %founders_status = ^founder;
+    ~mesbox("You are now a Founder, you can open this scroll once.");
+    spotanim_pl(levelup_anim, 120, 0);
+    midi_jingle(^advance_firemaking_2_jingle, ^advance_firemaking_2_millis);
+    inv_del(inv, founders_scroll, 1);
+    return;
+} else if (%founders_status = ^founder) {
+    ~mesbox("You are a Founder, you can open this scroll once.");
+    return;
+} else {
+    ~mesbox("You have already opened this scroll.");
+}
+
+[proc,drop_founders_item](int $slot)
+def_int $ch1 = ~p_choice2_header("Destroy Item", 1, "No I changed my mind", 2, "Dropping this item WILL destroy it forever, are you sure?");
+switch_int($ch1) {
+    case 1 :{
+        def_int $ch2 = ~p_choice2_header("Yes destroy it forever!", 1, "No I changed my mind", 2, "Are you sure, sure?");
+        switch_int($ch2) {
+            case 1 : {
+                inv_delslot(inv, $slot);
+                mes("You destroyed the item forever.");
+                return;
+            }
+            case 2 : {
+                mes("You changed your mind.");
+                return;
+            }
+        }
+    }
+    case 2 :{
+        mes("You changed your mind.");
+        return;
+    }
+}

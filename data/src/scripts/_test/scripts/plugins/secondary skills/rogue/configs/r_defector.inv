@@ -1,0 +1,14 @@
+[defectorshop]
+// https://classic.runescape.wiki/w/Varrock_General_Store
+// https://web.archive.org/web/20111107025524im_/http://runevillage.com/images/rs2Cities/rsVarrock10.gif
+scope=shared
+size=40
+restock=yes
+stackall=yes
+allstock=yes
+stock1=highwaymanmask,10,5000
+stock2=empty_casket,10,300
+stock3=trap_casket,1,10000
+stock4=gunpowder,500,300
+stock5=salt_petre,250,150
+stock6=lockpick,100,100

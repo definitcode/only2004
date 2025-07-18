@@ -1,3 +1,4 @@
+[opnpc2,wizard_distentor] @teleport_to_essence_mine(^essence_mine_to_disentor);
 [opnpcu,wizard_distentor]
 switch_obj(last_useitem) {
     case imbued_talisman : @rc_dialogue;

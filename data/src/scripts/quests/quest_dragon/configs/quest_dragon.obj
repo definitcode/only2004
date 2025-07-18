@@ -50,10 +50,12 @@ weight=15g
 tradeable=no
 
 [nails]
-name=Nails
+name=Steel Nails
 desc=Keeps things in place fairly permanently.
 cost=3
 model=model_2580_obj
+recol1s=7399
+recol1d=14798
 stackable=yes
 2dxof=3
 2dyof=4

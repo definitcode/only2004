@@ -1,0 +1,102 @@
+[tree_bark]
+name=Tree bark
+desc=A sample of the bark from the Grand Tree.
+members=yes
+cost=2
+model=model_2625_obj
+recol1s=4160
+recol1d=6240
+2dxof=2
+2dyof=64
+2dzoom=900
+2dyan=76
+2dxan=264
+weight=15g
+tradeable=no
+stackable=yes
+
+[oak_bark]
+name=Oak bark
+desc=A sample of the bark from an oak tree.
+members=yes
+cost=2
+model=model_2625_obj
+recol1s=4160
+recol1d=14659
+2dxof=2
+2dyof=64
+2dzoom=900
+2dyan=76
+2dxan=264
+weight=15g
+tradeable=no
+stackable=yes
+
+
+[willow_bark]
+name=Willow bark
+desc=A sample of the bark from an oak tree.
+members=yes
+cost=2
+model=model_2625_obj
+recol1s=4160
+recol1d=16643
+2dxof=2
+2dyof=64
+2dzoom=900
+2dyan=76
+2dxan=264
+weight=15g
+tradeable=no
+stackable=yes
+
+[maple_bark]
+name=Maple bark
+desc=A sample of the bark from an oak tree.
+members=yes
+cost=2
+model=model_2625_obj
+recol1s=4160
+recol1d=14560
+2dxof=2
+2dyof=64
+2dzoom=900
+2dyan=76
+2dxan=264
+weight=15g
+tradeable=no
+stackable=yes
+
+[yew_bark]
+name=Yew bark
+desc=A sample of the bark from an oak tree.
+members=yes
+cost=2
+model=model_2625_obj
+recol1s=4160
+recol1d=15717
+2dxof=2
+2dyof=64
+2dzoom=900
+2dyan=76
+2dxan=264
+weight=15g
+tradeable=no
+stackable=yes
+
+[magic_bark]
+name=Magic bark
+desc=A sample of the bark from an oak tree.
+members=yes
+cost=2
+model=model_2625_obj
+recol1s=4160
+recol1d=15651
+2dxof=2
+2dyof=64
+2dzoom=900
+2dyan=76
+2dxan=264
+weight=15g
+tradeable=no
+stackable=yes

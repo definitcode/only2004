@@ -21,6 +21,15 @@ if ($weapon = null) {
     bas_walk_r(oc_param($weapon, walk_r_baseanim));
     bas_running(oc_param($weapon, running_baseanim));
 }
+if (inv_total(worn, founders_bottoms) > 0) {
+    bas_readyanim(human_geni_walkandready);
+    bas_turnonspot(human_geni_walkandready);
+    bas_walk_f(human_geni_walkandready);
+    bas_walk_b(human_geni_walkandready);
+    bas_walk_l(human_geni_walkandready);
+    bas_walk_r(human_geni_walkandready);
+    bas_running(human_geni_walkandready);
+}
 buildappearance(worn);
 
 [proc,.update_bas]

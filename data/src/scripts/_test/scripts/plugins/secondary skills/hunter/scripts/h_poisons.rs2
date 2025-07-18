@@ -1,0 +1,28 @@
+[opheld1,poison_cake] @poison_check;
+
+
+[label,poison_check]
+~hunter_check;
+if (%hunter > 249) {
+    if (inv_total(inv, poison_cake) > 0) {
+        say("This food is poisoned!");
+        mes("You spit out the food because it was poisoned.");
+        inv_del(inv, poison_cake, 1);
+    }
+} else {
+    def_int $damage = sub(400, %hunter);
+    say("Blehhh....");
+    spotanim_pl(confuse_impact, 120, 0);
+    sound_synth(paralyze, 1, 0);
+    ~damage_self($damage);
+    inv_del(inv, poison_cake, 1);
+}
+
+
+[label,poison_cake]
+if (inv_total(inv, cake) > 0 & inv_total(inv, weapon_poison) > 0){
+    inv_del(inv, cake, 1);
+    inv_del(inv, weapon_poison, 1);
+    inv_add(inv,poison_cake, 1);
+    ~objbox(poison_cake, "You have created a poisoned cake!", 150, 0, 0);
+}

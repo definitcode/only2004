@@ -52,7 +52,7 @@ iop1=Dig
 [rope]
 name=Rope
 desc=A coil of rope.
-cost=18
+cost=50
 model=model_loc_227_8
 recol1s=11524
 recol1d=7296
@@ -661,15 +661,7 @@ model=model_2411_obj
 2dxan=812
 weight=5lb
 
-[halberd]
-name=Halberd
-model=model_2791_obj
-2dxof=-7
-2dyof=-6
-2dzoom=1580
-2dyan=400
-2dxan=224
-weight=10lb
+
 
 [warhammer]
 name=Warhammer

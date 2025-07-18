@@ -1,3 +1,4 @@
+[opnpc2,aubury] @teleport_to_essence_mine(^essence_mine_to_aubury);
 [opnpc1,aubury]
 if(%runemysteries_progress = ^runemysteries_given_package) {
     ~chatnpc("<p,neutral>My gratitude to you adventurer for bringing me these research notes. I notice that you brought the head wizard a special talisman that was the key to our finally unlocking the puzzle.");
