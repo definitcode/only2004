@@ -1,5 +1,30 @@
 [opnpc1,hans]
 // Treasure Trail
+if (%founders_pack_collected = ^false) {
+
+    if (%founders_status = ^notfounder | %founders_status = ^hcfounder | %founders_status = ^founder ) {
+        ~chatnpc("Here you go!");
+        if (inv_freespace(inv) > 2){
+            if (%gamemode_selected = ^gamemode_hardcore) {
+                inv_add(inv, hcfounders_scroll, 1);
+                inv_add(inv, founders_box, 1);
+                %founders_pack_collected = ^true;
+            } else if (%gamemode_selected = ^gamemode_none) {
+
+                inv_add(inv, founders_scroll, 1);
+                inv_add(inv, founders_box, 1);
+                %founders_pack_collected = ^true;
+            }
+        } else {
+            ~chatnpc("You don't have enough space in your inventory.");
+
+        }
+
+    }
+} else {
+    ~chatnpc("You already have the founders pack!");
+}
+
 if(map_members = true) {
     if(inv_total(inv, trail_clue_hard_riddle012) > 0) {
         // https://www.youtube.com/watch?v=F5i3JqU6dkY

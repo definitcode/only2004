@@ -1,2 +1,5 @@
 [founders_status]
 scope=perm
+
+[founders_pack_collected]
+scope=perm

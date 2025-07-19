@@ -1,5 +1,6 @@
 [opheld1,founders_box] ~fb_open;
 [opheld1,founders_scroll] ~fb_status;
+[opheld1,hcfounders_scroll] ~hcfb_status;
 [opheld1,founders_partyhat] ~f_check;
 [opheld5,founders_box] ~drop_founders_item(last_slot);
 [opheld5,founders_scroll] ~drop_founders_item(last_slot);
@@ -107,7 +108,7 @@ if (inv_total(worn, founders_robetop) > 0) {
 return;
 
 [proc,fb_open]
-if (%founders_status = ^notfounder) {
+if (%founders_status = ^hcfounder | %founders_status = ^founder) {
     if (inv_freespace(inv) > 9) {
         inv_add(inv, founders_partyhat, 1);
         inv_add(inv, founders_harpoon, 1);
@@ -144,6 +145,33 @@ if(%gamemode_selected = ^gamemode_hardcore){
         spotanim_pl(levelup_anim, 120, 0);
         midi_jingle(^advance_firemaking_2_jingle, ^advance_firemaking_2_millis);
         inv_del(inv, founders_scroll, 1);
+        return;
+    }
+}
+
+if (%founders_status = ^notfounder) {
+    %founders_status = ^founder;
+    ~mesbox("You are now a Founder, you can open this scroll once.");
+    spotanim_pl(levelup_anim, 120, 0);
+    midi_jingle(^advance_firemaking_2_jingle, ^advance_firemaking_2_millis);
+    inv_del(inv, founders_scroll, 1);
+    return;
+} else if (%founders_status = ^founder) {
+    ~mesbox("You are a Founder, you can open this scroll once.");
+    return;
+} else {
+    ~mesbox("You have already opened this scroll.");
+}
+
+[proc,hcfb_status]
+
+if(%gamemode_selected = ^gamemode_hardcore){
+    if (%founders_status = ^notfounder | %founders_status = ^founder) {
+        %founders_status = ^hcfounder;
+        ~mesbox("You are now a Hardcore Founder, you can open this scroll once.");
+        spotanim_pl(levelup_anim, 120, 0);
+        midi_jingle(^advance_firemaking_2_jingle, ^advance_firemaking_2_millis);
+        inv_del(inv, hcfounders_scroll, 1);
         return;
     }
 }

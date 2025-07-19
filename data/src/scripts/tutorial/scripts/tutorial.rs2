@@ -374,13 +374,14 @@ healenergy(10000);
 %e_ctoggle = ^e_toggle_off;
 %e_taskstatus = ^e_notstarted;
 %r_taskstatus = ^r_notstarted;
-if (%founders_status = ^hcfounder) {
-    %founders_status = ^hcfounder;
-    inv_add(inv, founders_scroll, 1);
-    inv_add(inv, founders_box, 1);
-} else {
-    %founders_status = ^notfounder;
-}
+%founders_pack_collected = ^false;
+//if (%founders_status = ^hcfounder) {
+//    %founders_status = ^hcfounder;
+//    inv_add(inv, founders_scroll, 1);
+//    inv_add(inv, founders_box, 1);
+//} else {
+//    %founders_status = ^notfounder;
+//}
 ~initalltabs;
 ~update_all(inv_getobj(worn, ^wearpos_rhand));
 
