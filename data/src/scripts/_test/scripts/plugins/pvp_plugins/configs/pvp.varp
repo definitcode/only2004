@@ -1,0 +1,14 @@
+[pvp_killstreak]
+scope=perm
+
+[pvptotal_kills]
+scope=perm
+
+[pvptotal_deaths]
+scope=perm
+
+[pk_points]
+scope=perm
+
+[pvp_last_attacker]
+scope=temp

@@ -1,0 +1,35 @@
+[opheld3,pvp_badge] @pvp_stats;
+
+
+// Add Kill
+[proc,pvp_add_kill]
+if (inv_total(worn, pvp_badge) > 0){
+
+    %pvp_killstreak = add(%pvp_killstreak, 1);
+    %pvptotal_kills = add(%pvptotal_kills, 1);
+
+}
+
+[proc,pvp_killstreak_reset]
+if (~wilderness_level(coord) > 0){ 
+    %pvp_killstreak = 0;
+}
+
+[proc,pvp_killstreak_check]
+
+if (inv_total(worn, pvp_badge) > 0) {
+    def_int $killstreak = %pvp_killstreak;
+    if ($killstreak = 0) {
+        return;
+    } else if ($killstreak = 1) {
+        return;
+    } else if ($killstreak > 1) {
+        say("<tostring($killstreak)> kills in a row!");
+    }
+}
+
+
+
+[label,pvp_stats]
+~mesbox("Total Kills: <tostring(%pvptotal_kills)> |Total Deaths: <tostring(%pvptotal_deaths)> |PK Points: <tostring(%pk_points)>");
+

@@ -143,7 +143,8 @@ if (random($chance) = ^true) {
     }
     def_int $xp_mul = 1;
     def_int $product_amount = 1;
-    switch_obj(last_useitem){
+    def_obj $pickaxe = ~pickaxe_checker;
+    switch_obj($pickaxe){
         case iron_pickaxe : {
             $xp_mul = 1;
             $product_amount = 1;
@@ -217,7 +218,8 @@ if (random($chance) = ^true) {
     anim(null, 0);
     def_int $xp_mul = 1;
     def_int $product_amount = 1;
-    switch_obj(last_useitem){
+    def_obj $pickaxe = ~pickaxe_checker;
+    switch_obj($pickaxe){
         case iron_pickaxe : {
             $xp_mul = 1;
             $product_amount = 1;
@@ -229,7 +231,6 @@ if (random($chance) = ^true) {
         case mithril_pickaxe : {
             $xp_mul = 2;
             $product_amount = 2;
-
         }
         case adamant_pickaxe : {
             $xp_mul = 2;
@@ -282,7 +283,8 @@ if ($random > 49) {
 }
 def_int $xp_mul = 1;
 def_int $product_amount = 1;
-switch_obj(last_useitem){
+def_obj $pickaxe = ~pickaxe_checker;
+switch_obj($pickaxe){
     case iron_pickaxe : {
         $xp_mul = 1;
         $product_amount = 1;

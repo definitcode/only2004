@@ -387,8 +387,7 @@ if (inv_total(inv, dragon_hammer) > 0) {
     $delay = 4;
     $loop = $delay;
 }
-// delete bars
-inv_del(inv, $bar, $bar_amount);
+
 // add product
 
 // add smithing xp
@@ -426,6 +425,9 @@ if (inv_total(inv, dragon_hammer) > 0) {
     } else {
         $product_multiplier = 1;
     }
+} else if (inv_total(inv, founders_hammer) > 0) {
+    $xp_multiplier = 1;
+    $product_multiplier = 1;
 } else if (
     inv_total(inv, steel_hammer) > 0 |
     inv_total(inv, iron_hammer) > 0 |
@@ -441,6 +443,8 @@ if (inv_total(inv, dragon_hammer) > 0) {
 
 // Calculate and apply smithing experience
 def_int $xp = calc($bar_amount * struct_param($struct, xpperbar) * $xp_multiplier);
+// delete bars
+inv_del(inv, $bar, $bar_amount);
 stat_advance(smithing, $xp);
 
 // Apply product multiplier if greater than 1

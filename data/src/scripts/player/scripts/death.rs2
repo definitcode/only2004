@@ -13,6 +13,7 @@ p_stopaction;
 if_close;
 anim(human_death, 0);
 p_delay(3);
+~pvp_killstreak_reset;
 
 [queue,player_death_default]
 ~player_death;
@@ -80,6 +81,7 @@ anim(null, 0);
 p_stopaction;
 ~stat_reset_all;
 healenergy(10000);
+~founders_protection;
 ~clear_pk_skull;
 ~clear_poison;
 ~update_all($prev_wep);
@@ -179,6 +181,11 @@ while ($i < $size) {
 }
 
 .obj_add(coord, bones, 1, 200);
+if (~wilderness_level(coord) > 0 & ~player_combat_level > 30 & ~.player_combat_level > 30 ) {
+    if (.inv_total(worn, pvp_badge) > 0) {
+        .obj_add(coord, player_skull, 1, 200);
+    }
+}
 ~moveallinv(deathkeep, inv);
 inv_clear(deathkeep);
 

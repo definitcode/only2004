@@ -24,14 +24,38 @@ def_int $choice1 = ~p_choice3_header("Players Online.", 1, "Account Status.", 2,
 if (%gamemode_selected = ^gamemode_hardcore){
     switch_int($choice1) {
         case 1 : ~mesbox("Players: @bla@<tostring(playercount)>.");
-        case 2 : ~mesbox("Your Account Status is Hardcore.");
+        case 2 : {
+            if (%founders_status = ^hcfounder){
+                ~mesbox("Your Account Status is Hardcore Founder.");
+                anim(partyroom_dance, 0);
+                midi_jingle(^advance_hitpoints_2_jingle,^advance_hitpoints_2_millis);
+                spotanim_pl(levelup_anim,120,0);
+                say("I'm a Hardcore Founder!");
+            } else {
+                ~mesbox("Your Account Status is Hardcore.");
+                anim(human_bow,0);
+                spotanim_pl(levelup_anim,120,0);
+                say("I'm a Hardcore Player!");
+
+            }
+        }
         case 3 : ~show_ss;
     }
 
 } else if (%gamemode_selected = ^gamemode_none) {
     switch_int($choice1) {
     case 1 : ~mesbox("Players: @bla@<tostring(playercount)>.");
-    case 2 : ~mesbox("Your Account Status is Normal.");
+    case 2 : {
+            if (%founders_status = ^founder){
+                ~mesbox("Your Account Status is Founder.");
+                anim(partyroom_dance, 0);
+                midi_jingle(^advance_hitpoints_2_jingle,^advance_hitpoints_2_millis);
+                spotanim_pl(levelup_anim,120,0);
+                say("I'm a Founder!");
+            } else {
+                ~mesbox("Your Account Status is Normal.");
+            }
+    }
     case 3 : ~show_ss;
     }
 }

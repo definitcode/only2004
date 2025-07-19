@@ -337,3 +337,9 @@
 336=smithing_animation
 337=r_at_count
 338=r_pp
+339=founders_pack_collected
+340=pvp_killstreak
+341=pvptotal_kills
+342=pvptotal_deaths
+343=pk_points
+344=pvp_last_attacker

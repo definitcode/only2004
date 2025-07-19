@@ -83,6 +83,31 @@ weight=18oz
 cost=1
 param=no_alchemy,^true
 stackable=yes
+tradeable=no
+
+[hcfounders_scroll]
+name=Founder's Scroll(HC)
+desc=a scroll that grants Founder Status.
+model=model_2774_obj
+2dxof=-1
+2dyof=56
+2dzoom=990
+2dyan=1716
+2dxan=264
+recol1s=9248
+recol1d=31648
+recol2s=24174
+recol2d=26657
+recol3s=21003 
+recol3d=19489
+recol4s=17832 
+recol4d=12321
+iop1=Learn
+weight=18oz
+cost=1
+param=no_alchemy,^true
+stackable=yes
+tradeable=yes
 
 [founders_cape]
 name=Founder's Cape
