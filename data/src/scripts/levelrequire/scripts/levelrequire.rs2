@@ -214,6 +214,16 @@ if (stat_base($stat) < $required_level) {
 anim(emote_dance, 0);
 ~equip($slot);
 
+[label,levelrequire_book_of_prayers](stat $stat, int $slot)
+def_int $required_level = 99;
+
+if (stat_base($stat) < $required_level) {
+    ~mesbox("You are not a high enough level to use this item.");
+    ~mesbox("You need to have a level of 99 in this skill.");
+    return;
+}
+
+
 [label,levelrequire_max_cape](int $required_level, int $slot)
 
 if ( stat_base(attack) < $required_level | stat_base(strength) < $required_level | stat_base(defence) < $required_level | stat_base(ranged) < $required_level | stat_base(prayer) < $required_level | stat_base(magic) < $required_level | stat_base(runecraft) < $required_level | stat_base(hitpoints) < $required_level | stat_base(agility) < $required_level | stat_base(herblore) < $required_level | stat_base(thieving) < $required_level | stat_base(crafting) < $required_level | stat_base(fletching) < $required_level | stat_base(mining) < $required_level | stat_base(smithing) < $required_level | stat_base(fishing) < $required_level | stat_base(cooking) < $required_level | stat_base(firemaking) < $required_level | stat_base(woodcutting) < $required_level ) {

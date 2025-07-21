@@ -1,9 +1,11 @@
 [ai_queue3,hellhound]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
-
+if (npc_findhero = true) {
+    queue(hellhound_kill, 0);
+}
+gosub(npc_death);
 def_int $random = random(128);
 //def_int $number = 1;
 //%bt_hellhound_kc = add(%bt_hellhound_kc, $number);
@@ -69,3 +71,7 @@ if ($random < 5) {
 } else if ($random < 115) {
     obj_add(npc_coord, ~high_tier_items, ^lootdrop_duration);
 }
+
+[queue,hellhound_kill]
+mes("You scratch a notch on your bow for the kill.");
+%hellhound_kc = calc(%hellhound_kc + 1);

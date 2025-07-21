@@ -1,9 +1,11 @@
 [ai_queue3,moss_giant]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
-
+if (npc_findhero = true) {
+    queue(moss_giant_kill, 0);
+}
+gosub(npc_death);
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
@@ -69,3 +71,7 @@ if ($random < 5) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
     obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
 }
+
+[queue,moss_giant_kill]
+mes("You scratch a notch on your bow for the kill.");
+%moss_giant_kc = calc(%moss_giant_kc + 1);

@@ -3,10 +3,13 @@
 [ai_queue3,dwarf_3] @dwarf_drop_table;
 
 [label,dwarf_drop_table]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
+if (npc_findhero = true) {
+    queue(dwarf_kill, 0);
+}
+gosub(npc_death);
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
@@ -52,3 +55,7 @@ if ($random < 13) {
     //obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
     return;
 }
+
+[queue,dwarf_kill]
+mes("You scratch a notch on your bow for the kill.");
+%dwarf_kc = calc(%dwarf_kc + 1);

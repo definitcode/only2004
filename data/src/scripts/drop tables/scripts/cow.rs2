@@ -1,9 +1,12 @@
 // https://oldschool.runescape.wiki/w/Cow#Drops
 [ai_queue3,_cow]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
+if(npc_findhero = true) { // happens before npc_death
+    queue(cow_kill, 0);
+}
+gosub(npc_death);
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
@@ -35,3 +38,8 @@ if (%hunter > 349) {
 } else {
     obj_add(npc_coord, cow_hide, 1, ^lootdrop_duration);
 }
+
+
+[queue,cow_kill]
+mes("You scratch a notch on your bow for the kill.");
+%cow_kc = calc(%cow_kc + 1);

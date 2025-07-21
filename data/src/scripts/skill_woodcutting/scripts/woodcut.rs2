@@ -169,7 +169,19 @@ if (stat_random(stat(woodcutting), $tree_chance_low, $tree_chance_high) = true) 
         $productcount = 1;
     } 
     inv_add(inv, $product, $productcount);
-
+    if ($product = logs) {
+        %logs_cut = calc(%logs_cut + $productcount);
+    } else if ($product = oak_logs){
+        %oak_logs_cut = calc(%oak_logs_cut + $productcount);
+    } else if ($product = willow_logs){
+        %willow_logs_cut = calc(%willow_logs_cut + $productcount);
+    } else if ($product = maple_logs){
+        %maple_logs_cut = calc(%maple_logs_cut + $productcount);
+    } else if ($product = yew_logs){
+        %yew_logs_cut = calc(%yew_logs_cut + $productcount);
+    } else if ($product = magic_logs){
+        %magic_logs_cut = calc(%magic_logs_cut + $productcount);
+    }
     if (random($deplete_chance) = 0) {
         $respawnrate = ~scale_by_playercount($respawnrate);
         loc_change(loc_param(next_loc_stage), $respawnrate);

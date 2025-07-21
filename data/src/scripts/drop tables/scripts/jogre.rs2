@@ -4,11 +4,13 @@
 // todo: RS3 drop table has differences, OSRS one has some logical errors
 
 [ai_queue3,jogre]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
-
+if (npc_findhero = true) {
+    queue(jogre_kill, 0);
+}
+gosub(npc_death);
 // Normal drop
 obj_add(npc_coord, npc_param(death_drop), 1, 200);
 
@@ -66,3 +68,7 @@ if ($dropint < 30) {
     // 1/129
     obj_add(npc_coord, unidentified_rogues_purse, 1, 200);
 }
+
+[queue,jogre_kill]
+mes("You scratch a notch on your bow for the kill.");
+%jogre_kc = calc(%jogre_kc + 1);

@@ -1,0 +1,12 @@
+[player_ledger]
+name=Player Ledger
+desc=A book on the history of a players progress.
+model=model_2794_obj
+weight=3g
+iop1=Read
+members=yes
+cost=10
+2dzoom=840
+2dyan=152
+2dxan=256
+tradeable=no

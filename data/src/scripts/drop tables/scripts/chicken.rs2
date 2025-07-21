@@ -1,9 +1,17 @@
 // https://oldschool.runescape.wiki/w/Chicken#Drops
 [ai_queue3,_chicken]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
+if(npc_findhero = true) { // happens before npc_death
+    queue(chicken_kill, 0);
+}
+gosub(npc_death);
+
+// todo confirm duration
+
+
+
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
@@ -48,8 +56,6 @@ if ($rng < 32) {
     }
 }
 
-
-
-
-
-
+[queue,chicken_kill]
+mes("You scratch a notch on your bow for the chicken kill.");
+%chicken_kc = calc(%chicken_kc + 1);

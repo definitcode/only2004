@@ -17,7 +17,7 @@ if ($mapsquare_x < 46 | $mapsquare_y < 49 | $mapsquare_x > 51 | $mapsquare_y > 5
 if_openmain(playermap_east);
 
 [label,newcomer_map_menu]
-def_int $choice1 = ~p_choice3_header("Players Online.", 1, "Account Status.", 2, "Secondary Skills.", 3,"What do you want to choose?");
+def_int $choice1 = ~p_choice4_header("Players Online.", 1, "Account Status.", 2, "Secondary Skills.", 3, "Task Checker.",4, "What do you want to choose?");
 //def_int $choice1 = ~p_choice2_header("Players Online.", 1, "Account Status.", 2, "What do you want to choose?");
 
 
@@ -40,6 +40,7 @@ if (%gamemode_selected = ^gamemode_hardcore){
             }
         }
         case 3 : ~show_ss;
+        case 4 : ~r_ct;
     }
 
 } else if (%gamemode_selected = ^gamemode_none) {

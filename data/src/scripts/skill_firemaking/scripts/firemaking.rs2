@@ -290,7 +290,19 @@ if (inv_total(worn, cavalier_brown) > 0) {
             stat_advance(firemaking, multiply(oc_param($log, productexp), $xp_mul));
             mes("Your firemaking skills are showing!");
 }
-
+if ($log = logs) {
+    %logs_burned = calc(%logs_burned + 1);
+} else if ($log = oak_logs){
+    %oak_logs_burned = calc(%oak_logs_burned + 1);
+} else if ($log = willow_logs){
+    %willow_logs_burned = calc(%willow_logs_burned + 1);
+} else if ($log = maple_logs){
+    %maple_logs_burned = calc(%maple_logs_burned + 1);
+} else if ($log = yew_logs){
+    %yew_logs_burned = calc(%yew_logs_burned + 1);
+} else if ($log = magic_logs){
+    %magic_logs_burned = calc(%magic_logs_burned + 1);
+}
 sound_synth(fire_lit, 0, 0);
 facesquare($fire_coord);
 //mes("<tostring(map_clock)>, <tostring(%action_delay)>: The fire catches and the logs begin to burn.");

@@ -3,10 +3,13 @@
 [ai_queue3,colonel_radick] @yanille_soldier_tower_guard;
 
 [label,yanille_soldier_tower_guard]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
+if (npc_findhero = true) {
+    queue(yguard_kill, 0);
+}
+gosub(npc_death);
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
@@ -53,3 +56,7 @@ if ($random < 6) {
 } else if ($random < 110) {
     obj_add(npc_coord, iron_ore, 1, ^lootdrop_duration);
 }
+
+[queue,yguard_kill]
+mes("You scratch a notch on your bow for the kill.");
+%yanille_soldier_tower_guard_kc = calc(%yanille_soldier_tower_guard_kc + 1);

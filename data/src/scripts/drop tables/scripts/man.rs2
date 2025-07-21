@@ -5,11 +5,13 @@
 [ai_queue3,thief_ardougne] @man_drop_table;
 
 [label,man_drop_table]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
-
+if (npc_findhero = true) {
+    queue(man_kill, 0);
+}
+gosub(npc_death);
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
@@ -56,3 +58,6 @@ if ($random < 1) {
 } else if ($random < 120) {
     obj_add(npc_coord, cabbage, 1, ^lootdrop_duration);
 }
+[queue,man_kill]
+mes("You scratch a notch on your bow for the kill.");
+%man_kc = calc(%man_kc + 1);

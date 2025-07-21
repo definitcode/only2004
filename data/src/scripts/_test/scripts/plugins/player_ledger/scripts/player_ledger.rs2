@@ -1,0 +1,100 @@
+[opheld1,player_ledger]
+%book_page = 0;
+%open_book = player_ledger;
+@open_player_ledger;
+
+[label,open_player_ledger]
+@book_flip_page(0, 0, 16, player_ledger_book);
+
+[proc,player_ledger_book]
+def_string $gamemode_string;
+def_string $founders_string;
+def_int $player_count = playercount;
+def_string $player_name = displayname;
+def_string $dragonslayer = "Incomplete";
+def_string $legendsquest = "Incomplete";
+def_string $heroesquest = "Incomplete";
+
+if (%dragon_progress = ^dragon_complete) {
+    $dragonslayer = "Complete";
+} else {
+    $dragonslayer = "Incomplete";
+}
+if (%legends_progress = ^legends_complete) {
+    $legendsquest = "Complete";
+} else {
+    $legendsquest = "Incomplete";
+}
+
+if (%hero_progress = ^hero_complete) {
+    $heroesquest = "Complete";
+} else {
+    $heroesquest = "Incomplete";
+}
+
+if (%gamemode_selected = ^gamemode_hardcore) {
+    $gamemode_string = "Hardcore";
+} else if (%gamemode_selected = ^gamemode_none) {
+    $gamemode_string = "Normal";
+} else {
+    $gamemode_string = "Unknown";
+}
+
+if (%founders_status = ^founder) {
+    $founders_string = "Founder";
+} else if (%founders_status = ^hcfounder) {
+    $founders_string = "Hardcore Founder";
+} else {
+    $founders_string = "None";
+}
+
+switch_int (%book_page) {
+    case 0 : ~book("The Ledger of Action", "@red@Welcome, <$player_name> ||This ledger records your skills, PvP stats, kills, and your rare treasures.||Unlock the next steps in your path to |glory and greatness.|||@blu@Account Info:|@bla@Game Mode: <$gamemode_string>||Founder Status: <$founders_string>||Players Online: <tostring($player_count)>||Gold(Bank): <tostring(inv_total(bank, coins))>|||");
+    case 1 : ~book("Skills & PvP", "Intelligence: <tostring(%intelligence)>||Hunter: <tostring(%hunter)>||Engineering: <tostring(%engineering)>||Rogue: <tostring(%rogue)>||Prestige: <tostring(%prestige)>|||Total Kills: <tostring(%pvptotal_kills)>||Total Deaths: <tostring(%pvptotal_deaths)>||PK Points: <tostring(%pk_points)>||Killstreak: <tostring(%pvp_killstreak)>|||");
+    case 2 : ~book("Challenges & Achievements", "Dragon Slayer I: <$dragonslayer>||Legends Quest: <$legendsquest>||Heroes Quest: <$heroesquest>||Prestige Level: <tostring(%prestige)>||Challenge Points: 0||Hiscore Rank: N/A||Season Rank: N/A|||");
+    case 3 : ~book("Bosses", "King Black Dragon: <tostring(%king_black_dragon_kc)>||Salarin the Twisted: <tostring(%salarin_the_twisted_kc)>||Bandit Camp Leaders: <tostring(%bandit_camp_leaders_kc)>||Jailer: <tostring(%jailer_kc)>||Gunthor The Brave: <tostring(%gunthor_kc)>|||");
+    case 4 : ~book("All Dragons", "King Black Dragon: <tostring(%king_black_dragon_kc)>||Black Dragon: <tostring(%black_dragon_kc)>||Red Dragon: <tostring(%red_dragon_kc)>||Blue Dragon: <tostring(%blue_dragon_kc)>||Green Dragon: <tostring(%green_dragon_kc)>|||");
+    case 5 : ~book("Humanoids I", 
+    "Barbarian: <tostring(%barbarian_kc)>||Black Knight: <tostring(%black_knight_kc)>||White Knight: <tostring(%white_knight_kc)>||Paladin: <tostring(%paladin_kc)>||Pirate: <tostring(%pirate_kc)>||Rogue: <tostring(%rogue_kc)>||Wizard: <tostring(%wizard_kc)>||Dark Wizard: <tostring(%dark_wizard_kc)>||Man: <tostring(%man_kc)>||Bandit: <tostring(%bandit_kc)>|||");
+    case 6 : ~book("Humanoids II", 
+    "Guard: <tostring(%guard_kc)>||Dark Warrior: <tostring(%dark_warrior_kc)>||Earth Warrior: <tostring(%earth_warrior_kc)>||Ice Warrior: <tostring(%ice_warrior_kc)>||Shadow Warrior: <tostring(%shadow_warrior_kc)>||Mugger: <tostring(%mugger_kc)>|||");
+    case 7 : ~book("Humanoids III", 
+    "Highwayman: <tostring(%highwayman_kc)>||Jonny the Beard: <tostring(%jonny_the_beard_kc)>||Farmer: <tostring(%farmer_kc)>||Thug: <tostring(%thug_kc)>||Hobgoblin: <tostring(%hobgoblin_kc)>|||");
+    case 8 : ~book("Druids & Dwarves", 
+    "Druid: <tostring(%druid_kc)>||Chaos Druid: <tostring(%chaos_druid_kc)>||Chaos Druid Warrior: <tostring(%chaos_druid_warrior_kc)>||Dwarf: <tostring(%dwarf_kc)>||Chaos Dwarf: <tostring(%chaos_dwarf_kc)>|||");
+    case 9 : ~book("Giants", 
+    "Giant: <tostring(%giant_kc)>||Moss Giant: <tostring(%moss_giant_kc)>||Ice Giant: <tostring(%ice_giant_kc)>||Fire Giant: <tostring(%fire_giant_kc)>||Jogre: <tostring(%jogre_kc)>|||");
+    case 10 : ~book("Undead & Magic", 
+    "Ghost: <tostring(%ghost_kc)>||Skeleton: <tostring(%skeleton_kc)>||Zombie: <tostring(%zombie_kc)>||Necromancer: <tostring(%necromancer_kc)>||Otherworldly Being: <tostring(%otherworldy_being_kc)>|||");
+    case 11 : ~book("Demons", 
+    "Lesser Demon: <tostring(%lesser_demon_kc)>||Greater Demon: <tostring(%greater_demon_kc)>||Black Demon: <tostring(%black_demon_kc)>|||");
+    case 12 : ~book("Animals I", 
+    "Bear: <tostring(%bear_kc)>||Cow: <tostring(%cow_kc)>||Chicken: <tostring(%chicken_kc)>||Rat: <tostring(%rat_kc)>||Giant Rat: <tostring(%giant_rat_kc)>||Imp: <tostring(%imp_kc)>|||");
+    case 13 : ~book("Animals II", 
+    "Unicorn: <tostring(%unicorn_kc)>||Ugthanki: <tostring(%ugthanki_kc)>||Oomlie Bird: <tostring(%oomlie_bird_kc)>||Entrana Firebird: <tostring(%entrana_firebird_kc)>|||");
+    case 14 : ~book("Skills I", 
+    "Copper Ore: <tostring(%copper_ore_mined)>||Tin Ore: <tostring(%tin_ore_mined)>||Iron Ore: <tostring(%iron_ore_mined)>||Coal: <tostring(%coal_mined)>||Mithril Ore: <tostring(%mithril_ore_mined)>||Adamantite Ore: <tostring(%adamant_ore_mined)>||Runite Ore: <tostring(%rune_ore_mined)>||Dragon Ore: <tostring(%dragon_ore_mined)>||Essence: <tostring(%essence_mined)>||Essence Fragments: <tostring(%essencefrags_mined)>|||");
+    case 15 : ~book("Skills II", 
+    "Normal Logs: [<tostring(%logs_cut)>/<tostring(%logs_burned)>]||Oak Logs: [<tostring(%oak_logs_cut)>/<tostring(%oak_logs_burned)>]||Willow: [<tostring(%willow_logs_cut)>/<tostring(%willow_logs_burned)>]||Maple: [<tostring(%maple_logs_cut)>/<tostring(%maple_logs_burned)>]||Yew: [<tostring(%yew_logs_cut)>/<tostring(%yew_logs_burned)>]||Magic Logs: [<tostring(%magic_logs_cut)>/<tostring(%magic_logs_burned)>]||@gre@Prayer ||Normal: <tostring(%normal_bones)>||Big Bones: <tostring(%big_bones)>||Dragon Bones: <tostring(%dragon_bones)>||How many bones have you buried?|||");
+}
+
+
+
+//switch_int (%book_page) {
+//
+//case 0 : ~book("The Ledger of Action", "@red@Welcome, <$player_name> ||This ledger records your skills, PvP stats, kills, and your rare treasures.||Unlock the next steps in your path to |glory and greatness.|||@blu@Account Info|@bla@Game Mode: <$gamemode_string>||Founder Status: <$founders_string>||Players Online: <tostring($player_count)>||Gold(Bank): <tostring(inv_total(bank, coins))>|||");
+//
+//case 1 : ~book("The Ledger of Action", "@blu@Skills & PvP|@bla@Intelligence: <tostring(%intelligence)>||Hunter: <tostring(%hunter)>||Engineering: <tostring(%engineering)>||Rogue: <tostring(%rogue)>||Prestige: <tostring(%prestige)>|||Total Kills: <tostring(%pvptotal_kills)>||Total Deaths: <tostring(%pvptotal_deaths)>||PK Points: <tostring(%pk_points)>||Killstreak: <tostring(%pvp_killstreak)>|||");
+//
+//case 2 : ~book("The Ledger of Action", "@blu@PvM - NPCs A-H|@bla@Black Dragon: <tostring(%black_dragon_kc)>||Black Knight: <tostring(%black_knight_kc)>||Blue Dragon: <tostring(%blue_dragon_kc)>||Dark Wizard: <tostring(%dark_wizard_kc)>||Dark Warrior: <tostring(%dark_warrior_kc)>||Druid: <tostring(%druid_kc)>||Earth Warrior: <tostring(%earth_warrior_kc)>||Fire Giant: <tostring(%fire_giant_kc)>||Ghost: <tostring(%ghost_kc)>||Guard: <tostring(%guard_kc)>||Highwayman: <tostring(%highwayman_kc)>||Hobgoblin: <tostring(%hobgoblin_kc)>|||");
+//
+//case 3 : ~book("The Ledger of Action", "@blu@PvM - NPCs I-P|@bla@Ice Giant: <tostring(%ice_giant_kc)>||Ice Warrior: <tostring(%ice_warrior_kc)>||Man: <tostring(%man_kc)>||Moss Giant: <tostring(%moss_giant_kc)>||Necromancer: <tostring(%necromancer_kc)>||Otherworldly: <tostring(%otherworldy_being_kc)>||Paladin: <tostring(%paladin_kc)>||Pirate: <tostring(%pirate_kc)>|||");
+//
+//case 4 : ~book("The Ledger of Action", "@blu@PvM - NPCs R-Z|@bla@Red Dragon: <tostring(%red_dragon_kc)>||Rogue: <tostring(%rogue_kc)>||Shadow Warrior: <tostring(%shadow_warrior_kc)>||Skeleton: <tostring(%skeleton_kc)>||Thug: <tostring(%thug_kc)>||White Knight: <tostring(%white_knight_kc)>||Wizard: <tostring(%wizard_kc)>||Zombie: <tostring(%zombie_kc)>|||");
+//
+//case 5 : ~book("The Ledger of Action", "@blu@PvM - Bosses|@bla@King Black Dragon: <tostring(%king_black_dragon_kc)>||Salarin the Twisted: <tostring(%salarin_the_twisted_kc)>||Bandit Camp Leaders: <tostring(%bandit_camp_leaders_kc)>||Jailer: <tostring(%jailer_kc)>|||");
+//
+////case 6 : ~book("The Ledger of Action", "@blu@Challenges & Achievements|@bla@Tutorial Complete: Yes||First PvP Kill: No||Defeated KBD: <tostring(%king_black_dragon_kc)>||Prestige Level: <tostring(%prestige)>||Challenge Points: 0||Scrolls Completed: 0||Trials Passed: 0||Exploration Rank: Explorer||Season Rank: Bronze|||");
+//
+////case 7 : ~book("The Ledger of Action", "@red@Collection Log (Coming Soon)||Pets, rare drops, milestones, achievements, and more!||");
+//}
