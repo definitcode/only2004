@@ -1,9 +1,11 @@
 [ai_queue3,highwayman]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
-
+if (npc_findhero = true) {
+    queue(highwayman_kill, 0);
+}
+gosub(npc_death);
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
@@ -18,3 +20,7 @@ if ($random < 9997) {
 } else if ($random > 9998)  {
     obj_add(npc_coord, highwaymanmask, 1, ^lootdrop_duration);
 }
+
+[queue,highwayman_kill]
+mes("You scratch a notch on your bow for the kill.");
+%highwayman_kc = calc(%highwayman_kc + 1);

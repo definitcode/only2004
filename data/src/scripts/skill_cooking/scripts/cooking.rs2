@@ -138,6 +138,37 @@ p_delay(1);
 inv_del(inv, $uncooked_item, 1);
 
 if ($passes_roll = true) {
+    // Track cooked item count
+    if ($cooked_item = shrimp) {
+        %shrimp_cooked = calc(%shrimp_cooked + 1);
+    } else if ($cooked_item = anchovies) {
+        %anchovy_cooked = calc(%anchovy_cooked + 1);
+    } else if ($cooked_item = sardine) {
+        %sardine_cooked = calc(%sardine_cooked + 1);
+    } else if ($cooked_item = herring) {
+        %herring_cooked = calc(%herring_cooked + 1);
+    } else if ($cooked_item = trout) {
+        %trout_cooked = calc(%trout_cooked + 1);
+    } else if ($cooked_item = salmon) {
+        %salmon_cooked = calc(%salmon_cooked + 1);
+    } else if ($cooked_item = pike) {
+        %pike_cooked = calc(%pike_cooked + 1);
+    } else if ($cooked_item = tuna) {
+        %tuna_cooked = calc(%tuna_cooked + 1);
+    } else if ($cooked_item = lobster) {
+        %lobster_cooked = calc(%lobster_cooked + 1);
+    } else if ($cooked_item = swordfish) {
+        %swordfish_cooked = calc(%swordfish_cooked + 1);
+    } else if ($cooked_item = shark) {
+        %shark_cooked = calc(%shark_cooked + 1);
+    } else if ($cooked_item = lava_eel) {
+        %lava_eel_cooked = calc(%lava_eel_cooked + 1);
+    } else if ($cooked_item = seaturtle) {
+        %sea_turtle_cooked = calc(%sea_turtle_cooked + 1);
+    } else if ($cooked_item = mantaray) {
+        %manta_ray_cooked = calc(%manta_ray_cooked + 1);
+    }
+
     inv_add(inv, $cooked_item, 1);
     if (compare($succesmessage, "0") ! 0) {
         mes($succesmessage);
@@ -155,6 +186,29 @@ if ($passes_roll = true) {
         inv_add(inv, $additional_item, 1);
     }
 } else {
+    // Track cooked item count
+    if ($cooked_item = shrimp) {
+        %shrimp_burned = calc(%shrimp_burned + 1);
+    } else if ($cooked_item = anchovies) {
+        %anchovy_burned = calc(%anchovy_burned + 1);
+    } else if ($cooked_item = herring) {
+        %herring_burned = calc(%herring_burned + 1);
+    } else if ($cooked_item = trout) {
+        %trout_burned = calc(%trout_burned + 1);
+    } else if ($cooked_item = salmon) {
+        %salmon_burned = calc(%salmon_burned + 1);
+    } else if ($cooked_item = seaturtle) {
+        %sea_turtle_burned = calc(%sea_turtle_burned + 1);
+    } else if ($cooked_item = mantaray) {
+        %manta_ray_burned = calc(%manta_ray_burned + 1);
+    } else if ($cooked_item = lobster) {
+        %lobster_burned = calc(%lobster_burned + 1);
+    } else if ($cooked_item = shark) {
+        %shark_burned = calc(%shark_burned + 1);
+    } else if ($cooked_item = lava_eel) {
+        %lava_eel_burned = calc(%lava_eel_burned + 1);
+    }
+
     inv_add(inv, $burnt_item, 1);
     mes($burnmessage);
     // for tins and what not

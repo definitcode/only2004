@@ -1,8 +1,11 @@
 [ai_queue3,thug]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
+if (npc_findhero = true) {
+    queue(thug_kill, 0);
+}
+gosub(npc_death);
 
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
@@ -43,3 +46,7 @@ if ($random < 4) {
 } else if ($random < 98) {
     obj_add(npc_coord, coins, 20, ^lootdrop_duration);
 }
+
+[queue,thug_kill]
+mes("You scratch a notch on your bow for the kill.");
+%thug_kc = calc(%thug_kc + 1);

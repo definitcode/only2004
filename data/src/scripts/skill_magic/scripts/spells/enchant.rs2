@@ -46,7 +46,19 @@ spotanim_pl($spotanim, 92, 0);
 sound_synth($sound, 0, 0);
 if ($initial_obj = strung_dragonstone_amulet) {
     mes("You successfully enchant the dragonstone amulet.");
-} else {
+    %e_dragonstone_jewel = calc(%e_dragonstone_jewel + 1);
+} else if ($initial_obj = diamond_ring | $initial_obj =  strung_diamond_amulet) {
     mes("You successfully enchant the <lowercase(oc_name($initial_obj))>.");
+    %e_diamond_jewel = calc(%e_diamond_jewel + 1);
+} else if ($initial_obj = strung_sapphire_amulet){
+    mes("You successfully enchant the <lowercase(oc_name($initial_obj))>.");
+    %e_sapphire_jewel = calc(%e_sapphire_jewel + 1);
+} else if ($initial_obj = strung_ruby_amulet | $initial_obj = ruby_ring){
+    mes("You successfully enchant the <lowercase(oc_name($initial_obj))>.");
+    %e_ruby_jewel = calc(%e_ruby_jewel + 1);
+} else if ($initial_obj = strung_emerald_amulet | $initial_obj = emerald_ring){
+    mes("You successfully enchant the <lowercase(oc_name($initial_obj))>.");
+    %e_emerald_jewel = calc(%e_emerald_jewel + 1);
 }
+
 p_delay(1);

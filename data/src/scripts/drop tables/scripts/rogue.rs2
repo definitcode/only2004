@@ -2,10 +2,13 @@
 // https://oldschool.runescape.wiki/w/Rogue#Level_15_drops
 
 [ai_queue3,rogue]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
+if (npc_findhero = true) {
+    queue(rogue_kill, 0);
+}
+gosub(npc_death);
 
 // Normal drop
 obj_add(npc_coord, npc_param(death_drop), 1, 200);
@@ -86,3 +89,6 @@ if ($dropint < 2) {
 }
 
 // 8/128 nothing
+[queue,rogue_kill]
+mes("You scratch a notch on your bow for the kill.");
+%rogue_kc = calc(%rogue_kc + 1);

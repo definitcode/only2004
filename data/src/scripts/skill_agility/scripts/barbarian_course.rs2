@@ -145,6 +145,7 @@ p_delay(0);
 if(calc(%barbarian_course_progress + 1) >= $completed) {
     %barbarian_course_progress = $completed;
 }
+%courses_completed = calc(%courses_completed + 1);
 if(%barbarian_course_progress = 5) {
     stat_advance(agility, 420);
     if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {

@@ -1,10 +1,13 @@
 [ai_queue3,ghost] @ghost_drop;
 
 [label,ghost_drop]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
+if (npc_findhero = true) {
+    queue(ghost_kill, 0);
+}
+gosub(npc_death);
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
 def_int $dropint = random(128);
@@ -53,3 +56,7 @@ if ($dropint < 3) {
 } else if ($dropint < 127) {
     obj_add(npc_coord, ~mid_tier_items, ^lootdrop_duration);
 }
+
+[queue,ghost_kill]
+mes("You scratch a notch on your bow for the kill.");
+%ghost_kc = calc(%ghost_kc + 1);

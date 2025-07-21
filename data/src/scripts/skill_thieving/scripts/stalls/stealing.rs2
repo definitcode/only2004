@@ -95,6 +95,9 @@ if (npc_find(coord, $owner, 5, 0) = true & lineofsight(npc_coord, coord) = true)
 }
 
 [label,stall_owner_alert_guards]
+if (inv_total(worn, highwaymanmask) > 0){
+    return;
+}
 npc_say("You're the one who stole something from me!");
 p_delay(1);
 npc_say("Guards guards!");

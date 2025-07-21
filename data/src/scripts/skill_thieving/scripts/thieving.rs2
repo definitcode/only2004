@@ -34,6 +34,7 @@ if (inv_total(worn, highwaymanmask) > 0) {
 }
 sound_synth(pick, 0, 0);
 mes("You pick the <$pocket>.");
+%pickpocket_count = calc(%pickpocket_count + 1);
 
 [proc,check_if_success_pick_pocket](dbrow $data)(boolean)
 def_int $current_level = stat(thieving);
@@ -109,6 +110,7 @@ if (inv_total(worn, highwaymanmask) > 0) {
             stat_advance(thieving, $experience);
             mes("Your thieving skills are showing!");
 }
+%pickpocket_count = calc(%pickpocket_count + 1);
 // Temp note: dur does not need updated
 loc_change(market_stall, $respawn_ticks);
 
@@ -146,10 +148,15 @@ anim(human_openchest, 0);
 ~trapped_chest_check_for_reward($data);
 def_int $experience = db_getfield($data, trapped_chest:experience, 0);
 stat_advance(thieving, $experience);
+if (inv_total(worn, thieving_gloves) > 0) {
+    ~sticky_gloves;
+    ~trapped_chest_check_for_reward($data);
+}
 if (inv_total(worn, highwaymanmask) > 0) {
             stat_advance(thieving, $experience);
             mes("Your thieving skills are showing!");
 }
+%pickpocket_count = calc(%pickpocket_count + 1);
 def_int $respawn_ticks = db_getfield($data, trapped_chest:respawn_ticks, 0);
 // Temp note: dur does not need updated
 loc_change(loc_2574, $respawn_ticks);

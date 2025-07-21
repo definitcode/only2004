@@ -1,33 +1,36 @@
 // Pickable Potatoes
 [oploc2,loc_312]
+def_int $pickedamount = 4;
 p_arrivedelay;
 if(inv_freespace(inv) = 0) {
     mes("You don't have room for this potato.");
     p_teleport(loc_coord);
     p_delay(0);
 } else {
+    inv_add(inv, potato, 3);
     ~pickup_loc_floor(loc_coord, potato, 50, true);
     mes("You pick a potato.");
 }
-
+%pl_potato = calc(%pl_potato + $pickedamount);
 // Pickable Wheat
 [oploc2,loc_313]
+def_int $pickedamount = 4;
 p_arrivedelay;
 if(inv_freespace(inv) = 0) {
     mes("You can't carry any more grain.");
     p_teleport(loc_coord);
     p_delay(0);
 } else {
-    anim(human_pickupfloor, 0);
-    sound_synth(pick, 0, 0);
-    inv_add(inv, grain, 4);
+    inv_add(inv, grain, 3);
     ~pickup_loc_floor(loc_coord, grain, 20, true);
     loc_del(25); // 10t after update
     mes("You pick some grain.");
+    %pl_wheat = calc(%pl_wheat + $pickedamount);
 }
 
 // Pickable Onion
 [oploc2,onion]
+def_int $pickedamount = 1;
 p_arrivedelay;
 if(inv_freespace(inv) = 0) {
     mes("You don't have room for this onion.");
@@ -36,10 +39,12 @@ if(inv_freespace(inv) = 0) {
 } else {
     ~pickup_loc_floor(loc_coord, onion, 50, true);
     mes("You pick an onion.");
+    %pl_onion = calc(%pl_onion + $pickedamount);
 }
 
 // Pickable Cabbage
 [oploc2,cabbage]
+def_int $pickedamount = 1;
 p_arrivedelay;
 if(inv_freespace(inv) = 0) {
     mes("You don't have room for this cabbage.");
@@ -48,11 +53,13 @@ if(inv_freespace(inv) = 0) {
 } else {
     ~pickup_loc_floor(loc_coord, cabbage, 70, false);
     mes("You pick a cabbage.");
+    %pl_cabbage = calc(%pl_cabbage + $pickedamount);
 }
 
 // Pickable flax
 // Could only pick one flax at a time until this update: https://oldschool.runescape.wiki/w/Update:Santa,_Flax_and_Castlewars
 [oploc2,flax_ground]
+def_int $pickedamount = 4;
 if(inv_freespace(inv) = 0) {
     mes("You can't carry any more flax.");
 } else {
@@ -60,6 +67,12 @@ if(inv_freespace(inv) = 0) {
     p_delay(0);
     sound_synth(pick, 0, 0);
     mes("You pick some flax.");
-    inv_add(inv, flax, 4);
+    inv_add(inv, flax, $pickedamount);
     loc_del(25); // 10t after update
+    %pl_flax = calc(%pl_flax + $pickedamount);
 }
+
+
+
+
+

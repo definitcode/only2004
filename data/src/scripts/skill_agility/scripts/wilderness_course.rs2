@@ -181,6 +181,7 @@ while(loc_findnext = true) {
 if(calc(%wilderness_course_progress + 1) >= $completed) {
     %wilderness_course_progress = $completed;
 }
+%courses_completed = calc(%courses_completed + 1);
 if(%wilderness_course_progress = 5) {
     stat_advance(agility, 4989);
     if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {

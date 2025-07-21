@@ -1,15 +1,13 @@
 [ai_queue3,_bandit_camp_leader]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
-
+if(npc_findhero = true) { // happens before npc_death
+    queue(banditleader_kill, 0);
+}
+gosub(npc_death);
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
-//obj_add(npc_coord, hard_boss_token, 1, ^lootdrop_duration);
-
-//def_int $number = 1;
-//%bt_bandits_kc = add(%bt_bandits_kc, $number);
 
 // Tertiary
 ~trail_mediumcluedrop(128, npc_coord);
@@ -59,4 +57,9 @@ if ($random < 1) {
     obj_add(npc_coord, ~talisman_table, ^lootdrop_duration);
 } else if ($random < 128){
     obj_add(npc_coord, ~expitemtable, ^lootdrop_duration);
-} 
+}
+
+
+[queue,banditleader_kill]
+mes("You scratch a notch on your bow for the kill.");
+%bandit_camp_leaders_kc = calc(%bandit_camp_leaders_kc + 1);

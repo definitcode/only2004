@@ -1,0 +1,217 @@
+[opheld1,player_ledger]
+%book_page = 0;
+%open_book = player_ledger;
+@open_player_ledger;
+
+[label,open_player_ledger]
+@book_flip_page(0, 0, 20, player_ledger_book);
+
+[proc,player_ledger_book]
+def_string $gamemode_string;
+def_string $founders_string;
+def_int $player_count = playercount;
+def_string $player_name = displayname;
+def_string $dragonslayer = "Incomplete";
+def_string $legendsquest = "Incomplete";
+def_string $heroesquest = "Incomplete";
+
+if (%dragon_progress = ^dragon_complete) {
+    $dragonslayer = "@gre@YES@bla@";
+} else {
+    $dragonslayer = "@red@NO@bla@";
+}
+if (%legends_progress = ^legends_complete) {
+    $legendsquest = "@gre@YES@bla@";
+} else {
+    $legendsquest = "@red@NO@bla@";
+}
+
+if (%hero_progress = ^hero_complete) {
+    $heroesquest = "@gre@YES@bla@";
+} else {
+    $heroesquest = "@red@NO@bla@";
+}
+
+if (%gamemode_selected = ^gamemode_hardcore) {
+    $gamemode_string = "@red@Hardcore@bla@";
+} else if (%gamemode_selected = ^gamemode_none) {
+    $gamemode_string = "@gre@Normal@bla@";
+} else {
+    $gamemode_string = "Unknown";
+}
+
+if (%founders_status = ^founder) {
+    $founders_string = "@cya@Founder@bla@";
+} else if (%founders_status = ^hcfounder) {
+    $founders_string = "@red@Hardcore @cya@Founder";
+} else {
+    $founders_string = "None";
+}
+def_string $nurmofrep = null;
+def_string $roguerep = null;
+def_string $prestige = null;
+
+
+if (%prestige > 3499) {
+    $prestige = "@yel@Legend@bla@";
+} else if (%prestige > 2999) {
+    $prestige = "@cya@Exalted@bla@";
+} else if (%prestige > 999) {
+    $prestige = "@blu@Revered@bla@";
+} else if (%prestige > 499) {
+    $prestige = "@gre@Honored@bla@";
+} else {
+    $prestige = "@whi@Explorer@bla@";
+}
+if (%e_nurmofrep > 3499) {
+    $nurmofrep = "@yel@Architect@bla@";
+} else if (%e_nurmofrep > 2999) {
+    $nurmofrep = "@cya@Artificer@bla@";
+} else if (%e_nurmofrep > 999) {
+    $nurmofrep = "@blu@Engineer@bla@";
+} else if (%e_nurmofrep > 499) {
+    $nurmofrep = "@gre@Journeyman@bla@";
+} else {
+    $nurmofrep = "@whi@Tinkerer@bla@";
+}
+if (%r_roguedefectorrep > 3499) {
+    $roguerep = "@yel@Phantom@bla@";
+} else if (%r_roguedefectorrep > 2999) {
+    $roguerep = "@cya@Shade@bla@";
+} else if (%r_roguedefectorrep > 1999) {
+    $roguerep = "@blu@Boss@bla@";
+} else if (%r_roguedefectorrep > 999) {
+    $roguerep = "@yel@Skimmer@bla@";
+} else if (%r_roguedefectorrep > 499) {
+    $roguerep = "@gre@Cutpurse@bla@";
+} else {
+    $roguerep = "@whi@Snitch@bla@";
+}
+def_string $r_taskitem = null;
+def_string $r_taskstatus = null;
+def_string $r_amountleft = null;
+def_string $e_taskitem = null;
+def_string $e_taskstatus = null;
+def_string $e_amountleft = null;
+
+if (%e_taskitem = ^e_cog){
+    $e_taskitem = "@gre@Cog@bla@";
+} else if (%e_taskitem = ^e_barbedrope){
+    $e_taskitem = "@gre@Barbed Rope@bla@";
+} else if (%e_taskitem = ^e_ironnails){
+    $e_taskitem = "@gre@Iron Nails@bla@";
+}
+
+if (%e_taskstatus = ^e_inprogress){
+    $e_taskstatus = "@gre@In Progress@bla@";
+} else if (%e_taskstatus = ^e_notstarted){
+    $e_taskstatus = "@yel@Not Started@bla@";
+}
+
+if (%e_taskamount = ^e_easy){
+    $e_amountleft = "N/A";
+}
+
+if (%r_taskitem = ^r_badge){
+    $r_taskitem = "@gre@Badges@bla@";
+} else if (%r_taskitem = ^r_casket){
+    $r_taskitem = "@gre@Caskets@bla@";
+}
+
+if (%r_taskstatus = ^r_inprogress){
+    $r_taskstatus = "@gre@In Progress@bla@";
+} else if (%r_taskstatus = ^r_notstarted){
+    $r_taskstatus = "@yel@Not Started@bla@";
+}
+
+if (%r_taskamount = ^r_easy){
+    $r_amountleft = "N/A";
+}
+
+switch_int (%book_page) {
+
+    case 0 : ~book("The Ledger of Action", 
+    "@red@Welcome, <$player_name> ||@bla@This ledger records your skills, PvP stats, kills, and your rare treasures.||Unlock the next steps in your path to |glory and greatness.|||@bla@Account Info:|@bla@Game Mode: @whi@<$gamemode_string> |@bla@Founder Status: @whi@<$founders_string> |@bla@Players Online: [@whi@<tostring($player_count)>@bla@]|||");
+
+    case 1 : ~book("@red@Skills & PvP", 
+    "@bla@Intelligence: @whi@<tostring(%intelligence)> |@bla@Hunter: @whi@<tostring(%hunter)> |@bla@Engineering: @whi@<tostring(%engineering)> @bla@(@yel@<tostring(%e_nurmofrep)>@bla@) |@bla@Rogue: @whi@<tostring(%rogue)> @bla@(@yel@<tostring(%r_roguedefectorrep)>@bla@) |@bla@Prestige: [@whi@<tostring(%prestige)>@bla@] |@bla@Total Kills: [@whi@<tostring(%pvptotal_kills)>@bla@] |@bla@Total Deaths: [@red@<tostring(%pvptotal_deaths)>@bla@] |@bla@PK Points: @bla@[@whi@<tostring(%pk_points)>@bla@] |@bla@Killstreak: [@whi@<tostring(%pvp_killstreak)>@bla@]|||");
+
+    case 2 : ~book("Challenges & Achievements", 
+    "@bla@Dragon Slayer I: @whi@<$dragonslayer> |@bla@Legends Quest: @whi@<$legendsquest> |@bla@Heroes Quest: @whi@<$heroesquest> |@bla@Prestige: @whi@<$prestige> |@bla@Engineer: @whi@<$nurmofrep> |@bla@Rogue: @whi@<$roguerep> |||");
+
+    case 3 : ~book("Task Tracker",
+    "@bla@Rogue Task | @bla@Status: @whi@<$r_taskstatus> | @bla@Item: @whi@<$r_taskitem> | @bla@Remainder: [@whi@<$r_amountleft>@bla@] ||@bla@Engineering Task | @bla@Status: @whi@<$e_taskstatus> | @bla@Item: @whi@<$e_taskitem> | @bla@Remainder: [@whi@<$e_amountleft>@bla@]|||");
+
+    case 4 : ~book("Bosses", 
+    "@bla@King Black Dragon: |[@whi@<tostring(%king_black_dragon_kc)>@bla@] ||@bla@Salarin the Twisted: |[@whi@<tostring(%salarin_the_twisted_kc)>@bla@] ||@bla@Bandit Camp Leaders: |[@whi@<tostring(%bandit_camp_leaders_kc)>@bla@] ||@bla@Gunthor The Brave: |[@whi@<tostring(%gunthor_kc)>@bla@]|||");
+
+    case 5 : ~book("All Dragons", 
+    "@bla@King Black Dragon: |[@whi@<tostring(%king_black_dragon_kc)>@bla@] |@bla@Black Dragon: |[@whi@<tostring(%black_dragon_kc)>@bla@] |@bla@Red Dragon: |[@red@<tostring(%red_dragon_kc)>@bla@] |@bla@Blue Dragon: |[@blu@<tostring(%blue_dragon_kc)>@bla@] |@bla@Green Dragon: |[@gre@<tostring(%green_dragon_kc)>@bla@]|||");
+
+    case 6 : ~book("Humanoids", 
+    "@bla@Barbarian: |[@whi@<tostring(%barbarian_kc)>@bla@] |@bla@Black Knight: |[@whi@<tostring(%black_knight_kc)>@bla@] |@bla@White Knight: |[@whi@<tostring(%white_knight_kc)>@bla@] |@bla@Paladin: |[@whi@<tostring(%paladin_kc)>@bla@] |@bla@Pirate: |[@whi@<tostring(%pirate_kc)>@bla@] ||@bla@Rogue: |[@whi@<tostring(%rogue_kc)>@bla@] |@bla@Dark/Wizard: |[@whi@<tostring(%dark_wizard_kc)>@bla@/@whi@<tostring(%wizard_kc)>@bla@] |@bla@Bandit: |[@whi@<tostring(%bandit_kc)>@bla@] |@bla@Guard: |[@whi@<tostring(%guard_kc)>@bla@]|||");
+
+    case 7 : ~book("Humanoids II", 
+    "Thug: |[@whi@<tostring(%thug_kc)>@bla@] |Tribesman: |[@whi@<tostring(%tribesman_kc)>@bla@] |Highwayman: |[@whi@<tostring(%highwayman_kc)>@bla@] |Jonny the Beard: |[@whi@<tostring(%jonny_the_beard_kc)>@bla@] |Farmer: |[@whi@<tostring(%farmer_kc)>@bla@] ||Druid: |[@whi@<tostring(%druid_kc)>@bla@] |Chaos Druid: |[@whi@<tostring(%chaos_druid_kc)>@bla@] |Chaos Warrior: |[@whi@<tostring(%chaos_druid_warrior_kc)>@bla@] |Dwarf: |[@whi@<tostring(%dwarf_kc)>@bla@] |Chaos Dwarf: |[@whi@<tostring(%chaos_dwarf_kc)>@bla@]");
+    
+    case 8 : ~book("Humanoids III & Giants", 
+    "[Dark/Earth/Shadow/Ice]: |[@whi@<tostring(%dark_warrior_kc)>@bla@/@whi@<tostring(%earth_warrior_kc)>@bla@/@whi@<tostring(%ice_warrior_kc)>@bla@/@whi@<tostring(%shadow_warrior_kc)>@bla@] |@bla@Man: |[@whi@<tostring(%man_kc)>@bla@]  |Mugger: |[@whi@<tostring(%mugger_kc)>@bla@] |Hobgoblin: |[@whi@<tostring(%hobgoblin_kc)>@bla@] |Giant: |[@whi@<tostring(%giant_kc)>@bla@] ||Moss Giant: |[@whi@<tostring(%moss_giant_kc)>@bla@] |Ice Giant: |[@whi@<tostring(%ice_giant_kc)>@bla@] |Fire Giant: |[@whi@<tostring(%fire_giant_kc)>@bla@] |Jogre: |[@whi@<tostring(%jogre_kc)>@bla@]");
+
+    case 9 : ~book("Undead & Demonic", 
+    "Ghost: |[@whi@<tostring(%ghost_kc)>@bla@] |Skeleton: |[@whi@<tostring(%skeleton_kc)>@bla@] |Zombie: |[@whi@<tostring(%zombie_kc)>@bla@] |Necromancer: |[@whi@<tostring(%necromancer_kc)>@bla@] |Otherworldly: |[@whi@<tostring(%otherworldy_being_kc)>@bla@] ||Greater/Lesser Demon: |[@whi@<tostring(%greater_demon_kc)>@bla@/@whi@<tostring(%lesser_demon_kc)>@bla@] |Black Demon: |[@whi@<tostring(%black_demon_kc)>@bla@] |Imp: |[@whi@<tostring(%imp_kc)>@bla@]|||");
+    case 10 : ~book("Animals", 
+    "Bear: |[@whi@<tostring(%bear_kc)>@bla@] |Cow: |[@whi@<tostring(%cow_kc)>@bla@] |Chicken: |[@whi@<tostring(%chicken_kc)>@bla@] |Rat: |[@whi@<tostring(%rat_kc)>@bla@] |Giant Rat: |[@whi@<tostring(%giant_rat_kc)>@bla@] ||Unicorn: |[@whi@<tostring(%unicorn_kc)>@bla@] |Ugthanki: |[@whi@<tostring(%ugthanki_kc)>@bla@] |Oomlie: |[@whi@<tostring(%oomlie_bird_kc)>@bla@] |Firebird: |[@whi@<tostring(%entrana_firebird_kc)>@bla@]|||");
+
+    case 11 : ~book("Woodworking [Cut/Burned/Fletched]@bla@", 
+    "@bla@Logs: |[@whi@<tostring(%logs_cut)>@bla@/@whi@<tostring(%logs_burned)>@bla@/@whi@<tostring(%logs_fletched)>@bla@] |@bla@Oak: |[@whi@<tostring(%oak_logs_cut)>@bla@/@whi@<tostring(%oak_logs_burned)>@bla@/@whi@<tostring(%oak_logs_fletched)>@bla@] |@bla@Willow: |[@whi@<tostring(%willow_logs_cut)>@bla@/@whi@<tostring(%willow_logs_burned)>@bla@/@whi@<tostring(%willow_logs_fletched)>@bla@] |@bla@Maple: |[@whi@<tostring(%maple_logs_cut)>@bla@/@whi@<tostring(%maple_logs_burned)>@bla@/@whi@<tostring(%maple_logs_fletched)>@bla@] |@bla@Yew: |[@whi@<tostring(%yew_logs_cut)>@bla@/@whi@<tostring(%yew_logs_burned)>@bla@/@whi@<tostring(%yew_logs_fletched)>@bla@] ||@bla@Magic: |[@whi@<tostring(%magic_logs_cut)>@bla@/@whi@<tostring(%magic_logs_burned)>@bla@/@whi@<tostring(%magic_logs_fletched)>@bla@]|||");
+
+    case 12 : ~book("Ore & Metalwork [Mined/Smelted/Smithed]", 
+    "@bla@Bronze: |[@whi@<tostring(%copper_ore_mined)>@bla@/@whi@<tostring(%bronze_bar_smelted)>@bla@/@whi@<tostring(%bronze_bar_smithed)>@bla@] |@bla@Iron: |[@whi@<tostring(%iron_ore_mined)>@bla@/@whi@<tostring(%iron_bar_smelted)>@bla@/@whi@<tostring(%iron_bar_smithed)>@bla@] |@bla@Steel: |[@whi@<tostring(%coal_mined)>@bla@/@whi@<tostring(%steel_bar_smelted)>@bla@/@whi@<tostring(%steel_bar_smithed)>@bla@] |@bla@Silver: |[@whi@<tostring(%silver_ore_mined)>@bla@/@whi@<tostring(%silver_bar_smelted)>@bla@/@whi@<tostring(%silver_bar_crafted)>@bla@] |@bla@Gold: |[@whi@<tostring(%gold_ore_mined)>@bla@/@whi@<tostring(%gold_bar_smelted)>@bla@/@whi@<tostring(%gold_bar_crafted)>@bla@] ||@bla@Mithril: |[@whi@<tostring(%mithril_ore_mined)>@bla@/@whi@<tostring(%mithril_bar_smelted)>@bla@/@whi@<tostring(%mithril_bar_smithed)>@bla@] |@bla@Adamant: |[@whi@<tostring(%adamant_ore_mined)>@bla@/@whi@<tostring(%adamant_bar_smelted)>@bla@/@whi@<tostring(%adamant_bar_smithed)>@bla@] |@bla@Rune: |[@whi@<tostring(%rune_ore_mined)>@bla@/@whi@<tostring(%rune_bar_smelted)>@bla@/@whi@<tostring(%rune_bar_smithed)>@bla@] |@bla@Dragon: |[@whi@<tostring(%dragon_ore_mined)>@bla@/@whi@<tostring(%dragon_bar_smelted)>@bla@/@whi@<tostring(%dragon_bar_smithed)>@bla@]|||");
+
+    case 13 : ~book("Fishing [Caught/Cooked/Burned]",
+    "@bla@Shrimp: [@whi@<tostring(%shrimp_caught)>@bla@/@whi@<tostring(%shrimp_cooked)>@bla@/@whi@<tostring(%shrimp_burned)>@bla@] |@bla@Anchovies: [@whi@<tostring(%anchovy_caught)>@bla@/@whi@<tostring(%anchovy_cooked)>@bla@/@whi@<tostring(%anchovy_burned)>@bla@] |@bla@Sardine: [@whi@<tostring(%sardine_caught)>@bla@/@whi@<tostring(%sardine_cooked)>@bla@/@whi@<tostring(%sardine_burned)>@bla@] |@bla@Herring: [@whi@<tostring(%herring_caught)>@bla@/@whi@<tostring(%herring_cooked)>@bla@/@whi@<tostring(%herring_burned)>@bla@] |@bla@Trout: [@whi@<tostring(%trout_caught)>@bla@/@whi@<tostring(%trout_cooked)>@bla@/@whi@<tostring(%trout_burned)>@bla@] |@bla@Salmon: [@whi@<tostring(%salmon_caught)>@bla@/@whi@<tostring(%salmon_cooked)>@bla@/@whi@<tostring(%salmon_burned)>@bla@] |@bla@Pike: [@whi@<tostring(%pike_caught)>@bla@/@whi@<tostring(%pike_cooked)>@bla@/@whi@<tostring(%pike_burned)>@bla@] |@bla@Tuna: [@whi@<tostring(%tuna_caught)>@bla@/@whi@<tostring(%tuna_cooked)>@bla@/@whi@<tostring(%tuna_burned)>@bla@] |@bla@Lobster: [@whi@<tostring(%lobster_caught)>@bla@/@whi@<tostring(%lobster_cooked)>@bla@/@whi@<tostring(%lobster_burned)>@bla@] |@bla@Swordfish: [@whi@<tostring(%swordfish_caught)>@bla@/@whi@<tostring(%swordfish_cooked)>@bla@/@whi@<tostring(%swordfish_burned)>@bla@] ||@bla@Shark: [@whi@<tostring(%shark_caught)>@bla@/@whi@<tostring(%shark_cooked)>@bla@/@whi@<tostring(%shark_burned)>@bla@] |@bla@Lava Eel: [@whi@<tostring(%lava_eel_caught)>@bla@/@whi@<tostring(%lava_eel_cooked)>@bla@/@whi@<tostring(%lava_eel_burned)>@bla@] |@bla@Sea Turtle: [@whi@<tostring(%sea_turtle_caught)>@bla@/@whi@<tostring(%sea_turtle_cooked)>@bla@/@whi@<tostring(%sea_turtle_burned)>@bla@] |@bla@Manta Ray: [@whi@<tostring(%manta_ray_caught)>@bla@/@whi@<tostring(%manta_ray_cooked)>@bla@/@whi@<tostring(%manta_ray_burned)>@bla@]|||");
+
+    case 14 : ~book("Prayer & Totals", 
+    "@bla@Normal Bones: |[@whi@<tostring(%normal_bones)>@bla@] |@bla@Big Bones: |[@whi@<tostring(%big_bones)>@bla@] |@bla@Dragon Bones: |[@whi@<tostring(%dragon_bones)>@bla@]|||");
+
+    case 15 : ~book("Harvested Crops",
+    "@bla@Potatoes: |[@whi@<tostring(%pl_potato)>@bla@] |@bla@Wheat: |[@whi@<tostring(%pl_wheat)>@bla@] |@bla@Onions: |[@whi@<tostring(%pl_onion)>@bla@] |@bla@Cabbages: |[@whi@<tostring(%pl_cabbage)>@bla@] |@bla@Flax: |[@whi@<tostring(%pl_flax)>@bla@]|||");
+
+    case 16 : ~book("Runecrafting",
+    "Essence/Fragments: [@whi@<tostring(%essence_mined)>@bla@/@whi@<tostring(%essencefrags_mined)>@bla@] |Air: [@whi@<tostring(%air_rune)>@bla@] |Earth: [@whi@<tostring(%earth_rune)>@bla@] |Water: [@whi@<tostring(%water_rune)>@bla@] |Fire:  [@whi@<tostring(%fire_rune)>@bla@]|Mind: [@whi@<tostring(%mind_rune)>@bla@]|Body: [@whi@<tostring(%body_rune)>@bla@] |Cosmic: [@whi@<tostring(%cosmic_rune)>@bla@] |Chaos: [@whi@<tostring(%chaos_rune)>@bla@] |Nature: [@whi@<tostring(%nature_rune)>@bla@]|||");
+
+    case 17 : ~book("Crafted Items",
+    "Gems: |   Emerald: [@whi@<tostring(%emerald_jewel)>@bla@] |   Sapphire: [@whi@<tostring(%sapphire_jewel)>@bla@]|   Ruby: [@whi@<tostring(%ruby_jewel)>@bla@]|   Diamond: [@whi@<tostring(%diamond_jewel)>@bla@]|   Dragonstone: [@whi@<tostring(%dragonstone_jewel)>@bla@]|Silver: [@whi@<tostring(%silver_symbol)>@bla@] |Gold: |   Necklace: [@whi@<tostring(%gold_necklace)>@bla@] |   Ring: [@whi@<tostring(%gold_ring)>@bla@] |   Amulets: [@whi@<tostring(%gold_amulet)>@bla@] |Clay: |   Spun/Fired: |[@whi@<tostring(%clay_spun)>@bla@/@whi@<tostring(%clay_fired)>@bla@]|||");
+
+    case 18 : ~book("Crafted Items II",
+    "Leather: [@whi@<tostring(%leather_dyed)>@bla@/@whi@<tostring(%leather_crafted)>@bla@] |Hardleather: [@whi@<tostring(%hardleather_dyed)>@bla@/@whi@<tostring(%hardleather_crafted)>@bla@] |Dragonleather: [@whi@<tostring(%dragonleather_dyed)>@bla@/@whi@<tostring(%dragonleather_crafted)>@bla@] |@bla@[@whi@Melted@bla@/@whi@Blown@bla@]: [@whi@<tostring(%molten_glass)>@bla@/@whi@<tostring(%glass_blown)>@bla@] |Beer Glass: [@whi@<tostring(%beer_glass)>@bla@] |Vial: [@whi@<tostring(%vial_empty)>@bla@] |Staff Orb: [@whi@<tostring(%stafforb)>@bla@] |@bla@Wool: [@whi@<tostring(%wool_spun)>@bla@] |Flax: [@whi@<tostring(%flax_spun)>@bla@] |||");
+
+    case 19 : ~book("Misc. I",
+    "@bla@Runes Crafted: |[@whi@<tostring(%runes_crafted)>@bla@] |@bla@Coal: |[@whi@<tostring(%coal_mined)>@bla@/@whi@<tostring(%coal_smelted)>@bla@] |@bla@Gems: |[@whi@<tostring(%gems_mined)>@bla@] |@bla@Pockets Picked: |[@whi@<tostring(%pickpocket_count)>@bla@] |@bla@Laps Completed: |[@whi@<tostring(%courses_completed)>@bla@] ||@bla@High Alchs: |[@whi@<tostring(%high_alch_count)>@bla@] (@yel@<tostring(%high_alch_gp)> GP@bla@) ||@bla@Low Alchs: |[@whi@<tostring(%low_alch_count)>@bla@] (@yel@<tostring(%low_alch_gp)> GP@bla@)|||");
+
+    case 20 : ~book("Misc. II",
+    "@bla@Superheats: |[@whi@<tostring(%superheated_count)>@bla@] |@bla@Teleports: |[@whi@<tostring(%teleport_count)>@bla@] |@bla@Telegrabs: |[@whi@<tostring(%telegrab_count)>@bla@] |@bla@Potions Brewed: |[@whi@<tostring(%potions_brewed)>@bla@] |@bla@Herbs Cleaned: |[@whi@<tostring(%herbs_cleaned)>@bla@] ||@bla@Herbs Ground: |[@whi@<tostring(%herbs_ground)>@bla@]|||");
+
+}
+
+//case 17 : ~book("Bronze",
+//"Bronze Bar: <tostring(%bronze_bar_smithed)>||Bronze Axe: <tostring(%bronze_axe_crafted)> |||");
+
+//switch_int (%book_page) {
+//
+//case 0 : ~book("The Ledger of Action", "@red@Welcome, <$player_name> ||This ledger records your skills, PvP stats, kills, and your rare treasures.||Unlock the next steps in your path to |glory and greatness.|||@blu@Account Info|@bla@Game Mode: <$gamemode_string>||Founder Status: <$founders_string>||Players Online: <tostring($player_count)>||Gold(Bank): <tostring(inv_total(bank, coins))>|||");
+//
+//case 1 : ~book("The Ledger of Action", "@blu@Skills & PvP|@bla@Intelligence: <tostring(%intelligence)>||Hunter: <tostring(%hunter)>||Engineering: <tostring(%engineering)>||Rogue: <tostring(%rogue)>||Prestige: <tostring(%prestige)>|||Total Kills: <tostring(%pvptotal_kills)>||Total Deaths: <tostring(%pvptotal_deaths)>||PK Points: <tostring(%pk_points)>||Killstreak: <tostring(%pvp_killstreak)>|||");
+//
+//case 2 : ~book("The Ledger of Action", "@blu@PvM - NPCs A-H|@bla@Black Dragon: <tostring(%black_dragon_kc)>||Black Knight: <tostring(%black_knight_kc)>||Blue Dragon: <tostring(%blue_dragon_kc)>||Dark Wizard: <tostring(%dark_wizard_kc)>||Dark Warrior: <tostring(%dark_warrior_kc)>||Druid: <tostring(%druid_kc)>||Earth Warrior: <tostring(%earth_warrior_kc)>||Fire Giant: <tostring(%fire_giant_kc)>||Ghost: <tostring(%ghost_kc)>||Guard: <tostring(%guard_kc)>||Highwayman: <tostring(%highwayman_kc)>||Hobgoblin: <tostring(%hobgoblin_kc)>|||");
+//
+//case 3 : ~book("The Ledger of Action", "@blu@PvM - NPCs I-P|@bla@Ice Giant: <tostring(%ice_giant_kc)>||Ice Warrior: <tostring(%ice_warrior_kc)>||Man: <tostring(%man_kc)>||Moss Giant: <tostring(%moss_giant_kc)>||Necromancer: <tostring(%necromancer_kc)>||Otherworldly: <tostring(%otherworldy_being_kc)>||Paladin: <tostring(%paladin_kc)>||Pirate: <tostring(%pirate_kc)>|||");
+//
+//case 4 : ~book("The Ledger of Action", "@blu@PvM - NPCs R-Z|@bla@Red Dragon: <tostring(%red_dragon_kc)>||Rogue: <tostring(%rogue_kc)>||Shadow Warrior: <tostring(%shadow_warrior_kc)>||Skeleton: <tostring(%skeleton_kc)>||Thug: <tostring(%thug_kc)>||White Knight: <tostring(%white_knight_kc)>||Wizard: <tostring(%wizard_kc)>||Zombie: <tostring(%zombie_kc)>|||");
+//
+//case 5 : ~book("The Ledger of Action", "@blu@PvM - Bosses|@bla@King Black Dragon: <tostring(%king_black_dragon_kc)>||Salarin the Twisted: <tostring(%salarin_the_twisted_kc)>||Bandit Camp Leaders: <tostring(%bandit_camp_leaders_kc)>||Jailer: <tostring(%jailer_kc)>|||");
+//
+////case 6 : ~book("The Ledger of Action", "@blu@Challenges & Achievements|@bla@Tutorial Complete: Yes||First PvP Kill: No||Defeated KBD: <tostring(%king_black_dragon_kc)>||Prestige Level: <tostring(%prestige)>||Challenge Points: 0||Scrolls Completed: 0||Trials Passed: 0||Exploration Rank: Explorer||Season Rank: Bronze|||");
+//
+////case 7 : ~book("The Ledger of Action", "@red@Collection Log (Coming Soon)||Pets, rare drops, milestones, achievements, and more!||");
+//}

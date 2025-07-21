@@ -1,8 +1,12 @@
 [ai_queue3,druid]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
+if (npc_findhero = true) {
+    queue(druid_kill, 0);
+}
+gosub(npc_death);
+
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
@@ -51,3 +55,8 @@ if ($random < 4) {
     obj_add(npc_coord, ~randomherb, ^lootdrop_duration);
     obj_add(npc_coord, ~randomherb, ^lootdrop_duration);        
 }
+
+
+[queue,druid_kill]
+mes("You scratch a notch on your bow for the kill.");
+%druid_kc = calc(%druid_kc + 1);

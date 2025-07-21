@@ -33,7 +33,6 @@ if (findhero = true) {
 }
 
 if (%gamemode_selected = ^gamemode_hardcore){
-    
     inv_clear(bank);
     ~founders_protection;
     inv_clear(inv);

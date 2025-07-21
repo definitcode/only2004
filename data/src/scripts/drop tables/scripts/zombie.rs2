@@ -3,10 +3,13 @@
 [ai_queue3,zombie2] @unarmed_zombie;
 
 [label,unarmed_zombie]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
+if (npc_findhero = true) {
+    queue(zombie_kill, 0);
+}
+gosub(npc_death);
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 def_int $dropint = random(128);
 if ($dropint < 4) {
@@ -51,10 +54,13 @@ if ($dropint < 4) {
 [ai_queue3,zombie3] @armed_zombie;
 
 [label,armed_zombie]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
+if (npc_findhero = true) {
+    queue(zombie_kill, 0);
+}
+gosub(npc_death);
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 def_int $dropint = random(128);
 if ($dropint < 3) {
@@ -100,10 +106,13 @@ if ($dropint < 3) {
 }
 
 [ai_queue3,zombie_entrana]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
+if (npc_findhero = true) {
+    queue(zombie_kill, 0);
+}
+gosub(npc_death);
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 def_int $dropint = random(128);
 if ($dropint < 50) {
@@ -130,3 +139,8 @@ if ($dropint < 50) {
     obj_add(npc_coord, coins, 28, ^lootdrop_duration);
 }   
 // Nothing - 8/128
+
+
+[queue,zombie_kill]
+mes("You scratch a notch on your bow for the kill.");
+%zombie_kc = calc(%zombie_kc + 1);

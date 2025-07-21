@@ -1,0 +1,5 @@
+[pickpocket_count]
+scope=perm
+
+[courses_completed]
+scope=perm

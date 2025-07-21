@@ -4,10 +4,13 @@
 
 [label,rat_droptable]
 
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
+if (npc_findhero = true) {
+    queue(rat_kill, 0);
+}
+gosub(npc_death);
 
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 if (%hunter > 349) {
@@ -23,3 +26,8 @@ if (%hunter > 349) {
 } else {
     obj_add(npc_coord, raw_rat_meat, 1, ^lootdrop_duration);
 }
+
+
+[queue,rat_kill]
+mes("You scratch a notch on your bow for the kill.");
+%rat_kc = calc(%rat_kc + 1);

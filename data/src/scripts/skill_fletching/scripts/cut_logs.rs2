@@ -196,6 +196,19 @@ if ($log = logs) {
     inv_add(inv, magic_bark, 5);
 }
 inv_del(inv, $log, 1);
+if ($log = logs) {
+%logs_fletched = calc(%logs_fletched + 1);
+} else if ($log = oak_logs) {
+    %oak_logs_fletched = calc(%oak_logs_fletched + 1);
+} else if ($log = willow_logs) {
+    %willow_logs_fletched = calc(%willow_logs_fletched + 1);
+} else if ($log = maple_logs) {
+    %maple_logs_fletched = calc(%maple_logs_fletched + 1);
+} else if ($log = yew_logs) {
+    %yew_logs_fletched = calc(%yew_logs_fletched + 1);
+} else if ($log = magic_logs) {
+    %magic_logs_fletched = calc(%magic_logs_fletched + 1);
+}
 mes($message);
 stat_advance(fletching, calc($fletching_experience * $xp_mult));
 if (inv_total(worn, headband_red) > 0) {
@@ -289,7 +302,19 @@ if(inv_total(inv, $log) > 0) {
             stat_advance(fletching, calc($fletching_experience * $xp_mult));
             mes("Your fletching skills are showing!");
         }
-
+        if ($log = logs) {
+        %logs_fletched = calc(%logs_fletched + 1);
+        } else if ($log = oak_logs) {
+            %oak_logs_fletched = calc(%oak_logs_fletched + 1);
+        } else if ($log = willow_logs) {
+            %willow_logs_fletched = calc(%willow_logs_fletched + 1);
+        } else if ($log = maple_logs) {
+            %maple_logs_fletched = calc(%maple_logs_fletched + 1);
+        } else if ($log = yew_logs) {
+            %yew_logs_fletched = calc(%yew_logs_fletched + 1);
+        } else if ($log = magic_logs) {
+            %magic_logs_fletched = calc(%magic_logs_fletched + 1);
+        }
         inv_add(inv, $product, $count);
         anim(human_casthighlvlalchemy, 0);
         sound_synth(tinderbox_strike, 1, 0);

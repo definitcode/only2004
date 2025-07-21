@@ -114,8 +114,10 @@ if ($neck ! null & oc_category($neck) = category_557) {
 }
 if (random($chance) = ^true) {
     def_namedobj $gem = ~mining_gem_table;
+    def_int $count = 0;
     if ($gem ! null) {
         inv_add(inv, $gem, 1);
+        $count = 1;
         db_find(gem_cutting_table:uncut_gem, $gem);
         $data = db_findnext;
         mes("You just found <~add_article(oc_name(db_getfield($data, gem_cutting_table:cut_gem, 0)))>!");
@@ -124,8 +126,9 @@ if (random($chance) = ^true) {
     if (%fortitude > 224) {
         mes("You feel that last hit really popped gems loose");
         inv_add(inv, $gem, 1);
+        $count = calc($count + 1);
     }
-
+    %gems_mined = calc(%gems_mined + $count);
 } else if (stat_random(stat(mining), db_getfield($data, mining_table:rock_successchance, 0)) = true) {
     // They added a 1t p_delay in this update: https://oldschool.runescape.wiki/w/Update:Special_Attacks
     // p_delay(0);
@@ -180,6 +183,27 @@ if (random($chance) = ^true) {
         $product_amount = 1;
     }
     inv_add(inv, $output, $product_amount);
+    if ($output = copper_ore){
+        %copper_ore_mined = calc(%copper_ore_mined + $product_amount);
+    } else if ($output = tin_ore){
+        %tin_ore_mined = calc(%tin_ore_mined + $product_amount);
+    } else if ($output = iron_ore){
+        %iron_ore_mined = calc(%iron_ore_mined + $product_amount);
+    } else if ($output = coal){
+        %coal_mined = calc(%coal_mined + $product_amount);
+    } else if ($output = gold_ore){
+        %gold_ore_mined = calc(%gold_ore_mined + $product_amount);
+    } else if ($output = silver_ore){
+        %silver_ore_mined = calc(%silver_ore_mined + $product_amount);
+    } else if ($output = mithril_ore){
+        %mithril_ore_mined = calc(%mithril_ore_mined + $product_amount);
+    } else if ($output = adamantite_ore){
+        %adamant_ore_mined = calc(%adamant_ore_mined + $product_amount);
+    } else if ($output = runite_ore){
+        %rune_ore_mined = calc(%rune_ore_mined + $product_amount);
+    } else if ($output = dragon_ore){
+        %dragon_ore_mined = calc(%dragon_ore_mined + $product_amount);
+    }
     stat_advance(mining, multiply($xp_mul, db_getfield($data, mining_table:rock_exp, 0)));
     mes("You manage to mine some <db_getfield($data, mining_table:ore_name, 0)>.");
     return;
@@ -253,7 +277,29 @@ if (random($chance) = ^true) {
     if (inv_freespace(inv) = 1) {
         $product_amount = 1;
     }
-    inv_add(inv, db_getfield($data, mining_table:rock_output, 0), $product_amount);
+    def_namedobj $output = db_getfield($data, mining_table:rock_output, 0);
+    inv_add(inv, $output, $product_amount);
+    if ($output = copper_ore){
+        %copper_ore_mined = calc(%copper_ore_mined + $product_amount);
+    } else if ($output = tin_ore){
+        %tin_ore_mined = calc(%tin_ore_mined + $product_amount);
+    } else if ($output = iron_ore){
+        %iron_ore_mined = calc(%iron_ore_mined + $product_amount);
+    } else if ($output = coal){
+        %coal_mined = calc(%coal_mined + $product_amount);
+    } else if ($output = gold_ore){
+        %gold_ore_mined = calc(%gold_ore_mined + $product_amount);
+    } else if ($output = silver_ore){
+        %silver_ore_mined = calc(%silver_ore_mined + $product_amount);
+    } else if ($output = mithril_ore){
+        %mithril_ore_mined = calc(%mithril_ore_mined + $product_amount);
+    } else if ($output = adamantite_ore){
+        %adamant_ore_mined = calc(%adamant_ore_mined + $product_amount);
+    } else if ($output = runite_ore){
+        %rune_ore_mined = calc(%rune_ore_mined + $product_amount);
+    } else if ($output = dragon_ore){
+        %dragon_ore_mined = calc(%dragon_ore_mined + $product_amount);
+    }
     stat_advance(mining, multiply($xp_mul, db_getfield($data, mining_table:rock_exp, 0)));
     mes("You manage to mine some <db_getfield($data, mining_table:ore_name, 0)>.");
     return;
@@ -270,6 +316,7 @@ if ($data = null) {
 }
 def_int $random = random(100);
 def_int $fragments = random(7);
+def_int $product_amount1 = calc($fragments + 1);
 if ($random > 49) {
     if ($fragments = 0){
         inv_add(inv, db_getfield($data, mining_table:rock_output, 0), 1);
@@ -278,8 +325,9 @@ if ($random > 49) {
         p_oploc(3);
         return;
     }
-    inv_add(inv, rune_fragment, $fragments);
+    inv_add(inv, rune_fragment, $product_amount1);
     mes("Some fragments are knocked loose.");
+    %essencefrags_mined = calc(%essencefrags_mined + $product_amount1);
 }
 def_int $xp_mul = 1;
 def_int $product_amount = 1;
@@ -321,7 +369,7 @@ inv_add(inv, db_getfield($data, mining_table:rock_output, 0), $product_amount);
 stat_advance(mining, multiply($xp_mul, db_getfield($data, mining_table:rock_exp, 0)));
 mes("You manage to mine an unbound rune stone.");
 p_oploc(3);
-
+%essence_mined = calc(%essence_mined + $product_amount);
 [label,get_ore_essencefrag]
 db_find(mining_table:rock, loc_type);
 def_dbrow $data = db_findnext;
@@ -331,16 +379,19 @@ if ($data = null) {
 }
 def_int $random = random(100);
 def_int $fragments = random(1);
+def_namedobj $output = db_getfield($data, mining_table:rock_output, 0);
+def_int $product_amount = calc($random + $fragments);
 if ($random > 0) {
     if ($fragments = 0){
-        inv_add(inv, db_getfield($data, mining_table:rock_output, 0), 1);
+        inv_add(inv, $output, $random);
         stat_advance(mining, db_getfield($data, mining_table:rock_exp, 0));
-        mes("You manage to mine a rune fragments.");
+        mes("You manage to mine a rune fragment.");
         p_oploc(3);
         return;
     }
     inv_add(inv, rune_fragment, $fragments);
-    mes("Some fragments are knocked loose.");
+    mes("Some more fragments are knocked loose.");
+    %essencefrags_mined = calc(%essencefrags_mined + $product_amount);
 }
 stat_advance(mining, db_getfield($data, mining_table:rock_exp, 0));
 p_oploc(3);
@@ -375,7 +426,7 @@ if (stat_random(stat(mining), $low, $high) = true) {
     $gem, $count = ~roll_on_drop_table(gem_rock_table);
     inv_add(inv, $gem, 1);
     stat_advance(mining, db_getfield($data, mining_table:rock_exp, 0));
-
+    %gems_mined = calc(%gems_mined + 1);
     db_find(gem_cutting_table:uncut_gem, $gem);
     $data = db_findnext;
     mes("You just mined <~add_article(oc_name(db_getfield($data, gem_cutting_table:cut_gem, 0)))>!");

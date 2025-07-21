@@ -1,10 +1,12 @@
 // Level 7 & 8 in Barbarian Village
 [ai_queue3,_barbarian]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
-
+if(npc_findhero = true) { // happens before npc_death
+    queue(barbarian_kill, 0);
+}
+gosub(npc_death);
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
@@ -56,13 +58,18 @@ if ($random < 6) {
 } else if ($random < 95) {
     obj_add(npc_coord, ~low_tier_items, ^lootdrop_duration);
 }
+[queue,barbarian_kill]
+mes("You scratch a notch on your bow for the kill.");
+%barbarian_kc = calc(%barbarian_kc + 1);
 
 [ai_queue3,gunthor_the_brave]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
-
+if(npc_findhero = true) { // happens before npc_death
+    queue(gunthor_kill, 0);
+}
+gosub(npc_death);
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
@@ -120,7 +127,9 @@ if ($random < 6) {
 } else if ($random < 127) {
     obj_add(npc_coord, ~mid_tier_items, ^lootdrop_duration);
 }
-
+[queue,gunthor_kill]
+mes("You scratch a notch on your bow for the kill.");
+%gunthor_kc = calc(%gunthor_kc + 1);
 
 [ai_queue1,gunthor_the_brave]
 def_npc_mode $npc_mode = npc_getmode;

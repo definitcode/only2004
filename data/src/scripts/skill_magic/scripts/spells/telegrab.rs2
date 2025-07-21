@@ -61,6 +61,7 @@ if (obj_count < 1) {
 } else {
     wealth_log(^wealth_gained, calc(obj_count * oc_cost(obj_type)), "Telegrabbed <oc_debugname(obj_type)> x<tostring(obj_count)>");
     obj_takeitem(inv);
+    %telegrab_count = calc(%telegrab_count + 1);
 }
 p_delay(1);
 // mes("<tostring(map_clock)>: You finish telegrabbing.");

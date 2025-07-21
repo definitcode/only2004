@@ -34,6 +34,8 @@ wealth_log(^wealth_gained, $profit, "High alching <oc_debugname($item)>");
 wealth_event(^wealth_high_alch, oc_debugname($item), 1, $profit);
 inv_del(inv, $item, 1);
 inv_add(inv, coins, $profit);
+%high_alch_gp = calc(%high_alch_gp + $profit);
+%high_alch_count = calc(%high_alch_count + 1);
 queue(high_alch_repeat, 5, $item);
 
 
@@ -79,6 +81,8 @@ wealth_log(^wealth_gained, $profit, "Low alching <oc_debugname($item)>");
 wealth_event(^wealth_low_alch, oc_debugname($item), 1, $profit);
 inv_del(inv, $item, 1);
 inv_add(inv, coins, $profit);
+%low_alch_gp = calc(%low_alch_gp + $profit);
+%low_alch_count = calc(%low_alch_count + 1);
 queue(low_alch_repeat, 3, $item);
 
 [queue,low_alch_repeat](obj $item)

@@ -1,8 +1,11 @@
 [ai_queue3,farmer]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
+if (npc_findhero = true) {
+    queue(farmer_kill, 0);
+}
+gosub(npc_death);
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
@@ -48,3 +51,6 @@ if ($random < 2) {
 }
 
 
+[queue,farmer_kill]
+mes("You scratch a notch on your bow for the kill.");
+%farmer_kc = calc(%farmer_kc + 1);

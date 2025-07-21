@@ -37,3 +37,6 @@
 [opheld2,firemaking_cape]     @levelrequire_skill_cape(firemaking, last_slot);
 [opheld2,woodcutting_cape]    @levelrequire_skill_cape(woodcutting, last_slot);
 [opheld2,max_cape]            @levelrequire_max_cape(99, last_slot);
+
+// Items
+[opheld2,book_of_prayers]         @levelrequire_book_of_prayers(prayer, last_slot);

@@ -1,9 +1,11 @@
 [ai_queue3,green_dragon]
-gosub(npc_death);
 if (npc_findhero = false) {
     return;
 }
-
+if (npc_findhero = true) {
+    queue(green_dragon_kill, 0);
+}
+gosub(npc_death);
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 //obj_add(npc_coord, dragonhide_green, 1, ^lootdrop_duration);
@@ -67,3 +69,7 @@ if ($random < 4) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
     obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
 }
+
+[queue,green_dragon_kill]
+mes("You scratch a notch on your bow for the kill.");
+%green_dragon_kc = calc(%green_dragon_kc + 1);
