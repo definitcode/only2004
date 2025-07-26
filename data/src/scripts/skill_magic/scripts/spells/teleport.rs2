@@ -38,7 +38,6 @@ if (p_finduid(uid) = true) {
     // give additional affects
     // teleport player. Always a radius of 2
     ~player_teleport_normal(map_findsquare(db_getfield($spell_data, magic_spell_table:tele_coord, 0), 0, 2, ^map_findsquare_lineofwalk));
-    
 }
 
 [proc,player_teleport_normal](coord $coord)
@@ -66,6 +65,7 @@ sound_synth(teleport_all, 0, 0);
 anim(human_castteleport, 0);
 spotanim_pl(teleport_casting, 92, 0);
 p_delay(2);
+%teleport_count = calc(%teleport_count + 1);
 ~p_telejump_safe($coord);
 
 [proc,p_telejump_safe](coord $coord)

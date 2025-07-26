@@ -53,6 +53,7 @@ switch_obj($equipment) {
 [proc,fish_roll](namedobj $fish1, namedobj $fish2, namedobj $equipment, namedobj $bait)
 
 def_int $bonus = ~get_fish_bonus($equipment);
+// Increment fish caught varps based on type
 
 // --- fish2 check
 if ($fish2 ! null) {
@@ -87,9 +88,71 @@ if ($fish1 ! null) {
     }
 }
 
+if ($fish1 = shrimp) {
+    %shrimp_caught = calc(%shrimp_caught + $bonus);
+} else if ($fish1 = raw_anchovies) {
+    %anchovy_caught = calc(%anchovy_caught + $bonus);
+} else if ($fish1 = raw_sardine) {
+    %sardine_caught = calc(%sardine_caught + $bonus);
+} else if ($fish1 = raw_herring) {
+    %herring_caught = calc(%herring_caught + $bonus);
+} else if ($fish1 = raw_trout) {
+    %trout_caught = calc(%trout_caught + $bonus);
+} else if ($fish1 = raw_salmon) {
+    %salmon_caught = calc(%salmon_caught + $bonus);
+} else if ($fish1 = raw_pike) {
+    %pike_caught = calc(%pike_caught + $bonus);
+} else if ($fish1 = raw_tuna) {
+    %tuna_caught = calc(%tuna_caught + $bonus);
+} else if ($fish1 = raw_lobster) {
+    %lobster_caught = calc(%lobster_caught + $bonus);
+} else if ($fish1 = raw_swordfish) {
+    %swordfish_caught = calc(%swordfish_caught + $bonus);
+} else if ($fish1 = raw_shark) {
+    %shark_caught = calc(%shark_caught + $bonus);
+} else if ($fish1 = raw_lava_eel) {
+    %lava_eel_caught = calc(%lava_eel_caught + $bonus);
+} else if ($fish1 = raw_mantaray) {
+    %manta_ray_caught = calc(%manta_ray_caught + $bonus);
+} else if ($fish1 = raw_seaturtle) {
+    %sea_turtle_caught = calc(%sea_turtle_caught + $bonus);
+}
+
+if ($fish2 = shrimp) {
+    %shrimp_caught = calc(%shrimp_caught + $bonus);
+} else if ($fish2 = raw_anchovies) {
+    %anchovy_caught = calc(%anchovy_caught + $bonus);
+} else if ($fish2 = raw_sardine) {
+    %sardine_caught = calc(%sardine_caught + $bonus);
+} else if ($fish2 = raw_herring) {
+    %herring_caught = calc(%herring_caught + $bonus);
+} else if ($fish2 = raw_trout) {
+    %trout_caught = calc(%trout_caught + $bonus);
+} else if ($fish2 = raw_salmon) {
+    %salmon_caught = calc(%salmon_caught + $bonus);
+} else if ($fish2 = raw_pike) {
+    %pike_caught = calc(%pike_caught + $bonus);
+} else if ($fish2 = raw_tuna) {
+    %tuna_caught = calc(%tuna_caught + $bonus);
+} else if ($fish2 = raw_lobster) {
+    %lobster_caught = calc(%lobster_caught + $bonus);
+} else if ($fish2 = raw_swordfish) {
+    %swordfish_caught = calc(%swordfish_caught + $bonus);
+} else if ($fish2 = raw_shark) {
+    %shark_caught = calc(%shark_caught + $bonus);
+} else if ($fish2 = raw_lava_eel) {
+    %lava_eel_caught = calc(%lava_eel_caught + $bonus);
+} else if ($fish2 = raw_mantaray) {
+    %manta_ray_caught = calc(%manta_ray_caught + $bonus);
+} else if ($fish2 = raw_seaturtle) {
+    %sea_turtle_caught = calc(%sea_turtle_caught + $bonus);
+}
+
 
 // alternate roll for fishing spots tied to locs, not NPCs
 [proc,fish_roll_loc](namedobj $fish1, namedobj $fish2, namedobj $bait)
+
+
 if ($fish2 ! null) {
     def_struct $struct2 = oc_param($fish2, fishing_struct);
     if (stat_random(stat(fishing), struct_param($struct2, success_low), struct_param($struct2, success_high)) = true) {
@@ -116,4 +179,64 @@ if ($fish1 ! null) {
         }
         mes(struct_param($struct1, productmessage));
     }
+}
+
+if ($fish1 = shrimp) {
+    %shrimp_caught = calc(%shrimp_caught + 1);
+} else if ($fish1 = raw_anchovies) {
+    %anchovy_caught = calc(%anchovy_caught + 1);
+} else if ($fish1 = raw_sardine) {
+    %sardine_caught = calc(%sardine_caught + 1);
+} else if ($fish1 = raw_herring) {
+    %herring_caught = calc(%herring_caught + 1);
+} else if ($fish1 = raw_trout) {
+    %trout_caught = calc(%trout_caught + 1);
+} else if ($fish1 = raw_salmon) {
+    %salmon_caught = calc(%salmon_caught + 1);
+} else if ($fish1 = raw_pike) {
+    %pike_caught = calc(%pike_caught + 1);
+} else if ($fish1 = raw_tuna) {
+    %tuna_caught = calc(%tuna_caught + 1);
+} else if ($fish1 = raw_lobster) {
+    %lobster_caught = calc(%lobster_caught + 1);
+} else if ($fish1 = raw_swordfish) {
+    %swordfish_caught = calc(%swordfish_caught + 1);
+} else if ($fish1 = raw_shark) {
+    %shark_caught = calc(%shark_caught + 1);
+} else if ($fish1 = raw_lava_eel) {
+    %lava_eel_caught = calc(%lava_eel_caught + 1);
+} else if ($fish1 = raw_mantaray) {
+    %manta_ray_caught = calc(%manta_ray_caught + 1);
+} else if ($fish1 = raw_seaturtle) {
+    %sea_turtle_caught = calc(%sea_turtle_caught + 1);
+}
+
+if ($fish2 = shrimp) {
+    %shrimp_caught = calc(%shrimp_caught + 1);
+} else if ($fish2 = raw_anchovies) {
+    %anchovy_caught = calc(%anchovy_caught + 1);
+} else if ($fish2 = raw_sardine) {
+    %sardine_caught = calc(%sardine_caught + 1);
+} else if ($fish2 = raw_herring) {
+    %herring_caught = calc(%herring_caught + 1);
+} else if ($fish2 = raw_trout) {
+    %trout_caught = calc(%trout_caught + 1);
+} else if ($fish2 = raw_salmon) {
+    %salmon_caught = calc(%salmon_caught + 1);
+} else if ($fish2 = raw_pike) {
+    %pike_caught = calc(%pike_caught + 1);
+} else if ($fish2 = raw_tuna) {
+    %tuna_caught = calc(%tuna_caught + 1);
+} else if ($fish2 = raw_lobster) {
+    %lobster_caught = calc(%lobster_caught + 1);
+} else if ($fish2 = raw_swordfish) {
+    %swordfish_caught = calc(%swordfish_caught + 1);
+} else if ($fish2 = raw_shark) {
+    %shark_caught = calc(%shark_caught + 1);
+} else if ($fish2 = raw_lava_eel) {
+    %lava_eel_caught = calc(%lava_eel_caught + 1);
+} else if ($fish2 = raw_mantaray) {
+    %manta_ray_caught = calc(%manta_ray_caught + 1);
+} else if ($fish2 = raw_seaturtle) {
+    %sea_turtle_caught = calc(%sea_turtle_caught + 1);
 }

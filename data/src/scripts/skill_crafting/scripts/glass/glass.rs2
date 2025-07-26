@@ -44,6 +44,7 @@ inv_del(inv, bucket_sand, 1);
 inv_add(inv, bucket_empty, 1);
 inv_del(inv, soda_ash, 1);
 inv_add(inv, molten_glass, 1);
+%molten_glass = calc(%molten_glass + 1);
 // play anim and sound
 anim(human_furnace,0);
 sound_synth(furnace,0,0);
@@ -84,14 +85,41 @@ if (stat(crafting) < $level) {
 }
 // delete molten glass
 inv_del(inv, molten_glass, 1);
+%glass_blown = calc(%glass_blown + 1);
 // add item
-inv_add(inv, $glass_item, 1);
+// Engineering Multiplier
+def_int $multi = 1;
+if (%engineering > 199) {
+    $multi = 2;
+} else if (%engineering > 249) {
+    $multi = 3;
+} else {
+    $multi = 1;
+}
+if ($glass_item = beer_glass){
+    %beer_glass = calc(%beer_glass + $multi);
+} else if ($glass_item = vial_empty){
+    %vial_empty = calc(%vial_empty + $multi);
+} else if ($glass_item = stafforb){
+    %stafforb = calc(%stafforb + $multi);
+}
+inv_add(inv, $glass_item, $multi);
+
 // play anim
 anim(human_glassblowing,0);
 // display game message
 mes("You make <$name>.");
 // give xp
-stat_advance(crafting, struct_param($struct, productexp));
+if ($multi = 3){
+    stat_advance(crafting, struct_param($struct, productexp));
+    stat_advance(crafting, struct_param($struct, productexp));
+    stat_advance(crafting, struct_param($struct, productexp));
+} else if ($multi = 2){
+    stat_advance(crafting, struct_param($struct, productexp));
+    stat_advance(crafting, struct_param($struct, productexp));
+} else if ($multi = 1){
+    stat_advance(crafting, struct_param($struct, productexp));
+}
 if (inv_total(worn, brown_apron) > 0) {
     stat_advance(crafting, struct_param($struct, productexp));
     mes("Your crafting skills are showing!");

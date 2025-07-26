@@ -98,6 +98,32 @@ if ($bar = steel_bar & inv_total(worn, steel_gauntlets) > 0) {
 stat_advance(smithing, $xp);
 
 // add bar
+if ($bar = bronze_bar) {
+    %bronze_bar_smelted = calc(%bronze_bar_smelted + 1);
+} else if ($bar = iron_bar) {
+    %iron_bar_smelted = calc(%iron_bar_smelted + 1);
+} else if ($bar = steel_bar) {
+    %steel_bar_smelted = calc(%steel_bar_smelted + 1);
+    %coal_smelted = calc(%coal_smelted + 2);
+} else if ($bar = gold_bar) {
+    %gold_bar_smelted = calc(%gold_bar_smelted + 1);
+} else if ($bar = silver_bar) {
+    %silver_bar_smelted = calc(%silver_bar_smelted + 1);
+} else if ($bar = mithril_bar) {
+    %mithril_bar_smelted = calc(%mithril_bar_smelted + 1);
+    %coal_smelted = calc(%coal_smelted + 4);
+} else if ($bar = adamantite_bar) {
+    %adamant_bar_smelted = calc(%adamant_bar_smelted + 1);
+    %coal_smelted = calc(%coal_smelted + 6);    
+} else if ($bar = runite_bar) {
+    %rune_bar_smelted = calc(%rune_bar_smelted + 1);
+    %coal_smelted = calc(%coal_smelted + 8);
+} else if ($bar = dragon_bar) {
+    %dragon_bar_smelted = calc(%dragon_bar_smelted + 1);
+    %coal_smelted = calc(%coal_smelted + 10);
+    %rune_bar_smithed = calc(%rune_bar_smithed + 3);
+}
+    
 inv_add(inv, $bar, 1);
 // display product message
 mes(struct_param($struct, productmessage));

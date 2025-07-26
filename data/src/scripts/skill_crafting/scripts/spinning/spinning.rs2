@@ -37,6 +37,11 @@ if (inv_total(worn, brown_apron) > 0) {
     mes("Your crafting skills are showing!");
 }
 // p_delay(3);
+if (struct_param($struct, ingredient) = wool) {
+    %wool_spun = calc(%wool_spun + 1);
+} else if (struct_param($struct, ingredient) = flax) {
+    %flax_spun = calc(%flax_spun + 1);
+}
 queue(spinning_repeat, 3, $spinning_obj, loc_coord, loc_type);
 //weakqueue(crafting_spinning, 2, $struct);
 

@@ -104,8 +104,25 @@ mes("You bind the temple's power into <db_getfield($data, runecraft_table:name, 
 inv_add(inv, $rune, calc($total_ess * $rune_count_per_ess));
 inv_add(inv, rune_dust, calc($total_ess * $rune_count_per_ess * 25));
 p_delay(3);
-
-
+def_int $crafted_essence = calc($total_ess * $rune_count_per_ess);
+%runes_crafted = calc(%runes_crafted + $crafted_essence);
+if ($rune = airrune){
+    %air_rune = calc(%air_rune + $crafted_essence);
+} else if ($rune = earthrune){
+    %earth_rune = calc(%earth_rune + $crafted_essence);
+} else if ($rune = waterrune){
+    %water_rune = calc(%water_rune + $crafted_essence);
+} else if ($rune = firerune){
+    %fire_rune = calc(%fire_rune + $crafted_essence);
+} else if ($rune = mindrune){
+    %mind_rune = calc(%mind_rune + $crafted_essence);
+} else if ($rune = bodyrune){
+    %body_rune = calc(%body_rune + $crafted_essence);
+} else if ($rune = cosmicrune){
+    %cosmic_rune = calc(%cosmic_rune + $crafted_essence);
+} else if ($rune = naturerune){
+    %nature_rune = calc(%nature_rune + $crafted_essence);
+}
 [opheld4,_talismans]
 def_obj $last_item = last_item;
 def_dbrow $data = ~get_runecraft_data(oc_param($last_item, rune_type));
