@@ -32,7 +32,7 @@ if (findhero = true) {
     session_log(^log_moderator, "Player died");
 }
 
-if (%gamemode_selected = ^gamemode_hardcore){
+if (%gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_hcuim){
     inv_clear(bank);
     ~founders_protection;
     inv_clear(inv);

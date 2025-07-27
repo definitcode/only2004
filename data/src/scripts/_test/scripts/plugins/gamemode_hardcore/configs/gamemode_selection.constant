@@ -2,3 +2,7 @@
 ^gamemode_ironman = 1
 ^gamemode_hardcore = 2
 ^gamemode_survival = 3
+^gamemode_uim = 4
+^gamemode_pvp = 5
+^gamemode_hcuim = 6
+^gamemode_hcim = 7

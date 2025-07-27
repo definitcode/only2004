@@ -157,7 +157,7 @@ param=magicdefence,-3
 param=rangedefence,65
 
 [dragon_chainbody]
-cost=1000000
+cost=50000
 model=model_2558_obj
 recol1s=15855
 recol1d=14336

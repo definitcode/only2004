@@ -188,7 +188,7 @@ param=rangedefence,49
 [dragon_plateskirt]
 name=Dragon plateskirt
 desc=These look pretty heavy.
-cost=2000000
+cost=50000
 model=model_2542_obj
 recol1s=15855
 recol1d=14336

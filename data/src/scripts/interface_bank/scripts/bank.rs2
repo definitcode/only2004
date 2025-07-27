@@ -9,6 +9,10 @@
 [if_close,bank_main] @closebank;
 
 [label,openbank]
+if (%gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim){
+    mes("Ultimate Ironman cannot use a bank!");
+    return;
+}
 %bank_noted = 0;
 ~reorganize_inv(bank);
 inv_transmit(inv, bank_side:inv);

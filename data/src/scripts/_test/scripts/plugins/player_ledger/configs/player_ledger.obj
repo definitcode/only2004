@@ -10,3 +10,31 @@ cost=10
 2dyan=152
 2dxan=256
 tradeable=no
+
+
+[player_checkbook]
+name=Checkbook
+desc=Allows you to write a check to give to other players.
+model=model_2543_obj
+weight=3g
+iop1=Write with
+members=yes
+cost=10
+2dzoom=840
+2dyan=152
+2dxan=256
+tradeable=no
+
+
+[check]
+name=Check
+desc=Used to write checks to 
+model=model_2600_obj
+members=yes
+2dxof=1
+2dyof=7
+2dzoom=1040
+2dyan=120
+2dxan=380
+weight=10g
+stackable=yes

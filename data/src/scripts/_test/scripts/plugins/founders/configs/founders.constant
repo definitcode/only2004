@@ -1,7 +1,8 @@
 ^founder = 0
 ^notfounder = 1
 ^hcfounder = 2
-
-
-
+^hcimfounder = 3
+^uimfounder = 4
+^hcuimfounder = 5
+^imfounder = 6
 

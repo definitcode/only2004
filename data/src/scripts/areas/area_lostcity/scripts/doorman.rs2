@@ -43,3 +43,14 @@ while (npc_findnext = true) {
         @door_man_chat;
     }
 }
+
+
+
+//if (npc_findhero = true) {
+//    queue(, 0);
+//}
+//gosub(npc_death);
+//
+//[queue,]
+//mes("You scratch a notch on your bow for the kill.");
+//% = calc(% + 1);

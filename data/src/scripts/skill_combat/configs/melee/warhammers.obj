@@ -197,7 +197,7 @@ param=defend_anim,human_blunt_block
 param=crush_sound,baxe_crush
 
 [dragon_warhammer]
-cost=2000000
+cost=50000
 name=Dragon warhammer
 desc=I don't think it's intended for joinery.
 iop2=Wield

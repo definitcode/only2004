@@ -41,6 +41,7 @@ stock8=knife,5,100
 stock9=newcomer_map,5,100
 stock10=ball_of_wool,0,100
 stock11=player_ledger,10,100
+stock12=player_checkbook,10,100
 
 [max_shop]
 scope=shared

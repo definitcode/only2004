@@ -4,7 +4,7 @@
 @open_player_ledger;
 
 [label,open_player_ledger]
-@book_flip_page(0, 0, 20, player_ledger_book);
+@book_flip_page(0, 0, 21, player_ledger_book);
 
 [proc,player_ledger_book]
 def_string $gamemode_string;
@@ -36,6 +36,14 @@ if (%gamemode_selected = ^gamemode_hardcore) {
     $gamemode_string = "@red@Hardcore@bla@";
 } else if (%gamemode_selected = ^gamemode_none) {
     $gamemode_string = "@gre@Normal@bla@";
+} else if (%gamemode_selected = ^gamemode_hcim) {
+    $gamemode_string = "@red@HC@whi@IM@bla@";
+} else if (%gamemode_selected = ^gamemode_uim) {
+    $gamemode_string = "@whi@UIM@bla@";
+} else if (%gamemode_selected = ^gamemode_ironman) {
+    $gamemode_string = "@gra@Ironman@bla@";
+} else if (%gamemode_selected = ^gamemode_hcuim) {
+    $gamemode_string = "@red@HC@whi@UIM@bla@";
 } else {
     $gamemode_string = "Unknown";
 }
@@ -44,6 +52,12 @@ if (%founders_status = ^founder) {
     $founders_string = "@cya@Founder@bla@";
 } else if (%founders_status = ^hcfounder) {
     $founders_string = "@red@Hardcore @cya@Founder";
+} else if (%founders_status = ^hcimfounder) {
+    $founders_string = "@red@HC@whi@IM@bla@ @cya@Founder";
+} else if (%founders_status = ^uimfounder) {
+    $founders_string = "@whi@UIM@bla@";
+} else if (%founders_status = ^hcuimfounder) {
+    $founders_string = "@red@HC@whi@UIM@bla@ @cya@Founder";
 } else {
     $founders_string = "None";
 }
@@ -131,7 +145,7 @@ if (%r_taskamount = ^r_easy){
 switch_int (%book_page) {
 
     case 0 : ~book("The Ledger of Action", 
-    "@red@Welcome, <$player_name> ||@bla@This ledger records your skills, PvP stats, kills, and your rare treasures.||Unlock the next steps in your path to |glory and greatness.|||@bla@Account Info:|@bla@Game Mode: @whi@<$gamemode_string> |@bla@Founder Status: @whi@<$founders_string> |@bla@Players Online: [@whi@<tostring($player_count)>@bla@]|||");
+    "@red@Welcome, <$player_name> ||@bla@This ledger records your skills, PvP stats, kills, and your rare treasures.||Unlock the next steps in your path to |glory and greatness.|||@blu@Account Info |@bla@Game Mode: |   @whi@<$gamemode_string> |@bla@Founder Status: |   @whi@<$founders_string> |@bla@Players Online: [@whi@<tostring($player_count)>@bla@]|||");
 
     case 1 : ~book("@red@Skills & PvP", 
     "@bla@Intelligence: @whi@<tostring(%intelligence)> |@bla@Hunter: @whi@<tostring(%hunter)> |@bla@Engineering: @whi@<tostring(%engineering)> @bla@(@yel@<tostring(%e_nurmofrep)>@bla@) |@bla@Rogue: @whi@<tostring(%rogue)> @bla@(@yel@<tostring(%r_roguedefectorrep)>@bla@) |@bla@Prestige: [@whi@<tostring(%prestige)>@bla@] |@bla@Total Kills: [@whi@<tostring(%pvptotal_kills)>@bla@] |@bla@Total Deaths: [@red@<tostring(%pvptotal_deaths)>@bla@] |@bla@PK Points: @bla@[@whi@<tostring(%pk_points)>@bla@] |@bla@Killstreak: [@whi@<tostring(%pvp_killstreak)>@bla@]|||");
@@ -168,28 +182,31 @@ switch_int (%book_page) {
     case 12 : ~book("Ore & Metalwork [Mined/Smelted/Smithed]", 
     "@bla@Bronze: |[@whi@<tostring(%copper_ore_mined)>@bla@/@whi@<tostring(%bronze_bar_smelted)>@bla@/@whi@<tostring(%bronze_bar_smithed)>@bla@] |@bla@Iron: |[@whi@<tostring(%iron_ore_mined)>@bla@/@whi@<tostring(%iron_bar_smelted)>@bla@/@whi@<tostring(%iron_bar_smithed)>@bla@] |@bla@Steel: |[@whi@<tostring(%coal_mined)>@bla@/@whi@<tostring(%steel_bar_smelted)>@bla@/@whi@<tostring(%steel_bar_smithed)>@bla@] |@bla@Silver: |[@whi@<tostring(%silver_ore_mined)>@bla@/@whi@<tostring(%silver_bar_smelted)>@bla@/@whi@<tostring(%silver_bar_crafted)>@bla@] |@bla@Gold: |[@whi@<tostring(%gold_ore_mined)>@bla@/@whi@<tostring(%gold_bar_smelted)>@bla@/@whi@<tostring(%gold_bar_crafted)>@bla@] ||@bla@Mithril: |[@whi@<tostring(%mithril_ore_mined)>@bla@/@whi@<tostring(%mithril_bar_smelted)>@bla@/@whi@<tostring(%mithril_bar_smithed)>@bla@] |@bla@Adamant: |[@whi@<tostring(%adamant_ore_mined)>@bla@/@whi@<tostring(%adamant_bar_smelted)>@bla@/@whi@<tostring(%adamant_bar_smithed)>@bla@] |@bla@Rune: |[@whi@<tostring(%rune_ore_mined)>@bla@/@whi@<tostring(%rune_bar_smelted)>@bla@/@whi@<tostring(%rune_bar_smithed)>@bla@] |@bla@Dragon: |[@whi@<tostring(%dragon_ore_mined)>@bla@/@whi@<tostring(%dragon_bar_smelted)>@bla@/@whi@<tostring(%dragon_bar_smithed)>@bla@]|||");
 
-    case 13 : ~book("Fishing [Caught/Cooked/Burned]",
-    "@bla@Shrimp: [@whi@<tostring(%shrimp_caught)>@bla@/@whi@<tostring(%shrimp_cooked)>@bla@/@whi@<tostring(%shrimp_burned)>@bla@] |@bla@Anchovies: [@whi@<tostring(%anchovy_caught)>@bla@/@whi@<tostring(%anchovy_cooked)>@bla@/@whi@<tostring(%anchovy_burned)>@bla@] |@bla@Sardine: [@whi@<tostring(%sardine_caught)>@bla@/@whi@<tostring(%sardine_cooked)>@bla@/@whi@<tostring(%sardine_burned)>@bla@] |@bla@Herring: [@whi@<tostring(%herring_caught)>@bla@/@whi@<tostring(%herring_cooked)>@bla@/@whi@<tostring(%herring_burned)>@bla@] |@bla@Trout: [@whi@<tostring(%trout_caught)>@bla@/@whi@<tostring(%trout_cooked)>@bla@/@whi@<tostring(%trout_burned)>@bla@] |@bla@Salmon: [@whi@<tostring(%salmon_caught)>@bla@/@whi@<tostring(%salmon_cooked)>@bla@/@whi@<tostring(%salmon_burned)>@bla@] |@bla@Pike: [@whi@<tostring(%pike_caught)>@bla@/@whi@<tostring(%pike_cooked)>@bla@/@whi@<tostring(%pike_burned)>@bla@] |@bla@Tuna: [@whi@<tostring(%tuna_caught)>@bla@/@whi@<tostring(%tuna_cooked)>@bla@/@whi@<tostring(%tuna_burned)>@bla@] |@bla@Lobster: [@whi@<tostring(%lobster_caught)>@bla@/@whi@<tostring(%lobster_cooked)>@bla@/@whi@<tostring(%lobster_burned)>@bla@] |@bla@Swordfish: [@whi@<tostring(%swordfish_caught)>@bla@/@whi@<tostring(%swordfish_cooked)>@bla@/@whi@<tostring(%swordfish_burned)>@bla@] ||@bla@Shark: [@whi@<tostring(%shark_caught)>@bla@/@whi@<tostring(%shark_cooked)>@bla@/@whi@<tostring(%shark_burned)>@bla@] |@bla@Lava Eel: [@whi@<tostring(%lava_eel_caught)>@bla@/@whi@<tostring(%lava_eel_cooked)>@bla@/@whi@<tostring(%lava_eel_burned)>@bla@] |@bla@Sea Turtle: [@whi@<tostring(%sea_turtle_caught)>@bla@/@whi@<tostring(%sea_turtle_cooked)>@bla@/@whi@<tostring(%sea_turtle_burned)>@bla@] |@bla@Manta Ray: [@whi@<tostring(%manta_ray_caught)>@bla@/@whi@<tostring(%manta_ray_cooked)>@bla@/@whi@<tostring(%manta_ray_burned)>@bla@]|||");
+    case 13 : ~book("Fishing I [Caught/Cooked/Burned]",
+    "@bla@Shrimp:        |[@whi@<tostring(%shrimp_caught)>@bla@/@whi@<tostring(%shrimp_cooked)>@bla@/@whi@<tostring(%shrimp_burned)>@bla@] |Anchovies:     |[@whi@<tostring(%anchovy_caught)>@bla@/@whi@<tostring(%anchovy_cooked)>@bla@/@whi@<tostring(%anchovy_burned)>@bla@] |Sardine:       |[@whi@<tostring(%sardine_caught)>@bla@/@whi@<tostring(%sardine_cooked)>@bla@/@whi@<tostring(%sardine_burned)>@bla@] |Herring:       |[@whi@<tostring(%herring_caught)>@bla@/@whi@<tostring(%herring_cooked)>@bla@/@whi@<tostring(%herring_burned)>@bla@] |Trout:         |[@whi@<tostring(%trout_caught)>@bla@/@whi@<tostring(%trout_cooked)>@bla@/@whi@<tostring(%trout_burned)>@bla@] ||Salmon:        |[@whi@<tostring(%salmon_caught)>@bla@/@whi@<tostring(%salmon_cooked)>@bla@/@whi@<tostring(%salmon_burned)>@bla@] |Pike:          |[@whi@<tostring(%pike_caught)>@bla@/@whi@<tostring(%pike_cooked)>@bla@/@whi@<tostring(%pike_burned)>@bla@] |Tuna:          |[@whi@<tostring(%tuna_caught)>@bla@/@whi@<tostring(%tuna_cooked)>@bla@/@whi@<tostring(%tuna_burned)>@bla@] |Lobster:       |[@whi@<tostring(%lobster_caught)>@bla@/@whi@<tostring(%lobster_cooked)>@bla@/@whi@<tostring(%lobster_burned)>@bla@] |Swordfish:     |[@whi@<tostring(%swordfish_caught)>@bla@/@whi@<tostring(%swordfish_cooked)>@bla@/@whi@<tostring(%swordfish_burned)>@bla@]");
 
-    case 14 : ~book("Prayer & Totals", 
+    case 14 : ~book("Fishing II [Caught/Cooked/Burned]",
+    "@bla@Shark:         |[@whi@<tostring(%shark_caught)>@bla@/@whi@<tostring(%shark_cooked)>@bla@/@whi@<tostring(%shark_burned)>@bla@] |Lava Eel:      |[@whi@<tostring(%lava_eel_caught)>@bla@/@whi@<tostring(%lava_eel_cooked)>@bla@/@whi@<tostring(%lava_eel_burned)>@bla@] |Sea Turtle:    |[@whi@<tostring(%sea_turtle_caught)>@bla@/@whi@<tostring(%sea_turtle_cooked)>@bla@/@whi@<tostring(%sea_turtle_burned)>@bla@] |Manta Ray:     |[@whi@<tostring(%manta_ray_caught)>@bla@/@whi@<tostring(%manta_ray_cooked)>@bla@/@whi@<tostring(%manta_ray_burned)>@bla@]|||");
+
+    case 15 : ~book("Prayer & Totals", 
     "@bla@Normal Bones: |[@whi@<tostring(%normal_bones)>@bla@] |@bla@Big Bones: |[@whi@<tostring(%big_bones)>@bla@] |@bla@Dragon Bones: |[@whi@<tostring(%dragon_bones)>@bla@]|||");
 
-    case 15 : ~book("Harvested Crops",
+    case 16 : ~book("Harvested Crops",
     "@bla@Potatoes: |[@whi@<tostring(%pl_potato)>@bla@] |@bla@Wheat: |[@whi@<tostring(%pl_wheat)>@bla@] |@bla@Onions: |[@whi@<tostring(%pl_onion)>@bla@] |@bla@Cabbages: |[@whi@<tostring(%pl_cabbage)>@bla@] |@bla@Flax: |[@whi@<tostring(%pl_flax)>@bla@]|||");
 
-    case 16 : ~book("Runecrafting",
+    case 17 : ~book("Runecrafting",
     "Essence/Fragments: [@whi@<tostring(%essence_mined)>@bla@/@whi@<tostring(%essencefrags_mined)>@bla@] |Air: [@whi@<tostring(%air_rune)>@bla@] |Earth: [@whi@<tostring(%earth_rune)>@bla@] |Water: [@whi@<tostring(%water_rune)>@bla@] |Fire:  [@whi@<tostring(%fire_rune)>@bla@]|Mind: [@whi@<tostring(%mind_rune)>@bla@]|Body: [@whi@<tostring(%body_rune)>@bla@] |Cosmic: [@whi@<tostring(%cosmic_rune)>@bla@] |Chaos: [@whi@<tostring(%chaos_rune)>@bla@] |Nature: [@whi@<tostring(%nature_rune)>@bla@]|||");
 
-    case 17 : ~book("Crafted Items",
+    case 18 : ~book("Crafted Items",
     "Gems: |   Emerald: [@whi@<tostring(%emerald_jewel)>@bla@] |   Sapphire: [@whi@<tostring(%sapphire_jewel)>@bla@]|   Ruby: [@whi@<tostring(%ruby_jewel)>@bla@]|   Diamond: [@whi@<tostring(%diamond_jewel)>@bla@]|   Dragonstone: [@whi@<tostring(%dragonstone_jewel)>@bla@]|Silver: [@whi@<tostring(%silver_symbol)>@bla@] |Gold: |   Necklace: [@whi@<tostring(%gold_necklace)>@bla@] |   Ring: [@whi@<tostring(%gold_ring)>@bla@] |   Amulets: [@whi@<tostring(%gold_amulet)>@bla@] |Clay: |   Spun/Fired: |[@whi@<tostring(%clay_spun)>@bla@/@whi@<tostring(%clay_fired)>@bla@]|||");
 
-    case 18 : ~book("Crafted Items II",
+    case 19 : ~book("Crafted Items II",
     "Leather: [@whi@<tostring(%leather_dyed)>@bla@/@whi@<tostring(%leather_crafted)>@bla@] |Hardleather: [@whi@<tostring(%hardleather_dyed)>@bla@/@whi@<tostring(%hardleather_crafted)>@bla@] |Dragonleather: [@whi@<tostring(%dragonleather_dyed)>@bla@/@whi@<tostring(%dragonleather_crafted)>@bla@] |@bla@[@whi@Melted@bla@/@whi@Blown@bla@]: [@whi@<tostring(%molten_glass)>@bla@/@whi@<tostring(%glass_blown)>@bla@] |Beer Glass: [@whi@<tostring(%beer_glass)>@bla@] |Vial: [@whi@<tostring(%vial_empty)>@bla@] |Staff Orb: [@whi@<tostring(%stafforb)>@bla@] |@bla@Wool: [@whi@<tostring(%wool_spun)>@bla@] |Flax: [@whi@<tostring(%flax_spun)>@bla@] |||");
 
-    case 19 : ~book("Misc. I",
-    "@bla@Runes Crafted: |[@whi@<tostring(%runes_crafted)>@bla@] |@bla@Coal: |[@whi@<tostring(%coal_mined)>@bla@/@whi@<tostring(%coal_smelted)>@bla@] |@bla@Gems: |[@whi@<tostring(%gems_mined)>@bla@] |@bla@Pockets Picked: |[@whi@<tostring(%pickpocket_count)>@bla@] |@bla@Laps Completed: |[@whi@<tostring(%courses_completed)>@bla@] ||@bla@High Alchs: |[@whi@<tostring(%high_alch_count)>@bla@] (@yel@<tostring(%high_alch_gp)> GP@bla@) ||@bla@Low Alchs: |[@whi@<tostring(%low_alch_count)>@bla@] (@yel@<tostring(%low_alch_gp)> GP@bla@)|||");
+    case 20 : ~book("Misc. I",
+    "@bla@Runes Crafted: |[@whi@<tostring(%runes_crafted)>@bla@] |@bla@Coal: |[@whi@<tostring(%coal_mined)>@bla@/@whi@<tostring(%coal_smelted)>@bla@] |@bla@Gems: |[@whi@<tostring(%gems_mined)>@bla@] |@bla@Pockets Picked: |[@whi@<tostring(%pickpocket_count)>@bla@] |@bla@Laps Completed: |[@whi@<tostring(%courses_completed)>@bla@] ||@bla@High Alchs(@whi@<tostring(%high_alch_count)>@bla@): |[@yel@<tostring(%high_alch_gp)> GP@bla@] ||@bla@Low Alchs(@whi@<tostring(%low_alch_count)>@bla@): |[@yel@<tostring(%low_alch_gp)> GP@bla@] |||");
 
-    case 20 : ~book("Misc. II",
+    case 21 : ~book("Misc. II",
     "@bla@Superheats: |[@whi@<tostring(%superheated_count)>@bla@] |@bla@Teleports: |[@whi@<tostring(%teleport_count)>@bla@] |@bla@Telegrabs: |[@whi@<tostring(%telegrab_count)>@bla@] |@bla@Potions Brewed: |[@whi@<tostring(%potions_brewed)>@bla@] |@bla@Herbs Cleaned: |[@whi@<tostring(%herbs_cleaned)>@bla@] ||@bla@Herbs Ground: |[@whi@<tostring(%herbs_ground)>@bla@]|||");
 
 }

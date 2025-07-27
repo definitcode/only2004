@@ -204,7 +204,7 @@ param=stab_sound,hacksword_stab
 [dragon_scimitar]
 name=Dragon scimitar
 desc=A vicious curved sword.
-cost=2500000
+cost=50000
 model=model_2373_obj
 recol1s=15855
 recol1d=14336

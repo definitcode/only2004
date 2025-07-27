@@ -1,0 +1,118 @@
+[oploc2,loc_2024]
+if (%hetty_progress ! ^hetty_complete) {
+    mes("You need to complete Witch's Potion first!");
+    return;
+}
+@mixology_game;
+
+[oploc1,loc_692]
+if (%hetty_progress ! ^hetty_complete) {
+    mes("You need to complete Witch's Potion first!");
+    return;
+}
+@mixology_game;
+
+[label,mixology_game]
+if (%hetty_progress ! ^hetty_complete) {
+    mes("You need to complete Witch's Potion first!");
+    return;
+}
+if (inv_total(inv, pestle_and_mortar) < 1) {
+    mes("You need a single Pestle and Mortar to mix potions.");
+    return;
+}
+if (inv_total(inv, vial_empty) < 1) {
+    mes("You need at least 1 empty vial to mix potions.");
+    return;
+}
+if (inv_total(inv, swamp_tar) < 10){
+    mes("You need at least 10 Swamp Tar to mix potions.");
+}
+if (stat_base(herblore) < 40 & stat_base(cooking) < 40){
+    mes("You need a Herblore and Cooking skill of at least 40 to mix potions.");
+}
+def_int $intelligence = %intelligence;
+def_int $dust_needed = 10;
+if ($intelligence > 249) {
+    $dust_needed = 150;
+} else if ($intelligence > 200) {
+    $dust_needed = 120;
+} else if ($intelligence > 150) {
+    $dust_needed = 90;
+} else if ($intelligence > 100) {
+    $dust_needed = 60;
+} else if ($intelligence > 50) {
+    $dust_needed = 35;
+} else {
+    $dust_needed = 10;
+}
+if (inv_total(inv, imbued_dust) < $dust_needed) {
+    mes("You need at least <tostring($dust_needed)> imbued rune dust to begin.");
+    return;
+}
+def_int $mix_count = inv_total(inv, vial_empty);
+~begin_mixing;
+
+[proc,begin_mixing]
+def_namedobj $random_potion = null;
+def_int $random = random(9);
+switch_int($random) {
+    case 0 : $random_potion = 1dose1strength;
+    case 1 : $random_potion = 2dosefisherspotion;
+    case 2 : $random_potion = 1dosestatrestore;
+    case 3 : $random_potion = 1doseantipoison;
+    case 4 : $random_potion = 1dosefisherspotion;
+    case 5 : $random_potion = 1dose1antidragon;
+    case 6 : $random_potion = 1doserangerspotion;
+    case 7 : $random_potion = weapon_poison;
+    case 8 : $random_potion = 1doseprayerrestore;
+    case 9 : {
+        mes("the vial breaks..");
+        inv_del(inv, vial_empty, 1);
+    }
+}
+def_int $intelligence = %intelligence;
+def_int $dust_needed = 10;
+def_int $random_anim = random(1);
+
+if ($random_anim = 0){
+    anim(human_herbing_grind,0);
+    sound_synth(grind, 3,0);
+    p_delay(5);
+} else if ($random_anim = 1) {
+    anim(human_herbing_grind,0);
+    sound_synth(grind, 3 ,0);
+    p_delay(3);
+}
+
+if ($intelligence > 249) {
+    $dust_needed = 50;
+} else if ($intelligence > 200) {
+    $dust_needed = 150;
+} else if ($intelligence > 150) {
+    $dust_needed = 200;
+} else if ($intelligence > 100) {
+    $dust_needed = 225;
+} else if ($intelligence > 50) {
+    $dust_needed = 250;
+}
+if (inv_total(inv, imbued_dust) < $dust_needed | inv_total(inv, vial_empty) < 1) {
+    return;
+}
+anim(human_cooking, 0);
+sound_synth(bubbling, 2, 0);
+inv_del(inv, vial_empty, 1);
+inv_del(inv, swamp_tar, 5);
+p_delay(3);
+anim(human_herbing_grind, 0);
+sound_synth(grind, 0, 0);
+p_delay(3);
+anim(human_cooking, 0);
+inv_del(inv, swamp_tar, 5);
+sound_synth(bubbling, 2, 0);
+inv_del(inv, imbued_dust, $dust_needed);
+p_delay(3);
+anim(human_cooking, 0);
+inv_add(inv, $random_potion, 1);
+stat_advance(herblore, 250);
+stat_advance(cooking, 250);

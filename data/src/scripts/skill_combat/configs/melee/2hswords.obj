@@ -230,7 +230,7 @@ param=crush_sound,2H_crush
 [dragon_2h_sword]
 name=Dragon 2h sword
 desc=A two handed sword.
-cost=1000000
+cost=50000
 model=model_2754_obj
 recol1s=15855
 recol1d=14336

@@ -1,0 +1,290 @@
+[proc,ledger_reset]
+// Woodcutting Trackers
+%logs_cut = 0;
+%logs_burned = 0;
+%logs_fletched = 0;
+
+%oak_logs_cut = 0;
+%oak_logs_burned = 0;
+%oak_logs_fletched = 0;
+
+%willow_logs_cut = 0;
+%willow_logs_burned = 0;
+%willow_logs_fletched = 0;
+
+%maple_logs_cut = 0;
+%maple_logs_burned = 0;
+%maple_logs_fletched = 0;
+
+%yew_logs_cut = 0;
+%yew_logs_burned = 0;
+%yew_logs_fletched = 0;
+
+%magic_logs_cut = 0;
+%magic_logs_burned = 0;
+%magic_logs_fletched = 0;
+
+// Mining Trackers
+%copper_ore_mined = 0;
+%tin_ore_mined = 0;
+%iron_ore_mined = 0;
+%gold_ore_mined = 0;
+%silver_ore_mined = 0;
+%mithril_ore_mined = 0;
+%adamant_ore_mined = 0;
+%rune_ore_mined = 0;
+%dragon_ore_mined = 0;
+%coal_mined = 0;
+%coal_smelted = 0;
+%gems_mined = 0;
+
+// Smelting Trackers
+%bronze_bar_smelted = 0;
+%iron_bar_smelted = 0;
+%steel_bar_smelted = 0;
+%gold_bar_smelted = 0;
+%gold_bar_crafted = 0;
+%silver_bar_smelted = 0;
+%silver_bar_crafted = 0;
+%mithril_bar_smelted = 0;
+%adamant_bar_smelted = 0;
+%rune_bar_smelted = 0;
+%dragon_bar_smelted = 0;
+
+// Smithing Trackers
+%bronze_bar_smithed = 0;
+%iron_bar_smithed = 0;
+%steel_bar_smithed = 0;
+%mithril_bar_smithed = 0;
+%adamant_bar_smithed = 0;
+%rune_bar_smithed = 0;
+%dragon_bar_smithed = 0;
+
+// Runecrafting
+%essence_mined = 0;
+%essencefrags_mined = 0;
+%runes_crafted = 0;
+
+// Fishing
+%shrimp_caught = 0;
+%shrimp_cooked = 0;
+%shrimp_burned = 0;
+
+%anchovy_caught = 0;
+%anchovy_cooked = 0;
+%anchovy_burned = 0;
+
+%herring_caught = 0;
+%herring_cooked = 0;
+%herring_burned = 0;
+
+%trout_caught = 0;
+%trout_cooked = 0;
+%trout_burned = 0;
+
+%salmon_caught = 0;
+%salmon_cooked = 0;
+%salmon_burned = 0;
+
+%sea_turtle_caught = 0;
+%sea_turtle_cooked = 0;
+%sea_turtle_burned = 0;
+
+%manta_ray_caught = 0;
+%manta_ray_cooked = 0;
+%manta_ray_burned = 0;
+
+%lobster_caught = 0;
+%lobster_cooked = 0;
+%lobster_burned = 0;
+
+%shark_caught = 0;
+%shark_cooked = 0;
+%shark_burned = 0;
+
+%lava_eel_caught = 0;
+%lava_eel_cooked = 0;
+%lava_eel_burned = 0;
+
+%sardine_caught = 0;
+%sardine_cooked = 0;
+%sardine_burned = 0;
+
+%pike_caught = 0;
+%pike_cooked = 0;
+%pike_burned = 0;
+
+%tuna_caught = 0;
+%tuna_cooked = 0;
+%tuna_burned = 0;
+
+%swordfish_caught = 0;
+%swordfish_cooked = 0;
+%swordfish_burned = 0;
+
+// Crafting
+%emerald_jewel = 0;
+%sapphire_jewel = 0;
+%ruby_jewel = 0;
+%diamond_jewel = 0;
+%dragonstone_jewel = 0;
+%silver_symbol = 0;
+%gold_necklace = 0;
+%gold_ring = 0;
+%gold_amulet = 0;
+
+// Enchanted
+%e_emerald_jewel = 0;
+%e_sapphire_jewel = 0;
+%e_ruby_jewel = 0;
+%e_diamond_jewel = 0;
+%e_dragonstone_jewel = 0;
+%e_silver_symbol = 0;
+%e_gold_necklace = 0;
+%e_gold_ring = 0;
+
+// Clay
+%clay_spun = 0;
+%clay_fired = 0;
+
+// Spinning
+%wool_spun = 0;
+%flax_spun = 0;
+
+// Leather
+%leather_dyed = 0;
+%hardleather_dyed = 0;
+%dragonleather_dyed = 0;
+%leather_crafted = 0;
+%hardleather_crafted = 0;
+%dragonleather_crafted = 0;
+
+// Glass
+%molten_glass = 0;
+%glass_blown = 0;
+%beer_glass = 0;
+%vial_empty = 0;
+%stafforb = 0;
+
+// Runecraft
+%air_rune = 0;
+%earth_rune = 0;
+%water_rune = 0;
+%fire_rune = 0;
+%mind_rune = 0;
+%body_rune = 0;
+%cosmic_rune = 0;
+%chaos_rune = 0;
+%nature_rune = 0;
+
+// Misc
+%superheated_gp = 0;
+%superheated_count = 0;
+%low_alch_gp = 0;
+%low_alch_count = 0;
+%high_alch_gp = 0;
+%high_alch_count = 0;
+%teleport_count = 0;
+%telegrab_count = 0;
+
+%potions_brewed = 0;
+%herbs_cleaned = 0;
+%herbs_ground = 0;
+
+// Bones
+%normal_bones = 0;
+%big_bones = 0;
+%dragon_bones = 0;
+%ashes = 0;
+
+// Thieving & Agility
+%pickpocket_count = 0;
+%courses_completed = 0;
+
+// Pickables
+%pl_potato = 0;
+%pl_wheat = 0;
+%pl_onion = 0;
+%pl_cabbage = 0;
+%pl_flax = 0;
+
+// PvM KC
+%bandit_camp_leaders_kc = 0;
+%barbarian_kc = 0;
+%black_demon_kc = 0;
+%king_black_dragon_kc = 0;
+%black_dragon_kc = 0;
+%blue_dragon_kc = 0;
+%green_dragon_kc = 0;
+%black_knight_kc = 0;
+%chaos_druid_warrior_kc = 0;
+%chaos_druid_kc = 0;
+%druid_kc = 0;
+%chaos_dwarf_kc = 0;
+%dwarf_kc = 0;
+%bear_kc = 0;
+%chicken_kc = 0;
+%cow_kc = 0;
+%farmer_kc = 0;
+%dark_warrior_kc = 0;
+%dark_wizard_kc = 0;
+%earth_warrior_kc = 0;
+%entrana_firebird_kc = 0;
+%fire_giant_kc = 0;
+%ghost_kc = 0;
+%giant_kc = 0;
+%giant_rat_kc = 0;
+%goblin_kc = 0;
+%greater_demon_kc = 0;
+%grip_kc = 0;
+%guard_dog_kc = 0;
+%guard_kc = 0;
+%hellhound_kc = 0;
+%highwayman_kc = 0;
+%hobgoblin_kc = 0;
+%ice_giant_kc = 0;
+%ice_warrior_kc = 0;
+%imp_kc = 0;
+%jailer_kc = 0;
+%jogre_kc = 0;
+%jonny_the_beard_kc = 0;
+%lesser_demon_kc = 0;
+%man_kc = 0;
+%moss_giant_kc = 0;
+%mugger_kc = 0;
+%necromancer_kc = 0;
+%oomlie_bird_kc = 0;
+%otherworldy_being_kc = 0;
+%paladin_kc = 0;
+%pirate_kc = 0;
+%rat_kc = 0;
+%red_dragon_kc = 0;
+%rogue_kc = 0;
+%shadow_warrior_kc = 0;
+%skeleton_kc = 0;
+%thug_kc = 0;
+%tribesman_kc = 0;
+%ugthanki_kc = 0;
+%unicorn_kc = 0;
+%white_knight_kc = 0;
+%wizard_kc = 0;
+%yanille_soldier_tower_guard_kc = 0;
+%zombie_kc = 0;
+%bandit_kc = 0;
+%salarin_the_twisted_kc = 0;
+%gunthor_kc = 0;
+
+// PvP
+%pvp_killstreak = 0;
+%pvptotal_kills = 0;
+%pvptotal_deaths = 0;
+%pk_points = 0;
+%pvp_last_attacker = 0;
+
+// Task Reset
+%e_ctoggle = ^e_toggle_off;
+%e_taskstatus = ^e_notstarted;
+%e_taskitem = null;
+%r_taskstatus = ^r_notstarted;
+%r_taskitem = null;
+%founders_pack_collected = ^false;

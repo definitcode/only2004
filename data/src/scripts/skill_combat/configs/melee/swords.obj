@@ -204,7 +204,7 @@ param=slash_sound,stabsword_slash
 [dragon_sword]
 name=Dragon sword
 desc=A razor sharp sword.
-cost=1000000
+cost=50000
 model=model_2604_obj
 recol1s=15855
 recol1d=14336

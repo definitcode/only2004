@@ -48,6 +48,8 @@ if ($random < 6) {
 } else if ($random < 95) {
     obj_add(npc_coord, coins, 55, ^lootdrop_duration);
 
+} else if ($random < 105) {
+    obj_add(npc_coord, pirate_pants, 1, ^lootdrop_duration);
 
 } else if ($random < 106) {
     obj_add(npc_coord, piratehat, 1, ^lootdrop_duration);

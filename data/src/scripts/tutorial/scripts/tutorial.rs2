@@ -295,6 +295,78 @@ if (inv_total(inv, $obj) > 0 | inv_total(worn, $obj) > 0) {
     return (false);
 }
 
+[proc,gamemode_selection]
+def_int $choice = ~p_choice5_header("Normal.", 1, "Hardcore.", 2, "Ironman.", 3, "HCIM", 4, "Ultimate.", 5, "~ Mode Selection ~");
+switch_int($choice) {
+    case 1 : {
+        %gamemode_selected = ^gamemode_none;
+        return;
+    }
+    case 2 : {
+        def_int $choice2 = (~p_choice2_header("Play Hardcore.", 1, "Description.", 2, "~ Mode Selection ~"));
+        switch_int($choice2){
+            case 1 : {
+                %gamemode_selected = ^gamemode_hardcore;
+                return;
+            }
+            case 2 : {
+                ~mesbox("When you die in Hardcore your account will be reset back to its original state!");                
+                ~gamemode_selection;
+            }
+        }
+    }
+    case 3 : {
+        def_int $choice2 = (~p_choice2_header("Play Ironman.", 1, "Description.", 2, "~ Mode Selection ~"));
+        switch_int($choice2){
+            case 1 : {
+                %gamemode_selected = ^gamemode_ironman;
+                return;
+            }
+            case 2 : {
+                ~mesbox("You cannot trade or use shops!");                
+                ~gamemode_selection;
+            }
+        }
+    }
+
+    case 4 : {
+        def_int $choice2 = (~p_choice2_header("Play HCIM.", 1, "Description.", 2, "~ Mode Selection ~"));
+        switch_int($choice2){
+            case 1 : {
+                %gamemode_selected = ^gamemode_hcim;
+                return;
+            }
+            case 2 : {
+                ~mesbox("You are just like an Hardcore but you can't trade other players!");                
+                ~gamemode_selection;
+            }
+        }
+    }
+
+    case 5 : {
+        def_int $choice2 = (~p_choice2_header("Play Ultimate.", 1, "Description.", 2, "~ Mode Selection ~"));
+        switch_int($choice2){
+            case 1 : {
+                def_int $choice3 = (~p_choice2_header("Normal UIM.", 1, "Hardcore UIM.", 2, "~ Mode Selection ~"));
+                switch_int($choice3){
+                    case 1 : {
+                        %gamemode_selected = ^gamemode_uim;
+                        return;
+                    }
+                    case 2 : {
+                        %gamemode_selected = ^gamemode_hcuim;
+                        return;
+                    }
+                }
+            }
+            case 2 : {
+                ~mesbox("You are just like an Ironman but you cannot use a bank as well!");                
+                ~gamemode_selection;
+            }
+        }
+    }
+}
+
 [proc,tutorial_give_xp](stat $skill, int $xp)
 if (stat_base($skill) >= 3) {
     return;
@@ -308,19 +380,20 @@ if_close;
 %tutorial_progress = ^tutorial_complete;
 
 //def_int $choice = ~p_choice3_header("Normal.", 1, "Hardcore.", 2, "Survival.", 3, "Which gamemode would you like to play ?");
-def_int $choice = ~p_choice2_header("Normal.", 1, "Hardcore.", 2, "Which gamemode would you like to play ?");
-
-switch_int($choice) {
-    case 1 : %gamemode_selected = ^gamemode_none;
-    case 2 : %gamemode_selected = ^gamemode_hardcore;
-    //case 3 : %gamemode_selected = ^gamemode_survival;
-}
-
-if (%gamemode_selected = ^gamemode_none) {
-    p_telejump(0_50_50_22_22);
-} else if (%gamemode_selected = ^gamemode_hardcore) {
+//def_int $choice = ~p_choice5_header("Normal.", 1, "Hardcore.", 2, "Ironman.", 3, "HCIM.", 4, "UIM.", 5, "Which gamemode would you like to play ?");
+//
+//switch_int($choice) {
+//    case 1 : %gamemode_selected = ^gamemode_none;
+//    case 2 : %gamemode_selected = ^gamemode_hardcore;
+//    //case 3 : %gamemode_selected = ^gamemode_survival;
+//}
+~gamemode_selection;
+if (%gamemode_selected = ^gamemode_none | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hcuim) {
     p_telejump(0_50_50_22_22);
 }
+//} else if (%gamemode_selected = ^gamemode_hardcore) {
+//    p_telejump(0_50_50_22_22);
+//}
 //} else if (%gamemode_selected = ^gamemode_survival) {
 //    // future location for gamemode.
 //
@@ -351,7 +424,7 @@ if (%gamemode_selected = ^gamemode_none) {
     inv_add(inv, bodyrune, 2);
     inv_add(inv, player_ledger, 1);
 
-} else if (%gamemode_selected = ^gamemode_hardcore) {
+} else if (%gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim) {
     inv_clear(inv);
     inv_add(inv, hc_iron_scimitar, 1);
     inv_add(inv, hc_iron_full_helm, 1);
@@ -372,11 +445,8 @@ if (%gamemode_selected = ^gamemode_none) {
 
 inv_add(bank, coins, 25);
 ~stat_reset_all;
+~ledger_reset;
 healenergy(10000);
-%e_ctoggle = ^e_toggle_off;
-%e_taskstatus = ^e_notstarted;
-%r_taskstatus = ^r_notstarted;
-%founders_pack_collected = ^false;
 //if (%founders_status = ^hcfounder) {
 //    %founders_status = ^hcfounder;
 //    inv_add(inv, founders_scroll, 1);

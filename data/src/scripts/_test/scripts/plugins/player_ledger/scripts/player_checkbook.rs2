@@ -1,0 +1,56 @@
+[opheld1,player_checkbook]
+@write_check;
+
+[label,write_check]
+
+// Prompt for amount
+def_int $requested = 0;
+p_countdialog;
+$requested = last_int;
+if ($requested <= 0) {
+    mes("You must enter a positive amount.");
+    return;
+}
+
+// Check if they have enough coins
+def_int $available = inv_total(bank, coins);
+if ($requested > $available) {
+    mes("You don't have that much gold.");
+    return;
+}
+
+// Check if cert_coins stack or if we have space
+if (inv_freespace(inv) = 0) {
+    mes("You need at least one free inventory slot.");
+    return;
+}
+
+// Remove coins
+//inv_del(bank, coins, $requested);
+
+//// Add the gold check (cert_coins)
+//if ($requested >= 10000) {
+//    inv_add(inv, cert_coins_10000, $requested);
+//} else if ($requested >= 1000) {
+//    inv_add(inv, cert_coins_1000, $requested);
+//} else if ($requested >= 250) {
+//    inv_add(inv, cert_coins_250, $requested);
+//} else if ($requested >= 100) {
+//    inv_add(inv, cert_coins_100, $requested);
+//} else if ($requested >= 25) {
+//    inv_add(inv, cert_coins_25, $requested);
+//} else if ($requested >= 5) {
+//    inv_add(inv, cert_coins_5, $requested);
+//} else if ($requested >= 4) {
+//    inv_add(inv, cert_coins_4, $requested);
+//} else if ($requested >= 3) {
+//    inv_add(inv, cert_coins_3, $requested);
+//} else if ($requested >= 2) {
+//    inv_add(inv, cert_coins_2, $requested);
+//} else {
+//    inv_add(inv, cert_coins, $requested);
+//}
+//inv_add(inv, cert_coins, $requested);
+
+inv_moveitem_cert(bank, inv, coins, $requested);
+mes("You write a check for <tostring($requested)> coins.");

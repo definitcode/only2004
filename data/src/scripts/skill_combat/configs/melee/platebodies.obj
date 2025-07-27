@@ -184,7 +184,7 @@ param=rangedefence,40
 
 [rune_platebody]
 name=Rune platebody
-cost=99000
+cost=39600
 model=model_2605_obj
 recol1s=6342
 recol1d=15855
@@ -214,7 +214,7 @@ param=rangedefence,80
 
 [dragon_platebody]
 name=Dragon platebody
-cost=2000000
+cost=50000
 model=model_2605_obj
 recol1s=6342
 recol1d=15855

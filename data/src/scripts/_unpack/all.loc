@@ -3554,6 +3554,7 @@ name=Cauldron
 desc=I don't even want to think about what's cooking in that.
 model=model_loc_692
 anim=cauldron
+op1=Mix
 
 [loc_693]
 name=Broom
@@ -11233,6 +11234,7 @@ desc=A large bubbling cauldron, smells... Ugh!
 model=model_loc_692
 anim=cauldron
 op1=Drink From
+op2=Mix
 
 [loc_2025]
 name=Door

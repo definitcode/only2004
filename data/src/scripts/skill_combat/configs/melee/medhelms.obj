@@ -174,7 +174,7 @@ param=rangedefence,22
 [dragon_med_helm]
 name=Dragon med helm
 desc=Makes the wearer pretty intimidating.
-cost=1000000
+cost=50000
 manwear=model_219_obj_wear,0
 manwear2=model_239_obj_wear
 womanwear=model_395_obj_wear,0

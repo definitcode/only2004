@@ -13,6 +13,7 @@ if (npc_range(coord) > 2) {
 ~chatnpcrange("<p,quiz>Good day, how may I help you?");
 
 def_int $option = ~p_choice2("I'd like to access my bank account, please.", 1, "What is this place?", 2);
+//def_int $option = ~p_choice3("I'd like to access my bank account, please.", 1, "What is this place?", 2, "Cash my check please!", 3);
 switch_int ($option) {
     case 1 :
         ~chatplayer("<p,quiz>I'd like to access my bank account, please.");
@@ -30,4 +31,10 @@ switch_int ($option) {
                 ~chatnpcrange("<p,neutral>Yes we did, but people kept on coming into our branches outside of Varrock and telling us that our signs were wrong. They acted as if we didn't know what town we were in or something.");
 
         }
+    //case 3 :
+    //    def_int $checktotal = inv_total(inv, check);
+    //    if ($checktotal > 0){
+    //        inv_del(inv, check, $checktotal);
+    //        inv_add(bank, coins, $checktotal);
+    //    }
 }

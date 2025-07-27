@@ -240,3 +240,4 @@ param=crushattack_anim,human_blunt_spike
 param=defend_anim,human_axe_block
 param=stab_sound,baxe_slash
 param=crush_sound,baxe_crush
+param=no_alchemy,^true

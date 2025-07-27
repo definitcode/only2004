@@ -3324,3 +3324,16 @@
 3322=cert_player_skull
 3323=player_ledger
 3324=cert_player_ledger
+3325=player_checkbook
+3326=cert_player_checkbook
+3327=cert_coins
+3328=cert_coins_2
+3329=cert_coins_3
+3330=cert_coins_4
+3331=cert_coins_5
+3332=cert_coins_25
+3333=cert_coins_100
+3334=cert_coins_250
+3335=cert_coins_1000
+3336=cert_coins_10000
+3337=check

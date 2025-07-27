@@ -12,4 +12,33 @@ if(%totem_progress = ^totem_crate_marked) {
     }
     return;
 }
+
+if (%totem_progress = ^totem_complete){
+    def_int $courier_cost = calc(5000 - %prestige);
+    def_int $inv_gold = inv_total(inv, coins);
+    def_int $difference = sub($courier_cost, $inv_gold);
+    ~chatnpc("<p,happy> Would you like me to be a personal courier?!");
+    def_int $choice = ~p_choice2_header("Yes.", 1, "No.", 2, "~ RDP Courier [<tostring($courier_cost)>gp] ~" );
+    switch_int($choice){
+        case 1 : {
+            if ($inv_gold > $courier_cost){
+
+                if (inv_freespace(bank) > 0){
+                    inv_del(inv, coins, $courier_cost);
+                    $inv_gold = inv_total(inv, coins);
+                    ~moveallinv(inv, bank);
+                    inv_add(inv, coins, $inv_gold);
+                    ~chatnpc("<p,happy>Alright I have sent all of your goods to your nearest bank!");
+                    return;
+                }
+            } else {
+                ~chatnpc("<p,neutral>Sorry, you don't have enough gold to pay for my services! you need| <tostring($difference)> more gp!");
+            }
+        }
+        case 2 : {
+            ~chatnpc("<p,neutral>Okay, I'll just stick to delivering crates then...");
+            return;
+        }
+    }
+}
 ~chatplayer("<p,neutral>Thank you very much.");

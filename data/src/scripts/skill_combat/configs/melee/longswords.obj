@@ -230,7 +230,7 @@ param=stab_sound,hacksword_stab
 param=ready_baseanim,human_ds_ready
 
 [dragon_longsword]
-cost=1000000
+cost=50000
 name=Dragon longsword
 desc=A very powerful sword.
 members=yes

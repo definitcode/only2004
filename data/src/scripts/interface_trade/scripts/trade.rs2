@@ -32,6 +32,11 @@ if (.busy = true) {
     mes("<.displayname> is busy at the moment.");
     return;
 }
+if (%gamemode_selected = ^gamemode_ironman | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim){
+    mes("You can't trade in your mode.");
+    .mes("You can't trade players that are doing certain challenges!");
+    return;
+}
 
 // this message always sends, even if this player is responding to a trade request
 mes("Sending trade offer...");
