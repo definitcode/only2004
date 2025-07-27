@@ -27,8 +27,8 @@ data=loot,coins,50,50,128
 table=trapped_chest
 data=loc,chest_steel_arrowtips
 data=level,47
-data=experience,1500
-data=respawn_ticks,125
+data=experience,350
+data=respawn_ticks,13
 data=loot,steel_arrowheads,5,5,128
 data=loot,coins,20,20,128
 

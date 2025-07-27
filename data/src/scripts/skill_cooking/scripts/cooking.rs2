@@ -4,6 +4,10 @@ if(oc_param(last_useitem, unlit_arrow) = ^true) { // might not work on every fir
     @light_firearrow(last_useitem);
 } else if (%tutorial_progress < ^tutorial_complete) {
     @tut_attempt_cook_item(last_useitem);
+} else if (oc_category(last_useitem) = tree_bark){
+    @burn_bark(last_useitem);
+} else if (oc_category(last_useitem) = category_22) {
+    @burn_log(last_useitem);
 } else {
     @attempt_cook_item(last_useitem);
 }

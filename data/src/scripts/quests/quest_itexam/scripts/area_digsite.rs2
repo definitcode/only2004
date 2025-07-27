@@ -720,7 +720,7 @@ if ($item = digcompound) {
     ~chatplayer("<p,happy>Okay, the mixture is all over the bricks. I need some way to ignite this compound.");
 }
 
-if ($item = tinderbox) {
+if ($item = tinderbox | $item = hc_tinderbox | $item = founders_tinderbox | $item = bronze_tinderbox | $item = iron_tinderbox | $item = steel_tinderbox | $item = mithril_tinderbox | $item = adamant_tinderbox | $item = rune_tinderbox | $item = dragon_tinderbox) {
     if (~itexam_progress ! ^itexam_poured_compound_on_bricks) {
         say("Now, what am I trying to achieve here?");
         return;

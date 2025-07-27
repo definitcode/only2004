@@ -35,7 +35,7 @@
 @attempt_trapped_chest(loc_type, loc_coord, loc_angle, loc_shape);
 
 [oplocu,chest_steel_arrowtips]
-if (last_useitem = lockpick) {
+if (last_useitem = lockpick | last_useitem = rogue_tools) {
     ~attempt_locked_chest;
 }
 
@@ -85,7 +85,7 @@ if ($current_level < $thieving_level) {
     return;
 }
 
-if (inv_total(inv, lockpick) < 1 | inv_total(inv, rogue_tools) < 1) {
+if (inv_total(inv, lockpick) = 0 & inv_total(inv, rogue_tools) = 0) {
     mes("You need a lockpick for this lock.");
     return;
 }
@@ -117,7 +117,7 @@ mes("It looks like this chest has already been looted.");
 mes("It looks like this chest has already been looted.");
 
 [oplocu,loc_2572]
-if (last_useitem = lockpick) {
+if (last_useitem = lockpick | last_useitem = rogue_tools) {
     mes("It looks like this chest has already been looted.");
 } else {
     ~displaymessage(^dm_default);
