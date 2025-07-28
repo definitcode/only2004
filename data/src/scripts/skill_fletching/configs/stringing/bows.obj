@@ -1,7 +1,7 @@
 [unstrung_longbow]
 name=Longbow
 desc=I need to find a string for this.
-cost=60
+cost=6
 members=yes
 model=model_2401_obj
 recol1s=6273
@@ -13,11 +13,12 @@ recol1d=21985
 2dxan=460
 weight=47oz
 category=unstrung_bow
+stackable=yes
 
 [unstrung_shortbow]
 name=Shortbow
 desc=I need to find a string for this.
-cost=23
+cost=2
 members=yes
 model=model_2435_obj
 recol1s=6273
@@ -29,9 +30,10 @@ recol1d=21985
 2dxan=508
 weight=35oz
 category=unstrung_bow
+stackable=yes
 
 [unstrung_oak_shortbow]
-cost=50
+cost=5
 members=yes
 name=Oak shortbow
 desc=An unstrung oak shortbow, I need a bowstring for this.
@@ -45,9 +47,10 @@ recol1d=23009
 2dxan=508
 weight=35oz
 category=unstrung_bow
+stackable=yes
 
 [unstrung_oak_longbow]
-cost=80
+cost=8
 members=yes
 name=Oak longbow
 desc=An unstrung oak longbow, I need a bowstring for this.
@@ -61,9 +64,10 @@ recol1d=23009
 2dxan=460
 weight=47oz
 category=unstrung_bow
+stackable=yes
 
 [unstrung_willow_longbow]
-cost=160
+cost=16
 members=yes
 name=Willow longbow
 desc=An unstrung willow longbow, I need a bowstring for this.
@@ -77,9 +81,10 @@ recol1d=20004
 2dxan=460
 weight=47oz
 category=unstrung_bow
+stackable=yes
 
 [unstrung_willow_shortbow]
-cost=100
+cost=10
 members=yes
 name=Willow shortbow
 desc=An unstrung willow shortbow, I need a bowstring for this.
@@ -93,9 +98,10 @@ recol1d=20004
 2dxan=508
 weight=35oz
 category=unstrung_bow
+stackable=yes
 
 [unstrung_maple_longbow]
-cost=320
+cost=32
 members=yes
 name=Maple longbow
 desc=An unstrung maple longbow, I need a bowstring for this.
@@ -109,9 +115,10 @@ recol1d=21040
 2dxan=460
 weight=47oz
 category=unstrung_bow
+stackable=yes
 
 [unstrung_maple_shortbow]
-cost=200
+cost=20
 members=yes
 name=Maple shortbow
 desc=An unstrung maple shortbow, I need a bowstring for this.
@@ -125,9 +132,10 @@ recol1d=21040
 2dxan=508
 weight=35oz
 category=unstrung_bow
+stackable=yes
 
 [unstrung_yew_longbow]
-cost=640
+cost=64
 members=yes
 name=Yew longbow
 desc=An unstrung yew longbow, I need a bowstring for this.
@@ -141,9 +149,10 @@ recol1d=23073
 2dxan=460
 weight=47oz
 category=unstrung_bow
+stackable=yes
 
 [unstrung_yew_shortbow]
-cost=400
+cost=40
 members=yes
 name=Yew shortbow
 desc=An unstrung yew shortbow, I need a bowstring for this.
@@ -157,9 +166,10 @@ recol1d=23073
 2dxan=508
 weight=35oz
 category=unstrung_bow
+stackable=yes
 
 [unstrung_magic_longbow]
-cost=1280
+cost=128
 members=yes
 name=Magic longbow
 desc=An unstrung magic longbow, I need a bowstring for this.
@@ -173,9 +183,10 @@ recol1d=1451
 2dxan=460
 weight=47oz
 category=unstrung_bow
+stackable=yes
 
 [unstrung_magic_shortbow]
-cost=800
+cost=80
 members=yes
 name=Magic shortbow
 desc=An unstrung magic shortbow, I need a bowstring for this.
@@ -189,3 +200,4 @@ recol1d=1451
 2dxan=508
 weight=35oz
 category=unstrung_bow
+stackable=yes

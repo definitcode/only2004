@@ -10,6 +10,40 @@ switch_obj (last_useitem)
 
 //--- Label to craft a gem
 [label,crafting_gem](obj $uncut_gem)
+def_namedobj $chisel = null;
+def_int $exp_mul = 1;
+def_int $prod_mul = 1;
+if ((inv_total(inv, dragon_chisel) > 0)){
+    $chisel = dragon_chisel;
+    $exp_mul = 4;
+    $prod_mul = 2;
+} else if ((inv_total(inv, rune_chisel) > 0)){
+    $chisel = rune_chisel;
+    $exp_mul = 3;
+    $prod_mul = 2;
+} else if ((inv_total(inv, adamant_chisel) > 0)){
+    $chisel = adamant_chisel;
+    $exp_mul = 2;
+    $prod_mul = 2;
+} else if ((inv_total(inv, mithril_chisel) > 0)){
+    $chisel = mithril_chisel;
+    $exp_mul = 1;
+    $prod_mul = 2;
+} else if ((inv_total(inv, steel_chisel) > 0)){
+    $chisel = steel_chisel;
+    $exp_mul = 1;
+    $prod_mul = 1;
+} else if ((inv_total(inv, iron_chisel) > 0)){
+    $chisel = iron_chisel;
+    $exp_mul = 1;
+    $prod_mul = 1;
+} else if ((inv_total(inv, bronze_chisel) > 0)){
+    $chisel = bronze_chisel;
+    $exp_mul = 1;
+    $prod_mul = 1;
+} else if ((inv_total(inv, chisel) > 0)){
+    $chisel = chisel;
+}
 if (oc_members($uncut_gem) = true) {
     if (map_members = false) {
         mes(^mes_members_feature);
@@ -54,7 +88,7 @@ if ($low ! null & $high ! null & stat_random(stat(crafting), $low, $high) = fals
     stat_advance(crafting, calc((db_getfield($data, gem_cutting_table:experience, 0) + 2)/4));
     // osrs except uppercase product name. needs confirmation
     mes("You mis-hit the chisel and smash the <$product_name> to pieces!");
-    inv_add(inv, crushed_gemstone, 1);
+    inv_add(inv, crushed_gemstone, $prod_mul);
     return;
 }
 

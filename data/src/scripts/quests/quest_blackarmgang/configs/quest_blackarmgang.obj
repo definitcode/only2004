@@ -32,6 +32,20 @@ model=model_2372_obj
 2dxan=328
 weight=10g
 
+
+[arrav_complete]
+name=Scroll
+desc=Evidence of your good deeds.
+cost=5
+iop2=Read
+model=model_2600_obj
+2dxof=1
+2dyof=7
+2dzoom=1040
+2dyan=120
+2dxan=380
+weight=20g
+
 [intelligence_report]
 name=Scroll
 desc=An intelligence report.

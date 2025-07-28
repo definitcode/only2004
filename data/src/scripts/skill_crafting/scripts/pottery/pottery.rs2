@@ -90,13 +90,18 @@ if (inv_total(worn, brown_apron) > 0) {
 }
 %clay_spun = calc(%clay_spun + 1);
 mes("You make the clay into a <substring($name, 8, string_length($name))>.");
-queue(craft_pottery_repeat, 2, $item);
 
-[queue,craft_pottery_repeat](namedobj $last)
-if (inv_total(inv, softclay) > 0) {
+def_coord $player_coord = coord;
+queue(craft_pottery_repeat, 2, $item, $player_coord);
+
+[queue,craft_pottery_repeat](namedobj $last, coord $player_coord)
+def_coord $player_cord2 = coord;
+if ($player_coord ! $player_cord2){
+    clearqueue(craft_pottery_repeat);
+} else if (inv_total(inv, softclay) > 0) {
     @craft_pottery($last);
 }
-
+clearqueue(craft_pottery_repeat);
 // No level req for some reason (does have a success chance though)
 [label,fire_pottery](int $last)
 if (getqueue(fire_pottery_repeat) > 0) {
@@ -130,12 +135,22 @@ if (stat_random(stat(crafting), 180, 800) = true) {
     mes("The <oc_name($product)> cracks in the oven.");
 }
 %clay_fired = calc(%clay_fired + 1);
-queue(fire_pottery_repeat, 2, $last_obj);
+def_coord $player_coord = coord;
+queue(fire_pottery_repeat, 2, $last_obj, $player_coord);
 
-[queue,fire_pottery_repeat](obj $last)
-if (inv_total(inv, $last) > 0 & busy2 = false) {
+[queue,fire_pottery_repeat](obj $last, coord $player_coord)
+def_coord $player_cord2 = coord;
+if ($player_coord ! $player_cord2){
+    mes("You need a fire source to add these too.");
+    clearqueue(fire_pottery_repeat);
+} else if (inv_total(inv, $last) > 0 & busy2 = false) {
     def_int $slot = ~inv_find(inv, $last, 0);
     if ($slot >= 0) {
         @fire_pottery($slot);
     }
 }
+
+mes(
+    "debug 1"
+);
+clearqueue(burn_log_repeat);

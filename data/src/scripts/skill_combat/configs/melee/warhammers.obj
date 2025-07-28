@@ -169,7 +169,7 @@ param=defend_anim,human_blunt_block
 param=crush_sound,baxe_crush
 
 [rune_warhammer]
-cost=41500
+cost=5850
 name=Rune warhammer
 desc=I don't think it's intended for joinery.
 iop2=Wield
@@ -197,7 +197,7 @@ param=defend_anim,human_blunt_block
 param=crush_sound,baxe_crush
 
 [dragon_warhammer]
-cost=50000
+cost=7850
 name=Dragon warhammer
 desc=I don't think it's intended for joinery.
 iop2=Wield
@@ -219,7 +219,7 @@ weight=4lb
 param=attackrate,6
 param=stabattack,-10
 param=slashattack,-10
-param=crushattack,130
+param=crushattack,160
 param=magicattack,-10
 param=strengthbonus,90
 param=crushattack_anim,human_blunt_pound

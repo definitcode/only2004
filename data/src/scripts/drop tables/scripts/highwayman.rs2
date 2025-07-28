@@ -22,5 +22,7 @@ if ($random < 9997) {
 }
 
 [queue,highwayman_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %highwayman_kc = calc(%highwayman_kc + 1);

@@ -89,18 +89,24 @@ switch_int($choice3) {
 [proc,r_rep_multi]
 if (%r_taskamount = ^r_easy) {
     %r_repmulti = 1;
+    %r_xpmulti = 5;
 } else if (%r_taskamount = ^r_medium) {
-    %r_repmulti = 10;
+    %r_repmulti = 2;
+    %r_xpmulti = 10;
 } else if (%r_taskamount = ^r_hard) {
-    %r_repmulti = 100;
+    %r_repmulti = 4;
+    %r_xpmulti = 11;
 } else if (%r_taskamount = ^r_insane) {
-    %r_repmulti = 1000;
+    %r_repmulti = 10;
+    %r_xpmulti = 25;
 }
+
 
 [proc,r_ct]
 ~r_rep_multi;
 def_obj $task_item = $task_item;
-def_int $exp_gain = multiply(%r_repmulti,95);
+def_int $rep_gain = multiply(%r_repmulti, %r_taskamount);
+def_int $exp_gain = multiply($rep_gain, %r_xpmulti);
 if (%r_taskitem = ^r_casket){
     if (%r_taskamount = ^r_easy) {
         $task_item = rogue_casket_easy;
@@ -140,7 +146,7 @@ if (%r_taskstatus = ^r_inprogress) {
         if (inv_total(inv, $task_item) > %r_taskamount & $task_amount = 0) {
             inv_del(inv, $task_item, %r_taskamount);
             %r_taskstatus = ^r_notstarted;
-            %r_roguedefectorrep = add(%r_roguedefectorrep,%r_repmulti);
+            %r_roguedefectorrep = add(%r_roguedefectorrep,$rep_gain);
             spotanim_pl(levelup_anim, 124, 0);
             midi_jingle(^advance_thieving_jingle, ^advance_thieving_millis);
             stat_advance(agility,$exp_gain);
@@ -156,7 +162,7 @@ if (%r_taskstatus = ^r_inprogress) {
         if (inv_total(inv, $task_item) > %r_taskamount) {
             inv_del(inv, $task_item, %r_taskamount);
             %r_taskstatus = ^r_notstarted;
-            %r_roguedefectorrep = add(%r_roguedefectorrep,%r_repmulti);
+            %r_roguedefectorrep = add(%r_roguedefectorrep,$rep_gain);
             spotanim_pl(levelup_anim, 124, 0);
             midi_jingle(^advance_thieving_jingle, ^advance_thieving_millis);
             stat_advance(agility,$exp_gain);

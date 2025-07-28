@@ -16,6 +16,7 @@ if_close; // might be strongqueued in osrs
 if (p_finduid(uid) = true) {
     p_stopaction; // https://oldschool.runescape.wiki/w/Update:Slayer_Cave_%26_High_Risk_Worlds
     %auto_retaliate = ^player_auto_retaliate_off;
+    ~clearallq;
     return;
 }
 %auto_retaliate = %auto_retaliate; // resync varp

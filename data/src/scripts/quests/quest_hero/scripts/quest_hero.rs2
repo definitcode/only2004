@@ -1,9 +1,9 @@
 [proc,has_hero_quest_requirements]()(boolean)
 if (%questpoints < ^hero_required_questpoints | %zanaris_progress < ^zanaris_complete | 
-    %dragon_progress < ^dragon_complete | %arthur_progress < ^arthur_complete |
-    (%blackarmgang_progress < ^blackarmgang_complete & %phoenixgang_progress < ^phoenixgang_complete)) {
+    %dragon_progress < ^dragon_complete | %arthur_progress < ^arthur_complete) {
   return (false);
 }
+
 return (true);
 
 [proc,hero_in_progress]()(boolean)

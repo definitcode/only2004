@@ -87,7 +87,7 @@ param=rangedefence,7
 [mithril_med_helm]
 name=Mithril med helm
 desc=A medium sized helmet.
-cost=8150
+cost=3150
 model=model_2833_obj
 recol1s=15855
 recol1d=6346
@@ -116,7 +116,7 @@ param=rangedefence,10
 [adamant_med_helm]
 name=Adamant med helm
 desc=A medium sized helmet.
-cost=11875
+cost=4875
 model=model_2833_obj
 recol1s=15855
 recol1d=6438
@@ -145,7 +145,7 @@ param=rangedefence,14
 [rune_med_helm]
 name=Rune med helm
 desc=A medium sized helmet.
-cost=19200
+cost=5200
 model=model_2833_obj
 recol1s=15855
 recol1d=6476
@@ -174,7 +174,7 @@ param=rangedefence,22
 [dragon_med_helm]
 name=Dragon med helm
 desc=Makes the wearer pretty intimidating.
-cost=50000
+cost=7850
 manwear=model_219_obj_wear,0
 manwear2=model_239_obj_wear
 womanwear=model_395_obj_wear,0

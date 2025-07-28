@@ -124,7 +124,7 @@ data=stat_heal,hitpoints,1,0
 table=consume_table
 data=consumable,jug_wine
 data=stat_change,attack,-2,0
-data=stat_heal,hitpoints,11,0
+data=stat_heal,hitpoints,20,0
 
 [half_wine_effect]
 table=consume_table

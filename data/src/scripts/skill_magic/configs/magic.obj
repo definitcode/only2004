@@ -108,3 +108,4 @@ param=magicattack,35
 param=prayerbonus,5
 param=zamorakitem,1
 param=magicdefence,6
+param=no_alchemy,^true

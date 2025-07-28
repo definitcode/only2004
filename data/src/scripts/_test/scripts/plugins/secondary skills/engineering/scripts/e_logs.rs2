@@ -59,118 +59,91 @@ def_seq $anim_id = null;
 def_int $random1 = random(2);
 def_int $delay = 0;
 def_int $formula = calc($random1 + $delay);
-def_int $random = random(100);
-def_int $success = add($random,stat_base(firemaking));
-
-if ($tbox = tinderbox) {
-    $anim_id = human_createfire;
-    $delay = 4;
-} else if ($tbox = hc_tinderbox) {
-    $anim_id = human_hccreatefire;
-    $delay = 4;
-} else if ($tbox = dragon_tinderbox) {
-    $anim_id = human_dragoncreatefire;
-    $delay = 1;
-} else if ($tbox = rune_tinderbox) {
-    $anim_id = human_runecreatefire;
-    $delay = 2;
-} else if ($tbox = adamant_tinderbox) {
-    $anim_id = human_adacreatefire;
-    $delay = 3;
-} else if ($tbox = mithril_tinderbox) {
-    $anim_id = human_mithrilcreatefire;
-    $delay = 3;
-} else if ($tbox = steel_tinderbox) {
-    $anim_id = human_steelcreatefire;
-    $delay = 3;
-} else if ($tbox = iron_tinderbox) {
-    $anim_id = human_ironcreatefire;
-    $delay = 4;
-} else if ($tbox = bronze_tinderbox) {
-    $anim_id = human_bronzecreatefire;
-    $delay = 4;
-} else if ($tbox = founders_tinderbox){
-    $anim_id = human_founderscreatefire;
-    $delay = 4;
-} else {
-    $anim_id = human_createfire;
-    $delay = 4;
+switch_namedobj($tbox){
+    case tinderbox : {
+        $anim_id = human_createfire;
+        $delay = 4;
+    }
+    case dragon_tinderbox : {
+        $anim_id = human_dragoncreatefire;
+        $delay = 1;
+    }
+    case rune_tinderbox : {
+        $anim_id = human_runecreatefire;
+        $delay = 2;
+    }
+    case adamant_tinderbox : {
+        $anim_id = human_adacreatefire;
+        $delay = 3;
+    }
+    case mithril_tinderbox : {
+        $anim_id = human_mithrilcreatefire;
+        $delay = 3;
+    }
+    case steel_tinderbox : {
+        $anim_id = human_steelcreatefire;
+        $delay = 3;
+    }
+    case iron_tinderbox : {
+        $anim_id = human_ironcreatefire;
+        $delay = 4;
+    }
+    case bronze_tinderbox : {
+        $anim_id = human_bronzecreatefire;
+        $delay = 4;
+    }
+    case founders_tinderbox : {
+        $anim_id = human_founderscreatefire;
+        $delay = 4;
+    }
 }
+if (%founders_transmog = ^transmog_on){
+    $anim_id = human_founderscreatefire;
+}
+def_int $success = add(random(100), stat_base(firemaking));
+mes("You attempt to light the logs.");
+anim($anim_id, 0);
+sound_synth(tinderbox_strike, 0, 0);
+p_delay($delay);
 
 if ($success > 150) {
-    mes("You attempt to light the logs.");
-    anim($anim_id, 0);
-    sound_synth(tinderbox_strike, 0, 0);
-    p_delay($delay);
     ~logsburning_success($logs, $tbox, $anim_id);
-
+} else if ($success > 125) {
+    p_delay(3);
+    ~logsburning_success($logs, $tbox, $anim_id);
+} else if ($success > 50) {
+    p_delay(4);
+    ~logsburning_success($logs, $tbox, $anim_id);
 } else {
-    mes("You attempt to light the logs.");
-    anim($anim_id, 0);
-    sound_synth(tinderbox_strike, 0, 0);
-    p_delay(6);
-    if ($success > 125){
-        mes("You attempt to light the logs.");
-        anim($anim_id, 0);
-        sound_synth(tinderbox_strike, 0, 0);
-        p_delay(3);
-    } else {
-        mes("You attempt to light the logs.");
-        anim($anim_id, 0);
-        sound_synth(tinderbox_strike, 0, 0);
-        p_delay(6);
-        if ($success > 50){
-            mes("You attempt to light the logs.");
-            anim($anim_id, 0);
-            sound_synth(tinderbox_strike, 0, 0);
-            p_delay(2);
-            ~logsburning_success($logs, $tbox, $anim_id);
-        } else {
-
-        }
-    }
+    mes("The logs fail to catch fire.");
 }
 
 
 [proc,logsburning_success](obj $logs, namedobj $tbox, seq $anim_id)
 def_int $xp_mul = 0;
 def_int $exp_raw = 0;
-if ($tbox = tinderbox) {
-    $xp_mul = 1;
-} else if ($tbox = hc_tinderbox) {
-    $xp_mul = 1;
-} else if ($tbox = dragon_tinderbox) {
-    $xp_mul = 4;
-} else if ($tbox = rune_tinderbox) {
-    $xp_mul = 3;
-} else if ($tbox = adamant_tinderbox) {
-    $xp_mul = 2;
-} else if ($tbox = mithril_tinderbox) {
-    $xp_mul = 2;
-} else if ($tbox = steel_tinderbox) {
-    $xp_mul = 1;
-} else if ($tbox = iron_tinderbox) {
-    $xp_mul = 1;
-} else if ($tbox = bronze_tinderbox) {
-    $xp_mul = 1;
-} else if ($tbox = founders_tinderbox){
-    $xp_mul = 1;
-} else {
+
+switch_namedobj($tbox){
+    case tinderbox : $xp_mul = 1;
+    case dragon_tinderbox : $xp_mul = 4;
+    case rune_tinderbox : $xp_mul = 3;
+    case adamant_tinderbox : $xp_mul = 2;
+    case mithril_tinderbox : $xp_mul = 2;
+    case steel_tinderbox : $xp_mul = 1;
+    case iron_tinderbox : $xp_mul = 1;
+    case bronze_tinderbox : $xp_mul = 1; 
+    case founders_tinderbox : $xp_mul = 1;
+}
+switch_obj($logs){
+    case logs : $exp_raw = 400;
+    case oak_logs : $exp_raw = 600;
+    case willow_logs : $exp_raw = 900;
+    case maple_logs : $exp_raw = 1350;
+    case yew_logs : $exp_raw = 2025;
+    case magic_logs : $exp_raw = 3038;
+    case cursed_logs : $exp_raw = 4089;
 }
 
-if ($logs = logs) {
-    $exp_raw = 400;
-} else if ($logs = oak_logs) {
-    $exp_raw = 600;
-} else if ($logs = willow_logs) {
-    $exp_raw = 900;
-} else if ($logs = maple_logs) {
-    $exp_raw = 1350;
-} else if ($logs = yew_logs) {
-    $exp_raw = 2025;
-} else if ($logs = magic_logs) {
-    $exp_raw = 3038;
-}
 def_int $calced_exp = multiply($xp_mul, $exp_raw);
 inv_del(inv, $logs, 1);
 stat_advance(firemaking, $calced_exp);
@@ -182,3 +155,24 @@ if (inv_total(worn, cavalier_brown) > 0) {
 sound_synth(fire_lit, 0, 0);
 //mes("<tostring(map_clock)>, <tostring(%action_delay)>: The fire catches and the logs begin to burn.");
 mes("The fire catches the logs, and it begins to burn.");
+def_coord $player_coord = coord;
+
+queue(burn_log_repeat, 3, $logs, loc_coord, loc_type, $player_coord);
+
+[queue,burn_log_repeat](obj $logs, coord $loc_coord, loc $loc, coord $player_coord)
+def_coord $player_cord2 = coord;
+if ($player_coord ! $player_cord2){
+    mes("You need a fire source to add these too.");
+    clearqueue(burn_log_repeat);
+    ~clearallq;
+    return;
+}
+if(inv_total(inv, $logs) > 0 & busy2 = false) {
+    def_int $total = inv_total(inv, $logs);
+    if ($total > 0 & loc_find($loc_coord, $loc) = true) {
+        @burn_log($logs);
+    } else {
+        mes("You don't have any bark to burn.");
+        ~clearallq;
+    }
+}

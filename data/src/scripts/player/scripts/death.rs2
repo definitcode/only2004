@@ -33,24 +33,34 @@ if (findhero = true) {
 }
 
 if (%gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_hcuim){
-    inv_clear(bank);
-    ~founders_protection;
-    inv_clear(inv);
-    inv_clear(worn);
-    ~reset();
-    ~stat_reset_all;
-    p_teleport(0_48_48_22_35);
-    buildappearance(worn);
-    ~prayer_deactivate_all;
-    ~follower_death;
-    anim(null, 0);
-    p_stopaction;
-    healenergy(10000);
-    ~clear_pk_skull;
-    ~clear_poison;
-    ~update_all($prev_wep);
-    ~initalltabs;
-    @start_tutorial;
+    def_int $choice = ~p_choice2_header("Yes.", 1, "No.", 2, "Would you like to be demoted instead of resetting?");
+    switch_int($choice){
+        case 1 : {
+            %gamemode_selected = ^gamemode_none;
+        }
+        case 2 : {
+            inv_clear(bank);
+            ~founders_protection;
+            inv_clear(inv);
+            inv_clear(worn);
+            ~reset();
+            ~stat_reset_all;
+            p_teleport(0_48_48_22_35);
+            buildappearance(worn);
+            ~prayer_deactivate_all;
+            ~follower_death;
+            anim(null, 0);
+            p_stopaction;
+            healenergy(10000);
+            ~clear_pk_skull;
+            ~clear_poison;
+            ~update_all($prev_wep);
+            ~initalltabs;
+            ~ledger_reset;
+            @start_tutorial;
+        }
+    }
+
 }
 //} else if (%gamemode_selected = ^gamemode_survival) {
 //    inv_clear(bank);

@@ -59,7 +59,9 @@ if ($random < 6) {
     obj_add(npc_coord, ~low_tier_items, ^lootdrop_duration);
 }
 [queue,barbarian_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %barbarian_kc = calc(%barbarian_kc + 1);
 
 [ai_queue3,gunthor_the_brave]
@@ -128,7 +130,9 @@ if ($random < 6) {
     obj_add(npc_coord, ~mid_tier_items, ^lootdrop_duration);
 }
 [queue,gunthor_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %gunthor_kc = calc(%gunthor_kc + 1);
 
 [ai_queue1,gunthor_the_brave]

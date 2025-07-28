@@ -271,6 +271,9 @@ if (inv_total(inv, dragon_hammer) > 0) {
     $delay = 4;
     $loop = $delay;
 }
+if (%founders_transmog = ^transmog_on){
+    $anim = human_smithing_founders;
+}
 if_close;
 // get item data from db
 db_find(smithing:ifproduct, $last_item);
@@ -387,7 +390,9 @@ if (inv_total(inv, dragon_hammer) > 0) {
     $delay = 4;
     $loop = $delay;
 }
-
+if (%founders_transmog = ^transmog_on){
+    $anim = human_smithing_founders;
+}
 // add product
 
 // add smithing xp

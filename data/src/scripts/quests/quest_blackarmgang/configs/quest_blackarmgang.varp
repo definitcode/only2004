@@ -3,3 +3,6 @@ scope=perm
 
 [phoenixgang_progress]
 scope=perm
+
+[tramp_bribes]
+scope=perm

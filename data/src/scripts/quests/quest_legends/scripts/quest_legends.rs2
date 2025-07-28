@@ -1441,43 +1441,44 @@ if (stat(smithing) < 50) {
     ~mesbox("You need a Smithing level of at least 50 to work Gold.");
     return;
 }
-if (inv_total(inv, hammer) < 1) {
+if (inv_total(inv, hammer ) > 0 | inv_total(inv, founders_hammer ) > 0 | inv_total(inv, bronze_hammer ) > 0 | inv_total(inv, iron_hammer ) > 0 | inv_total(inv, steel_hammer ) > 0 | inv_total(inv, mithril_hammer ) > 0 | inv_total(inv, adamant_hammer ) > 0 | inv_total(inv, rune_hammer ) > 0 | inv_total(inv, dragon_hammer ) > 0) {
+    if (~p_choice2_header("Yes", 1, "No", 2, "Would you like to make a golden bowl?") = 2) {
+        return;
+    }
+    if_close;
+    if (inv_total(inv, gold_bar) < 2) {
+        ~mesbox("You need two Gold Bars to make a bowl.");
+        return;
+    }
+    // play anim and sound
+    anim(human_smithing, 0);
+    sound_synth(anvil_4, 0, 0);
+    p_delay(4);
+    if (stat_random(stat(smithing), 31, 256) = false) {
+        mes("You make a mistake forging the bowl.");
+        // 135/256 chance of removing a second gold bar
+        // https://x.com/JagexAsh/status/1346079741821022209
+        if (random(256) < 135) {
+            mes("You pour molten gold all over the floor.");
+            inv_del(inv, gold_bar, 2);
+        }
+        else {
+            inv_del(inv, gold_bar, 1);
+        }
+    }
+    else {
+        mes("You forge a beautiful bowl out of solid gold.");
+        inv_del(inv, gold_bar, 2);
+        inv_add(inv, goldbowl_empty, 1);
+        stat_advance(smithing, 300);
+    }
+} else {
     ~mesbox("You need a hammer to work the metal with.");
     return;
 }
-if (~p_choice2_header("Yes", 1, "No", 2, "Would you like to make a golden bowl?") = 2) {
-    return;
-}
-if_close;
-if (inv_total(inv, gold_bar) < 2) {
-    ~mesbox("You need two Gold Bars to make a bowl.");
-    return;
-}
-// play anim and sound
-anim(human_smithing, 0);
-sound_synth(anvil_4, 0, 0);
-p_delay(4);
-// https://youtu.be/uF1a9xsV7zo?t=931
-// fail rate doesn't appear to be impacted by having vs not having the sketch, despite OSRS wiki saying otherwise
-// likely does use stat_random though: https://x.com/JagexAsh/status/1346079741821022209
-if (stat_random(stat(smithing), 31, 256) = false) {
-    mes("You make a mistake forging the bowl.");
-    // 135/256 chance of removing a second gold bar
-    // https://x.com/JagexAsh/status/1346079741821022209
-    if (random(256) < 135) {
-        mes("You pour molten gold all over the floor.");
-        inv_del(inv, gold_bar, 2);
-    }
-    else {
-        inv_del(inv, gold_bar, 1);
-    }
-}
-else {
-    mes("You forge a beautiful bowl out of solid gold.");
-    inv_del(inv, gold_bar, 2);
-    inv_add(inv, goldbowl_empty, 1);
-    stat_advance(smithing, 300);
-}
+
+
+
 
 [opheld5,_gold_bowl]
 def_namedobj $drop_item = oc_param(last_item, next_obj_stage);

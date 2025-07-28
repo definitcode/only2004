@@ -1,0 +1,21 @@
+[opheld3,dramen_staff_i] {
+    if (stat_base(magic) < 99){
+        mes("You need 99 Magic to Cast this spell");
+        return;
+    }
+    if (~wilderness_level(coord) > 0){
+        mes("You can't cast teleport spells in the wilderness");
+        return;
+    }
+    if (inv_total(inv, imbued_dust) > 999){
+        mes("The world starts to shimmer...");
+        p_delay(1);
+        ~player_teleport_normal(0_50_149_20_56);
+        inv_del(inv, imbued_dust, 1000);
+    } else {
+        mes("You need 1,000 imbued dust to travel to Zanaris..");
+    }
+    sound_synth(curse_all, 0, 0);
+    spotanim_pl(curse_impact, 124, 70);
+    p_delay(4);
+}

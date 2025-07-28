@@ -69,7 +69,7 @@ p_delay(1);
 anim(null, 0);
 
 [opheldu,dramen_branch]
-if(last_useitem = knife) {
+if(last_useitem = knife | last_useitem = hc_knife | last_useitem = founders_knife | last_useitem = e_bronze_knife | last_useitem = e_iron_knife | last_useitem = e_steel_knife | last_useitem = e_mithril_knife | last_useitem = e_adamant_knife | last_useitem = e_rune_knife | last_useitem = e_dragon_knife) {
     @cut_dramenstaff;
 }
 ~displaymessage(^dm_default);

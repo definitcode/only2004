@@ -34,6 +34,10 @@
 [oploc2,chest_ardougne_castle]
 @attempt_trapped_chest(loc_type, loc_coord, loc_angle, loc_shape);
 
+[oplocu,_locked_loc]
+if (last_useitem = lockpick | last_useitem = rogue_tools) {
+    ~attempt_locked_chest;
+}
 [oplocu,chest_steel_arrowtips]
 if (last_useitem = lockpick | last_useitem = rogue_tools) {
     ~attempt_locked_chest;
@@ -85,30 +89,30 @@ if ($current_level < $thieving_level) {
     return;
 }
 
-if (inv_total(inv, lockpick) = 0 & inv_total(inv, rogue_tools) = 0) {
+if (inv_total(inv, lockpick) > 0 | inv_total(inv, rogue_tools) > 0) {
+    mes("You manage to pick the lock.");
+    sound_synth(locked, 0, 0);
+    p_delay(1);
+    mes("You open the chest.");
+    sound_synth(chest_open, 0, 0);
+    p_delay(1);
+    mes("You find treasure inside!");
+    anim(human_openchest, 0);
+    stat_advance(thieving, $experience);
+    if (inv_total(worn, highwaymanmask) > 0) {
+                stat_advance(thieving, $experience);
+                mes("Your thieving skills are showing!");
+    }
+    ~trapped_chest_check_for_reward($data);
+    // Temp note: dur updated
+    loc_change(loc_2574, 4); //opened chest
+    p_delay(3);
+    // Temp note: dur does not need updated ???
+    loc_change(loc_2572, $respawn_ticks); //looted chest
+} else {
     mes("You need a lockpick for this lock.");
     return;
 }
-
-mes("You manage to pick the lock.");
-sound_synth(locked, 0, 0);
-p_delay(1);
-mes("You open the chest.");
-sound_synth(chest_open, 0, 0);
-p_delay(1);
-mes("You find treasure inside!");
-anim(human_openchest, 0);
-stat_advance(thieving, $experience);
-if (inv_total(worn, highwaymanmask) > 0) {
-            stat_advance(thieving, $experience);
-            mes("Your thieving skills are showing!");
-}
-~trapped_chest_check_for_reward($data);
-// Temp note: dur updated
-loc_change(loc_2574, 4); //opened chest
-p_delay(3);
-// Temp note: dur does not need updated ???
-loc_change(loc_2572, $respawn_ticks); //looted chest
 
 [oploc1,loc_2572]
 mes("It looks like this chest has already been looted.");

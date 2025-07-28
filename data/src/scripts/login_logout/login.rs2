@@ -42,6 +42,8 @@ settimer(health_regen, 100);
 ~stat_boost_login; // f2p boost reset
 ~hcfb_status;
 ~fb_status;
+~clearallq;
+%founders_transmog = ^transmog_off;
 
 if(inzone(movecoord(^grandtree_jail_coord, 0, 0, -2), movecoord(^grandtree_jail_coord, 3, 0, 2), coord) = true) {
     ~grandtree_spawn_charlie;
@@ -92,3 +94,20 @@ if (lowmemory = true) {
     if_settab(options, ^tab_game_options);
     if_settab(music, ^tab_musicplayer);
 }
+
+
+[proc,clearallq]
+clearqueue(cooking_repeat);
+clearqueue(string_repeat);
+clearqueue(fletching_repeat);
+clearqueue(high_alch_repeat);
+clearqueue(low_alch_repeat);
+clearqueue(superheat_repeat);
+clearqueue(smelting_repeat);
+clearqueue(crafting_gem_repeat);
+clearqueue(fill_container_water_repeat);
+clearqueue(make_softclay_repeat);
+clearqueue(craft_pottery_repeat);
+clearqueue(fire_pottery_repeat);
+clearqueue(burn_bark_repeat);
+clearqueue(burn_log_repeat);

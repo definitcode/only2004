@@ -16,5 +16,8 @@ scope=perm
 [r_repmulti]
 scope=perm
 
+[r_xpmulti]
+scope=perm
+
 [r_pp]
 scope=perm

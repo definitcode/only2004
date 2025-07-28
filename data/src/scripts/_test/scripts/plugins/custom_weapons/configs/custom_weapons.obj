@@ -176,17 +176,31 @@ womanwear=model_loc_693_8,0
 
 
 [hooded_figure]
-name=Hooded Figure
+name=Hood(r)
 desc=a hooded figure in a cloak.
-2dzoom=750
+2dyof=-7
+2dzoom=1070
+2dyan=160
+2dxan=332
+weight=3g
 cost=80
 weight=40g
 members=yes
-model=model_3373_obj
+model=model_226_npc
 iop2=Wear
 wearpos=hat
 manwear=model_226_npc,0
 womanwear=model_226_npc,0
+recol1s=14724
+recol1d=15360
+recol2s=24075
+recol2d=1057
+recol3s=0
+recol3d=15360
+recol4s=29595
+recol4d=15360
+
+
 
 [barbarian_chestplate]
 name=Barbarian chestplate
@@ -330,7 +344,8 @@ manwear=model_209_npc,0
 //manwear=model_226_npc,0
 //manwear2=model_75_npc_head
 womanwear=model_209_npc,0
-manhead=model_57_obj_wear
+manhead=model_209_npc
+womanhead=model_209_npc
 //womanhead=model_117_obj_wear
 category=armour_helmet
 //model_2961_npc

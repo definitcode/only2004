@@ -53,15 +53,24 @@ if ($dropint < 2) {
     // 9/128
     obj_add(npc_coord, coins, 5, 200);
 } else if ($dropint < 109) {
+    def_int $random2 = random(128);
     if (%r_taskstatus = ^r_inprogress) {
         if (%r_taskamount = ^r_easy) {
-            obj_add(npc_coord, rogue_casket_easy, 1,^lootdrop_duration);
+            if ($random2 < 45){
+                obj_add(npc_coord, rogue_casket_easy, 1,^lootdrop_duration);
+            }
         } else if (%r_taskamount = ^r_medium) {
-            obj_add(npc_coord, rogue_casket_medium, 1,^lootdrop_duration);
+            if ($random2 > 45){
+                obj_add(npc_coord, rogue_casket_medium, 1,^lootdrop_duration);
+            }
         } else if (%r_taskamount = ^r_hard) {
-            obj_add(npc_coord, rogue_casket_hard, 1,^lootdrop_duration);
+            if ($random2 > 100){
+                obj_add(npc_coord, rogue_casket_hard, 1,^lootdrop_duration);
+            }
         } else if (%r_taskamount = ^r_insane) {
-            obj_add(npc_coord, rogue_casket_insane, 1,^lootdrop_duration);
+            if ($random2 > 127){
+                obj_add(npc_coord, rogue_casket_insane, 1,^lootdrop_duration);
+            }
         }
     }
     obj_add(npc_coord, coins, 15, 200);
@@ -90,5 +99,7 @@ if ($dropint < 2) {
 
 // 8/128 nothing
 [queue,rogue_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %rogue_kc = calc(%rogue_kc + 1);

@@ -5,6 +5,8 @@ desc=Used for mining.
 model=model_2529_obj
 recol1s=15855
 recol1d=8354
+recol2s=4160 
+recol2d=23009
 manwear=model_509_obj_wear,0
 womanwear=model_509_obj_wear,6
 2dxof=-2
@@ -40,6 +42,8 @@ desc=Used for mining.
 model=model_2529_obj
 recol1s=15855
 recol1d=8456
+recol2s=4160 
+recol2d=23009
 manwear=model_509_obj_wear,0
 womanwear=model_509_obj_wear,6
 2dxof=-2
@@ -69,7 +73,7 @@ param=broken,macro_broken_iron_pickaxe
 param=pickaxe_head,macro_iron_pickaxehead
 
 [steel_pickaxe]
-cost=2785
+cost=3785
 name=Steel pickaxe
 desc=Used for mining.
 model=model_2529_obj
@@ -82,6 +86,8 @@ womanwear=model_509_obj_wear,6
 2dxan=224
 weight=5lb
 wearpos=righthand
+recol1s=4160 
+recol1d=20004
 iop2=Wield
 category=weapon_pickaxe
 param=stabattack,1
@@ -102,12 +108,14 @@ param=broken,macro_broken_steel_pickaxe
 param=pickaxe_head,macro_steel_pickaxehead
 
 [adamant_pickaxe]
-cost=12850
+cost=5850
 name=Adamant pickaxe
 desc=Used for mining.
 model=model_2529_obj
 recol1s=15855
 recol1d=6438
+recol2s=4160 
+recol2d=23073
 manwear=model_509_obj_wear,0
 womanwear=model_509_obj_wear,6
 2dxof=-2
@@ -137,12 +145,14 @@ param=broken,macro_broken_adamant_pickaxe
 param=pickaxe_head,macro_adamant_pickaxehead
 
 [mithril_pickaxe]
-cost=8500
+cost=7500
 name=Mithril pickaxe
 desc=Used for mining.
 model=model_2529_obj
 recol1s=15855
 recol1d=6346
+recol2s=4160 
+recol2d=21040
 manwear=model_509_obj_wear,0
 womanwear=model_509_obj_wear,6
 2dxof=-2
@@ -172,12 +182,14 @@ param=broken,macro_broken_mithril_pickaxe
 param=pickaxe_head,macro_mithril_pickaxehead
 
 [rune_pickaxe]
-cost=32000
+cost=8856
 name=Rune pickaxe
 desc=Used for mining.
 model=model_2529_obj
 recol1s=15855
 recol1d=6476
+recol2s=4160 
+recol2d=1451
 manwear=model_509_obj_wear,0
 womanwear=model_509_obj_wear,6
 2dxof=-2

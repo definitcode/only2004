@@ -1,5 +1,8 @@
 [opnpc1,hans]
 // Treasure Trail
+if (%founders_status = ^notfounder){
+    %founders_status = ^founder;
+}
 if (%founders_pack_collected = ^false) {
 
     if (%founders_status = ^notfounder | %founders_status = ^hcfounder | %founders_status = ^founder | %founders_status = ^hcimfounder | %founders_status = ^hcuimfounder | %founders_status = ^imfounder) {

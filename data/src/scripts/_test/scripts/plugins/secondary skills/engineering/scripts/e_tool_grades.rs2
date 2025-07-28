@@ -108,3 +108,76 @@ if (last_useitem = newbielogs) {
 } else {
     ~displaymessage(^dm_default);
 }
+
+
+// Chisels
+
+[opheldu,bronze_chisel]
+switch_obj (last_useitem)
+{
+    case uncut_sapphire, uncut_emerald, uncut_ruby, uncut_diamond, uncut_dragonstone, uncut_opal, uncut_jade, uncut_red_topaz : @crafting_gem(last_useitem);
+    case opal, smalloysterpearls, bigoysterpearls, sapphire, emerald, ruby, diamond, dragonstone : @make_bolt_tips(last_useitem);
+    case wolf_bones : @make_wolf_bone_tips;
+    case zqbonebeads : @craft_ivorybeads;
+    case default : ~displaymessage(^dm_default);
+};
+
+[opheldu,iron_chisel]
+switch_obj (last_useitem)
+{
+    case uncut_sapphire, uncut_emerald, uncut_ruby, uncut_diamond, uncut_dragonstone, uncut_opal, uncut_jade, uncut_red_topaz : @crafting_gem(last_useitem);
+    case opal, smalloysterpearls, bigoysterpearls, sapphire, emerald, ruby, diamond, dragonstone : @make_bolt_tips(last_useitem);
+    case wolf_bones : @make_wolf_bone_tips;
+    case zqbonebeads : @craft_ivorybeads;
+    case default : ~displaymessage(^dm_default);
+};
+
+[opheldu,steel_chisel]
+switch_obj (last_useitem)
+{
+    case uncut_sapphire, uncut_emerald, uncut_ruby, uncut_diamond, uncut_dragonstone, uncut_opal, uncut_jade, uncut_red_topaz : @crafting_gem(last_useitem);
+    case opal, smalloysterpearls, bigoysterpearls, sapphire, emerald, ruby, diamond, dragonstone : @make_bolt_tips(last_useitem);
+    case wolf_bones : @make_wolf_bone_tips;
+    case zqbonebeads : @craft_ivorybeads;
+    case default : ~displaymessage(^dm_default);
+};
+
+[opheldu,mithril_chisel]
+switch_obj (last_useitem)
+{
+    case uncut_sapphire, uncut_emerald, uncut_ruby, uncut_diamond, uncut_dragonstone, uncut_opal, uncut_jade, uncut_red_topaz : @crafting_gem(last_useitem);
+    case opal, smalloysterpearls, bigoysterpearls, sapphire, emerald, ruby, diamond, dragonstone : @make_bolt_tips(last_useitem);
+    case wolf_bones : @make_wolf_bone_tips;
+    case zqbonebeads : @craft_ivorybeads;
+    case default : ~displaymessage(^dm_default);
+};
+
+[opheldu,adamant_chisel]
+switch_obj (last_useitem)
+{
+    case uncut_sapphire, uncut_emerald, uncut_ruby, uncut_diamond, uncut_dragonstone, uncut_opal, uncut_jade, uncut_red_topaz : @crafting_gem(last_useitem);
+    case opal, smalloysterpearls, bigoysterpearls, sapphire, emerald, ruby, diamond, dragonstone : @make_bolt_tips(last_useitem);
+    case wolf_bones : @make_wolf_bone_tips;
+    case zqbonebeads : @craft_ivorybeads;
+    case default : ~displaymessage(^dm_default);
+};
+
+[opheldu,rune_chisel]
+switch_obj (last_useitem)
+{
+    case uncut_sapphire, uncut_emerald, uncut_ruby, uncut_diamond, uncut_dragonstone, uncut_opal, uncut_jade, uncut_red_topaz : @crafting_gem(last_useitem);
+    case opal, smalloysterpearls, bigoysterpearls, sapphire, emerald, ruby, diamond, dragonstone : @make_bolt_tips(last_useitem);
+    case wolf_bones : @make_wolf_bone_tips;
+    case zqbonebeads : @craft_ivorybeads;
+    case default : ~displaymessage(^dm_default);
+};
+
+[opheldu,dragon_chisel]
+switch_obj (last_useitem)
+{
+    case uncut_sapphire, uncut_emerald, uncut_ruby, uncut_diamond, uncut_dragonstone, uncut_opal, uncut_jade, uncut_red_topaz : @crafting_gem(last_useitem);
+    case opal, smalloysterpearls, bigoysterpearls, sapphire, emerald, ruby, diamond, dragonstone : @make_bolt_tips(last_useitem);
+    case wolf_bones : @make_wolf_bone_tips;
+    case zqbonebeads : @craft_ivorybeads;
+    case default : ~displaymessage(^dm_default);
+};

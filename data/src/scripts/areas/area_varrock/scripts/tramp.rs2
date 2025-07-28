@@ -4,9 +4,11 @@ switch_int(~p_choice4("Sorry, I haven't got any.", 1, "Go get a job!", 2, "Ok. H
     case 1 :
         ~chatplayer("<p,sad>Sorry, I haven't got any.");
         ~chatnpc("<p,sad>Thanks anyway.");
+
     case 2 :
         ~chatplayer("<p,angry>Go get a job!");
         ~chatnpc("<p,angry>You startin?|I hope your nose falls off!");
+
     case 3 :
         ~chatplayer("<p,happy>Ok. Here you go.");
         if(inv_total(inv, coins) = 0) {
@@ -15,6 +17,31 @@ switch_int(~p_choice4("Sorry, I haven't got any.", 1, "Go get a job!", 2, "Ok. H
             return;
         }
         inv_del(inv, coins, 1);
+
+        def_int $bribe_option = ~p_choice2("Can I pay you to do something shady for me?", 1, "I'll be on my way.", 2);
+        if($bribe_option = 1) {
+            if(%tramp_bribes >= 5) {
+                ~chatnpc("<p,neutral>I’ve already done what you asked.");
+            } else if(inv_total(inv, coins) >= 2500) {
+                inv_del(inv, coins, 2500);
+                %tramp_bribes = add(%tramp_bribes, 1);
+                ~chatnpc("<p,neutral>Another few thousand? Alright.|I might know a little something about something...");
+                if(%tramp_bribes = 5) {
+                    if(inv_freespace(inv) >= 2) {
+                        npc_say("Alright I turned them in for you. Here is your certificate sorry I got beer on it.");
+                        inv_add(inv, arrav_complete, 1);
+                    } else {
+                        ~chatplayer("<p,angry>I don't have enough space in my inventory!");
+                        ~chatnpc("<p,sad>Come back when you're carrying less junk.");
+                    }
+                }
+            } else {
+                ~chatnpc("<p,sad>That kind of job doesn’t come cheap.|Come back when you’ve got 2,5000 coins.");
+            }
+        } else {
+            ~chatplayer("<p,neutral>I'll be on my way.");
+        }
+
         ~chatnpc("<p,happy>Hey, thanks a lot!");
         def_int $choice = ~p_choice2("No problem.", 1, "Don't I get some sort of quest hint or something now?", 2);
         if($choice = 1) {
@@ -23,6 +50,7 @@ switch_int(~p_choice4("Sorry, I haven't got any.", 1, "Go get a job!", 2, "Ok. H
             ~chatplayer("<p,quiz>So...don't I get some sort of quest hint or something now?");
             ~chatnpc("<p,sad>No, that's not why I'm asking for money.|I just need to eat...");
         }
+
     case 4 :
         ~chatplayer("<p,quiz>Is there anything down this alleyway?");
         ~chatnpc("<p,neutral>Yes, there is actually.|A notorious gang of thieves and hoodlums,|called the Black Arm Gang.");
@@ -32,11 +60,11 @@ switch_int(~p_choice4("Sorry, I haven't got any.", 1, "Go get a job!", 2, "Ok. H
             ~chatnpc("<p,happy>Don't worry about it.");
         } else if($option = 2) {
             ~chatplayer("<p,quiz>Do you think they would let me join?");
-            if(%blackarmgang_progress >= ^blackarmgang_joined) { // In Black arm
+            if(%blackarmgang_progress >= ^blackarmgang_joined) {
                 ~chatnpc("<p,confused>I was under the impression you were already a member...");
                 return;
             }
-            if(%phoenixgang_progress >= ^phoenixgang_joined) { // In phoenix
+            if(%phoenixgang_progress >= ^phoenixgang_joined) {
                 @tramp_phoenixmember;
             }
             if(%blackarmgang_progress = 0) {
@@ -46,7 +74,6 @@ switch_int(~p_choice4("Sorry, I haven't got any.", 1, "Go get a job!", 2, "Ok. H
             ~chatnpc("<p,neutral>You never know.|You'll find a lady down there called Katrine.|Speak to her.");
             ~chatnpc("<p,neutral>But don't upset her, she's pretty dangerous.");
         }
-
 }
 
 [label,tramp_phoenixmember]
@@ -54,7 +81,8 @@ switch_int(~p_choice4("Sorry, I haven't got any.", 1, "Go get a job!", 2, "Ok. H
 switch_int(~p_choice2("How did you know I was in the Phoenix Gang?", 1, "Any ideas how I could get in there then?", 2)) {
     case 1 :
         ~chatplayer("<p,quiz>How did YOU know I was in the Phoenix Gang?");
-        ~chatnpc("<p,neutral>In my current profession I spend a lot of time on the streets and you hear these sorta things sometimes"); // intentional typo
+        ~chatnpc("<p,neutral>In my current profession I spend a lot of time on the streets and you hear these sorta things sometimes");
+
     case 2 :
         ~chatplayer("<p,quiz>Any ideas how I could get in there then?");
         ~chatnpc("<p,neutral>Hmmm. I dunno.");

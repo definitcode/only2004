@@ -63,3 +63,4 @@ Thumbs.db
 data/bot.py
 data/discordwhitelist.txt
 data/whitelist.txt
+compare_diff.txt

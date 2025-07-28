@@ -15,6 +15,40 @@ switch_obj(last_useitem) {
 }
 
 [label,make_bolt_tips](obj $item)
+def_namedobj $chisel = null;
+def_int $exp_mul = 1;
+def_int $prod_mul = 1;
+if ((inv_total(inv, dragon_chisel) > 0)){
+    $chisel = dragon_chisel;
+    $exp_mul = 4;
+    $prod_mul = 4;
+} else if ((inv_total(inv, rune_chisel) > 0)){
+    $chisel = rune_chisel;
+    $exp_mul = 3;
+    $prod_mul = 3;
+} else if ((inv_total(inv, adamant_chisel) > 0)){
+    $chisel = adamant_chisel;
+    $exp_mul = 3;
+    $prod_mul = 2;
+} else if ((inv_total(inv, mithril_chisel) > 0)){
+    $chisel = mithril_chisel;
+    $exp_mul = 2;
+    $prod_mul = 2;
+} else if ((inv_total(inv, steel_chisel) > 0)){
+    $chisel = steel_chisel;
+    $exp_mul = 1;
+    $prod_mul = 1;
+} else if ((inv_total(inv, iron_chisel) > 0)){
+    $chisel = iron_chisel;
+    $exp_mul = 1;
+    $prod_mul = 1;
+} else if ((inv_total(inv, bronze_chisel) > 0)){
+    $chisel = bronze_chisel;
+    $exp_mul = 1;
+    $prod_mul = 1;
+} else if ((inv_total(inv, chisel) > 0)){
+    $chisel = chisel;
+}
 if (map_members = false) {
     mes(^mes_members_fletching); // guess
     return;
@@ -32,11 +66,20 @@ if (stat(fletching) < $level) {
 }
 inv_del(inv, $item, 1);
 // includes count
-inv_add(inv, db_getfield($data, fletching_table:product, 0));
-stat_advance(fletching, db_getfield($data, fletching_table:experience, 0));
+def_namedobj $product;
+def_int $base_qty;
+$product, $base_qty = db_getfield($data, fletching_table:product, 0);
+def_int $prod_count = multiply($base_qty, $prod_mul);
+
+inv_add(inv, $product, $prod_count);
+stat_advance(fletching, $prod_count);
 if (inv_total(worn, headband_red) > 0) {
-            stat_advance(fletching, db_getfield($data, fletching_table:experience, 0));
-            mes("Your fletching skills are showing!");
+    stat_advance(fletching, $prod_count);
+    mes("Your fletching skills are showing!");
+}
+if (inv_total(worn, brown_apron) > 0){
+    stat_advance(crafting, $prod_count);
+    mes("Your crafting skills are showing!");
 }
 // osrs
 def_seq $anim = db_getfield($data, fletching_table:skill_anim, 0);
@@ -89,4 +132,12 @@ if ($bolts_count > 1) {
 }
 
 stat_advance(fletching, multiply($bolts_count, db_getfield($data, fletching_table:experience, 0)));
+if (inv_total(worn, headband_red) > 0) {
+    stat_advance(fletching, multiply($bolts_count, db_getfield($data, fletching_table:experience, 0)));
+    mes("Your fletching skills are showing!");
+}
+if (inv_total(worn, brown_apron) > 0){
+    stat_advance(crafting, multiply($bolts_count, db_getfield($data, fletching_table:experience, 0)));
+    mes("Your crafting skills are showing!");
+}
 inv_add(inv, $product, $bolts_count);

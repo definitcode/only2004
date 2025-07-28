@@ -191,10 +191,11 @@ recol2d=30385
 weight=250g
 iop1=Eat
 members=yes
+cost=175
 
 [toad_batta]
 category=gnome_batta
-cost=2
+cost=195
 name=Toad batta
 desc=It actually smells quite good.
 model=model_2803_obj
@@ -230,7 +231,7 @@ param=gnome_cooking_type,3
 // rename: cheese+tom_batta
 [cheese_tom_batta]
 category=gnome_batta
-cost=2
+cost=175
 name=Cheese+tom batta
 desc=This smells really good.
 model=model_2803_obj
@@ -397,7 +398,7 @@ param=gnome_cooking_type,3
 
 [fruit_batta]
 category=gnome_batta
-cost=2
+cost=250
 name=Fruit batta
 desc=It actually smells quite good.
 model=model_2803_obj
@@ -432,7 +433,7 @@ members=yes
 param=gnome_cooking_type,3
 
 [vegetable_batta]
-cost=2
+cost=175
 name=Vegetable batta
 desc=Well... it looks healthy.
 model=model_2803_obj

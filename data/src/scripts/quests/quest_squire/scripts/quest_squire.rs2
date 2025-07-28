@@ -220,7 +220,7 @@ return(true);
 %squire_progress = ^squire_complete;
 session_log(^log_adventure, "Quest complete: The Knight's Sword");
 ~send_quest_complete(questlist:squire, faladian_sword, 250, ^squire_questpoints, "You have completed the Knight's Sword Quest!");
-stat_advance(smithing, 127250);
+stat_advance(smithing, 1272);
 
 [label,thurgo_squire_complete]
 ~chatplayer("<p,neutral>Thanks for all your help in getting it for me!");

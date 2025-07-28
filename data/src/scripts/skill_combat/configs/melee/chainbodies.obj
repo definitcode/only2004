@@ -68,7 +68,7 @@ param=rangedefence,19
 [black_chainbody]
 name=Black chainbody
 desc=A series of connected metal rings.
-cost=4870
+cost=2850
 model=model_2558_obj
 recol1s=15855
 recol1d=0
@@ -90,7 +90,7 @@ param=rangedefence,24
 [mithril_chainbody]
 name=Mithril chainbody
 desc=A series of connected metal rings.
-cost=8450
+cost=3850
 model=model_2558_obj
 recol1s=15855
 recol1d=6346
@@ -113,7 +113,7 @@ param=rangedefence,27
 [adamant_chainbody]
 name=Adamant chainbody
 desc=A series of connected metal rings.
-cost=12875
+cost=4850
 model=model_2558_obj
 recol1s=15855
 recol1d=6438
@@ -134,7 +134,7 @@ param=magicdefence,-3
 param=rangedefence,38
 
 [rune_chainbody]
-cost=50000
+cost=5850
 model=model_2558_obj
 recol1s=15855
 recol1d=6476
@@ -157,7 +157,7 @@ param=magicdefence,-3
 param=rangedefence,65
 
 [dragon_chainbody]
-cost=50000
+cost=7850
 model=model_2558_obj
 recol1s=15855
 recol1d=14336

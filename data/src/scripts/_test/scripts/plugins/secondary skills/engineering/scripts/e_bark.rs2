@@ -59,125 +59,154 @@ def_int $random1 = random(2);
 def_int $delay = 0;
 def_int $formula = calc($random1 + $delay);
 def_seq $anim_id = null;
-if ($tbox = tinderbox) {
-    $anim_id = human_createfire;
-    $delay = 4;
-} else if ($tbox = hc_tinderbox) {
-    $anim_id = human_hccreatefire;
-    $delay = 4;
-} else if ($tbox = dragon_tinderbox) {
-    $anim_id = human_dragoncreatefire;
-    $delay = 1;
-} else if ($tbox = rune_tinderbox) {
-    $anim_id = human_runecreatefire;
-    $delay = 2;
-} else if ($tbox = adamant_tinderbox) {
-    $anim_id = human_adacreatefire;
-    $delay = 3;
-} else if ($tbox = mithril_tinderbox) {
-    $anim_id = human_mithrilcreatefire;
-    $delay = 3;   
-} else if ($tbox = steel_tinderbox) {
-    $anim_id = human_steelcreatefire;
-    $delay = 3;
-} else if ($tbox = iron_tinderbox) {
-    $anim_id = human_ironcreatefire;
-    $delay = 4;
-} else if ($tbox = bronze_tinderbox) {
-    $anim_id = human_bronzecreatefire;
-    $delay = 4;
-} else if ($tbox = founders_tinderbox){
-    $anim_id = human_founderscreatefire;
-    $delay = 4;
-} else {
-    $anim_id = human_createfire;
-    $delay = 4;
-}
-
-def_int $random = random(100);
-def_int $success = add($random,stat_base(firemaking));
-if ($success > 150) {
-    mes("You attempt to light the bark.");
-    anim($anim_id, 0);
-    sound_synth(tinderbox_strike, 0, 0);
-    p_delay($delay);
-    ~barkburning_success($bark, $tbox, $anim_id);
-
-} else {
-    mes("You attempt to light the bark.");
-    anim($anim_id, 0);
-    sound_synth(tinderbox_strike, 0, 0);
-    p_delay(6);
-    if ($success > 125){
-        mes("You attempt to light the bark.");
-        anim($anim_id, 0);
-        sound_synth(tinderbox_strike, 0, 0);
-        p_delay(3);
-    } else {
-        mes("You attempt to light the bark.");
-        anim($anim_id, 0);
-        sound_synth(tinderbox_strike, 0, 0);
-        p_delay(6);
-        if ($success > 50){
-            mes("You attempt to light the bark.");
-            anim($anim_id, 0);
-            sound_synth(tinderbox_strike, 0, 0);
-            p_delay(2);
-            ~barkburning_success($bark, $tbox, $anim_id);
-        } else {
-
-        }
+switch_namedobj($tbox){
+    case tinderbox : {
+        $anim_id = human_createfire;
+        $delay = 4;
+    }
+    case dragon_tinderbox : {
+        $anim_id = human_dragoncreatefire;
+        $delay = 1;
+    }
+    case rune_tinderbox : {
+        $anim_id = human_runecreatefire;
+        $delay = 2;
+    }
+    case adamant_tinderbox : {
+        $anim_id = human_adacreatefire;
+        $delay = 3;
+    }
+    case mithril_tinderbox : {
+        $anim_id = human_mithrilcreatefire;
+        $delay = 3;
+    }
+    case steel_tinderbox : {
+        $anim_id = human_steelcreatefire;
+        $delay = 3;
+    }
+    case iron_tinderbox : {
+        $anim_id = human_ironcreatefire;
+        $delay = 4;
+    }
+    case bronze_tinderbox : {
+        $anim_id = human_bronzecreatefire;
+        $delay = 4;
+    }
+    case founders_tinderbox : {
+        $anim_id = human_founderscreatefire;
+        $delay = 4;
     }
 }
+if (%founders_transmog = ^transmog_on){
+    $anim_id = human_founderscreatefire;
+}
+def_int $success = add(random(100), stat_base(firemaking));
+mes("You attempt to light the bark.");
+anim($anim_id, 0);
+sound_synth(tinderbox_strike, 0, 0);
+p_delay($delay);
 
+if ($success > 150) {
+    ~barkburning_success($bark, $tbox, $anim_id);
+    return;
+} else if ($success > 125) {
+    p_delay(3);
+    ~barkburning_success($bark, $tbox, $anim_id);
+    return;
+} else if ($success > 50) {
+    p_delay(4);
+    ~barkburning_success($bark, $tbox, $anim_id);
+    return;
+} else {
+    mes("The bark fails to catch fire.");
+    return;
+}
 
 [proc,barkburning_success](obj $bark, namedobj $tbox, seq $anim_id)
 def_int $xp_mul = 0;
 def_int $exp_raw = 0;
-if ($tbox = tinderbox) {
-    $xp_mul = 1;
-} else if ($tbox = hc_tinderbox) {
-    $xp_mul = 1;
-} else if ($tbox = dragon_tinderbox) {
-    $xp_mul = 4;
-} else if ($tbox = rune_tinderbox) {
-    $xp_mul = 3;
-} else if ($tbox = adamant_tinderbox) {
-    $xp_mul = 2;
-} else if ($tbox = mithril_tinderbox) {
-    $xp_mul = 2;
-} else if ($tbox = steel_tinderbox) {
-    $xp_mul = 1;
-} else if ($tbox = iron_tinderbox) {
-    $xp_mul = 1;
-} else if ($tbox = bronze_tinderbox) {
-    $xp_mul = 1;
-} else if ($tbox = founders_tinderbox){
-    $xp_mul = 1;
+def_int $total_bark = inv_total(inv, $bark);
+def_int $bark_burned = 0;
+if ($total_bark > 9){
+    $bark_burned = 10;
 } else {
+    $bark_burned = $total_bark;
 }
 
-if ($bark = tree_bark) {
-    $exp_raw = 40;
-} else if ($bark = oak_bark) {
-    $exp_raw = 60;
-} else if ($bark = willow_bark) {
-    $exp_raw = 90;
-} else if ($bark = maple_bark) {
-    $exp_raw = 135;
-} else if ($bark = yew_bark) {
-    $exp_raw = 202;
-} else if ($bark = magic_bark) {
-    $exp_raw = 303;
+switch_namedobj($tbox){
+    case tinderbox : $xp_mul = 1;
+    case dragon_tinderbox : $xp_mul = 4;
+    case rune_tinderbox : $xp_mul = 3;
+    case adamant_tinderbox : $xp_mul = 2;
+    case mithril_tinderbox : $xp_mul = 2;
+    case steel_tinderbox : $xp_mul = 1;
+    case iron_tinderbox : $xp_mul = 1;
+    case bronze_tinderbox : $xp_mul = 1;
+    case founders_tinderbox : $xp_mul = 1;
+}
+switch_obj($bark){
+    case tree_bark : {
+        $exp_raw = 40;
+        %tree_bark_burned = calc(%tree_bark_burned + 1);
+    }
+    case oak_bark : {
+        $exp_raw = 60;
+        %oak_bark_burned = calc(%oak_bark_burned + 1);
+    }
+    case willow_bark : {
+        $exp_raw = 90;
+        %willow_bark_burned = calc(%willow_bark_burned + 1);
+    }
+    case maple_bark : {
+        $exp_raw = 135;
+        %maple_bark_burned = calc(%maple_bark_burned + 1);
+    }
+    case yew_bark : {
+        $exp_raw = 202;
+        %yew_bark_burned = calc(%yew_bark_burned + 1);
+    }
+    case magic_bark : {
+        $exp_raw = 303;
+        %magic_bark_burned = calc(%magic_bark_burned + 1);
+    }
+    case cursed_bark : {
+        $exp_raw = 408;
+        %cursed_bark_burned = calc(%cursed_bark_burned + 1);
+    }
 }
 def_int $calced_exp = multiply($xp_mul, $exp_raw);
-inv_del(inv, $bark, 1);
-stat_advance(firemaking, $calced_exp);
+def_int $total_exp = multiply($calced_exp, $bark_burned);
+
+inv_del(inv, $bark, $bark_burned);
+stat_advance(firemaking, $total_exp);
 if (inv_total(worn, cavalier_brown) > 0) {
-            stat_advance(firemaking,$calced_exp);
+            stat_advance(firemaking,$total_exp);
             mes("Your firemaking skills are showing!");
 }
 
 sound_synth(fire_lit, 0, 0);
 //mes("<tostring(map_clock)>, <tostring(%action_delay)>: The fire catches and the bark begin to burn.");
 mes("The fire catches the bark, and it begins to burn.");
+if (inv_total(inv, $bark) = 0){
+    ~clearallq;
+    return;
+}
+def_coord $player_coord = coord;
+queue(burn_bark_repeat, 3, $bark, loc_coord, loc_type, $player_coord);
+
+[queue,burn_bark_repeat](obj $bark, coord $loc_coord, loc $loc, coord $player_coord)
+def_coord $player_cord2 = coord;
+if ($player_coord ! $player_cord2){
+    mes("You need a fire source to add these too.");
+    clearqueue(burn_bark_repeat);
+    ~clearallq;
+    return;
+} 
+if (inv_total(inv, $bark) < 1 & busy2 = true) {
+    ~clearallq;
+    clearqueue(burn_bark_repeat);
+    return;
+}
+if (loc_find($loc_coord, $loc) = true){
+    @burn_bark($bark);
+}

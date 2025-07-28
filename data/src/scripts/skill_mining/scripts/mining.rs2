@@ -54,7 +54,11 @@ if (%action_delay < map_clock) {
     p_oploc(1);
     return;
 }
-anim(oc_param($pickaxe, mining_animation), 0);
+if (%founders_transmog = ^transmog_on) {
+    anim(human_mining_founders_pickaxe, 0);
+} else {
+    anim(oc_param($pickaxe, mining_animation), 0);
+}
 mes("You swing your pick at the rock.");
 if (%action_delay = map_clock) {
     jump($get_ore);
@@ -94,7 +98,11 @@ sound_synth(mine_quick, 0, 0);
 if (%action_delay < map_clock) {
     %action_delay = calc(map_clock + $mining_rate);
 } else if (%action_delay = map_clock) {
-    anim(oc_param($pickaxe, mining_animation), 0);
+    if (%founders_transmog = ^transmog_on) {
+        anim(human_mining_founders_pickaxe, 0);
+    } else {
+        anim(oc_param($pickaxe, mining_animation), 0);
+    }
     jump($get_ore);
 }
 p_oploc(3);
@@ -115,19 +123,21 @@ if ($neck ! null & oc_category($neck) = category_557) {
 if (random($chance) = ^true) {
     def_namedobj $gem = ~mining_gem_table;
     def_int $count = 0;
+    ~fortitude_check;
     if ($gem ! null) {
         inv_add(inv, $gem, 1);
         $count = 1;
         db_find(gem_cutting_table:uncut_gem, $gem);
         $data = db_findnext;
         mes("You just found <~add_article(oc_name(db_getfield($data, gem_cutting_table:cut_gem, 0)))>!");
+        if (%fortitude > 224) {
+            mes("You feel that last hit really popped gems loose");
+            inv_add(inv, $gem, 1);
+            $count = calc($count + 1);
+        }
     }
-    ~fortitude_check;
-    if (%fortitude > 224) {
-        mes("You feel that last hit really popped gems loose");
-        inv_add(inv, $gem, 1);
-        $count = calc($count + 1);
-    }
+   
+
     %gems_mined = calc(%gems_mined + $count);
 } else if (stat_random(stat(mining), db_getfield($data, mining_table:rock_successchance, 0)) = true) {
     // They added a 1t p_delay in this update: https://oldschool.runescape.wiki/w/Update:Special_Attacks
@@ -227,11 +237,18 @@ if ($neck ! null & oc_category($neck) = category_557) {
 }
 if (random($chance) = ^true) {
     def_namedobj $gem = ~mining_gem_table;
+    def_int $count = 0;
+    ~fortitude_check;
     if ($gem ! null) {
         inv_add(inv, $gem, 1);
         db_find(gem_cutting_table:uncut_gem, $gem);
         $data = db_findnext;
         mes("You just found <~add_article(oc_name(db_getfield($data, gem_cutting_table:cut_gem, 0)))>!");
+        if (%fortitude > 224) {
+            mes("You feel that last hit really popped gems loose");
+            inv_add(inv, $gem, 1);
+            $count = calc($count + 1);
+        }        
     }
 } else if (stat_random(stat(mining), db_getfield($data, mining_table:rock_successchance, 0)) = true) {
     // deplete

@@ -129,8 +129,6 @@ data=consumable,worm_crunchies
 data=consumable,toad_crunchies
 data=consumable,premade_worm_crunchies
 data=consumable,premade_toad_crunchies
-data=consumable,anchovie_pizza
-data=consumable,half_anchovie_pizza
 data=consumable,pike
 data=stat_heal,hitpoints,8,0
 data=consume_sound,eat
@@ -170,6 +168,8 @@ table=consume_table
 data=consumable,premade_worm_hole
 data=consumable,premade_veg_ball
 data=consumable,worm_hole
+data=consumable,anchovie_pizza
+data=consumable,half_anchovie_pizza
 data=consumable,veg_ball
 data=consumable,lobster
 data=consumable,stew
@@ -198,7 +198,7 @@ data=consumable,premade_chocolate_bomb
 data=consumable,premade_tangled_toads_legs
 data=consumable,chocolate_bomb
 data=consumable,tangled_toads_legs
-data=stat_heal,hitpoints,15,0
+data=stat_heal,hitpoints,17,0
 data=consume_sound,eat
 
 [heal_19]

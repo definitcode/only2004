@@ -13,5 +13,7 @@ obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 obj_add(npc_coord, jail_key, 1, 100); 
 
 [queue,jailer_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %jailer_kc = calc(%jailer_kc + 1);

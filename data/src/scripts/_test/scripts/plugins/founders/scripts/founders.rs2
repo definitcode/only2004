@@ -141,7 +141,7 @@ if (%founders_status = ^notfounder) {
 if(%gamemode_selected = ^gamemode_hardcore){
     if (%founders_status = ^notfounder) {
         %founders_status = ^hcfounder;
-        ~mesbox("You are now a @red@Hardcore @cya@Founder, you can open this scroll once.");
+        ~mesbox("You are now a @red@Hardcore @cya@Founder!");
         spotanim_pl(levelup_anim, 120, 0);
         midi_jingle(^advance_firemaking_2_jingle, ^advance_firemaking_2_millis);
         inv_del(inv, founders_scroll, 1);
@@ -151,14 +151,14 @@ if(%gamemode_selected = ^gamemode_hardcore){
 
 if (%founders_status = ^notfounder & %gamemode_selected = ^gamemode_none) {
     %founders_status = ^founder;
-    ~mesbox("You are now a @cya@Founder@bla@, you can open this scroll once.");
+    ~mesbox("You are now a @cya@Founder@bla@!");
     spotanim_pl(levelup_anim, 120, 0);
     midi_jingle(^advance_firemaking_2_jingle, ^advance_firemaking_2_millis);
     inv_del(inv, founders_scroll, 1);
     return;
 } else if (%founders_status = ^founder) {
     if (inv_total(inv, founders_scroll) > 0){
-    mes("You are a @cya@Founder@bla@, you can open this scroll once.");
+    mes("You are a Founder, you can open this scroll once.");
     }
     return;
 } else {
@@ -258,4 +258,14 @@ switch_int($ch1) {
         mes("You changed your mind.");
         return;
     }
+}
+
+[opheld3,founders_partyhat] @transmog;
+[label,transmog]
+if (%founders_transmog = ^transmog_off) {
+    %founders_transmog = ^transmog_on;
+    mes("You are now displaying founders items.");
+} else if (%founders_transmog = ^transmog_on) {
+    %founders_transmog = ^transmog_off;
+    mes("You are now displaying regular items again.");
 }

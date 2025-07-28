@@ -99,7 +99,7 @@ weight=2kg
 op4=Light
 category=category_22
 param=levelrequire,1
-param=productexp,400
+param=productexp,150
 
 [magic_logs]
 name=Magic logs
@@ -190,4 +190,22 @@ op4=Light
 weight=2kg
 category=category_22
 param=levelrequire,15
-param=productexp,600
+param=productexp,400
+
+[cursed_logs]
+name=Cursed logs
+desc=Logs cut from a burned tree.
+cost=20
+model=model_2800_obj
+recol1s=15617
+recol1d=3072
+2dxof=3
+2dyof=66
+2dzoom=670
+2dyan=120
+2dxan=280
+op4=Light
+weight=2kg
+category=category_22
+param=levelrequire,99
+param=productexp,1200

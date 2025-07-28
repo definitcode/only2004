@@ -70,25 +70,38 @@ if (inv_total(inv, nails) < 4) {
     ~mesbox("You need 4 steel nails to attach the plank with.");
     return;
 }
-if (inv_total(inv, hammer) < 1) {
+if (
+    inv_total(inv, hammer) > 0 |
+    inv_total(inv, founders_hammer) > 0 |
+    inv_total(inv, bronze_hammer) > 0 |
+    inv_total(inv, iron_hammer) > 0 |
+    inv_total(inv, steel_hammer) > 0 |
+    inv_total(inv, mithril_hammer) > 0 |
+    inv_total(inv, adamant_hammer) > 0 |
+    inv_total(inv, rune_hammer) > 0 |
+    inv_total(inv, dragon_hammer) > 0) {
+    inv_del(inv, woodplank, 1);
+    inv_del(inv, nails, 4);
+    %dragon_planks = min(calc(%dragon_planks + 1), 3);
+    if (%dragon_planks < 3) {
+        ~mesbox("You still need more planks to close the hole completely.");
+        return;
+    }
+    %dragon_planks = 3;
+    if (%dragon_progress = ^quest_dragon_bought_ship) {
+        %dragon_progress = ^quest_dragon_repaired_ship;
+    }
+    // teleports the player 1 story up
+    p_teleport(movecoord(coord, 0, 1, 0));
+    // holes is not a typo https://youtu.be/kCMB4I_aJJM?t=106
+    ~mesbox("You have successfully patched the holes in the ship.");
+
+
+
+} else {
     ~mesbox("You need a hammer to force the nails in with.");
     return;
 }
-inv_del(inv, woodplank, 1);
-inv_del(inv, nails, 4);
-%dragon_planks = min(calc(%dragon_planks + 1), 3);
-if (%dragon_planks < 3) {
-    ~mesbox("You still need more planks to close the hole completely.");
-    return;
-}
-%dragon_planks = 3;
-if (%dragon_progress = ^quest_dragon_bought_ship) {
-    %dragon_progress = ^quest_dragon_repaired_ship;
-}
-// teleports the player 1 story up
-p_teleport(movecoord(coord, 0, 1, 0));
-// holes is not a typo https://youtu.be/kCMB4I_aJJM?t=106
-~mesbox("You have successfully patched the holes in the ship.");
 
 [oploc1,lady_lumbridge_ladder_shipwreck]
 p_arrivedelay;

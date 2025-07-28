@@ -63,7 +63,10 @@ if ($harpoon = dragon_harpoon) {
     $anim = human_foundersharpoon;
     %fishing_animation = ^f_founders;
 }
-
+if (%founders_transmog = ^transmog_on){
+    $anim = human_foundersharpoon;
+    %fishing_animation = ^f_founders;
+}
 // Usage example:
 @get_best_harpoon;
 if ($harpoon = null) {
@@ -323,8 +326,8 @@ if (stat_random($level, 5, 50) = true) {
     if (inv_total(worn, piratehat) > 0) {
         mes("Your fishing skills are showing!");
         stat_advance(fishing, 690);
-        if ($random < 127) {
-            ~mesbox("You have received a Casket!");
+        if ($random > 127) {
+            mes("You have received a Casket!");
             inv_add(inv, casket, 1);
         }
     }
@@ -337,8 +340,8 @@ if (stat_random($level, 5, 50) = true) {
     if (inv_total(worn, piratehat) > 0) {
         mes("Your fishing skills are showing!");
         stat_advance(fishing, 570);
-        if ($random < 127) {
-            ~mesbox("You have received a Casket!");
+        if ($random > 127) {
+            mes("You have received a Casket!");
             inv_add(inv, casket, 1);
         }
     }
@@ -351,8 +354,8 @@ if (stat_random($level, 5, 65) = true) {
     if (inv_total(worn, piratehat) > 0) {
         mes("Your fishing skills are showing!");
         stat_advance(fishing, 200);
-        if ($random < 127) {
-            ~mesbox("You have received a Casket!");
+        if ($random > 127) {
+            mes("You have received a Casket!");
             inv_add(inv, casket, 1);
         }
     }
@@ -365,8 +368,8 @@ if (stat_random($level, 10, 10) = true) {
     if (inv_total(worn, piratehat) > 0) {
         mes("Your fishing skills are showing!");
         stat_advance(fishing, 200);
-        if ($random < 127) {
-            ~mesbox("You have received a Casket!");
+        if ($random > 127) {
+            mes("You have received a Casket!");
             inv_add(inv, casket, 1);
         }
     }    
@@ -379,8 +382,8 @@ if (stat_random($level, 3, 7) = true) {
     if (inv_total(worn, piratehat) > 0) {
         mes("Your fishing skills are showing!");
         stat_advance(fishing, 100);
-        if ($random < 127) {
-            ~mesbox("You have received a Casket!");
+        if ($random > 127) {
+            mes("You have received a Casket!");
             inv_add(inv, casket, 1);
         }
     }
@@ -393,8 +396,8 @@ if (stat_random($level, 1, 2) = true) {
     if (inv_total(worn, piratehat) > 0) {
         mes("Your fishing skills are showing!");
         stat_advance(fishing, 100);
-        if ($random < 127) {
-            ~mesbox("You have received a Casket!");
+        if ($random > 127) {
+            mes("You have received a Casket!");
             inv_add(inv, casket, 1);
         }
     }
@@ -410,8 +413,8 @@ if (stat_random($level, 4, 55) = true) {
     if (inv_total(worn, piratehat) > 0) {
         mes("Your fishing skills are showing!");
         stat_advance(fishing, 450);
-        if ($random < 127) {
-            ~mesbox("You have received a Casket!");
+        if ($random > 127) {
+            mes("You have received a Casket!");
             inv_add(inv, casket, 1);
         }
     }    
@@ -427,8 +430,8 @@ if (stat_random($level, 3, 40) = true) {
     if (inv_total(worn, piratehat) > 0) {
         mes("Your fishing skills are showing!");
         stat_advance(fishing, 1000);
-        if ($random < 127) {
-            ~mesbox("You have received a Casket!");
+        if ($random > 127) {
+            mes("You have received a Casket!");
             inv_add(inv, casket, 1);
         }
     }    

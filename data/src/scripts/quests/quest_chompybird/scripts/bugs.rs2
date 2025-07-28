@@ -3,6 +3,10 @@ switch_int(%chompybird_progress) {
     case ^chompybird_not_started :
         ~chatnpc("<p,neutral>You's better talk to Dad, him chasey sneaky da chompy.");
     case ^chompybird_started :
+        //if ((inv_total(inv, chisel) > 0 | inv_total(inv, bronze_chisel) > 0 | inv_total(inv, iron_chisel) > 0 | inv_total(inv, steel_chisel) > 0 | inv_total(inv, mithril_chisel) > 0 | inv_total(inv, adamant_chisel) > 0 | inv_total(inv, rune_chisel) > 0 | inv_total(inv, dragon_chisel)) & (inv_total(inv, knife ) > 0 | inv_total(inv, founders_knife ) > 0 | inv_total(inv, bronze_knife ) > 0 | inv_total(inv, iron_knife ) > 0 | inv_total(inv, steel_knife ) > 0 | inv_total(inv, mithril_knife ) > 0 | inv_total(inv, adamant_knife ) > 0 | inv_total(inv, rune_knife ) > 0 | inv_total(inv, dragon_knife ) > 0 | )) {
+        //    ~chatnpc("<p,neutral>You's better talk to Dad, him chasey sneaky da chompy.");
+        //    return;
+        //}
         if (inv_total(inv, chisel) > 0 & inv_total(inv, knife) > 0) {
             ~chatnpc("<p,neutral>You's better talk to Dad, him chasey sneaky da chompy.");
             return;

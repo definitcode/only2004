@@ -3,11 +3,49 @@
 // Also here: https://www.youtube.com/watch?v=597gMc5j14E&t=323s, the sheep baa!'s after finishing its retreat (defaultMode is called)
 
 [opnpcu,sheep_fluffy]
-if(last_useitem ! shears) {
+def_namedobj $shears = null;
+def_seq $anim_id = null;
+def_int $exp = 45;
+def_int $multi = 4;
+if (inv_total(inv, shears) > 0) {
+    $shears = shears;
+    $anim_id = human_shearing;
+    $multi = 4;
+} else if (inv_total(inv, dragon_shears) > 0) {
+    $shears = dragon_shears;
+    $anim_id = human_dragon_shearing;
+    $multi = (inv_freespace(inv));
+} else if (inv_total(inv, rune_shears) > 0) {
+    $shears = rune_shears;
+    $anim_id = human_rune_shearing;
+    $multi = 8;
+} else if (inv_total(inv, adamant_shears) > 0) {
+    $shears = adamant_shears;
+    $anim_id = human_adamant_shearing;
+    $multi = 6;
+} else if (inv_total(inv, mithril_shears) > 0) {
+    $shears = mithril_shears;
+    $anim_id = human_mithril_shearing;
+    $multi = 3;
+} else if (inv_total(inv, steel_shears) > 0) {
+    $shears = steel_shears;
+    $anim_id = human_steel_shearing;
+    $multi = 2;
+} else if (inv_total(inv, iron_shears) > 0) {
+    $shears = iron_tinderbox;
+    $anim_id = human_iron_shearing;
+    $multi = 2;
+} else if (inv_total(inv, bronze_shears) > 0) {
+    $shears = bronze_tinderbox;
+    $anim_id = human_bronze_shearing;
+    $multi = 2;
+}
+
+if(last_useitem = null) {
     ~displaymessage(^dm_default);
     return;
 }
-anim(human_shearing, 0);
+anim($anim_id, 0);
 if(random(4) = 0) { // confirm this chance?
     mes("The sheep manages to get away from you!");
     npc_setmode(playerescape);
@@ -18,9 +56,9 @@ p_delay(0);
 npc_setmode(null);
 p_delay(0);
 npc_changetype_keepall(sheep_sheared, 100);
-inv_add(inv, wool, 4);
-mes("You get some wool.");
-~objbox(wool, "You get some wool.", 250, 0, divide(^objbox_height, 2));
+inv_add(inv, wool, $multi);
+mes("You get <tostring($multi)>x wool.");
+~objbox(wool, "You get <tostring($multi)>x wool.", 250, 0, divide(^objbox_height, 2));
 
 [opnpcu,sheep_sheared]
 if(last_useitem = shears) {

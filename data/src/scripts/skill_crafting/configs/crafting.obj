@@ -214,6 +214,7 @@ model=model_2552_obj
 2dyan=1872
 2dxan=148
 weight=14g
+stackable=yes
 
 [woadleaf]
 name=Woad leaf

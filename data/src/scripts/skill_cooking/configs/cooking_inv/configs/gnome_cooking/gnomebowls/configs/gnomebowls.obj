@@ -2,7 +2,7 @@
 name=Chocolate bomb
 desc=Looks great!
 category=gnome_bowl
-cost=2
+cost=25
 model=model_2647_obj
 recol1s=6208
 recol1d=11426
@@ -16,7 +16,7 @@ weight=350g
 members=yes
 
 [tangled_toads_legs]
-cost=2
+cost=25
 name=Tangled toad's legs
 desc=It actually smells quite good.
 category=gnome_bowl
@@ -31,7 +31,7 @@ members=yes
 
 [worm_hole]
 category=gnome_bowl
-cost=2
+cost=25
 name=Worm hole
 desc=It actually smells quite good.
 model=model_2609_obj
@@ -47,7 +47,7 @@ members=yes
 name=Veg ball
 desc=This looks pretty healthy.
 category=gnome_bowl
-cost=2
+cost=35
 model=model_2823_obj
 2dxof=1
 2dzoom=850

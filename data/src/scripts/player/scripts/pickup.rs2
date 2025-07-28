@@ -1,6 +1,7 @@
 [opobj3,_] @pickup_obj;
 
 [label,pickup_obj]
+~clearallq;
 if (distance(coord, obj_coord) = 0) {
     @pickup_obj_floor;
 } else {
@@ -26,6 +27,7 @@ obj_takeitem(inv);
 sound_synth(pick2, 0, 0);
 
 [proc,pickup_loc_floor](coord $coord, namedobj $replacement, int $respawn_ticks, boolean $worldpop_dependant)
+~clearallq;
 anim(human_pickupfloor, 0);
 p_teleport($coord);
 p_delay(0);

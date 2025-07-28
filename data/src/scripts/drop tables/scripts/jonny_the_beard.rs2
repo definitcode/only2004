@@ -14,5 +14,7 @@ obj_add(npc_coord, intelligence_report, 1, ^lootdrop_duration);
 obj_add(npc_coord, bones, 1, ^lootdrop_duration);
 
 [queue,jonny_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %jonny_the_beard_kc = calc(%jonny_the_beard_kc + 1);

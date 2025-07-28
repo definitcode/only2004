@@ -56,7 +56,7 @@ weight=1300g
 [potato]
 name=Potato
 desc=This could be used to make a good stew.
-cost=1
+cost=25
 model=model_2766_obj
 2dxof=2
 2dyof=1

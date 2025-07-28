@@ -58,5 +58,7 @@ if ($random < 4) {
 
 
 [queue,druid_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %druid_kc = calc(%druid_kc + 1);

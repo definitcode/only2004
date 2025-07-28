@@ -134,7 +134,7 @@ param=rangedefence,20
 [adamant_plateskirt]
 name=Adamant plateskirt
 desc=Designer leg protection.
-cost=14253
+cost=4850
 model=model_2542_obj
 recol1s=15855
 recol1d=6438
@@ -161,7 +161,7 @@ param=rangedefence,31
 [rune_plateskirt]
 name=Rune plateskirt
 desc=Designer leg protection.
-cost=64000
+cost=5850
 model=model_2542_obj
 recol1s=15855
 recol1d=6476
@@ -188,7 +188,7 @@ param=rangedefence,49
 [dragon_plateskirt]
 name=Dragon plateskirt
 desc=These look pretty heavy.
-cost=50000
+cost=7850
 model=model_2542_obj
 recol1s=15855
 recol1d=14336

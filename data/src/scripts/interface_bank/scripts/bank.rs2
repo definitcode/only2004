@@ -9,6 +9,7 @@
 [if_close,bank_main] @closebank;
 
 [label,openbank]
+~clearallq;
 if (%gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim){
     mes("Ultimate Ironman cannot use a bank!");
     return;
@@ -18,7 +19,8 @@ if (%gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim){
 inv_transmit(inv, bank_side:inv);
 inv_transmit(bank, bank_main:inv);
 if_openmain_side(bank_main, bank_side);
-clearqueue(fletching_repeat);
+
+
 [label,closebank]
 inv_stoptransmit(bank_side:inv);
 inv_stoptransmit(bank_main:inv);

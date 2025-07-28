@@ -5,7 +5,7 @@
 [proc,pvp_add_kill]
 if (inv_total(worn, pvp_badge) > 0){
 
-    %pvp_killstreak = add(%pvp_killstreak, 1);
+    //%pvp_killstreak = add(%pvp_killstreak, 1);
     %pvptotal_kills = add(%pvptotal_kills, 1);
 
 }
@@ -33,3 +33,13 @@ if (inv_total(worn, pvp_badge) > 0) {
 [label,pvp_stats]
 ~mesbox("Total Kills: <tostring(%pvptotal_kills)> |Total Deaths: <tostring(%pvptotal_deaths)> |PK Points: <tostring(%pk_points)>");
 
+
+
+[opheld3,player_skull] @shatter_skull;
+
+[label,shatter_skull]
+~pvp_add_kill;
+mes("You smashed the skull!");
+inv_del(inv, player_skull, 1);
+spotanim_pl(levelup_anim, 120, 0);
+anim(human_dancing,0);

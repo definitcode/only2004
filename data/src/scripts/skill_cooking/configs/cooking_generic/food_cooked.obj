@@ -2,7 +2,7 @@
 [cooked_ugthanki_meat]
 name=Ugthanki meat
 desc=Freshly cooked ugthanki meat.
-cost=5
+cost=50
 model=model_2760_obj
 recol1s=24609
 recol1d=16609
@@ -24,7 +24,7 @@ param=ugthanki_kebab_struct,ugthanki_meat_kebab
 name=Cooked chicken
 desc=Mmm this looks tasty.
 iop1=Eat
-cost=4
+cost=40
 model=model_2498_obj
 recol1s=15619
 recol1d=13472
@@ -42,7 +42,7 @@ param=uncooked_pie_struct,uncooked_meat_pie
 name=Cooked meat
 desc=Mmm this looks tasty.
 iop1=Eat
-cost=4
+cost=40
 model=model_2760_obj
 recol1s=24609
 recol1d=16609
