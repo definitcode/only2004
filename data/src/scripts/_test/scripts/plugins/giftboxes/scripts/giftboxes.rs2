@@ -2,6 +2,7 @@
 [opheld1,gamble_box] ~gamble_box;
 [opheld1,reset_box] ~reset;
 [opheld1,hc_box] ~hc_box;
+[opheld1,alchemy_box] ~alchemy_box;
 [proc,open_giftbox]
 if (inv_freespace(inv) > 3){
 
@@ -121,3 +122,11 @@ if (inv_freespace(inv) > 6){
     return;
 }
 inv_del(inv, hc_box, 1);
+
+
+[proc,alchemy_box]
+%high_alch_gp = null;
+%high_alch_gp = 1;
+
+mes("High Alch GP Reset");
+inv_del(inv,alchemy_box, 1);

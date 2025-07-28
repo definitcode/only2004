@@ -213,8 +213,8 @@ param=attack_sound,mace_crush
 // param=defend_sound,
 // osrs defend_sound steel_mail
 // osrs attack_sound warhammer_crush
-huntmode=cowardly
-huntrange=1
+huntmode=aggressive_melee
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_532
 
@@ -225,7 +225,7 @@ walkanim=human_walk_f,human_walk_b,human_walk_l,human_walk_r
 readyanim=human_ready
 desc=A crazy evil druid
 op2=Attack
-vislevel=126
+vislevel=99
 recol1s=2340
 recol1d=19588
 recol2s=14724
@@ -241,19 +241,18 @@ model6=model_176_idk
 model7=model_260_npc
 respawnrate=100
 hitpoints=200
-attack=58
-strength=58
+attack=200
+strength=175
 defence=62
 param=strengthbonus,5
 param=stabdefence,13
 param=slashdefence,17
 param=crushdefence,14
-param=magicdefence,45
+param=magicdefence,90
 param=rangedefence,14
 param=damagetype,^crush_style
-param=max_dealt,0
 huntmode=aggressive_melee
-huntrange=10
+huntrange=5
 // osrs stats and Vislvl match 1:1
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_304
 

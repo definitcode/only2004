@@ -42,10 +42,19 @@ if (struct_param($struct, ingredient) = wool) {
 } else if (struct_param($struct, ingredient) = flax) {
     %flax_spun = calc(%flax_spun + 1);
 }
-queue(spinning_repeat, 3, $spinning_obj, loc_coord, loc_type);
+def_coord $player_coord = coord;
+queue(spinning_repeat, 3, $spinning_obj, loc_coord, loc_type, $player_coord);
 //weakqueue(crafting_spinning, 2, $struct);
 
-[queue,spinning_repeat](obj $spinning_obj, coord $coord, loc $loc)
-if (inv_total(inv, $spinning_obj) > 0 & loc_find($coord, $loc) = true & busy2 = false) {
+[queue,spinning_repeat](obj $spinning_obj, coord $coord, loc $loc, coord $player_coord)
+def_coord $player_cord2 = coord;
+if ($player_coord ! $player_cord2) {
+    mes("You need a spinning source to add these too.");
+    clearqueue(spinning_repeat);
+} else if (inv_total(inv, $spinning_obj) > 0 & loc_find($coord, $loc) = true & busy2 = false) {
     @craft_spinning($spinning_obj);
 }
+mes(
+    "debug 1"
+);
+clearqueue(spinning_repeat);

@@ -1,3 +1,5 @@
+
+
 // Fletching knives: bronze to rune
 [e_bronze_knife]
 name=Bronze knife
@@ -253,7 +255,9 @@ model=model_2376_obj
 manwear=model_491_obj_wear,0
 womanwear=model_491_obj_wear,6
 recol1s=11627
-recol1d=8354 
+recol1d=8354
+recol2s=8320
+recol2d=23009 
 2dxof=-3
 2dyof=-1
 2dzoom=900
@@ -261,6 +265,7 @@ recol1d=8354
 2dxan=356
 weight=2lb
 category=hammer
+
 [iron_hammer]
 name=Iron hammer
 desc=Good for hitting things!
@@ -269,6 +274,8 @@ manwear=model_491_obj_wear,0
 womanwear=model_491_obj_wear,6
 recol1s=11627 
 recol1d=8456 
+recol2s=8320
+recol2d=23009 
 2dxof=-3
 2dyof=-1
 2dzoom=900
@@ -276,6 +283,7 @@ recol1d=8456
 2dxan=356
 weight=2lb
 category=hammer
+
 [steel_hammer]
 name=Steel hammer
 desc=Good for hitting things!
@@ -283,7 +291,9 @@ model=model_2376_obj
 manwear=model_491_obj_wear,0
 womanwear=model_491_obj_wear,6
 recol1s=11627  
-recol1d=15855 
+recol1d=15855
+recol2s=8320
+recol2d=20004 
 2dxof=-3
 2dyof=-1
 2dzoom=900
@@ -291,6 +301,7 @@ recol1d=15855
 2dxan=356
 weight=2lb
 category=hammer
+
 [mithril_hammer]
 name=Mithril hammer
 desc=Good for hitting things!
@@ -298,7 +309,9 @@ model=model_2376_obj
 manwear=model_491_obj_wear,0
 womanwear=model_491_obj_wear,6
 recol1s=11627 
-recol1d=6346 
+recol1d=6346
+recol2s=8320
+recol2d=21040 
 2dxof=-3
 2dyof=-1
 2dzoom=900
@@ -306,6 +319,7 @@ recol1d=6346
 2dxan=356
 weight=2lb
 category=hammer
+
 [adamant_hammer]
 name=Adamant hammer
 desc=Good for hitting things!
@@ -313,7 +327,9 @@ model=model_2376_obj
 manwear=model_491_obj_wear,0
 womanwear=model_491_obj_wear,6
 recol1s=11627 
-recol1d=6438 
+recol1d=6438
+recol2s=8320
+recol2d=23073
 2dxof=-3
 2dyof=-1
 2dzoom=900
@@ -321,6 +337,7 @@ recol1d=6438
 2dxan=356
 weight=2lb
 category=hammer
+
 [rune_hammer]
 name=Rune hammer
 desc=Good for hitting things!
@@ -329,6 +346,8 @@ manwear=model_491_obj_wear,0
 womanwear=model_491_obj_wear,6
 recol1s=11627 
 recol1d=6476
+recol2s=8320
+recol2d=1451
 2dxof=-3
 2dyof=-1
 2dzoom=900
@@ -363,6 +382,8 @@ desc=Useful for catching really big fish.
 model=model_2469_obj
 recol1s=15855
 recol1d=8354 
+recol2s=15648
+recol2d=23009
 2dxof=2
 2dyof=-85
 2dzoom=1030
@@ -379,7 +400,9 @@ name=Iron harpoon
 desc=Useful for catching really big fish.
 model=model_2469_obj
 recol1s=15855
-recol1d=8456 
+recol1d=8456
+recol2s=15648
+recol2d=23009
 2dxof=2
 2dyof=-85
 2dzoom=1030
@@ -397,6 +420,8 @@ desc=Useful for catching really big fish.
 model=model_2469_obj
 recol1s=15855
 recol1d=15855
+recol2s=15648
+recol2d=20004
 2dxof=2
 2dyof=-85
 2dzoom=1030
@@ -414,6 +439,8 @@ desc=Useful for catching really big fish.
 model=model_2469_obj
 recol1s=15855
 recol1d=6346
+recol2s=15648
+recol2d=21040
 2dxof=2
 2dyof=-85
 2dzoom=1030
@@ -431,6 +458,8 @@ desc=Useful for catching really big fish.
 model=model_2469_obj
 recol1s=15855
 recol1d=6438
+recol2s=15648
+recol2d=23073
 2dxof=2
 2dyof=-85
 2dzoom=1030
@@ -448,6 +477,8 @@ desc=Useful for catching really big fish.
 model=model_2469_obj
 recol1s=15855
 recol1d=6476
+recol2s=15648
+recol2d=1451
 2dxof=2
 2dyof=-85
 2dzoom=1030
@@ -479,9 +510,10 @@ weight=3lb
 param=fish_equipment_struct,fish_equipment_harpoon
 tradeable=no
 param=no_alchemy,^true
+
 // Graded lobster pots
 [lobster_pot_oak]
-name=Oak lobster pot
+name=Lobster pot(O)
 desc=Useful for catching lobsters.
 model=model_2663_obj
 recol1s=10400
@@ -496,7 +528,7 @@ weight=9oz
 param=fish_equipment_struct,fish_equipment_lobster_pot
 
 [lobster_pot_willow]
-name=Willow lobster pot
+name=Lobster pot(W)
 desc=Useful for catching lobsters.
 model=model_2663_obj
 recol1s=10400 
@@ -513,7 +545,7 @@ weight=9oz
 param=fish_equipment_struct,fish_equipment_lobster_pot
 
 [lobster_pot_maple]
-name=Maple lobster pot
+name=Lobster pot(M)
 desc=Useful for catching lobsters.
 model=model_2663_obj
 recol1s=10400
@@ -530,7 +562,7 @@ weight=9oz
 param=fish_equipment_struct,fish_equipment_lobster_pot
 
 [lobster_pot_yew]
-name=Yew lobster pot
+name=Lobster pot(Y)
 desc=Useful for catching lobsters.
 model=model_2663_obj
 recol1s=10400
@@ -547,7 +579,7 @@ weight=9oz
 param=fish_equipment_struct,fish_equipment_lobster_pot
 
 [lobster_pot_magic]
-name=Magic lobster pot
+name=Lobster pot(M+)
 desc=Useful for catching lobsters.
 model=model_2663_obj
 recol1s=10400
@@ -563,7 +595,22 @@ womanwear=model_531_obj_wear,6
 weight=9oz
 param=fish_equipment_struct,fish_equipment_lobster_pot
 
-
+[lobster_pot_dragon]
+name=Lobster pot(D)
+desc=Useful for catching lobsters.
+model=model_2663_obj
+recol1s=10400
+recol1d=3072
+recol2s=10570
+recol2d=14336
+2dzoom=1180
+2dyan=1668
+2dxan=192
+cost=50
+manwear=model_531_obj_wear,0
+womanwear=model_531_obj_wear,6
+weight=9oz
+param=fish_equipment_struct,fish_equipment_lobster_pot
 
 
 [mithril_gauntlets]
@@ -673,3 +720,218 @@ param=slashdefence,13
 param=crushdefence,11
 param=strengthbonus,6
 tradeable=yes
+
+// Chisels
+[bronze_chisel]
+name=Bronze Chisel
+desc=Good for detailed crafting.
+model=model_2489_obj
+2dxof=-2
+2dyof=8
+2dzoom=860
+2dyan=1928
+2dxan=404
+weight=1lb
+recol1s=11627
+recol1d=8354
+recol2s=11456 
+recol2d=23009
+
+[iron_chisel]
+name=Iron Chisel
+desc=Good for detailed crafting.
+model=model_2489_obj
+2dxof=-2
+2dyof=8
+2dzoom=860
+2dyan=1928
+2dxan=404
+weight=1lb
+recol1s=11627
+recol1d=15855
+recol2s=11456 
+recol2d=23009
+[steel_chisel]
+name=Steel Chisel
+desc=Good for detailed crafting.
+model=model_2489_obj
+2dxof=-2
+2dyof=8
+2dzoom=860
+2dyan=1928
+2dxan=404
+weight=1lb
+recol1s=11627
+recol1d=15855
+recol2s=11456 
+recol2d=20004
+[mithril_chisel]
+name=Mithril Chisel
+desc=Good for detailed crafting.
+model=model_2489_obj
+2dxof=-2
+2dyof=8
+2dzoom=860
+2dyan=1928
+2dxan=404
+weight=1lb
+recol1s=11627
+recol1d=6346
+recol2s=11456 
+recol2d=21040
+[adamant_chisel]
+name=Adamant Chisel
+desc=Good for detailed crafting.
+model=model_2489_obj
+2dxof=-2
+2dyof=8
+2dzoom=860
+2dyan=1928
+2dxan=404
+weight=1lb
+recol1s=11627
+recol1d=6438
+recol2s=11456 
+recol2d=23073
+[rune_chisel]
+name=Rune Chisel
+desc=Good for detailed crafting.
+model=model_2489_obj
+2dxof=-2
+2dyof=8
+2dzoom=860
+2dyan=1928
+2dxan=404
+weight=1lb
+recol1s=11627
+recol1d=6476
+recol2s=11456 
+recol2d=1451
+[dragon_chisel]
+name=Dragon Chisel
+desc=Good for detailed crafting.
+model=model_2489_obj
+2dxof=-2
+2dyof=8
+2dzoom=860
+2dyan=1928
+2dxan=404
+weight=1lb
+recol1s=11627
+recol1d=14336
+recol2s=11456
+recol2d=3072
+
+// Shears
+[bronze_shears]
+name=Bronze Shears
+desc=For shearing sheep.
+model=model_2620_obj
+manwear=model_525_obj_wear,0
+womanwear=model_525_obj_wear,6
+2dyof=15
+2dzoom=710
+2dyan=136
+2dxan=300
+weight=4oz
+recol1s=15855
+recol1d=8354
+recol2s=8320 
+recol2d=23009
+
+[iron_shears]
+name=Iron Shears
+desc=For shearing sheep.
+model=model_2620_obj
+manwear=model_525_obj_wear,0
+womanwear=model_525_obj_wear,6
+2dyof=15
+2dzoom=710
+2dyan=136
+2dxan=300
+weight=4oz
+recol1s=15855
+recol1d=8354
+recol2s=8320 
+recol2d=23009
+
+[steel_shears]
+name=Steel Shears
+desc=For shearing sheep.
+model=model_2620_obj
+manwear=model_525_obj_wear,0
+womanwear=model_525_obj_wear,6
+2dyof=15
+2dzoom=710
+2dyan=136
+2dxan=300
+weight=4oz
+recol1s=15855
+recol1d=15855
+recol2s=8320 
+recol2d=20004
+
+[mithril_shears]
+name=Mithril Shears
+desc=For shearing sheep.
+model=model_2620_obj
+manwear=model_525_obj_wear,0
+womanwear=model_525_obj_wear,6
+2dyof=15
+2dzoom=710
+2dyan=136
+2dxan=300
+weight=4oz
+recol1s=15855
+recol1d=6346
+recol2s=8320 
+recol2d=21040
+
+
+[adamant_shears]
+name=Adamant Shears
+desc=For shearing sheep.
+model=model_2620_obj
+manwear=model_525_obj_wear,0
+womanwear=model_525_obj_wear,6
+2dyof=15
+2dzoom=710
+2dyan=136
+2dxan=300
+weight=4oz
+recol1s=15855
+recol1d=6438
+recol2s=8320 
+recol2d=23073
+
+[rune_shears]
+name=Rune Shears
+desc=For shearing sheep.
+model=model_2620_obj
+manwear=model_525_obj_wear,0
+womanwear=model_525_obj_wear,6
+2dyof=15
+2dzoom=710
+2dyan=136
+2dxan=300
+weight=4oz
+recol1s=15855
+recol1d=6476
+recol2s=8320 
+recol2d=1451
+
+[dragon_shears]
+name=Dragon Shears
+desc=For shearing sheep.
+model=model_2620_obj
+manwear=model_525_obj_wear,0
+womanwear=model_525_obj_wear,6
+2dyof=15
+2dzoom=710
+2dyan=136
+2dxan=300
+weight=4oz
+recol1s=15855
+recol1d=14336
+recol2s=8320 
+recol2d=3072

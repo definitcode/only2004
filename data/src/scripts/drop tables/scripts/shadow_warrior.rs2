@@ -45,5 +45,7 @@ if ($random < 1) {
 }
 
 [queue,shadow_warrior_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %shadow_warrior_kc = calc(%shadow_warrior_kc + 1);

@@ -9,6 +9,7 @@ model=model_2569_obj
 2dyan=1464
 2dxan=196
 iop2=Wield
+iop3=Teleport
 wearpos=righthand
 wearpos2=lefthand
 manwear=model_514_obj_wear,0

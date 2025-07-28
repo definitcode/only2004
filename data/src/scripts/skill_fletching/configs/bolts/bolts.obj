@@ -61,3 +61,72 @@ stackable=yes
 cost=30
 weight=4g
 category=category_530
+
+
+[diamond_bolttips]
+name=Diamond bolttips
+desc=I can make bolts with these.
+model=model_2780_obj
+recol1s=20159
+recol1d=24311
+2dxof=-1
+2dyof=7
+2dzoom=490
+2dyan=608
+2dxan=492
+members=yes
+stackable=yes
+cost=30
+weight=4g
+category=category_530
+
+[sapphire_bolttips]
+name=Sapphire bolttips
+desc=I can make bolts with these.
+model=model_2780_obj
+recol1s=20159
+recol1d=23
+2dxof=-1
+2dyof=7
+2dzoom=490
+2dyan=608
+2dxan=492
+members=yes
+stackable=yes
+cost=30
+weight=4g
+category=category_530
+
+[ruby_bolttips]
+name=Ruby bolttips
+desc=I can make bolts with these.
+model=model_2780_obj
+recol1s=20159
+recol1d=16417
+2dxof=-1
+2dyof=7
+2dzoom=490
+2dyan=608
+2dxan=492
+members=yes
+stackable=yes
+cost=30
+weight=4g
+category=category_530
+
+[emerald_bolttips]
+name=Emerald bolttips
+desc=I can make bolts with these.
+model=model_2780_obj
+recol1s=20159
+recol1d=672
+2dxof=-1
+2dyof=7
+2dzoom=490
+2dyan=608
+2dxan=492
+members=yes
+stackable=yes
+cost=30
+weight=4g
+category=category_530

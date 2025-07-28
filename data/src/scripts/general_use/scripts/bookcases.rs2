@@ -25,7 +25,7 @@ if($rand = 0) {
         mes("Your Intelligence is showing!");
         sound_synth(dice_roll, 1, 0);
         if (inv_freespace(inv) > 0) {
-            inv_add(inv, cert_blankrune,15);
+            inv_add(inv, cert_rune_fragment,15);
         } else if (inv_freespace(inv) < 0) {
             ~mesbox("You can't fit it in your inventory.");
         } 

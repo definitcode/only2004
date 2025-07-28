@@ -302,7 +302,7 @@ param=poison_severity,20
 [steel_dart_p]
 stackable=yes
 members=yes
-cost=10
+cost=2350
 name=Steel dart(p)
 desc=A deadly poisoned dart with a steel tip.
 model=model_2454_obj
@@ -336,7 +336,7 @@ param=poison_severity,20
 [mithril_dart_p]
 stackable=yes
 members=yes
-cost=25
+cost=2450
 name=Mithril dart(p)
 desc=A deadly poisoned dart with a mithril tip.
 model=model_2454_obj
@@ -370,7 +370,7 @@ param=poison_severity,20
 [adamant_dart_p]
 stackable=yes
 members=yes
-cost=65
+cost=2850
 name=Adamant dart(p)
 desc=A deadly poisoned dart with an adamantite tip.
 model=model_2454_obj
@@ -404,7 +404,7 @@ param=poison_severity,20
 [rune_dart_p]
 stackable=yes
 members=yes
-cost=350
+cost=3350
 name=Rune dart(p)
 desc=A deadly poisoned dart with a rune tip.
 model=model_2454_obj
@@ -438,7 +438,7 @@ param=poison_severity,20
 [dragon_dart_p]
 stackable=yes
 members=yes
-cost=25500
+cost=3850
 name=Dragon dart(p)
 desc=A deadly poisoned dart with a rune tip.
 model=model_2454_obj

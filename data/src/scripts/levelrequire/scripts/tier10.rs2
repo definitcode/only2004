@@ -8,7 +8,7 @@
 [opheld2,black_warhammer] @levelrequire_attack(35, last_slot);
 [opheld2,black_battleaxe] @levelrequire_attack(35, last_slot);
 [opheld2,black_2h_sword] @levelrequire_attack(35, last_slot);
-[opheld2,black_axe] @levelrequire_attack(35, last_slot);
+[opheld2,black_axe] @levelrequire_attack(1, last_slot);
 
 [opheld2,black_med_helm] @levelrequire_defence(35, last_slot);
 [opheld2,black_full_helm] @levelrequire_defence(35, last_slot);

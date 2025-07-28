@@ -11,7 +11,7 @@ recol1d=16956
 2dyan=1996
 2dxan=84
 weight=20g
-cost=2
+cost=150
 param=next_obj_stage,vial_empty
 // jagex name
 
@@ -26,6 +26,6 @@ model=model_2747_obj
 manwear=model_561_obj_wear,0
 womanwear=model_561_obj_wear,6
 weight=15g
-cost=2
+cost=55
 param=crafting_glass_struct,vial_empty
 param=next_obj_stage,vial_water

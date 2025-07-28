@@ -1,0 +1,16 @@
+[opnpc1,borig_chicken] @bchicken;
+
+[label,bchicken]
+def_int $random = random(10000);
+
+if ($random < 5000){
+    obj_add(npc_coord, egg, 1, ^lootdrop_duration);
+}
+
+if (inv_freespace(inv) > 0){
+    inv_add(inv, feather, 3);
+    if ($random > 9000){
+        inv_add(inv, feather, 2);
+    }    
+}
+p_delay(5);

@@ -56,5 +56,7 @@ if ($random < 4) {
 }
 
 [queue,bandit_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %bandit_kc = calc(%bandit_kc + 1);

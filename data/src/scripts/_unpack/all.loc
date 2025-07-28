@@ -1179,7 +1179,7 @@ length=3
 
 [loc_309]
 name=Log pile
-desc=Dead tree parts piled together neatly.
+desc=Cursed Tree parts piled together neatly.
 model=model_loc_309
 
 [loc_310]
@@ -7131,14 +7131,14 @@ recol1s=352
 recol1d=1252
 
 [loc_1287]
-name=Dead tree
+name=Cursed Tree
 desc=It's only useful for firewood now.
 model=model_loc_1287
 mapscene=6
 sharelight=yes
 
 [loc_1288]
-name=Dead tree
+name=Cursed Tree
 desc=It's only useful for firewood now.
 model=model_loc_1287
 mapscene=6
@@ -7354,7 +7354,7 @@ width=3
 length=3
 
 [loc_1333]
-name=Dead tree
+name=Cursed Tree
 desc=This old tree has been taken over by parasitic plants.
 model=model_loc_1333
 width=2
@@ -11204,7 +11204,7 @@ hasalpha=yes
 resizey=1
 
 [loc_2020]
-name=Dead tree
+name=Cursed Tree
 desc=It's to wet for firewood.
 model=model_loc_1286
 mapscene=6
@@ -12494,6 +12494,7 @@ retex1s=wall
 retex1d=door
 recol2s=6342
 recol2d=11458
+category=locked_loc
 
 [loc_2551]
 name=Door
@@ -12505,6 +12506,7 @@ retex1s=wall
 retex1d=door
 recol2s=6342
 recol2d=11458
+category=locked_loc
 
 [east_ardy_sewer_gate_north]
 name=Gate
@@ -12513,6 +12515,7 @@ model=model_loc_52
 active=yes
 op1=Open
 op2=Pick Lock
+category=locked_loc
 
 [east_ardy_sewer_gate_south]
 name=Gate
@@ -12522,6 +12525,7 @@ mirror=yes
 active=yes
 op1=Open
 op2=Pick Lock
+category=locked_loc
 
 [loc_2554]
 name=Door
@@ -12533,6 +12537,7 @@ retex1s=wall
 retex1d=door
 recol2s=6342
 recol2d=11458
+category=locked_loc
 
 [loc_2555]
 name=Door
@@ -12544,6 +12549,7 @@ retex1s=wall
 retex1d=elfdoor
 recol2s=6342
 recol2d=11458
+category=locked_loc
 
 [loc_2556]
 name=Door
@@ -12555,6 +12561,7 @@ retex1s=wall
 retex1d=elfdoor
 recol2s=6342
 recol2d=11458
+category=locked_loc
 
 [loc_2557]
 name=Door
@@ -12566,6 +12573,7 @@ retex1s=wall
 retex1d=door2
 recol2s=6342
 recol2d=11458
+category=locked_loc
 
 [loc_2558]
 name=Door
@@ -12577,6 +12585,7 @@ retex1s=wall
 retex1d=door
 recol2s=6342
 recol2d=11458
+category=locked_loc
 
 [loc_2559]
 name=Door
@@ -12588,6 +12597,7 @@ retex1s=wall
 retex1d=door2
 recol2s=6342
 recol2d=11458
+category=locked_loc
 
 [silk_stall_stealing]
 name=Silk stall
@@ -12654,6 +12664,7 @@ active=yes
 op1=Open
 op2=Search for traps
 forceapproach=north
+category=locked_loc
 
 [chest_50_coins]
 name=Chest
@@ -12663,6 +12674,7 @@ active=yes
 op1=Open
 op2=Search for traps
 forceapproach=north
+category=locked_loc
 
 [chest_blood_runes]
 name=Chest
@@ -12672,6 +12684,7 @@ active=yes
 op1=Open
 op2=Search for traps
 forceapproach=north
+category=locked_loc
 
 [chest_ardougne_castle]
 name=Chest
@@ -12681,6 +12694,7 @@ active=yes
 op1=Open
 op2=Search for traps
 forceapproach=north
+category=locked_loc
 
 [loc_2571]
 name=Chest
@@ -12690,6 +12704,7 @@ active=yes
 op1=Open
 op2=Search for traps
 forceapproach=north
+category=locked_loc
 
 [loc_2572]
 name=Chest
@@ -12699,6 +12714,7 @@ active=yes
 op1=Open
 op2=Search for traps
 forceapproach=north
+category=locked_loc
 
 [chest_steel_arrowtips]
 name=Chest
@@ -12708,6 +12724,7 @@ active=yes
 op1=Open
 op2=Search for traps
 forceapproach=north
+category=locked_loc
 
 [loc_2574]
 model=model_loc_76

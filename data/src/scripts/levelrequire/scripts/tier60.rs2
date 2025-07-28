@@ -8,8 +8,8 @@
 [opheld2,dragon_spear] @levelrequire_heroes_quest_attack(90, last_slot);
 [opheld2,dragon_spear_p] @levelrequire_heroes_quest_attack(90, last_slot);
 [opheld2,dragon_pickaxe] @levelrequire_heroes_quest_attack(90, last_slot);
-[opheld2,dragon_axe] @levelrequire_heroes_quest_attack(90, last_slot);
-[opheld2,dragon_warhammer] @levelrequire_heroes_quest_attack(90, last_slot);
+[opheld2,dragon_axe] @levelrequire_heroes_quest_attack(1, last_slot);
+[opheld2,dragon_warhammer] @levelrequire_heroes_quest_attack(1, last_slot);
 [opheld2,dragon_scimitar] @levelrequire_heroes_quest_attack(90, last_slot);
 [opheld2,vampiric_hammer] @levelrequire_heroes_quest_attack(99, last_slot);
 

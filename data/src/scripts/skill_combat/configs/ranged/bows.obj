@@ -169,7 +169,7 @@ param=damagetype,^ranged_style
 
 [maple_longbow]
 members=yes
-cost=8500
+cost=3459
 name=Maple longbow
 desc=A nice sturdy bow made out of Maple.
 model=model_2832_obj
@@ -199,7 +199,7 @@ param=damagetype,^ranged_style
 
 [maple_shortbow]
 members=yes
-cost=8450
+cost=3459
 name=Maple shortbow
 desc=A shortbow made out of Maple, still effective.
 model=model_2562_obj
@@ -227,7 +227,7 @@ param=damagetype,^ranged_style
 
 [yew_longbow]
 members=yes
-cost=12850
+cost=4950
 name=Yew longbow
 desc=A nice sturdy bow made out of yew.
 model=model_2832_obj
@@ -256,7 +256,7 @@ param=damagetype,^ranged_style
 
 [yew_shortbow]
 members=yes
-cost=1280032000
+cost=4850
 name=Yew shortbow
 desc=A shortbow made out of yew, still effective.
 model=model_2562_obj
@@ -284,7 +284,7 @@ param=damagetype,^ranged_style
 
 [magic_longbow]
 members=yes
-cost=32000
+cost=5850
 name=Magic longbow
 desc=A nice sturdy magical bow.
 model=model_2832_obj
@@ -313,7 +313,7 @@ param=damagetype,^ranged_style
 
 [magic_shortbow]
 members=yes
-cost=31450
+cost=5850
 name=Magic shortbow
 desc=Short and magical, but still effective.
 model=model_2562_obj

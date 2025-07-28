@@ -17,7 +17,7 @@ tradeable=no
 param=no_alchemy,^true
 
 [founders_partyhat]
-name=Founder's partyhat
+name=The Partyhat
 desc=A nice hat for a Founding Member of only2004!
 model=model_2635_obj
 2dxof=1
@@ -35,6 +35,7 @@ weight=2oz
 recol1s=15360 
 recol1d=1887
 tradeable=no
+iop3=Morph
 param=no_alchemy,^true
 
 

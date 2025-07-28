@@ -100,7 +100,7 @@ param=ready_baseanim,human_ds_ready
 [black_longsword]
 name=Black longsword
 desc=A razor sharp longsword.
-cost=4780
+cost=2780
 model=model_2834_obj
 recol1s=13312
 recol1d=0
@@ -133,7 +133,7 @@ param=ready_baseanim,human_ds_ready
 [mithril_longsword]
 name=Mithril longsword
 desc=A razor sharp longsword.
-cost=8555
+cost=3850
 model=model_2834_obj
 recol1s=13312
 recol1d=6346
@@ -166,7 +166,7 @@ param=ready_baseanim,human_ds_ready
 [adamant_longsword]
 name=Adamant longsword
 desc=A razor sharp longsword.
-cost=12475
+cost=4850
 model=model_2834_obj
 recol1s=13312
 recol1d=6438
@@ -199,7 +199,7 @@ param=ready_baseanim,human_ds_ready
 [rune_longsword]
 name=Rune longsword
 desc=A razor sharp longsword.
-cost=32000
+cost=5850
 model=model_2834_obj
 recol1s=13312
 recol1d=6476
@@ -230,7 +230,7 @@ param=stab_sound,hacksword_stab
 param=ready_baseanim,human_ds_ready
 
 [dragon_longsword]
-cost=50000
+cost=7850
 name=Dragon longsword
 desc=A very powerful sword.
 members=yes
@@ -247,12 +247,12 @@ category=weapon_slash
 manwear=model_564_obj_wear,0
 womanwear=model_564_obj_wear,6
 weight=4lb
-param=stabattack,58
-param=slashattack,88
+param=stabattack,80
+param=slashattack,80
 param=crushattack,-2
 param=slashdefence,3
 param=crushdefence,2
-param=strengthbonus,80
+param=strengthbonus,120
 param=attackrate,5
 param=ready_baseanim,human_ds_ready
 param=slashattack_anim,human_sword_slash

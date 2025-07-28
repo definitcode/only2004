@@ -59,5 +59,7 @@ if ($random < 1) {
     obj_add(npc_coord, cabbage, 1, ^lootdrop_duration);
 }
 [queue,man_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %man_kc = calc(%man_kc + 1);

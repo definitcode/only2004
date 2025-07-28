@@ -24,8 +24,8 @@
 
 [opheld2,iron_dagger] @levelrequire_attack(15, last_slot);
 [opheld2,iron_dagger_p] @levelrequire_attack(15, last_slot);
-[opheld2,iron_axe] @levelrequire_attack(15, last_slot);
-[opheld2,iron_pickaxe] @levelrequire_attack(15, last_slot);
+[opheld2,iron_axe] @levelrequire_attack(1, last_slot);
+[opheld2,iron_pickaxe] @levelrequire_attack(1, last_slot);
 [opheld2,iron_mace] @levelrequire_attack(15, last_slot);
 [opheld2,iron_sword] @levelrequire_attack(15, last_slot);
 [opheld2,iron_scimitar] @levelrequire_attack(15, last_slot);
@@ -47,6 +47,12 @@
 
 // Ranged
 [opheld2,crossbow] @levelrequire_ranged(1, last_slot);
+[opheld2,bronze_crossbow] @levelrequire_ranged(1, last_slot);
+[opheld2,iron_crossbow] @levelrequire_ranged(15, last_slot);
+[opheld2,steel_crossbow] @levelrequire_ranged(30, last_slot);
+[opheld2,mithril_crossbow] @levelrequire_ranged(50, last_slot);
+[opheld2,adamant_crossbow] @levelrequire_ranged(70, last_slot);
+[opheld2,rune_crossbow] @levelrequire_ranged(80, last_slot);
 [opheld2,longbow] @levelrequire_ranged(1, last_slot);
 [opheld2,shortbow] @levelrequire_ranged(1, last_slot);
 [opheld2,leather_gloves] @levelrequire_ranged_and_defence(1, 1, last_slot);

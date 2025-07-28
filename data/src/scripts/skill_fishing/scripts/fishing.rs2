@@ -41,7 +41,8 @@ switch_obj($equipment) {
     case rune_harpoon : return(3);
     case adamant_harpoon : return(2);
     case mithril_harpoon : return(2);
-    case lobster_pot_magic : return(4);
+    case lobster_pot_magic : return(3);
+    case lobster_pot_dragon : return(4);
     case lobster_pot_yew : return(3);
     case lobster_pot_maple : return(2);
     case lobster_pot_willow : return(2);

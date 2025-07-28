@@ -69,7 +69,14 @@ if ((inv_totalcat(inv, armour_hands) > 0 | inv_totalcat(worn, armour_hands) > 0)
     | (inv_total(inv, headless_arrow) > 0) // headless arrows
     | (inv_total(inv, arrow_shaft) > 0) 
     | (inv_total(inv, bow_string) > 0)
-    | (inv_total(inv, knife) > 0) 
+    | (inv_total(inv, knife) > 0)
+    | (inv_total(inv, e_bronze_knife) > 0)
+    | (inv_total(inv, e_iron_knife) > 0)
+    | (inv_total(inv, e_steel_knife) > 0)
+    | (inv_total(inv, e_mithril_knife) > 0)
+    | (inv_total(inv, e_adamant_knife) > 0)
+    | (inv_total(inv, e_rune_knife) > 0)
+    | (inv_total(inv, e_dragon_knife) > 0)
     | (inv_totalcat(inv, category_22) > 0) // logs
     | (inv_totalcat(inv, unstrung_bow) > 0)
     | (inv_totalcat(inv, trail_clue_easy) > 0)
@@ -477,7 +484,9 @@ if(last_useitem = glarials_urn_full_waterfall_quest) {
 inv_add(inv, diamond, 2);
 inv_add(inv, gold_bar, 2);
 inv_add(inv, mithril_seed, 40);
-stat_advance(attack, 137500);
-stat_advance(strength, 137500);
+//stat_advance(attack, 137500);
+//stat_advance(strength, 137500);
+stat_advance(attack, 950);
+stat_advance(strength, 950);
 session_log(^log_adventure, "Quest complete: Waterfall");
 ~send_quest_complete(questlist:waterfall, diamond, 250, ^waterfall_questpoints, "You have completed the Waterfall Quest!");

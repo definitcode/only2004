@@ -74,7 +74,21 @@ if (oc_param(last_item, next_obj_stage) = null) {
 // potions
 [opheld1,jangerberries]@player_consume_item(consume_effect_stat, 2, 3);
 [opheld1,poison_chalice]@player_consume_item(consume_effect_poison_chalice, null, null);
-[opheld1,cup_of_tea]@player_consume_item(consume_effect_stat_say, 2, 3);
+[opheld1,cup_of_tea]{
+    def_int $gain = 5;
+    if (%rogue > 99){
+        $gain = 10;
+    }
+    if (runenergy > 25){
+        mes("You cannot gain anymore energy.");
+    }
+    if (runenergy < 25){
+        healenergy($gain);
+        mes("You feel extra an boost from the tea!");
+    }
+    @player_consume_item(consume_effect_stat_say, 2, 3);
+
+}
 [opheld1,_category_69]
 switch_obj(last_item) {
     // anti dragon
@@ -111,7 +125,7 @@ if ($skill_delay ! null) {
 
 // consume effect
 jump($consume_effect);
-
+~clearallq;
 // vials dont even use this yet. Pies and odd cocktails have an empty option with their own scuffed messages
 [label,player_empty_item]
 inv_setslot(inv, last_slot, oc_param(last_item, next_obj_stage), 1);

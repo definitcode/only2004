@@ -51,3 +51,26 @@ weight=5g
 tradeable=no
 param=follower_id,pet_woman
 param=no_alchemy,^true
+
+[tree_pet]
+name=Tree spirit
+desc=A very angry nymph.
+model=model_2856_npc
+2dxof=2
+2dyof=-2
+2dzoom=1950
+2dyan=228
+2dxan=28
+recol1s=14692
+recol1d=5218
+recol2s=24075
+recol2d=5282
+recol3s=26122
+recol3d=5250
+recol4s=32767
+recol4d=480
+weight=100g
+iop1=Summon
+tradeable=no
+param=follower_id,tree_pet
+param=no_alchemy,^true

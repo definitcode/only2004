@@ -17,7 +17,7 @@ if (map_members = false) {
     mes("You can only make that on a members' server.");
     return;
 }
-// check if player has both halfs
+// check if player has both halves
 if (inv_total(inv, dragonshield_a) < 1 | inv_total(inv, dragonshield_b) < 1) {
     ~mesbox("You need to find the other half of this shield in order to repair it.");
     return;
@@ -28,29 +28,32 @@ if (stat(smithing) < 98) {
     return;
 }
 // check if player has a hammer
-if (inv_total(inv, hammer) < 1) {
-    ~mesbox("You'll need a hammer if you want to attempt to repair this shield.");
-    return;
-}
-// display message
-~mesbox("You set to work trying to fix the ancient shield. It's seen some heavy action and needs some serious work doing to it.");
-if_close; // have to close for some reason
-// play anim and sound
-anim(human_smithing, 0);
-sound_synth(anvil_4, 0, 0);
-// 6 tick delay https://youtu.be/YJmY-RN3MuA?t=86
-p_delay(6);
-~mesbox("Even for an experienced armourer it is not an easy|task, but eventually it is ready.  You have restored|the dragon square shield to it's former glory.");
-// https://storage.googleapis.com/tannerdino/images/dragonsquare.png // archive date 2005-03-22
-//~mesbox("Even for an experienced armourer it is not an easy task, but eventually it is ready. You have restored the dragon square shield to its former glory.");
-// delete shield halfs
-inv_del(inv, dragonshield_a, 1);
-inv_del(inv, dragonshield_b, 1);
-// add dragon sq shield
-inv_add(inv, dragon_sq_shield, 1);
-// osrs has 75 xp gain
-stat_advance(smithing, 750);
-if (inv_total(worn, faladian_sword) > 0) {
+if (
+    inv_total(inv, hammer) > 0 |
+    inv_total(inv, founders_hammer) > 0 |
+    inv_total(inv, bronze_hammer) > 0 |
+    inv_total(inv, iron_hammer) > 0 |
+    inv_total(inv, steel_hammer) > 0 |
+    inv_total(inv, mithril_hammer) > 0 |
+    inv_total(inv, adamant_hammer) > 0 |
+    inv_total(inv, rune_hammer) > 0 |
+    inv_total(inv, dragon_hammer) > 0
+) {
+    ~mesbox("You set to work trying to fix the ancient shield. It's seen some heavy action and needs some serious work doing to it.");
+    if_close; // depending on your script engine, put on its own line or after the mesbox
+    anim(human_smithing, 0);
+    sound_synth(anvil_4, 0, 0);
+    p_delay(6);
+    ~mesbox("Even for an experienced armourer it is not an easy|task, but eventually it is ready. You have restored the dragon square shield to its former glory.");
+    inv_del(inv, dragonshield_a, 1);
+    inv_del(inv, dragonshield_b, 1);
+    inv_add(inv, dragon_sq_shield, 1);
+    stat_advance(smithing, 750);
+    if (inv_total(worn, faladian_sword) > 0) {
         stat_advance(smithing, 750);
         mes("Your smithing skills are showing!");
+    }
+} else {
+    ~mesbox("You'll need a hammer if you want to attempt to repair this shield.");
+    return;
 }

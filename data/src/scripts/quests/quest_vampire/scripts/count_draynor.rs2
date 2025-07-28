@@ -105,38 +105,70 @@ if (npc_findhero = true) {
 npc_statheal(hitpoints, 1, 0);
 
 [label,count_draynor_use_stake]
-if (
-    inv_total(inv, stake) = 0 |
-    inv_total(inv, stake_dagger) = 0 |
-    inv_total(worn, stake_dagger) = 0 |
-    inv_total(inv, stake_dagger_p) = 0 |
-    inv_total(worn, stake_dagger_p) = 0
-) {
+def_namedobj $stake = null;
+
+if(inv_total(inv, stake) < 0 ){
+    mes("I think I need something wooden and pointy...");
+    if(inv_total(inv, stake_dagger) < 0 ){
+        mes("I think I need something wooden and pointy...");
+    }
+    if(inv_total(worn, stake_dagger) < 0 ){
+        mes("I think I need something wooden and pointy...");
+    }
+    if(inv_total(inv, stake_dagger_p) < 0 ){
+        mes("I think I need something wooden and pointy...");
+    }
+    if(inv_total(worn, stake_dagger_p) < 0 ){
+        mes("I think I need something wooden and pointy...");
+    }
+}
+if(inv_total(inv, stake) > 0 ){
+    $stake = stake;
+}
+if(inv_total(inv, stake_dagger) > 0 ){
+    $stake = stake_dagger;
+}
+if(inv_total(worn, stake_dagger) > 0 ){
+    $stake = stake_dagger;
+}
+if(inv_total(inv, stake_dagger_p) > 0 ){
+    $stake = stake_dagger_p;
+}
+if(inv_total(worn, stake_dagger_p) > 0 ){
+    $stake = stake_dagger_p;
+}
+if ($stake = null) {
     mes("The vampire seems to regenerate!");
     npc_statheal(hitpoints, 0, 100);
     npc_setmode(opplayer2);
     return;
 }
-if (inv_total(inv, hammer) = 0) {
+if (inv_total(inv, hammer ) > 0 | inv_total(inv, founders_hammer ) > 0 | inv_total(inv, bronze_hammer ) > 0 | inv_total(inv, iron_hammer ) > 0 | inv_total(inv, steel_hammer ) > 0 | inv_total(inv, mithril_hammer ) > 0 | inv_total(inv, adamant_hammer ) > 0 | inv_total(inv, rune_hammer ) > 0 | inv_total(inv, dragon_hammer ) > 0) {
+    p_delay(1);
+    mes("You hammer the stake into the vampire's chest!");
+    if (inv_total(inv, stake) > 0){
+        inv_del(inv, stake, 1);
+    }
+    anim(human_stake, 0);
+    //obj_add(npc_coord, easy_boss_token, 1, ^lootdrop_duration);
+    npc_setmode(none);
+    npc_queue(4, 0, 0);
+    if (%vampire_progress < ^vampire_complete) {
+        queue(quest_vampire_complete, 3);
+    }
+    if (%vampire_progress = ^vampire_complete) {
+        stat_advance(hitpoints, 250);
+    }
+    %count_draynor_kc = calc(%count_draynor_kc + 1);
+} else {
     mes("You're unable to push the stake far enough in!");
     mes("The vampire seems to regenerate!");
     npc_statheal(hitpoints, 0, 100);
     npc_setmode(opplayer2);
     return;
 }
-p_delay(1);
-mes("You hammer the stake into the vampire's chest!");
-inv_del(inv, stake, 1);
-anim(human_stake, 0);
-//obj_add(npc_coord, easy_boss_token, 1, ^lootdrop_duration);
-npc_setmode(none);
-npc_queue(4, 0, 0);
-if (%vampire_progress < ^vampire_complete) {
-    queue(quest_vampire_complete, 3);
-}
-if (%vampire_progress = ^vampire_complete) {
-    
-}
+
+
 [ai_timer,count_draynor]
 if (finduid(%npc_attacking_uid) = true) {
     if (npc_range(coord) > 10 | coordy(coord) ! coordy(npc_coord)) {

@@ -133,13 +133,13 @@ model=model_2406_obj
 2dzoom=990
 2dyan=8
 2dxan=112
-cost=10
+cost=25
 weight=3lb
 
 [bucket_milk]
 name=Bucket of milk
 desc=It's a bucket of milk.
-cost=6
+cost=50
 model=model_2504_obj
 recol1s=173
 recol1d=32767
@@ -154,7 +154,7 @@ param=next_obj_stage,bucket_empty
 [egg]
 name=Egg
 desc=A nice fresh egg.
-cost=4
+cost=50
 model=model_2437_obj
 2dxof=1
 2dzoom=630
@@ -165,7 +165,7 @@ respawnrate=25
 
 [chocolate_bar]
 iop1=Eat
-cost=10
+cost=35
 model=model_2410_obj
 2dxof=1
 2dyof=41
@@ -184,7 +184,7 @@ param=crunchies_message,You crumble the chocolate into the dough.
 [pastry_dough]
 name=Pastry dough
 desc=Potentially pastry.
-cost=1
+cost=75
 model=model_2756_obj
 2dzoom=1210
 2dyan=116
@@ -198,5 +198,5 @@ model=model_2596_obj
 2dzoom=770
 2dyan=144
 2dxan=172
-cost=10
+cost=25
 weight=100g

@@ -525,7 +525,7 @@ if(~watchtower_has_all_crystals = true & %itwatchtower_progress = ^itwatchtower_
     inv_del(inv, powering_crystal4, ^max_32bit_int);
     inv_del(bank, powering_crystal4, ^max_32bit_int);
     p_delay(3);
-    stat_advance(magic, 153000);
+    stat_advance(magic, 15300);
     inv_add(inv, coins, 5000);
     inv_add(inv, watchtowerspell, 1);
     queue(itwatchtower_quest_complete, 0);

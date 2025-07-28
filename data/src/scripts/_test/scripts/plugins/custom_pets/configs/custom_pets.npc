@@ -22,6 +22,27 @@ category=custompet
 blockwalk=none
 param=pet_item_id,imp_lamp
 
+[tree_pet]
+name=Tree spirit
+desc=A very angry nymph.
+op1=Unsummon
+readyanim=dryhad_ready
+walkanim=dryhad_walk
+recol1s=14692
+recol1d=5218
+recol2s=24075
+recol2d=5282
+recol3s=26122
+recol3d=5250
+recol4s=32767
+recol4d=480
+model1=model_2856_npc
+param=death_anim,dryhad_death
+category=custompet
+blockwalk=none
+hasalpha=yes
+param=pet_item_id,tree_pet
+
 [pet_woman]
 vislevel=hide
 name=Woman

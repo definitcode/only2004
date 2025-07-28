@@ -384,10 +384,10 @@ if ($random < 1) {
     //return (coins,150);
     return (trout,2);
 } else if ($random < 9) {
-    return (coins_100,150);
+    return (coins,150);
     return (lumbyscroll,1);
 } else if ($random > 11) {
-    return (coins_250,300);
+    return (coins,300);
     return (draynorscroll,1);
 }
 
@@ -400,6 +400,8 @@ if ($random < 1) {
     return (dragon_arrow, 25);
 } else if ($random < 75) {
     return (dragon_dart, 75);
+} else if ($random < 103) {
+    return (robinhoodhat_b, 1);
 } else if ($random < 104) {
     return (zamrobetop,1);
 } else if ($random < 105) {
@@ -472,7 +474,7 @@ if ($random < 25) {
     return (~randomjewel);
     return (~randomjewel);
 } else if ($random < 50) {
-    return (bunnyears,1);
+    //return (bunnyears,1);
 } else if ($random < 51) {
     return (~grindingtable);
     return (~grindingtable);
@@ -488,6 +490,12 @@ if ($random < 25) {
 } else if ($random < 58) {
     return (magic_shortbow,1);
     return (steel_arrow,150);
+} else if ($random < 59) {
+    return (rune_dart,50);
+} else if ($random < 60) {
+    return (rune_thrownaxe,35);
+} else if ($random < 61) {
+    return (ruby_bolt, 27);
 } else if ($random < 124) {
     return (~dragon_table);
 } else if ($random < 127) {

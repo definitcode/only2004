@@ -3,12 +3,16 @@
 scope=perm
 [logs_burned]
 scope=perm
+[tree_bark_burned]
+scope=perm
 [logs_fletched]
 scope=perm
 
 [oak_logs_cut]
 scope=perm
 [oak_logs_burned]
+scope=perm
+[oak_bark_burned]
 scope=perm
 [oak_logs_fletched]
 scope=perm
@@ -17,12 +21,16 @@ scope=perm
 scope=perm
 [willow_logs_burned]
 scope=perm
+[willow_bark_burned]
+scope=perm
 [willow_logs_fletched]
 scope=perm
 
 [maple_logs_cut]
 scope=perm
 [maple_logs_burned]
+scope=perm
+[maple_bark_burned]
 scope=perm
 [maple_logs_fletched]
 scope=perm
@@ -31,6 +39,8 @@ scope=perm
 scope=perm
 [yew_logs_burned]
 scope=perm
+[yew_bark_burned]
+scope=perm
 [yew_logs_fletched]
 scope=perm
 
@@ -38,8 +48,20 @@ scope=perm
 scope=perm
 [magic_logs_burned]
 scope=perm
+[magic_bark_burned]
+scope=perm
 [magic_logs_fletched]
 scope=perm
+
+[cursed_logs_cut]
+scope=perm
+[cursed_logs_burned]
+scope=perm
+[cursed_bark_burned]
+scope=perm
+[cursed_logs_fletched]
+scope=perm
+
 //Mining Trackers
 
 [copper_ore_mined]
@@ -171,6 +193,15 @@ scope=perm
 scope=perm
 
 [herring_burned]
+scope=perm
+
+[mackerel_caught]
+scope=perm
+
+[mackerel_cooked]
+scope=perm
+
+[mackerel_burned]
 scope=perm
 
 [trout_caught]
@@ -633,4 +664,6 @@ scope=perm
 [gunthor_kc]
 scope=perm
 
+[count_draynor_kc]
+scope=perm
 

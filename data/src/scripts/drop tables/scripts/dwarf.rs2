@@ -57,5 +57,7 @@ if ($random < 13) {
 }
 
 [queue,dwarf_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %dwarf_kc = calc(%dwarf_kc + 1);

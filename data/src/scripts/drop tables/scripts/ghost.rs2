@@ -58,5 +58,7 @@ if ($dropint < 3) {
 }
 
 [queue,ghost_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %ghost_kc = calc(%ghost_kc + 1);

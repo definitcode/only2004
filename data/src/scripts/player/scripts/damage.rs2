@@ -18,12 +18,12 @@ if (stat(hitpoints) = 0){
     ~player_die;
     // no early return, ring of life still processes on death. https://youtu.be/LSpyUVXa4LE?t=202
 }
-
+~clearallq;
 ~ring_of_life_check;
 
 [queue,damage_player](int $amount)
 ~damage_self($amount);
-
+~clearallq;
 [proc,human_hit_sound]
 def_int $rand;
 def_synth $sound;

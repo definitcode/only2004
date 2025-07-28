@@ -88,7 +88,7 @@ param=slash_sound,stabsword_slash
 [black_sword]
 name=Black sword
 desc=A razor sharp sword.
-cost=4730
+cost=2730
 model=model_2604_obj
 recol1s=15855
 recol1d=0
@@ -117,7 +117,7 @@ param=slash_sound,stabsword_slash
 [mithril_sword]
 name=Mithril sword
 desc=A razor sharp sword.
-cost=8450
+cost=3450
 model=model_2604_obj
 recol1s=15855
 recol1d=6346
@@ -146,7 +146,7 @@ param=slash_sound,stabsword_slash
 [adamant_sword]
 name=Adamant sword
 desc=A razor sharp sword.
-cost=12080
+cost=4850
 model=model_2604_obj
 recol1s=15855
 recol1d=6438
@@ -175,7 +175,7 @@ param=slash_sound,stabsword_slash
 [rune_sword]
 name=Rune sword
 desc=A razor sharp sword.
-cost=30800
+cost=5850
 model=model_2604_obj
 recol1s=15855
 recol1d=6476
@@ -204,7 +204,7 @@ param=slash_sound,stabsword_slash
 [dragon_sword]
 name=Dragon sword
 desc=A razor sharp sword.
-cost=50000
+cost=7850
 model=model_2604_obj
 recol1s=15855
 recol1d=14336
@@ -222,7 +222,7 @@ manwear=model_519_obj_wear,0
 womanwear=model_519_obj_wear,6
 category=weapon_stab
 weight=4lb
-param=stabattack,88
+param=stabattack,120
 param=slashattack,45
 param=crushattack,-2
 param=slashdefence,10

@@ -142,5 +142,7 @@ if ($dropint < 50) {
 
 
 [queue,zombie_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %zombie_kc = calc(%zombie_kc + 1);

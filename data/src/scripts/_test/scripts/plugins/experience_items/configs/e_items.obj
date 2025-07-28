@@ -24,7 +24,7 @@ tradeable=no
 [thieving_gloves]
 name=Sticky Gloves
 desc=These gloves will surely obtain more!
-cost=6
+cost=1000000
 model=model_2649_obj
 recol1s=9473
 recol1d=34
@@ -44,4 +44,5 @@ members=yes
 param=slashdefence,3
 param=crushdefence,4
 param=rangedefence,2
-tradeable=no
+tradeable=yes
+param=no_alchemy,^true

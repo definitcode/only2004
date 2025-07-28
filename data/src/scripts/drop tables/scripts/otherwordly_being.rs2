@@ -39,5 +39,7 @@ if ($random < 9) {
     obj_add(npc_coord, ~mid_tier_items, ^lootdrop_duration);
 }
 [queue,otherworldly_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %otherworldy_being_kc = calc(%otherworldy_being_kc + 1);

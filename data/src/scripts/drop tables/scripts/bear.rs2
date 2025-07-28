@@ -39,5 +39,7 @@ if (%hunter > 349) {
 }
 
 [queue,bear_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %bear_kc = calc(%bear_kc + 1);

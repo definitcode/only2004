@@ -52,5 +52,5 @@ while (npc_findnext = true) {
 //gosub(npc_death);
 //
 //[queue,]
-//mes("You scratch a notch on your bow for the kill.");
+//if (%e_ctoggle = ^e_toggle_on){
 //% = calc(% + 1);

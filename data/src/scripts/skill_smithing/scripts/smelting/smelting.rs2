@@ -95,6 +95,22 @@ if ($bar = steel_bar & inv_total(worn, steel_gauntlets) > 0) {
     $xp = scale(5, 2, $xp); // 2.5x
     mes("Your smelting skills are showing!");
 }
+if ($bar = mithril_bar & inv_total(worn, mithril_gauntlets) > 0) {
+    $xp = scale(5, 2, $xp); // 2.5x
+    mes("Your smelting skills are showing!");
+}
+if ($bar = adamantite_bar & inv_total(worn, adamant_gauntlets) > 0) {
+    $xp = scale(5, 2, $xp); // 2.5x
+    mes("Your smelting skills are showing!");
+}
+if ($bar = runite_bar & inv_total(worn, rune_gauntlets) > 0) {
+    $xp = scale(5, 2, $xp); // 2.5x
+    mes("Your smelting skills are showing!");
+}
+if ($bar = dragon_bar & inv_total(worn, dragon_gauntlets) > 0) {
+    $xp = scale(5, 2, $xp); // 2.5x
+    mes("Your smelting skills are showing!");
+}
 stat_advance(smithing, $xp);
 
 // add bar

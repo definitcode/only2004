@@ -5,9 +5,11 @@ if_close;
 if (p_finduid(uid) = true) {
     p_clearpendingaction;
     ~unequip(last_slot);
+    ~clearallq;
 }
 
 [proc,equip](int $slot)
+~clearallq;
 if (p_finduid(uid) = true) {
     def_obj $obj = inv_getobj(inv, $slot);
     if (~duel_arena_equip_check($obj) = false) {
@@ -77,7 +79,7 @@ if (p_finduid(uid) = true) {
     inv_moveitem(worn, inv, $obj, sub($count, $overflow));
     ~update_all($obj);
 }
-
+~clearallq;
 // used for duel arena, no weapon/no armour
 [proc,try_unequip](int $slot)
 if (p_finduid(uid) = true) {

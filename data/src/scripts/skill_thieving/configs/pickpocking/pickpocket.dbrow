@@ -50,6 +50,7 @@ data=stun_ticks,8
 data=stun_damage,2
 data=success_chance,100,240
 data=loot,coins,18,18,128
+data=loot,cavalier_brown,1,1,2
 data=pocket,warrior's pocket
 
 [pickpocket_rogue]

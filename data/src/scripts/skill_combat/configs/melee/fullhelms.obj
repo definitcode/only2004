@@ -96,7 +96,7 @@ param=rangedefence,9
 [mithril_full_helm]
 name=Mithril full helm
 desc=A full face helmet.
-cost=8555
+cost=3555
 model=model_2813_obj
 recol1s=15855
 recol1d=6346
@@ -128,7 +128,7 @@ param=rangedefence,13
 [adamant_full_helm]
 name=Adamant full helm
 desc=A full face helmet.
-cost=12875
+cost=4875
 model=model_2813_obj
 recol1s=15855
 recol1d=6438
@@ -160,7 +160,7 @@ param=rangedefence,19
 [rune_full_helm]
 name=Rune full helm
 desc=A full face helmet.
-cost=35200
+cost=5200
 model=model_2813_obj
 recol1s=15855
 recol1d=6476
@@ -192,7 +192,7 @@ param=rangedefence,30
 [black_full_helm]
 name=Black full helm
 desc=A full face helmet.
-cost=4785
+cost=2785
 model=model_2813_obj
 recol1s=15855
 recol1d=2114
@@ -224,7 +224,7 @@ param=rangedefence,12
 [dragon_full_helm]
 name=Dragon full helm
 desc=Forged with the remains of a dragon!
-cost=50000
+cost=7850
 weight=12oz
 model=model_2813_obj
 recol1s=15855

@@ -2,7 +2,7 @@
 [raw_ugthanki_meat]
 name=Raw ugthanki meat
 desc=I need to cook this first.
-cost=2
+cost=30
 model=model_2760_obj
 2dxof=1
 2dyof=3
@@ -22,7 +22,7 @@ model=model_2760_obj
 2dzoom=560
 2dyan=176
 2dxan=308
-cost=1
+cost=55
 weight=12oz
 category=cooking_generic
 
@@ -36,7 +36,7 @@ model=model_2760_obj
 2dzoom=560
 2dyan=176
 2dxan=308
-cost=1
+cost=25
 weight=5oz
 category=cooking_generic
 
@@ -50,7 +50,7 @@ model=model_2760_obj
 2dzoom=560
 2dyan=176
 2dxan=308
-cost=1
+cost=45
 weight=15oz
 category=cooking_generic
 
@@ -64,7 +64,7 @@ recol1d=22098
 2dzoom=870
 2dyan=1748
 2dxan=88
-cost=1
+cost=15
 weight=6oz
 category=cooking_generic
 

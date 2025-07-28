@@ -1,0 +1,25 @@
+[opheld1,tree_pet] @tree_drop;
+[ai_timer,tree_pet]
+npc_say("Chop chop!");
+
+[label,tree_drop]
+if (map_members = false) {
+    mes(^mes_members_do_that); //todo: verify if there is a specific message for trying to drop in f2p
+    return;
+}
+if (npc_finduid(%follower_uid) = true) {
+    mes("You already have a follower."); //osrs
+    return;
+}
+inv_delslot(inv, last_slot);
+sound_synth(put_down, 0, 0);
+~tree_spawn(oc_param(last_item, follower_id));
+
+[proc,tree_spawn](npc $type)
+npc_add(coord, $type, ^max_32bit_int);
+%follower_obj = nc_param(npc_type, pet_item_id);
+%follower_uid = npc_uid;
+%npc_attacking_uid = uid;
+npc_setmode(playerfollow);
+npc_say("hehehe!");
+npc_settimer(30);

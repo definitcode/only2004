@@ -66,5 +66,7 @@ if ($random < 6) {
     obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
 }
 [queue,pirate_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %pirate_kc = calc(%pirate_kc  + 1);

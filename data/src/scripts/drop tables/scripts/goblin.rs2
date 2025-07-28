@@ -139,5 +139,7 @@ if ($dropint < 3) {
 }
 
 [queue,goblin_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %goblin_kc = calc(%goblin_kc + 1);

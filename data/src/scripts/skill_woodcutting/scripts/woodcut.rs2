@@ -15,6 +15,7 @@ switch_obj(last_useitem) {
 
 
 [label,attempt_cut_tree]
+~clearallq;
 // find tree in db
 db_find(woodcutting_trees:tree, loc_type);
 def_dbrow $data = db_findnext;
@@ -62,7 +63,11 @@ if ($axe = null) {
 
 // https://youtu.be/T3IRz4hZcjc?si=4jBFvTwMwqPXuAxf&t=63
 // sound on first chop
-anim(struct_param(oc_param($axe, woodcutting_struct), skill_anim), 0);
+if (%founders_transmog = ^transmog_on) {
+    anim(human_woodcutting_founders_axe, 0);
+} else {
+    anim(struct_param(oc_param($axe, woodcutting_struct), skill_anim), 0);
+}
 sound_synth(woodchop, 0, 0);
 mes("You swing your axe at the tree.");
 if (%action_delay = map_clock) {
@@ -102,7 +107,12 @@ if (inv_freespace(inv) < 1) {
 if (%action_delay < map_clock) {
     %action_delay = calc(map_clock + 3);
 } else if (%action_delay = map_clock) {
-    anim(struct_param(oc_param($axe, woodcutting_struct), skill_anim), 0);
+    if (%founders_transmog = ^transmog_on) {
+        anim(human_woodcutting_founders_axe, 0);
+    } else {
+        anim(struct_param(oc_param($axe, woodcutting_struct), skill_anim), 0);
+    }
+    
     @get_logs($data, $axe);
 }
 
@@ -126,48 +136,68 @@ if (stat_random(stat(woodcutting), $tree_chance_low, $tree_chance_high) = true) 
     def_namedobj $product = db_getfield($data, woodcutting_trees:product, 0);
     def_int $productcount = 1;
     def_int $exp = db_getfield($data, woodcutting_trees:productexp, 0);
-
+    if (loc_type = loc_1384 | loc_type = loc_1287 | loc_type = loc_1288 | loc_type = loc_1333 |
+       loc_type = loc_1385 | loc_type = loc_1286 | loc_type = loc_1289 | loc_type = loc_1290 |
+       loc_type = loc_1291 | loc_type = loc_1365 | loc_type = loc_1383 |
+       loc_type = loc_1282 | loc_type = loc_1283) {
+       if (stat_base(woodcutting) > 98 & ~wilderness_level(coord) > 29) {
+          $product = cursed_logs; 
+          $exp = 4089;
+        }
+    }
     mes("You get some <lowercase(oc_name($product))>.");
-    stat_advance(woodcutting, $exp);
-
     if (inv_total(worn, cavalier_brown) > 0) {
         stat_advance(woodcutting, $exp);
         mes("Your woodcutting skills are showing!");
     }
-
-    // Axe-based scaling
-    if (inv_total(inv, bronze_axe) > 0) {
-        $productcount = 1;
-    } else if (inv_total(inv, iron_axe) > 0) {
-        $productcount = 1;
-    } else if (inv_total(inv, steel_axe) > 0) {
-        $productcount = 1;
-    } else if (inv_total(inv, black_axe) > 0) {
-        $productcount = 1;
-    } else if (inv_total(inv, mithril_axe) > 0) {
-        $productcount = 2;
-        stat_advance(woodcutting, $exp);
-        stat_advance(woodcutting, $exp);
-    } else if (inv_total(inv, adamant_axe) > 0) {
-        $productcount = 2;
-        stat_advance(woodcutting, $exp);
-    } else if (inv_total(inv, rune_axe) > 0) {
-        $productcount = 3;
-        stat_advance(woodcutting, $exp);
-        stat_advance(woodcutting, $exp);
-        stat_advance(woodcutting, $exp);
-    } else if (inv_total(inv, dragon_axe) > 0) {
+    if (inv_total(inv, dragon_axe) > 0 | inv_total(worn, dragon_axe) > 0) {
         $productcount = 4;
         stat_advance(woodcutting, $exp);
         stat_advance(woodcutting, $exp);
         stat_advance(woodcutting, $exp);
         stat_advance(woodcutting, $exp);
-    } else if (inv_total(inv, founders_axe) > 0) {
+        if (inv_freespace(inv) < 4) {
+            $productcount = inv_freespace(inv);
+        }
+    } else if (inv_total(inv, rune_axe) > 0 | inv_total(worn, rune_axe) > 0 ) {
+        $productcount = 3;
+        stat_advance(woodcutting, $exp);
+        stat_advance(woodcutting, $exp);
+        stat_advance(woodcutting, $exp);
+        if (inv_freespace(inv) < 3) {
+            $productcount = inv_freespace(inv);
+        }
+    } else if (inv_total(inv, adamant_axe) > 0 | inv_total(worn, adamant_axe) > 0) {
+        $productcount = 2;
+        stat_advance(woodcutting, $exp);
+        stat_advance(woodcutting, $exp);
+        if (inv_freespace(inv) < 2) {
+            $productcount = inv_freespace(inv);
+        }
+    } else if (inv_total(inv, mithril_axe) > 0 | inv_total(worn, mithril_axe) > 0 ) {
+        $productcount = 2;
+        stat_advance(woodcutting, $exp);
+        if (inv_freespace(inv) < 2) {
+            $productcount = inv_freespace(inv);
+        }
+    } else if (inv_total(inv, black_axe) > 0 | inv_total(worn, black_axe) > 0  ) {
         $productcount = 1;
+        stat_advance(woodcutting, $exp);
+    } else if (inv_total(inv, steel_axe) > 0 | inv_total(worn, steel_axe) > 0  ) {
+        $productcount = 1;
+        stat_advance(woodcutting, $exp);
+    } else if (inv_total(inv, founders_axe) > 0 | inv_total(worn, founders_axe) > 0 ) {
+        $productcount = 1;
+        stat_advance(woodcutting, $exp);
+    } else if (inv_total(inv, iron_axe) > 0 | inv_total(worn, iron_axe) > 0  ) {
+        $productcount = 1;
+        stat_advance(woodcutting, $exp);
+    } else if (inv_total(inv, bronze_axe) > 0 | inv_total(worn, bronze_axe) > 0  ) {
+        $productcount = 1;
+        stat_advance(woodcutting, $exp);
     }
-    if (inv_freespace(inv) = 1) {
-        $productcount = 1;
-    } 
+
+
     inv_add(inv, $product, $productcount);
     if ($product = logs) {
         %logs_cut = calc(%logs_cut + $productcount);
@@ -181,6 +211,8 @@ if (stat_random(stat(woodcutting), $tree_chance_low, $tree_chance_high) = true) 
         %yew_logs_cut = calc(%yew_logs_cut + $productcount);
     } else if ($product = magic_logs){
         %magic_logs_cut = calc(%magic_logs_cut + $productcount);
+    } else if ($product = cursed_logs){
+        %cursed_logs_cut = calc(%cursed_logs_cut + $productcount);
     }
     if (random($deplete_chance) = 0) {
         $respawnrate = ~scale_by_playercount($respawnrate);

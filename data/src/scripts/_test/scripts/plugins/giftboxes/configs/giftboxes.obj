@@ -74,3 +74,23 @@ iop1=Open
 weight=2lb
 param=no_alchemy,^true
 tradeable=yes
+
+
+
+[alchemy_box]
+name=Alchemy Reset Box
+desc=This contains gifts.
+cost=2
+model=model_2426_obj
+recol1s=26817
+recol1d=10580
+recol2s=160
+recol2d=10410
+iop1=Reset
+2dyof=-14
+2dzoom=1180
+2dyan=172
+2dxan=160
+weight=2lb
+param=no_alchemy,^true
+tradeable=yes

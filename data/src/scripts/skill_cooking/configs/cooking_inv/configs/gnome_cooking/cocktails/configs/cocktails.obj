@@ -1,7 +1,7 @@
 [vodka]
 name=Vodka
 desc=A strong spirit.
-cost=5
+cost=25
 iop1=Drink
 members=yes
 model=model_2830_obj
@@ -15,7 +15,7 @@ category=alcoholic_drinks
 [whisky]
 name=Whisky
 desc=A bottle of Draynor Malt.
-cost=5
+cost=25
 iop1=Drink
 members=yes
 model=model_2660_obj
@@ -29,7 +29,7 @@ category=alcoholic_drinks
 [gin]
 name=Gin
 desc=A strong spirit.
-cost=5
+cost=25
 iop1=Drink
 members=yes
 model=model_2660_obj
@@ -45,7 +45,7 @@ category=alcoholic_drinks
 [brandy]
 name=Brandy
 desc=A strong spirit.
-cost=5
+cost=25
 iop1=Drink
 members=yes
 model=model_2836_obj
@@ -58,7 +58,7 @@ category=alcoholic_drinks
 [cocktail_guide]
 name=Cocktail guide
 desc=A book on tree gnome cocktails.
-cost=2
+cost=50
 iop1=Read
 members=yes
 model=model_2794_obj
@@ -72,7 +72,7 @@ weight=18oz
 [cocktail_shaker]
 name=Cocktail shaker
 desc=Used for mixing cocktails.
-cost=2
+cost=25
 members=yes
 model=model_2771_obj
 2dyof=-1
@@ -91,14 +91,14 @@ model=model_2655_obj
 2dzoom=700
 2dyan=1988
 2dxan=104
-cost=1
+cost=15
 weight=100g
 members=yes
 
 [premade_blurberry_special]
 name=Blurberry special
 desc=Looks good... smells strong.
-cost=30
+cost=150
 iop1=Drink
 members=yes
 model=model_2738_obj
@@ -115,7 +115,7 @@ param=next_obj_stage,cocktail_glass_empty
 [premade_chocolate_saturday]
 name=Choc saturday
 desc=A warm creamy alcoholic beverage.
-cost=30
+cost=150
 iop1=Drink
 members=yes
 model=model_2661_obj
@@ -132,7 +132,7 @@ param=next_obj_stage,cocktail_glass_empty
 [premade_drunk_dragon]
 name=Drunk dragon
 desc=A warm creamy alcoholic beverage.
-cost=30
+cost=150
 iop1=Drink
 members=yes
 model=model_2661_obj
@@ -147,7 +147,7 @@ param=next_obj_stage,cocktail_glass_empty
 [premade_fruit_blast]
 name=Fruit blast
 desc=A cool refreshing fruit mix.
-cost=30
+cost=150
 iop1=Drink
 members=yes
 model=model_2738_obj
@@ -334,7 +334,7 @@ param=gnome_cooking_type,0
 [wizard_blizzard]
 name=Wizard blizzard
 desc=This looks like a strange mix.
-cost=30
+cost=175
 iop1=Drink
 members=yes
 model=model_2738_obj
@@ -423,7 +423,7 @@ param=gnome_cooking_type,0
 [blurberry_special]
 name=Blurberry special
 desc=Looks good... smells strong.
-cost=30
+cost=275
 iop1=Drink
 members=yes
 model=model_2738_obj
@@ -440,7 +440,7 @@ param=next_obj_stage,cocktail_glass_empty
 [unfinished_chocolate_saturday1]
 name=Unfinished cocktail
 desc=This cocktail is just missing those little finishing touches.
-cost=2
+cost=20
 iop1=Drink
 members=yes
 model=model_2532_obj
@@ -458,7 +458,7 @@ param=gnome_cooking_type,0
 [unfinished_chocolate_saturday2]
 name=Unfinished cocktail
 desc=This cocktail is just missing those little finishing touches.
-cost=2
+cost=20
 iop1=Drink
 members=yes
 model=model_2532_obj
@@ -476,7 +476,7 @@ param=gnome_cooking_type,0
 [unfinished_chocolate_saturday3]
 name=Unfinished cocktail
 desc=This cocktail is just missing those little finishing touches.
-cost=2
+cost=20
 iop1=Drink
 members=yes
 model=model_2532_obj
@@ -494,7 +494,7 @@ param=gnome_cooking_type,0
 [unfinished_chocolate_saturday4]
 name=Unfinished cocktail
 desc=This cocktail is just missing those little finishing touches.
-cost=2
+cost=20
 iop1=Drink
 members=yes
 model=model_2661_obj
@@ -512,7 +512,7 @@ param=gnome_cooking_type,0
 [chocolate_saturday]
 name=Choc saturday
 desc=A warm creamy alcoholic beverage.
-cost=30
+cost=175
 iop1=Drink
 members=yes
 model=model_2661_obj
@@ -529,7 +529,7 @@ param=next_obj_stage,cocktail_glass_empty
 [unfinished_sgg1]
 name=Unfinished cocktail
 desc=This cocktail is just missing those little finishing touches.
-cost=2
+cost=20
 iop1=Drink
 members=yes
 model=model_2532_obj
@@ -547,7 +547,7 @@ param=gnome_cooking_type,0
 [unfinished_sgg2]
 name=Unfinished cocktail
 desc=This cocktail is just missing those little finishing touches.
-cost=2
+cost=20
 iop1=Drink
 members=yes
 model=model_2532_obj
@@ -565,7 +565,7 @@ param=gnome_cooking_type,0
 [sgg]
 name=Sgg
 desc=A Short Green Guy... looks good.
-cost=30
+cost=175
 iop1=Drink
 members=yes
 model=model_2738_obj
@@ -582,7 +582,7 @@ param=next_obj_stage,cocktail_glass_empty
 [unfinished_fruit_blast1]
 name=Unfinished cocktail
 desc=This cocktail is just missing those little finishing touches.
-cost=2
+cost=20
 iop1=Drink
 members=yes
 model=model_2532_obj
@@ -600,7 +600,7 @@ param=gnome_cooking_type,0
 [fruit_blast]
 name=Fruit blast
 desc=A cool refreshing fruit mix.
-cost=30
+cost=175
 iop1=Drink
 members=yes
 model=model_2738_obj
@@ -621,7 +621,7 @@ param=next_obj_stage,cocktail_glass_empty
 [unfinished_drunk_dragon1]
 name=Unfinished cocktail
 desc=This cocktail is just missing those little finishing touches.
-cost=2
+cost=20
 iop1=Drink
 members=yes
 model=model_2532_obj
@@ -637,7 +637,7 @@ param=gnome_cooking_type,0
 [unfinished_drunk_dragon2]
 name=Unfinished cocktail
 desc=This cocktail is just missing those little finishing touches.
-cost=2
+cost=20
 iop1=Drink
 members=yes
 model=model_2470_obj
@@ -655,7 +655,7 @@ param=gnome_cooking_type,0
 [unfinished_drunk_dragon3]
 name=Unfinished cocktail
 desc=This cocktail is just missing those little finishing touches.
-cost=2
+cost=20
 iop1=Drink
 members=yes
 model=model_2661_obj
@@ -686,7 +686,7 @@ param=next_obj_stage,cocktail_glass_empty
 [spoilt_cocktail]
 name=Odd cocktail
 desc=I'm not completely sure what this contains.
-cost=2
+cost=20
 iop1=Empty
 iop3=Drink
 members=yes
@@ -704,7 +704,7 @@ param=next_obj_stage,cocktail_glass_empty
 [spoilt_cocktail_fruity]
 name=Odd cocktail
 desc=I'm not completely sure what this contains.
-cost=2
+cost=20
 iop1=Empty
 iop3=Drink
 members=yes
@@ -722,7 +722,7 @@ param=next_obj_stage,cocktail_glass_empty
 [spoilt_cocktail_creamy]
 name=Odd cocktail
 desc=I'm not completely sure what this contains.
-cost=2
+cost=20
 iop1=Empty
 iop3=Drink
 members=yes
@@ -740,7 +740,7 @@ param=next_obj_stage,cocktail_glass_empty
 [spoilt_cocktail_slice]
 name=Odd cocktail
 desc=I'm not completely sure what this contains.
-cost=2
+cost=20
 iop1=Empty
 iop3=Drink
 members=yes
@@ -762,7 +762,7 @@ param=next_obj_stage,cocktail_glass_empty
 [lemon]
 name=Lemon
 desc=A fresh lemon.
-cost=2
+cost=20
 iop1=Eat
 members=yes
 model=model_2501_obj
@@ -775,7 +775,7 @@ weight=100g
 [lemon_chunks]
 name=Lemon chunks
 desc=Fresh chunks of lemon.
-cost=2
+cost=20
 iop1=Eat
 members=yes
 model=model_2573_obj
@@ -794,7 +794,7 @@ param=cocktail_message,You add the diced lemon to the drink.
 [lemon_slices]
 name=Lemon slices
 desc=Fresh lemon slices.
-cost=2
+cost=20
 iop1=Eat
 members=yes
 model=model_2772_obj
@@ -812,7 +812,7 @@ param=cocktail_message,You add a lemon slice to the drink.
 [orange]
 name=Orange
 desc=A fresh orange.
-cost=2
+cost=20
 iop1=Eat
 members=yes
 model=model_2640_obj
@@ -825,7 +825,7 @@ weight=110g
 [orange_chunks]
 name=Orange chunks
 desc=Fresh chunks of orange.
-cost=2
+cost=20
 iop1=Eat
 members=yes
 model=model_2573_obj
@@ -842,7 +842,7 @@ param=cocktail_message,You add the diced orange to the drink.
 [orange_slices]
 name=Orange slices
 desc=Fresh orange slices.
-cost=2
+cost=20
 iop1=Eat
 members=yes
 model=model_2772_obj
@@ -858,7 +858,7 @@ param=cocktail_message,You add an orange slice to the dirnk.
 [pineapple]
 name=Pineapple
 desc=It can be cut up into something more manageable with a knife.
-cost=1
+cost=35
 iop1=Eat
 members=yes
 model=model_2736_obj
@@ -872,7 +872,7 @@ weight=150g
 [pineapple_chunks]
 name=Pineapple chunks
 desc=Fresh chunks of pineapple.
-cost=1
+cost=10
 iop1=Eat
 members=yes
 model=model_2573_obj
@@ -891,7 +891,7 @@ param=pizza_topping_struct,pineapple_topping
 [pineapple_ring]
 name=Pineapple ring
 desc=Exotic fruit.
-cost=1
+cost=10
 iop1=Eat
 members=yes
 model=model_2653_obj
@@ -906,7 +906,7 @@ param=pizza_topping_struct,pineapple_topping
 [lime]
 name=Lime
 desc=A fresh lime.
-cost=2
+cost=20
 iop1=Eat
 members=yes
 model=model_2816_obj
@@ -919,7 +919,7 @@ weight=100g
 [lime_chunks]
 name=Lime chunks
 desc=Fresh chunks of lime.
-cost=1
+cost=10
 iop1=Eat
 members=yes
 model=model_2573_obj
@@ -937,7 +937,7 @@ weight=80g
 [lime_slices]
 name=Lime slices
 desc=Fresh lime slices.
-cost=2
+cost=20
 iop1=Eat
 members=yes
 model=model_2772_obj

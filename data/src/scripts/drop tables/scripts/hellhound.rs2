@@ -73,5 +73,7 @@ if ($random < 5) {
 }
 
 [queue,hellhound_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %hellhound_kc = calc(%hellhound_kc + 1);

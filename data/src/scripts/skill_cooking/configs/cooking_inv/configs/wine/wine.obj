@@ -10,7 +10,7 @@ recol1d=25765
 2dzoom=600
 2dyan=84
 2dxan=260
-cost=1
+cost=14
 weight=1500g
 category=alcoholic_drinks
 param=next_obj_stage,jug_empty
@@ -26,12 +26,12 @@ recol1d=17451
 2dzoom=970
 2dyan=668
 2dxan=404
-cost=1
+cost=25
 weight=250g
 respawnrate=80
 
 [jug_wine]
-cost=1
+cost=175
 name=Jug of wine
 desc=It's full of wine.
 iop1=Drink
@@ -51,7 +51,7 @@ param=next_obj_stage,jug_empty
 [half_full_wine_jug]
 name=Half full wine jug
 desc=An optimist would say it's half full.
-cost=1
+cost=64
 model=model_2390_obj
 recol1s=32767
 recol1d=25765

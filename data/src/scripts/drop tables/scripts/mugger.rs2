@@ -43,5 +43,7 @@ if ($random < 3) {
 }
 
 [queue,mugger_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %mugger_kc = calc(%mugger_kc + 1);

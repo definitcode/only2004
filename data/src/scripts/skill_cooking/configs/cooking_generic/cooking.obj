@@ -1,7 +1,7 @@
 [asgarnian_ale]
 name=Asgarnian ale
 desc=Probably the finest ale in Asgarnia.
-cost=2
+cost=1250
 iop1=Drink
 model=model_2491_obj
 recol1s=25025
@@ -20,7 +20,7 @@ param=next_obj_stage,beer_glass
 [wizards_mind_bomb]
 name=Wizard's mind bomb
 desc=It's got strange bubbles in it.
-cost=2
+cost=1250
 iop1=Drink
 model=model_2491_obj
 recol1s=25025
@@ -39,7 +39,7 @@ param=next_obj_stage,beer_glass
 [greenmans_ale]
 name=Greenman's ale
 desc=A glass of frothy ale.
-cost=2
+cost=1250
 iop1=Drink
 members=yes
 model=model_2491_obj
@@ -59,7 +59,7 @@ param=next_obj_stage,beer_glass
 [dragon_bitter]
 name=Dragon bitter
 desc=A glass of bitter.
-cost=2
+cost=1250
 iop1=Drink
 members=yes
 model=model_2491_obj
@@ -79,7 +79,7 @@ param=next_obj_stage,beer_glass
 [dwarven_stout]
 name=Dwarven stout
 desc=A pint of thick dark beer.
-cost=2
+cost=1250
 iop1=Drink
 model=model_2491_obj
 recol1s=25025
@@ -98,7 +98,7 @@ param=next_obj_stage,beer_glass
 [grog]
 name=Grog
 desc=A murky glass of some sort of drink.
-cost=3
+cost=350
 iop1=Drink
 members=yes
 model=model_2491_obj
@@ -146,7 +146,7 @@ param=crafting_glass_struct,beer_glass
 [swamp_tar]
 name=Swamp tar
 desc=A foul smelling thick tar like substance.
-cost=1
+cost=25
 model=model_2499_obj
 2dxof=1
 2dyof=-22
@@ -161,7 +161,7 @@ category=category_135
 [rawswamppaste]
 name=Raw swamp paste
 desc=A thick tar like substance mixed with flour.
-cost=1
+cost=25
 model=model_2499_obj
 recol1s=4228
 recol1d=7399
@@ -177,7 +177,7 @@ weight=18oz
 [swamppaste]
 name=Swamp paste
 desc=A tar like substance mixed with flour and warmed.
-cost=30
+cost=150
 model=model_2386_obj
 2dxof=1
 2dyof=-22
@@ -237,7 +237,7 @@ category=category_59
 [banana]
 name=Banana
 desc=Mmm this looks tasty.
-cost=2
+cost=45
 iop1=Eat
 model=inv_bannana
 2dxof=9
@@ -318,7 +318,7 @@ category=category_59
 name=Chocolaty milk
 desc=Milk with chocolate in it.
 param=next_obj_stage,bucket_empty
-tradeable=no
+tradeable=yes
 
 [cup_of_tea]
 name=Cup of tea
@@ -375,7 +375,7 @@ tradeable=no
 [onion]
 name=Onion
 desc=A strong smelling onion.
-cost=3
+cost=35
 model=model_loc_3366_8
 recol1s=31674
 recol1d=24108
@@ -387,7 +387,7 @@ category=category_131
 param=ugthanki_kebab_struct,onion_kebab
 
 [chocolate_dust]
-cost=2
+cost=175
 members=yes
 model=model_2742_obj
 recol1s=21140
@@ -411,7 +411,7 @@ model=model_2345_obj
 2dzoom=990
 2dyan=8
 2dxan=112
-cost=1
+cost=50
 weight=1lb
 
 [flour]
@@ -431,7 +431,7 @@ tradeable=no
 [grain]
 name=Grain
 desc=Some wheat heads.
-cost=2
+cost=35
 model=model_2398_obj
 2dxof=-1
 2dyof=9

@@ -11,8 +11,8 @@
 [opheld2,mithril_spear_p] @levelrequire_attack(50, last_slot);
 [opheld2,mithril_2h_sword] @levelrequire_attack(50, last_slot);
 [opheld2,excalibur] @levelrequire_attack(70, last_slot);
-[opheld2,mithril_pickaxe] @levelrequire_attack(50, last_slot);
-[opheld2,mithril_axe] @levelrequire_attack(50, last_slot);
+[opheld2,mithril_pickaxe] @levelrequire_attack(1, last_slot);
+[opheld2,mithril_axe] @levelrequire_attack(1, last_slot);
 
 [opheld2,mithril_med_helm] @levelrequire_defence(50, last_slot);
 [opheld2,mithril_full_helm] @levelrequire_defence(50, last_slot);

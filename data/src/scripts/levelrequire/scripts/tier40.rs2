@@ -1,8 +1,8 @@
 // Melee
 [opheld2,rune_dagger] @levelrequire_attack(80, last_slot);
 [opheld2,rune_dagger_p] @levelrequire_attack(80, last_slot);
-[opheld2,rune_axe] @levelrequire_attack(80, last_slot);
-[opheld2,rune_pickaxe] @levelrequire_attack(80, last_slot);
+[opheld2,rune_axe] @levelrequire_attack(1, last_slot);
+[opheld2,rune_pickaxe] @levelrequire_attack(1, last_slot);
 [opheld2,rune_mace] @levelrequire_attack(80, last_slot);
 [opheld2,rune_sword] @levelrequire_attack(80, last_slot);
 [opheld2,rune_scimitar] @levelrequire_attack(80, last_slot);

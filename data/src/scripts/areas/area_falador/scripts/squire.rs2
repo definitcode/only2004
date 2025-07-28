@@ -6,6 +6,24 @@ if(inv_total(inv, trail_clue_easy_simple017) = 1) {
     @squire_start;
 } else if(%squire_progress = ^squire_complete) {
     ~chatnpc("<p,happy>Hello friend! Many thanks for all of your help! Vyvin never even realised it was a different sword, and I still have my job!");
+    def_int $choice = ~p_choice2_header("Yes.", 1, "No.", 2, "Would you like to use the Faladian Sword[5k]?");
+
+    switch_int($choice){
+        case 1 : {
+            if (inv_total(inv, coins) > 4999){
+                if(inv_total(inv, faladian_sword) < 1 | inv_total(bank, faladian_sword) < 1){
+                    inv_add(inv, faladian_sword, 1);
+                    inv_del(inv, coins, 5000);
+                } else {
+                    mes("You already have a Blurite Sword in your possesion!");
+                    return;
+                }
+            } else {
+                mes("You don't have enough coins to buy the Faladian Sword[5k]");
+            }
+        }
+        case 2 : return;
+    }
 } else {
     ~chatnpc("<p,quiz>So how are you doing getting a sword?");
     @squire_status_report;

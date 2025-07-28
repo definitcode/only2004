@@ -71,7 +71,7 @@ param=next_loc_stage,loc_1343
 param=ent,macro_event_ent_tree1
 
 [loc_1282]
-name=Dead tree
+name=Cursed Tree
 desc=This tree has long been dead.
 model=model_loc_154
 width=2
@@ -84,7 +84,7 @@ param=next_loc_stage,loc_1348
 param=ent,macro_event_ent_dead_tree1
 
 [loc_1283]
-name=Dead tree
+name=Cursed Tree
 desc=This tree has long been dead.
 model=model_loc_1283
 width=2
@@ -98,7 +98,7 @@ param=ent,macro_event_ent_dead_tree1
 
 // unused?
 [loc_1284]
-name=Dead tree
+name=Cursed Tree
 desc=This tree has long been dead.
 model=model_loc_154
 width=2
@@ -114,7 +114,7 @@ param=next_loc_stage,loc_1345
 param=ent,macro_event_ent_dead_tree1
 
 [loc_1285]
-name=Dead tree
+name=Cursed Tree
 desc=An old weather beaten tree.
 model=model_loc_154
 width=2
@@ -130,7 +130,7 @@ param=ent,macro_event_ent_dead_tree1
 
 // not sure about this one
 [loc_1286]
-name=Dead tree
+name=Cursed Tree
 desc=It's only useful for firewood now.
 model=model_loc_1286
 mapscene=6
@@ -140,9 +140,9 @@ category=tree
 param=next_loc_stage,loc_1351
 param=ent,macro_event_ent_dead_tree2
 
-// just a normal 1x1 dead tree?
+// just a normal 1x1 Cursed Tree?
 [loc_1289]
-name=Dead tree
+name=Cursed Tree
 desc=It's only useful for firewood now.
 model=model_loc_1286
 mapscene=6
@@ -156,9 +156,9 @@ category=tree
 param=next_loc_stage,loc_1353
 param=ent,macro_event_ent_dead_tree2
 
-//unused giant dead tree
+//unused giant Cursed Tree
 [loc_1290]
-name=Dead tree
+name=Cursed Tree
 desc=It's only useful for firewood now.
 model=model_loc_1290
 width=2
@@ -170,9 +170,9 @@ category=tree
 param=next_loc_stage,loc_1354
 param=ent,macro_event_ent_dead_tree1
 
-//snowy dead tree
+//snowy Cursed Tree
 [loc_1291]
-name=Dead tree
+name=Cursed Tree
 desc=It's only useful for firewood now.
 model=model_loc_1286
 mapscene=6
@@ -276,7 +276,7 @@ param=next_loc_stage,oak_tree_stump
 param=ent,macro_event_ent_tree2
 
 [loc_1365]
-name=Dead tree
+name=Cursed Tree
 desc=It's only useful for firewood now.
 model=model_loc_1286
 mapscene=6
@@ -291,7 +291,7 @@ param=next_loc_stage,loc_1352
 param=ent,macro_event_ent_dead_tree2
 
 [loc_1383]
-name=Dead tree
+name=Cursed Tree
 desc=This tree has long been dead.
 model=model_loc_1383
 mapscene=6

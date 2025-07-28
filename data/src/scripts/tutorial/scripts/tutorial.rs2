@@ -388,7 +388,7 @@ if_close;
 //    //case 3 : %gamemode_selected = ^gamemode_survival;
 //}
 ~gamemode_selection;
-if (%gamemode_selected = ^gamemode_none | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hcuim) {
+if (%gamemode_selected = ^gamemode_none | %gamemode_selected = ^gamemode_ironman | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hcuim) {
     p_telejump(0_50_50_22_22);
 }
 //} else if (%gamemode_selected = ^gamemode_hardcore) {
@@ -442,7 +442,7 @@ if (%gamemode_selected = ^gamemode_none) {
 //    inv_add(inv, bronze_axe, 1);
 //    inv_add(inv, newcomer_map, 1);
 //}
-
+%founders_transmog = ^transmog_off;
 inv_add(bank, coins, 25);
 ~stat_reset_all;
 ~ledger_reset;

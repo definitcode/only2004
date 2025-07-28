@@ -65,5 +65,7 @@ if ($random < 7){
 }
 
 [queue,tribesman_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %tribesman_kc = calc(%tribesman_kc + 1);

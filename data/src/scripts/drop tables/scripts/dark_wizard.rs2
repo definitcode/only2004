@@ -152,5 +152,7 @@ if ($random < 8) {
 
 
 [queue,dark_wizard_kill]
-mes("You scratch a notch on your bow for the kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %dark_wizard_kc = calc(%dark_wizard_kc + 1);

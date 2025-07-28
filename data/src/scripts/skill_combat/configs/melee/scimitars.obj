@@ -87,7 +87,7 @@ param=stab_sound,hacksword_stab
 [black_scimitar]
 name=Black scimitar
 desc=A vicious curved sword.
-cost=4985
+cost=2985
 model=model_2373_obj
 recol1s=15855
 recol1d=0
@@ -117,7 +117,7 @@ param=stab_sound,hacksword_stab
 [mithril_scimitar]
 name=Mithril scimitar
 desc=A vicious curved sword.
-cost=9200
+cost=3850
 model=model_2373_obj
 recol1s=15855
 recol1d=6346
@@ -146,7 +146,7 @@ param=stab_sound,hacksword_stab
 [adamant_scimitar]
 name=Adamant scimitar
 desc=A vicious curved sword.
-cost=13580
+cost=4850
 model=model_2373_obj
 recol1s=15855
 recol1d=6438
@@ -175,7 +175,7 @@ param=stab_sound,hacksword_stab
 [rune_scimitar]
 name=Rune scimitar
 desc=A vicious curved sword.
-cost=32000
+cost=5850
 model=model_2373_obj
 recol1s=15855
 recol1d=6476
@@ -204,7 +204,7 @@ param=stab_sound,hacksword_stab
 [dragon_scimitar]
 name=Dragon scimitar
 desc=A vicious curved sword.
-cost=50000
+cost=7850
 model=model_2373_obj
 recol1s=15855
 recol1d=14336
@@ -223,8 +223,8 @@ manwear=model_490_obj_wear,0
 womanwear=model_490_obj_wear,6
 category=weapon_slash
 weight=4lb
-param=stabattack,68
-param=slashattack,98
+param=stabattack,39
+param=slashattack,120
 param=crushattack,-2
 param=slashdefence,3
 param=crushdefence,2

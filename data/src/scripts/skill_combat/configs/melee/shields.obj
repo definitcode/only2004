@@ -102,7 +102,7 @@ param=rangedefence,12
 [black_sq_shield]
 name=Black sq shield
 desc=A medium square shield.
-cost=4320
+cost=2850
 model=model_2720_obj
 recol1s=14798
 recol1d=3171
@@ -127,7 +127,7 @@ param=rangedefence,15
 [mithril_sq_shield]
 name=Mithril sq shield
 desc=A medium square shield.
-cost=8405
+cost=3850
 model=model_2720_obj
 recol1s=14798
 recol1d=6346
@@ -152,7 +152,7 @@ param=rangedefence,17
 [adamant_sq_shield]
 name=Adamant sq shield
 desc=A medium square shield.
-cost=11450
+cost=4850
 model=model_2720_obj
 recol1s=14798
 recol1d=6438
@@ -177,7 +177,7 @@ param=rangedefence,24
 [rune_sq_shield]
 name=Rune sq shield
 desc=A medium square shield.
-cost=38400
+cost=5850
 model=model_2720_obj
 recol1s=14798
 recol1d=6476
@@ -202,7 +202,7 @@ param=rangedefence,38
 [dragon_sq_shield_r]
 name=Dragon sq shield
 desc=An un-imbued Dragon sq shield.
-cost=50000
+cost=7850
 model=model_2720_obj
 recol1s=14798
 recol1d=14336
@@ -229,7 +229,7 @@ param=rangedefence,42
 [dragon_sq_shield]
 name=Dragon sq shield(i)
 desc=An ancient and powerful looking Dragon Square shield.
-cost=85000
+cost=45000
 members=yes
 model=model_2840_obj
 recol1s=7296
