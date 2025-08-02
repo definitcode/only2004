@@ -11,6 +11,22 @@ if (stat_base(attack) < $level) {
 }
 ~equip($slot);
 
+[label,levelrequire_woodcutting](int $level, int $slot)
+if (stat_base(woodcutting) < $level) {
+    mes("You are not a high enough level to use this item.");
+    mes("You need to have an Woodcutting level of <tostring($level)>.");
+    return;
+}
+~equip($slot);
+
+[label,levelrequire_mining](int $level, int $slot)
+if (stat_base(mining) < $level) {
+    mes("You are not a high enough level to use this item.");
+    mes("You need to have an Mining level of <tostring($level)>.");
+    return;
+}
+~equip($slot);
+
 [label,levelrequire_defence](int $level, int $slot)
 if (stat_base(defence) < $level) {
     mes("You are not a high enough level to use this item.");

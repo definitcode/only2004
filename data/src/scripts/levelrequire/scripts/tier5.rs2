@@ -10,8 +10,8 @@
 [opheld2,steel_spear] @levelrequire_attack(30, last_slot);
 [opheld2,steel_spear_p] @levelrequire_attack(30, last_slot);
 [opheld2,steel_2h_sword] @levelrequire_attack(30, last_slot);
-[opheld2,steel_pickaxe] @levelrequire_attack(1, last_slot);
-[opheld2,steel_axe] @levelrequire_attack(1, last_slot);
+[opheld2,steel_pickaxe] @levelrequire_mining(30, last_slot);
+[opheld2,steel_axe] @levelrequire_woodcutting(30, last_slot);
 
 
 [opheld2,steel_med_helm] @levelrequire_defence(30, last_slot);

@@ -24,8 +24,8 @@
 
 [opheld2,iron_dagger] @levelrequire_attack(15, last_slot);
 [opheld2,iron_dagger_p] @levelrequire_attack(15, last_slot);
-[opheld2,iron_axe] @levelrequire_attack(1, last_slot);
-[opheld2,iron_pickaxe] @levelrequire_attack(1, last_slot);
+[opheld2,iron_axe] @levelrequire_woodcutting(15, last_slot);
+[opheld2,iron_pickaxe] @levelrequire_mining(15, last_slot);
 [opheld2,iron_mace] @levelrequire_attack(15, last_slot);
 [opheld2,iron_sword] @levelrequire_attack(15, last_slot);
 [opheld2,iron_scimitar] @levelrequire_attack(15, last_slot);

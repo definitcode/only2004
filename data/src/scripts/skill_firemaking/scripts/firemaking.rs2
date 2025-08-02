@@ -47,6 +47,12 @@ if (oc_category(last_useitem) = category_22) {
 def_obj $log = obj_type;
 // check level first
 def_int $level = oc_param($log, levelrequire);
+if ($log = cursed_logs) {
+    if (~wilderness_level(coord) < 30) {
+        mes("You must light cursed logs on cursed soil in the wilderness.");
+        return;
+    }
+}
 if (stat(firemaking) < $level) {
     mes("You need a Firemaking level of <tostring($level)> to burn <oc_name($log)>.");
     return;
@@ -139,7 +145,12 @@ p_opobj(4); // interact with obj again
 [label,light_logs_inv](int $slot)
 def_obj $log = inv_getobj(inv, $slot);
 def_int $level = oc_param($log, levelrequire);
-
+if ($log = cursed_logs) {
+    if (~wilderness_level(coord) < 30) {
+        mes("You must light Cursed logs on cursed soil in the wilderness.");
+        return;
+    }
+}
 if (stat(firemaking) < $level) {
     mes("You need a Firemaking level of <tostring($level)> to burn <oc_name($log)>.");
     return;

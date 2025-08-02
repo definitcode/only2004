@@ -150,7 +150,7 @@ if (stat_random(stat(woodcutting), $tree_chance_low, $tree_chance_high) = true) 
         stat_advance(woodcutting, $exp);
         mes("Your woodcutting skills are showing!");
     }
-    if (inv_total(inv, dragon_axe) > 0 | inv_total(worn, dragon_axe) > 0) {
+    if (inv_total(worn, dragon_axe) > 0) {
         $productcount = 4;
         stat_advance(woodcutting, $exp);
         stat_advance(woodcutting, $exp);
@@ -159,7 +159,7 @@ if (stat_random(stat(woodcutting), $tree_chance_low, $tree_chance_high) = true) 
         if (inv_freespace(inv) < 4) {
             $productcount = inv_freespace(inv);
         }
-    } else if (inv_total(inv, rune_axe) > 0 | inv_total(worn, rune_axe) > 0 ) {
+    } else if (inv_total(worn, rune_axe) > 0 ) {
         $productcount = 3;
         stat_advance(woodcutting, $exp);
         stat_advance(woodcutting, $exp);
@@ -167,32 +167,32 @@ if (stat_random(stat(woodcutting), $tree_chance_low, $tree_chance_high) = true) 
         if (inv_freespace(inv) < 3) {
             $productcount = inv_freespace(inv);
         }
-    } else if (inv_total(inv, adamant_axe) > 0 | inv_total(worn, adamant_axe) > 0) {
+    } else if (inv_total(worn, adamant_axe) > 0) {
         $productcount = 2;
         stat_advance(woodcutting, $exp);
         stat_advance(woodcutting, $exp);
         if (inv_freespace(inv) < 2) {
             $productcount = inv_freespace(inv);
         }
-    } else if (inv_total(inv, mithril_axe) > 0 | inv_total(worn, mithril_axe) > 0 ) {
+    } else if (inv_total(worn, mithril_axe) > 0 ) {
         $productcount = 2;
         stat_advance(woodcutting, $exp);
         if (inv_freespace(inv) < 2) {
             $productcount = inv_freespace(inv);
         }
-    } else if (inv_total(inv, black_axe) > 0 | inv_total(worn, black_axe) > 0  ) {
+    } else if (inv_total(worn, black_axe) > 0  ) {
         $productcount = 1;
         stat_advance(woodcutting, $exp);
-    } else if (inv_total(inv, steel_axe) > 0 | inv_total(worn, steel_axe) > 0  ) {
+    } else if (inv_total(worn, steel_axe) > 0  ) {
         $productcount = 1;
         stat_advance(woodcutting, $exp);
-    } else if (inv_total(inv, founders_axe) > 0 | inv_total(worn, founders_axe) > 0 ) {
+    } else if (inv_total(worn, founders_axe) > 0 ) {
         $productcount = 1;
         stat_advance(woodcutting, $exp);
-    } else if (inv_total(inv, iron_axe) > 0 | inv_total(worn, iron_axe) > 0  ) {
+    } else if (inv_total(worn, iron_axe) > 0  ) {
         $productcount = 1;
         stat_advance(woodcutting, $exp);
-    } else if (inv_total(inv, bronze_axe) > 0 | inv_total(worn, bronze_axe) > 0  ) {
+    } else if (inv_total(worn, bronze_axe) > 0  ) {
         $productcount = 1;
         stat_advance(woodcutting, $exp);
     }
