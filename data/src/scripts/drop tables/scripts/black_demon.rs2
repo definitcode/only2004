@@ -7,6 +7,7 @@ if (npc_findhero = true) {
 }
 gosub(npc_death);
 // Default drop from config.
+~trail_mediumcluedrop(128, npc_coord);
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
 def_int $random = random(128);

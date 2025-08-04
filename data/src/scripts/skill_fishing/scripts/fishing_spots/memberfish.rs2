@@ -5,77 +5,6 @@
 [opnpc4,_memberfish] @fish_mackerel;
 [opnpc5,_memberfish] @fish_shark;
 
-// Utility: Get best harpoon (inventory or worn)
-[label,get_best_harpoon]
-def_namedobj $harpoon = null;
-// Remove dragon_harpoon/founders_harpoon if not defined!
-if (inv_total(inv, dragon_harpoon) > 0) {
-    $harpoon = dragon_harpoon;
-    %harpoon_varp = ^f_dragon;
-} else if (inv_total(inv, rune_harpoon) > 0) {
-    $harpoon = rune_harpoon;
-    %harpoon_varp = ^f_rune;
-} else if (inv_total(inv, adamant_harpoon) > 0) {
-    $harpoon = adamant_harpoon;
-    %harpoon_varp = ^f_adamant;
-} else if (inv_total(inv, mithril_harpoon) > 0) {
-    $harpoon = mithril_harpoon;
-    %harpoon_varp = ^f_mithril;
-} else if (inv_total(inv, steel_harpoon) > 0) {
-    $harpoon = steel_harpoon;
-    %harpoon_varp = ^f_steel;
-} else if (inv_total(inv, iron_harpoon) > 0) {
-    $harpoon = iron_harpoon;
-    %harpoon_varp = ^f_iron;
-} else if (inv_total(inv, bronze_harpoon) > 0) {
-    $harpoon = bronze_harpoon;
-    %harpoon_varp = ^f_bronze;
-} else if (inv_total(inv, harpoon) > 0) {
-    $harpoon = harpoon;
-}
-// Use $harpoon after calling this label
-
-// Utility: Get best harpoon animation
-[label,get_harpoon_anim](namedobj $harpoon)
-def_seq $anim = human_harpoon;
-if ($harpoon = dragon_harpoon) {
-    $anim = human_dragonharpoon;
-    %fishing_animation =^f_dragon;
-} else if ($harpoon = rune_harpoon) {
-    $anim = human_runeharpoon;
-    %fishing_animation = ^f_rune;
-} else if ($harpoon = adamant_harpoon) {
-    $anim = human_adamantharpoon;
-    %fishing_animation = ^f_adamant;
-} else if ($harpoon = mithril_harpoon) {
-    $anim = human_mithrilharpoon;
-    %fishing_animation = ^f_mithril;
-} else if ($harpoon = steel_harpoon) {
-    $anim = human_steelharpoon;
-    %fishing_animation = ^f_steel;
-} else if ($harpoon = iron_harpoon) {
-    $anim = human_ironharpoon;
-    %fishing_animation = ^f_iron;
-} else if ($harpoon = bronze_harpoon) {
-    $anim = human_bronzeharpoon;
-    %fishing_animation = ^f_bronze;
-} else if ($harpoon = founders_harpoon) {
-    $anim = human_foundersharpoon;
-    %fishing_animation = ^f_founders;
-}
-if (%founders_transmog = ^transmog_on){
-    $anim = human_foundersharpoon;
-    %fishing_animation = ^f_founders;
-}
-// Usage example:
-@get_best_harpoon;
-if ($harpoon = null) {
-    ~mesbox("You need a harpoon to fish here.");
-    return;
-}
-@get_harpoon_anim($harpoon);
-~fish_roll(raw_shark, null, $harpoon, null);
-
 //--- Shark fishing
 [label,attempt_fish_shark]
 if (stat(fishing) < 76) {
@@ -84,67 +13,56 @@ if (stat(fishing) < 76) {
     return;
 }
 
-def_namedobj $harpoon = null;
+def_namedobj $harpoon = ~harpoon_checker;
 %harpoon_varp = null;
 
-if (inv_total(inv, dragon_harpoon) > 0) {
-    $harpoon = dragon_harpoon;
-    %harpoon_varp = ^f_dragon;
-} else if (inv_total(inv, founders_harpoon) > 0) {
-    $harpoon = founders_harpoon;
-    %harpoon_varp = ^f_founders;
-} else if (inv_total(inv, rune_harpoon) > 0) {
-    $harpoon = rune_harpoon;
-    %harpoon_varp = ^f_rune;
-} else if (inv_total(inv, adamant_harpoon) > 0) {
-    $harpoon = adamant_harpoon;
-    %harpoon_varp = ^f_adamant;
-} else if (inv_total(inv, mithril_harpoon) > 0) {
-    $harpoon = mithril_harpoon;
-    %harpoon_varp = ^f_mithril;
-} else if (inv_total(inv, steel_harpoon) > 0) {
-    $harpoon = steel_harpoon;
-    %harpoon_varp = ^f_steel;
-} else if (inv_total(inv, iron_harpoon) > 0) {
-    $harpoon = iron_harpoon;
-    %harpoon_varp = ^f_iron;
-} else if (inv_total(inv, bronze_harpoon) > 0) {
-    $harpoon = bronze_harpoon;
-    %harpoon_varp = ^f_bronze;
-} else if (inv_total(inv, harpoon) > 0) {
-    $harpoon = harpoon;
-}
-
 if ($harpoon = null) {
-    ~mesbox("You need a harpoon to fish here.");
+    ~mesbox("You need a harpoon use can use to fish here.");
     return;
 }
 
 def_seq $anim = human_harpoon;
 %fishing_animation = null;
 
-if ($harpoon = dragon_harpoon) {
-    $anim = human_dragonharpoon;
-    %fishing_animation = ^f_dragon;
-} else if ($harpoon = rune_harpoon) {
-    $anim = human_runeharpoon;
-    %fishing_animation = ^f_rune;
-} else if ($harpoon = adamant_harpoon) {
-    $anim = human_adamantharpoon;
-    %fishing_animation = ^f_adamant;
-} else if ($harpoon = mithril_harpoon) {
-    $anim = human_mithrilharpoon;
-    %fishing_animation = ^f_mithril;
-} else if ($harpoon = steel_harpoon) {
-    $anim = human_steelharpoon;
-    %fishing_animation = ^f_steel;
-} else if ($harpoon = iron_harpoon) {
-    $anim = human_ironharpoon;
-    %fishing_animation = ^f_iron;
-} else if ($harpoon = bronze_harpoon) {
-    $anim = human_bronzeharpoon;
-    %fishing_animation = ^f_bronze;
-} else if ($harpoon = founders_harpoon) {
+switch_namedobj($harpoon){
+    case dragon_harpoon : 
+        %harpoon_varp = ^f_dragon;
+        $anim = human_dragonharpoon;
+        %fishing_animation = ^f_dragon;
+    case rune_harpoon : 
+        %harpoon_varp = ^f_rune;
+        $anim = human_runeharpoon;
+        %fishing_animation = ^f_rune;
+    case adamant_harpoon : 
+        %harpoon_varp = ^f_adamant;
+        $anim = human_adamantharpoon;
+        %fishing_animation = ^f_adamant;
+    case mithril_harpoon : 
+        %harpoon_varp = ^f_mithril;
+        $anim = human_mithrilharpoon;
+        %fishing_animation = ^f_mithril;
+    case steel_harpoon : 
+        %harpoon_varp = ^f_steel;
+        $anim = human_steelharpoon;
+        %fishing_animation = ^f_steel;
+    case iron_harpoon : 
+        %harpoon_varp = ^f_iron;
+        $anim = human_ironharpoon;
+        %fishing_animation = ^f_iron;
+    case bronze_harpoon : 
+        %harpoon_varp = ^f_bronze;
+        $anim = human_bronzeharpoon;
+        %fishing_animation = ^f_bronze;
+    case founders_harpoon : 
+        %harpoon_varp = ^f_founders;
+        $anim = human_foundersharpoon;
+        %fishing_animation = ^f_founders;
+    case harpoon : 
+        %harpoon_varp = null;
+}
+
+// Transmog Line
+if (%founders_transmog = ^transmog_on){
     $anim = human_foundersharpoon;
     %fishing_animation = ^f_founders;
 }
@@ -164,6 +82,7 @@ if (%action_delay <= map_clock) {
 } else {
     mes("You're already fishing.");
 }
+~fish_roll(raw_shark, null, $harpoon, null);
 
 [label,fish_shark]
 if (stat(fishing) < 76) {
@@ -172,67 +91,56 @@ if (stat(fishing) < 76) {
     return;
 }
 
-def_namedobj $harpoon = null;
+def_namedobj $harpoon = ~harpoon_checker;
+def_seq $anim = human_harpoon;
+%fishing_animation = null;
 %harpoon_varp = null;
 
-if (inv_total(inv, dragon_harpoon) > 0) {
-    $harpoon = dragon_harpoon;
-    %harpoon_varp = ^f_dragon;
-} else if (inv_total(inv, founders_harpoon) > 0) {
-    $harpoon = founders_harpoon;
-    %harpoon_varp = ^f_founders;
-} else if (inv_total(inv, rune_harpoon) > 0) {
-    $harpoon = rune_harpoon;
-    %harpoon_varp = ^f_rune;
-} else if (inv_total(inv, adamant_harpoon) > 0) {
-    $harpoon = adamant_harpoon;
-    %harpoon_varp = ^f_adamant;
-} else if (inv_total(inv, mithril_harpoon) > 0) {
-    $harpoon = mithril_harpoon;
-    %harpoon_varp = ^f_mithril;
-} else if (inv_total(inv, steel_harpoon) > 0) {
-    $harpoon = steel_harpoon;
-    %harpoon_varp = ^f_steel;
-} else if (inv_total(inv, iron_harpoon) > 0) {
-    $harpoon = iron_harpoon;
-    %harpoon_varp = ^f_iron;
-} else if (inv_total(inv, bronze_harpoon) > 0) {
-    $harpoon = bronze_harpoon;
-    %harpoon_varp = ^f_bronze;
-} else if (inv_total(inv, harpoon) > 0) {
-    $harpoon = harpoon;
+switch_namedobj($harpoon){
+    case dragon_harpoon : 
+        %harpoon_varp = ^f_dragon;
+        $anim = human_dragonharpoon;
+        %fishing_animation = ^f_dragon;
+    case rune_harpoon : 
+        %harpoon_varp = ^f_rune;
+        $anim = human_runeharpoon;
+        %fishing_animation = ^f_rune;
+    case adamant_harpoon : 
+        %harpoon_varp = ^f_adamant;
+        $anim = human_adamantharpoon;
+        %fishing_animation = ^f_adamant;
+    case mithril_harpoon : 
+        %harpoon_varp = ^f_mithril;
+        $anim = human_mithrilharpoon;
+        %fishing_animation = ^f_mithril;
+    case steel_harpoon : 
+        %harpoon_varp = ^f_steel;
+        $anim = human_steelharpoon;
+        %fishing_animation = ^f_steel;
+    case iron_harpoon : 
+        %harpoon_varp = ^f_iron;
+        $anim = human_ironharpoon;
+        %fishing_animation = ^f_iron;
+    case bronze_harpoon : 
+        %harpoon_varp = ^f_bronze;
+        $anim = human_bronzeharpoon;
+        %fishing_animation = ^f_bronze;
+    case founders_harpoon : 
+        %harpoon_varp = ^f_founders;
+        $anim = human_foundersharpoon;
+        %fishing_animation = ^f_founders;
+    case harpoon : 
+        %harpoon_varp = null;
 }
 
+
 if ($harpoon = null) {
-    ~mesbox("You need a harpoon to fish here.");
+    ~mesbox("You need a harpoon use can use to fish here.");
     return;
 }
 
-def_seq $anim = human_harpoon;
-%fishing_animation = null;
-
-if ($harpoon = dragon_harpoon) {
-    $anim = human_dragonharpoon;
-    %fishing_animation = ^f_dragon;
-} else if ($harpoon = rune_harpoon) {
-    $anim = human_runeharpoon;
-    %fishing_animation = ^f_rune;
-} else if ($harpoon = adamant_harpoon) {
-    $anim = human_adamantharpoon;
-    %fishing_animation = ^f_adamant;
-} else if ($harpoon = mithril_harpoon) {
-    $anim = human_mithrilharpoon;
-    %fishing_animation = ^f_mithril;
-} else if ($harpoon = steel_harpoon) {
-    $anim = human_steelharpoon;
-    %fishing_animation = ^f_steel;
-} else if ($harpoon = iron_harpoon) {
-    $anim = human_ironharpoon;
-    %fishing_animation = ^f_iron;
-} else if ($harpoon = bronze_harpoon) {
-    $anim = human_bronzeharpoon;
-    %fishing_animation = ^f_bronze;
-} else if ($harpoon = founders_harpoon) {
+// Transmog Line
+if (%founders_transmog = ^transmog_on){
     $anim = human_foundersharpoon;
     %fishing_animation = ^f_founders;
 }

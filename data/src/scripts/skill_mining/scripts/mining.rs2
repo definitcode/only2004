@@ -193,26 +193,37 @@ if (random($chance) = ^true) {
         $product_amount = 1;
     }
     inv_add(inv, $output, $product_amount);
-    if ($output = copper_ore){
-        %copper_ore_mined = calc(%copper_ore_mined + $product_amount);
-    } else if ($output = tin_ore){
-        %tin_ore_mined = calc(%tin_ore_mined + $product_amount);
-    } else if ($output = iron_ore){
-        %iron_ore_mined = calc(%iron_ore_mined + $product_amount);
-    } else if ($output = coal){
-        %coal_mined = calc(%coal_mined + $product_amount);
-    } else if ($output = gold_ore){
-        %gold_ore_mined = calc(%gold_ore_mined + $product_amount);
-    } else if ($output = silver_ore){
-        %silver_ore_mined = calc(%silver_ore_mined + $product_amount);
-    } else if ($output = mithril_ore){
-        %mithril_ore_mined = calc(%mithril_ore_mined + $product_amount);
-    } else if ($output = adamantite_ore){
-        %adamant_ore_mined = calc(%adamant_ore_mined + $product_amount);
-    } else if ($output = runite_ore){
-        %rune_ore_mined = calc(%rune_ore_mined + $product_amount);
-    } else if ($output = dragon_ore){
-        %dragon_ore_mined = calc(%dragon_ore_mined + $product_amount);
+    switch_namedobj($output){
+        case copper_ore : {
+           %copper_ore_mined = calc(%copper_ore_mined + $product_amount); 
+        }
+        case tin_ore : {
+            %tin_ore_mined = calc(%tin_ore_mined + $product_amount);
+        }
+        case iron_ore : {
+            %iron_ore_mined = calc(%iron_ore_mined + $product_amount);
+        }
+        case coal : {
+            %coal_mined = calc(%coal_mined + $product_amount);
+        }
+        case silver_ore : {
+            %silver_ore_mined = calc(%silver_ore_mined + $product_amount);
+        }
+        case gold_ore : {
+            %gold_ore_mined = calc(%gold_ore_mined + $product_amount);
+        }
+        case mithril_ore : {
+            %mithril_ore_mined = calc(%mithril_ore_mined + $product_amount);
+        }
+        case adamantite_ore : {
+            %adamant_ore_mined = calc(%adamant_ore_mined + $product_amount);
+        }
+        case runite_ore : {
+            %rune_ore_mined = calc(%rune_ore_mined + $product_amount);
+        }
+        case dragon_ore : {
+            %dragon_ore_mined = calc(%dragon_ore_mined + $product_amount);
+        }
     }
     stat_advance(mining, multiply($xp_mul, db_getfield($data, mining_table:rock_exp, 0)));
     mes("You manage to mine some <db_getfield($data, mining_table:ore_name, 0)>.");
@@ -296,26 +307,37 @@ if (random($chance) = ^true) {
     }
     def_namedobj $output = db_getfield($data, mining_table:rock_output, 0);
     inv_add(inv, $output, $product_amount);
-    if ($output = copper_ore){
-        %copper_ore_mined = calc(%copper_ore_mined + $product_amount);
-    } else if ($output = tin_ore){
-        %tin_ore_mined = calc(%tin_ore_mined + $product_amount);
-    } else if ($output = iron_ore){
-        %iron_ore_mined = calc(%iron_ore_mined + $product_amount);
-    } else if ($output = coal){
-        %coal_mined = calc(%coal_mined + $product_amount);
-    } else if ($output = gold_ore){
-        %gold_ore_mined = calc(%gold_ore_mined + $product_amount);
-    } else if ($output = silver_ore){
-        %silver_ore_mined = calc(%silver_ore_mined + $product_amount);
-    } else if ($output = mithril_ore){
-        %mithril_ore_mined = calc(%mithril_ore_mined + $product_amount);
-    } else if ($output = adamantite_ore){
-        %adamant_ore_mined = calc(%adamant_ore_mined + $product_amount);
-    } else if ($output = runite_ore){
-        %rune_ore_mined = calc(%rune_ore_mined + $product_amount);
-    } else if ($output = dragon_ore){
-        %dragon_ore_mined = calc(%dragon_ore_mined + $product_amount);
+    switch_namedobj($output){
+        case copper_ore : {
+           %copper_ore_mined = calc(%copper_ore_mined + $product_amount); 
+        }
+        case tin_ore : {
+            %tin_ore_mined = calc(%tin_ore_mined + $product_amount);
+        }
+        case iron_ore : {
+            %iron_ore_mined = calc(%iron_ore_mined + $product_amount);
+        }
+        case coal : {
+            %coal_mined = calc(%coal_mined + $product_amount);
+        }
+        case silver_ore : {
+            %silver_ore_mined = calc(%silver_ore_mined + $product_amount);
+        }
+        case gold_ore : {
+            %gold_ore_mined = calc(%gold_ore_mined + $product_amount);
+        }
+        case mithril_ore : {
+            %mithril_ore_mined = calc(%mithril_ore_mined + $product_amount);
+        }
+        case adamantite_ore : {
+            %adamant_ore_mined = calc(%adamant_ore_mined + $product_amount);
+        }
+        case runite_ore : {
+            %rune_ore_mined = calc(%rune_ore_mined + $product_amount);
+        }
+        case dragon_ore : {
+            %dragon_ore_mined = calc(%dragon_ore_mined + $product_amount);
+        }
     }
     stat_advance(mining, multiply($xp_mul, db_getfield($data, mining_table:rock_exp, 0)));
     mes("You manage to mine some <db_getfield($data, mining_table:ore_name, 0)>.");
@@ -364,7 +386,7 @@ switch_obj($pickaxe){
     }
     case adamant_pickaxe : {
         $xp_mul = 2;
-        $product_amount = 2;
+        $product_amount = 3;
     }
     case rune_pickaxe : {
         $xp_mul = 3;

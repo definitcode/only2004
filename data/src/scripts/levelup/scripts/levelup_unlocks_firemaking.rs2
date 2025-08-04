@@ -1,11 +1,16 @@
 [label,levelup_firemaking]
 //firemaking level up unlock messages
 switch_int(stat_base(firemaking)) {
-    case 15 : ~objbox(oak_logs,"You can now burn @dbl@Oak Logs.", 180, 0, divide(^objbox_height, 3));
-    case 30 : ~objbox(willow_logs,"You can now burn @dbl@Willow Logs.", 180, 0, divide(^objbox_height, 3));
+    case 15 : 
+        ~objbox(oak_logs,"You can now burn @dbl@Oak Logs.", 180, 0, divide(^objbox_height, 3));
+        ~objbox(iron_tinderbox,"You can now use an @dbl@Iron Tinderbox.", 180, 0, divide(^objbox_height, 3));
+    case 30 : ~doubleobjbox(willow_logs, steel_tinderbox,"You can now burn @dbl@Willow Logs and use a @dbl@Steel Tinderbox.", 200);
     case 45 : ~objbox(maple_logs,"You can now burn @dbl@Maple Logs.", 180, 0, divide(^objbox_height, 3));
+    case 50 : ~objbox(mithril_tinderbox,"You can now use an @dbl@Mithril Tinderbox.", 180, 0, divide(^objbox_height, 3));
     case 60 : ~objbox(yew_logs,"You can now burn @dbl@Yew Logs.", 180, 0, divide(^objbox_height, 3));
+    case 70 : ~objbox(adamant_tinderbox,"You can now use an @dbl@Adamant Tinderbox.", 180, 0, divide(^objbox_height, 3));
+    case 80 : ~objbox(rune_tinderbox,"You can now use an @dbl@Rune Tinderbox.", 180, 0, divide(^objbox_height, 3));
     case 75 : ~objbox(magic_logs,"Members can now burn @dbl@Magic Logs.", 180, 0, divide(^objbox_height, 3));
-    case 99 : ~mesbox("Firemaking Cape is now wearable!");
-
+    case 90 : ~objbox(dragon_tinderbox,"You can now use an @dbl@Dragon Tinderbox.", 200, 0, 0);
+    case 99 : ~objbox(firemaking_cape,"You can now wear a @dbl@Firemaking Cape.", 250, 0, 0);
 }

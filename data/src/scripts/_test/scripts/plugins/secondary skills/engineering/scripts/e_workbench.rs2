@@ -379,8 +379,9 @@ if (inv_total(inv, tinderbox) > 0) {
 [proc,e_chisel]
 if (inv_total(inv, chisel) > 0) {
     if (%engineering > 9) {
-        if (inv_total(inv, bronze_bar) > 0) {
+        if (inv_total(inv, bronze_bar) > 0 & inv_total(inv, logs) > 0) {
             inv_del(inv, bronze_bar, 1);
+            inv_del(inv, logs, 1);
             ~crafting_action;
             inv_del(inv, chisel, 1);
             stat_advance(crafting, 150);
@@ -398,8 +399,9 @@ if (inv_total(inv, chisel) > 0) {
     }
 } else if (inv_total(inv, bronze_chisel) > 0) {
     if (%engineering > 14) {
-        if (inv_total(inv, iron_bar) > 1) {
-            inv_del(inv, iron_bar, 2);
+        if (inv_total(inv, iron_bar) > 0 & inv_total(inv, oak_logs) > 0) {
+            inv_del(inv, oak_logs, 1);
+            inv_del(inv, iron_bar, 1);
             ~crafting_action;
             inv_del(inv, bronze_chisel, 1);
             stat_advance(crafting, 200);
@@ -408,7 +410,7 @@ if (inv_total(inv, chisel) > 0) {
             ~objbox(iron_chisel, "You have upgraded your Bronze Chisel to an Iron Chisel.", 250, 0, 0);
             return;
         } else {
-            ~mesbox("You need 2 Iron Bars to upgrade your Bronze Chisel to an Iron Chisel.");
+            ~mesbox("You need 1 Iron Bars and an Oak Log to upgrade your Bronze Chisel to an Iron Chisel.");
             return;
         }
     } else {
@@ -417,8 +419,9 @@ if (inv_total(inv, chisel) > 0) {
     }
 } else if (inv_total(inv, iron_chisel) > 0) {
     if (%engineering > 29) {
-        if (inv_total(inv, steel_bar) > 1) {
-            inv_del(inv, steel_bar, 2);
+        if (inv_total(inv, steel_bar) > 0 & inv_total(inv, oak_logs) > 0) {
+            inv_del(inv, oak_logs, 1);
+            inv_del(inv, steel_bar, 1);
             ~crafting_action;
             inv_del(inv, iron_chisel, 1);
             stat_advance(crafting, 250);
@@ -427,7 +430,7 @@ if (inv_total(inv, chisel) > 0) {
             ~objbox(steel_chisel, "You have upgraded your Iron Chisel to a Steel Chisel.", 250, 0, 0);
             return;
         } else {
-            ~mesbox("You need 2 Steel Bars to upgrade your Iron Chisel to a Steel Chisel.");
+            ~mesbox("You need 1 Steel Bars and an Oak Log to upgrade your Iron Chisel to a Steel Chisel.");
             return;
         }
     } else {
@@ -436,8 +439,9 @@ if (inv_total(inv, chisel) > 0) {
     }
 } else if (inv_total(inv, steel_chisel) > 0) {
     if (%engineering > 49) {
-        if (inv_total(inv, mithril_bar) > 4) {
-            inv_del(inv, mithril_bar, 5);
+        if (inv_total(inv, mithril_bar) > 0 & inv_total(inv, willow_logs) > 0) {
+            inv_del(inv, willow_logs, 1);
+            inv_del(inv, mithril_bar, 1);
             ~crafting_action;
             inv_del(inv, steel_chisel, 1);
             stat_advance(crafting, 350);
@@ -446,7 +450,7 @@ if (inv_total(inv, chisel) > 0) {
             ~objbox(mithril_chisel, "You have upgraded your Steel Chisel to a Mithril Chisel.", 250, 0, 0);
             return;
         } else {
-            ~mesbox("You need 5 Mithril Bars to upgrade your Steel Chisel to a Mithril Chisel.");
+            ~mesbox("You need 1 Mithril Bars and a Willow Log to upgrade your Steel Chisel to a Mithril Chisel.");
             return;
         }
     } else {
@@ -455,8 +459,9 @@ if (inv_total(inv, chisel) > 0) {
     }
 } else if (inv_total(inv, mithril_chisel) > 0) {
     if (%engineering > 199) {
-        if (inv_total(inv, adamantite_bar) > 6) {
-            inv_del(inv, adamantite_bar, 7);
+        if (inv_total(inv, adamantite_bar) > 0 & inv_total(inv, yew_logs) > 0) {
+            inv_del(inv, yew_logs, 1);
+            inv_del(inv, adamantite_bar, 1);
             ~crafting_action;
             inv_del(inv, mithril_chisel, 1);
             stat_advance(crafting, 450);
@@ -465,7 +470,7 @@ if (inv_total(inv, chisel) > 0) {
             ~objbox(adamant_chisel, "You have upgraded your Mithril Chisel to an Adamant Chisel.", 250, 0, 0);
             return;
         } else {
-            ~mesbox("You need 7 Adamantite Bars to upgrade your Mithril Chisel to an Adamant Chisel.");
+            ~mesbox("You need 1 Adamantite Bars and a Yew Log to upgrade your Mithril Chisel to an Adamant Chisel.");
             return;
         }
     } else {
@@ -474,8 +479,9 @@ if (inv_total(inv, chisel) > 0) {
     }
 } else if (inv_total(inv, adamant_chisel) > 0) {
     if (%engineering > 249) {
-        if (inv_total(inv, runite_bar) > 9) {
-            inv_del(inv, runite_bar, 10);
+        if (inv_total(inv, runite_bar) > 0 & inv_total(inv, magic_logs) > 0) {
+            inv_del(inv, magic_logs, 1);
+            inv_del(inv, runite_bar, 1);
             ~crafting_action;
             inv_del(inv, adamant_chisel, 1);
             stat_advance(crafting, 600);
@@ -484,7 +490,7 @@ if (inv_total(inv, chisel) > 0) {
             ~objbox(rune_chisel, "You have upgraded your Adamant Chisel to a Rune Chisel.", 250, 0, 0);
             return;
         } else {
-            ~mesbox("You need 10 Rune Bars to upgrade your Adamant Chisel to a Rune Chisel.");
+            ~mesbox("You need 1 Rune Bars and a Magic Log to upgrade your Adamant Chisel to a Rune Chisel.");
             return;
         }
     } else {
@@ -493,17 +499,19 @@ if (inv_total(inv, chisel) > 0) {
     }
 } else if (inv_total(inv, rune_chisel) > 0) {
     if (%engineering > 295) {
-        if (inv_total(inv, dragon_bar) > 19) {
-            inv_del(inv, dragon_bar, 20);
+        if (inv_total(inv, dragon_bar) > 0 & inv_total(inv, cursed_logs) > 0) {
+            inv_del(inv, dragon_bar, 1);
+            inv_del(inv, cursed_logs, 1);
             ~crafting_action;
             inv_del(inv, rune_chisel, 1);
             stat_advance(crafting, 800);
             stat_advance(fletching, 750);
             inv_add(inv, dragon_chisel, 1);
+            inv_add(inv, cursed_bark, 50);
             ~objbox(dragon_chisel, "You have upgraded your Rune Chisel to a Dragon Chisel.", 250, 0, 0);
             return;
         } else {
-            ~mesbox("You need 20 Dragon Bars to upgrade your Rune Chisel to a Dragon Chisel.");
+            ~mesbox("You need 1 Dragon Bars and a Cursed Log to upgrade your Rune Chisel to a Dragon Chisel.");
             return;
         }
     } else {
@@ -767,7 +775,7 @@ if (inv_total(inv, bronze_pickaxe) > 0) {
     if (%engineering > 199) {
         if (inv_total(inv, yew_logs) > 1 & inv_total(inv, macro_adamant_pickaxehead) > 0) {
             inv_del(inv, yew_logs, 2);
-            inv_del(inv, macro_mithril_pickaxehead, 1);
+            inv_del(inv, macro_adamant_pickaxehead, 1);
             inv_del(inv, mithril_pickaxe, 1);
             ~crafting_action;
             p_delay(1);
@@ -794,7 +802,6 @@ if (inv_total(inv, bronze_pickaxe) > 0) {
             inv_del(inv, adamant_pickaxe, 1);
             ~crafting_action;
             p_delay(1);
-            
             stat_advance(smithing, 650);
             stat_advance(crafting, 650);
             stat_advance(fletching, 650);

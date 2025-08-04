@@ -7,5 +7,6 @@ switch_int(stat_base(defence)) {
     case 70 : ~objbox(adamant_platebody,"You can now wear @dbl@Adamant Armour!", 250, 0, 0);
     case 80 : ~objbox(rune_platebody,"You can now wear @dbl@Rune Armour!", 250, 0, 0);
     case 90 : ~objbox(dragon_med_helm,"Members can now wear @dbl@Dragon Armour!", 250, 0, ^objbox_height); //imgur.com/bpoMZgD
-    case 99 : ~mesbox("Members can now wield Dragon Sq Shield(i) & Defence Cape is now wearable!");
+    case 99 :
+        ~doubleobjbox(dragon_sq_shield, defence_cape,"You can now wield Dragon Sq Shield(i) & Defence Cape is now wearable!", 250);
 }

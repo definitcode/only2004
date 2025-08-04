@@ -18,6 +18,7 @@ recol3d=4096
 2dyan=1260
 2dxan=444
 weight=1lb
+param=levelrequire,1
 
 [e_iron_knife]
 name=Iron knife
@@ -36,6 +37,7 @@ recol3d=4096
 2dyan=1260
 2dxan=444
 weight=1lb
+param=levelrequire,15
 
 [e_steel_knife]
 name=Steel knife
@@ -54,6 +56,7 @@ recol3d=4096
 2dyan=1260
 2dxan=444
 weight=1lb
+param=levelrequire,30
 
 [e_mithril_knife]
 name=Mithril knife
@@ -72,6 +75,7 @@ recol3d=4096
 2dyan=1260
 2dxan=444
 weight=1lb
+param=levelrequire,50
 
 [e_adamant_knife]
 name=Adamant knife
@@ -90,6 +94,7 @@ recol3d=4096
 2dyan=1260
 2dxan=444
 weight=1lb
+param=levelrequire,70
 
 [e_rune_knife]
 name=Rune knife
@@ -108,6 +113,7 @@ recol3d=4096
 2dyan=1260
 2dxan=444
 weight=1lb
+param=levelrequire,80
 
 [e_dragon_knife]
 name=Dragon knife
@@ -126,6 +132,7 @@ recol3d=4096
 2dyan=1260
 2dxan=444
 weight=1lb
+param=levelrequire,90
 
 // Tinderboxes: bronze to rune
 [bronze_tinderbox]
@@ -144,6 +151,7 @@ womanwear=model_488_obj_wear,0
 2dyan=1968
 2dxan=196
 weight=35g
+param=levelrequire,1
 
 [iron_tinderbox]
 name=Iron tinderbox
@@ -161,6 +169,7 @@ womanwear=model_488_obj_wear,0
 2dyan=1968
 2dxan=196
 weight=35g
+param=levelrequire,15
 
 [steel_tinderbox]
 name=Steel tinderbox
@@ -178,6 +187,7 @@ womanwear=model_488_obj_wear,0
 2dyan=1968
 2dxan=196
 weight=35g
+param=levelrequire,30
 
 [mithril_tinderbox]
 name=Mithril tinderbox
@@ -195,6 +205,7 @@ womanwear=model_488_obj_wear,0
 2dyan=1968
 2dxan=196
 weight=35g
+param=levelrequire,50
 
 [adamant_tinderbox]
 name=Adamant tinderbox
@@ -212,6 +223,7 @@ womanwear=model_488_obj_wear,0
 2dyan=1968
 2dxan=196
 weight=35g
+param=levelrequire,70
 
 [rune_tinderbox]
 name=Rune tinderbox
@@ -229,6 +241,7 @@ womanwear=model_488_obj_wear,0
 2dyan=1968
 2dxan=196
 weight=35g
+param=levelrequire,80
 
 [dragon_tinderbox]
 name=Dragon tinderbox
@@ -246,6 +259,7 @@ womanwear=model_488_obj_wear,0
 2dyan=1968
 2dxan=196
 weight=35g
+param=levelrequire,90
 
 // Hammers: bronze to rune
 [bronze_hammer]
@@ -265,7 +279,7 @@ recol2d=23009
 2dxan=356
 weight=2lb
 category=hammer
-
+param=levelrequire,1
 [iron_hammer]
 name=Iron hammer
 desc=Good for hitting things!
@@ -283,6 +297,7 @@ recol2d=23009
 2dxan=356
 weight=2lb
 category=hammer
+param=levelrequire,15
 
 [steel_hammer]
 name=Steel hammer
@@ -301,6 +316,7 @@ recol2d=20004
 2dxan=356
 weight=2lb
 category=hammer
+param=levelrequire,30
 
 [mithril_hammer]
 name=Mithril hammer
@@ -319,6 +335,7 @@ recol2d=21040
 2dxan=356
 weight=2lb
 category=hammer
+param=levelrequire,50
 
 [adamant_hammer]
 name=Adamant hammer
@@ -337,6 +354,7 @@ recol2d=23073
 2dxan=356
 weight=2lb
 category=hammer
+param=levelrequire,70
 
 [rune_hammer]
 name=Rune hammer
@@ -355,6 +373,7 @@ recol2d=1451
 2dxan=356
 weight=2lb
 category=hammer
+param=levelrequire,80
 
 [dragon_hammer]
 name=Dragon hammer
@@ -373,7 +392,7 @@ recol2d=3072
 2dxan=356
 weight=2lb
 category=hammer
-
+param=levelrequire,90
 
 // Graded harpoons
 [bronze_harpoon]
@@ -394,6 +413,7 @@ manwear=model_503_obj_wear,0
 womanwear=model_503_obj_wear,6
 weight=3lb
 param=fish_equipment_struct,fish_equipment_harpoon
+param=levelrequire,1
 
 [iron_harpoon]
 name=Iron harpoon
@@ -413,6 +433,7 @@ manwear=model_503_obj_wear,0
 womanwear=model_503_obj_wear,6
 weight=3lb
 param=fish_equipment_struct,fish_equipment_harpoon
+param=levelrequire,15
 
 [steel_harpoon]
 name=Steel harpoon
@@ -432,6 +453,7 @@ manwear=model_503_obj_wear,0
 womanwear=model_503_obj_wear,6
 weight=3lb
 param=fish_equipment_struct,fish_equipment_harpoon
+param=levelrequire,30
 
 [mithril_harpoon]
 name=Mithril harpoon
@@ -451,6 +473,7 @@ manwear=model_503_obj_wear,0
 womanwear=model_503_obj_wear,6
 weight=3lb
 param=fish_equipment_struct,fish_equipment_harpoon
+param=levelrequire,50
 
 [adamant_harpoon]
 name=Adamant harpoon
@@ -470,6 +493,7 @@ manwear=model_503_obj_wear,0
 womanwear=model_503_obj_wear,6
 weight=3lb
 param=fish_equipment_struct,fish_equipment_harpoon
+param=levelrequire,70
 
 [rune_harpoon]
 name=Rune harpoon
@@ -489,7 +513,7 @@ manwear=model_503_obj_wear,0
 womanwear=model_503_obj_wear,6
 weight=3lb
 param=fish_equipment_struct,fish_equipment_harpoon
-
+param=levelrequire,80
 [dragon_harpoon]
 name=Dragon Harpoon
 desc=Useful for catching really big fish.
@@ -510,6 +534,7 @@ weight=3lb
 param=fish_equipment_struct,fish_equipment_harpoon
 tradeable=no
 param=no_alchemy,^true
+param=levelrequire,90
 
 // Graded lobster pots
 [lobster_pot_oak]
@@ -526,6 +551,7 @@ manwear=model_531_obj_wear,0
 womanwear=model_531_obj_wear,6
 weight=9oz
 param=fish_equipment_struct,fish_equipment_lobster_pot
+param=levelrequire,15
 
 [lobster_pot_willow]
 name=Lobster pot(W)
@@ -543,6 +569,7 @@ manwear=model_531_obj_wear,0
 womanwear=model_531_obj_wear,6
 weight=9oz
 param=fish_equipment_struct,fish_equipment_lobster_pot
+param=levelrequire,30
 
 [lobster_pot_maple]
 name=Lobster pot(M)
@@ -560,6 +587,7 @@ manwear=model_531_obj_wear,0
 womanwear=model_531_obj_wear,6
 weight=9oz
 param=fish_equipment_struct,fish_equipment_lobster_pot
+param=levelrequire,50
 
 [lobster_pot_yew]
 name=Lobster pot(Y)
@@ -577,6 +605,7 @@ manwear=model_531_obj_wear,0
 womanwear=model_531_obj_wear,6
 weight=9oz
 param=fish_equipment_struct,fish_equipment_lobster_pot
+param=levelrequire,50
 
 [lobster_pot_magic]
 name=Lobster pot(M+)
@@ -594,6 +623,7 @@ manwear=model_531_obj_wear,0
 womanwear=model_531_obj_wear,6
 weight=9oz
 param=fish_equipment_struct,fish_equipment_lobster_pot
+param=levelrequire,80
 
 [lobster_pot_dragon]
 name=Lobster pot(D)
@@ -611,7 +641,7 @@ manwear=model_531_obj_wear,0
 womanwear=model_531_obj_wear,6
 weight=9oz
 param=fish_equipment_struct,fish_equipment_lobster_pot
-
+param=levelrequire,90
 
 [mithril_gauntlets]
 category=category_16
@@ -736,7 +766,7 @@ recol1s=11627
 recol1d=8354
 recol2s=11456 
 recol2d=23009
-param=levelrequired,1
+param=levelrequire,1
 
 [iron_chisel]
 name=Iron Chisel
@@ -752,7 +782,8 @@ recol1s=11627
 recol1d=15855
 recol2s=11456 
 recol2d=23009
-param=levelrequired,15
+param=levelrequire,15
+
 [steel_chisel]
 name=Steel Chisel
 desc=Good for detailed crafting.
@@ -767,7 +798,8 @@ recol1s=11627
 recol1d=15855
 recol2s=11456 
 recol2d=20004
-param=levelrequired,30
+param=levelrequire,30
+
 [mithril_chisel]
 name=Mithril Chisel
 desc=Good for detailed crafting.
@@ -782,7 +814,8 @@ recol1s=11627
 recol1d=6346
 recol2s=11456 
 recol2d=21040
-param=levelrequired,50
+param=levelrequire,50
+
 [adamant_chisel]
 name=Adamant Chisel
 desc=Good for detailed crafting.
@@ -797,7 +830,8 @@ recol1s=11627
 recol1d=6438
 recol2s=11456 
 recol2d=23073
-param=levelrequired,70
+param=levelrequire,70
+
 [rune_chisel]
 name=Rune Chisel
 desc=Good for detailed crafting.
@@ -812,7 +846,8 @@ recol1s=11627
 recol1d=6476
 recol2s=11456 
 recol2d=1451
-param=levelrequired,80
+param=levelrequire,80
+
 [dragon_chisel]
 name=Dragon Chisel
 desc=Good for detailed crafting.
@@ -827,7 +862,8 @@ recol1s=11627
 recol1d=14336
 recol2s=11456
 recol2d=3072
-param=levelrequired,90
+param=levelrequire,90
+
 // Shears
 [bronze_shears]
 name=Bronze Shears
@@ -844,7 +880,8 @@ recol1s=15855
 recol1d=8354
 recol2s=8320 
 recol2d=23009
-param=levelrequired,1
+param=levelrequire,1
+
 [iron_shears]
 name=Iron Shears
 desc=For shearing sheep.
@@ -860,7 +897,8 @@ recol1s=15855
 recol1d=8354
 recol2s=8320 
 recol2d=23009
-param=levelrequired,15
+param=levelrequire,15
+
 [steel_shears]
 name=Steel Shears
 desc=For shearing sheep.
@@ -876,7 +914,8 @@ recol1s=15855
 recol1d=15855
 recol2s=8320 
 recol2d=20004
-param=levelrequired,30
+param=levelrequire,30
+
 [mithril_shears]
 name=Mithril Shears
 desc=For shearing sheep.
@@ -892,7 +931,7 @@ recol1s=15855
 recol1d=6346
 recol2s=8320 
 recol2d=21040
-param=levelrequired,50
+param=levelrequire,50
 
 [adamant_shears]
 name=Adamant Shears
@@ -909,7 +948,8 @@ recol1s=15855
 recol1d=6438
 recol2s=8320 
 recol2d=23073
-param=levelrequired,70
+param=levelrequire,70
+
 [rune_shears]
 name=Rune Shears
 desc=For shearing sheep.
@@ -925,7 +965,8 @@ recol1s=15855
 recol1d=6476
 recol2s=8320 
 recol2d=1451
-param=levelrequired,80
+param=levelrequire,80
+
 [dragon_shears]
 name=Dragon Shears
 desc=For shearing sheep.
@@ -941,4 +982,4 @@ recol1s=15855
 recol1d=14336
 recol2s=8320 
 recol2d=3072
-param=levelrequired,90
+param=levelrequire,90

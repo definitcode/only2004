@@ -37,45 +37,60 @@ if (stat(fishing) < 40) {
     ~mesbox("You need at least 40 Fishing to catch Lobsters.");
     return;
 }
-def_namedobj $pot = null;
+def_namedobj $pot = ~lobsterpot_checker;
 def_seq $anim = human_lobster;
 %lobster_pot_varp = null;
 %fishing_animation = null;
-
-if (inv_total(inv, lobster_pot_dragon) > 0) {
-    $pot = lobster_pot_dragon;
-    $anim = human_lobster_pot_dragon;
-    %lobster_pot_varp = ^f_dragonp;
-    %fishing_animation = ^f_dragonp;
-} else if (inv_total(inv, lobster_pot_magic) > 0) {
-    $pot = lobster_pot_magic;
-    $anim = human_lobster_pot_magic;
-    %lobster_pot_varp = ^f_magic;
-    %fishing_animation = ^f_magic;
-} else if (inv_total(inv, lobster_pot_yew) > 0) {
-    $pot = lobster_pot_yew;
-    $anim = human_lobster_pot_yew;
-    %lobster_pot_varp = ^f_yew;
-    %fishing_animation = ^f_yew;
-} else if (inv_total(inv, lobster_pot_maple) > 0) {
-    $pot = lobster_pot_maple;
-    $anim = human_lobster_pot_maple;
-    %lobster_pot_varp = ^f_maple;
-    %fishing_animation = ^f_maple;
-} else if (inv_total(inv, lobster_pot_willow) > 0) {
-    $pot = lobster_pot_willow;
-    $anim = human_lobster_pot_willow;
-    %lobster_pot_varp = ^f_willow;
-    %fishing_animation = ^f_willow;
-} else if (inv_total(inv, lobster_pot_oak) > 0) {
-    $pot = lobster_pot_oak;
-    $anim = human_lobster_pot_oak;
-    %lobster_pot_varp = ^f_oak;
-    %fishing_animation = ^f_oak;
-} else if (inv_total(inv, lobster_pot) > 0) {
-    $pot = lobster_pot;
-    $anim = human_lobster;
-    %fishing_animation = null;
+switch_namedobj($pot){
+    case lobster_pot_dragon : {
+        $anim = human_lobster_pot_dragon;
+        %lobster_pot_varp = ^f_dragonp;
+        %fishing_animation = ^f_dragonp;
+    }
+    case lobster_pot_magic : {
+        $anim = human_lobster_pot_magic;
+        %lobster_pot_varp = ^f_magic;
+        %fishing_animation = ^f_magic;
+    }
+    case lobster_pot_yew : {
+        $anim = human_lobster_pot_yew;
+        %lobster_pot_varp = ^f_yew;
+        %fishing_animation = ^f_yew;
+    }
+    case lobster_pot_dragon : {
+        $anim = human_lobster_pot_dragon;
+        %lobster_pot_varp = ^f_dragonp;
+        %fishing_animation = ^f_dragonp;
+    }
+    case lobster_pot_magic : {
+        $anim = human_lobster_pot_magic;
+        %lobster_pot_varp = ^f_magic;
+        %fishing_animation = ^f_magic;
+    }
+    case lobster_pot_yew : {
+        $anim = human_lobster_pot_yew;
+        %lobster_pot_varp = ^f_yew;
+        %fishing_animation = ^f_yew;
+    }
+    case lobster_pot_maple : {
+        $anim = human_lobster_pot_maple;
+        %lobster_pot_varp = ^f_maple;
+        %fishing_animation = ^f_maple;
+    }
+    case lobster_pot_willow : {
+        $anim = human_lobster_pot_willow;
+        %lobster_pot_varp = ^f_willow;
+        %fishing_animation = ^f_willow;
+    }
+    case lobster_pot_oak : {
+        $anim = human_lobster_pot_oak;
+        %lobster_pot_varp = ^f_oak;
+        %fishing_animation = ^f_oak;
+    }
+    case lobster_pot : {
+        $anim = human_lobster;
+        %fishing_animation = null;
+    }
 }
 
 if ($pot = null) {
@@ -111,44 +126,48 @@ if (stat(fishing) < 40) {
     ~mesbox("You need at least 40 Fishing to catch Lobsters.");
     return;
 }
-def_namedobj $pot = null;
+def_namedobj $pot = ~lobsterpot_checker;
 def_seq $anim = human_lobster;
 %fishing_animation = null;
-
-if (inv_total(inv, lobster_pot_dragon) > 0) {
-    $pot = lobster_pot_dragon;
-    $anim = human_lobster_pot_dragon;
-    %lobster_pot_varp = ^f_dragonp;
-    %fishing_animation = ^f_dragonp;
-} else if (inv_total(inv, lobster_pot_magic) > 0) {
-    $pot = lobster_pot_magic;
-    $anim = human_lobster_pot_magic;
-    %fishing_animation = ^f_magic;
-} else if (inv_total(inv, lobster_pot_yew) > 0) {
-    $pot = lobster_pot_yew;
-    $anim = human_lobster_pot_yew;
-    %fishing_animation = ^f_yew;
-} else if (inv_total(inv, lobster_pot_maple) > 0) {
-    $pot = lobster_pot_maple;
-    $anim = human_lobster_pot_maple;
-    %fishing_animation = ^f_maple;
-} else if (inv_total(inv, lobster_pot_willow) > 0) {
-    $pot = lobster_pot_willow;
-    $anim = human_lobster_pot_willow;
-    %fishing_animation = ^f_willow;
-} else if (inv_total(inv, lobster_pot_oak) > 0) {
-    $pot = lobster_pot_oak;
-    $anim = human_lobster_pot_oak;
-    %fishing_animation = ^f_oak;
-} else if (inv_total(inv, lobster_pot) > 0) {
-    $pot = lobster_pot;
-    $anim = human_lobster;
-    %fishing_animation = null;
-}
-
 if ($pot = null) {
     ~mesbox("You need a lobster pot to fish here.");
     return;
+}
+switch_obj($pot){
+    case lobster_pot_dragon : {
+        $anim = human_lobster_pot_dragon;
+        %lobster_pot_varp = ^f_dragonp;
+        %fishing_animation = ^f_dragonp;
+    }
+    case lobster_pot_magic : {
+        $anim = human_lobster_pot_magic;
+        %lobster_pot_varp = ^f_magic;
+        %fishing_animation = ^f_magic;
+    }
+    case lobster_pot_yew : {
+        $anim = human_lobster_pot_yew;
+        %lobster_pot_varp = ^f_yew;
+        %fishing_animation = ^f_yew;
+    }
+    case lobster_pot_maple : {
+        $anim = human_lobster_pot_maple;
+        %lobster_pot_varp = ^f_maple;
+        %fishing_animation = ^f_maple;
+    }
+    case lobster_pot_willow : {
+        $anim = human_lobster_pot_willow;
+        %lobster_pot_varp = ^f_willow;
+        %fishing_animation = ^f_willow;
+    }
+    case lobster_pot_oak : {
+        $anim = human_lobster_pot_oak;
+        %lobster_pot_varp = ^f_oak;
+        %fishing_animation = ^f_oak;
+    }
+    case lobster_pot : {
+        $anim = human_lobster;
+        %fishing_animation = null;
+    }
 }
 if (inv_freespace(inv) < 1) {
     anim(null, 0);
@@ -172,74 +191,51 @@ if (stat(fishing) < 35) {
     ~mesbox("You need at least 35 Fishing to harpoon these fish.");
     return;
 }
-def_namedobj $harpoon = null;
+def_namedobj $harpoon = ~harpoon_checker;
+def_seq $anim = human_harpoon;
 %harpoon_varp = null;
-
-if (inv_total(inv, dragon_harpoon) > 0) {
-    $harpoon = dragon_harpoon;
-    %harpoon_varp = ^f_dragon;
-} else if (inv_total(inv, founders_harpoon) > 0) {
-    $harpoon = founders_harpoon;
-    %harpoon_varp = ^f_founders;
-} else if (inv_total(inv, rune_harpoon) > 0) {
-    $harpoon = rune_harpoon;
-    %harpoon_varp = ^f_rune;
-} else if (inv_total(inv, adamant_harpoon) > 0) {
-    $harpoon = adamant_harpoon;
-    %harpoon_varp = ^f_adamant;
-} else if (inv_total(inv, mithril_harpoon) > 0) {
-    $harpoon = mithril_harpoon;
-    %harpoon_varp = ^f_mithril;
-} else if (inv_total(inv, steel_harpoon) > 0) {
-    $harpoon = steel_harpoon;
-    %harpoon_varp = ^f_steel;
-} else if (inv_total(inv, iron_harpoon) > 0) {
-    $harpoon = iron_harpoon;
-    %harpoon_varp = ^f_iron;
-} else if (inv_total(inv, bronze_harpoon) > 0) {
-    $harpoon = bronze_harpoon;
-    %harpoon_varp = ^f_bronze;
-} else if (inv_total(inv, harpoon) > 0) {
-    $harpoon = harpoon;
-}
-
+%fishing_animation = null;
 if ($harpoon = null) {
-    ~mesbox("You need a harpoon to fish here.");
+    ~mesbox("You need a harpoon use can use to fish here.");
     return;
 }
-
-def_seq $anim = human_harpoon;
-%fishing_animation = null;
-
-if ($harpoon = dragon_harpoon) {
-    $anim = human_dragonharpoon;
-    %fishing_animation = ^f_dragon;
-} else if ($harpoon = rune_harpoon) {
-    $anim = human_runeharpoon;
-    %fishing_animation = ^f_rune;
-} else if ($harpoon = adamant_harpoon) {
-    $anim = human_adamantharpoon;
-    %fishing_animation = ^f_adamant;
-} else if ($harpoon = mithril_harpoon) {
-    $anim = human_mithrilharpoon;
-    %fishing_animation = ^f_mithril;
-} else if ($harpoon = steel_harpoon) {
-    $anim = human_steelharpoon;
-    %fishing_animation = ^f_steel;
-} else if ($harpoon = iron_harpoon) {
-    $anim = human_ironharpoon;
-    %fishing_animation = ^f_iron;
-} else if ($harpoon = bronze_harpoon) {
-    $anim = human_bronzeharpoon;
-    %fishing_animation = ^f_bronze;
-} else if ($harpoon = founders_harpoon) {
-    $anim = human_foundersharpoon;
-    %fishing_animation = ^f_founders;
+switch_namedobj($harpoon){
+    case dragon_harpoon : {
+        $anim = human_dragonharpoon;
+        %fishing_animation = ^f_dragon;
+    }
+    case rune_harpoon : {
+        $anim = human_runeharpoon;
+        %fishing_animation = ^f_rune;
+    }
+    case adamant_harpoon : {
+        $anim = human_adamantharpoon;
+        %fishing_animation = ^f_adamant;
+    }
+    case mithril_harpoon : {
+        $anim = human_mithrilharpoon;
+        %fishing_animation = ^f_mithril;
+    }
+    case steel_harpoon : {
+        $anim = human_steelharpoon;
+        %fishing_animation = ^f_steel;
+    }
+    case bronze_harpoon : {
+        $anim = human_bronzeharpoon;
+        %fishing_animation = ^f_bronze;
+    }
+    case harpoon : {
+        $anim = human_harpoon;
+        %fishing_animation = null;
+    }
 }
+
+// Transmog Line
 if (%founders_transmog = ^transmog_on){
     $anim = human_foundersharpoon;
     %fishing_animation = ^f_founders;
 }
+
 if (inv_freespace(inv) < 1) {
     anim(null, 0);
     ~mesbox("You can't carry any more fish.");
@@ -267,73 +263,60 @@ if (%action_delay < map_clock) {
 }
 
 [label,fish_swordfish]
+def_namedobj $harpoon = ~harpoon_checker;
+def_seq $anim = human_harpoon;
+%fishing_animation = null;
+%harpoon_varp = null;
 if (stat(fishing) < 35) {
     anim(null, 0);
     ~mesbox("You need at least 35 Fishing to harpoon these fish.");
     return;
 }
-
-def_namedobj $harpoon = null;
-%harpoon_varp = null;
-
-if (inv_total(inv, dragon_harpoon) > 0) {
-    $harpoon = dragon_harpoon;
-    %harpoon_varp = ^f_dragon;
-} else if (inv_total(inv, founders_harpoon) > 0) {
-    $harpoon = founders_harpoon;
-    %harpoon_varp = ^f_founders;
-} else if (inv_total(inv, rune_harpoon) > 0) {
-    $harpoon = rune_harpoon;
-    %harpoon_varp = ^f_rune;
-} else if (inv_total(inv, adamant_harpoon) > 0) {
-    $harpoon = adamant_harpoon;
-    %harpoon_varp = ^f_adamant;
-} else if (inv_total(inv, mithril_harpoon) > 0) {
-    $harpoon = mithril_harpoon;
-    %harpoon_varp = ^f_mithril;
-} else if (inv_total(inv, steel_harpoon) > 0) {
-    $harpoon = steel_harpoon;
-    %harpoon_varp = ^f_steel;
-} else if (inv_total(inv, iron_harpoon) > 0) {
-    $harpoon = iron_harpoon;
-    %harpoon_varp = ^f_iron;
-} else if (inv_total(inv, bronze_harpoon) > 0) {
-    $harpoon = bronze_harpoon;
-    %harpoon_varp = ^f_bronze;
-} else if (inv_total(inv, harpoon) > 0) {
-    $harpoon = harpoon;
-}
-
 if ($harpoon = null) {
-    ~mesbox("You need a harpoon to fish here.");
+    ~mesbox("You need a harpoon use can use to fish here.");
     return;
 }
 
-def_seq $anim = human_harpoon;
-%fishing_animation = null;
+switch_namedobj($harpoon){
+    case dragon_harpoon : 
+        %harpoon_varp = ^f_dragon;
+        $anim = human_dragonharpoon;
+        %fishing_animation = ^f_dragon;
+    case rune_harpoon : 
+        %harpoon_varp = ^f_rune;
+        $anim = human_runeharpoon;
+        %fishing_animation = ^f_rune;
+    case adamant_harpoon : 
+        %harpoon_varp = ^f_adamant;
+        $anim = human_adamantharpoon;
+        %fishing_animation = ^f_adamant;
+    case mithril_harpoon : 
+        %harpoon_varp = ^f_mithril;
+        $anim = human_mithrilharpoon;
+        %fishing_animation = ^f_mithril;
+    case steel_harpoon : 
+        %harpoon_varp = ^f_steel;
+        $anim = human_steelharpoon;
+        %fishing_animation = ^f_steel;
+    case iron_harpoon : 
+        %harpoon_varp = ^f_iron;
+        $anim = human_ironharpoon;
+        %fishing_animation = ^f_iron;
+    case bronze_harpoon : 
+        %harpoon_varp = ^f_bronze;
+        $anim = human_bronzeharpoon;
+        %fishing_animation = ^f_bronze;
+    case founders_harpoon : 
+        %harpoon_varp = ^f_founders;
+        $anim = human_foundersharpoon;
+        %fishing_animation = ^f_founders;
+    case harpoon : 
+        %harpoon_varp = null;
+}
 
-if ($harpoon = dragon_harpoon) {
-    $anim = human_dragonharpoon;
-    %fishing_animation = ^f_dragon;
-} else if ($harpoon = rune_harpoon) {
-    $anim = human_runeharpoon;
-    %fishing_animation = ^f_rune;
-} else if ($harpoon = adamant_harpoon) {
-    $anim = human_adamantharpoon;
-    %fishing_animation = ^f_adamant;
-} else if ($harpoon = mithril_harpoon) {
-    $anim = human_mithrilharpoon;
-    %fishing_animation = ^f_mithril;
-} else if ($harpoon = steel_harpoon) {
-    $anim = human_steelharpoon;
-    %fishing_animation = ^f_steel;
-} else if ($harpoon = iron_harpoon) {
-    $anim = human_ironharpoon;
-    %fishing_animation = ^f_iron;
-} else if ($harpoon = bronze_harpoon) {
-    $anim = human_bronzeharpoon;
-    %fishing_animation = ^f_bronze;
-} else if ($harpoon = founders_harpoon) {
+
+// Transmog Line
+if (%founders_transmog = ^transmog_on){
     $anim = human_foundersharpoon;
     %fishing_animation = ^f_founders;
 }

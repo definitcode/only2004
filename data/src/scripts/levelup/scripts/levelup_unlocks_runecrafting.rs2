@@ -39,5 +39,5 @@ switch_int(stat_base(runecraft)) {
     case 92 : ~objbox(bodyrune,"You can now receive 3 @dbl@Body Runes@bla@.", 250, 0, 0);
     //case 95 : ~doubleobjbox(waterrune,lawrune,"You can now receive 6 @dbl@Water Runes@bla@|and you can now receive 2 @dbl@Law Runes@bla@.", 250, 0, 0);
     case 98 : ~objbox(mindrune,"You can now receive 8 @dbl@Mind Runes@bla@.", 250, 0, 0);
-    case 99 : ~mesbox("Runecraft Cape is now wearable!");
+    case 99 :  ~objbox(runecrafting_cape,"You can now where an @dbl@Runecraft Cape @bla@!", 250, 0, 0);
 }

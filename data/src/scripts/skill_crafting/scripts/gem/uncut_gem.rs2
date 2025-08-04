@@ -10,39 +10,46 @@ switch_obj (last_useitem)
 
 //--- Label to craft a gem
 [label,crafting_gem](obj $uncut_gem)
-def_namedobj $chisel = null;
+def_obj $chisel = ~chisel_checker;
 def_int $exp_mul = 1;
 def_int $prod_mul = 1;
-if ((inv_total(inv, dragon_chisel) > 0)){
-    $chisel = dragon_chisel;
-    $exp_mul = 4;
-    $prod_mul = 2;
-} else if ((inv_total(inv, rune_chisel) > 0)){
-    $chisel = rune_chisel;
-    $exp_mul = 3;
-    $prod_mul = 2;
-} else if ((inv_total(inv, adamant_chisel) > 0)){
-    $chisel = adamant_chisel;
-    $exp_mul = 2;
-    $prod_mul = 2;
-} else if ((inv_total(inv, mithril_chisel) > 0)){
-    $chisel = mithril_chisel;
-    $exp_mul = 1;
-    $prod_mul = 2;
-} else if ((inv_total(inv, steel_chisel) > 0)){
-    $chisel = steel_chisel;
-    $exp_mul = 1;
-    $prod_mul = 1;
-} else if ((inv_total(inv, iron_chisel) > 0)){
-    $chisel = iron_chisel;
-    $exp_mul = 1;
-    $prod_mul = 1;
-} else if ((inv_total(inv, bronze_chisel) > 0)){
-    $chisel = bronze_chisel;
-    $exp_mul = 1;
-    $prod_mul = 1;
-} else if ((inv_total(inv, chisel) > 0)){
-    $chisel = chisel;
+switch_obj($chisel){
+    case dragon_chisel : {
+        $exp_mul = 4;
+        $prod_mul = 2;
+    }
+    case rune_chisel : {
+        $exp_mul = 3;
+        $prod_mul = 2;
+    }
+    case adamant_chisel : {
+        $exp_mul = 2;
+        $prod_mul = 2;
+    }
+    case mithril_chisel : {
+        $exp_mul = 1;
+        $prod_mul = 2;
+    }
+    case steel_chisel : {
+        $exp_mul = 1;
+        $prod_mul = 1;
+    }
+    case iron_chisel : {
+        $exp_mul = 1;
+        $prod_mul = 1;
+    }
+    case bronze_chisel : {
+        $exp_mul = 1;
+        $prod_mul = 1;
+    }
+    case chisel : {
+        $exp_mul = 1;
+        $prod_mul = 1;
+    }
+}
+if ($chisel = null){
+    mes("You need a chisel that you can use to do this.");
+    return;
 }
 if (oc_members($uncut_gem) = true) {
     if (map_members = false) {

@@ -1,0 +1,105 @@
+[proc,harpoon_checker]()(namedobj)
+def_int $lvl0 = stat(fishing);
+def_namedobj $obj1 = null;
+if (inv_total(inv, dragon_harpoon) > 0) {
+    $obj1 = dragon_harpoon;
+    %harpoon_varp = ^f_dragon;
+} else if (inv_total(inv, founders_harpoon) > 0) {
+    $obj1 = founders_harpoon;
+    %harpoon_varp = ^f_founders;
+} else if (inv_total(inv, rune_harpoon) > 0) {
+    $obj1 = rune_harpoon;
+    %harpoon_varp = ^f_rune;
+} else if (inv_total(inv, adamant_harpoon) > 0) {
+    $obj1 = adamant_harpoon;
+    %harpoon_varp = ^f_adamant;
+} else if (inv_total(inv, mithril_harpoon) > 0) {
+    $obj1 = mithril_harpoon;
+    %harpoon_varp = ^f_mithril;
+} else if (inv_total(inv, steel_harpoon) > 0) {
+    $obj1 = steel_harpoon;
+    %harpoon_varp = ^f_steel;
+} else if (inv_total(inv, iron_harpoon) > 0) {
+    $obj1 = iron_harpoon;
+    %harpoon_varp = ^f_iron;
+} else if (inv_total(inv, bronze_harpoon) > 0) {
+    $obj1 = bronze_harpoon;
+    %harpoon_varp = ^f_bronze;
+} else if (inv_total(inv, harpoon) > 0) {
+    $obj1 = harpoon;
+}
+
+if ($lvl0 >= oc_param(dragon_harpoon, levelrequire) & ($obj1 = dragon_harpoon)) {
+    return(dragon_harpoon);
+}
+if ($lvl0 >= oc_param(rune_harpoon, levelrequire) & ($obj1 = rune_harpoon)) {
+    return(rune_harpoon);
+}
+if ($lvl0 >= oc_param(adamant_harpoon, levelrequire) & ($obj1 = adamant_harpoon)) {
+    return(adamant_harpoon);
+}
+if ($lvl0 >= oc_param(mithril_harpoon, levelrequire) & ($obj1 = mithril_harpoon)) {
+    return(mithril_harpoon);
+}
+if ($lvl0 >= oc_param(steel_harpoon, levelrequire) & ($obj1 = steel_harpoon)) {
+    return(steel_harpoon);
+}
+if ($lvl0 >= oc_param(iron_harpoon, levelrequire) & ($obj1 = iron_harpoon)) {
+    return(iron_harpoon);
+}
+if ($lvl0 >= oc_param(bronze_harpoon, levelrequire) & ($obj1 = bronze_harpoon)) {
+    return(bronze_harpoon);
+}
+if ($lvl0 >= oc_param(founders_harpoon, levelrequire) & ($obj1 = founders_harpoon)) {
+    return(founders_harpoon);
+}
+return(null);
+
+[proc,lobsterpot_checker]()(namedobj)
+def_int $lvl0 = stat(fishing);
+def_namedobj $obj1 = null;
+if (inv_total(inv, lobster_pot_dragon) > 0) {
+    $obj1 = lobster_pot_dragon;
+    %lobster_pot_varp = ^f_dragonp;
+} else if (inv_total(inv, lobster_pot_magic) > 0) {
+    $obj1 = lobster_pot_magic;
+    %lobster_pot_varp = ^f_magic;
+} else if (inv_total(inv, lobster_pot_yew) > 0) {
+    $obj1 = lobster_pot_yew;
+    %lobster_pot_varp = ^f_yew;
+} else if (inv_total(inv, lobster_pot_maple) > 0) {
+    $obj1 = lobster_pot_maple;
+    %lobster_pot_varp = ^f_maple;
+} else if (inv_total(inv, lobster_pot_willow) > 0) {
+    $obj1 = lobster_pot_willow;
+    %lobster_pot_varp = ^f_willow;
+} else if (inv_total(inv, lobster_pot_oak) > 0) {
+    $obj1 = lobster_pot_oak;
+    %lobster_pot_varp = ^f_oak;
+} else if (inv_total(inv, lobster_pot) > 0) {
+    $obj1 = lobster_pot;
+}
+
+
+if ($lvl0 >= oc_param(lobster_pot_dragon, levelrequire) & ($obj1 = lobster_pot_dragon)) {
+    return(lobster_pot_dragon);
+}
+if ($lvl0 >= oc_param(lobster_pot_magic, levelrequire) & ($obj1 = lobster_pot_magic)) {
+    return(lobster_pot_magic);
+}
+if ($lvl0 >= oc_param(lobster_pot_yew, levelrequire) & ($obj1 = lobster_pot_yew)) {
+    return(lobster_pot_yew);
+}
+if ($lvl0 >= oc_param(lobster_pot_maple, levelrequire) & ($obj1 = lobster_pot_maple)) {
+    return(lobster_pot_maple);
+}
+if ($lvl0 >= oc_param(lobster_pot_willow, levelrequire) & ($obj1 = lobster_pot_willow)) {
+    return(lobster_pot_willow);
+}
+if ($lvl0 >= oc_param(lobster_pot_oak, levelrequire) & ($obj1 = lobster_pot_oak)) {
+    return(lobster_pot_oak);
+}
+if ($lvl0 >= oc_param(lobster_pot, levelrequire) & ($obj1 = lobster_pot)) {
+    return(lobster_pot);
+}
+return(null);

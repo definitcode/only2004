@@ -27,31 +27,10 @@ if ($bark = tree_bark) {
     }
 }
 // --- tinderbox detection ---
-def_namedobj $tbox = null;
-if (inv_total(inv, tinderbox) > 0) {
-    $tbox = tinderbox;
-} else if (inv_total(inv, hc_tinderbox) > 0) {
-    $tbox = hc_tinderbox;
-} else if (inv_total(inv, dragon_tinderbox) > 0) {
-    $tbox = dragon_tinderbox;
-} else if (inv_total(inv, rune_tinderbox) > 0) {
-    $tbox = rune_tinderbox;
-} else if (inv_total(inv, adamant_tinderbox) > 0) {
-    $tbox = adamant_tinderbox;
-} else if (inv_total(inv, mithril_tinderbox) > 0) {
-    $tbox = mithril_tinderbox;
-} else if (inv_total(inv, steel_tinderbox) > 0) {
-    $tbox = steel_tinderbox;
-} else if (inv_total(inv, iron_tinderbox) > 0) {
-    $tbox = iron_tinderbox;
-} else if (inv_total(inv, bronze_tinderbox) > 0) {
-    $tbox = bronze_tinderbox;
-} else if (inv_total(inv, founders_tinderbox) > 0) {
-    $tbox = founders_tinderbox;
-}
+def_obj $tbox = ~firemaking_checker;
 
 if ($tbox = null) {
-    mes("You need a tinderbox to light a fire.");
+    mes("You need a tinderbox you can use to light a fire.");
     return;
 }
 // --- tinderbox animation selection ---
@@ -59,7 +38,7 @@ def_int $random1 = random(2);
 def_int $delay = 0;
 def_int $formula = calc($random1 + $delay);
 def_seq $anim_id = null;
-switch_namedobj($tbox){
+switch_obj($tbox){
     case tinderbox : {
         $anim_id = human_createfire;
         $delay = 4;
@@ -122,7 +101,7 @@ if ($success > 150) {
     return;
 }
 
-[proc,barkburning_success](obj $bark, namedobj $tbox, seq $anim_id)
+[proc,barkburning_success](obj $bark, obj $tbox, seq $anim_id)
 def_int $xp_mul = 0;
 def_int $exp_raw = 0;
 def_int $total_bark = inv_total(inv, $bark);
@@ -133,7 +112,7 @@ if ($total_bark > 9){
     $bark_burned = $total_bark;
 }
 
-switch_namedobj($tbox){
+switch_obj($tbox){
     case tinderbox : $xp_mul = 1;
     case dragon_tinderbox : $xp_mul = 4;
     case rune_tinderbox : $xp_mul = 3;

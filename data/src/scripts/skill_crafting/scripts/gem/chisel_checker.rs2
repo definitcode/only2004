@@ -1,0 +1,42 @@
+[proc,chisel_checker]()(obj)
+def_int $lvl0 = stat(crafting);
+def_obj $obj1 = null;
+if (inv_total(inv, dragon_chisel) > 0) {
+    $obj1 = dragon_chisel;
+} else if (inv_total(inv, rune_chisel) > 0) {
+    $obj1 = rune_chisel;
+} else if (inv_total(inv, adamant_chisel) > 0) {
+    $obj1 = adamant_chisel;
+} else if (inv_total(inv, mithril_chisel) > 0) {
+    $obj1 = mithril_chisel;
+} else if (inv_total(inv, steel_chisel) > 0) {
+    $obj1 = steel_chisel;
+} else if (inv_total(inv, iron_chisel) > 0) {
+    $obj1 = iron_chisel;
+} else if (inv_total(inv, bronze_chisel) > 0) {
+    $obj1 = bronze_chisel;
+} else if (inv_total(inv, tinderbox) > 0) {
+    $obj1 = tinderbox;
+}
+if ($lvl0 >= oc_param(dragon_chisel, levelrequire) & ($obj1 = dragon_chisel)) {
+    return(dragon_chisel);
+}
+if ($lvl0 >= oc_param(rune_chisel, levelrequire) & ($obj1 = rune_chisel)) {
+    return(rune_chisel);
+}
+if ($lvl0 >= oc_param(adamant_chisel, levelrequire) & ($obj1 = adamant_chisel)) {
+    return(adamant_chisel);
+}
+if ($lvl0 >= oc_param(mithril_chisel, levelrequire) & ($obj1 = mithril_chisel)) {
+    return(mithril_chisel);
+}
+if ($lvl0 >= oc_param(steel_chisel, levelrequire) & ($obj1 = steel_chisel)) {
+    return(steel_chisel);
+}
+if ($lvl0 >= oc_param(iron_chisel, levelrequire) & ($obj1 = iron_chisel)) {
+    return(iron_chisel);
+}
+if ($lvl0 >= oc_param(bronze_chisel, levelrequire) & ($obj1 = bronze_chisel)) {
+    return(bronze_chisel);
+}
+return(null);
