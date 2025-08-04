@@ -1,0 +1,49 @@
+[label,solo_heroes_quest]
+if (%hero_solo_progress = ^hero_not_started){
+    %hero_solo_progress = ^hero_solo_started;
+    ~send_quest_progress(questlist:hero, %hero_solo_progress, ^hero_complete);
+    ~chatnpc("<p,neutral>Alright then, I am going to need a few things from you to prove your worth to our prestigious guild.");
+    ~chatplayer("<p,happy>I will do whatever it takes to be a member amongst the ranks of such individuals!");
+    ~chatnpc("Kill a few targets that have eluded our warriors, then bring back your tokens of victory. |Rip - hangs out inside a castle in the wilderness |Tnaig'Ssom  - he is deep inside the varrock sewers.");
+
+} else if (%hero_solo_progress = ^hero_solo_killed_rip | %hero_solo_progress = ^hero_solo_killed_tnaig_ssom){
+    ~send_quest_progress(questlist:hero, %hero_solo_progress, ^hero_complete);
+    if (%hero_solo_progress = ^hero_solo_killedtargets){
+        ~mesbox("You have killed both of your targets, now time to turn in your tokens of victory!");
+    } else if (%hero_solo_progress = ^hero_solo_killed_rip){
+        ~mesbox("You have killed one of your targets, now time to kill Tnaig`Ssom!");
+    } else {
+        return;
+    }    
+}
+if (%hero_solo_progress = ^hero_solo_started){
+  ~chatnpc("You need to come back when you have compeleted the next step of the task.");
+  return;
+}
+if (%hero_solo_progress = ^hero_solo_killedtargets){
+    if (inv_total(inv, tniagssom_bones) > 0 & inv_total(inv, rip_keys) > 0){
+        inv_del(inv, tniagssom_bones, 1);
+        inv_del(inv, rip_keys, 1);
+        %hero_solo_progress = ^hero_solo_itemsturnedin;
+        ~send_quest_progress(questlist:hero, %hero_solo_progress, ^hero_complete);
+        ~chatnpc("<p,shock>Woah! You did that so quickly, now! |One last test of might is headed your way.");
+        ~chatplayer("<p,happy>Bring it on!");
+        ~chatnpc("Alright, I will send you to a powerful warrior to challenge. |He will test your strength!");
+        ~chatnpc("Head to the Barbarian Village and talk to Peksa.");
+    } else {
+        ~mesbox("You do not have the required tokens to turn in the quest!");
+    }
+
+}
+
+if (%hero_solo_progress = ^hero_solo_killed_gunthor){
+    if (inv_total(inv, gunthors_battleaxe) > 0){
+        inv_del(inv, gunthors_battleaxe, 1);
+        ~chatnpc("Again very impressed! You have completed the tasks in a timely manner.");
+        queue(hero_quest_complete, 0);
+        return;
+    } else {
+        ~mesbox("You do not have the required tokens to turn in the quest!");
+        return;
+    }
+}

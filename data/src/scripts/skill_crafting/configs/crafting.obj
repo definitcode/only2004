@@ -147,6 +147,9 @@ womanwear=model_525_obj_wear,6
 2dyan=136
 2dxan=300
 weight=4oz
+wearpos=righthand
+iop2=Wear
+category=skilling_tools
 
 [cow_hide]
 name=Cow hide
@@ -169,6 +172,9 @@ model=model_2489_obj
 2dyan=1928
 2dxan=404
 weight=1lb
+wearpos=righthand
+iop2=Wear
+category=skilling_tools
 
 [brown_apron]
 name=Brown apron

@@ -179,7 +179,9 @@ if(%chompybird_progress < ^chompybird_complete | %chompybird_kills >= 100000) {
     return; 
 }
 // https://youtu.be/7ze4YEvQwHM?si=AYdN3zfe62SP4emb&t=215
-mes("You scratch a notch on your bow for the chompy bird kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %chompybird_kills = calc(%chompybird_kills + 1);
 if(%chompybird_kills = 4000) {
     stat_advance(ranged, 300000);

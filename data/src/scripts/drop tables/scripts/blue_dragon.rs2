@@ -62,11 +62,12 @@ if ($random < 4) {
     obj_add(npc_coord, coins, 11, ^lootdrop_duration);
 } else if ($random < 117) {
     obj_add(npc_coord, coins, 440, ^lootdrop_duration);
+    obj_add(npc_coord, ~high_tier_items, ^lootdrop_duration); 
 } else if ($random < 120) {
     obj_add(npc_coord, bass, 1, ^lootdrop_duration);
 } else if ($random < 121 ){
     obj_add(npc_coord, macro_genilamp, 1, ^lootdrop_duration);
-} else if ($random < 123) {
+} else if ($random < 122) {
     obj_add(npc_coord, adamantite_ore, 1, ^lootdrop_duration);
 } else if ($random < 128) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
@@ -74,5 +75,7 @@ if ($random < 4) {
 }
 
 [queue,blue_dragon_kill]
-mes("You scratch a notch on your bow for the blue dragon kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %blue_dragon_kc = calc(%blue_dragon_kc + 1);

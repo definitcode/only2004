@@ -72,6 +72,10 @@ if(npc_findhero = true) { // happens before npc_death
     queue(gunthor_kill, 0);
 }
 gosub(npc_death);
+if (%hero_solo_progress = ^hero_solo_killed_gunthor){
+    mes("You have defeated Gunthor the Coward!");
+    obj_add(npc_coord, gunthors_battleaxe, 1, ^lootdrop_duration);
+}
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 
@@ -134,6 +138,9 @@ if (%e_ctoggle = ^e_toggle_on){
     mes("You etch another tally into your ledger.");
 }
 %gunthor_kc = calc(%gunthor_kc + 1);
+if (%hero_solo_progress = ^hero_solo_kill_gunthor){
+    %hero_solo_progress = ^hero_solo_killed_gunthor;
+}
 
 [ai_queue1,gunthor_the_brave]
 def_npc_mode $npc_mode = npc_getmode;
@@ -145,6 +152,15 @@ if (finduid(%npc_attacking_uid) = true & $npc_mode ! opplayer2) { // in osrs it 
             npc_say("WE must PROTECT our LEADER!");
             %npc_aggressive_player = uid;
             ~npc_default_retaliate;
+        }
+        if (%hero_solo_progress = ^hero_solo_kill_gunthor){
+            if (npc_stat(hitpoints) < 50){
+                npc_statadd(strength, 5, 0);
+                npc_say("*AGHHHHHH* You really made a mistake now!");
+            } else if (npc_stat(hitpoints) < 25){
+                npc_statadd(strength, 10, 0);
+                npc_say("I'LL KILL YOU IF ITS THE LAST THING I DO!");
+            }
         }
     }
 }

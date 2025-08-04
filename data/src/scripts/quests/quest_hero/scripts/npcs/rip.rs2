@@ -1,0 +1,30 @@
+[ai_queue3,rip]
+if (npc_findhero = false) {
+    return;
+}
+if (npc_findhero = true) {
+    queue(rip_queue_progress, 0);
+}
+gosub(npc_death);
+// Key appears for anyone
+if (%hero_solo_progress = ^hero_solo_started | %hero_solo_progress = ^hero_solo_killed_tnaig_ssom | %hero_solo_progress = ^hero_solo_killedtargets | %hero_solo_progress = ^hero_solo_killed_rip){
+    obj_addall(npc_coord, rip_keys, 1, ^lootdrop_duration);
+} else {
+    obj_addall(npc_coord, bones, 1, ^lootdrop_duration);
+}
+
+[queue,rip_queue_progress]
+%hero_solo_progress = ^hero_solo_killed_rip;
+if (%hero_solo_progress = ^hero_solo_started){
+    %hero_solo_progress = ^hero_solo_killed_rip;
+} else if (%hero_progress = ^hero_solo_killed_tnaig_ssom){
+    %hero_solo_progress = ^hero_solo_killedtargets;
+}
+
+if (%hero_solo_progress = ^hero_solo_killedtargets){
+    mes("You have killed both of your targets, now time to turn in your tokens of victory!");
+} else if (%hero_solo_progress = ^hero_solo_killed_rip){
+    mes("You have killed one of your targets, now time to kill Tnaig`Ssom!");
+} else {
+    return;
+}

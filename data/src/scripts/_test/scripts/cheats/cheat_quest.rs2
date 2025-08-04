@@ -218,7 +218,9 @@ if (p_finduid(uid) = true) {
                 case 29 :
                     %hazeelcult_side = 0;
                     %hazeelcult_progress = 0;
-                case 30 : %hero_progress = 0;
+                case 30 : 
+                    %hero_progress = 0;
+                    %hero_solo_progress = 0;
                 case 31 : %grail_progress = 0;
                 case 32 : %junglepotion_progress = 0;
                 case 33 : %legends_progress = 0;

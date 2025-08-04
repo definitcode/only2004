@@ -636,7 +636,7 @@ param=slashattack,3
 param=crushattack,3
 param=stabdefence,9
 param=slashdefence,10
-param=crushdefence,78
+param=crushdefence,8
 param=strengthbonus,3
 tradeable=yes
 

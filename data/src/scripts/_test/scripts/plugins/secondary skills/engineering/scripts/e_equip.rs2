@@ -1,0 +1,103 @@
+
+//[label,levelrequire_fishing](int $level, int $slot)
+//if (stat_base(fishing) < $level) {
+//    mes("You are not a high enough level to use this item.");
+//    mes("You need a Fishing level of <tostring($level)>.");
+//    return;
+//}
+//~equip($slot);
+//
+//[label,levelrequire_fletching](int $level, int $slot)
+//if (stat_base(fletching) < $level) {
+//    mes("You are not a high enough level to use this item.");
+//    mes("You need a Fletching level of <tostring($level)>.");
+//    return;
+//}
+//~equip($slot);
+//
+//[label,levelrequire_firemaking](int $level, int $slot)
+//if (stat_base(firemaking) < $level) {
+//    mes("You are not a high enough level to use this item.");
+//    mes("You need a Firemaking level of <tostring($level)>.");
+//    return;
+//}
+//~equip($slot);
+//
+//[label,levelrequire_crafting](int $level, int $slot)
+//if (stat_base(crafting) < $level) {
+//    mes("You are not a high enough level to use this item.");
+//    mes("You need a Crafting level of <tostring($level)>.");
+//    return;
+//}
+//~equip($slot);
+//
+//[label,levelrequire_herblore](int $level, int $slot)
+//if (stat_base(herblore) < $level) {
+//    mes("You are not a high enough level to use this item.");
+//    mes("You need a Herblore level of <tostring($level)>.");
+//    return;
+//}
+//~equip($slot);
+//[label,levelrequire_hunter](int $level, int $slot)
+//~hunter_check;
+//if (%hunter < $level) {
+//    mes("You are not a high enough level to use this item.");
+//    mes("You need a Hunter level of <tostring($level)>.");
+//    return;
+//}
+//~equip($slot);
+//
+//[label,levelrequire_shearing](int $level, int $slot)
+//if (stat_base(herblore) < $level) {
+//    mes("You are not a high enough level to use this item.");
+//    mes("You need a Farming level of <tostring($level)> to shear wool.");
+//    return;
+//}
+//~equip($slot);
+//
+//
+//
+//
+//[opheld2,bronze_chisel] @levelrequire_crafting(1, last_slot);
+//[opheld2,iron_chisel] @levelrequire_crafting(15, last_slot);
+//[opheld2,steel_chisel] @levelrequire_crafting(30, last_slot);
+//[opheld2,mithril_chisel] @levelrequire_crafting(50, last_slot);
+//[opheld2,adamant_chisel] @levelrequire_crafting(70, last_slot);
+//[opheld2,rune_chisel] @levelrequire_crafting(80, last_slot);
+//[opheld2,dragon_chisel] @levelrequire_crafting(90, last_slot);
+//
+//
+//[opheld2,bronze_tinderbox] @levelrequire_firemaking(1, last_slot);
+//[opheld2,iron_tinderbox] @levelrequire_firemaking(15, last_slot);
+//[opheld2,steel_tinderbox] @levelrequire_firemaking(30, last_slot);
+//[opheld2,mithril_tinderbox] @levelrequire_firemaking(50, last_slot);
+//[opheld2,adamant_tinderbox] @levelrequire_firemaking(70, last_slot);
+//[opheld2,rune_tinderbox] @levelrequire_firemaking(80, last_slot);
+//[opheld2,dragon_tinderbox] @levelrequire_firemaking(90, last_slot);
+//
+//
+//[opheld2,e_bronze_knife] @levelrequire_fletching(1, last_slot);
+//[opheld2,e_iron_knife] @levelrequire_fletching(15, last_slot);
+//[opheld2,e_steel_knife] @levelrequire_fletching(30, last_slot);
+//[opheld2,e_mithril_knife] @levelrequire_fletching(50, last_slot);
+//[opheld2,e_adamant_knife] @levelrequire_fletching(70, last_slot);
+//[opheld2,e_rune_knife] @levelrequire_fletching(80, last_slot);
+//[opheld2,e_dragon_knife] @levelrequire_fletching(90, last_slot);
+//
+//[opheld2,bronze_harpoon] @levelrequire_fishing(1, last_slot);
+//[opheld2,iron_harpoon] @levelrequire_fishing(30, last_slot);
+//[opheld2,steel_harpoon] @levelrequire_fishing(35, last_slot);
+//[opheld2,mithril_harpoon] @levelrequire_fishing(55, last_slot);
+//[opheld2,adamant_harpoon] @levelrequire_fishing(65, last_slot);
+//[opheld2,rune_harpoon] @levelrequire_fishing(75, last_slot);
+//[opheld2,dragon_harpoon] @levelrequire_fishing(85, last_slot);
+//
+//[opheld2,bronze_shears] @levelrequire_herblore(1, last_slot);
+//[opheld2,iron_shears] @levelrequire_herblore(15, last_slot);
+//[opheld2,steel_shears] @levelrequire_herblore(30, last_slot);
+//[opheld2,mithril_shears] @levelrequire_herblore(50, last_slot);
+//[opheld2,adamant_shears] @levelrequire_herblore(70, last_slot);
+//[opheld2,rune_shears] @levelrequire_herblore(80, last_slot);
+//[opheld2,dragon_shears] @levelrequire_herblore(90, last_slot);
+
+

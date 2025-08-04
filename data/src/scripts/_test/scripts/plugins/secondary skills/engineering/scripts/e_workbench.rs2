@@ -1979,6 +1979,23 @@ if (%engineering > 9) {
 
 [proc,e_gauntlets]
 
+if (%crest_progress = ^crest_complete){
+    if (%engineering < 25 ){
+        ~mesbox("You need to be at least level 25 Engineering to make Steel Gauntlets");
+        return;
+    }
+    if (inv_total(inv, leather_gloves) > 0 & inv_total(inv, steel_bar) > 1) {
+        inv_del(inv, leather_gloves, 1);
+        inv_del(inv, steel_bar, 2);
+        ~crafting_action;
+        stat_advance(smithing, 850);
+    } else {
+        ~mesbox("Come back when you have a pair of Leather gloves and 2 Steel Bars");
+    }
+} else {
+    ~mesbox("You need to complete the Family Crest quest to make Steel Gauntlets");
+}
+
 def_int $choice = (~p_choice4_header("Mithril.", 1, "Adamant", 2, "Rune.", 3, "Dragon.", 4, "What kind of Gauntlets would you like upgrade?"));
 
 switch_int($choice){

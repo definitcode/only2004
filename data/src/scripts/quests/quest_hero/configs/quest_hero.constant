@@ -18,3 +18,13 @@
 ^grip_stage_asked_treasure = 3
 
 ^hero_required_questpoints = 55
+
+// Solo Waypoints
+^hero_solo_started = 1
+^hero_solo_killed_rip = 2
+^hero_solo_killed_tnaig_ssom = 3
+^hero_solo_killedtargets = 4
+^hero_solo_itemsturnedin = 5
+^hero_solo_peksa = 6
+^hero_solo_kill_gunthor = 7
+^hero_solo_killed_gunthor = 8

@@ -17,7 +17,7 @@ if (%totem_progress = ^totem_complete){
     def_int $courier_cost = calc(5000 - %prestige);
     def_int $inv_gold = inv_total(inv, coins);
     def_int $difference = sub($courier_cost, $inv_gold);
-    ~chatnpc("<p,happy> Would you like me to be a personal courier?!");
+    ~chatnpc("<p,happy> Would you like me to be a personal courier |I can mail everything in your inventory!");
     def_int $choice = ~p_choice2_header("Yes.", 1, "No.", 2, "~ RDP Courier [<tostring($courier_cost)>gp] ~" );
     switch_int($choice){
         case 1 : {

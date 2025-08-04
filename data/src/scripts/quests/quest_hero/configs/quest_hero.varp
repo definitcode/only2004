@@ -1,2 +1,13 @@
 [hero_progress]
 scope=perm
+
+[hero_solo_progress]
+scope=perm
+
+
+// Solo Varps
+[hero_killtarget]
+scope=perm
+
+[hero_itemtarget]
+scope=perm

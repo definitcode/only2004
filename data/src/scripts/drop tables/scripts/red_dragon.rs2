@@ -59,8 +59,10 @@ if ($random < 4) {
     obj_add(npc_coord, coins, 66, ^lootdrop_duration);
 } else if ($random < 118) { // If we ever get there, this is replaced by "Dragon javelin heads" when MMII is completed, oh what a dream eh?
     obj_add(npc_coord, coins, 330, ^lootdrop_duration);
+    obj_add(npc_coord, ~high_tier_items, ^lootdrop_duration);  
 } else if ($random < 119) {
     obj_add(npc_coord, coins, 690, ^lootdrop_duration);
+    obj_add(npc_coord, ~expitemtable, ^lootdrop_duration);    
 } else if ($random < 122) {
     obj_add(npc_coord, chocolate_cake, 3, ^lootdrop_duration);
 } else if ($random < 123) {

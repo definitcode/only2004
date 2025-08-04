@@ -57,5 +57,7 @@ if ($rng < 32) {
 }
 
 [queue,chicken_kill]
-mes("You scratch a notch on your bow for the chicken kill.");
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
 %chicken_kc = calc(%chicken_kc + 1);

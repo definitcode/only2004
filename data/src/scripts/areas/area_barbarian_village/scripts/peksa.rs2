@@ -1,4 +1,24 @@
 [opnpc1,peksa]
+if (%hero_solo_progress = ^hero_solo_itemsturnedin) {
+    ~chatplayer("<p,shifty>You know ... I heard that you had some problems that need solved by the Heroes Guild?");
+    ~chatnpc("<p,shocked>Who told you that??");
+    def_int $choice = ~p_choice3("Achietties sent me!", 1, "Real problems demand... proper solutions.", 2, "I can't remember to be honest!", 3);
+    switch_int($choice){
+        case 1 : {
+            ~chatnpc("Uhhhh.... I don't know who you are talking about!");
+            return;
+        }
+        case 2 : {
+            ~chatnpc("You know what you are right.. who told you that doesn't matter. Gunthor has been very aggressive and rough on the taxes lately.");
+            ~chatnpc("Our old leader, his brother was much better and many believe that Gunthor killed him to take power over the clan!");
+            ~chatplayer("<p,shifty>That's what I thought. I'll make sure that he isn't a problem for the villagers any more");
+            ~chatnpc("Thank you and be careful... don't mention my name!");
+            %hero_solo_progress = ^hero_solo_kill_gunthor;
+        }
+        case 3 : return;
+    }
+}
+
 ~chatnpc("<p,quiz>Are you interested in buying or selling a helmet?");
 def_int $option;
 if(%scorpcatcher_progress = ^scorpcatcher_second_hint) {
