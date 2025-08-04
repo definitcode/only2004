@@ -5,7 +5,7 @@
 @open_player_ledger;
 
 [label,open_player_ledger]
-@book_flip_page(0, 0, 21, player_ledger_book);
+@book_flip_page(0, 0, 22, player_ledger_book);
 
 [proc,player_ledger_book]
 def_string $gamemode_string;
@@ -204,10 +204,14 @@ switch_int (%book_page) {
     case 19 : ~book("Crafted Items II",
     "Leather: [@whi@<tostring(%leather_dyed)>@bla@/@whi@<tostring(%leather_crafted)>@bla@] |Hardleather: [@whi@<tostring(%hardleather_dyed)>@bla@/@whi@<tostring(%hardleather_crafted)>@bla@] |Dragonleather: [@whi@<tostring(%dragonleather_dyed)>@bla@/@whi@<tostring(%dragonleather_crafted)>@bla@] |@bla@[@whi@Melted@bla@/@whi@Blown@bla@]: [@whi@<tostring(%molten_glass)>@bla@/@whi@<tostring(%glass_blown)>@bla@] |Beer Glass: [@whi@<tostring(%beer_glass)>@bla@] |Vial: [@whi@<tostring(%vial_empty)>@bla@] |Staff Orb: [@whi@<tostring(%stafforb)>@bla@] |@bla@Wool: [@whi@<tostring(%wool_spun)>@bla@] |Flax: [@whi@<tostring(%flax_spun)>@bla@] |||");
 
-    case 20 : ~book("Misc. I",
-    "@bla@Runes Crafted: |[@whi@<tostring(%runes_crafted)>@bla@] |@bla@Coal: |[@whi@<tostring(%coal_mined)>@bla@/@whi@<tostring(%coal_smelted)>@bla@] |@bla@Gems: |[@whi@<tostring(%gems_mined)>@bla@] |@bla@Pockets Picked: |[@whi@<tostring(%pickpocket_count)>@bla@] |@bla@Laps Completed: |[@whi@<tostring(%courses_completed)>@bla@] ||@bla@High Alchs(@whi@<tostring(%high_alch_count)>@bla@): |[@yel@<tostring(%high_alch_gp)> GP@bla@] ||@bla@Low Alchs(@whi@<tostring(%low_alch_count)>@bla@): |[@yel@<tostring(%low_alch_gp)> GP@bla@] |||");
+    case 20 : ~book("Agility Courses & Rogue Stats",
+    "@bla@Gnome Course: |[@whi@<tostring(%gnome_course_completed)>@bla@] |@bla@Barbarian Course: |[@whi@<tostring(%barbarian_course_completed)>@bla@] |@bla@Wilderness Course: |[@whi@<tostring(%wilderness_course_completed)>@bla@] |@bla@Rogue Badges [E/M/H/I]: |[@whi@<tostring(%rogue_easy_badge)>@bla@/@whi@<tostring(%rogue_medium_badge)>@bla@/@ora@<tostring(%rogue_hard_badge)>@bla@/@red@<tostring(%rogue_insane_badge)>@bla@] |||");
 
-    case 21 : ~book("Misc. II",
+    case 21 : ~book("Misc. I",
+    "@bla@Runes Crafted: |[@whi@<tostring(%runes_crafted)>@bla@] |@bla@Coal: |[@whi@<tostring(%coal_mined)>@bla@/@whi@<tostring(%coal_smelted)>@bla@] |@bla@Gems: |[@whi@<tostring(%gems_mined)>@bla@] |@bla@Pockets Picked: |[@whi@<tostring(%pickpocket_count)>@bla@] |@bla@Laps Completed: |[@whi@<tostring(%courses_completed)>@bla@] ||@bla@High Alchs(@whi@<tostring(%high_alch_count)>@bla@): |[@yel@<tostring(%high_alch_gp)> GP@bla@] ||@bla@Low Alchs(@whi@<tostring(%low_alch_count)>@bla@): |[@yel@<tostring(%low_alch_gp)> GP@bla@] |||");
+    
+
+    case 22 : ~book("Misc. II",
     "@bla@Superheats: |[@whi@<tostring(%superheated_count)>@bla@] |@bla@Teleports: |[@whi@<tostring(%teleport_count)>@bla@] |@bla@Telegrabs: |[@whi@<tostring(%telegrab_count)>@bla@] |@bla@Potions Brewed: |[@whi@<tostring(%potions_brewed)>@bla@] |@bla@Herbs Cleaned: |[@whi@<tostring(%herbs_cleaned)>@bla@] ||@bla@Herbs Ground: |[@whi@<tostring(%herbs_ground)>@bla@]|||");
 
 }

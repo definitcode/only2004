@@ -6,3 +6,12 @@ scope=perm
 
 [wilderness_course_progress]
 scope=perm
+
+[gnome_course_completed]
+scope=perm
+
+[barbarian_course_completed]
+scope=perm
+
+[wilderness_course_completed]
+scope=perm

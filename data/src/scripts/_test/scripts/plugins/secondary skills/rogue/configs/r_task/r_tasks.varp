@@ -21,3 +21,27 @@ scope=perm
 
 [r_pp]
 scope=perm
+
+[rogue_easy_badge]
+scope=perm
+
+[rogue_medium_badge]
+scope=perm
+
+[rogue_hard_badge]
+scope=perm
+
+[rogue_insane_badge]
+scope=perm
+
+[rogue_easy_casket]
+scope=perm
+
+[rogue_medium_casket]
+scope=perm
+
+[rogue_hard_casket]
+scope=perm
+
+[rogue_insane_casket]
+scope=perm

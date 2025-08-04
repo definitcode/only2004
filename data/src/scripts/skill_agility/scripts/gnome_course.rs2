@@ -88,6 +88,7 @@ if(calc(%gnome_course_progress + 1) >= $completed) {
     %gnome_course_progress = $completed;
 }
 %courses_completed = calc(%courses_completed + 1);
+%gnome_course_completed = calc(%gnome_course_completed + 1);
 if(%gnome_course_progress = 7) {
     stat_advance(agility, 390);
     if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {

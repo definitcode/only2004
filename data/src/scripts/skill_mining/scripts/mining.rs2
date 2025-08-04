@@ -173,7 +173,7 @@ if (random($chance) = ^true) {
         }
         case adamant_pickaxe : {
             $xp_mul = 2;
-            $product_amount = 2;
+            $product_amount = 3;
         }
         case rune_pickaxe : {
             $xp_mul = 3;

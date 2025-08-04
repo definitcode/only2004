@@ -583,3 +583,14 @@
 582=hero_killtarget
 583=hero_itemtarget
 584=hero_solo_progress
+585=gnome_course_completed
+586=barbarian_course_completed
+587=wilderness_course_completed
+588=rogue_easy_badge
+589=rogue_medium_badge
+590=rogue_hard_badge
+591=rogue_insane_badge
+592=rogue_easy_casket
+593=rogue_medium_casket
+594=rogue_hard_casket
+595=rogue_insane_casket

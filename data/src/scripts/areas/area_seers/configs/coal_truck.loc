@@ -3,4 +3,6 @@ name=Coal Truck
 desc=This transports coal!
 model=model_loc_637
 active=yes
-op1=Remove-coal
+op1=Count
+op2=Deposit-coal
+op3=Remove-coal
