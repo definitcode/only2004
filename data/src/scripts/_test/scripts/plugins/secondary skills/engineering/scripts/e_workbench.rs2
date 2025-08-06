@@ -1976,11 +1976,65 @@ switch_int($choice){
 }
 
 [proc,e_armour]
-def_int $choice = (~p_choice3_header("Gauntlets.", 1, "Badge of War", 2, "Back.", 3, "What kind of Armour would you like to craft?"));
+def_int $choice = (~p_choice4_header("Gauntlets.", 1, "Badge of War", 2, "Bear Gear", 3, "Back.", 4, "What kind of Armour would you like to craft?"));
 switch_int($choice){
     case 1 : ~e_gauntlets;
     case 2 : ~e_pvpnecklace;
-    case 3 : return;
+    case 3 : ~e_bearitems;
+    case 4 : return;
+}
+
+[proc,e_bearitems]
+def_int $choice = (~p_choice4_header("Gloves.", 1, "Boots.", 2, "Cape.", 3, "Back.", 4, "What kind of Bear Armour would you like to make?"));
+switch_int($choice){
+    case 1 : {
+        if (%engineering > 29){
+            if (inv_total(inv, bear_leather) > 4) {
+                inv_del(inv, bear_leather, 5);
+                ~crafting_action;
+                stat_advance(smithing, 150);
+                stat_advance(crafting, 150);
+                inv_add(inv, bear_gloves, 1);
+                ~objbox(bear_gloves,"You have made a pair of Bear Gloves.", 250, 0, 0);
+            } else {
+                ~mesbox("You need 5 Bear Leather to make a pair of Bear Gloves.");
+            }
+        } else {
+            ~mesbox("You need to be at least level 29 Engineering to make a pair of Bear Gloves");
+        }
+    }
+    case 2 : {
+        if (%engineering > 34){
+            if (inv_total(inv, bear_leather) > 9) {
+                inv_del(inv, bear_leather, 10);
+                ~crafting_action;
+                stat_advance(smithing, 200);
+                stat_advance(crafting, 200);
+                inv_add(inv, bear_boots, 1);
+                ~objbox(bear_boots,"You have made a pair of Bear Gloves.", 250, 0, 0);
+            } else {
+                ~mesbox("You need 10 Bear Leather to make a pair of Bear Boots");
+            }
+        } else {
+            ~mesbox("You need to be at least level 34 Engineering to |make a pair of Bear Gloves!");
+        }
+    }
+    case 3 : {
+        if (%engineering > 39){
+            if (inv_total(inv, bear_leather) > 9) {
+                inv_del(inv, bear_leather, 10);
+                ~crafting_action;
+                stat_advance(smithing, 250);
+                stat_advance(crafting, 250);
+                inv_add(inv, bear_boots, 1);
+                ~objbox(bear_boots,"You have made a pair of Bear Gloves.", 250, 0, 0);
+            } else {
+                ~mesbox("You need 10 Bear Leather to make a pair of Bear Boots");
+            }
+        } else {
+            ~mesbox("You need to be at least level 40 Engineering to make a Bear Cape");
+        }
+    }
 }
 
 [proc,e_pvpnecklace]

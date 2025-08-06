@@ -33,3 +33,8 @@
 
 // Ranged
 [opheld2,hardleather_body] @levelrequire_ranged_and_defence(28, 28, last_slot);
+
+//Bear Set
+[opheld2,bear_boots] @levelrequire_ranged_and_strength(30, 30, last_slot);
+[opheld2,bear_gloves] @levelrequire_ranged_and_strength(30, 30, last_slot);
+[opheld2,bear_cape] @levelrequire_ranged_and_strength(30, 30, last_slot);

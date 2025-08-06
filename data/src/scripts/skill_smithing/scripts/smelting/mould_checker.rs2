@@ -1,0 +1,26 @@
+[proc,mould_checker]()(obj)
+def_int $lvl0 = stat(smithing);
+def_obj $obj1 = null;
+if (inv_total(inv, dragon_ammo_mould) > 0) {
+    $obj1 = dragon_ammo_mould;
+} else if (inv_total(inv, rune_ammo_mould) > 0) {
+    $obj1 = rune_ammo_mould;
+} else if (inv_total(inv, adamant_ammo_mould) > 0) {
+    $obj1 = adamant_ammo_mould;
+} else if (inv_total(inv, mithril_ammo_mould) > 0) {
+    $obj1 = mithril_ammo_mould;
+}
+
+if ($lvl0 >= oc_param(dragon_ammo_mould, levelrequire) & ($obj1 = dragon_ammo_mould)) {
+    return(dragon_ammo_mould);
+}
+if ($lvl0 >= oc_param(rune_ammo_mould, levelrequire) & ($obj1 = rune_ammo_mould)) {
+    return(rune_ammo_mould);
+}
+if ($lvl0 >= oc_param(adamant_ammo_mould, levelrequire) & ($obj1 = adamant_ammo_mould)) {
+    return(adamant_ammo_mould);
+}
+if ($lvl0 >= oc_param(mithril_ammo_mould, levelrequire) & ($obj1 = mithril_ammo_mould)) {
+    return(mithril_ammo_mould);
+}
+return(null);

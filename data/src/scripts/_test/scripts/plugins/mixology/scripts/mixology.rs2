@@ -11,6 +11,127 @@ if (%hetty_progress ! ^hetty_complete) {
     return;
 }
 @mixology_game;
+[oplocu,loc_692] @dragon_scale_dust;
+[oplocu,loc_2024] @dragon_scale_dust;
+
+[label,dragon_scale_dust]
+def_obj $scale = (last_useitem);
+def_int $total_scales = inv_total(inv, $scale);
+def_int $total_tar = inv_total(inv,swamp_tar);
+def_int $tar_cost;
+def_int $scale_dust;
+def_namedobj $potion;
+def_int $intelligence = %intelligence;
+def_int $dust_needed = 10;
+def_int $random_anim = random(1);
+
+if ($intelligence > 249) {
+    $dust_needed = 10;
+    $tar_cost = 2;
+} else if ($intelligence > 200) {
+    $dust_needed = 30;
+    $tar_cost = 5;
+} else if ($intelligence > 150) {
+    $dust_needed = 60;
+    $tar_cost = 8;
+} else if ($intelligence > 100) {
+    $dust_needed = 90;
+    $tar_cost = 10;
+} else if ($intelligence > 50) {
+    $dust_needed = 120;
+    $tar_cost = 10;
+} else {
+    $dust_needed = 150;
+    $tar_cost = 10;
+}
+if (inv_total(inv, imbued_dust) < $dust_needed | inv_total(inv, vial_empty) < 1) {
+    return;
+}
+
+switch_obj($scale){
+    case black_dragon_scale_dust : {
+        if ($total_scales < 4) {
+            $potion = 4dose1antidragon;
+            if ($total_tar < $tar_cost){
+                mes("You need <tostring($tar_cost)> swamp tar to make this potion.");
+                return;
+            }
+        } else {
+            mes("You need 4 black dragon scale dust to make this potion.");
+            return;
+        }
+    }
+    case red_dragon_scale_dust : {
+        if ($total_scales < 4) {
+            $potion = 4dose2antipoison;
+            if ($total_tar < $tar_cost){
+                mes("You need <tostring($tar_cost)> swamp tar to make this potion.");
+                return;
+            }
+        } else {
+            mes("You need 4 red dragon scale dust to make this potion.");
+            return;
+        }
+    }
+    case green_dragon_scale_dust : {
+        if ($total_scales < 4) {
+            $potion = 4dose2defense;
+            if ($total_tar < $tar_cost){
+                mes("You need <tostring($tar_cost)> swamp tar to make this potion.");
+                return;
+            }
+        } else {
+            mes("You need 4 red dragon scale dust to make this potion.");
+            return;
+        }
+    }
+    case dragon_scale_dust : {
+        if ($total_scales < 4) {
+            $potion = 4dose2defense;
+            if ($total_tar < $tar_cost){
+                mes("You need <tostring($tar_cost)> swamp tar to make this potion.");
+                return;
+            }
+        } else {
+            mes("You need 4 red dragon scale dust to make this potion.");
+            return;
+        }
+    }
+    case default : "you cannot you use this item here.";
+}
+
+
+if ($random_anim = 0){
+    anim(human_herbing_grind,0);
+    sound_synth(grind, 3, 0);
+    p_delay(5);
+} else if ($random_anim = 1) {
+    anim(human_herbing_grind,0);
+    sound_synth(grind, 3, 0);
+    p_delay(3);
+}
+
+anim(human_cooking, 0);
+sound_synth(bubbling, 2, 0);
+inv_del(inv, vial_empty, 1);
+inv_del(inv, swamp_tar, $tar_cost);
+p_delay(3);
+anim(human_herbing_grind, 0);
+sound_synth(grind, 0, 0);
+p_delay(3);
+anim(human_cooking, 0);
+inv_del(inv, $scale, 4);
+sound_synth(bubbling, 2, 0);
+inv_del(inv, imbued_dust, $dust_needed);
+p_delay(3);
+anim(human_cooking, 0);
+inv_add(inv, $potion, 1);
+stat_advance(herblore, 250);
+stat_advance(cooking, 250);
+if (inv_total(worn,gasmask) > 0 | inv_total(worn,gasmask_i) > 0){
+    stat_advance(herblore, 250);
+    stat_advance(cooking, 250);
+}
 
 [label,mixology_game]
 if (%hetty_progress ! ^hetty_complete) {
@@ -33,23 +154,31 @@ if (stat_base(herblore) < 40 & stat_base(cooking) < 40){
     mes("You need a Herblore and Cooking skill of at least 40 to mix potions.");
     return;
 }
+
 def_int $intelligence = %intelligence;
 def_int $dust_needed = 10;
+def_int $tar_cost;
 if ($intelligence > 249) {
     $dust_needed = 10;
+    $tar_cost = 2;
 } else if ($intelligence > 200) {
     $dust_needed = 30;
+    $tar_cost = 5;
 } else if ($intelligence > 150) {
     $dust_needed = 60;
+    $tar_cost = 8;
 } else if ($intelligence > 100) {
     $dust_needed = 90;
+    $tar_cost = 10;
 } else if ($intelligence > 50) {
     $dust_needed = 120;
+    $tar_cost = 10;
 } else {
     $dust_needed = 150;
+    $tar_cost = 10;
 }
-if (inv_total(inv, imbued_dust) < $dust_needed) {
-    mes("You need at least <tostring($dust_needed)> imbued rune dust to begin.");
+if (inv_total(inv, imbued_dust) < $dust_needed | inv_total(inv, vial_empty) < 1) {
+    mes("You need at least <tostring($dust_needed)> imbued rune dust |and an empty vial to begin.");
     return;
 }
 def_int $mix_count = inv_total(inv, vial_empty);
@@ -76,31 +205,38 @@ switch_int($random) {
 def_int $intelligence = %intelligence;
 def_int $dust_needed = 10;
 def_int $random_anim = random(1);
+def_int $tar_cost;
 
 if ($random_anim = 0){
     anim(human_herbing_grind,0);
-    sound_synth(grind, 3,0);
+    sound_synth(grind, 3, 0);
     p_delay(5);
 } else if ($random_anim = 1) {
     anim(human_herbing_grind,0);
-    sound_synth(grind, 3 ,0);
+    sound_synth(grind, 3, 0);
     p_delay(3);
 }
-
 if ($intelligence > 249) {
     $dust_needed = 10;
+    $tar_cost = 2;
 } else if ($intelligence > 200) {
     $dust_needed = 30;
+    $tar_cost = 5;
 } else if ($intelligence > 150) {
     $dust_needed = 60;
+    $tar_cost = 8;
 } else if ($intelligence > 100) {
     $dust_needed = 90;
+    $tar_cost = 10;
 } else if ($intelligence > 50) {
     $dust_needed = 120;
+    $tar_cost = 10;
 } else {
     $dust_needed = 150;
+    $tar_cost = 10;
 }
 if (inv_total(inv, imbued_dust) < $dust_needed | inv_total(inv, vial_empty) < 1) {
+    mes("You need at least <tostring($dust_needed)> imbued rune dust |and an empty vial to begin.");
     return;
 }
 anim(human_cooking, 0);
@@ -112,7 +248,7 @@ anim(human_herbing_grind, 0);
 sound_synth(grind, 0, 0);
 p_delay(3);
 anim(human_cooking, 0);
-inv_del(inv, swamp_tar, 5);
+inv_del(inv, swamp_tar, $tar_cost);
 sound_synth(bubbling, 2, 0);
 inv_del(inv, imbued_dust, $dust_needed);
 p_delay(3);

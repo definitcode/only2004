@@ -7,12 +7,32 @@ switch_obj(last_useitem) {
 
 
 [label,dryhide]
+def_int $wbl_c = (inv_total(inv, wet_leather));
 def_int $wl_c = (inv_total(inv, wet_leather));
 def_int $whl_c = (inv_total(inv, wet_hard_leather));
 def_int $wdl_c = (inv_total(inv, wet_dragon_leather));
 def_int $wdlbe_c = (inv_total(inv, wet_dragon_leather_blue));
 def_int $wdlr_c = (inv_total(inv, wet_dragon_leather_red));
 def_int $wdlbk_c = (inv_total(inv, wet_dragon_leather_black));
+
+if ($wbl_c > 0) {
+    if (%hunter < 50) {
+        ~mesbox("You need to have a total Hunter Level of 50 to do this!");
+        return;
+    }
+    def_int $leather_multiplier = multiply($wbl_c,50);
+    inv_del(inv, wet_bearleather, $wbl_c);
+    anim(human_pickuptable,0);
+    p_delay(1);
+    sound_synth(sand_bucket, 1, 0);
+    stat_advance(crafting, $leather_multiplier);
+    p_delay(3);
+    anim(human_pickuptable,0);
+    inv_add(inv, bear_leather, $wbl_c);
+    %leather_dyed = calc(%leather_dyed + 1);
+    ~mesbox("You have processed [<tostring($wbl_c)>x Bear Leather!]");
+    return;
+}
 
 if ($wl_c > 0) {
     if (%hunter < 99) {

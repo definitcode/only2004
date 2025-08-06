@@ -14,31 +14,68 @@ obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 //obj_add(npc_coord, raw_beef, 1, ^lootdrop_duration);
 //obj_add(npc_coord, cow_hide, 1, ^lootdrop_duration);
 
-
+def_int $hide_multi = 1;
+def_int $beef_multi = 1;
 if (%hunter > 349) {
-    obj_add(npc_coord, raw_beef, 4, ^lootdrop_duration);
+   $hide_multi = 4;
+   $beef_multi = 2;
     if (%e_ctoggle = ^e_toggle_on) {
         mes("-----");
         mes("[4x] Resources!");
     }
 } else if (%hunter > 189) {
-    obj_add(npc_coord, raw_beef, 2, ^lootdrop_duration);
+    $hide_multi = 2;
+    $beef_multi = 1;
     if (%e_ctoggle = ^e_toggle_on) {
         mes("-----");
         mes("[2x] Resources!");
     }
 } else {
-    obj_add(npc_coord, raw_beef, 1, ^lootdrop_duration);
+    $hide_multi = 1;
+    $beef_multi = 1;
 }
 
-if (%hunter > 349) {
-    obj_add(npc_coord, cow_hide, 4, ^lootdrop_duration);
-} else if (%hunter > 189) {
-    obj_add(npc_coord, cow_hide, 2, ^lootdrop_duration);
-} else {
-    obj_add(npc_coord, cow_hide, 1, ^lootdrop_duration);
-}
 
+
+def_obj $knife = ~skinning_checker;
+switch_obj($knife){
+    case e_dragon_knife : {
+        obj_add(npc_coord, cow_hide, multiply($hide_multi,5), ^lootdrop_duration);
+        obj_add(npc_coord, raw_beef, multiply($beef_multi,5), ^lootdrop_duration);
+        mes("You carve the monster and receive <tostring(multiply($beef_multi,5))>x !");
+    }
+    case e_rune_knife : {
+        obj_add(npc_coord, cow_hide, multiply($hide_multi,4), ^lootdrop_duration);
+        obj_add(npc_coord, raw_beef, multiply($beef_multi, 4), ^lootdrop_duration);
+        mes("You carve the monster and receive <tostring(multiply($beef_multi,5))>x !");
+    }
+    case e_adamant_knife : {
+        obj_add(npc_coord, cow_hide, multiply($hide_multi,3), ^lootdrop_duration);
+        obj_add(npc_coord, raw_beef, multiply($beef_multi,3), ^lootdrop_duration);
+        mes("You carve the monster and receive <tostring(multiply($beef_multi,5))>x !");
+    }
+    case e_mithril_knife : {
+        obj_add(npc_coord, cow_hide, multiply($hide_multi,2), ^lootdrop_duration);
+        obj_add(npc_coord, raw_beef, multiply($beef_multi,2), ^lootdrop_duration);
+        mes("You carve the monster and receive <tostring(multiply($beef_multi,5))>x !");
+    }
+    case e_steel_knife : {
+        obj_add(npc_coord, cow_hide, $hide_multi, ^lootdrop_duration);
+        obj_add(npc_coord, raw_beef, $beef_multi, ^lootdrop_duration);
+        mes("You carve the monster and receive <tostring($beef_multi)>x !");
+    }
+    case e_bronze_knife : {
+        obj_add(npc_coord, cow_hide, $hide_multi, ^lootdrop_duration);
+        obj_add(npc_coord, raw_beef, $beef_multi, ^lootdrop_duration);
+        mes("You carve the monster and receive <tostring($beef_multi)>x !");
+    }
+    case knife : {
+        obj_add(npc_coord, cow_hide, $hide_multi, ^lootdrop_duration);
+        obj_add(npc_coord, raw_beef, $beef_multi, ^lootdrop_duration);  
+        mes("You carve the monster and receive <tostring($beef_multi)>x !"); 
+    }
+    
+}
 
 [queue,cow_kill]
 if (%e_ctoggle = ^e_toggle_on){

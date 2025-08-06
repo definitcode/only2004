@@ -28,6 +28,52 @@ weight=5lb
 cost=100
 param=no_alchemy,^true
 
+[wet_bearleather]
+name=Bear Leather(w)
+desc=It's a piece of unprepared Bear leather.
+model=model_2338_obj
+recol1s=32767
+recol1d=8416
+2dxof=-1
+2dyof=-2
+2dzoom=1190
+2dyan=116
+2dxan=440
+weight=5lb
+cost=100
+param=no_alchemy,^true
+
+[bear_hide]
+name=Bear Hide
+desc=It's a piece of unprepared Bear leather.
+model=model_2338_obj
+recol1s=32767
+recol1d=6241
+2dxof=-1
+2dyof=-2
+2dzoom=1190
+2dyan=116
+2dxan=440
+weight=5lb
+cost=100
+param=no_alchemy,^true
+
+[bear_leather]
+name=Bear Leather
+desc=It's a piece of unprepared Bear leather.
+model=model_2338_obj
+recol1s=32767
+recol1d=8321
+2dxof=-1
+2dyof=-2
+2dzoom=1190
+2dyan=116
+2dxan=440
+weight=5lb
+cost=100
+param=no_alchemy,^true
+
+
 [wet_hard_leather]
 name=Hard leather(w)
 desc=It's a piece of unprepared hard leather.

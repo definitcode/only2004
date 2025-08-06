@@ -41,7 +41,7 @@ recol1d=256
 2dxan=440
 weight=7lb
 members=yes
-cost=15000
+cost=23
 
 //blue
 [dragon_leather_blue]
@@ -57,7 +57,7 @@ recol1d=11
 2dxan=440
 weight=7lb
 members=yes
-cost=25000
+cost=25
 
 //red
 [dragon_leather_red]
@@ -73,7 +73,7 @@ recol1d=8192
 2dxan=440
 weight=7lb
 members=yes
-cost=50000
+cost=50
 
 //black
 [dragon_leather_black]
@@ -89,4 +89,5 @@ recol1d=3171
 2dxan=440
 weight=7lb
 members=yes
-cost=100000
+cost=100
+

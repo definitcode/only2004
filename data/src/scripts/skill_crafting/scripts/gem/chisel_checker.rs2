@@ -15,8 +15,6 @@ if (inv_total(inv, dragon_chisel) > 0) {
     $obj1 = iron_chisel;
 } else if (inv_total(inv, bronze_chisel) > 0) {
     $obj1 = bronze_chisel;
-} else if (inv_total(inv, tinderbox) > 0) {
-    $obj1 = tinderbox;
 }
 if ($lvl0 >= oc_param(dragon_chisel, levelrequire) & ($obj1 = dragon_chisel)) {
     return(dragon_chisel);

@@ -3,6 +3,17 @@
 // https://web.archive.org/web/20040821133710/http://www.runescapecommunity.com:80/index.php?showtopic=159464
 // https://web.archive.org/web/20040727050826/http://img48.exs.cx/img48/9964/cannonballs1.png
 [label,smelt_cannonballs]
+def_obj $ammo_mould = ~mould_checker;
+def_int $xp_multi = 1;
+def_int $cb_multi = 1;
+def_string $message_procs = "N/A";
+def_int $random = random(3);
+switch_int($random){
+    case 0 : $message_procs = "You were able to get more out of the materials.";
+    case 1 : $message_procs = "Incredible! I didn't lose any scraps";
+    case 2 : $message_procs = "That bar must have been a little more pure than the others.";
+    case 3 : $message_procs = "I don't know if I can carry all that..."; 
+}
 if(map_members = false) {
     mes("You need to be on a members' world to make cannonballs."); // OSRS
     return;
@@ -11,15 +22,34 @@ if (stat(smithing) < 35) {
     mes("You need a Smithing level of 35 to make cannonballs."); // osrs
     return;
 }
-if (inv_total(inv, ammo_mould) < 1) {
-    mes("You need a cannonball mould to make cannonballs."); // osrs
-    return;
+switch_obj($ammo_mould){
+    case null : mes("You need a cannonball mould to make cannonballs."); 
+    case ammo_mould : {
+        $xp_multi = 1;
+        $cb_multi = 1;    
+    }
+    case mithril_ammo_mould : {
+        $xp_multi = 2;
+        $cb_multi = 2;
+    }
+    case adamant_ammo_mould : {
+        $xp_multi = 2;
+        $cb_multi = 3;
+    }
+    case rune_ammo_mould : {
+        $xp_multi = 3;
+        $cb_multi = 3;
+    }
+    case dragon_ammo_mould : {
+        $xp_multi = 4;
+        $cb_multi = 4;
+    }
+
 }
 if (inv_total(inv, steel_bar) < 1) {
     mes("You need a steel bar to make cannonballs."); // should never happen
     return;
 }
-
 mes("You heat the steel bar into a liquid state.");
 anim(human_furnace, 0);
 sound_synth(furnace, 0, 0);
@@ -32,6 +62,26 @@ p_delay(2);
 anim(human_pickupfloor, 0);
 mes("You remove the cannonballs from the mould.");
 inv_del(inv, steel_bar, 1);
+switch_int($cb_multi){
+    case 2 : {
+        inv_add(inv, mcannonball, 4);
+        mes("<$message_procs>");
+        p_delay(2);
+        anim(human_pickupfloor, 0);
+    }
+    case 3 : {
+        inv_add(inv, mcannonball, 8);
+        mes("<$message_procs>");
+        p_delay(2);
+        anim(human_pickupfloor, 0);
+    }
+    case 4 : {
+        inv_add(inv, mcannonball, 16);
+        mes("<$message_procs>");
+        p_delay(2);
+        anim(human_pickupfloor, 0);
+    }
+}
 inv_add(inv, mcannonball, 4);
 // 37.5 xp gained
 // https://web.archive.org/web/20040606145237/http://www.tip.it/runescape/index.php?page=rs2smithtables.htm

@@ -161,6 +161,7 @@ model=model_2338_obj
 2dyan=116
 2dxan=440
 weight=6lb
+stackable=yes
 
 [chisel]
 name=Chisel
@@ -266,6 +267,7 @@ recol2d=12684
 2dxan=440
 weight=7lb
 members=yes
+stackable=yes
 
 [dragonhide_red]
 name=Dragonhide
@@ -282,6 +284,7 @@ recol2d=12288
 2dxan=440
 weight=7lb
 members=yes
+stackable=yes
 
 [dragonhide_blue]
 name=Dragonhide
@@ -298,6 +301,7 @@ recol2d=93
 2dxan=440
 weight=7lb
 members=yes
+stackable=yes
 
 [dragonhide_green]
 name=Dragonhide
@@ -310,3 +314,4 @@ model=model_2356_obj
 2dxan=440
 weight=7lb
 members=yes
+stackable=yes

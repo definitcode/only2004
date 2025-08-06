@@ -51,6 +51,7 @@ if (inv_total(inv, 4doseprayerrestore) > 0){
                 case 3 : sound_synth(pop1, 1, 0);
             }
             anim(human_casthighlvlalchemy,0);
+            spotanim_pl(highlvlalchemy_casting, 92, 0);
             p_delay(1);
             sound_synth(high_alchemy, 1,0);
             p_delay(1);

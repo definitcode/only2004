@@ -28,5 +28,60 @@ model=model_2761_obj
 2dxan=212
 weight=10g
 respawnrate=30
+stackable=yes
 param=grindable_ingredient_refined,dragon_scale_dust
 param=grindable_ingredient_message,You grind down the blue dragon scale.
+
+[red_dragon_scale]
+cost=50
+members=yes
+name=Blue dragon scale
+desc=A large shiny scale.
+model=model_2761_obj
+2dxof=7
+2dzoom=1370
+2dyan=148
+2dxan=212
+weight=10g
+respawnrate=30
+param=grindable_ingredient_refined,red_dragon_scale_dust
+param=grindable_ingredient_message,You grind down the blue dragon scale.
+recol1s=15 
+recol1d=8192
+stackable=yes
+
+[green_dragon_scale]
+cost=50
+members=yes
+name=Blue dragon scale
+desc=A large shiny scale.
+model=model_2761_obj
+2dxof=7
+2dzoom=1370
+2dyan=148
+2dxan=212
+weight=10g
+respawnrate=30
+param=grindable_ingredient_refined,green_dragon_scale_dust
+param=grindable_ingredient_message,You grind down the blue dragon scale.
+recol1s=15 
+recol1d=256
+stackable=yes
+
+[black_dragon_scale]
+cost=50
+members=yes
+name=Blue dragon scale
+desc=A large shiny scale.
+model=model_2761_obj
+2dxof=7
+2dzoom=1370
+2dyan=148
+2dxan=212
+weight=10g
+respawnrate=30
+param=grindable_ingredient_refined,black_dragon_scale_dust
+param=grindable_ingredient_message,You grind down the blue dragon scale.
+recol1s=15 
+recol1d=1057
+stackable=yes

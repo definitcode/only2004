@@ -21,39 +21,58 @@ gosub(trail_checkmediumdrop);
 // Normal drop
 //obj_add(npc_coord, raw_chicken, 1, ^lootdrop_duration);
 // Other
-
-
+def_int $chicken_multi = 1;
+def_int $feather_multi = 1;
 if (%hunter > 349) {
-    obj_add(npc_coord, raw_chicken, 4, ^lootdrop_duration);
+   $chicken_multi = 4;
+   $feather_multi = 15;
     if (%e_ctoggle = ^e_toggle_on) {
+        mes("-----");
         mes("[4x] Resources!");
     }
 } else if (%hunter > 189) {
-    obj_add(npc_coord, raw_chicken, 2, ^lootdrop_duration);
+   $chicken_multi = 2;
+   $feather_multi = 10;
     if (%e_ctoggle = ^e_toggle_on) {
+        mes("-----");
         mes("[2x] Resources!");
     }
 } else {
-    obj_add(npc_coord, raw_chicken, 1, ^lootdrop_duration);
+   $chicken_multi = 1;
+   $feather_multi = 5;
 }
 
-def_int $rng = random(128);
-if ($rng < 32) {
-    if (%hunter > 349) {
-        obj_add(npc_coord, feather, 35, ^lootdrop_duration);
-    } else if (%hunter > 189) {
-        obj_add(npc_coord, feather, 25, ^lootdrop_duration);
-    } else {
-        obj_add(npc_coord, feather, 15, ^lootdrop_duration);
+def_obj $knife = ~skinning_checker;
+switch_obj($knife){
+    case e_dragon_knife : {
+        obj_add(npc_coord, raw_chicken, calc($chicken_multi + 5), ^lootdrop_duration);
+        obj_add(npc_coord, feather, calc($feather_multi + 5), ^lootdrop_duration);
     }
-} else if ($rng < 64) {
-    if (%hunter > 349) {
-        obj_add(npc_coord, feather, 15, ^lootdrop_duration);
-    } else if (%hunter > 189) {
-        obj_add(npc_coord, feather, 10, ^lootdrop_duration);
-    } else {
-        obj_add(npc_coord, feather, 5, ^lootdrop_duration);
+    case e_rune_knife : {
+        obj_add(npc_coord, raw_chicken, calc($chicken_multi + 4), ^lootdrop_duration);
+        obj_add(npc_coord, feather, calc($feather_multi + 4), ^lootdrop_duration);
     }
+    case e_adamant_knife : {
+        obj_add(npc_coord, raw_chicken, calc($chicken_multi + 3), ^lootdrop_duration);
+        obj_add(npc_coord, feather, calc($feather_multi + 3), ^lootdrop_duration);
+    }
+    case e_mithril_knife : {
+        obj_add(npc_coord, raw_chicken, calc($chicken_multi + 2), ^lootdrop_duration);
+        obj_add(npc_coord, feather, calc($feather_multi + 2), ^lootdrop_duration);
+    }
+    case e_steel_knife : {
+        obj_add(npc_coord, raw_chicken, $chicken_multi, ^lootdrop_duration);
+        obj_add(npc_coord, feather, $feather_multi, ^lootdrop_duration);
+    }
+    case e_bronze_knife : {
+        obj_add(npc_coord, raw_chicken, $chicken_multi, ^lootdrop_duration);
+        obj_add(npc_coord, feather, $feather_multi, ^lootdrop_duration);
+    }
+    case knife : {
+        obj_add(npc_coord, raw_chicken, $chicken_multi, ^lootdrop_duration);
+        obj_add(npc_coord, feather, $feather_multi, ^lootdrop_duration);   
+    }
+    
 }
 
 [queue,chicken_kill]

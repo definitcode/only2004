@@ -10,21 +10,60 @@ gosub(npc_death);
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 //obj_add(npc_coord, dragonhide_red, 1, ^lootdrop_duration);
 if (%hunter > 396) {
-    obj_add(npc_coord, dragonhide_red, 4, ^lootdrop_duration);
     if (%e_ctoggle = ^e_toggle_on) {
         mes("[4x] Resources!");
     }
 } else if (%hunter > 349) {
-    obj_add(npc_coord, dragonhide_red, 2, ^lootdrop_duration);
     if (%e_ctoggle = ^e_toggle_on) {
         mes("[2x] Resources!");
     }
 } else {
-    obj_add(npc_coord, dragonhide_red, 1, ^lootdrop_duration);
+
 }
 // Tertiary
 ~trail_hardcluedrop(128, npc_coord);
-
+def_obj $knife = ~skinning_checker;
+def_namedobj $scale = red_dragon_scale;
+def_int $drop_multiplier = 1;
+if (distance(coord, npc_coord) < 3){
+    switch_obj($knife){
+        case e_dragon_knife : {
+            $drop_multiplier = 5;
+        }
+        case e_rune_knife : {
+            $drop_multiplier = 4;
+        }
+        case e_adamant_knife : {
+            $drop_multiplier = 3;
+        }
+        case e_mithril_knife : {
+            $drop_multiplier = 2;
+        }
+        case e_steel_knife : {
+            $drop_multiplier = 1;
+        }
+        case e_bronze_knife : {
+            $drop_multiplier = 1;
+        }
+        case null : mes("You don't have a knife to skin this monster.");
+    }
+    if (%hunter > 396) {
+        obj_add(npc_coord, dragonhide_red, add($drop_multiplier,4), ^lootdrop_duration);
+        obj_add(npc_coord, $scale, add($drop_multiplier,4), ^lootdrop_duration);
+        mes("You carve the monster and receive <tostring(add($drop_multiplier,4))>");
+    } else if (%hunter > 349) {
+        obj_add(npc_coord, dragonhide_red, add($drop_multiplier,2), ^lootdrop_duration);
+        obj_add(npc_coord, $scale, add($drop_multiplier,2), ^lootdrop_duration);
+        mes("You carve the monster and receive <tostring(add($drop_multiplier,2))>");
+    } else {
+        obj_add(npc_coord, dragonhide_red, add($drop_multiplier,1), ^lootdrop_duration);
+        obj_add(npc_coord, $scale, add($drop_multiplier,1), ^lootdrop_duration);
+        mes("You carve the monster and receive <tostring(add($drop_multiplier,1))>");
+    }
+    mes("You carve the monster and receive <tostring(add($drop_multiplier,1))>");
+} else {
+    mes("You were not close enough to attempt skinning the monster.");
+}
 def_int $random = random(128);
 
 if ($random < 4) {

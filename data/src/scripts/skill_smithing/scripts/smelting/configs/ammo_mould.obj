@@ -1,0 +1,71 @@
+[mithril_ammo_mould]
+name=Ammo mould(M)
+desc=Used to make cannon ammunition.
+model=model_2706_obj
+2dxof=8
+2dzoom=2160
+2dyan=88
+2dxan=308
+cost=5
+weight=10lb
+members=yes
+tradeable=no
+param=levelrequire,50
+recol1s=12684 
+recol1d=6346
+recol2s=9513 
+recol2d=3174
+
+[adamant_ammo_mould]
+name=Ammo mould(A)
+desc=Used to make cannon ammunition.
+model=model_2706_obj
+2dxof=8
+2dzoom=2160
+2dyan=88
+2dxan=308
+cost=5
+weight=10lb
+members=yes
+tradeable=no
+param=levelrequire,70
+recol1s=12684 
+recol1d=6438
+recol2s=9513 
+recol2d=4260
+
+[rune_ammo_mould]
+name=Ammo mould(R)
+desc=Used to make cannon ammunition.
+model=model_2706_obj
+2dxof=8
+2dzoom=2160
+2dyan=88
+2dxan=308
+cost=5
+weight=10lb
+members=yes
+tradeable=no
+param=levelrequire,80
+recol1s=12684 
+recol1d=6476
+recol2s=9513 
+recol2d=4329
+
+[dragon_ammo_mould]
+name=Ammo mould(D)
+desc=Used to make cannon ammunition.
+model=model_2706_obj
+2dxof=8
+2dzoom=2160
+2dyan=88
+2dxan=308
+cost=5
+weight=10lb
+members=yes
+tradeable=no
+param=levelrequire,90
+recol1s=12684 
+recol1d=15360
+recol2s=9513 
+recol2d=10240

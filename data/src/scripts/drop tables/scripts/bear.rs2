@@ -14,28 +14,65 @@ obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 //obj_add(npc_coord, bear_fur, 1, ^lootdrop_duration);
 //obj_add(npc_coord, raw_bear_meat, 1, ^lootdrop_duration);
 
+def_int $meat_multi = 1;
+def_int $fur_multi = 1;
 if (%hunter > 349) {
-    obj_add(npc_coord, bear_fur, 4, ^lootdrop_duration);
+   $meat_multi = 4;
+   $fur_multi = 4;
     if (%e_ctoggle = ^e_toggle_on) {
+        mes("-----");
         mes("[4x] Resources!");
     }
 } else if (%hunter > 189) {
-    obj_add(npc_coord, bear_fur, 2, ^lootdrop_duration);
+   $meat_multi = 2;
+   $fur_multi = 2;
     if (%e_ctoggle = ^e_toggle_on) {
+        mes("-----");
         mes("[2x] Resources!");
     }
-    
 } else {
-    obj_add(npc_coord, bear_fur, 1, ^lootdrop_duration);
+   $meat_multi = 1;
+   $fur_multi = 1;
 }
 
-if (%hunter > 349) {
-    obj_add(npc_coord, raw_bear_meat, 4, ^lootdrop_duration);
-} else if (%hunter > 189) {
-    obj_add(npc_coord, raw_bear_meat, 2, ^lootdrop_duration);
-
-} else {
-    obj_add(npc_coord, raw_bear_meat, 1, ^lootdrop_duration);
+def_obj $knife = ~skinning_checker;
+switch_obj($knife){
+    case e_dragon_knife : {
+        obj_add(npc_coord, raw_bear_meat, calc($meat_multi + 5), ^lootdrop_duration);
+        obj_add(npc_coord, bear_fur, calc($fur_multi + 5), ^lootdrop_duration);
+        obj_add(npc_coord, bear_hide, calc($fur_multi + 5), ^lootdrop_duration);
+    }
+    case e_rune_knife : {
+        obj_add(npc_coord, raw_bear_meat, calc($meat_multi + 4), ^lootdrop_duration);
+        obj_add(npc_coord, bear_fur, calc($fur_multi + 4), ^lootdrop_duration);
+        obj_add(npc_coord, bear_hide, calc($fur_multi + 4), ^lootdrop_duration);
+    }
+    case e_adamant_knife : {
+        obj_add(npc_coord, raw_bear_meat, calc($meat_multi + 3), ^lootdrop_duration);
+        obj_add(npc_coord, bear_fur, calc($fur_multi + 3), ^lootdrop_duration);
+        obj_add(npc_coord, bear_hide, calc($fur_multi + 3), ^lootdrop_duration);
+    }
+    case e_mithril_knife : {
+        obj_add(npc_coord, raw_bear_meat, calc($meat_multi + 2), ^lootdrop_duration);
+        obj_add(npc_coord, bear_fur, calc($fur_multi + 2), ^lootdrop_duration);
+        obj_add(npc_coord, bear_hide, calc($fur_multi + 2), ^lootdrop_duration);
+    }
+    case e_steel_knife : {
+        obj_add(npc_coord, raw_bear_meat, $meat_multi, ^lootdrop_duration);
+        obj_add(npc_coord, bear_fur, $fur_multi, ^lootdrop_duration);
+        obj_add(npc_coord, bear_hide, $fur_multi, ^lootdrop_duration);
+    }
+    case e_bronze_knife : {
+        obj_add(npc_coord, raw_bear_meat, $meat_multi, ^lootdrop_duration);
+        obj_add(npc_coord, bear_fur, $fur_multi, ^lootdrop_duration);
+        obj_add(npc_coord, bear_hide, $fur_multi, ^lootdrop_duration);
+    }
+    case knife : {
+        obj_add(npc_coord, raw_bear_meat, $meat_multi, ^lootdrop_duration);
+        obj_add(npc_coord, bear_fur, $fur_multi, ^lootdrop_duration);
+        obj_add(npc_coord, bear_hide, $fur_multi, ^lootdrop_duration);
+    }
+    
 }
 
 [queue,bear_kill]
