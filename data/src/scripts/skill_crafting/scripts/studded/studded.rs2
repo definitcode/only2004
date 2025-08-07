@@ -13,6 +13,18 @@ switch_obj (last_useitem)
             return;
         }
         @craft_studded(studded_body);
+    case bear_chaps :
+        if (map_members = false) {
+            mes(^mes_members_feature);
+            return;
+        }
+        @craft_studded(studded_body_b);
+    case bear_body :
+        if (map_members = false) {
+            mes(^mes_members_feature);
+            return;
+        }
+        @craft_studded(studded_body_b);
     case default : ~displaymessage(^dm_default);
 };
 
@@ -33,6 +45,26 @@ if (last_useitem = studs) {
         return;
     }
     @craft_studded(studded_body);
+}
+~displaymessage(^dm_default);
+
+[opheldu,bear_chaps]
+if (last_useitem = studs) {
+    if (map_members = false) {
+        mes(^mes_members_feature);
+        return;
+    }
+    @craft_studded(studded_chaps_b);
+}
+~displaymessage(^dm_default);
+
+[opheldu,bear_body]
+if (last_useitem = studs) {
+    if (map_members = false) {
+        mes(^mes_members_feature);
+        return;
+    }
+    @craft_studded(studded_body_b);
 }
 ~displaymessage(^dm_default);
 

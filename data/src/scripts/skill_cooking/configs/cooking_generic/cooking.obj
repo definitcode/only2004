@@ -146,7 +146,7 @@ param=crafting_glass_struct,beer_glass
 [swamp_tar]
 name=Swamp tar
 desc=A foul smelling thick tar like substance.
-cost=25
+cost=50
 model=model_2499_obj
 2dxof=1
 2dyof=-22

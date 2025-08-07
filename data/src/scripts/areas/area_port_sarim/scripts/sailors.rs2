@@ -1,9 +1,36 @@
 [opnpc1,_sailor]
-@karamja_sailor_dialogue("Karamja", 1_46_49_12_7, ^sail_port_sarim_to_karamja);
-
+~chatnpc("Would you like to checkout my loot or access the ship?");
+def_int $choice = ~p_choice2_header("Checkout the loot.", 1, "Ask about the ship.", 2, "What would you like to do?");
+switch_int($choice){
+    case 1 : {
+        if (inv_total(worn, pirate_pants) > 0 & inv_total(worn, piratehat) > 0){
+           ~shillings_shop;
+        } else {
+            ~chatnpc("You need to be a pirate to access the loot.");
+        }
+    }
+    case 2 : {
+        @karamja_sailor_dialogue("Karamja", 1_46_49_12_7, ^sail_port_sarim_to_karamja);
+    }
+}
+[opnpc1,captain_tobias]
+~chatnpc("Would you like to checkout my loot or access the ship?");
+def_int $choice = ~p_choice2_header("Checkout the loot.", 1, "Ask about the ship.", 2, "What would you like to do?");
+switch_int($choice){
+    case 1 : {
+        if (inv_total(worn, pirate_pants) > 0 & inv_total(worn, piratehat) > 0){
+            ~shillings_shop;
+        } else {
+            ~chatnpc("You need to be a pirate to access the loot.");
+        }
+    }
+    case 2 : {
+        @karamja_sailor_dialogue("Karamja", 1_46_49_12_7, ^sail_port_sarim_to_karamja);
+    }
+}
 [label,karamja_sailor_dialogue](string $dest, coord $coord, int $ship_dest)
 ~chatnpc("<p,quiz>Do you want to go on a trip to <$dest>?");
-~chatnpc("<p,neutral>The trip will cost you 30 coins.");
+~chatnpc("<p,neutral>The trip will cost you 300 coins or 30 shillings.");
 def_int $option;
 if (%dragon_progress >= ^quest_dragon_spoken_to_oziach & %dragon_progress < ^dragon_complete) {
     $option = ~p_choice3("I'd rather go to Crandor Isle.", 3, "Yes please.", 1, "No, thank you.", 2);
@@ -13,18 +40,27 @@ if (%dragon_progress >= ^quest_dragon_spoken_to_oziach & %dragon_progress < ^dra
 switch_int ($option) {
     case 1 :
         ~chatplayer("<p,happy>Yes please.");
-        if (inv_total(worn,piratehat) > 0) {
+        if (inv_total(worn,piratehat) > 0 & inv_total(worn,pirate_pants) > 0) {
             ~chatnpc("<p,happy>Oh a fellow sailor! come on aboard!");
             ~set_sail($dest, "and board the ship.", $coord, $ship_dest, 7); 
             return;
         }
-        if (inv_total(inv, coins) < 30) {
-            ~chatplayer("<p,sad>Oh dear, I don't actually seem to have enough money.");
+        if (inv_total(inv, shillings) < 30) {
+            ~chatnpc("<p,happy>Sorry, you don't have enough shillings to ride the boat.");
+            return;
+        } else if (inv_total(inv, coins) < 300) {
+            ~chatplayer("<p,sad>Oh dear, I don't actually seem to have enough coins either.");
             return;
         }
+        if (inv_total(inv, shillings) > 29) {
+            inv_del(inv, shillings, 30);
+            mes("You pay the 30 shillings...");
+        } else if (inv_total(inv, coins) > 299) {
+            inv_del(inv, coins, 300);
+            mes("You pay the 300 coins...");
+        }        
         
-        inv_del(inv, coins, 30);
-        mes("You pay the 30 coins...");
+        
         ~set_sail($dest, "and board the ship.", $coord, $ship_dest, 7); 
     case 2 :
         ~chatplayer("<p,neutral>No, thank you.");
@@ -32,3 +68,7 @@ switch_int ($option) {
         ~chatplayer("<p,neutral>I'd rather go to Crandor Isle.");
         ~chatnpc("<p,shock>No I need to stay alive,|I have a wife and family to support.");
 }
+
+
+[proc,shillings_shop]
+~chatnpc("We are currently out of stock!");

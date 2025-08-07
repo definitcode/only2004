@@ -1,3 +1,15 @@
+[ice_crown]
+name=Ice Crown
+desc=A crown of the Ice Queen.
+model=model_368_npc
+iop2=Wear
+wearpos=hat
+recol1s=28609
+recol1d=14815
+manwear=model_368_npc,0
+womanwear=model_368_npc,0
+weight=2oz
+
 [vampiric_hammer]
 cost=2000000
 name=Vampiric Hammer
@@ -384,8 +396,8 @@ tradeable=no
 
 [shield_of_arrav]
 name=Shield of Arrav
-model=model_2339_obj
-//model=model_arravshield_obj
+//model=model_2339_obj
+model=model_arravshield_obj
 2dxof=18
 2dyof=-29
 2dzoom=1070
@@ -393,16 +405,15 @@ model=model_2339_obj
 2dxan=220
 iop2=Wield
 wearpos=lefthand
-manwear=model_486_obj_wear,0
-womanwear=model_486_obj_wear,6
-//manwear=model_arravshield_obj_wear,0
-//womanwear=model_arravshield_obj_wear,6
+//manwear=model_486_obj_wear,0
+//womanwear=model_486_obj_wear,6
+manwear=model_arravshield_obj_wear,0
+womanwear=model_arravshield_obj_wear,6
 category=armour_shield
 weight=8lb
-param=rangeattack,-2
-param=magicattack,-6
+param=rangeattack,10
 param=stabdefence,15
 param=slashdefence,16
 param=crushdefence,14
 param=rangedefence,15
-param=magicattack,25
+param=magicattack,10

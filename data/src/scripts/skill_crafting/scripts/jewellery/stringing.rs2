@@ -59,7 +59,7 @@ def_struct $struct = oc_param($unstrung, crafting_jewelry_struct);
 // delete items
 inv_del(inv, $unstrung, 1);
 inv_del(inv, ball_of_wool, 1);
-
+~hand_crafting_action;
 // give item
 inv_add(inv, struct_param($struct, strung), 1);
 

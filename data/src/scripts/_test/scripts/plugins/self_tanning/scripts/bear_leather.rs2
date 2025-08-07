@@ -1,0 +1,90 @@
+[label,craft_bear_leather]
+if (inv_total(inv, bear_leather) < 1){
+    mes("You need Bear Leather to craft with.");
+    return;
+}
+~bear_leather;
+
+[proc,bear_leather]
+def_int $bear_leather = inv_total(inv, bear_leather);
+def_namedobj $choice = ~multiobj4(
+    "What would you like to make?", 
+    bear_gloves, 0, -2, 185, "Gloves.", 0, 0, 
+    bear_boots, 0, 0, 190, "Boots.", 0, 0, 
+    bear_body, 0, -20, 175, "Body", 0, 0,
+    bear_chaps, 0, -15, 190, "Chaps", 0, 0    
+);
+
+switch_namedobj($choice){
+    case bear_gloves : {
+        if ($bear_leather > 4){
+            inv_del(inv, bear_leather, 5);
+            ~hand_crafting_action;
+            inv_add(inv, bear_gloves, 1);
+            ~objbox(bear_gloves, "You have created a pair of Bear Gloves!", 250, 0, 0);
+            if ($bear_leather > 4){
+                ~bear_leather;
+            } else {
+                ~mesbox("You need more Bear Leather to craft this.");
+            }
+        } else {
+            ~mesbox("You need more Bear Leather to craft this.");
+            return;
+        }
+    }
+    case bear_boots : {
+        if ($bear_leather > 9){
+            inv_del(inv, bear_leather, 10);
+            ~hand_crafting_action;
+            inv_add(inv, bear_boots, 1);
+            ~objbox(bear_boots, "You have created a pair of Bear Boots!", 250, 0, 20);
+            if ($bear_leather > 9){
+                ~bear_leather;
+            } else {
+                ~mesbox("You need more Bear Leather to craft this.");
+            }
+        } else {
+            ~mesbox("You need more Bear Leather to craft this.");
+            return;
+        }
+    }
+    case bear_body : {
+        if ($bear_leather > 9){
+            inv_del(inv, bear_leather, 10);
+            ~hand_crafting_action;
+            inv_add(inv, bear_body, 1);
+            ~objbox(bear_body, "You have created a Bear Body!", 250, 0, 0);
+            if ($bear_leather > 9){
+                ~bear_leather;
+            } else {
+                ~mesbox("You need more Bear Leather to craft this.");
+            }
+        } else {
+            ~mesbox("You need more Bear Leather to craft this.");
+            return;
+        }
+    }
+    case bear_chaps : {
+        if ($bear_leather > 9){
+            inv_del(inv, bear_leather, 10);
+            ~hand_crafting_action;
+            inv_add(inv, bear_chaps, 1);
+            ~objbox(bear_chaps, "You have created a pair of Bear Chaps!", 250, 0, 0);
+            if ($bear_leather > 9){
+                ~bear_leather;
+            } else {
+                ~mesbox("You need more Bear Leather to craft this.");
+                return;
+            }
+        } else {
+            ~mesbox("You need more Bear Leather to craft this.");
+            return;
+        }
+    }
+}
+
+
+[proc,hand_crafting_action]
+anim(human_herbing_grind,0);
+anim(human_casthighlvlalchemy, 0);
+sound_synth(tinderbox_strike, 1, 0);

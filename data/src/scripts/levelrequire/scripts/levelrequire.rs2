@@ -239,13 +239,16 @@ anim(emote_dance, 0);
 ~equip($slot);
 
 [label,levelrequire_book_of_prayers](stat $stat, int $slot)
-def_int $required_level = 99;
+def_int $required_level = 43;
 
 if (stat_base($stat) < $required_level) {
-    ~mesbox("You are not a high enough level to use this item.");
-    ~mesbox("You need to have a level of 99 in this skill.");
+    ~mesbox("You need to have a Prayer level of 43 in this skill.");
     return;
 }
+anim(human_castenfeeble,0);
+spotanim_pl(enfeeble_casting, 250, 0);
+sound_synth(prayer_recharge, 1, 0);
+~equip($slot);
 
 
 [label,levelrequire_max_cape](int $required_level, int $slot)

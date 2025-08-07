@@ -21,6 +21,7 @@ model=model_2631_obj
 2dxan=388
 cost=100
 weight=3kg
+stackable=yes
 
 [silk]
 name=Silk
@@ -88,6 +89,7 @@ desc=This would make warm clothing.
 cost=50
 weight=3kg
 members=yes
+stackable=yes
 
 [woodplank]
 model=model_2694_obj

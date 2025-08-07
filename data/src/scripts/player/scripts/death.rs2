@@ -152,6 +152,11 @@ if (%pk_skull > 0) { $skulled = true; }
 def_boolean $protecting_item = false;
 if (%prayer_protectitems = ^true) { $protecting_item = true; }
 inv_clear(deathkeep);
+def_int $coins = inv_total(inv, coins);
+if ($coins > 0 & ~wilderness_level(coord) > 29){
+    inv_del(inv, coins, $coins);
+    inv_add(inv, bloody_coins, $coins);
+}
 if($skulled = false) {
     ~move_priciest_item_on_hero_to_death;
     ~move_priciest_item_on_hero_to_death;

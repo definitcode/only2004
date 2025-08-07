@@ -19,3 +19,5 @@ stock10=salmon,10,100
 stock11=meat_pie,10,100
 stock12=bread,5,100
 stock13=cooked_meat,10,100
+stock14=player_ledger,10,100
+stock15=player_checkbook,10,100

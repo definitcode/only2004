@@ -26,4 +26,6 @@ stock4=chisel,2,100
 stock5=hammer,5,100
 stock6=bronze_pickaxe,5,100
 stock7=bronze_axe,10,100
-stock8=macro_triffidfruit,10,1000
+stock8=macro_triffidfruit,10,100
+stock9=player_ledger,10,100
+stock10=player_checkbook,10,100

@@ -14,6 +14,8 @@ stock4=bucket_empty,2,100
 stock5=tinderbox,2,100
 stock6=chisel,2,100
 stock7=hammer,5,100
+stock8=player_ledger,10,100
+stock9=player_checkbook,10,100
 
 [herbloreshopogre]
 // https://oldschool.runescape.wiki/w/Grud%27s_Herblore_Stall. (Trivia)
@@ -27,3 +29,4 @@ allstock=yes
 stock1=vial_empty,50,100
 stock2=pestle_and_mortar,3,100
 stock3=eye_of_newt,50,20
+stock4=swamp_tar,1000,50

@@ -1,4 +1,22 @@
 [opnpc1,reldo]
+if (%phoenixgang_progress = ^phoenixgang_complete | %blackarmgang_progress = ^blackarmgang_complete){
+    ~chatnpc("Welcome back! Would you like to buy the Shield of Arrav?");
+    def_int $choice = ~p_choice2_header("Yes.", 1, "No.", 2, "Would you like to buy the Shield of Arrav?");
+    switch_int($choice){
+        case 1 : {
+            if (inv_total(inv, coins) > 24999){
+                inv_del(inv,coins, 25000);
+                inv_add(inv,shield_of_arrav, 1);
+                ~chatnpc("Here you go! You now the proud owner owner of the Shield of Arrav.");
+            } else {
+                ~chatnpc("Oops! It seems you don't have enough coins to own such a prestigious piece.");
+            }
+        }
+        case 2 : {
+            ~chatnpc("No problem! I figured I would offer since you assembled the pieces for me!");
+        }
+    }
+}
 if(%phoenixgang_progress = ^phoenixgang_read_book) {
     @reldo_read_book;
 }

@@ -16,6 +16,8 @@ stock7=hammer,5,100
 stock8=vial_empty,50,200
 stock9=feather,100,100
 stock10=knife,5,100
+stock11=player_ledger,10,100
+stock12=player_checkbook,10,100
 
 [runeplateshop]
 // https://oldschool.runescape.wiki/w/Oziach_(shop)

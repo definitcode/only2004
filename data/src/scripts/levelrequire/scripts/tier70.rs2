@@ -40,4 +40,4 @@
 [opheld2,max_cape]            @levelrequire_max_cape(99, last_slot);
 
 // Items
-[opheld2,book_of_prayers]         @levelrequire_book_of_prayers(prayer, last_slot);
+[opheld3,book_of_prayers]         @levelrequire_book_of_prayers(prayer, last_slot);

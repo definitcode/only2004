@@ -208,8 +208,7 @@ if (inv_total(worn, headband_red) > 0) {
     stat_advance(fletching, calc($fletching_experience * $xp_mult));
     mes("Your fletching skills are showing!");
 };
-anim(human_casthighlvlalchemy, 0);
-sound_synth(tinderbox_strike, 1, 0);
+~hand_crafting_action;
 inv_add(inv, $product, $count);
 queue(fletching_repeat, 2, $log, $product, $count, $message, $fletching_experience);
 

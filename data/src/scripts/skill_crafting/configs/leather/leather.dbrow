@@ -16,6 +16,24 @@ data=leather,leather,1
 data=product,leather_boots
 data=productexp,163
 
+[craft_bear_gloves]
+table=craft_leather_table
+data=members,false
+data=levelrequired,1
+data=name,a pair of Bear Gloves
+data=leather,bear_leather,5
+data=product,bear_gloves
+data=productexp,138
+
+[craft_bear_boots]
+table=craft_leather_table
+data=members,false
+data=levelrequired,7
+data=name,a pair of Leather Boots
+data=leather,bear_leather,10
+data=product,bear_boots
+data=productexp,163
+
 [craft_leather_vambraces]
 table=craft_leather_table
 data=members,false
@@ -43,6 +61,15 @@ data=leather,leather,1
 data=product,leather_chaps
 data=productexp,270
 
+[craft_bear_chaps]
+table=craft_leather_table
+data=members,false
+data=levelrequired,30
+data=name,some Bear Chaps
+data=leather,bear_leather,10
+data=product,bear_chaps
+data=productexp,600
+
 [craft_dragonhide_chaps]
 table=craft_leather_table
 data=members,true
@@ -69,6 +96,15 @@ data=name,a Hard Leather Body
 data=leather,hard_leather,1
 data=product,hardleather_body
 data=productexp,350
+
+[craft_bear_body]
+table=craft_leather_table
+data=members,false
+data=levelrequired,30
+data=name,a Bear Body
+data=leather,bear_leather,10
+data=product,bear_body
+data=productexp,600
 
 [craft_dragonhide_body]
 table=craft_leather_table

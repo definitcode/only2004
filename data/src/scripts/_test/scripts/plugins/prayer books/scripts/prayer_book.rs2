@@ -1,11 +1,26 @@
+[opheld2,book_of_prayers] @cast_prayer;
+// Cast Prayer Ritual
 [label,cast_prayer]
-if (stat(prayer) > 9){
+def_int $max_prayer = add(stat_base(prayer), 15);
+def_int $burnt_bones = inv_total(inv, bones_burnt);
+
+// Check bones
+if ($burnt_bones < 4) {
+    mes("You do not have enough Burnt bones to do the ritual.");
+    return;
+}
+
+// Already boosted to max or higher
+if (stat(prayer) >= $max_prayer) {
+    mes("You need to wait before making another prayer!");
+    return;
+}
+
+// Only allow if current prayer is below base (meaning drained)
+if (stat(prayer) <= stat_base(prayer)) {
     def_int $random = random(10);
     def_string $prayer = "No Prayer";
-    if (stat(magic) > 110) {
-        ~mesbox("You need to wait before making another prayer!");
-        return;
-    }
+
     switch_int($random){
         case 0 : $prayer = "Ignis Voco Tempra";
         case 1 : $prayer = "Umbra Nex Mortem";
@@ -18,15 +33,19 @@ if (stat(prayer) > 9){
         case 8 : $prayer = "Volatus Vox Umbrae";
         case 9 : $prayer = "Ordo Flammae Vindicta";
     }
-    stat_drain(prayer, 10, 1);
-    sound_synth(high_alchemy, 0, 0);
-    anim(human_scythe_spin, 1);
-    spotanim_pl(highlvlalchemy_casting, 92, 0);
-    say("<$prayer>");
-    stat_boost(magic, 1, 50);
-    p_delay(1);
 
+    inv_del(inv, bones_burnt, 4);
+    sound_synth(high_alchemy, 0, 0);
+    anim(human_castlowlvlalchemy, 1);
+    spotanim_pl(lowlvlalchemy_casting, 92, 0);
+    say("<$prayer>");
+    stat_boost(prayer, 1, 15);
+    p_delay(3);
 }
+else {
+    mes("You have already uttered this incantation, you must wait.");
+}
+
 
 
 [label,meleeprayer]
