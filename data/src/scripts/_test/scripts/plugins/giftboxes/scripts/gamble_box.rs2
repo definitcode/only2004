@@ -1,0 +1,144 @@
+[label,dice_games]
+~mesbox("Welcome to Dice Games. |You will be prompted to type in your wager amount next.");
+~mesbox("Game is simple: Roll two dice, bet High, Low, Evens, Odds, or a Direct Number.");
+
+def_int $wager = 0;
+p_countdialog;
+$wager = last_int;
+
+// Validate wager
+if ($wager <= 0) {
+    mes("You must enter a positive amount.");
+    return;
+}
+
+def_int $available = inv_total(inv, coins);
+if ($wager > $available) {
+    mes("You don't have that much gold to wager.");
+    return;
+}
+
+if (inv_freespace(inv) = 0) {
+    mes("You need at least one free inventory slot.");
+    return;
+}
+
+def_int $roll1 = randominc(5);
+def_int $roll2 = randominc(5);
+def_int $total = add($roll1, $roll2);
+def_string $result;
+def_int $game_result;
+def_int $game = ~p_choice5("High.", 1, "Low.", 2, "Evens.", 3, "Odds.", 4, "Direct Number.", 5);
+switch_int($game){
+    case 1 : { // High (8-12 wins)
+        if ($total < 6) {
+            $result = "LOSS";
+            $game_result = 0;
+        } else if ($total > 7) {
+            $result = "WIN";
+            $game_result = 1;
+        } else {
+            $result = "PUSH";
+            $game_result = 2;
+        }
+    }
+    case 2 : { // Low (2–5 wins)
+        if ($total < 6) {
+            $result = "WIN";
+            $game_result = 1;
+        } else if ($total > 7) {
+            $result = "LOSS";
+            $game_result = 0;
+        } else {
+            $result = "PUSH";
+            $game_result = 2;
+        }
+    }
+    case 3 : { // Evens
+        def_int $remainder = sub($total, multiply(divide($total, 2), 2));
+        if ($remainder = 0) {
+            $result = "WIN";
+            $game_result = 1;
+        } else {
+            $result = "LOSS";
+            $game_result = 0;
+        }
+    }
+    case 4 : { // Odds
+        def_int $remainder = sub($total, multiply(divide($total, 2), 2));
+        if ($remainder ! 0) {
+            $result = "WIN";
+            $game_result = 1;
+        } else {
+            $result = "LOSS";
+            $game_result = 0;
+        }
+    }
+
+    case 5 : { // Direct Number Guess
+        ~mesbox("Enter a number between 2 and 12.");
+        def_int $guess; 
+        p_countdialog;
+        $guess = last_int;
+        if ($guess = $total) {
+            $result = "WIN";
+            $game_result = 1;
+        } else {
+            $result = "LOSS";
+            $game_result = 0;
+        }
+    }
+}
+
+~dice_roll;
+mes("[Dice Games]");
+mes("(Die #1): <tostring($roll1)>");
+mes("(Die #2): <tostring($roll2)>");
+mes("[Result]: <$result>");
+switch_int($game_result){
+    case 0 : {
+        ~dice_lose($wager);
+    }
+    case 1 : {
+        ~dice_win($wager, $game);
+    }
+    case 3 : {
+        mes("It's a tie. Your wager is returned.");
+        return;
+    }
+}
+
+
+
+
+[proc,dice_roll]
+sound_synth(dice_shake, 2, 0);
+p_delay(1);
+anim(human_pickupfloor,0);
+sound_synth(dice_roll, 1, 0);
+sound_synth(dice_roll, 2, 1);
+p_delay(1);
+
+
+
+[proc,dice_win](int $wager, int $game)
+def_int $payout = $wager;
+if ($game = 5) { // Direct Number pays more (e.g. 10x)
+    $payout = multiply($wager, 10);
+} else {
+    $payout = multiply($wager, 2); // Double the wager
+}
+inv_add(inv, coins, $payout);
+mes("You win! You receive <tostring($payout)> coins.");
+spotanim_pl(levelup_anim, 250, 0);
+midi_jingle(^dice_win_jingle,^dice_win_jingle_millis);
+
+[proc,dice_lose](int $wager)
+inv_del(inv, coins, $wager);
+mes("You lose. <tostring($wager)> coins have been deducted.");
+say("I just lost! <tostring($wager)> coins!!!");
+anim(human_death,3);
+p_delay(1);
+midi_jingle(^dice_lose_jingle,^dice_lose_jingle_millis);
+//anim(human_death_backwards,0);
+anim(null, 0);

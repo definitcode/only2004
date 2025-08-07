@@ -131,12 +131,16 @@ switch_category(oc_category($rhand)) {
 
 [proc,ranged_shoot_npc](obj $ammo)(int)
 spotanim_pl(oc_param($ammo, proj_launch), 96, 0);
-inv_del(worn, $ammo, 1);
+if (inv_total(worn, rogue_magnet) < 1){
+    inv_del(worn, $ammo, 1);   
+}
 return(~npc_projectile(coord, npc_uid, oc_param($ammo, proj_travel), 40, 36, 41, 15, 5, 11, 5));
 
 [proc,ranged_throw_npc](obj $ammo)(int)
 spotanim_pl(oc_param($ammo, proj_launch), 96, 0);
-inv_del(worn, $ammo, 1);
+if (inv_total(worn, rogue_magnet) < 1){
+    inv_del(worn, $ammo, 1);   
+}
 if (inv_total(worn, $ammo) = 0) {
     mes("That was your last one!");
     ~update_all(inv_getobj(worn, ^wearpos_rhand));
@@ -147,6 +151,12 @@ return(~npc_projectile(coord, npc_uid, oc_param($ammo, proj_travel), 40, 36, 32,
 if (random($chance) ! 0 | $chance = ^true) {
     world_delay($delay);
     if (map_blocked(npc_coord) = false) {
-        obj_add(npc_coord, enum(obj, namedobj, ranged_ammo, $ammo), 1, 200);
+        if (inv_total(worn, rogue_magnet) < 1){
+            obj_add(npc_coord, enum(obj, namedobj, ranged_ammo, $ammo), 1, 200);
+        } else {
+            if (%e_ctoggle = ^e_toggle_on){
+                mes("Your magnet pulls your ammo back to you!");
+            }
+        }
     }
 }

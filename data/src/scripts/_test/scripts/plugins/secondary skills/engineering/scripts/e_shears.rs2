@@ -1,0 +1,89 @@
+//// EVENT: Using shears on a flower location
+//[oploc2,loc_1187] @e_shears_flowers;
+//[oploc2,loc_1188] @e_shears_flowers;
+//[oploc2,daisys] @e_shears_flowers;
+//[oploc2,loc_1190] @e_shears_flowers;
+//[oploc2,loc_1191] @e_shears_flowers;
+//[oploc2,loc_1192] @e_shears_flowers;
+//[oploc2,loc_1193] @e_shears_flowers;
+//[oploc2,loc_1194] @e_shears_flowers;
+//[oploc2,loc_1195] @e_shears_flowers;
+//[oploc2,loc_1196] @e_shears_flowers;
+//[oploc2,loc_1198] @e_shears_flowers;
+//[oploc2,loc_1199] @e_shears_flowers;
+//[oploc2,loc_1200] @e_shears_flowers;
+//[oploc2,loc_1201] @e_shears_flowers;
+//[oploc2,loc_1202] @e_shears_flowers;
+//[oploc2,loc_1203] @e_shears_flowers;
+//[oploc2,loc_1204] @e_shears_flowers;
+//[oploc2,assorted_flowers] @e_shears_flowers;
+//[oploc2,red_flowers] @e_shears_flowers;
+//[oploc2,blue_flowers] @e_shears_flowers;
+//[oploc2,yellow_flowers] @e_shears_flowers;
+//[oploc2,purple_flowers] @e_shears_flowers;
+//[oploc2,orange_flowers] @e_shears_flowers;
+//[oploc2,mixed_flowers] @e_shears_flowers;
+//[oploc2,white_flowers] @e_shears_flowers;
+//[oploc2,black_flowers] @e_shears_flowers;
+//
+//// Main handler
+//[label,e_shears_flowers]
+//if (inv_total(inv, shears) == 0) {
+//    mes("You need a pair of shears to gather flowers.");
+//    return;
+//}
+//if (stat_base(herblore) < 2) {
+//    mes("You don't have the skills to cut flowers.");
+//    return;
+//}
+//if (inv_free(inv) == 0) {
+//    mes("You don't have enough inventory space.");
+//    return;
+//}
+//
+//// Identify which flower this is and give the correct item
+//def_obj $flowerItem;
+//def_coord $loc = loc_coord;
+//
+//switch_loc($loc) {
+//    case daisys:               { $flowerItem = daisy_flower; }
+//    case loc_1187:              { $flowerItem = blue_flower; }
+//    case loc_1188:              { $flowerItem = red_flower; }
+//    case loc_1190:              { $flowerItem = sunflower; }
+//    case loc_1191:              { $flowerItem = sunflowers; }
+//    case loc_1192:              { $flowerItem = orange_flower; }
+//    case loc_1193:              { $flowerItem = orange_flower_bunch; }
+//    case loc_1194:              { $flowerItem = yellow_flower_bunch; }
+//    case loc_1195:              { $flowerItem = lightblue_flower; }
+//    case loc_1196:              { $flowerItem = lightblue_flower_bunch; }
+//    case loc_1198:              { $flowerItem = lightyellow_flower_bunch; }
+//    case loc_1199:              { $flowerItem = blue_flower_bed; }
+//    case loc_1200:              { $flowerItem = red_flower_bed; }
+//    case loc_1201:              { $flowerItem = yellow_flower_bed; }
+//    case loc_1202:              { $flowerItem = jungle_flower; }
+//    case loc_1203:              { $flowerItem = random_flower; }
+//    case loc_1204:              { $flowerItem = jungle_flower_2; }
+//    case assorted_flowers:      { $flowerItem = assorted_flower; }
+//    case red_flowers:           { $flowerItem = red_flower; }
+//    case blue_flowers:          { $flowerItem = blue_flower; }
+//    case yellow_flowers:        { $flowerItem = yellow_flower; }
+//    case purple_flowers:        { $flowerItem = purple_flower; }
+//    case orange_flowers:        { $flowerItem = orange_flower; }
+//    case mixed_flowers:         { $flowerItem = mixed_flower; }
+//    case white_flowers:         { $flowerItem = white_flower; }
+//    case black_flowers:         { $flowerItem = black_flower; }
+//    default: {
+//        mes("You can't gather flowers from this plant.");
+//        return;
+//    }
+//}
+//
+//// Play animation, give flowers, add XP
+//anim(player, anim_shearing);
+//inv_add(inv, $flowerItem, 1);
+//addxp(herblore, 2); // tweak as needed
+//mes("You gather some flowers.");
+//
+//// Optional: Remove & respawn plant to simulate regrowth
+//loc_del($loc);
+//loc_add_timed($loc, 100); // 100 ticks until regrowth

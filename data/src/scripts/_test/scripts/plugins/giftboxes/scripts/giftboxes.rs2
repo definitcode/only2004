@@ -1,5 +1,5 @@
 [opheld1,gift_box] ~open_giftbox;
-[opheld1,gamble_box] ~gamble_box;
+[opheld1,gamble_box] @dice_games;
 [opheld1,reset_box] ~reset;
 [opheld1,hc_box] ~hc_box;
 [opheld1,alchemy_box] ~alchemy_box;
