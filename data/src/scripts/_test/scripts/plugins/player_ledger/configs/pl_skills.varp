@@ -574,6 +574,9 @@ scope=perm
 [ice_warrior_kc]
 scope=perm
 
+[ice_queen_kc]
+scope=perm
+
 [imp_kc]
 scope=perm
 

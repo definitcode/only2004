@@ -45,6 +45,9 @@ settimer(health_regen, 100);
 ~clearallq;
 %founders_transmog = ^transmog_off;
 
+if (%gamemode_selected = ^gamemode_pvp){
+    ~pk_skull(30000000);
+}
 if(inzone(movecoord(^grandtree_jail_coord, 0, 0, -2), movecoord(^grandtree_jail_coord, 3, 0, 2), coord) = true) {
     ~grandtree_spawn_charlie;
 }

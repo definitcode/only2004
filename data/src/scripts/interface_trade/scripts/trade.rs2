@@ -37,6 +37,11 @@ if (%gamemode_selected = ^gamemode_ironman | %gamemode_selected = ^gamemode_hcim
     .mes("You can't trade players that are doing certain challenges!");
     return;
 }
+if (%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot trade non-pvpers.");
+    .mes("You cannot trade a pvp account.");
+    return;
+}
 
 // this message always sends, even if this player is responding to a trade request
 mes("Sending trade offer...");

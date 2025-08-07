@@ -5,3 +5,25 @@ size=216
 [partyroom_tempinv]
 size=8
 protect=no
+
+
+[partyshop]
+// dated sep 11, 2005
+// https://classic.runescape.wiki/w/Fishing_Trawler_General_Store
+// https://storage.googleapis.com/tannerdino/images/portkazardgeneralstorestock.png (full stocks)
+scope=shared
+size=40
+restock=yes
+stackall=yes
+allstock=yes
+stock1=ball,5,100
+stock2=white_partyhat,0,100
+stock3=blue_partyhat,0,100
+stock4=red_partyhat,0,100
+stock5=green_partyhat,0,100
+stock6=yellow_partyhat,0,100
+stock7=purple_partyhat,0,100
+stock8=bunnyears,0,100
+stock9=scythe,0,100
+stock10=christmas_cracker,0,100
+stock11=easter_egg,0,100

@@ -10,7 +10,11 @@ return(true);
 
 [proc,set_pk_vars]
 if (~deserves_pk_skull = true) {
-    ~pk_skull(3000); // 3000 ticks, or 30 minutes
+    if (%gamemode_selected = ^gamemode_pvp){
+        ~pk_skull(30000000);
+    } else {
+        ~pk_skull(3000); // 3000 ticks, or 30 minutes
+    }
 }
 // for preys
 %pk_prey2 = %pk_prey1;

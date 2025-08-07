@@ -5,7 +5,7 @@
 %shop_buy = $shop_buy;
 %shop_sell = $shop_sell;
 %shop_haggle = $shop_haggle;
-if (%gamemode_selected = ^gamemode_ironman | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim){
+if (%gamemode_selected = ^gamemode_ironman | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim | %gamemode_selected = ^gamemode_none){
     mes("You cannot access shops as your gamemode!");
     return;
 }

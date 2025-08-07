@@ -8,12 +8,15 @@
 
 
 [proc,show_skill_total]
+// Combat
 def_int $att = stat_base(attack);
 def_int $str = stat_base(strength);
 def_int $def = stat_base(defence);
 def_int $ran = stat_base(ranged);
 def_int $mag = stat_base(magic);
 def_int $pra = stat_base(prayer);
+def_int $hit = stat_base(hitpoints);
+
 def_int $run = stat_base(runecraft);
 def_int $fle = stat_base(fletching);
 def_int $min = stat_base(mining);
@@ -22,7 +25,6 @@ def_int $woo = stat_base(woodcutting);
 def_int $coo = stat_base(cooking);
 def_int $fir = stat_base(firemaking);
 def_int $agi = stat_base(agility);
-def_int $hit = stat_base(hitpoints);
 def_int $her = stat_base(herblore);
 def_int $smi = stat_base(smithing);
 def_int $thi = stat_base(thieving);
