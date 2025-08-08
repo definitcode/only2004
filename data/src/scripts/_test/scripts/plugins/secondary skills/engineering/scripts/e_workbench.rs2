@@ -1261,9 +1261,9 @@ if (inv_total(inv, harpoon) > 0) {
 def_int $pot = null;
 if (inv_total(inv, lobster_pot) > 0) {
     if (%engineering > 24) {
-        if (inv_total(inv, oak_logs) > 1 & inv_total(inv, bronze_rod) > 11) {
+        if (inv_total(inv, oak_logs) > 1 & inv_total(inv, iron_rod) > 11) {
             inv_del(inv, oak_logs, 2);
-            inv_del(inv, bronze_rod, 12);
+            inv_del(inv, iron_rod, 12);
             inv_del(inv, lobster_pot, 1);
             ~crafting_action;
             p_delay(1);
@@ -1274,7 +1274,7 @@ if (inv_total(inv, lobster_pot) > 0) {
             ~objbox(lobster_pot_oak, "You have upgraded your Lobster Pot to an Oak Lobster Pot.", 250, 0, 0);
             return;
         } else {
-            ~mesbox("You need 2 Oak Logs and 12 Bronze Rods to upgrade your Lobster Pot to an Oak Lobster Pot.");
+            ~mesbox("You need 2 Oak Logs and 12 Iron Rods to upgrade your Lobster Pot to an Oak Lobster Pot.");
             return;
         }
     } else {
@@ -1283,9 +1283,9 @@ if (inv_total(inv, lobster_pot) > 0) {
     }
 } else if (inv_total(inv, lobster_pot_oak) > 0) {
     if (%engineering > 29) {
-        if (inv_total(inv, willow_logs) > 1 & inv_total(inv, iron_rod) > 11) {
+        if (inv_total(inv, willow_logs) > 1 & inv_total(inv, steel_rod) > 11) {
             inv_del(inv, willow_logs, 2);
-            inv_del(inv, iron_rod, 12);
+            inv_del(inv, steel_rod, 12);
             inv_del(inv, lobster_pot_oak, 1);
             ~crafting_action;
             p_delay(1);
@@ -1297,7 +1297,7 @@ if (inv_total(inv, lobster_pot) > 0) {
             ~objbox(lobster_pot_willow, "You have upgraded your Oak Lobster Pot to a Willow Lobster Pot.", 250, 0, 0);
             return;
         } else {
-            ~mesbox("You need 2 Willow Logs and 12 Iron Rods to upgrade your Oak Lobster Pot to a Willow Lobster Pot.");
+            ~mesbox("You need 2 Willow Logs and 12 Steel Rods to upgrade your Oak Lobster Pot to a Willow Lobster Pot.");
             return;
         }
     } else {
@@ -1306,9 +1306,9 @@ if (inv_total(inv, lobster_pot) > 0) {
     }
 } else if (inv_total(inv, lobster_pot_willow) > 0) {
     if (%engineering > 39) {
-        if (inv_total(inv, maple_logs) > 1 & inv_total(inv, steel_rod) > 11) {
+        if (inv_total(inv, maple_logs) > 1 & inv_total(inv, mithril_rod) > 11) {
             inv_del(inv, maple_logs, 2);
-            inv_del(inv, steel_rod, 12);
+            inv_del(inv, mithril_rod, 12);
             inv_del(inv, lobster_pot_willow, 1);
             ~crafting_action;
             p_delay(1);
@@ -1320,7 +1320,7 @@ if (inv_total(inv, lobster_pot) > 0) {
             ~objbox(lobster_pot_maple, "You have upgraded your Willow Lobster Pot to a Maple Lobster Pot.", 250, 0, 0);
             return;
         } else {
-            ~mesbox("You need 2 Maple Logs and 12 Steel Rods to upgrade your Willow Lobster Pot to a Maple Lobster Pot.");
+            ~mesbox("You need 2 Maple Logs and 12 Mithril Rods to upgrade your Willow Lobster Pot to a Maple Lobster Pot.");
             return;
         }
     } else {
@@ -1329,9 +1329,9 @@ if (inv_total(inv, lobster_pot) > 0) {
     }
 } else if (inv_total(inv, lobster_pot_maple) > 0) {
     if (%engineering > 149) {
-        if (inv_total(inv, yew_logs) > 1 & inv_total(inv, mithril_rod) > 11) {
+        if (inv_total(inv, yew_logs) > 1 & inv_total(inv, adamant_rod) > 11) {
             inv_del(inv, yew_logs, 2);
-            inv_del(inv, mithril_rod, 12);
+            inv_del(inv, adamant_rod, 12);
             inv_del(inv, lobster_pot_maple, 1);
             ~crafting_action;
             p_delay(1);
@@ -1343,7 +1343,7 @@ if (inv_total(inv, lobster_pot) > 0) {
             ~objbox(lobster_pot_yew, "You have upgraded your Maple Lobster Pot to a Yew Lobster Pot.", 250, 0, 0);
             return;
         } else {
-            ~mesbox("You need 2 Yew Logs and 12 Mithril Rods to upgrade your Maple Lobster Pot to a Yew Lobster Pot.");
+            ~mesbox("You need 2 Yew Logs and 12 Adamant Rods to upgrade your Maple Lobster Pot to a Yew Lobster Pot.");
             return;
         }
     } else {
@@ -1352,9 +1352,9 @@ if (inv_total(inv, lobster_pot) > 0) {
     }
 } else if (inv_total(inv, lobster_pot_yew) > 0) {
     if (%engineering > 249) {
-        if (inv_total(inv, magic_logs) > 1 & inv_total(inv, adamant_rod) > 11) {
+        if (inv_total(inv, magic_logs) > 1 & inv_total(inv, rune_rod) > 11) {
             inv_del(inv, magic_logs, 2);
-            inv_del(inv, adamant_rod, 12);
+            inv_del(inv, rune_rod, 12);
             inv_del(inv, lobster_pot_yew, 1);
             ~crafting_action;
             p_delay(1);            
@@ -1365,7 +1365,7 @@ if (inv_total(inv, lobster_pot) > 0) {
             ~objbox(lobster_pot_magic, "You have upgraded your Yew Lobster Pot to a Magic Lobster Pot.", 250, 0, 0);
             return;
         } else {
-            ~mesbox("You need 2 Magic Logs and 12 Adamant Rods to upgrade your Yew Lobster Pot to a Magic Lobster Pot.");
+            ~mesbox("You need 2 Magic Logs and 12 Rune Rods to upgrade your Yew Lobster Pot to a Magic Lobster Pot.");
             return;
         }
     } else {
@@ -1377,7 +1377,7 @@ if (inv_total(inv, lobster_pot) > 0) {
         if (inv_total(inv, cursed_logs) > 4 & inv_total(inv, dragon_rod) > 23) {
             inv_del(inv, cursed_logs, 4);
             inv_del(inv, dragon_rod, 24);
-            inv_del(inv, lobster_pot_yew, 1);
+            inv_del(inv, lobster_pot_magic, 1);
             ~crafting_action;
             p_delay(1);            
             stat_advance(smithing, 950);
