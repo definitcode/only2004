@@ -50,13 +50,163 @@ switch_int($choice3){
 }
 
 [proc,splunker_tools]
-def_int $choice4 = (~p_choice4_header("Hammer.", 1, "Pickaxe.", 2, "Pickaxehead.", 3, "Chisel.", 4, "What kind of tool would you like to upgrade?"));
+def_int $choice4 = (~p_choice5_header("Hammer.", 1, "Pickaxe.", 2, "Pickaxehead.", 3, "Chisel.", 4, "Ammo Mould.", 5,"What kind of tool would you like to upgrade?"));
 switch_int($choice4){
     case 1 : ~e_hammer;
     case 2 : ~e_pickaxe;
     case 3 : ~e_pickaxehead;
     case 4 : ~e_chisel;
+    case 5 : ~e_ammo_mould;
 }
+
+[proc,e_ammo_mould]
+if (inv_total(inv, ammo_mould) > 0) {
+    if (%engineering > 9) {   
+        if (inv_total(inv, bronze_bar) > 0) {
+            inv_del(inv, oak_logs, 1);
+            inv_del(inv, bronze_bar, 1);
+            ~crafting_action;
+            inv_del(inv, hammer, 1);
+            stat_advance(smithing, 150);
+            stat_advance(crafting, 150);
+            stat_advance(fletching, 150);
+            inv_add(inv, bronze_ammo_mould, 1);
+            ~objbox(bronze_ammo_mould, "You have upgraded your Ammo Mould to a Bronze Ammo Mould.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 1 Bronze Bar to upgrade your Ammo Mould to a Bronze Ammo Mould.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 10 Engineering to upgrade your Ammo Mould to a Bronze Ammo Mould.");
+        return;
+    }
+} else if (inv_total(inv,bronze_ammo_mould) > 0) {
+    if (%engineering > 14) {   
+        if (inv_total(inv, iron_bar) > 1) {
+            inv_del(inv, iron_bar, 2);
+            ~crafting_action;
+            inv_del(inv, bronze_ammo_mould, 1);
+            stat_advance(smithing, 200);
+            stat_advance(crafting, 200);
+            stat_advance(fletching, 200);
+            inv_add(inv, iron_ammo_mould, 1);
+            ~objbox(iron_ammo_mould, "You have upgraded your Bronze Ammo Mould to an Iron Ammo Mould.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Iron Bars to upgrade your Bronze Ammo Mould to an Iron Ammo Mould.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 15 Engineering to upgrade your Bronze Ammo Mould to an Iron Ammo Mould.");
+        return;
+    }    
+} else if (inv_total(inv,iron_ammo_mould) > 0) {
+    if (%engineering > 29) {   
+        if (inv_total(inv, steel_bar) > 1) {
+            inv_del(inv, steel_bar, 2);
+            ~crafting_action;
+            inv_del(inv, iron_ammo_mould, 1);
+            stat_advance(smithing, 250);
+            stat_advance(crafting, 250);
+            stat_advance(fletching, 250);
+            inv_add(inv, steel_ammo_mould, 1);
+            ~objbox(steel_ammo_mould, "You have upgraded your Iron Ammo Mould to a Steel Ammo Mould.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 2 Steel Bars to upgrade your Iron Ammo Mould to a Steel Ammo Mould.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 30 Engineering to upgrade your Iron Ammo Mould to a Steel Ammo Mould.");
+        return;
+    }
+} else if (inv_total(inv,steel_ammo_mould) > 0) {
+    if (%engineering > 49) {   
+        if (inv_total(inv, mithril_bar) > 4) {
+            inv_del(inv, mithril_bar, 5);
+            ~crafting_action;
+            inv_del(inv, steel_ammo_mould, 1);
+            stat_advance(smithing, 550);
+            stat_advance(crafting, 550);
+            stat_advance(fletching, 550);
+            inv_add(inv, mithril_ammo_mould, 1);
+            ~objbox(mithril_ammo_mould, "You have upgraded your Steel Ammo Mould to a Mithril Ammo Mould.", 250, 0, 0);
+            return;
+        } else {
+            ~mesbox("You need 5 Mithril Bars to upgrade your Steel Ammo Mould to a Mithril Ammo Mould.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 50 Engineering to upgrade your Steel Ammo Mould to a Mithril Ammo Mould.");
+        return;
+    }
+} else if (inv_total(inv,mithril_ammo_mould) > 0) {
+    if (%engineering > 199) {   
+        if (inv_total(inv, adamantite_bar) > 6) {
+            inv_del(inv, adamantite_bar, 7);
+            ~crafting_action;
+            inv_del(inv, mithril_ammo_mould, 1);
+            stat_advance(smithing, 650);
+            stat_advance(crafting, 650);
+            stat_advance(fletching, 650);
+            inv_add(inv, adamant_ammo_mould, 1);
+            ~objbox(adamant_ammo_mould,"You have upgraded your Mithril Ammo Mould to an Adamant Ammo Mould.", 250,0,0);
+            return;
+        } else {
+            ~mesbox("You need 7 Adamant Bars to upgrade your Mithril Ammo Mould to an Adamant Ammo Mould.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 200 Engineering to upgrade your Mithril Ammo Mould to an Adamant Ammo Mould.");
+        return;
+    }
+} else if (inv_total(inv,adamant_ammo_mould) > 0) {
+    if (%engineering > 249) {
+        if (inv_total(inv, runite_bar) > 9) {
+            inv_del(inv, runite_bar, 10);
+            ~crafting_action;
+            inv_del(inv, adamant_ammo_mould, 1);
+            stat_advance(smithing, 750);
+            stat_advance(crafting, 750);
+            stat_advance(fletching, 750);
+            inv_add(inv, rune_ammo_mould, 1);
+            ~objbox(rune_ammo_mould,"You have upgraded your Adamant Ammo Mould to a Rune Ammo Mould.",250,0,0);
+            return;
+        } else {
+            ~mesbox("You need 10 Rune Bars to upgrade your Adamant Ammo Mould to a Rune Ammo Mould.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 250 Engineering to upgrade your Adamant Ammo Mould to a Rune Ammo Mould.");
+        return;
+    }
+} else if (inv_total(inv,rune_ammo_mould) > 0) {
+    if (%engineering > 295) {
+        if (inv_total(inv, dragon_bar) > 19) {
+            inv_del(inv, dragon_bar, 20);
+            ~crafting_action;
+            inv_del(inv, rune_ammo_mould, 1);
+            stat_advance(smithing, 950);
+            stat_advance(crafting, 950);
+            stat_advance(fletching, 950);
+            inv_add(inv, cursed_bark, 50);
+            inv_add(inv, dragon_ammo_mould, 1);
+            ~objbox(dragon_ammo_mould,"You have upgraded your Rune Ammo Mould to a Dragon Ammo Mould.",250,0,0);
+            return;
+        } else {
+            ~mesbox("You need 20 Dragon Bars to upgrade your Rune Ammo Mould to a Dragon Ammo Mould.");
+            return;
+        }
+    } else {
+        ~mesbox("You need 296 Engineering to upgrade your Rune Ammo Mould to a Dragon Ammo Mould.");
+        return;
+    }
+} else {
+    ~mesbox("You do not have an ammo mould!");
+}
+
+
 [proc,e_weapons]
 def_int $choice5 = (~p_choice4_header("Crossbow.", 1, "N/A.", 2, "N/A.", 3, "N/A.", 4, "What kind of tool would you like to upgrade?"));
 switch_int($choice5){
