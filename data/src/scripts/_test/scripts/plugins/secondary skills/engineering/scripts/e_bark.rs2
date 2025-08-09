@@ -75,6 +75,10 @@ switch_obj($tbox){
         $anim_id = human_founderscreatefire;
         $delay = 4;
     }
+    case hc_tinderbox : {
+        $anim_id = human_hccreatefire;
+        $delay = 4;
+    }
 }
 if (%founders_transmog = ^transmog_on){
     $anim_id = human_founderscreatefire;
@@ -122,6 +126,7 @@ switch_obj($tbox){
     case iron_tinderbox : $xp_mul = 1;
     case bronze_tinderbox : $xp_mul = 1;
     case founders_tinderbox : $xp_mul = 1;
+    case hc_tinderbox : $xp_mul = 1;
 }
 switch_obj($bark){
     case tree_bark : {

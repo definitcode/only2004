@@ -2074,7 +2074,7 @@ switch_int($choice){
 }
 
 [proc,e_bearitems]
-def_int $choice = (~p_choice4_header("Gloves.", 1, "Boots.", 2, "Cape.", 3, "Back.", 4, "What kind of Bear Armour would you like to make?"));
+def_int $choice = (~p_choice5_header("Gloves.", 1, "Boots.", 2, "Cape.", 3, "Coif." , 4,"Back.", 5, "What kind of Bear Armour would you like to make?"));
 switch_int($choice){
     case 1 : {
         if (%engineering > 29){
@@ -2124,6 +2124,22 @@ switch_int($choice){
             ~mesbox("You need to be at least level 40 Engineering to make a Bear Cape");
         }
     }
+    case 4 : {
+        if (%engineering > 49){
+            if (inv_total(inv, bear_leather) > 9) {
+                inv_del(inv, bear_leather, 10);
+                ~crafting_action;
+                stat_advance(smithing, 250);
+                stat_advance(crafting, 250);
+                inv_add(inv, bear_coif, 1);
+                ~objbox(bear_coif,"You have made a of Bear Coif.", 250, 0, 0);
+            } else {
+                ~mesbox("You need 10 Bear Leather to make a pair of Bear Boots");
+            }
+        } else {
+            ~mesbox("You need to be at least level 50 Engineering to make a Bear Cape");
+        }
+    } 
 }
 
 [proc,e_pvpnecklace]

@@ -74,6 +74,10 @@ switch_obj($tbox){
         $anim_id = human_founderscreatefire;
         $delay = 4;
     }
+    case hc_tinderbox : {
+        $anim_id = human_hccreatefire;
+        $delay = 4;
+    }
 }
 if (%founders_transmog = ^transmog_on){
     $anim_id = human_founderscreatefire;

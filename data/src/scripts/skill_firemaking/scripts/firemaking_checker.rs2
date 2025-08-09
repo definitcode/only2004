@@ -46,4 +46,7 @@ if ($lvl0 >= oc_param(bronze_tinderbox, levelrequire) & ($obj1 = bronze_tinderbo
 if ($lvl0 >= oc_param(founders_tinderbox, levelrequire) & ($obj1 = founders_tinderbox)) {
     return(founders_tinderbox);
 }
+if ($lvl0 >= oc_param(hc_tinderbox, levelrequire) & ($obj1 = hc_tinderbox)) {
+    return(hc_tinderbox);
+}
 return(null);

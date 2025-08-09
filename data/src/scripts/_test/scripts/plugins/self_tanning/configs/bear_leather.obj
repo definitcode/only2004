@@ -14,6 +14,31 @@ cost=100
 param=no_alchemy,^true
 stackable=yes
 
+[bear_coif]
+name=Bear Coif
+cost=160
+model=model_2537_obj
+recol1s=17441
+recol1d=10368
+recol2s=29594
+recol2d=10368
+2dyof=-3
+2dzoom=540
+2dyan=136
+2dxan=72
+iop2=Wear
+wearpos=hat
+manwear=model_189_obj_wear,0
+womanwear=model_366_obj_wear,0
+manhead=model_69_obj_wear
+womanhead=model_127_obj_wear
+param=magicattack,18
+param=prayerbonus,2
+param=magicdefence,1
+param=no_alchemy,^true
+iop2=Wear
+weight=4oz
+
 [bear_leather]
 name=Bear Leather
 desc=It's a piece of unprepared Bear leather.
