@@ -129,10 +129,7 @@ if (stat(fishing) < 40) {
 def_namedobj $pot = ~lobsterpot_checker;
 def_seq $anim = human_lobster;
 %fishing_animation = null;
-if ($pot = null) {
-    ~mesbox("You need a lobster pot to fish here.");
-    return;
-}
+
 switch_obj($pot){
     case lobster_pot_dragon : {
         $anim = human_lobster_pot_dragon;
@@ -168,6 +165,11 @@ switch_obj($pot){
         $anim = human_lobster;
         %fishing_animation = null;
     }
+}
+
+if ($pot = null) {
+    ~mesbox("You need a lobster pot to fish here.");
+    return;
 }
 if (inv_freespace(inv) < 1) {
     anim(null, 0);

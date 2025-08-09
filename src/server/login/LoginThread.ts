@@ -7,6 +7,7 @@ import Environment from '#/util/Environment.js';
 import { type GenericLoginThreadResponse } from './index.d.js';
 import { trackLoginAttempts, trackLoginTime } from './LoginMetrics.js';
 
+const REVOLT_WHITELIST_PATH = 'data/revolt/revolt_whitelist_data.txt';
 const WHITELIST_PATH = 'data/discordwhitelist.txt';
 const whitelistSet = new Set<string>();
 
@@ -16,46 +17,66 @@ function normalize(name: string): string {
 
 function loadWhitelist() {
     try {
-        // Load from Discord CSV
-        const discordPath = 'data/discordwhitelist.txt';
         const basePath = 'data/whitelist.txt';
+        let usernames: string[] = [];
 
-        if (!fs.existsSync(discordPath)) {
-            console.error('[Whitelist] discordwhitelist.txt not found.');
-            return;
+        // Load Discord whitelist
+        if (fs.existsSync(WHITELIST_PATH)) {
+            const rawDiscord = fs.readFileSync(WHITELIST_PATH, 'utf-8');
+            const discordNames = rawDiscord
+                .split('\n')
+                .map(line => line.split(',')[1])
+                .filter(Boolean)
+                .map(normalize);
+            usernames = usernames.concat(discordNames);
+        } else {
+            console.error(`[Whitelist] Discord whitelist file not found: ${WHITELIST_PATH}`);
         }
 
-        const raw = fs.readFileSync(discordPath, 'utf-8');
-        const lines = raw.split('\n');
+        // Load Revolt whitelist
+        if (fs.existsSync(REVOLT_WHITELIST_PATH)) {
+            const rawRevolt = fs.readFileSync(REVOLT_WHITELIST_PATH, 'utf-8');
+            const revoltNames = rawRevolt
+                .split('\n')
+                .map(line => line.split(',')[1])
+                .filter(Boolean)
+                .map(normalize);
+            usernames = usernames.concat(revoltNames);
+        } else {
+            console.error(`[Whitelist] Revolt whitelist file not found: ${REVOLT_WHITELIST_PATH}`);
+        }
 
-        const usernames = lines
-            .map(line => line.split(',')[1]) // after comma
-            .filter(Boolean)
-            .map(normalize);
-
+        // Deduplicate and normalize usernames
         const unique = Array.from(new Set(usernames));
 
-        // ✅ Overwrite whitelist.txt
+        // Write combined whitelist to whitelist.txt for other uses if needed
         fs.writeFileSync(basePath, unique.join('\n') + '\n');
 
-        // ✅ Load into in-memory whitelist
+        // Update the in-memory set
         whitelistSet.clear();
         for (const name of unique) {
             whitelistSet.add(name);
         }
 
-        console.log(`[Whitelist] Reloaded ${whitelistSet.size} usernames from discordwhitelist.txt`);
+        console.log(`[Whitelist] Reloaded ${whitelistSet.size} usernames from Discord + Revolt files.`);
     } catch (err) {
         console.error('[Whitelist] Failed to load:', err);
     }
 }
 
+
 loadWhitelist();
 //setInterval(loadWhitelist, 30_000); // Optional: reload whitelist every 30s
 fs.watchFile(WHITELIST_PATH, { interval: 1000 }, () => {
-    console.log('[Whitelist] File changed — reloading...');
+    console.log('[Whitelist] Discord whitelist file changed — reloading...');
     loadWhitelist();
 });
+
+fs.watchFile(REVOLT_WHITELIST_PATH, { interval: 1000 }, () => {
+    console.log('[Whitelist] Revolt whitelist file changed — reloading...');
+    loadWhitelist();
+});
+
 
 
 const loginQueue: { parentPort: ParentPort; msg: any }[] = [];

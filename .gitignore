@@ -64,3 +64,8 @@ data/bot.py
 data/discordwhitelist.txt
 data/whitelist.txt
 compare_diff.txt
+data/revolt_whitelist_data.txt
+data/revolt_whitelist.txt
+data/revolt/account_reg_bot.py
+data/revolt/revolt_whitelist.txt
+data/revolt/revolt_whitelist_data.txt
