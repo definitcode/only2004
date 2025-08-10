@@ -1344,8 +1344,8 @@
 1342=cert_black_warhammer
 1343=mithril_warhammer
 1344=cert_mithril_warhammer
-1345=adamnt_warhammer
-1346=cert_adamnt_warhammer
+1345=adamant_warhammer
+1346=cert_adamant_warhammer
 1347=rune_warhammer
 1348=cert_rune_warhammer
 1349=iron_axe
@@ -3499,3 +3499,5 @@
 3496=cert_silk_heavyskirt
 3497=bear_coif
 3498=cert_bear_coif
+3499=allgear_box
+3500=cert_allgear_box

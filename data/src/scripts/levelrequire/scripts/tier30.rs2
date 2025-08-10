@@ -5,7 +5,7 @@
 [opheld2,adamant_sword] @levelrequire_attack(70, last_slot);
 [opheld2,adamant_scimitar] @levelrequire_attack(70, last_slot);
 [opheld2,adamant_longsword] @levelrequire_attack(70, last_slot);
-[opheld2,adamnt_warhammer] @levelrequire_attack(70, last_slot);
+[opheld2,adamant_warhammer] @levelrequire_attack(70, last_slot);
 [opheld2,adamant_battleaxe] @levelrequire_attack(70, last_slot);
 [opheld2,adamant_spear] @levelrequire_attack(70, last_slot);
 [opheld2,adamant_spear_p] @levelrequire_attack(70, last_slot);

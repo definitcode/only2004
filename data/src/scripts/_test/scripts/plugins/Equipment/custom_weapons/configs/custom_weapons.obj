@@ -71,7 +71,7 @@ tradeable=no
 [stake_dagger]
 model=model_2680_obj
 desc=A powerful stake.
-cost=34000
+cost=3400
 2dyof=22
 2dzoom=720
 2dyan=192
@@ -101,7 +101,7 @@ param=weapon_poisoned_message,You poison the dagger.
 model=model_2680_obj
 name=Stake(p)
 desc=A powerful stake.
-cost=34000
+cost=3400
 2dyof=22
 2dzoom=720
 2dyan=192

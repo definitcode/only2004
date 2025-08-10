@@ -139,9 +139,9 @@ param=crushattack_anim,human_blunt_pound
 param=defend_anim,human_blunt_block
 param=crush_sound,baxe_crush
 
-[adamnt_warhammer]
+[adamant_warhammer]
 cost=4120
-name=Adamnt warhammer
+name=Adamant warhammer
 desc=I don't think it's intended for joinery.
 iop2=Wield
 wearpos=righthand

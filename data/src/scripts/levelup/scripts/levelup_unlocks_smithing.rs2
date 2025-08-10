@@ -75,7 +75,7 @@ switch_int(stat_base(smithing)) {
     case 76 : ~objbox(adamant_longsword,"You can now make @dbl@Adamant Long Swords.", 250, 0, 0);
     case 77 : ~doubleobjbox(adamant_full_helm,adamant_knife,"You can now make @dbl@Adamant Full Helms@bla@ and members|can make @dbl@Adamant Throwing Knives.", 200);
     case 78 : ~objbox(adamant_sq_shield,"You can now make @dbl@Adamant Square Shields.", 250, 0, 0);
-    case 79 : ~objbox(adamnt_warhammer,"You can now make @dbl@Adamant Warhammers.", 250, 0, 0);
+    case 79 : ~objbox(adamant_warhammer,"You can now make @dbl@Adamant Warhammers.", 250, 0, 0);
     case 80 : 
         ~objbox(adamant_battleaxe,"You can now make @dbl@Adamant Battleaxes.", 250, 0, 0);
         ~objbox(rune_hammer,"You can now use a @dbl@Rune Hammer.", 250, 0, 0);

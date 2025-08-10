@@ -153,7 +153,7 @@ stock5=adamant_2h_sword,1
 size=5
 stock1=adamant_axe,1
 stock2=adamant_mace,1
-stock3=adamnt_warhammer,1
+stock3=adamant_warhammer,1
 stock4=adamant_battleaxe,1
 
 [smithing_adamant3]

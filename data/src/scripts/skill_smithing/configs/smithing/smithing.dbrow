@@ -583,8 +583,8 @@ data=bar_amount,3
 
 [adamant_warhammer]
 table=smithing
-data=ifproduct,adamnt_warhammer
-data=product,adamnt_warhammer
+data=ifproduct,adamant_warhammer
+data=product,adamant_warhammer
 data=product_amount,1
 data=levelrequired,79
 data=end_message,a warhammer
