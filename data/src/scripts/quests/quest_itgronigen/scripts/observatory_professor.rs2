@@ -1,4 +1,8 @@
 [opnpc1,observatory_professor]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 // https://web.archive.org/web/20041021084243/http://www.runehq.net/RHQInn/viewtopic.php?t=158, you cannot talk about clues during the quest, only before and after completion
 // https://web.archive.org/web/20051214060247/http://www.tip.it/runescape/?page=treasure_trails.htm this mentions it as well
 // tip.it seems to imply it's within the main dialogue options instead of a seperate set as well (like OSRS does)

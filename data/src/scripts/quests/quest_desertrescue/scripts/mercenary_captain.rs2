@@ -11,6 +11,10 @@ if(%desertrescue_progress >= ^desertrescue_killed_capt) {
 }
 
 [label,approach_merc_capt]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~mesbox("You approach the Mercenary Captain.");
 if(%desertrescue_progress = ^desertrescue_started) %desertrescue_progress = ^desertrescue_approached_captain;
 if(testbit(%desertrescue_map_mechanisms, ^desertrescue_spoke_al_shabim) = true) {

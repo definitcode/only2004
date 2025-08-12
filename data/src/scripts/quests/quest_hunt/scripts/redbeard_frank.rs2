@@ -1,4 +1,8 @@
 [opnpc1,redbeard_frank]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 // https://storage.googleapis.com/tannerdino/images/RedbeardFrank.jpg
 ~chatnpc("<p,laugh>Arrrh Matey!");
 

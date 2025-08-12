@@ -2,6 +2,10 @@
 [opheldt,magic:lowlvl_alchemy]@magic_spell_low_alch(^lowlvl_alchemy, last_item);
 
 [label,magic_spell_high_alch](int $spell, obj $item)
+if (%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if_close;
 if (getqueue(high_alch_repeat) > 0) {
     clearqueue(high_alch_repeat);
@@ -49,6 +53,10 @@ if(inv_total(inv, $item) > 0) {
 
 
 [label,magic_spell_low_alch](int $spell, obj $item)
+if (%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if_close;
 if (getqueue(low_alch_repeat) > 0) {
     clearqueue(low_alch_repeat);

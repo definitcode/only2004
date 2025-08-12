@@ -59,6 +59,8 @@ if ($random < 7) {
 } else if ($random < 110) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
     obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);
+} else if ($random < 118) {
+    obj_add(npc_coord, ~low_tier_items, ^lootdrop_duration);
 }
 
 [ai_queue3,skeleton3] @skeleton_armed;
@@ -113,6 +115,8 @@ if ($random < 6) {
     obj_add(npc_coord, coins, 10, ^lootdrop_duration);
 } else if ($random < 118) {
     obj_add(npc_coord, bronze_bar, 1, ^lootdrop_duration);
+} else if ($random < 119) {
+    obj_add(npc_coord, ~mid_tier_items, ^lootdrop_duration);
 } else if ($random < 120) {
     obj_add(npc_coord, ~randomjewel, ^lootdrop_duration);
     obj_add(npc_coord, ~grindingtable, ^lootdrop_duration);

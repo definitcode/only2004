@@ -1,6 +1,9 @@
 [opnpc1,boy]
 switch_int(%ball_progress) {
     case ^ball_not_started :
+        if(%gamemode_selected = ^gamemode_pvp){
+            ~chatnpc("<p,angry>GO AWAY!");
+        }
         ~chatplayer("<p,happy>Hello young man.");
         ~mesbox("The boy sobs.");
         switch_int(~p_choice2("What's the matter?", 1, "Well if you're not going to answer, I'll go.", 2)) {

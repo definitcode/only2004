@@ -1,4 +1,8 @@
 [opnpc1,shamus]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,angry>Ay yer big elephant! Yer've caught me, to be sure! What would an elephant like yer be wanting wid ol' Shamus then?");
 switch_int(%zanaris_progress) {
     case ^zanaris_not_started :

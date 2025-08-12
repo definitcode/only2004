@@ -633,12 +633,20 @@ if(last_useitem = bronze_bar | last_useitem = thcaptplans) {
 }
 
 [opheldu,thprotodarttip]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if(last_useitem = feather) {
     @make_prototype_dart;
 }
 ~displaymessage(^dm_default);
 
 [label,make_prototype_dart]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if(inv_total(inv, feather) < 10) {
     mes("You need at least ten feathers to make this item.");
     return;

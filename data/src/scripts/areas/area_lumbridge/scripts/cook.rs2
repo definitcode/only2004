@@ -3,7 +3,9 @@
 if(map_members = true &inv_total(inv, trail_clue_medium_anagram002) > 0) {
     @trail_cook;
 }
-
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+}
 if(%cook_progress = 0) {
     ~chatnpc("<p,sad>What am I to do?");
     @cooks_assistant_start;

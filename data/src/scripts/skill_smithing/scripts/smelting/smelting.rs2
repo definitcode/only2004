@@ -1,4 +1,8 @@
 [oplocu,_smithing_furnace]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 switch_obj (last_useitem)
 {
     case gold_bar, perfect_gold_bar : @craft_gold_interface;
@@ -17,6 +21,10 @@ switch_obj (last_useitem)
 
 //--- this is the code that uses p_delays instead of weakqueues
 [label,smelt_ore](obj $last)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if (getqueue(smelting_repeat) > 0) {
     clearqueue(smelting_repeat);
 }

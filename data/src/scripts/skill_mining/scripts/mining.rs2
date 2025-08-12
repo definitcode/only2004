@@ -17,6 +17,10 @@
 [oploc3,gemrock] @mining_continue(get_ore_gem_rock);
 
 [label,mining_firstswing](label $get_ore)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 def_int $is_empty = loc_param(mining_rock_empty);
 if ($is_empty = ^true) {
     anim(null, 0);
@@ -66,6 +70,10 @@ if (%action_delay = map_clock) {
 p_oploc(3);
 
 [label,mining_continue](label $get_ore)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 db_find(mining_table:rock, loc_type);
 def_dbrow $data = db_findnext;
 if ($data = null) {

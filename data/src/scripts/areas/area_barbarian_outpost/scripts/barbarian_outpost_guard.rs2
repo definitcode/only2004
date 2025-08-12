@@ -9,6 +9,10 @@ switch_int(%barcrawl_progress) {
 }
 
 [label,outpost_guard_start]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,neutral>Oi, whaddya want?");
 def_int $option = ~p_choice2("I want to come through this gate.", 1, "I want some money.", 2);
 if($option = 1) {

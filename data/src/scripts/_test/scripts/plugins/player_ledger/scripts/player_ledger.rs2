@@ -45,6 +45,8 @@ if (%gamemode_selected = ^gamemode_hardcore) {
     $gamemode_string = "@gra@Ironman@bla@";
 } else if (%gamemode_selected = ^gamemode_hcuim) {
     $gamemode_string = "@red@HC@whi@UIM@bla@";
+} else if (%gamemode_selected = ^gamemode_pvp) {
+    $gamemode_string = "@red@PVP@bla@";
 } else {
     $gamemode_string = "Unknown";
 }

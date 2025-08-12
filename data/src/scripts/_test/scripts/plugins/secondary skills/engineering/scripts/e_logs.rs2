@@ -1,4 +1,8 @@
 [label,burn_log](obj $logs)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if ($logs = logs) {
 } else if ($logs = oak_logs) {
     if (stat_base(firemaking) < 15) {

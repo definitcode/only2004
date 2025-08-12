@@ -1,4 +1,8 @@
 [opnpc1,stanford]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int(%murder_progress) { 
     case ^murder_not_started :
         ~chatnpc("<p,angry>Have you no shame? We are all grieving at the moment.");

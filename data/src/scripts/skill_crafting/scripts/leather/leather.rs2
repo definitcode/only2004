@@ -57,6 +57,10 @@ if (last_useitem = needle) {
 
 //--- all leather
 [label,craft_leather](namedobj $product)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 //p_stopaction;
 if_close;
 db_find(craft_leather_table:product, $product);

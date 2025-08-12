@@ -44,6 +44,10 @@ if (oc_category(last_useitem) = category_22) {
 }
 
 [label,light_logs_ground]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 def_obj $log = obj_type;
 // check level first
 def_obj $tbox = ~firemaking_checker;
@@ -131,6 +135,10 @@ if (%action_delay < map_clock) {
 p_opobj(4); // interact with obj again
 
 [label,light_logs_inv](int $slot)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 def_obj $log = inv_getobj(inv, $slot);
 def_int $level = oc_param($log, levelrequire);
 def_obj $tbox = ~firemaking_checker;

@@ -1,4 +1,8 @@
 [opnpc1,mountain_dwarf]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int (%fishingcompo_progress) {
     case ^fishingcompo_not_started : @mountain_dwarf_start;
     case ^fishingcompo_complete : ~chatnpc("<p,happy>Welcome, oh great Fishing Champion!|Feel free to pop by any time.");
@@ -6,6 +10,10 @@ switch_int (%fishingcompo_progress) {
 }
 
 [label,mountain_dwarf_start]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,angry>Hmmph. What do you want?");
 def_int $option = ~p_choice2("I was just wondering what was down those stairs?", 1, "I was just stopping to say hello!", 2);
 if($option = 1) {

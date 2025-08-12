@@ -110,6 +110,9 @@ switch_int(%biohazard_progress) { // ^biohazard_used_birdfeed intentionally has 
         ~chatplayer("<p,sad>No, I'm afraid not.");
         ~chatnpc("<p,neutral>Speak to Jerico, he will help you to cross the wall.|He lives next to the chapel.");
     case ^biohazard_not_started :
+        if(%gamemode_selected = ^gamemode_pvp){
+            ~chatnpc("<p,angry>GO AWAY!");
+        }
         ~chatplayer("<p,happy>Good day to you <nc_name(elena)>.");
         ~chatnpc("<p,happy>You too, thanks for freeing me.");
         ~chatnpc("<p,sad>It's just a shame the mourners confiscated my equipment.");

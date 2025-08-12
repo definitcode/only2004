@@ -46,6 +46,10 @@ if(%squire_progress = ^squire_started & %phoenixgang_progress = 0) { // knights 
 ~chatnpc("<p,neutral>Although I would probably be in here even if I didn't work here. I like reading. Someday I hope to catalogue all of the information stored in these books so all may read it.");
 
 [label,reldo_phoenixstart]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatplayer("<p,neutral>I'm in search of a quest.");
 ~chatnpc("<p,neutral>Hmmm. I don't... believe there are any here...");
 ~chatnpc("<p,confused>Let me think actually...");

@@ -24,7 +24,7 @@ if (%hero_solo_progress = ^hero_solo_started){
 if (%hero_solo_progress = ^hero_solo_killedtargets){
     mes("You have killed both of your targets, now time to turn in your tokens of victory!");
 } else if (%hero_solo_progress = ^hero_solo_killed_rip){
-    mes("You have killed one of your targets, now time to kill Tnaig`Ssom!");
+    mes("You have killed one of your targets, now time to kill Tnaig'Ssom!");
 } else {
     return;
 }

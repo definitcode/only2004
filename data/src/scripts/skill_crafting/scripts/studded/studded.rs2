@@ -18,13 +18,13 @@ switch_obj (last_useitem)
             mes(^mes_members_feature);
             return;
         }
-        @craft_studded(studded_body_b);
+        @craft_studded(bear_body_b);
     case bear_body :
         if (map_members = false) {
             mes(^mes_members_feature);
             return;
         }
-        @craft_studded(studded_body_b);
+        @craft_studded(bear_body_b);
     case default : ~displaymessage(^dm_default);
 };
 
@@ -54,7 +54,7 @@ if (last_useitem = studs) {
         mes(^mes_members_feature);
         return;
     }
-    @craft_studded(studded_chaps_b);
+    @craft_studded(bear_chaps_b);
 }
 ~displaymessage(^dm_default);
 
@@ -64,7 +64,7 @@ if (last_useitem = studs) {
         mes(^mes_members_feature);
         return;
     }
-    @craft_studded(studded_body_b);
+    @craft_studded(bear_body_b);
 }
 ~displaymessage(^dm_default);
 

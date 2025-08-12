@@ -1,8 +1,13 @@
+
 [opnpc1,falador_squire]
 // Treasure Trail
 if(inv_total(inv, trail_clue_easy_simple017) = 1) {
     @trail_squire;
 } else if(%squire_progress = ^squire_not_started) {
+    if(%gamemode_selected = ^gamemode_pvp){
+        ~chatnpc("<p,angry>GO AWAY!");
+        return;
+    }
     @squire_start;
 } else if(%squire_progress = ^squire_complete) {
     ~chatnpc("<p,happy>Hello friend! Many thanks for all of your help! Vyvin never even realised it was a different sword, and I still have my job!");

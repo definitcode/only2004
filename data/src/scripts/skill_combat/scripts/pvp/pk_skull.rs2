@@ -11,7 +11,7 @@ return(true);
 [proc,set_pk_vars]
 if (~deserves_pk_skull = true) {
     if (%gamemode_selected = ^gamemode_pvp){
-        ~pk_skull(30000000);
+        ~pk_skull(^max_32bit_int);
     } else {
         ~pk_skull(3000); // 3000 ticks, or 30 minutes
     }

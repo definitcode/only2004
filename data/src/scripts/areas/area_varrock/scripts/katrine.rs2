@@ -12,6 +12,9 @@ switch_int(%blackarmgang_progress) {
 }
 
 [label,katrine_standard]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+}
 ~chatplayer("<p,quiz>What is this place?");
 ~chatnpc("<p,neutral>It's a private business.|Can I help you at all?");
 def_int $option;

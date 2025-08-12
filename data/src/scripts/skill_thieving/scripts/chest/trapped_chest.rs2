@@ -44,6 +44,10 @@ if (last_useitem = lockpick | last_useitem = rogue_tools) {
 }
 
 [label,attempt_trapped_chest](loc $loc, coord $loc_coord, int $loc_angle, locshape $loc_shape)
+if (%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 p_arrivedelay;
 if (map_members = false) {
     mes(^mes_members_thieving);
@@ -75,6 +79,10 @@ mes("This chest is locked");
 sound_synth(locked, 0, 0);
 
 [proc,attempt_locked_chest]
+if (%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 //todo: is gas random event possible?
 db_find(trapped_chest:loc, loc_type);
 def_dbrow $data = db_findnext;

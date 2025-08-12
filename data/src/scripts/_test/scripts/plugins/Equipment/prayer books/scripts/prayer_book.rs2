@@ -1,4 +1,55 @@
 [opheld2,book_of_prayers] @cast_prayer;
+[opheld2,unfinished_book_of_chaos] @finish_chaos_book;
+
+[label,finish_chaos_book]
+def_int $page_count = 0;
+if (inv_total(inv, enscribed_page1) > 0){
+    $page_count = add($page_count, 1);
+}
+if (inv_total(inv, enscribed_page2) > 0){
+    $page_count = add($page_count, 1);
+}
+if (inv_total(inv, enscribed_page3) > 0){
+    $page_count = add($page_count, 1);
+}
+if (inv_total(inv, enscribed_page4) > 0){
+    $page_count = add($page_count, 1);
+}
+if (inv_total(inv, enscribed_page5) > 0){
+    $page_count = add($page_count, 1);
+}
+if (inv_total(inv, enscribed_page6) > 0){
+    $page_count = add($page_count, 1);
+}
+if (inv_total(inv, enscribed_page7) > 0){
+    $page_count = add($page_count, 1);
+}
+if (inv_total(inv, enscribed_page8) > 0){
+    $page_count = add($page_count, 1);
+}
+if (inv_total(inv, enscribed_page9) > 0){
+    $page_count = add($page_count, 1);
+}
+if (inv_total(inv, enscribed_page10) > 0){
+    $page_count = add($page_count, 1);
+}
+if ($page_count = 10){
+    if (inv_total(inv, unfinished_book_of_chaos) > 0){
+        inv_del(inv, unfinished_book_of_chaos, 1);
+        inv_del(inv, enscribed_page1, 1);        
+        inv_del(inv, enscribed_page2, 1);
+        inv_del(inv, enscribed_page3, 1);
+        inv_del(inv, enscribed_page4, 1);
+        inv_del(inv, enscribed_page5, 1);
+        inv_del(inv, enscribed_page6, 1);
+        inv_del(inv, enscribed_page7, 1);
+        inv_del(inv, enscribed_page8, 1);
+        inv_del(inv, enscribed_page9, 1); 
+        inv_del(inv, enscribed_page10, 1);
+        inv_add(inv, book_of_chaos, 1);
+        mes("You have crafted the Book of Chaos.");       
+    }
+}
 // Cast Prayer Ritual
 [label,cast_prayer]
 def_int $max_prayer = add(stat_base(prayer), 15);

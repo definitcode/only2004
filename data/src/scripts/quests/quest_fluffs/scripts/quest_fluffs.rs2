@@ -1,5 +1,9 @@
 //most linebreaks in the quest are guessed (added for 2004 flair) based off rsc dialogue breaks
 [label,fluffs_boy_dialogue]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 def_npc $other_boy = wilough;
 if(npc_type = wilough) {
     $other_boy = shilop;

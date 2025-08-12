@@ -532,7 +532,42 @@ const PlayerOps: CommandHandlers = {
 
         }
     }),
+
+    [ScriptOpcode.STAT_SET]: checkedHandler(ActivePlayer, state => {
+        const [stat, newBase] = state.popInts(2);
     
+        check(stat, PlayerStatValid);
+        check(newBase, NumberNotNull);
+    
+        const player = state.activePlayer;
+        const currentBase = player.baseLevels[stat];
+        const currentLevel = player.levels[stat];
+    
+        // Clamp newBase between 1 and 255
+        const clamped = Math.min(Math.max(newBase, 1), 255);
+    
+        // Only raise base level if clamped is greater than current base
+        if (clamped > currentBase) {
+            player.baseLevels[stat] = clamped;
+        
+            // Raise current level if it is less than the new base
+            if (currentLevel < clamped) {
+                player.levels[stat] = clamped;
+            }
+        }
+    
+        // Reset hero points if HP stat is set to or above base
+        if (stat === PlayerStat.HITPOINTS && player.levels[PlayerStat.HITPOINTS] >= player.baseLevels[PlayerStat.HITPOINTS]) {
+            player.heroPoints.clear();
+        }
+    
+        // Notify change only if base level changed
+        if (player.baseLevels[stat] !== currentBase) {
+            player.changeStat(stat);
+        }
+    }),
+
+
     [ScriptOpcode.SPOTANIM_PL]: checkedHandler(ActivePlayer, state => {
         const delay = check(state.popInt(), NumberNotNull);
         const height = state.popInt();

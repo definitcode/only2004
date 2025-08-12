@@ -110,6 +110,10 @@ if ($rune_count3 > 0) {
 }
 
 [proc,give_spell_xp](dbrow $spell_data)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 stat_advance(magic, db_getfield($spell_data, magic_spell_table:experience, 0));
 
 // spells that convert one item into another are generalized

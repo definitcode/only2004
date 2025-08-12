@@ -13,6 +13,9 @@
 if (%gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim){
     mes("Ultimate Ironman cannot use a bank!");
     return;
+} else if (%gamemode_selected = ^gamemode_pvp | %pk_skull > 0){
+    mes("Murderers cannot use banks.");
+    return;
 }
 %bank_noted = 0;
 ~reorganize_inv(bank);
@@ -20,6 +23,17 @@ inv_transmit(inv, bank_side:inv);
 inv_transmit(bank, bank_main:inv);
 if_openmain_side(bank_main, bank_side);
 
+[label,pvp_bank]
+~clearallq;
+if (%gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim){
+    mes("Ultimate Ironman cannot use a bank!");
+    return;
+}
+%bank_noted = 0;
+~reorganize_inv(bank);
+inv_transmit(inv, bank_side:inv);
+inv_transmit(bank, bank_main:inv);
+if_openmain_side(bank_main, bank_side);
 
 [label,closebank]
 inv_stoptransmit(bank_side:inv);

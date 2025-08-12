@@ -194,6 +194,10 @@ switch_int(%grandtree_progress) {
         ~chatnpc("<p,neutral>Hazelmere lives on an island just south of the Khazard Fight Arena. Give him the sample and translate his reply.");
         ~chatnpc("<p,sad>I just hope he can help us in our hour of need!");
     case ^grandtree_not_started :
+        if(%gamemode_selected = ^gamemode_pvp){
+            ~chatnpc("<p,angry>GO AWAY!");
+            return;
+        }
         if(coordz(npc_coord) > 6400) {
             @king_narnode_foundations;
         }

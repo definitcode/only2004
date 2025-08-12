@@ -18,6 +18,10 @@ switch_obj(last_useitem) {
 }
 
 [label,make_darts](obj $dart_tips)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if (map_members = false) {
     mes(^mes_members_fletching); // guess
     return;

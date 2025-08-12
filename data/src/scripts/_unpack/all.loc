@@ -1319,9 +1319,10 @@ desc=The remains of a bad driver.
 model=model_loc_327
 
 [loc_328]
+name=Suspicious grave
 model=model_loc_328
 width=2
-active=no
+active=yes
 
 [loc_329]
 model=model_loc_184

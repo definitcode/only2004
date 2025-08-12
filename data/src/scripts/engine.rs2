@@ -228,6 +228,8 @@
 [command,stat_sub](stat $stat, int $constant, int $percent)
 // info: Drain base level of $stat for the secondary player
 [command,.stat_sub](stat $stat, int $constant, int $percent)
+// info: Set Stat = ~set_stat(prayer, 50);
+[command,stat_set](stat $stat, int $level)
 // info: Reset Stats to level 1
 [command,stat_reset2]()
 // info: Reset other player stats to level 1

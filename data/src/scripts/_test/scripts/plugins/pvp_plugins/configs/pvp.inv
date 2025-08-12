@@ -1,0 +1,7 @@
+[pvp_shop]
+scope=shared
+size=80
+restock=no
+stackall=yes
+allstock=yes
+stock1=pk_box,5,500

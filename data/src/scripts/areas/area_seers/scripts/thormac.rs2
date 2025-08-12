@@ -1,4 +1,8 @@
 [opnpc1,thormac]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int (%scorpcatcher_progress) {
     case ^scorpcatcher_not_started : @thormac_assistance;
     case ^scorpcatcher_complete : @thormac_thankyou;

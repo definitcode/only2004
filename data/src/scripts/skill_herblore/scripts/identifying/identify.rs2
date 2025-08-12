@@ -51,6 +51,10 @@
 
 /** Attempt to identify herb and identify if able. **/
 [proc,attempt_identify_herb](namedobj $identified_herb, int $slot)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if (map_members = false) {
     mes(^mes_members_herblore);
     return;

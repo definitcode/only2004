@@ -1,4 +1,8 @@
 [opnpc1,sir_amik_varze]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int (%blackknight_progress) {
     case 0 : @black_knights_fortress_sir_amik_prequest;
     case 1,2,3 : @black_knights_fortress_sir_amik_in_progress;
@@ -6,6 +10,10 @@ switch_int (%blackknight_progress) {
 }
 
 [label,black_knights_fortress_sir_amik_prequest]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,quiz>I am the leader of the White Knights of Falador.|Why do you seek my audience?");
 def_int $option = ~p_choice2("I seek a quest!", 1, "I don't, I'm just looking around.", 2);
 

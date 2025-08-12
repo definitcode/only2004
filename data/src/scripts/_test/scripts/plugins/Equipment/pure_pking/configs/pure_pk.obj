@@ -16,7 +16,7 @@ recol1d=1451
 // Gear 
 
 [silk_robe]
-cost=350
+cost=35
 name=Imbued Robe
 desc=I can do magic better in this.
 model=model_2786_obj
@@ -33,12 +33,12 @@ womanwear=model_348_idk,0
 manwear2=model_292_idk
 womanwear2=model_456_idk
 weight=2lb
-param=magicattack,10
+param=magicattack,15
 param=magicdefence,3
 
 [silk_hat]
 name=Silk Hat
-cost=160
+cost=16
 model=model_2537_obj
 recol1s=17441
 recol1d=1451
@@ -64,23 +64,19 @@ weight=4oz
 [silk_heavyskirt]
 name=Imbued Skirt
 desc=a through piece of work.
-cost=750
-model=model_2542_obj
-recol1s=15855
-recol1d=1286
-recol2s=2340
-recol2d=1451
-2dxof=5
-2dyof=5
-2dzoom=1100
-2dxan=620
+cost=75
+model=model_2521_obj
+recol1s=2340
+recol1d=1451
+2dyof=1
+2dzoom=1940
+2dxan=572
 iop2=Wear
 wearpos=legs
-manwear=model_266_obj_wear,0
-womanwear=model_430_obj_wear,0
-category=armour_legs
+manwear=model_265_obj_wear,0
+womanwear=model_428_idk,0
 weight=18lb
-param=magicattack,15
+param=magicattack,20
 param=rangeattack,-50
 param=strengthbonus,-50
 param=stabdefence,11
@@ -89,24 +85,434 @@ param=crushdefence,10
 param=magicdefence,-4
 param=rangedefence,10
 
+[silk_gloves]
+name=Silk Gloves
+desc=These will keep my hands warm!
+cost=6
+model=model_2649_obj
+iop2=Wear
+wearpos=hands
+manwear=model_179_obj_wear,0
+womanwear=model_356_obj_wear,0
+category=armour_hands
+2dxof=8
+2dyof=-8
+2dzoom=930
+2dyan=828
+2dxan=420
+weight=8oz
+param=slashdefence,2
+param=crushdefence,3
+param=stabdefence,4
+param=rangeattack,-10
+param=magicattack,10
+recol1s=9473
+recol1d=1451
 
+[silk_boots]
+name=Silk Boots
+desc=Comfortable leather boots.
+cost=6
+model=model_2837_obj
+2dxof=1
+2dyof=-6
+2dzoom=770
+2dyan=160
+2dxan=152
+iop2=Wear
+wearpos=feet
+manwear=model_185_obj_wear,0
+womanwear=model_361_obj_wear,0
+weight=12oz
+param=slashdefence,5
+param=crushdefence,5
+param=rangeattack,10
+param=strengthbonus,10
+recol1s=7298
+recol1d=1451
+
+[silk_cape]
+cost=2
+name=Silk Cape
+desc=A bright silken cape.
+model=model_2603_obj
+recol1s=8386
+recol1d=7298
+recol2s=31649
+recol2d=1451
+2dxof=3
+2dyof=6
+2dzoom=2140
+2dyan=948
+2dxan=400
+iop2=Wear
+wearpos=back
+manwear=model_323_obj_wear,0
+womanwear=model_481_obj_wear,0
+weight=1lb
+param=slashdefence,1
+param=crushdefence,1
+param=rangedefence,2
+param=rangeattack,10
+param=strengthbonus,10
 
 // Magic Requirements
+[paladin_helm]
+name=Paladin Helm
+desc=A holy helmet.
+cost=35
+model=model_2813_obj
+recol1s=15360
+recol1d=26425
+recol2s=6273
+recol2d=25313
+2dxof=-1
+2dyof=6
+2dzoom=800
+2dyan=152
+2dxan=160
+iop2=Wear
+wearpos=hat
+wearpos2=head
+wearpos3=jaw
+manwear=model_225_npc,0
+manwear2=model_241_npc
+womanwear=model_394_obj_wear,0
+manhead=model_225_npc
+womanhead=model_116_obj_wear
+category=armour_helmet
+weight=6lb
+param=magicattack,7
+param=rangeattack,-20
+param=stabdefence,9
+param=slashdefence,8
+param=crushdefence,5
+param=magicdefence,-1
+param=rangedefence,-10
+param=prayerbonus,5
 [paladin_platebody]
-param=magicattack,15
-param=rangeattack,-50
-param=strengthbonus,-50
-param=stabdefence,11
-param=slashdefence,10
-param=crushdefence,10
-param=magicdefence,-4
-param=rangedefence,10
+name=Paladin Platebody
+desc=Provides excellent protection.
+cost=56
+model=model_2605_obj
+recol1s=17969
+recol1d=25368
+recol2s=10468
+recol2d=21140
+recol3s=10570
+recol3d=21140
+recol4s=15855
+recol4d=25368
+recol5s=14798
+recol5d=25368
+2dyof=14
+2dzoom=1290
+2dxan=424
+iop2=Wear
+wearpos=torso
+wearpos2=arms
+manwear=model_313_npc,0
+manwear2=model_164_obj_wear
+manwear3=model_3330_obj_wear
+womanwear=model_468_obj_wear,0
+womanwear2=model_344_obj_wear
+category=armour_body
+weight=22lb
+respawnrate=1500
+param=magicattack,10
+param=rangeattack,-20
+param=stabdefence,8
+param=slashdefence,8
+param=crushdefence,7
+param=magicdefence,-6
+param=rangedefence,-10
+param=prayerbonus,5
 [paladin_shield]
-param=magicattack,15
-param=rangeattack,-50
-param=strengthbonus,-50
-param=stabdefence,11
-param=slashdefence,10
-param=crushdefence,10
+name=Paladin Shield
+desc=A shield of the Holy Order.
+cost=38
+model=model_523_npc
+recol1s=15855
+recol1d=25368
+recol2s=7296
+recol2d=25313
+2dxof=2
+2dyof=174
+2dzoom=1410
+2dyan=325
+2dxan=268
+iop2=Wield
+wearpos=lefthand
+manwear=model_523_npc,0
+womanwear=model_523_npc,6
+category=armour_shield
+weight=2lb
+param=rangeattack,-10
+param=magicattack,6
+param=stabdefence,6
+param=slashdefence,5
+param=crushdefence,5
+param=rangedefence,-10
+param=prayerbonus,5
+[paladin_platelegs]
+name=Paladin Platelegs
+desc=These look pretty heavy.
+cost=22
+model=model_2582_obj
+recol1s=14798
+recol1d=15855
+2dyof=-8
+2dzoom=1740
+2dxan=444
+iop2=Wear
+wearpos=legs
+manwear=model_268_obj_wear,0
+womanwear=model_432_obj_wear,0
+category=armour_legs
+weight=20lb
+respawnrate=2000
+param=magicattack,10
+param=rangeattack,-25
+param=stabdefence,5
+param=slashdefence,5
+param=crushdefence,15
+param=magicdefence,-5
+param=rangedefence,-10
+param=prayerbonus,5
+
+[paladin_hammer]
+cost=20
+name=Paladin Hammer
+desc=I don't think it's intended for joinery.
+iop2=Wield
+wearpos=righthand
+manwear=model_542_obj_wear,0
+womanwear=model_542_obj_wear,6
+model=model_2731_obj
+recol1s=15855
+recol1d=29596
+2dxof=3
+2dyof=3
+2dzoom=1050
+2dyan=456
+2dxan=344
+category=weapon_blunt
+weight=56oz
+param=attackrate,6
+param=stabattack,-4
+param=slashattack,-4
+param=crushattack,12
+param=magicattack,20
+param=strengthbonus,35
+param=prayerbonus,5
+param=crushattack_anim,human_blunt_pound
+param=defend_anim,human_blunt_block
+param=crush_sound,baxe_crush
+
+// Tank Gear
+[tank_kiteshield]
+name=Steel kiteshield(T)
+desc=A large metal shield.
+model=model_2339_obj
+2dxof=-6
+2dyof=-14
+2dzoom=1560
+2dyan=1104
+2dxan=344
+iop2=Wear
+cost=27
+wearpos=lefthand
+manwear=model_486_obj_wear,0
+womanwear=model_486_obj_wear,6
+category=armour_shield
+weight=12lb
+param=magicattack,-8
+param=rangeattack,-2
+param=stabdefence,13
+param=slashdefence,15
+param=crushdefence,14
+param=magicdefence,-1
+param=rangedefence,14
+
+[tank_platelegs]
+name=Steel platelegs(T)
+desc=These look pretty heavy.
+cost=22
+model=model_2582_obj
+recol1s=14798
+recol1d=15855
+2dyof=-8
+2dzoom=1740
+2dxan=444
+iop2=Wear
+wearpos=legs
+manwear=model_268_obj_wear,0
+womanwear=model_432_obj_wear,0
+category=armour_legs
+weight=20lb
+respawnrate=2000
+param=magicattack,-21
+param=rangeattack,-7
+param=stabdefence,17
+param=slashdefence,16
+param=crushdefence,15
 param=magicdefence,-4
-param=rangedefence,10
+param=rangedefence,16
+
+
+[tank_chainbody]
+name=Steel chainbody(T)
+desc=A series of connected metal rings.
+cost=278
+model=model_2439_obj
+2dzoom=1100
+2dxan=576
+iop2=Wear
+wearpos=torso
+manwear=model_294_obj_wear,0
+womanwear=model_458_obj_wear,0
+category=armour_body
+weight=15lb
+param=magicattack,-15
+param=stabdefence,17
+param=slashdefence,25
+param=crushdefence,30
+param=magicdefence,-3
+param=rangedefence,19
+
+[tank_warhammer]
+cost=2750
+name=Steel Hammer(T)
+desc=I don't think it's intended for joinery.
+iop2=Wield
+wearpos=righthand
+wearpos=righthand
+manwear=model_542_obj_wear,0
+womanwear=model_542_obj_wear,6
+model=model_2731_obj
+2dxof=3
+2dyof=3
+2dzoom=1050
+2dyan=456
+2dxan=344
+category=weapon_blunt
+weight=4lb
+param=attackrate,6
+param=stabattack,-4
+param=slashattack,-4
+param=crushattack,22
+param=magicattack,-4
+param=strengthbonus,19
+param=crushattack_anim,human_blunt_pound
+param=defend_anim,human_blunt_block
+param=crush_sound,baxe_crush
+
+
+// Rogue
+[rogue_dagger]
+members=yes
+model=model_2718_obj
+recol1s=928
+recol1d=15855
+recol2s=10400
+recol2d=15855
+recol3s=9513
+recol3d=3072
+recol3s=14336
+recol3d=9513
+name=Rogue dagger
+desc=A powerful dagger.
+cost=78
+2dyof=-4
+2dzoom=760
+2dyan=1276
+2dxan=472
+iop2=Wield
+wearpos=righthand
+manwear=model_539_obj_wear,0
+womanwear=model_539_obj_wear,6
+category=weapon_stab
+weight=1lb
+param=stabattack,5
+param=slashattack,3
+param=crushattack,-4
+param=magicattack,1
+param=magicdefence,1
+param=strengthbonus,4
+param=attackrate,5
+param=stabattack_anim,human_ddagger_lunge
+param=slashattack_anim,human_ddagger_hack
+//param=defend_anim,human_ddagger_def
+param=defend_anim,human_ddagger_block
+param=stab_sound,stabsword_stab
+param=slash_sound,stabsword_slash
+param=weapon_poisoned,rogue_dagger_p
+param=weapon_poisoned_message,You poison the dagger.
+
+[rogue_dagger_p]
+members=yes
+model=model_2718_obj
+name=Rogue dagger(p)
+desc=A powerful dagger.
+recol1s=10400
+recol1d=15855
+recol2s=9513 
+recol2d=3072
+recol3s=14336
+recol3d=9513
+cost=78
+2dyof=-4
+2dzoom=760
+2dyan=1276
+2dxan=472
+iop2=Wield
+wearpos=righthand
+manwear=model_539_obj_wear,0
+womanwear=model_539_obj_wear,6
+category=weapon_stab
+weight=1lb
+param=stabattack,5
+param=slashattack,3
+param=crushattack,-4
+param=magicattack,1
+param=magicdefence,1
+param=strengthbonus,4
+param=attackrate,3
+param=stabattack_anim,human_ddagger_lunge
+param=slashattack_anim,human_ddagger_hack
+//param=defend_anim,human_ddagger_def
+param=defend_anim,human_ddagger_block
+param=stab_sound,stabsword_stab
+param=slash_sound,stabsword_slash
+// osrs defend anim seq_378
+param=poison_severity,20
+
+
+
+
+
+
+
+
+
+
+
+
+// Box
+[pk_box]
+name=PK Box(t1)
+desc=This contains gifts.
+cost=20000
+model=model_2426_obj
+recol1s=26817
+recol1d=21570
+recol2s=160
+recol2d=2114
+iop1=Open
+2dyof=-14
+2dzoom=1180
+2dyan=172
+2dxan=160
+weight=2lb
+param=no_alchemy,^true
+tradeable=no

@@ -1,4 +1,8 @@
 [opnpc1,gypsy]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 if (%demon_progress = ^demon_not_started) {
     @demon_slayer_not_started_gypsy;
 } else if (%demon_progress = ^demon_talked_gypsy) {

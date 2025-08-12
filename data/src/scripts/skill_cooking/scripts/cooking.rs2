@@ -13,6 +13,10 @@ if(oc_param(last_useitem, unlit_arrow) = ^true) { // might not work on every fir
 }
 
 [label,attempt_cook_item](obj $uncooked_item)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do that.");
+    return;
+}
 if (getqueue(cooking_repeat) > 0) {
     clearqueue(cooking_repeat);
 }

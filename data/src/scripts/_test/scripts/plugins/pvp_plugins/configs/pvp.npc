@@ -5,6 +5,8 @@ desc=He looks cold and hungry.
 walkanim=human_walk_f,human_walk_b,human_walk_l,human_walk_r
 readyanim=human_ready
 op1=Talk-to
+op3=Trade
+op4=Bank
 recol1s=14724
 recol1d=29460
 recol2s=14801
@@ -26,3 +28,12 @@ model6=model_181_idk
 model7=model_168_npc
 head1=model_52_idk_head
 head2=model_82_idk_head
+category=shop_keeper_bloody
+wanderrange=5
+param=owned_shop,pvp_shop
+param=shop_title,Starved Ragger's Shop
+param=shop_buy_multiplier,220
+param=shop_sell_multiplier,8000
+param=shop_delta,10
+
+

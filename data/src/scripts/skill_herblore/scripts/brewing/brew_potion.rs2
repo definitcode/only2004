@@ -1,4 +1,8 @@
 [opheldu,vial_water]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if(last_useitem = jangerberries) {
     if(%itwatchtower_progress < ^itwatchtower_learned_potion) {
         ~chatplayer("<p,confused>Hmm, perhaps I shouldn't mix these together. It might have unpredictable results...");
@@ -12,6 +16,10 @@ if(last_useitem = ground_bat_bones) {
 ~attempt_brew_potion(last_useslot, last_slot);
 
 [opheldu,guamvial]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if(last_useitem = jangerberries) {
     if(%itwatchtower_progress < ^itwatchtower_learned_potion) {
         ~chatplayer("<p,confused>Hmm, perhaps I shouldn't mix these together. It might have unpredictable results...");
@@ -79,6 +87,10 @@ if(last_useitem = ground_bat_bones) {
 ~attempt_brew_potion(last_useslot, last_slot);
 
 [proc,attempt_brew_potion](int $use_slot, int $last_slot)(boolean)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return(false);
+}
 // Find the struct of the potion being made (if valid item combo)
 def_struct $struct = ~get_brew_struct(inv_getobj(inv, $last_slot), inv_getobj(inv, $use_slot));
 if ($struct = null) {

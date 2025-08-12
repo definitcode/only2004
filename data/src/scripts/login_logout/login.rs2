@@ -46,7 +46,7 @@ settimer(health_regen, 100);
 %founders_transmog = ^transmog_off;
 
 if (%gamemode_selected = ^gamemode_pvp){
-    ~pk_skull(30000000);
+    ~pk_skull(^max_32bit_int);
 }
 if(inzone(movecoord(^grandtree_jail_coord, 0, 0, -2), movecoord(^grandtree_jail_coord, 3, 0, 2), coord) = true) {
     ~grandtree_spawn_charlie;
@@ -100,6 +100,9 @@ if (lowmemory = true) {
 
 
 [proc,clearallq]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~pk_skull(^max_32bit_int);
+}
 clearqueue(cooking_repeat);
 clearqueue(string_repeat);
 clearqueue(fletching_repeat);

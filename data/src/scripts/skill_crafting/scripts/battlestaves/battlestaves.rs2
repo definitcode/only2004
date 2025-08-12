@@ -1,4 +1,5 @@
 [opheldu,battlestaff]
+
 switch_obj(last_useitem)
 {
     case air_orb, fire_orb, water_orb, earth_orb : @craft_staff(last_useslot);

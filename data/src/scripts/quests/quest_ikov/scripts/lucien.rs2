@@ -1,4 +1,8 @@
 [opnpc1,lucien_ardougne]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int (%ikov_progress) {
     case ^ikov_completed_armadyl :
         ~chatplayer("<p,angry>I thought I killed you?!");

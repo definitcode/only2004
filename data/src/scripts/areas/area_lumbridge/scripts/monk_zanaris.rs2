@@ -1,4 +1,8 @@
 [opnpc1,monk_zanaris]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 if(map_members = false) { // From RS3
     ~chatplayer("<p,happy>Top of the day to you!");
     ~chatnpc("<p,neutral>Yes, Saradomin has certainly blessed us today!");

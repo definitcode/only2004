@@ -1,4 +1,8 @@
 [opnpc1,ceril_carnillean]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int(%hazeelcult_progress) {
     case ^hazeelcult_not_started :
         // OSRS changed this dialogue quite a bit in 2023 (of course), using wiki/RSC + the linked video as reference

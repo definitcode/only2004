@@ -9,7 +9,12 @@ if(%grail_progress > ^grail_not_started & %grail_progress < ^grail_complete) {
     ~chatnpc("<p,happy>Unfortunately not, Sirrah.");
     return;
 }
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int(%arthur_progress) {
+
     case ^arthur_not_started :
         ~chatplayer("<p,neutral>Morning. Know where an adventurer has to go to find a quest around here?");
         ~chatnpc("<p,neutral>An adventurer eh? There is no service finer than serving the bountiful King Arthur, and I happen to know there's an important quest to fulfill.");

@@ -1,4 +1,8 @@
 [label,solo_heroes_quest]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 if (%hero_solo_progress = ^hero_not_started){
     %hero_solo_progress = ^hero_solo_started;
     ~send_quest_progress(questlist:hero, %hero_solo_progress, ^hero_complete);

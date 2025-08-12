@@ -1,4 +1,8 @@
 [opnpc1,father_aereck]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int(%priest_progress) {
     case ^priest_not_started : @father_aereck_default;
     case ^priest_complete : @father_aereck_default;
@@ -6,6 +10,10 @@ switch_int(%priest_progress) {
 }
 
 [label,father_aereck_default]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,happy>Welcome to the church of holy Saradomin.");
 switch_int (~p_choice3("Who's Saradomin?", 1, "Nice place you've got here.", 2, "I'm looking for a quest!", 3)) {
     case 1 :

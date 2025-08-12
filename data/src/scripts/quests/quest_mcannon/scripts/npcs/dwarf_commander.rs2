@@ -1,4 +1,8 @@
 [opnpc1,dwarf_commander]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int(%mcannon_progress) {
     case ^mcannon_not_started : @dwarf_commander_start_quest;
     case ^mcannon_tasked_with_fixing_railings : @dwarf_commander_how_goes_fixing_those_fences;
@@ -15,6 +19,10 @@ switch_int(%mcannon_progress) {
 }
 
 [label,dwarf_commander_start_quest]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatplayer("<p,neutral>Hello.");
 ~chatnpc("<p,happy>Hello traveller, I'm pleased to see you.|We were hoping to find an extra pair of hands.|That's if you don't mind helping?");
 ~chatplayer("<p,quiz>Why, what's wrong?");

@@ -19,9 +19,10 @@ weight=5lb
 param=stabdefence,4
 param=slashdefence,5
 param=crushdefence,3
-param=magicdefence,1
-param=rangedefence,4
+param=magicdefence,5
+param=rangedefence,5
 param=magicattack,4
+param=rangeattack,5
 
 [bronze_sq_shield]
 name=Bronze sq shield

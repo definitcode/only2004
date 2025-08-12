@@ -85,6 +85,9 @@ switch_int ($damagetype) {
 
 // default multiplier is 1000
 [proc,give_combat_experience](int $damagestyle, int $damage, int $multiplier)
+if (%gamemode_selected = ^gamemode_pvp){
+    return;
+}
 def_int $base = multiply($damage, 10);
 // not a multiplier (some npcs have that), but exactly 1xp * hit for all cb styles (including controlled), prob a better way of doing this
 // not sure if this is the only npc that has this mechanic (not 100% sure if this existed in 2004 either)

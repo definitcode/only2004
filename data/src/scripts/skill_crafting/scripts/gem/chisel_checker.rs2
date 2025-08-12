@@ -15,6 +15,8 @@ if (inv_total(inv, dragon_chisel) > 0) {
     $obj1 = iron_chisel;
 } else if (inv_total(inv, bronze_chisel) > 0) {
     $obj1 = bronze_chisel;
+} else if (inv_total(inv, chisel) > 0) {
+    $obj1 = chisel;
 }
 if ($lvl0 >= oc_param(dragon_chisel, levelrequire) & ($obj1 = dragon_chisel)) {
     return(dragon_chisel);
@@ -36,5 +38,8 @@ if ($lvl0 >= oc_param(iron_chisel, levelrequire) & ($obj1 = iron_chisel)) {
 }
 if ($lvl0 >= oc_param(bronze_chisel, levelrequire) & ($obj1 = bronze_chisel)) {
     return(bronze_chisel);
+}
+if ($lvl0 >= oc_param(bronze_chisel, levelrequire) & ($obj1 = bronze_chisel)) {
+    return(chisel);
 }
 return(null);

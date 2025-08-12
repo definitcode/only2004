@@ -1,4 +1,8 @@
 [opnpc1,irena]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 if(%desertrescue_progress = ^desertrescue_not_started) {
         ~mesbox("Irena seems to be very upset and cries as you approach her.");
         ~chatnpc("<p,sad>Boo hoo! Oh dear, my only daughter....");

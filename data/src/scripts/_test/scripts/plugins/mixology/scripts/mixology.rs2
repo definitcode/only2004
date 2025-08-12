@@ -15,6 +15,10 @@ if (%hetty_progress ! ^hetty_complete) {
 [oplocu,loc_2024] @dragon_scale_dust;
 
 [label,dragon_scale_dust]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 def_obj $scale = (last_useitem);
 def_int $total_scales = inv_total(inv, $scale);
 def_int $total_tar = inv_total(inv,swamp_tar);
@@ -134,6 +138,10 @@ if (inv_total(worn,gasmask) > 0 | inv_total(worn,gasmask_i) > 0){
 }
 
 [label,mixology_game]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if (%hetty_progress ! ^hetty_complete) {
     mes("You need to complete Witch's Potion first!");
     return;

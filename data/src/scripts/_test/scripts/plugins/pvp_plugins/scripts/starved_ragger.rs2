@@ -1,12 +1,18 @@
 [opnpc1,starved_ragger] @pvp_shop;
-
+[opnpc4,starved_ragger] @pvp_bank;
 
 [label,pvp_shop]
+if (%gamemode_selected ! ^gamemode_pvp){
+    return;
+}
 def_namedobj $choice;
 def_namedobj $choice2;
 ~chatnpc("Hello, <displayname> I'll show you what I have for you.");
-def_int $class = ~p_choice4_header("Melee.", 1, "Ranged.", 2, "Magic.", 3, "Next.", 4, "~Class Picker~");
-
+def_int $class = ~p_choice4_header("Shop.", 1, "Bank.", 2, "N/A.", 3, "N/A.", 4, "~Starved Ragger~");
+switch_int($class){
+    case 1 :  ~openshop_bloody_activenpc;
+    case 2 :  @pvp_bank;
+}
 if ($choice = null) {
     ~displaymessage(^dm_default);
     return;

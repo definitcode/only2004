@@ -9,6 +9,10 @@
 
 
 [label,bury_bones](int $slot)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 def_obj $last_item = inv_getobj(inv, $slot);
 inv_delslot(inv, $slot);
 stat_advance(prayer, oc_param($last_item, bone_exp));

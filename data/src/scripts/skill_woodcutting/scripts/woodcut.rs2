@@ -15,6 +15,10 @@ switch_obj(last_useitem) {
 
 
 [label,attempt_cut_tree]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 ~clearallq;
 // find tree in db
 db_find(woodcutting_trees:tree, loc_type);
@@ -78,6 +82,10 @@ p_oploc(3);
 
 
 [label,cut_tree]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 def_obj $axe = ~woodcutting_axe_checker(true);
 if ($axe = null) {
     return;

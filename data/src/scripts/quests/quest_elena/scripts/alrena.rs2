@@ -1,4 +1,8 @@
 [opnpc1,alrena]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int(%elena_progress) {
     case ^quest_elena_not_started :
         ~chatplayer("<p,neutral>Hello Madam.");

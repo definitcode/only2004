@@ -1,4 +1,8 @@
 [label,cog_start_quest]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatplayer("<p,neutral>Hello monk.");
 ~chatnpc("<p,quiz>Hello adventurer.|My name is Brother Kojo.|Do you happen to know the time?");
 ~chatplayer("<p,sad>No, sorry, I don't");

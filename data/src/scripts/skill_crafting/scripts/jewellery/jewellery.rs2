@@ -179,6 +179,10 @@ if_openmain(crafting_jewelry);
 //--- Label to check if the player has high enough level
 //--- also calcs the real count of jewelry, and calls the weakqueue
 [label,craft_gold](inv $crafting_inv, int $last, int $count)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 def_obj $jewelry_obj = inv_getobj($crafting_inv, $last);
 // check if mems objs are selected
 if ($jewelry_obj = invis_amulet5 | $jewelry_obj = invis_necklace5 | $jewelry_obj = invis_ring5) {
@@ -220,7 +224,10 @@ p_delay(2);
 //----------------------
 
 [proc,crafting_gold](namedobj $product, namedobj $gem, int $productexp, int $count)
-
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 def_obj $bar = gold_bar;
 if (inv_total(inv, perfect_gold_bar) >= 1) {
     // Tested on OSRS: if normal gold bar and perfect gold bar are both in inventory, the perfect gold bar gets used first,
@@ -285,6 +292,10 @@ p_delay(2);
 
 
 [label,craft_silver]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 // if both moulds are present, prompt user with dialogue
 def_namedobj $product = null;
 def_int $choice;

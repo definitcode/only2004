@@ -1,4 +1,8 @@
 [opnpc1,murder_guard]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int(%murder_progress) { 
     case ^murder_not_started :
         ~chatplayer("<p,neutral>What's going on here?");

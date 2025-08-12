@@ -25,6 +25,10 @@ switch_int(%arena_progress) {
         ~chatplayer("<p,neutral>I've managed to get a guard's uniform, hopefully I can infiltrate the arena.");
         ~chatnpc("<p,sad>Please hurry.");
     case ^arena_not_started :
+        if(%gamemode_selected = ^gamemode_pvp){
+            ~chatnpc("<p,angry>GO AWAY!");
+            return;
+        }
         ~chatplayer("<p,neutral>Hi there, looks like you're in some trouble.");
         ~chatnpc("<p,sad>Oh I wish this broken cart was my only problem. sob.. I've got to find my family.. sob.");
         switch_int(~p_choice2("I hope you can, good luck.", 1, "Can I help you?", 2)) {

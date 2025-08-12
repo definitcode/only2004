@@ -117,7 +117,7 @@ recol3d=10368
 recol4s=2340
 recol4d=13473
 
-[studded_body_b]
+[bear_body_b]
 cost=3250
 name=Bear body(S)
 desc=Those studs should provide a bit more protection.
@@ -148,7 +148,7 @@ recol3d=10368
 recol4s=6342
 recol4d=13473
 
-[studded_chaps_b]
+[bear_chaps_b]
 cost=1250
 name=Bear chaps(S)
 desc=Those studs should provide a bit more protection.

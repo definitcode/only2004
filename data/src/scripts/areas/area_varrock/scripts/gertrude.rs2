@@ -1,5 +1,9 @@
 //most linebreaks in the quest are guessed (added for 2004 flair) based off rsc dialogue breaks
 [opnpc1,gertrude]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int (%fluffs_progress) {
     case ^fluffs_not_started :
         ~chatplayer("<p,happy>Hello, are you okay?");

@@ -41,8 +41,8 @@ if (%gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hci
         case 2 : {
             inv_clear(bank);
             ~founders_protection;
-            inv_clear(inv);
-            inv_clear(worn);
+            inv_dropall(inv, coord, ^lootdrop_duration);
+            inv_dropall(worn, coord, ^lootdrop_duration);
             ~reset();
             ~stat_reset_all;
             p_teleport(0_48_48_22_35);
@@ -61,6 +61,24 @@ if (%gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hci
         }
     }
 
+}
+if (%gamemode_selected = ^gamemode_pvp){
+            ~founders_protection;
+            inv_dropall(inv, coord, ^lootdrop_duration);
+            inv_dropall(worn, coord, ^lootdrop_duration);
+            ~pk_reset();
+            ~stat_reset_all;
+            p_teleport(0_48_54_12_36);
+            buildappearance(worn);
+            ~prayer_deactivate_all;
+            ~follower_death;
+            anim(null, 0);
+            p_stopaction;
+            healenergy(10000);
+            ~clear_poison;
+            ~update_all($prev_wep);
+            ~initalltabs;
+            @start_tutorial;    
 }
 //} else if (%gamemode_selected = ^gamemode_survival) {
 //    inv_clear(bank);

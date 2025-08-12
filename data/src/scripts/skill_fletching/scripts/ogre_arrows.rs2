@@ -17,6 +17,10 @@ switch_obj(last_useitem) {
 }
 
 [label,make_ogre_shafts]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if (map_members = false) {
     mes(^mes_members_fletching); // guess
     return;
@@ -45,6 +49,10 @@ if (inv_total(worn, headband_red) > 0) {
 
 
 [label,make_wolf_bone_tips]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if (map_members = false) {
     mes(^mes_members_fletching); // guess
     return;
@@ -107,6 +115,10 @@ stat_advance(fletching, multiply($arrow_count, 15));
 
 
 [label,make_ogre_arrows]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if (map_members = false) {
     mes(^mes_members_fletching); // guess
     return;

@@ -1,5 +1,9 @@
 // outside underground pass
 [opnpc1,koftik_ardougne]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 if(%upass_progress = ^upass_not_started & testbit(%upass_map_mechanisms, ^upass_started_bit) = true) {
     @koftik_first_dialogue;
 }

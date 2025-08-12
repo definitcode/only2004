@@ -35,10 +35,15 @@
 [opheld2,hardleather_body] @levelrequire_ranged_and_defence(28, 28, last_slot);
 
 //Bear Set
-[opheld2,bear_boots] @levelrequire_ranged_and_strength(30, 30, last_slot);
-[opheld2,bear_gloves] @levelrequire_ranged_and_strength(30, 30, last_slot);
-[opheld2,bear_cape] @levelrequire_ranged_and_strength(30, 30, last_slot);
-[opheld2,bear_chaps] @levelrequire_ranged_and_strength(30, 30, last_slot);
-[opheld2,bear_body] @levelrequire_ranged_and_strength(30, 30, last_slot);
-[opheld2,studded_body_b] @levelrequire_ranged_and_strength(40, 40, last_slot);
-[opheld2,studded_chaps_b] @levelrequire_ranged_and_strength(40, 40, last_slot);
+[opheld2,bear_boots] @levelrequire_ranged_and_strength(25, 25, last_slot);
+[opheld2,bear_gloves] @levelrequire_ranged_and_strength(25, 25, last_slot);
+[opheld2,bear_cape] @levelrequire_ranged_and_strength(25, 25, last_slot);
+[opheld2,bear_chaps] @levelrequire_ranged_and_strength(25, 25, last_slot);
+[opheld2,bear_body] @levelrequire_ranged_and_strength(25, 25, last_slot);
+[opheld2,bear_body_b] @levelrequire_ranged_and_strength(30, 30, last_slot);
+[opheld2,bear_chaps_b] @levelrequire_ranged_and_strength(30, 30, last_slot);
+
+// Tank Set
+[opheld2,tank_kiteshield] @levelrequire_defence(28, last_slot);
+[opheld2,tank_platelegs] @levelrequire_defence(28, last_slot);
+[opheld2,tank_chainbody] @levelrequire_defence(28, last_slot);

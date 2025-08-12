@@ -1,4 +1,8 @@
 [opnpc1,osman]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int (%prince_progress) {
     case ^prince_not_started : @osman_prequest;
     case ^prince_started : @osman_instructions;
@@ -8,6 +12,10 @@ switch_int (%prince_progress) {
 }
 
 [label,osman_prequest]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,shifty>Hello, I am Osman. With what can I assist you?");
 def_int $option = ~p_choice3("You don't seem very tough. Who are you?", 1, "I hear wild rumours about a prince.", 2, "I am just being nosy.", 3);
 

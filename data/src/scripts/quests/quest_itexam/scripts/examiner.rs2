@@ -1,4 +1,8 @@
 [opnpc1,examiner]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 def_int $progress = ~itexam_progress;
 
 switch_int ($progress) {
@@ -16,6 +20,10 @@ switch_int ($progress) {
 ////////////////////////////////////////////////
 
 [label,itexam_examiner_quest_start]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatplayer("<p,neutral>Hello.");
 ~chatnpc("<p,neutral>Ah hello there! I am the resident lecturer on antiquities and artefacts. I also set the Earth Sciences exams.");
 ~chatplayer("<p,neutral>Earth Sciences?");

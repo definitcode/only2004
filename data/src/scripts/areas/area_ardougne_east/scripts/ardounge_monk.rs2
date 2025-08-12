@@ -1,4 +1,8 @@
 [opnpc1,monk_ardougne]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int (%drunkmonk_progress) {
     case ^drunkmonk_not_started : npc_say("Peace brother");
     case ^drunkmonk_spoken_to_omad : npc_say("*yawn*");

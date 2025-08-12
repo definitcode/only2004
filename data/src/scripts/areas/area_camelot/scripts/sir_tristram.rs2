@@ -1,4 +1,9 @@
+
 [opnpc1,sir_tristram]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,happy>Hail Arthur, King of the Britons!");
 ~chatplayer("<p,quiz>Um... Hello.");
 if(%grail_progress > ^grail_not_started & %grail_progress < ^grail_complete) {

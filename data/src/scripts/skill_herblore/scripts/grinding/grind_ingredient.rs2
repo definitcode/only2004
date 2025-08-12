@@ -12,6 +12,10 @@ if(last_useitem = vial_water | last_useitem = guamjangervial) { // this only wor
 ~attempt_grind_ingredient(last_useslot, last_slot);
 
 [proc,attempt_grind_ingredient](int $use_slot, int $last_slot)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 def_obj $used_on = inv_getobj(inv, $last_slot);
 def_obj $used_with = inv_getobj(inv, $use_slot);
 

@@ -3,7 +3,7 @@
 [opheld1,reset_box] ~reset;
 [opheld1,hc_box] ~hc_box;
 [opheld1,alchemy_box] ~alchemy_box;
-[opheld1,allgear_box] ~allgearbank;
+[opheld1,allgear_box] @gp;
 [proc,open_giftbox]
 if (inv_freespace(inv) > 3){
 

@@ -49,6 +49,10 @@ if (inv_total(inv, $water_source) > 0 & inv_total(inv, clay) > 0) {
 }
 
 [label,craft_pottery_interface] 
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do that.");
+    return;
+}
 def_namedobj $choice = ~multiobj3(
     "What would you like to make?", 
     pot_unfired, 0, 2, 185, "Pot", 0, 0, 

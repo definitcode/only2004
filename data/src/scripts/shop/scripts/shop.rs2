@@ -8,6 +8,9 @@
 if (%gamemode_selected = ^gamemode_ironman | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim | %gamemode_selected = ^gamemode_none){
     mes("You cannot access shops as your gamemode!");
     return;
+} else if (%gamemode_selected = ^gamemode_pvp){
+    mes("Murderers cannot access civilian shops!");
+    return;
 }
 if_settext(shop_template:com_76, $title);
 inv_transmit(inv, shop_template_side:inv);
@@ -21,6 +24,9 @@ if_openmain_side(shop_template, shop_template_side);
 %shop_haggle = npc_param(shop_delta);
 if (%gamemode_selected = ^gamemode_ironman | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim){
     mes("You cannot access shops as your gamemode!");
+    return;
+} else if (%gamemode_selected = ^gamemode_pvp){
+    mes("Murderers cannot access civilian shops!");
     return;
 }
 if_settext(shop_template:com_76, npc_param(shop_title));

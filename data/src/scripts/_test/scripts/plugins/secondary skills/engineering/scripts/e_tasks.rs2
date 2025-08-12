@@ -1,6 +1,8 @@
 [proc,e_tasks]
-
-
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if (%e_taskstatus = ^e_notstarted) {
     %e_taskstatus = ^e_inprogress;
     def_int $r1 = ~p_choice3_header("Cog.", 1, "Barbed Rope.", 2, "Iron Nails.", 3, "What item would you like to turn in?");

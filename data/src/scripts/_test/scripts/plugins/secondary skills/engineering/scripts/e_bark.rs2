@@ -1,4 +1,8 @@
 [label,burn_bark](obj $bark)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if ($bark = tree_bark) {
 } else if ($bark = oak_bark) {
     if (stat_base(firemaking) < 15) {

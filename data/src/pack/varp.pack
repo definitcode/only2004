@@ -565,7 +565,7 @@
 564=herbs_ground
 565=tree_bark_burned
 566=oak_bark_burned
-567=willow_bark_burned
+567=pk_class
 568=maple_bark_burned
 569=yew_bark_burned
 570=magic_bark_burned
@@ -595,3 +595,4 @@
 594=rogue_hard_casket
 595=rogue_insane_casket
 596=ice_queen_kc
+597=willow_bark_burned

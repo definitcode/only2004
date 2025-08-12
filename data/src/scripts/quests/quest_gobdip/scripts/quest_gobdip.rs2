@@ -1,16 +1,28 @@
 [label,goblin_diplomacy_greet_general_bentnoze]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,goblinchat>Red armour best.");
 ~chatnpc_specific("General Wartface", general_wartface, "<p,goblinchat>No, it has to be green!");
 ~chatnpc("<p,goblinchat>Go away, human, we busy.");
 @goblin_diplomacy_greet_player_reply;
 
 [label,goblin_diplomacy_greet_general_wartface]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,goblinchat>Green armour best.");
 ~chatnpc_specific("General Bentnoze", general_bentnoze, "<p,goblinchat>No, no, red every time.");
 ~chatnpc("<p,goblinchat>Go away, human, we busy.");
 @goblin_diplomacy_greet_player_reply;
 
 [label,goblin_diplomacy_start]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatplayer("<p,neutral>Not very busy in here today, is it?");
 ~chatnpc("<p,shifty>No, it was earlier. There was a guy in here saying the goblins up by the mountain are arguing again. Of all things, about the colour of their armour.");
 ~chatnpc("<p,angry>Knowing the goblins, it could easily turn into a full blown war. Which wouldn't be good. Goblin wars make such a mess of the countryside.");

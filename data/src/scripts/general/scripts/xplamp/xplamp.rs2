@@ -1,4 +1,8 @@
 [opheld1,macro_genilamp]
+if (%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 %xplamp = ^xplamp_none;
 if_openmain(xplamp);
 

@@ -11,7 +11,7 @@ womanwear=model_368_npc,0
 weight=2oz
 
 [vampiric_hammer]
-cost=2000000
+cost=2000
 name=Vampiric Hammer
 desc=I don't think it's intended for joinery.
 iop2=Wield
@@ -37,6 +37,9 @@ param=strengthbonus,45
 param=crushattack_anim,human_blunt_pound
 param=defend_anim,human_blunt_block
 param=crush_sound,baxe_crush
+
+
+
 
 
 [piss_bottle]
@@ -131,18 +134,18 @@ desc=a disguise to properly conceal your identity.
 cost=80
 weight=40g
 members=yes
-model=model_3373_obj
-recol1s=15855
-recol1d=6342
-recol2s=2115
-recol2d=6342 
-2dxof=-1
-2dyof=-4
-2dzoom=560
+model=model_2725_obj
+2dyof=-15
+2dzoom=1360
+2dxan=368
 iop2=Wear
-wearpos=head
-manwear=model_225_npc,0
-womanwear=model_225_npc,0
+recol1s=15855
+recol1d=9408
+recol2s=0
+recol2d=23552 
+wearpos=hat
+manwear=model_226_shroud_npc,0
+womanwear=model_226_shroud_npc,0
 
 [pirate_pants]
 name=Pirate Pants
@@ -190,19 +193,18 @@ womanwear=model_loc_693_8,0
 [hooded_figure]
 name=Hood(r)
 desc=a hooded figure in a cloak.
-2dyof=-7
-2dzoom=1070
-2dyan=160
-2dxan=332
+model=model_2725_obj
+2dyof=-15
+2dzoom=1360
+2dxan=368
 weight=3g
 cost=80
 weight=40g
 members=yes
-model=model_226_npc
 iop2=Wear
 wearpos=hat
-manwear=model_226_npc,0
-womanwear=model_226_npc,0
+manwear=model_225_npc,0
+womanwear=model_225_npc,0
 recol1s=14724
 recol1d=15360
 recol2s=24075
@@ -211,6 +213,8 @@ recol3s=0
 recol3d=15360
 recol4s=29595
 recol4d=15360
+recol5s=27412
+recol5d=15360
 
 
 

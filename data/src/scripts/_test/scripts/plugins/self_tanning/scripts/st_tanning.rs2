@@ -16,7 +16,10 @@ mes("You fill the bucket from the vat of dye.");
 p_delay(0);
 
 [label,self_tanhides]
-
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 switch_obj(last_useitem) {
     case cow_hide, dragonhide_green, dragonhide_blue, dragonhide_red, dragonhide_black, bear_leather : @self_tan;
     case leather, hard_leather, dragon_leather, dragon_leather_blue, dragon_leather_red, dragon_leather_black : ~chatplayer("<p,confused>Err... I have no use for that, I make the stuff!");
@@ -25,6 +28,10 @@ switch_obj(last_useitem) {
 
 
 [label,self_tan]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 // https://web.archive.org/web/20110920233323im_/http://runehq.com/images/cityguides/canifistanner.jpg
 def_int $choice = ~p_choice5_header("Bear leather", 1, "Soft leather", 2, "Hard leather", 3, "Dragon hide", 4, "Cancel.", 5, "What kind of leather do you wish to wet?");
 switch_int($choice) {

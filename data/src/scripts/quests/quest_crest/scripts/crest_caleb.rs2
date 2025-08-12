@@ -1,4 +1,8 @@
 [opnpc1,crest_caleb]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int(%crest_progress) {
     case ^crest_not_started : @crest_caleb_prequest;
     case ^crest_spoken_dimintheis : @crest_caleb_start;
@@ -10,6 +14,10 @@ switch_int(%crest_progress) {
 }
 
 [label,crest_caleb_prequest]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,quiz>Who are you? What are you after?");
 @multi2("Nothing, I will be on my way.", crest_caleb_nothing, "I see you are a chef, will you cook me anything?", crest_caleb_chef);
 

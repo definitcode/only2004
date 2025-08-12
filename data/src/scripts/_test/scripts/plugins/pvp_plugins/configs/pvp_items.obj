@@ -40,7 +40,7 @@ tradeable=no
 
 
 [bloody_coins]
-name=Bloody Coins
+name=Coins(b)
 desc=Ooo blood money!
 model=model_2484_obj
 stackable=yes

@@ -1,4 +1,8 @@
 [label,craft_bear_leather]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if (inv_total(inv, bear_leather) < 1){
     mes("You need Bear Leather to craft with.");
     return;
@@ -6,6 +10,10 @@ if (inv_total(inv, bear_leather) < 1){
 ~bear_leather;
 
 [proc,bear_leather]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 def_int $bear_leather = inv_total(inv, bear_leather);
 def_namedobj $choice = ~multiobj4(
     "What would you like to make?", 

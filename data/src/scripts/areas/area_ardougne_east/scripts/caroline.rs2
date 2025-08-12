@@ -1,4 +1,8 @@
 [opnpc1,caroline]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int(%seaslug_progress) {
     case ^seaslug_not_started : @caroline_help;
     case ^seaslug_saved_kennith : @caroline_savedkennith;

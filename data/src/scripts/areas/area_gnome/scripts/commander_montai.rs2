@@ -1,4 +1,8 @@
 [opnpc1,commander_montai]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int(%tree_progress) {
     case ^tree_not_started :
         ~chatplayer("<p,neutral>Hello.");

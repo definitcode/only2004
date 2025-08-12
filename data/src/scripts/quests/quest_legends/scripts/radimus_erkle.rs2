@@ -2,6 +2,10 @@
 // RSC, older OSRS videos, and RS3 dialogue has been referenced instead.
 
 [opnpc1,radimus_erkle]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 if(inzone(0_42_52_34_45, 0_42_52_45_56, npc_coord) = true) {
     if(%legends_progress = ^legends_returned_to_radimus) {
         ~chatnpc("<p,neutral>Welcome to the Legends Guild Main Hall. We've placed your Totem Pole as pride of place. All members of the Legends Guild will see it as they walk in. They will know that it was you who brought it back.");

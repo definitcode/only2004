@@ -47,6 +47,10 @@ if ($option = 1) {
 }
 
 [label,doric_not_started]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,quiz>Hello traveller, what brings you to my humble smithy?");
 def_int $option = ~p_choice4("I wanted to use your anvils.", 1, "Mind your own business, shortstuff!", 2,  "I was just checking out the landscape.", 3, "What do you make here?", 4);
 

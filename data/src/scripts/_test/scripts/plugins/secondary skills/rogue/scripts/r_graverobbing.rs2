@@ -1,0 +1,45 @@
+[oplocu,loc_328]
+def_obj $last_use = last_useitem;
+if ($last_use ! spade){
+    mes("Nothing interesting happens..");
+} else {
+    mes("You use the spade to dig a hole.");
+    ~graverobbing(loc_coord);
+    loc_change(loc_329, 100);
+}
+
+
+[proc,graverobbing](coord $loc_coord)
+def_int $rand = random(128);
+
+switch_int($rand){
+    case 12 : {
+        npc_add($loc_coord,skeleton2, 500);
+        npc_setmode(opplayer2);
+        npc_delay(1);
+
+    }
+    case 120 : {
+        npc_add($loc_coord,skeleton4, 500);
+        npc_say("Raarrghh!!!!!!");
+        npc_setmode(opplayer2);
+        npc_delay(1);
+    }
+}
+if ($rand < 119){
+    npc_add($loc_coord,skeleton3, 500);
+    npc_say("Aarrghh!");
+    npc_setmode(opplayer2);
+    npc_delay(1);
+} else if ($rand > 120){
+    npc_add($loc_coord,skeleton3, 500);
+    npc_say("Braerrggh!!!!!");
+    npc_setmode(opplayer2);
+    npc_delay(1);
+}
+
+[ai_queue1,skeleton1] ~npc_default_retaliate_ap;
+[ai_queue1,skeleton2] ~npc_default_retaliate_ap;
+[ai_queue1,skeleton3] ~npc_default_retaliate_ap;
+[ai_queue1,skeleton4] ~npc_default_retaliate_ap;
+[ai_queue1,skeleton5] ~npc_default_retaliate_ap;

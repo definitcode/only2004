@@ -1,0 +1,218 @@
+[opheld1,pk_box] @pk_box;
+
+[label,pk_box]
+%pk_class = ^no_class;
+if (inv_freespace(inv) < 1){
+    mes("You must only have the PK Box in your inventory!");
+    return;
+}
+if (inv_freespace(worn) ! 14){
+    mes("You must not have any items equipped!");
+    return;
+}
+if (%total_level > 27){
+    ~pk_reset;
+}
+%gamemode_selected = ^gamemode_pvp;
+def_int $ch = ~p_choice5_header("Tank.", 1, "Rogue.", 2, "Ranger.", 3, "Mage.", 4, "Tri-Pure.", 5, "~Class Picker~");
+switch_int($ch){
+    case 1 : 
+        %pk_class = ^tank;
+        ~tank_pure;
+
+    case 2 : 
+        %pk_class = ^rogue;
+        ~rogue_pure;
+    
+    case 3 : 
+        %pk_class = ^ranger;
+        ~ranged_pure;
+    
+    case 4 : 
+        %pk_class = ^mage;
+        ~mage_pure;
+    
+    case 5 : 
+        %pk_class = ^trispec;
+        ~tri_pure;
+}
+
+[proc,stat_push]
+switch_int(%pk_class){
+    case ^ranger : {
+        stat_advance(attack, 7028);     // lvl ~24 Attack XP
+        stat_advance(strength, 13363);   // lvl 30 Strength XP
+        stat_advance(defence, 2107);    // lvl ~24 Defence XP
+        stat_advance(hitpoints, 7842);  // lvl 25 Hitpoints XP
+        stat_advance(prayer, 7028);     // lvl ~24 Prayer XP
+        stat_advance(ranged, 13363);    // lvl 30 Ranged XP (signature skill)
+    }
+    case ^tank : {
+        stat_advance(attack, 13363);     // lvl 30 Attack XP
+        stat_advance(strength, 1154);   // lvl 10 Strength XP
+        stat_advance(defence, 13363);   // lvl 30 Defence XP (signature skill)
+        stat_advance(hitpoints, 13363);  // lvl 30 Hitpoints XP
+        stat_advance(prayer, 2746);     // lvl 16 Prayer XP
+    }
+    case ^rogue : {
+        stat_advance(attack, 12000);    // lvl ~28 Attack XP (signature skill)
+        stat_advance(strength, 7842);   // lvl 25 Strength XP
+        stat_advance(defence, 3628);    // lvl 18 Defence XP (lower for rogue)
+        stat_advance(hitpoints, 7842);  // lvl 25 Hitpoints XP
+        stat_advance(prayer, 7000);     // lvl ~24 Prayer XP
+        stat_advance(ranged, 7842);     // lvl 25 Ranged XP
+    }
+    case ^mage : {
+        stat_advance(defence, 801);    // lvl ~24 Defence XP
+        stat_advance(hitpoints, 13363);  // lvl 25 Hitpoints XP
+        stat_advance(prayer, 24815);     // lvl ~24 Prayer XP
+        stat_advance(magic, 22406);     // lvl ~28 Magic XP (signature skill)
+    }
+    case ^trispec : {
+        stat_advance(attack, 7842);     // lvl 25 Attack XP
+        stat_advance(strength, 7842);   // lvl 25 Strength XP
+        stat_advance(defence, 7842);    // lvl 25 Defence XP
+        stat_advance(hitpoints, 4470);  // lvl 20 Hitpoints XP
+        stat_advance(prayer, 7842);     // lvl 25 Prayer XP
+        stat_advance(ranged, 7842);     // lvl 25 Ranged XP
+        stat_advance(magic, 7842);      // lvl 25 Magic XP
+    }
+}
+
+
+[proc,tri_pure]
+if (inv_freespace(inv) > 18) {
+    // Balanced hybrid pure gear (medium combat)
+    inv_add(inv, silk_robe, 1);         // Black wizard robes (req lvl 30 magic)
+    inv_add(inv, silk_hat, 1);
+    inv_add(inv, leather_body, 1);       // Leather for melee (req lvl 1 str)
+    inv_add(inv, leather_chaps, 1);
+    inv_add(inv, leather_boots, 1);
+    inv_add(inv, iron_longsword, 1);    // Steel weapon (req lvl 30 attack)
+    inv_add(inv, pvp_badge, 1);
+    inv_add(inv, oak_longbow, 1);    // Willow shortbow (req lvl 10 ranged)
+    inv_add(inv, iron_arrow_p, 50);
+    inv_add(inv, iron_2h_sword, 1);     // Steel 2h sword (req lvl 30 attack)
+    inv_add(inv, mindrune, 75);
+    inv_add(inv, airrune, 150);
+    inv_add(inv, staff_of_fire, 1);      // Elemental staff (req lvl 10 magic & attack)
+    inv_add(inv, iron_dagger, 1);       // Steel dagger (req lvl 30 attack)
+    inv_add(inv, iron_sq_shield, 1);    // Steel shield (req lvl 30 defence)
+    inv_add(inv, cert_trout, 10);
+    inv_del(inv, pk_box, 1);
+    ~stat_push;
+
+} else {
+    mes("You need at least 19 inventory slots free.");
+}
+
+
+[proc,ranged_pure]
+if (inv_freespace(inv) > 14) {
+    // Bear + studded bear gear (req 40 str & ranged)
+    inv_add(inv, bear_coif, 1);        // Leather level 1 helmet, but bear sets req str/ranged
+    inv_add(inv, bear_body_b, 1);   // Studded body black (req 40 ranged)
+    inv_add(inv, bear_boots, 1);
+    inv_add(inv, bear_gloves, 1);
+    inv_add(inv, bear_cape, 1);
+    inv_add(inv, bear_chaps_b, 1);  // Studded chaps black (req 40 ranged)
+    inv_add(inv, pvp_badge, 1);
+    inv_add(inv, barbed_bolt, 50);
+    inv_add(inv, iron_crossbow, 1);
+    inv_add(inv, iron_dagger, 1);     // Black dagger (req 35 attack)
+    inv_add(inv, wooden_shield, 1);
+    inv_add(inv, cert_trout, 10);
+    inv_del(inv, pk_box, 1);
+    ~stat_push;
+} else {
+    mes("You need at least 15 inventory slots free.");
+}
+
+[proc,mage_pure]
+if (inv_freespace(inv) > 13) {
+    // Mage robes & battlestaff
+    inv_add(inv, silk_hat, 1);        // Black wizard hat (req 30 magic)
+    inv_add(inv, silk_robe, 1);       // Black wizard robe (req 30 magic)
+    inv_add(inv, silk_heavyskirt, 1);
+    inv_add(inv, silk_gloves, 1);
+    inv_add(inv, silk_cape, 1);
+    inv_add(inv, pvp_badge, 1);
+    inv_add(inv, book_of_chaos, 1);
+    inv_add(inv, mindrune, 75);
+    inv_add(inv, staff_of_fire, 1); // Battlestaff (req 50 attack & magic) — Mage has 65 magic, 10 attack (weapons req 10 attack minimum, battlestaff req 50 attack, so might not wield)
+    inv_add(inv, holy_water, 1);
+    inv_add(inv, airrune, 150);
+    inv_add(inv, cert_trout, 10);
+    inv_del(inv, pk_box, 1);
+    ~stat_push;
+
+} else {
+    mes("You need at least 14 inventory slots free.");
+}
+
+[proc,tank_pure]
+if (inv_freespace(inv) > 13) {
+    // Mithril tank gear
+    inv_add(inv, iron_full_helm, 1);
+    inv_add(inv, tank_chainbody, 1);
+    inv_add(inv, tank_platelegs, 1);
+    inv_add(inv, leather_gloves, 1);
+    inv_add(inv, leather_boots, 1);
+    inv_add(inv, pvp_badge, 1);
+    inv_add(inv, tank_kiteshield, 1);
+    inv_add(inv, tank_warhammer, 1);  // Black warhammer (req 35 attack)
+    inv_add(inv, iron_2h_sword, 1);   // Black 2h sword (req 35 attack)
+    inv_add(inv, cert_trout, 10);
+    inv_del(inv, pk_box, 1);
+    ~stat_push;
+} else {
+    mes("You need at least 14 inventory slots free.");
+}
+
+[proc,rogue_pure]
+if (inv_freespace(inv) > 13) {
+    // Bear gear for rogue (req 30 str/ranged)
+    inv_add(inv, bear_coif, 1);
+    inv_add(inv, bear_body, 1);
+    inv_add(inv, bear_boots, 1);
+    inv_add(inv, bear_gloves, 1);
+    inv_add(inv, bear_cape, 1);
+    inv_add(inv, bear_chaps, 1);
+    inv_add(inv, rogue_dagger, 1); // Black dagger (req 35 attack)
+    inv_add(inv, iron_dart_p, 1);
+    inv_add(inv, rogue_magnet, 1);
+    inv_add(inv, weapon_poison, 1);
+    inv_add(inv, 4doseantipoison, 1);
+    inv_add(inv, cert_trout, 10);
+    inv_add(inv, pvp_badge, 1);
+    inv_del(inv, pk_box, 1);
+    ~stat_push;
+} else {
+    mes("You need at least 14 inventory slots free.");
+}
+
+// Equipment Checker
+[label,pure_check_slot](int $slot)
+if (stat_base(hitpoints) > 50){
+    mes("Your stat's are too high to open this.");
+    return;
+} else if (stat_base(prayer) > 35){
+    mes("Your stat's are too high to open this.");
+    return;
+} else if (stat_base(magic) > 50){
+    mes("Your stat's are too high to open this.");
+    return;
+} else if (stat_base(attack) > 50){
+    mes("Your stat's are too high to open this.");
+    return;
+} else if (stat_base(strength) > 50){
+    mes("Your stat's are too high to open this.");
+    return;
+} else if (stat_base(defence) > 50){
+    mes("Your stat's are too high to open this.");
+    return;
+} else if (stat_base(ranged) > 50){
+    mes("Your stat's are too high to open this.");
+    return;
+}
+~equip($slot);

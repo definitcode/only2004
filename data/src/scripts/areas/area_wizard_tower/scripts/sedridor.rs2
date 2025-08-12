@@ -1,5 +1,9 @@
 [opnpc2,sedridor] @teleport_to_essence_mine(^essence_mine_to_sedridor);
 [opnpc1,sedridor]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,neutral>Welcome adventurer, to the world renowned|Wizards' Tower. How may I help you?");
 // we don't support teleporting until the quest is complete
 if(%runemysteries_progress = ^runemysteries_not_started) {

@@ -7,6 +7,10 @@ switch_obj(last_useitem) {
 
 
 [label,dryhide]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 def_int $wbl_c = (inv_total(inv, wet_leather));
 def_int $wl_c = (inv_total(inv, wet_leather));
 def_int $whl_c = (inv_total(inv, wet_hard_leather));

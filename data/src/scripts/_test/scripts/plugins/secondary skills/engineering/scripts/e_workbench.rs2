@@ -6,6 +6,10 @@
     ~e_workbenchmenu;
 
 [proc,e_workbenchmenu]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 def_int $choice1 = (~p_choice2_header("Upgrade Item.", 1, "Craft New.", 2, "~Workbench Menu~"));
 switch_int($choice1){
         case 1 : ~e_upgradeitem;
@@ -479,7 +483,7 @@ if (inv_total(inv, chisel) > 0) {
             ~objbox(bronze_chisel, "You have upgraded your Chisel to a Bronze Chisel.", 250, 0, 0);
             return;
         } else {
-            ~mesbox("You need 1 Bronze Bar to upgrade your Chisel to a Bronze Chisel.");
+            ~mesbox("You need a Bronze Bar and a Log to upgrade your Chisel to a Bronze Chisel.");
             return;
         }
     } else {

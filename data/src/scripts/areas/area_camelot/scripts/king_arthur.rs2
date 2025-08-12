@@ -1,4 +1,8 @@
 [opnpc1,king_arthur]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 if(%grail_progress > ^grail_not_started) {
     switch_int(%grail_progress) {
         case ^grail_complete :  
@@ -77,6 +81,10 @@ switch_int(~p_choice2("Tell me of this quest.", 1, "I am weary of questing for t
 }
 
 [label,arthur_firstmeet]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,neutral>Welcome to my court. I am King Arthur of the Knights of the Round Table.");
 switch_int(~p_choice3("I want to become a Knight of the Round Table!", 1, "So what are you doing in RuneScape?", 2, "Thank you very much.", 3)) {
     case 1 :

@@ -1,4 +1,8 @@
 [opnpc1,hetty]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int(%hetty_progress) {
     case ^hetty_not_started :
         ~chatnpc("<p,neutral>What could you want with an old woman like me?");

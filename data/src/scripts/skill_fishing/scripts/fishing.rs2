@@ -15,6 +15,10 @@ if (string_length($message) > 0) {
 
 // checks if you actually have the fish equipment required.
 [proc,check_fish_equipment](namedobj $fish_equipment)(boolean)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return(false);
+}
 def_struct $struct = oc_param($fish_equipment, fish_equipment_struct);
 if (inv_total(inv, $fish_equipment) < 1) {
     anim(null, 0);

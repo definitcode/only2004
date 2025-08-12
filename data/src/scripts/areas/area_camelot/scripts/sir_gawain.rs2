@@ -1,4 +1,8 @@
 [opnpc1,sir_gawain]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,happy>Good day to you <text_gender("sir", "madam")>!");
 if(%grail_progress > ^grail_not_started & %grail_progress < ^grail_complete) {
     ~chatplayer("<p,neutral>I seek the Grail in the name of Camelot!");

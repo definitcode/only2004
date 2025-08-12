@@ -1,4 +1,8 @@
 [opnpc1,elkoy_outmaze]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int(%tree_progress) {
     case ^tree_not_started : @elkoy_intro;
     case ^tree_started, ^tree_spoken_montai, ^tree_given_logs_montai, ^tree_finding_trackers, ^tree_ballista_fired : @elkoy_looking_orbs;
@@ -9,6 +13,10 @@ switch_int(%tree_progress) {
 }
 
 [opnpc1,elkoy_maze]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int(%tree_progress) {
     case ^tree_not_started : @elkoy_intro;
     case ^tree_started, ^tree_spoken_montai, ^tree_given_logs_montai, ^tree_finding_trackers, ^tree_ballista_fired : @elkoy_looking_orbs;

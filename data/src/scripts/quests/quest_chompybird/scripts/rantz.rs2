@@ -24,6 +24,9 @@ if(%chompybird_progress >= ^chompybird_rantz_gave_player_bow & ~obj_gettotal(ogr
 [label,rantz_main_dialogue]
 switch_int(%chompybird_progress) {
     case ^chompybird_not_started :
+        if(%gamemode_selected = ^gamemode_pvp){
+            ~chatnpc("<p,angry>GO AWAY!");
+        }
         ~chatnpc("<p,neutral>Hey you creature! Make me some stabbers! I wanna hunt da chompy?");
 
         def_int $op = ~p_choice4("What are 'stabbers'?", 1, "What's a 'chompy'?", 2, "Ok, I'll make you some 'stabbers'.", 3, "Er, make you're own 'stabbers'!", 4);

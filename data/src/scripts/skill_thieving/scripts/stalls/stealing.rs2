@@ -20,6 +20,10 @@
 @attempt_steal_from_stall(loc_type, loc_coord, loc_angle, loc_shape);
 
 [label,attempt_steal_from_stall](loc $loc, coord $loc_coord, int $loc_angle, locshape $loc_shape)
+if (%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 p_arrivedelay;
 
 db_find(stealing:loc, $loc);

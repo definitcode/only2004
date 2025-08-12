@@ -1,4 +1,8 @@
 [opnpc1,brother_omad]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int (%drunkmonk_progress) {
     case ^drunkmonk_not_started : @omad_whats_wrong;
     case ^drunkmonk_spoken_to_omad : @omad_have_blanket;
@@ -10,6 +14,7 @@ switch_int (%drunkmonk_progress) {
 }
 
 [label,omad_whats_wrong]
+
 ~chatplayer("<p,quiz>Hello there, What's wrong?");
 ~chatnpc("<p,sad>*yawn*...oh, hello...*yawn* I'm sorry! I'm just so tired! I haven't slept in a week!");
 switch_int (~p_choice2("Why can't you sleep, what's wrong?", 1, "Sorry! I'm too busy to hear your problems!", 2)) {

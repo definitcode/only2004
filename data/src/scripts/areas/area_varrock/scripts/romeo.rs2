@@ -1,4 +1,8 @@
 [opnpc1,romeo]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int (%romeojuliet_progress) {
     case ^romeojuliet_not_started : @romeojuliet_start;
     case ^romeojuliet_spoken_romeo : ~chatnpc("<p,sad>Please find my Juliet, I am so, so sad.");

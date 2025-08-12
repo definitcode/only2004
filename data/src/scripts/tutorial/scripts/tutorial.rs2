@@ -387,9 +387,11 @@ if_close;
 //    case 2 : %gamemode_selected = ^gamemode_hardcore;
 //    //case 3 : %gamemode_selected = ^gamemode_survival;
 //}
-~gamemode_selection;
 if (%gamemode_selected = ^gamemode_none | %gamemode_selected = ^gamemode_ironman | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hcuim) {
+    ~gamemode_selection;
     p_telejump(0_50_50_22_22);
+    inv_clear(worn);
+    inv_clear(bank);
 }
 //} else if (%gamemode_selected = ^gamemode_hardcore) {
 //    p_telejump(0_50_50_22_22);
@@ -399,8 +401,7 @@ if (%gamemode_selected = ^gamemode_none | %gamemode_selected = ^gamemode_ironman
 //
 //}
 
-inv_clear(worn);
-inv_clear(bank);
+
 
 if (%gamemode_selected = ^gamemode_none) {
     inv_clear(inv);
@@ -434,6 +435,11 @@ if (%gamemode_selected = ^gamemode_none) {
     inv_add(inv, hc_tinderbox, 1);
     inv_add(inv, hc_knife, 1);
     inv_add(inv, player_ledger, 1);
+}
+if (%gamemode_selected = ^gamemode_pvp){
+    inv_add(inv, pk_box, 1);
+    inv_add(inv, player_ledger, 1);
+    inv_add(inv, player_checkbook, 1);
 }
 //} else if (%gamemode_selected = ^gamemode_survival) {
 //    inv_clear(inv);

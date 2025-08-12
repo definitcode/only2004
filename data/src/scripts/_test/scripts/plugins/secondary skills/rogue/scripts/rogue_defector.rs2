@@ -1,5 +1,8 @@
 [opnpc1,rogue_defector]
-
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 ~chatnpc("<p,evillaugh> What can I do for you, shadow?");
 switch_int(~p_choice3_header("Equipment.", 1, "Tasks.", 2, "Rogue Shop.", 3,"What would you like to do?")) {
     case 1 : {

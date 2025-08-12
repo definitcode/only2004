@@ -1,4 +1,8 @@
 [opnpc1,veronica]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 switch_int (%haunted_progress) {
     case ^haunted_not_started : @haunted_start;
     case ^haunted_started, ^haunted_spoken_to_oddenstein : @veronica_sweetheart;

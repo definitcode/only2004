@@ -15,6 +15,10 @@ switch_obj(last_useitem) {
 }
 
 [label,make_bolt_tips](obj $item)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 def_namedobj $chisel = null;
 def_int $exp_mul = 1;
 def_int $prod_mul = 1;
@@ -94,6 +98,10 @@ mes("You use your chisel to fletch small bolt tips.");
 
 
 [label,make_bolts](obj $bolt_tips)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if (map_members = false) {
     mes(^mes_members_fletching); // guess
     return;

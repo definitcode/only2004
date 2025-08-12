@@ -1,5 +1,10 @@
 [opnpc1,kaqemeex]
+
 ~chatplayer("<p,neutral>Hello there.");
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 if(%druid_progress = ^druid_not_started) {
     ~chatnpc("<p,quiz>What brings you to our holy monument?");
     @multi3("Who are you?", kaqemeex_who_are_you, "I'm in search of a quest.", druidic_ritual_start_1, "Did you build this?", kaqemeex_did_you_build);

@@ -1,0 +1,199 @@
+// Bloody coin shop NPC trigger (make sure _shop_keeper_bloody exists)
+[opnpc3,_shop_keeper_bloody] ~openshop_bloody_activenpc;
+
+// Open bloody coin shop from proc
+[proc,openshop_bloody](inv $shop, int $shop_buy, int $shop_sell, int $shop_haggle, string $title)
+%shop = $shop;
+%shop_buy = $shop_buy;
+%shop_sell = $shop_sell;
+%shop_haggle = $shop_haggle;
+if (%gamemode_selected = ^gamemode_ironman | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim | %gamemode_selected = ^gamemode_none){
+    mes("You cannot access bloody coin shops as your gamemode!");
+    return;
+}
+if_settext(shop_template_bloody:com_76, $title);
+inv_transmit(inv, shop_template_bloody_side:inv);
+inv_transmit($shop, shop_template_bloody:inv);
+if_openmain_side(shop_template_bloody, shop_template_bloody_side);
+
+// Open bloody coin shop from active NPC
+[proc,openshop_bloody_activenpc]
+if (%gamemode_selected ! ^gamemode_pvp){
+    mes("You cannot access bloody coin shops as your gamemode!");
+    return;
+}
+%shop = npc_param(owned_shop);
+%shop_buy = npc_param(shop_buy_multiplier);
+%shop_sell = npc_param(shop_sell_multiplier);
+%shop_haggle = npc_param(shop_delta);
+if (%gamemode_selected = ^gamemode_ironman | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim){
+    mes("You cannot access bloody coin shops as your gamemode!");
+    return;
+}
+if_settext(shop_template_bloody:com_76, npc_param(shop_title));
+inv_transmit(inv, shop_template_bloody_side:inv);
+inv_transmit(%shop, shop_template_bloody:inv);
+if_openmain_side(shop_template_bloody, shop_template_bloody_side);
+
+// Close bloody coin shop interface
+[if_close,shop_template_bloody]
+inv_stoptransmit(shop_template_bloody_side:inv);
+inv_stoptransmit(shop_template_bloody:inv);
+
+// Check if item can be sold to bloody coin shop
+[proc,can_sell_obj_bloody](obj $item)(boolean)
+def_boolean $item_is_tradable = oc_tradeable(oc_uncert($item));
+if ($item = bloody_coins) {
+    mes("You can't sell this item to a bloody coin shop.");
+    return (false);
+} else if ($item_is_tradable = false | (map_members = false & oc_members($item) = true)) {
+    mes("You can't sell this item.");
+    return (false);
+} else if ((%shop = generalshop3 & $item = silk) | inv_allstock(%shop) = false & inv_stockbase(%shop, oc_uncert($item)) = -1) {
+    mes("You can't sell this item to this shop.");
+    return (false);
+}
+return (true);
+
+// Show sell item price in Coins(b)
+[inv_button1,shop_template_bloody_side:inv]
+def_obj $item = oc_uncert(inv_getobj(inv, last_slot));
+def_string $item_name = oc_name($item);
+def_int $item_value = ~adjusted_item_cost_selling_bloody($item, inv_total(%shop, $item));
+if(~can_sell_obj_bloody($item) = false) {
+    return;
+}
+mes("<$item_name>: shop will buy for <tostring($item_value)> Coins(b).");
+
+// Show buy item price in Coins(b)
+[inv_button1,shop_template_bloody:inv]
+def_obj $item = inv_getobj(%shop, last_slot);
+def_string $item_name = oc_name($item);
+def_int $item_value = ~adjusted_item_cost_buying_bloody($item, inv_total(%shop, $item));
+mes("<$item_name>: currently costs <tostring($item_value)> Coins(b).");
+
+// Buy an item from bloody coin shop
+[label,buy_item_bloody](obj $obj, int $amount)
+def_int $i = 0;
+def_int $current_bloody_coins = inv_total(inv, bloody_coins);
+def_int $shop_stock = calc(inv_total(%shop, $obj));
+def_int $space_overflow = inv_itemspace2(inv, $obj, $amount, inv_size(inv));
+def_int $total_cost = 0;
+while($i < $amount) {
+    def_int $added_amt = ~adjusted_item_cost_buying_bloody($obj, calc($shop_stock - $i));
+    def_int $current_stock = calc($shop_stock - $i);
+    if(calc($total_cost + $added_amt) > $current_bloody_coins) {
+        if ($i > 0) {
+            wealth_log(^wealth_lost, $total_cost, "Bought <oc_debugname($obj)> x<tostring($i)> from <inv_debugname(%shop)> for <tostring($total_cost)> Coins(b)");
+            wealth_event(^wealth_shop_buy, oc_debugname($obj), $i, $total_cost);
+        }
+        mes("You don't have enough Coins(b).");
+        return;
+    }
+    if($current_stock <= 0) {
+        if ($i > 0) {
+            wealth_log(^wealth_lost, $total_cost, "Bought <oc_debugname($obj)> x<tostring($i)> from <inv_debugname(%shop)> for <tostring($total_cost)> Coins(b)");
+            wealth_event(^wealth_shop_buy, oc_debugname($obj), $i, $total_cost);
+        }
+        mes("The shop has run out of stock.");
+        return;
+    }
+    if($space_overflow >= calc($amount - $i) & calc($total_cost + $added_amt) ! $current_bloody_coins) {
+        if ($i > 0) {
+            wealth_log(^wealth_lost, $total_cost, "Bought <oc_debugname($obj)> x<tostring($i)> from <inv_debugname(%shop)> for <tostring($total_cost)> Coins(b)");
+            wealth_event(^wealth_shop_buy, oc_debugname($obj), $i, $total_cost);
+        }
+        mes("You don't have enough inventory space.");
+        return;
+    }
+    $total_cost = calc($total_cost + $added_amt);
+    inv_del(inv, bloody_coins, $added_amt);
+    inv_moveitem_uncert(%shop, inv, $obj, 1);
+    $i = calc($i + 1);
+}
+wealth_log(^wealth_lost, $total_cost, "Bought <oc_debugname($obj)> x<tostring($i)> from <inv_debugname(%shop)> for <tostring($total_cost)> Coins(b)");
+wealth_event(^wealth_shop_buy, oc_debugname($obj), $i, $total_cost);
+
+// Sell an item to bloody coin shop
+[label,sell_item_bloody](obj $obj, int $amount)
+def_int $shop_total = inv_total(%shop, oc_uncert($obj));
+def_int $total_value = 0;
+def_int $sell_amount = ~calculate_items_amount_sold_bloody($obj, $amount);
+if(~can_sell_obj_bloody($obj) = false) {
+    return;
+}
+if(inv_itemspace(inv, bloody_coins, $sell_amount, inv_size(inv)) = false & oc_stackable($obj) = true & inv_total(inv, $obj) > $sell_amount) {
+    mes("You don't have enough inventory space.");
+    return;
+}
+if(inv_itemspace(%shop, oc_uncert($obj), $sell_amount, inv_size(%shop)) = false) {
+    mes("The shop has run out of space.");
+    return;
+}
+def_int $i = 0;
+while($i < $sell_amount) {
+    def_int $added_amt = ~adjusted_item_cost_selling_bloody(oc_uncert($obj), calc($shop_total + $i));
+    $total_value = calc($total_value + $added_amt);
+    $i = calc($i + 1);
+}
+inv_moveitem_uncert(inv, %shop, $obj, $sell_amount);
+wealth_log(^wealth_gained, $total_value, "Sold <oc_debugname($obj)> x<tostring($sell_amount)> to <inv_debugname(%shop)> for <tostring($total_value)> Coins(b)");
+wealth_event(^wealth_shop_sell, oc_debugname($obj), $sell_amount, $total_value);
+if($total_value > 0) {
+    inv_add(inv, bloody_coins, $total_value);
+}
+
+[proc,price_mod_bloody](inv $inv, int $diff, obj $obj)(int)
+def_int $base = inv_stockbase($inv, $obj);
+if($base = -1) {
+    return ($diff);
+}
+return (calc($diff - $base));
+
+[proc,adjusted_item_cost_buying_bloody](obj $obj, int $diff)(int)
+def_int $cost = oc_cost($obj);
+def_int $value = ~calc_shop_value_bloody($cost, %shop_haggle, %shop_sell, ~price_mod_bloody(%shop, $diff, $obj));
+if($value < 1) { 
+    $value = 1;
+}
+return ($value);
+
+[proc,adjusted_item_cost_selling_bloody](obj $obj, int $diff)(int)
+def_int $cost = oc_cost($obj);
+return (~calc_shop_value_bloody($cost, %shop_haggle, %shop_buy, ~price_mod_bloody(%shop, $diff, $obj)));
+
+[proc,calculate_items_amount_sold_bloody](obj $item, int $sell_amount)(int)
+def_int $player_amount = inv_total(inv, $item);
+if ($sell_amount > $player_amount) {
+    return ($player_amount);
+}
+return ($sell_amount);
+
+// Sell buttons for bloody coin shop
+[inv_button2,shop_template_bloody_side:inv] @shop_request_bloody(inv, last_slot, 1);
+[inv_button3,shop_template_bloody_side:inv] @shop_request_bloody(inv, last_slot, 5);
+[inv_button4,shop_template_bloody_side:inv] @shop_request_bloody(inv, last_slot, 10);
+
+// Buy buttons for bloody coin shop
+[inv_button2,shop_template_bloody:inv] @shop_request_bloody(%shop, last_slot, 1);
+[inv_button3,shop_template_bloody:inv] @shop_request_bloody(%shop, last_slot, 5);
+[inv_button4,shop_template_bloody:inv] @shop_request_bloody(%shop, last_slot, 10);
+
+[label,shop_request_bloody](inv $shop_inv, int $slot, int $amount)
+def_obj $item = inv_getobj($shop_inv, $slot);
+if($shop_inv = %shop) {
+    @buy_item_bloody($item, $amount);
+} else {
+    @sell_item_bloody($item, $amount);
+}
+
+[proc,calc_shop_value_bloody](int $base_cost, int $shophaggle, int $shopbuy, int $int3)(int)
+def_int $int4 = 0;
+def_int $int5 = min(1000, max(-5000, calc($int3 * $shophaggle)));
+$int5 = max(100, calc($shopbuy - $int5));
+$int4 = scale($int5, 1000, $base_cost);
+if ($int4 < 0) {
+    $int4 = 2000000000;
+    error("Cost overflowed with base_cost=<tostring($base_cost)>, for %shopbuy=<tostring($shopbuy)> and %shophaggle=<tostring($shophaggle)>. Corrected to 2 billion.");
+}
+return($int4);

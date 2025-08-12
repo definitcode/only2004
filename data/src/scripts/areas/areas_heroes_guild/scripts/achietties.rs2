@@ -2,7 +2,10 @@
 
 [label,speak_achietties]
 // dialogue mostly based on this - https://www.youtube.com/watch?v=1MzVD-ZHMiY&t=60s
-
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 if (%hero_solo_progress >= ^hero_solo_started & %hero_solo_progress < ^hero_complete) {
   @solo_heroes_quest;
 }

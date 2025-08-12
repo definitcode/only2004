@@ -1,4 +1,8 @@
 [opnpc1,crest_dimintheis]
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 if(map_members = false) {
     if(%crest_progress = ^crest_not_started) {
         ~chatnpc("<p,neutral>Hello. My name is Dimintheis, of the noble family Fitzharmon.");

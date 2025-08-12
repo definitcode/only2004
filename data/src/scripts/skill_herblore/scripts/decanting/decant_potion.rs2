@@ -5,6 +5,10 @@ if(oc_category(last_useitem) = category_69) {
 ~displaymessage(^dm_default);
 
 [label,decant_potion](obj $potion, obj $used_potion)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 def_enum $potion_enum = ~get_potion_type($potion, $used_potion);
 if ($potion_enum = null) {
     ~displaymessage(^dm_default);

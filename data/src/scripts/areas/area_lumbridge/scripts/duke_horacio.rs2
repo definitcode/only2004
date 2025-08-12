@@ -1,4 +1,8 @@
 [opnpc1,duke_horacio]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,neutral>Greetings. Welcome to my castle.");
 
 if ((%dragon_shield = ^quest_dragon_knows_about_shield | %dragon_progress >= ^dragon_complete) & inv_total(inv, antidragonbreathshield) < 1 & inv_total(worn, antidragonbreathshield) < 1) {

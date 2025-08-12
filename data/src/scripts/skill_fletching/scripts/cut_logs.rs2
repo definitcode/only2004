@@ -52,6 +52,10 @@ if (last_useitem = e_dragon_knife) {
 }
 // Unified logic for all knives
 [label,knife_item_use]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 switch_obj(last_useitem) {
     case lemon, orange, lime, pineapple, tentipineapple : @slice_or_dice_interface(last_useitem);
     case achey_tree_logs : @make_ogre_shafts;
@@ -66,6 +70,10 @@ switch_obj(last_useitem) {
 }
 
 [label,fletch_log](obj $log)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 def_int $xp_mult = 1;
 def_int $shaft_mult = 1;
 def_obj $knife = ~fletching_checker;

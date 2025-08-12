@@ -6,3 +6,8 @@ data=coord_pair,0_46_55_0_0,3_52_99_63_63
 data=coord_pair,0_46_155_0_0,0_52_199_63_63
 // KBD Lair
 data=coord_pair,0_42_153_13_5,0_42_153_47_41
+
+// Taverly Dungeon
+//data=coord_pair,0_45_151_6_52,0_45_151_57_5
+//data=coord_pair,0_44_153_0_63,0_45_153_0_0
+//data=coord_pair,0_45_153_0_17,0_45_153_2_9

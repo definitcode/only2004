@@ -23,6 +23,10 @@ switch_obj(last_useitem) {
 }
 
 [label,make_headless_arrows]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if (map_members = false) {
     mes(^mes_members_fletching); // guess
     return;
@@ -48,6 +52,10 @@ inv_add(inv, headless_arrow, $arrow_count);
 
 
 [label,make_arrows](obj $arrow_tips)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
 if (map_members = false) {
     mes(^mes_members_fletching); // guess
     return;
@@ -82,6 +90,7 @@ if ($arrows_count > 1) {
 } else {
     mes("You attach <~add_article($metal)> head to your arrow."); // guess
 }
+
 stat_advance(fletching, multiply($arrows_count, db_getfield($data, fletching_table:experience, 0)));
 if (inv_total(worn, headband_red) > 0) {
             stat_advance(fletching, multiply($arrows_count, db_getfield($data, fletching_table:experience, 0)));

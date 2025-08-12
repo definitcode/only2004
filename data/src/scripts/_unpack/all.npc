@@ -2419,7 +2419,7 @@ param=death_sound,skeleton_death
 param=undead,^true
 param=demonbane_vulnerable,true
 param=death_drop,bones
-huntmode=cowardly
+huntmode=aggressive_melee
 huntrange=1
 // Todo: proof old wander/maxranges early 2004 / rsc wander 8 / osrs wander 3 max 5
 // Stats match osrs version but our version Vislvl is different.
@@ -2455,7 +2455,7 @@ param=death_sound,skeleton_death
 param=undead,^true
 param=demonbane_vulnerable,true
 param=death_drop,bones
-huntmode=cowardly
+huntmode=aggressive_melee
 huntrange=1
 // Stats match osrs version but our version Vislvl is different.
 // https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_70
@@ -2466,20 +2466,20 @@ desc=Could do with gaining a few pounds.
 walkanim=skeleton_walk
 readyanim=skeleton_ready
 op2=Attack
-vislevel=22
+vislevel=35
 model1=model_2944_npc
 model2=model_2946_npc
 wanderrange=9
 maxrange=11
 respawnrate=140
-hitpoints=17
+hitpoints=35
 attack=24
 strength=24
 defence=24
-param=attackbonus,15
-param=strengthbonus,14
-param=stabdefence,9
-param=slashdefence,11
+param=attackbonus,27
+param=strengthbonus,22
+param=stabdefence,12
+param=slashdefence,14
 param=crushdefence,-2
 param=magicdefence,1
 param=rangedefence,4
@@ -2493,7 +2493,7 @@ param=death_sound,skeleton_death
 param=undead,^true
 param=demonbane_vulnerable,true
 param=death_drop,bones
-huntmode=cowardly
+huntmode=aggressive_melee
 // huntrange: https://youtu.be/bU8sQbojKH4?list=PLn23LiLYLb1aqrojPTi1_Np81LJku2Nd0&t=127
 huntrange=1
 // Stats match osrs version but our version Vislvl is different.
@@ -2534,7 +2534,48 @@ param=death_sound,skeleton_death
 param=undead,^true
 param=demonbane_vulnerable,true
 param=death_drop,bones
-huntmode=cowardly
+huntmode=aggressive_melee
+// huntrange: https://youtu.be/bU8sQbojKH4?list=PLn23LiLYLb1aqrojPTi1_Np81LJku2Nd0&t=127
+huntrange=1
+// osrs stats and Vislvl match 1:1
+// https://raw.githubusercontent.com/Joshua-F/osrs-dumps/refs/heads/master/config/dump.npc npc_82
+
+[skeleton5]
+name=Skeleton Boss
+desc=Could do with gaining a few pounds.
+walkanim=skeleton_walk
+readyanim=skeleton_ready
+op2=Attack
+resizeh=240
+resizev=240
+vislevel=97
+model1=model_2944_npc
+model2=model_2946_npc
+wanderrange=9
+maxrange=11
+respawnrate=120
+hitpoints=59
+attack=32
+strength=35
+defence=36
+param=attackbonus,35
+param=strengthbonus,30
+param=stabdefence,46
+param=slashdefence,40
+param=crushdefence,-12
+param=magicdefence,5
+param=rangedefence,6
+param=damagetype,^slash_style
+param=attack_anim,skeleton_attack
+param=defend_anim,skeleton_block
+param=death_anim,skeleton_death
+param=attack_sound,skeleton_attack
+param=defend_sound,skelly_hit
+param=death_sound,skeleton_death
+param=undead,^true
+param=demonbane_vulnerable,true
+param=death_drop,bones
+huntmode=aggressive_melee
 // huntrange: https://youtu.be/bU8sQbojKH4?list=PLn23LiLYLb1aqrojPTi1_Np81LJku2Nd0&t=127
 huntrange=1
 // osrs stats and Vislvl match 1:1

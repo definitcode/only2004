@@ -1,4 +1,8 @@
 [opnpc1,sir_bedivere]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,happy>May I help you?");
 if(%grail_progress > ^grail_not_started & %grail_progress < ^grail_complete) {
     ~chatnpc("<p,happy>You are looking for the Grail now adventurer?");

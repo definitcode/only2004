@@ -1,4 +1,8 @@
 [opnpc1,fred_the_farmer]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 if(%sheep_progress = ^sheep_not_started) { 
     @fred_start;
 } else if(%sheep_progress >= ^sheep_started & %sheep_progress <= ^sheep_last_wool) {

@@ -1,4 +1,8 @@
 [opnpc1,sanfew]
+if(%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>GO AWAY!");
+    return;
+}
 ~chatnpc("<p,quiz>What can I do for you young 'un?");
 if(%druid_progress = ^druid_started) {
     @multi2("I've been sent to help purify the Varrock stone circle.", druid_sanfew_information, "Actually I don't need to speak to you.", sanfew_dont_need);
