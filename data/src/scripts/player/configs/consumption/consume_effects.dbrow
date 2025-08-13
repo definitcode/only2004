@@ -68,13 +68,13 @@ data=stat_change,ranged,4,10
 table=consume_table
 data=consumable,asgarnian_ale
 data=stat_change,attack,-2,-5
-data=stat_change,strength,2,0
+data=stat_change,strength,5,0
 data=stat_heal,hitpoints,2,0
 
 [wizards_mind_bomb_effect]
 table=consume_table
 data=consumable,wizards_mind_bomb
-data=stat_change,magic,2,2
+data=stat_change,magic,5,2
 data=stat_change,attack,-1,-5
 data=stat_change,strength,-1,-5
 data=stat_change,defence,-1,-5
@@ -92,8 +92,9 @@ data=stat_heal,hitpoints,1,0
 [dragon_bitter_effect]
 table=consume_table
 data=consumable,dragon_bitter
-data=stat_change,strength,2,0
-data=stat_change,attack,-2,-5
+data=stat_change,strength,-2,0
+data=stat_change,attack,5,0
+data=stat_change,hitpoints,5,0
 data=stat_heal,hitpoints,1,0
 
 [dwarven_stout_effect]
@@ -101,16 +102,17 @@ table=consume_table
 data=consumable,dwarven_stout
 data=stat_change,mining,1,0
 data=stat_change,smithing,1,0
-data=stat_change,attack,-2,4
-data=stat_change,strength,-2,4
-data=stat_change,defence,-2,4
+data=stat_change,attack,2,0
+data=stat_change,strength,2,0
+data=stat_change,defence,5,0
 data=stat_heal,hitpoints,1,0
 
 [grog_effect]
 table=consume_table
 data=consumable,grog
-data=stat_change,strength,1,4
-data=stat_change,attack,-5,-3
+data=stat_change,ranged,5,4
+data=stat_change,defence,-5,4
+data=stat_change,hitpoints,5,0
 data=stat_heal,hitpoints,3,0
 
 [beer_effect]
@@ -188,10 +190,12 @@ data=consumable,1dosepotionofzamorak
 data=consumable,2dosepotionofzamorak
 data=consumable,3dosepotionofzamorak
 data=consumable,4dosepotionofzamorak
-data=stat_change,attack,2,20
-data=stat_change,strength,2,12
-data=stat_change,defence,-2,-10
+data=stat_change,attack,10,20
+data=stat_change,ranged,-10,12
+data=stat_change,strength,-10,12
+data=stat_change,defence,2,-10
 data=stat_change,hitpoints,0,-12
+data=stat_change,magic,10,10
 data=stat_heal,prayer,0,10
 
 [bottle_alcohol_effect]

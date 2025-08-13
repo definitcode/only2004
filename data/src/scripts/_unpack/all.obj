@@ -337,6 +337,7 @@ stackable=yes
 2dyan=2012
 2dxan=184
 weight=2g
+cost=100
 count1=coins_2,2
 count2=coins_3,3
 count3=coins_4,4

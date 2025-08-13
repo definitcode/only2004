@@ -2,7 +2,11 @@
 
 [label,pk_box]
 %pk_class = ^no_class;
-if (inv_freespace(inv) < 1){
+if (%gamemode_selected ! ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
+if (inv_freespace(inv) < 1) {
     mes("You must only have the PK Box in your inventory!");
     return;
 }
@@ -13,7 +17,6 @@ if (inv_freespace(worn) ! 14){
 if (%total_level > 27){
     ~pk_reset;
 }
-%gamemode_selected = ^gamemode_pvp;
 def_int $ch = ~p_choice5_header("Tank.", 1, "Rogue.", 2, "Ranger.", 3, "Mage.", 4, "Tri-Pure.", 5, "~Class Picker~");
 switch_int($ch){
     case 1 : 
@@ -117,7 +120,7 @@ if (inv_freespace(inv) > 14) {
     inv_add(inv, bear_cape, 1);
     inv_add(inv, bear_chaps_b, 1);  // Studded chaps black (req 40 ranged)
     inv_add(inv, pvp_badge, 1);
-    inv_add(inv, barbed_bolt, 50);
+    inv_add(inv, barbed_bolt, 25);
     inv_add(inv, iron_crossbow, 1);
     inv_add(inv, iron_dagger, 1);     // Black dagger (req 35 attack)
     inv_add(inv, wooden_shield, 1);
@@ -216,3 +219,9 @@ if (stat_base(hitpoints) > 50){
     return;
 }
 ~equip($slot);
+
+
+[proc,resurrection_gear]
+inv_add(worn, priest_gown, 1);
+inv_add(worn, priest_robe, 1);
+inv_add(inv, herring, 5);

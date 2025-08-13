@@ -50,6 +50,7 @@ if (%tutorial_progress = ^runescape_guide_start) {
     if_openmain(player_kit);
     allowdesign(true);
 }
+%gamemode_selected = ^gamemode_none;
 ~set_tutorial_progress;
 @music_playbyregion(coord);
 
@@ -435,11 +436,6 @@ if (%gamemode_selected = ^gamemode_none) {
     inv_add(inv, hc_tinderbox, 1);
     inv_add(inv, hc_knife, 1);
     inv_add(inv, player_ledger, 1);
-}
-if (%gamemode_selected = ^gamemode_pvp){
-    inv_add(inv, pk_box, 1);
-    inv_add(inv, player_ledger, 1);
-    inv_add(inv, player_checkbook, 1);
 }
 //} else if (%gamemode_selected = ^gamemode_survival) {
 //    inv_clear(inv);

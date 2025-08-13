@@ -186,7 +186,7 @@ param=poison_severity,20
 
 [opal_bolt]
 stackable=yes
-cost=60
+cost=0
 members=yes
 name=Opal bolt
 desc=Great if you have a crossbow!
@@ -211,7 +211,7 @@ param=proj_travel,crossbowbolt_travel
 
 [pearl_bolt]
 stackable=yes
-cost=110
+cost=11
 members=yes
 name=Pearl bolt
 desc=Great if you have a crossbow!
@@ -236,7 +236,7 @@ param=proj_travel,crossbowbolt_travel
 
 [barbed_bolt]
 stackable=yes
-cost=200
+cost=8
 members=yes
 name=Barbed bolt
 desc=Great if you have a crossbow!
@@ -257,7 +257,7 @@ param=proj_travel,crossbowbolt_travel
 
 [dragonstone_bolt]
 stackable=yes
-cost=200
+cost=75
 members=yes
 name=Dragonstone bolt
 desc=Great if you have a crossbow!
@@ -284,7 +284,7 @@ param=weapon_poisoned_message,You poison some bolts.
 
 [diamond_bolt]
 stackable=yes
-cost=200
+cost=65
 members=yes
 name=Diamond bolt
 desc=Great if you have a crossbow!
@@ -311,7 +311,7 @@ param=weapon_poisoned_message,You poison some bolts.
 
 [sapphire_bolt]
 stackable=yes
-cost=200
+cost=55
 members=yes
 name=Sapphire bolt
 desc=Great if you have a crossbow!
@@ -338,7 +338,7 @@ param=weapon_poisoned_message,You poison some bolts.
 
 [ruby_bolt]
 stackable=yes
-cost=200
+cost=45
 members=yes
 name=Ruby bolt
 desc=Great if you have a crossbow!
@@ -365,7 +365,7 @@ param=weapon_poisoned_message,You poison some bolts.
 
 [emerald_bolt]
 stackable=yes
-cost=200
+cost=40
 members=yes
 name=Emerald bolt
 desc=Great if you have a crossbow!

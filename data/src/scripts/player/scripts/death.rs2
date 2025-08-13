@@ -78,7 +78,8 @@ if (%gamemode_selected = ^gamemode_pvp){
             ~clear_poison;
             ~update_all($prev_wep);
             ~initalltabs;
-            @start_tutorial;    
+            ~stat_push;
+            ~resurrection_gear;    
 }
 //} else if (%gamemode_selected = ^gamemode_survival) {
 //    inv_clear(bank);
@@ -213,7 +214,7 @@ while ($i < $size) {
 }
 
 .obj_add(coord, bones, 1, 200);
-if (~wilderness_level(coord) > 0 & ~player_combat_level > 30 & ~.player_combat_level > 30 ) {
+if (~wilderness_level(coord) > 0 & ~player_combat_level > 10 & ~.player_combat_level > 10 ) {
     if (.inv_total(worn, pvp_badge) > 0) {
         .obj_add(coord, player_skull, 1, 200);
     }

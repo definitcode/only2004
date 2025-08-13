@@ -43,7 +43,7 @@ recol4s=17832
 recol4d=1356
 iop1=Learn
 weight=18oz
-cost=1
+cost=750
 param=no_alchemy,^true
 stackable=yes
 
@@ -66,7 +66,7 @@ recol4s=17832
 recol4d=7281
 iop1=Teleport
 weight=18oz
-cost=1
+cost=750
 param=no_alchemy,^true
 stackable=yes
 
@@ -89,7 +89,7 @@ recol4s=17832
 recol4d=3377
 iop1=Teleport
 weight=18oz
-cost=1
+cost=750
 param=no_alchemy,^true
 stackable=yes
 
@@ -112,7 +112,7 @@ recol4s=17832
 recol4d=4526
 iop1=Teleport
 weight=18oz
-cost=1
+cost=750
 param=no_alchemy,^true
 stackable=yes
 
@@ -135,7 +135,7 @@ recol4s=17832
 recol4d=21921
 iop1=Teleport
 weight=18oz
-cost=1
+cost=750
 param=no_alchemy,^true
 stackable=yes
 
@@ -158,6 +158,6 @@ recol4s=17832
 recol4d=12288
 iop1=Teleport
 weight=18oz
-cost=1
+cost=750
 param=no_alchemy,^true
 stackable=yes

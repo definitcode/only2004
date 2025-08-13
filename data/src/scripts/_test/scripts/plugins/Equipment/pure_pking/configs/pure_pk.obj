@@ -1,5 +1,4 @@
 // Magic Requirements
-
 [imbued_silk]
 name=Silk(i)
 desc=It's a sheet of silk.
@@ -12,9 +11,7 @@ weight=1kg
 recol1s=27412
 recol1d=1451
 
-
 // Gear 
-
 [silk_robe]
 cost=35
 name=Imbued Robe
@@ -190,6 +187,7 @@ param=crushdefence,5
 param=magicdefence,-1
 param=rangedefence,-10
 param=prayerbonus,5
+
 [paladin_platebody]
 name=Paladin Platebody
 desc=Provides excellent protection.
@@ -227,6 +225,7 @@ param=crushdefence,7
 param=magicdefence,-6
 param=rangedefence,-10
 param=prayerbonus,5
+
 [paladin_shield]
 name=Paladin Shield
 desc=A shield of the Holy Order.
@@ -359,7 +358,6 @@ param=crushdefence,15
 param=magicdefence,-4
 param=rangedefence,16
 
-
 [tank_chainbody]
 name=Steel chainbody(T)
 desc=A series of connected metal rings.
@@ -406,7 +404,6 @@ param=strengthbonus,19
 param=crushattack_anim,human_blunt_pound
 param=defend_anim,human_blunt_block
 param=crush_sound,baxe_crush
-
 
 // Rogue
 [rogue_dagger]
@@ -487,22 +484,11 @@ param=slash_sound,stabsword_slash
 // osrs defend anim seq_378
 param=poison_severity,20
 
-
-
-
-
-
-
-
-
-
-
-
 // Box
 [pk_box]
 name=PK Box(t1)
 desc=This contains gifts.
-cost=20000
+cost=1125
 model=model_2426_obj
 recol1s=26817
 recol1d=21570

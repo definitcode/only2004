@@ -17423,7 +17423,7 @@ class Client extends GameShell {
         return;
       }
       if (reply === 9) {
-        this.loginMessage0 = "Verify Your Account On Discord.";
+        this.loginMessage0 = "Register Your Account.";
         this.loginMessage1 = "Type /setname <username> into the bot.";
         return;
       }

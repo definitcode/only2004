@@ -2,7 +2,38 @@
 [opnpc4,starved_ragger] @pvp_bank;
 
 [label,pvp_shop]
-if (%gamemode_selected ! ^gamemode_pvp){
+if (%gamemode_selected = ^gamemode_none){
+    if (%pvp_quest = ^pvp_quest_completed) {
+        %gamemode_selected = ^gamemode_pvp;
+    }
+    if (%gamemode_selected ! ^gamemode_pvp){
+        if (%pvp_quest = ^pvp_quest_not_started){
+            ~chatnpc("<p,angry>You need to need to prove yourself to me before I can sponsor you to fetch me items.");
+            ~chatnpc("<p,happy>Take this necklace into battle and obtain a persons skull in battle!");
+            inv_add(inv, pvp_badge, 1);
+            ~chatnpc("<p,happy>Now, go and get me that skull!");
+            %pvp_quest = ^pvp_quest_started;
+            mes("You have now started [Ragger's Quest].");
+            return;
+        } else if (%pvp_quest = ^pvp_quest_started) {
+            if (inv_total(inv, player_skull) > 0){
+                ~chatnpc("<p,happy>Well done, you have obtained a skull!");
+                inv_del(inv, player_skull, 1);
+                %pvp_quest = ^pvp_quest_completed;
+                %gamemode_selected = ^gamemode_pvp;
+                inv_add(inv, pk_box, 1);
+                midi_jingle(^advance_hitpoints_2_jingle, ^advance_hitpoints_2_millis);
+                spotanim_pl(levelup_anim, 120, 0);
+                mes("You have now completed [Ragger's Quest].");
+                return;
+            } else {
+                ~chatnpc("<p,angry>Where is the skull you were supposed to get me?");
+                return;
+            }
+        }
+    }
+} else {
+    mes("You cannot do this.");
     return;
 }
 def_namedobj $choice;

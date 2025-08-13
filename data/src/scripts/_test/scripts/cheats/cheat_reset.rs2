@@ -333,6 +333,7 @@ if (p_finduid(uid) = true) {
     %bunny_ears_unlocked = 0;
     %scythe_unlocked = 0;
     stat_reset2();
+    %gamemode_selected = ^gamemode_pvp;
     ~pk_skull(^max_32bit_int);
     //p_delay(10);
     //p_logout;

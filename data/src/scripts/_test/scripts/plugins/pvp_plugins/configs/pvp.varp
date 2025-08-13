@@ -12,3 +12,7 @@ scope=perm
 
 [pvp_last_attacker]
 scope=temp
+
+
+[pvp_quest]
+scope=perm

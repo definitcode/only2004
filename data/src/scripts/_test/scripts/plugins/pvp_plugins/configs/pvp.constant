@@ -1,0 +1,3 @@
+^pvp_quest_not_started = 0
+^pvp_quest_started = 1
+^pvp_quest_completed = 3

@@ -33,7 +33,7 @@ wanderrange=5
 param=owned_shop,pvp_shop
 param=shop_title,Starved Ragger's Shop
 param=shop_buy_multiplier,220
-param=shop_sell_multiplier,8000
+param=shop_sell_multiplier,5500
 param=shop_delta,10
 
 

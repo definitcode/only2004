@@ -70,6 +70,7 @@ param=proj_launch,piss_bottle_launch
 param=proj_travel,piss_bottle_travel
 param=rangeattack_sound,thrown
 tradeable=no
+cost=735
 
 [stake_dagger]
 model=model_2680_obj
@@ -339,12 +340,13 @@ tradeable=no
 name=Shield of Arrav
 //model=model_2339_obj
 model=model_arravshield_obj
-2dxof=18
+2dxof=0
 2dyof=-29
-2dzoom=1070
+2dzoom=1650
 2dyan=172
 2dxan=220
 iop2=Wield
+cost=8590
 wearpos=lefthand
 //manwear=model_486_obj_wear,0
 //womanwear=model_486_obj_wear,6
