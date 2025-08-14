@@ -91,3 +91,4 @@
 [opheld2,hc_iron_full_helm] @hardcore_items(last_slot);
 [opheld2,hc_iron_platebody] @hardcore_items(last_slot);
 [opheld2,hc_iron_platelegs] @hardcore_items(last_slot);
+[opheld2,hc_iron_kiteshield] @hardcore_items(last_slot);

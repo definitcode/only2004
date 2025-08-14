@@ -26,12 +26,15 @@ if ($rand = 0) {
         sound_synth(dice_roll, 1, 0);
         if (inv_freespace(inv) > 0) {
             inv_add(inv, cert_rune_fragment,15);
+            anim(human_pickuptable, 0);
         } else if (inv_freespace(inv) < 0) {
             ~mesbox("You can't fit it in your inventory.");
-        } 
+        }
+        ~easy_bookcase;
     } else if (%intelligence > 74){
         if (inv_total(inv, unfinished_book_of_chaos) < 1 & inv_total(bank, unfinished_book_of_chaos) < 1){
             mes("You find a dusty old book!");
+            anim(human_pickuptable, 0);
             if (inv_freespace(inv) > 0){
                 inv_add(inv, unfinished_book_of_chaos, 1);
             } else {
@@ -39,59 +42,200 @@ if ($rand = 0) {
                 return;
             }
         }
-        switch_int(random(128)) {
-            case 5 : {
-                mes("You find a mysterious page.");
-                inv_add(inv, enscribed_page1, 1);
-                return;
-            }
-            case 17 : {
-                mes("You find a mysterious page.");
-                inv_add(inv, enscribed_page2, 1);
-                return;
-            }
-            case 29 : {
-                mes("You find a mysterious page.");
-                inv_add(inv, enscribed_page3, 1);
-                return;
-            }
-            case 41 : {
-                mes("You find a mysterious page.");
-                inv_add(inv, enscribed_page4, 1);
-                return;
-            }
-            case 53 : {
-                mes("You find a mysterious page.");
-                inv_add(inv, enscribed_page5, 1);
-                return;
-            }
-            case 65 : {
-                mes("You find a mysterious page.");
-                inv_add(inv, enscribed_page6, 1);
-                return;
-            }
-            case 77 : {
-                mes("You find a mysterious page.");
-                inv_add(inv, enscribed_page7, 1);
-                return;
-            }
-            case 89 : {
-                mes("You find a mysterious page.");
-                inv_add(inv, enscribed_page8, 1);
-                return;
-            }
-            case 101 : {
-                mes("You find a mysterious page.");
-                inv_add(inv, enscribed_page9, 1);
-                return;
-            }
-            case 113 : {
-                mes("You find a mysterious page.");
-                inv_add(inv, enscribed_page10, 1);
-                return;
-            }
-        }
-
+        ~medium_bookcase;
     }
+    ~hard_bookcase;
 
+}
+
+
+[proc,hard_bookcase]
+switch_int(randominc(225)) {
+    case 5 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page1, 1);
+        return;
+    }
+    case 17 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page2, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 29 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page3, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 41 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page4, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 53 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page5, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 65 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page6, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 77 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page7, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 89 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page8, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 101 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page9, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 113 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page10, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+}
+
+[proc,medium_bookcase]
+switch_int(randominc(80)) {
+    case 5 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page1, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 17 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page2, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 29 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page3, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 41 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page4, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 53 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page5, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 65 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page6, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 77 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page7, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 78 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page8, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 79 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page9, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 80 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page10, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+}
+
+[proc,easy_bookcase]
+switch_int(randominc(25)) {
+    case 1 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page1, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 2 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page2, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 3 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page3, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 4 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page4, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 5 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page5, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 6 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page6, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 7 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page7, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 8 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page8, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 10 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page9, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
+    case 24 : {
+        mes("You find a mysterious page.");
+        inv_add(inv, enscribed_page10, 1);
+        anim(human_pickuptable, 0);
+        return;
+    }
 }

@@ -17,7 +17,7 @@ if (inv_freespace(worn) ! 14){
 if (%total_level > 27){
     ~pk_reset;
 }
-def_int $ch = ~p_choice5_header("Tank.", 1, "Rogue.", 2, "Ranger.", 3, "Mage.", 4, "Tri-Pure.", 5, "~Class Picker~");
+def_int $ch = ~p_choice5_header("Tank.", 1, "Rogue.", 2, "Ranger.", 3, "Mage.", 4, "Next.", 5, "~Class Picker~");
 switch_int($ch){
     case 1 : 
         %pk_class = ^tank;
@@ -36,8 +36,28 @@ switch_int($ch){
         ~mage_pure;
     
     case 5 : 
-        %pk_class = ^trispec;
-        ~tri_pure;
+        def_int $ch2 = ~p_choice5_header("Tri-Pure.", 1, "Berserker.", 2, "Drunken Monk.", 3, "N/A.", 4, "N/A.", 5, "~Class Picker~");
+        switch_int($ch2){
+            case 1 : 
+                %pk_class = ^trispec;
+                ~tri_pure;
+
+            case 2 : 
+                %pk_class = ^berserker;
+                ~berserker_pure;
+
+            case 3 : 
+                %pk_class = ^drunkenmonk;
+                ~drunkmonk_pure;
+
+            case 4 : 
+                mes("You cannot do this.");
+                return;
+
+            case 5 : 
+                mes("You cannot do this.");
+                return;
+        }
 }
 
 [proc,stat_push]
@@ -79,6 +99,17 @@ switch_int(%pk_class){
         stat_advance(prayer, 7842);     // lvl 25 Prayer XP
         stat_advance(ranged, 7842);     // lvl 25 Ranged XP
         stat_advance(magic, 7842);      // lvl 25 Magic XP
+    }
+    case ^berserker : {
+        stat_advance(attack, 22406);    // lvl ~28 Attack XP (signature skill)
+        stat_advance(strength, 37224);   // lvl 25 Strength XP
+        stat_advance(hitpoints, 5624);  // lvl 25 Hitpoints XP
+        stat_advance(prayer, 650);     // lvl ~24 Prayer XP       
+    }
+    case ^drunkenmonk : {
+        stat_advance(strength, 101333);
+        stat_advance(hitpoints, 22406);
+        stat_advance(prayer, 24815);
     }
 }
 
@@ -194,6 +225,43 @@ if (inv_freespace(inv) > 13) {
     mes("You need at least 14 inventory slots free.");
 }
 
+[proc,berserker_pure]
+if (inv_freespace(inv) > 13) {
+    // Bear gear for rogue (req 30 str/ranged)
+    inv_add(inv, bronze_med_helm, 1);
+    inv_add(inv, bronze_chainbody, 1);
+    inv_add(inv, leather_boots, 1);
+    inv_add(inv, leather_gloves, 1);
+    inv_add(inv, black_cape, 1);
+    inv_add(inv, leather_chaps, 1);
+    inv_add(inv, black_2h_sword, 1); // Black dagger (req 35 attack)
+    inv_add(inv, black_battleaxe, 1);
+    inv_add(inv, wooden_shield, 1);
+    inv_add(inv, 3dose1attack, 1);
+    inv_add(inv, cert_trout, 10);
+    inv_add(inv, pvp_badge, 1);
+    inv_del(inv, pk_box, 1);
+    ~stat_push;
+} else {
+    mes("You need at least 14 inventory slots free.");
+}
+
+[proc,drunkmonk_pure]
+if (inv_freespace(inv) > 13) {
+    // Bear gear for rogue (req 30 str/ranged)
+    inv_add(inv, stringstar, 1);
+    inv_add(inv, monkrobetop, 1);
+    inv_add(inv, monkrobebottom, 1);
+    inv_add(inv, leather_gloves, 1);
+    inv_add(inv, plainstaff, 1); // Black dagger (req 35 attack)
+    inv_add(inv, beer, 3);
+    inv_add(inv, cert_trout, 10);
+    inv_add(inv, pvp_badge, 1);
+    inv_del(inv, pk_box, 1);
+    ~stat_push;
+} else {
+    mes("You need at least 14 inventory slots free.");
+}
 // Equipment Checker
 [label,pure_check_slot](int $slot)
 if (stat_base(hitpoints) > 50){
@@ -222,6 +290,6 @@ if (stat_base(hitpoints) > 50){
 
 
 [proc,resurrection_gear]
-inv_add(worn, priest_gown, 1);
-inv_add(worn, priest_robe, 1);
+inv_add(inv, priest_gown, 1);
+inv_add(inv, priest_robe, 1);
 inv_add(inv, herring, 5);

@@ -31,8 +31,8 @@ if (findhero = true) {
     ~player_death_lose_items;
     session_log(^log_moderator, "Player died");
 }
-
 if (%gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_hcuim){
+    p_teleport(0_48_48_22_35);
     def_int $choice = ~p_choice2_header("Yes.", 1, "No.", 2, "Would you like to be demoted instead of resetting?");
     switch_int($choice){
         case 1 : {
@@ -62,13 +62,13 @@ if (%gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hci
     }
 
 }
+
 if (%gamemode_selected = ^gamemode_pvp){
             ~founders_protection;
             inv_dropall(inv, coord, ^lootdrop_duration);
             inv_dropall(worn, coord, ^lootdrop_duration);
             ~pk_reset();
             ~stat_reset_all;
-            p_teleport(0_48_54_12_36);
             buildappearance(worn);
             ~prayer_deactivate_all;
             ~follower_death;
@@ -80,6 +80,8 @@ if (%gamemode_selected = ^gamemode_pvp){
             ~initalltabs;
             ~stat_push;
             ~resurrection_gear;    
+            p_teleport(0_48_54_12_36);
+            return;
 }
 //} else if (%gamemode_selected = ^gamemode_survival) {
 //    inv_clear(bank);
@@ -172,9 +174,13 @@ def_boolean $protecting_item = false;
 if (%prayer_protectitems = ^true) { $protecting_item = true; }
 inv_clear(deathkeep);
 def_int $coins = inv_total(inv, coins);
-if ($coins > 0 & ~wilderness_level(coord) > 29){
+if ($coins > 0 & ~wilderness_level(coord) > 14){
+    def_int $bcoins = calc($coins / 3);
+    if ($coins < 100) {
+        $bcoins = 10;
+    }
     inv_del(inv, coins, $coins);
-    inv_add(inv, bloody_coins, $coins);
+    inv_add(inv, bloody_coins, $bcoins);
 }
 if($skulled = false) {
     ~move_priciest_item_on_hero_to_death;
@@ -214,10 +220,8 @@ while ($i < $size) {
 }
 
 .obj_add(coord, bones, 1, 200);
-if (~wilderness_level(coord) > 0 & ~player_combat_level > 10 & ~.player_combat_level > 10 ) {
-    if (.inv_total(worn, pvp_badge) > 0) {
+if (~wilderness_level(coord) > 4 & ~player_combat_level > 3 & ~.player_combat_level > 3 ) {
         .obj_add(coord, player_skull, 1, 200);
-    }
 }
 ~moveallinv(deathkeep, inv);
 inv_clear(deathkeep);

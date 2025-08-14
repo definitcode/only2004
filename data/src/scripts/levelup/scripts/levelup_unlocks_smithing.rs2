@@ -2,25 +2,25 @@
 //Smithing level up unlock messages
 switch_int(stat_base(smithing)) {
     case 2 :  mes("You can now make Bronze Maces.");
-    case 3 :  mes("You can now make @dbl@Bronze Medium Helms.");
-    case 4 :  mes("You can now make @dbl@Bronze Short Swords@bla@ and members|can make @dbl@Bronze Dart Tips@bla@ and @dbl@Bronze Wire.");
-    case 5 :  mes("You can now make @dbl@Bronze Scimitars@bla@ and members|can make @dbl@Bronze Arrow Heads.");
-    case 6 :  mes("You can now make @dbl@Bronze Long Swords.");
-    case 7 :  mes("You can now make @dbl@Bronze Full Helms@bla@ and members|can make @dbl@Bronze Throwing Knives.");
-    case 8 :  mes("You can now make @dbl@Bronze Square Shields.");
-    case 9 :  mes("You can now make @dbl@Bronze Warhammers.");
-    case 10 : mes("You can now make @dbl@Bronze Battle Axes.");
-    case 11 : mes("You can now make @dbl@Bronze Chainmail Bodies.");
-    case 12 : mes("You can now make @dbl@Bronze Kite Shields.");
-    case 14 : mes("You can now make @dbl@Bronze Two Handed Swords.");
+    case 3 :  mes("You can now make Bronze Medium Helms.");
+    case 4 :  mes("You can now make Bronze Short Swords and members can make Bronze Dart Tips and Bronze Wire.");
+    case 5 :  mes("You can now make Bronze Scimitars and members can make Bronze Arrow Heads.");
+    case 6 :  mes("You can now make Bronze Long Swords.");
+    case 7 :  mes("You can now make Bronze Full Helms and members can make Bronze Throwing Knives.");
+    case 8 :  mes("You can now make Bronze Square Shields.");
+    case 9 :  mes("You can now make Bronze Warhammers.");
+    case 10 : mes("You can now make Bronze Battle Axes.");
+    case 11 : mes("You can now make Bronze Chainmail Bodies.");
+    case 12 : mes("You can now make Bronze Kite Shields.");
+    case 14 : mes("You can now make Bronze Two Handed Swords.");
     case 15 : 
-        mes("You can now smelt @dbl@Iron Ore@bla@ and make @dbl@Iron|@dbl@Daggers.");
+        mes("You can now smelt Iron Ore and make Iron Daggers.");
         ~objbox(iron_hammer,"You can now use an @dbl@Iron Hammer.", 250, 0, 0);
-    case 16 : mes("You can now make @dbl@Bronze Plate Legs@bla@, @dbl@Bronze|@dbl@Plate Skirts@bla@ and @dbl@Iron Axes.");
-    case 17 : mes("You can now make @dbl@Iron Maces.");
-    case 18 : mes("You can now make @dbl@Bronze Plate Bodies and Iron||@dbl@Medium Helms. ||");
-    case 19 : mes("You can now make @dbl@Iron Short Swords@bla@ and members|can make @dbl@Iron Dart Tips.");
-    case 20 : mes("You can now smelt @dbl@Silver Ore@bla@ and make @dbl@Iron|@dbl@Scimitars@bla@ and members can make @dbl@Iron Arrow Heads.");
+    case 16 : mes("You can now make Bronze Plate Legs, Bronze Plate Skirts and Iron Axes.");
+    case 17 : mes("You can now make Iron Maces.");
+    case 18 : mes("You can now make Bronze Plate Bodies and Iron Medium Helms.");
+    case 19 : mes("You can now make Iron Short Swords and members can make Iron Dart Tips.");
+    case 20 : mes("You can now smelt Silver Ore and make Iron Scimitars and members can make Iron Arrow Heads.");
     case 21 : ~objbox(iron_longsword,"You can now make @dbl@Iron Long Swords.", 250, 0, 0);
     case 22 : ~doubleobjbox(iron_full_helm,iron_knife,"You can now make @dbl@Iron Full Helms@bla@ and members can|make @dbl@Iron Throwing Knives.", 200);
     case 23 : ~objbox(iron_sq_shield,"You can now make @dbl@Iron Square Shields.", 250, 0, 0);

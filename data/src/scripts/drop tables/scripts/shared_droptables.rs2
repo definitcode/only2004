@@ -185,6 +185,16 @@ if ($random < 8) {
     return (bronze_battleaxe, 1);
 } else if ($random < 55) {
     return (lumbyscroll,1);
+} else if ($random < 56) {
+    return (steel_2h_sword,1);
+} else if ($random < 57) {
+    return (steel_warhammer,1);
+} else if ($random < 58) {
+    return (steel_mace,1);
+} else if ($random < 59) {
+    return (steel_dagger,1);
+} else if ($random < 60) {
+    return (steel_kiteshield,1);
 } else if ($random < 110) {
     return (draynorscroll,1);
 } else if ($random < 125) {
@@ -388,7 +398,7 @@ if ($random < 1) {
 } else if ($random < 8) {
     return (coins,300);
     //return (coins,150);
-    return (trout,2);
+    return (trout,4);
 } else if ($random < 9) {
     return (coins,150);
     return (lumbyscroll,1);

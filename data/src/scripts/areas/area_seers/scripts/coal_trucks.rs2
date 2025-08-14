@@ -29,6 +29,7 @@ if(%coal_truck >= ^coal_truck_max) {
 }
 if (inv_total(inv, coal) < 1){
     mes("You do not have any coal to add to the truck.");
+    return;
 }
 def_int $dep_amount = inv_total(inv, coal);
 def_string $coal_mes = "You put the coal in the truck.";
@@ -38,7 +39,9 @@ if(calc($dep_amount + %coal_truck) > ^coal_truck_max) {
 }
 sound_synth(sound_230, 0, 0);
 %coal_truck = calc(%coal_truck + $dep_amount);
-inv_del(inv, coal, $dep_amount);
+if ($dep_amount > 0) {
+    inv_del(inv, coal, $dep_amount);
+}
 mes($coal_mes);
 
 [oplocu,loc_2114]

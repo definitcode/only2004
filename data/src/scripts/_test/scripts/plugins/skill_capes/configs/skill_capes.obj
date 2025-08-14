@@ -16,13 +16,6 @@ iop4=Teleport
 wearpos=back
 manwear=model_3189_obj_wear,0
 womanwear=model_3194_obj_wear,0
-recol2s=14724
-recol2d=15360
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
 weight=1lb
 param=slashdefence,5
 param=crushdefence,5
@@ -56,13 +49,6 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=6346
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
 
 [strength_cape]
 cost=1000000
@@ -88,13 +74,6 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=6438
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
 
 [defence_cape]
 cost=1000000
@@ -120,13 +99,7 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=17048
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
+
 
 [ranged_cape]
 cost=1000000
@@ -152,13 +125,6 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=256
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
 
 [prayer_cape]
 cost=1000000
@@ -184,13 +150,7 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=13539
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
+
 
 [magic_cape]
 cost=1000000
@@ -216,13 +176,7 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=239
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
+
 
 [runecrafting_cape]
 cost=1000000
@@ -248,13 +202,7 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=26655
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
+
 
 [hitpoints_cape]
 cost=1000000
@@ -280,13 +228,7 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=29596
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
+
 [agility_cape]
 cost=1000000
 name=Agility Cape
@@ -311,13 +253,7 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=9236
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
+
 
 [herblore_cape]
 cost=1000000
@@ -343,13 +279,7 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=1317
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
+
 
 [thieving_cape]
 cost=1000000
@@ -375,11 +305,7 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=2114
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
+
 
 [crafting_cape]
 cost=1000000
@@ -405,13 +331,7 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=18649
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
+
 
 [fletching_cape]
 cost=1000000
@@ -437,13 +357,7 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=1451
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
+
 
 [mining_cape]
 cost=1000000
@@ -469,13 +383,7 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=6476
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
+
 
 [blacksmithing_cape]
 cost=1000000
@@ -501,13 +409,7 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=15855
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
+
 
 [fishing_cape]
 cost=1000000
@@ -533,13 +435,7 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=3395
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
+
 
 [cooking_cape]
 cost=1000000
@@ -565,13 +461,7 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=28417
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
+
 
 [firemaking_cape]
 cost=1000000
@@ -597,13 +487,7 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=22949
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc
+
 
 [woodcutting_cape]
 cost=1000000
@@ -629,10 +513,3 @@ param=magicdefence,5
 tradeable=no
 param=no_alchemy,^true
 category=skill_cape
-recol2s=14724
-recol2d=6952
-recol3s=0
-recol3d=23552 
-wearpos2=hat
-manwear2=model_226_shroud_npc
-womanwear2=model_226_shroud_npc

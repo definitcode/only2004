@@ -1,5 +1,10 @@
 [opnpc1,starved_ragger] @pvp_shop;
-[opnpc4,starved_ragger] @pvp_bank;
+[opnpc4,starved_ragger] 
+if (%gamemode_selected = ^gamemode_pvp){
+    @pvp_bank;
+} else {
+    mes("You cannot do this.");
+}
 
 [label,pvp_shop]
 if (%gamemode_selected = ^gamemode_none){
@@ -32,19 +37,37 @@ if (%gamemode_selected = ^gamemode_none){
             }
         }
     }
-} else {
+} else if (%gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_hcuim | %gamemode_selected = ^gamemode_ironman | %gamemode_selected = ^gamemode_uim){
     mes("You cannot do this.");
     return;
 }
 def_namedobj $choice;
 def_namedobj $choice2;
 ~chatnpc("Hello, <displayname> I'll show you what I have for you.");
-def_int $class = ~p_choice4_header("Shop.", 1, "Bank.", 2, "N/A.", 3, "N/A.", 4, "~Starved Ragger~");
+def_int $class = ~p_choice4_header("Shop.", 1, "Bank.", 2, "Coin Exchange.", 3, "N/A.", 4, "~Starved Ragger~");
 switch_int($class){
     case 1 :  ~openshop_bloody_activenpc;
     case 2 :  @pvp_bank;
+    case 3 : ~coin_exchange;
 }
 if ($choice = null) {
     ~displaymessage(^dm_default);
+    return;
+}
+
+
+[proc,coin_exchange]
+def_int $coins = inv_total(inv, coins);
+if ($coins > 0) {
+    def_int $bcoins = calc($coins / 3);
+    if ($coins < 100) {
+        $bcoins = 10; // small incentive to still exchange
+    }
+    inv_del(inv, coins, $coins);
+    inv_add(inv, bloody_coins, $bcoins);
+    mes("You have exchanged [@yel@<tostring($coins)>@bla@x] Coins for [@red@<tostring($bcoins)>@bla@x] Bloody Coins.");
+} else {
+    ~chatnpc("<p,angry>You do not have any Coins to exchange!");
+    mes("You do not have enough Coins to exchange!");
     return;
 }

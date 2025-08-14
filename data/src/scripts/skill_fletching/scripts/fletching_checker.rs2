@@ -49,4 +49,7 @@ if ($lvl0 >= oc_param(hc_knife, levelrequire) & ($obj1 = hc_knife)) {
 if ($lvl0 >= oc_param(founders_knife, levelrequire) & ($obj1 = founders_knife)) {
     return(founders_knife);
 }
+if ($lvl0 >= oc_param(knife, levelrequire) & ($obj1 = knife)) {
+    return(knife);
+}
 return(null);

@@ -49,4 +49,7 @@ if ($lvl0 >= oc_param(founders_tinderbox, levelrequire) & ($obj1 = founders_tind
 if ($lvl0 >= oc_param(hc_tinderbox, levelrequire) & ($obj1 = hc_tinderbox)) {
     return(hc_tinderbox);
 }
+if ($lvl0 >= oc_param(tinderbox, levelrequire) & ($obj1 = tinderbox)) {
+    return(tinderbox);
+}
 return(null);
