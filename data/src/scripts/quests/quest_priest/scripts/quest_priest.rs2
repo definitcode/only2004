@@ -95,5 +95,6 @@ if_close;
 %priest_progress = ^priest_complete;
 session_log(^log_adventure, "Quest complete: The Restless Ghost");
 ~send_quest_complete(questlist:priest, ghost_skull, 220, ^priest_questpoints, "You have completed the\\nRestless Ghost Quest!");
-stat_advance(prayer, 11250);
+stat_advance(prayer, 4352);
+inv_add(inv, draynorscroll, 1);
 

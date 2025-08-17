@@ -38,7 +38,6 @@ export class LoginClient extends InternalClient {
         }
         else
         {
-            
             return { reply: -1, account_id: -1, save: null, muted_until: null, members: false };
         }
         if (!this.ws || !this.wsr || !this.wsr.checkIfWsLive()) {

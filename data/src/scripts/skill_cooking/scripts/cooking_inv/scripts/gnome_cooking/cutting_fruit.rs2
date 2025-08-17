@@ -1,4 +1,4 @@
-[opheldu,knife]
+[opheldu,_knife]
 switch_obj(last_useitem) {
     case lemon, orange, lime, pineapple, tentipineapple : @slice_or_dice_interface(last_useitem);
     case achey_tree_logs : @make_ogre_shafts;
@@ -13,30 +13,34 @@ switch_obj(last_useitem) {
 }
 
 [opheldu,lemon]
+def_obj $knife = ~knife_checker_cooking;
 switch_obj(last_useitem) {
     case cocktail_shaker : @add_cocktail_ingredient(last_item);
-    case knife : @slice_or_dice_interface(last_item);
+    case $knife : @slice_or_dice_interface(last_item);
     case default : ~displaymessage(^dm_default);
 }
 
 [opheldu,orange]
+def_obj $knife = ~knife_checker_cooking;
 switch_obj(last_useitem) {
     case cocktail_shaker : @add_cocktail_ingredient(last_item);
-    case knife : @slice_or_dice_interface(last_item);
+    case $knife : @slice_or_dice_interface(last_item);
     case default : ~displaymessage(^dm_default);
 }
 
 [opheldu,lime]
+def_obj $knife = ~knife_checker_cooking;
 switch_obj(last_useitem) {
     case cocktail_shaker : @add_cocktail_ingredient(last_item);
-    case knife : @slice_or_dice_interface(last_item);
+    case $knife : @slice_or_dice_interface(last_item);
     case default : ~displaymessage(^dm_default);
 }
 
 [opheldu,pineapple]
+def_obj $knife = ~knife_checker_cooking;
 switch_obj(last_useitem) {
     case cocktail_shaker : @add_cocktail_ingredient(last_item);
-    case knife : @slice_or_dice_interface(last_item);
+    case $knife : @slice_or_dice_interface(last_item);
     case default : ~displaymessage(^dm_default);
 }
 
