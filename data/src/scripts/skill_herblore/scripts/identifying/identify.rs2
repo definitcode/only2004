@@ -59,7 +59,11 @@ if (map_members = false) {
     mes(^mes_members_herblore);
     return;
 }
-
+if (%gamemode_selected = ^gamemode_pvp){
+    // PVP Cannot Skill
+    ~mesbox("You are not allowed to skill!");
+    return;
+}
 // early osrs had no druidic ritual check. This is how level 2 herblore accounts were possible
 def_int $current_level = stat(herblore);
 def_int $herb_level = oc_param($identified_herb, identified_herb_level);

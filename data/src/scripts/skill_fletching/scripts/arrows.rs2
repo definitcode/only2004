@@ -31,6 +31,11 @@ if (map_members = false) {
     mes(^mes_members_fletching); // guess
     return;
 }
+if (%gamemode_selected = ^gamemode_pvp){
+    // PVP Cannot Skill
+    ~mesbox("You are not allowed to skill!");
+    return;
+}
 def_int $feather_count = min(inv_total(inv, feather), 15);
 def_int $shaft_count = min(inv_total(inv, arrow_shaft), 15);
 def_int $arrow_count = min($feather_count, $shaft_count);
@@ -58,6 +63,11 @@ if(%gamemode_selected = ^gamemode_pvp){
 }
 if (map_members = false) {
     mes(^mes_members_fletching); // guess
+    return;
+}
+if (%gamemode_selected = ^gamemode_pvp){
+    // PVP Cannot Skill
+    ~mesbox("You are not allowed to skill!");
     return;
 }
 def_dbrow $data = ~get_fletching_data($arrow_tips);

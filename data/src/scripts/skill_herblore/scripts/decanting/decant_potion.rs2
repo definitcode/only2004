@@ -14,6 +14,11 @@ if ($potion_enum = null) {
     ~displaymessage(^dm_default);
     return;
 }
+if (%gamemode_selected = ^gamemode_pvp){
+    // PVP Cannot Skill
+    ~mesbox("You are not allowed to skill!");
+    return;
+}
 def_int $doses = oc_param($potion, dose_count);
 def_int $used_doses = oc_param($used_potion, dose_count);
 if($doses = 4 | $used_doses = 4) {

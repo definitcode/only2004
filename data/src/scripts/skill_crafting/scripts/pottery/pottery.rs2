@@ -22,6 +22,11 @@ switch_obj (last_useitem)
 
 
 [label,make_softclay](obj $water_source)
+if (%gamemode_selected = ^gamemode_pvp){
+    // PVP Cannot Skill
+    ~mesbox("You are not allowed to skill!");
+    return;
+}
 if (getqueue(make_softclay_repeat) > 0) {
     clearqueue(make_softclay_repeat);
 }
@@ -69,6 +74,11 @@ if ($choice = null) {
 // if %action_delay is under a certain point then it gives a roll
 // Before sep 2004, it was likely just a p_delay()
 [label,craft_pottery](namedobj $item)
+if (%gamemode_selected = ^gamemode_pvp){
+    // PVP Cannot Skill
+    ~mesbox("You are not allowed to skill!");
+    return;
+}
 if_close;
 if (getqueue(craft_pottery_repeat) > 0) {
     clearqueue(craft_pottery_repeat);

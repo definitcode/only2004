@@ -18,7 +18,11 @@ if(%gamemode_selected = ^gamemode_pvp){
 }
 def_obj $used_on = inv_getobj(inv, $last_slot);
 def_obj $used_with = inv_getobj(inv, $use_slot);
-
+if (%gamemode_selected = ^gamemode_pvp){
+    // PVP Cannot Skill
+    ~mesbox("You are not allowed to skill!");
+    return;
+}
 if ($used_with ! pestle_and_mortar) {
     ~displaymessage(^dm_default);
     return;

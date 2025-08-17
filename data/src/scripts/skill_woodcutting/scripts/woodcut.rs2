@@ -247,49 +247,6 @@ if (stat_random(stat(woodcutting), $tree_chance_low, $tree_chance_high) = true) 
 p_oploc(3);
 
 
-// check if player has axe and level, ifso return best axe
-[proc,woodcutting_axe_checker](boolean $print_mes)(namedobj)
-def_int $level = stat(woodcutting);
-def_obj $obj1 = inv_getobj(worn, ^wearpos_rhand);
-// no wc req in 2004, this is also the case in rsc. Heres a guide from 2004 that says so :
-// https://web.archive.org/web/20040622013913/http://runehq.com/viewguidedb.php?id=00330
-if (($obj1 = dragon_axe) & $level > 90) {
-    return (dragon_axe);
-}
-if (($obj1 = rune_axe) & $level > 80) {
-    return (rune_axe);
-}
-if (($obj1 = adamant_axe) & $level > 70) {
-    return (adamant_axe);
-}
-if (($obj1 = mithril_axe) & $level > 50) {
-    return (mithril_axe);
-}
-if (($obj1 = black_axe) & $level > 35) {
-    return (black_axe);
-}
-if (($obj1 = steel_axe) & $level > 30) {
-    return (steel_axe);
-}
-if (($obj1 = iron_axe) & $level > 15) {
-    return (iron_axe);
-}
-if (($obj1 = bronze_axe) & $level > 0) {
-    return (bronze_axe);
-}
-if (($obj1 = founders_axe) & $level > 0) {
-    return (founders_axe);
-}
-
-
-// mes("You need an axe to chop down this tree."); // this message was added in 2005 when they fixed axe wc reqs
-// https://imgur.com/Cj7w6y9
-// https://imgur.com/fnmlJ7R
-if ($print_mes = true) {
-    mes("You do not have an axe which you have the level to use.");
-}
-return(null);
-
 [proc,woodcutting_successchance](dbrow $data, obj $axe)(int, int)
 def_int $count = calc(db_getfieldcount($data, woodcutting_trees:successchance) - 1);
 while ($count >= 0) {

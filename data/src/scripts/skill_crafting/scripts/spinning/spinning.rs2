@@ -18,6 +18,11 @@ switch_obj (last_useitem)
 };
 
 [label,craft_spinning](obj $spinning_obj)
+if (%gamemode_selected = ^gamemode_pvp){
+    // PVP Cannot Skill
+    ~mesbox("You are not allowed to skill!");
+    return;
+}
 if (getqueue(spinning_repeat) > 0) {
     clearqueue(spinning_repeat);
 }

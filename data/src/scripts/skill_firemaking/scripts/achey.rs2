@@ -11,7 +11,11 @@ switch_obj(last_useitem) {
 [label,light_achey_inv](int $slot)
 def_obj $log = inv_getobj(inv, $slot);
 def_int $level = oc_param($log, levelrequire);
-
+if (%gamemode_selected = ^gamemode_pvp){
+    // PVP Cannot Skill
+    ~mesbox("You are not allowed to skill!");
+    return;
+}
 if (stat(firemaking) < $level) {
     mes("You need a Firemaking level of <tostring($level)> to burn <oc_name($log)>.");
     return;

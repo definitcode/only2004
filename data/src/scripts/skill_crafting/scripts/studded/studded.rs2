@@ -70,6 +70,11 @@ if (last_useitem = studs) {
 
 
 [label,craft_studded](obj $studded_obj)
+if (%gamemode_selected = ^gamemode_pvp){
+    // PVP Cannot Skill
+    ~mesbox("You are not allowed to skill!");
+    return;
+}
 def_struct $struct = oc_param($studded_obj, crafting_studded_struct);
 
 // check if player has level req

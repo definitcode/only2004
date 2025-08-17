@@ -25,6 +25,11 @@ if (map_members = false) {
     mes(^mes_members_fletching); // guess
     return;
 }
+if (%gamemode_selected = ^gamemode_pvp){
+    // PVP Cannot Skill
+    ~mesbox("You are not allowed to skill!");
+    return;
+}
 if (%chompybird_progress < 1) {
     // osrs
     mes("You're not sure what you would make with these logs.");
