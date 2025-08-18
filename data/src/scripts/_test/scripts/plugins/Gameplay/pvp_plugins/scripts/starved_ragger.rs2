@@ -65,7 +65,7 @@ if ($coins > 0) {
     }
     inv_del(inv, coins, $coins);
     inv_add(inv, bloody_coins, $bcoins);
-    mes("You have exchanged [@yel@<tostring($coins)>@bla@x] Coins for [@red@<tostring($bcoins)>@bla@x] Bloody Coins.");
+    ~mesbox("You have exchanged [@yel@<tostring($coins)>@bla@x] Coins for [@red@<tostring($bcoins)>@bla@x] Bloody Coins.");
 } else {
     ~chatnpc("<p,angry>You do not have any Coins to exchange!");
     mes("You do not have enough Coins to exchange!");

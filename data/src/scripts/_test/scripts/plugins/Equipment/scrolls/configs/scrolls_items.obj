@@ -161,3 +161,27 @@ weight=18oz
 cost=750
 param=no_alchemy,^true
 stackable=yes
+
+[murderers_handbook]
+name=Murder: 101
+desc=a compilation of gore and grit!
+model=model_2543_obj
+weight=3g
+recol1s=13472
+recol1d=14466
+recol2s=15855 
+recol2d=0
+recol3s=20033 
+recol3d=0
+wearpos=lefthand
+manwear=model_556,0
+womanwear=model_556,0
+iop1=Wear
+iop2=Study
+2dzoom=840
+2dyan=152
+2dxan=256
+weight=18oz
+cost=99800
+param=no_alchemy,^true
+stackable=no

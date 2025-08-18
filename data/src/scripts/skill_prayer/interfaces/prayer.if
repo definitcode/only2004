@@ -445,7 +445,7 @@ height=11
 center=yes
 font=p11
 shadowed=yes
-text=Increases your defence by 5%
+text=Defence [+5%]
 colour=0x6B6F33
 
 [com_41]
@@ -488,7 +488,7 @@ height=11
 center=yes
 font=p11
 shadowed=yes
-text=Increases your strength by 5%
+text=Strength: [+5%] \n Ranged: [+5%]
 colour=0x6B6F33
 
 [com_45]
@@ -531,7 +531,7 @@ height=11
 center=yes
 font=p11
 shadowed=yes
-text=Increases your attack by 5%
+text=Attack: [+5%] \n Magic [+5%]
 colour=0x6B6F33
 
 [com_49]
@@ -574,7 +574,7 @@ height=11
 center=yes
 font=p11
 shadowed=yes
-text=Increases your defence by 10%
+text=Defence [+10%]
 colour=0x6B6F33
 
 [com_53]
@@ -617,7 +617,7 @@ height=11
 center=yes
 font=p11
 shadowed=yes
-text=Increases your strength by 10%
+text=Strength: [+10%] \n Ranged: [+10%]
 colour=0x6B6F33
 
 [com_57]
@@ -660,7 +660,7 @@ height=11
 center=yes
 font=p11
 shadowed=yes
-text=Increases your attack by 10%
+text=Attack: [+10%] \n Magic: [+10%]
 colour=0x6B6F33
 
 [com_61]
@@ -832,7 +832,7 @@ height=11
 center=yes
 font=p11
 shadowed=yes
-text=Increases your defence by 15%
+text=Defence [+15%]
 colour=0x6B6F33
 
 [com_77]
@@ -875,7 +875,7 @@ height=11
 center=yes
 font=p11
 shadowed=yes
-text=Increases your strength by 15%
+text=Strength: [+15%] \n Ranged: [+15%]
 colour=0x6B6F33
 
 [com_81]
@@ -918,7 +918,7 @@ height=11
 center=yes
 font=p11
 shadowed=yes
-text=Increases your attack by 15%
+text=Attack: [+15%] \n Magic: [+15%]
 colour=0x6B6F33
 
 [com_85]

@@ -1,0 +1,103 @@
+[opheld1,murderers_handbook] ~equip(last_slot);
+[opheld2,murderers_handbook] 
+if (%gamemode_selected = ^gamemode_pvp){
+    @murder_studies;
+} else {
+    ~chatplayer("<p,worried>The contents of this book should never be repeated!");
+    def_coord $origin = coord;
+    anim(human_createfire, 0);
+    sound_synth(tinderbox_strike, 2, 2);
+    p_delay(3);
+    ~push_player($origin);
+    def_int $delay = 20; // firemaking length: https://archive.is/zF5hb
+    loc_add($origin, loc_2732, 1, centrepiece_straight, $delay);
+    mes("The fire catches and the logs begin to burn.");
+    sound_synth(fire_lit, 0, 0);
+    facesquare($origin);
+    p_delay(3);
+    anim(human_pickupfloor, 0);
+    inv_del(inv, murderers_handbook, 1);
+}
+    
+
+
+
+
+
+
+[proc,stat_push_t1]
+switch_int(%pk_class){
+    case ^ranger : {
+        stat_advance(attack, 7028);     // lvl ~24 Attack XP
+        stat_advance(strength, add(37224, 13363));   // lvl 40 Strength XP
+        stat_advance(defence, 2107);    // lvl ~24 Defence XP
+        stat_advance(hitpoints, 7842);  // lvl 25 Hitpoints XP
+        stat_advance(ranged, add(37224, 13363));    // lvl 40 Ranged XP (signature skill)
+    }
+    case ^tank : {
+        stat_advance(attack, add(22406, 13363));     // lvl 35 Attack XP
+        stat_advance(strength, add(2411, 1154));   // lvl 10 Strength XP
+        stat_advance(defence, add(22406, 13363));   // lvl 35 Defence XP (signature skill)
+        stat_advance(hitpoints, add(22406, 13363));  // lvl 35 Hitpoints XP
+    }
+    case ^rogue : {
+        stat_advance(attack, add(22406, 12000));    // lvl ~28 Attack XP (signature skill)
+        stat_advance(strength, 7842);   // lvl 25 Strength XP
+        stat_advance(defence, add(7842,6450));    // lvl 18 Defence XP (lower for rogue)
+        stat_advance(hitpoints, add(13363, 7842));  // lvl 25 Hitpoints XP
+        stat_advance(ranged, 7842);     // lvl 25 Ranged XP
+    }
+    case ^mage : {
+        stat_advance(defence, 801);    // lvl ~24 Defence XP
+        stat_advance(hitpoints, add(22406, 13363));  // lvl 25 Hitpoints XP
+        stat_advance(prayer, 24815);     // lvl ~24 Prayer XP
+        stat_advance(magic, 22406);     // lvl ~28 Magic XP (signature skill)
+    }
+    case ^trispec : {
+        stat_advance(attack, add(13363, 7842));     // lvl 25 Attack XP
+        stat_advance(strength, add(13363, 7842));   // lvl 25 Strength XP
+        stat_advance(defence, add(13363, 7842));    // lvl 25 Defence XP
+        stat_advance(hitpoints, add(13363, 7842));  // lvl 20 Hitpoints XP
+        stat_advance(ranged, add(13363, 7842));     // lvl 25 Ranged XP
+        stat_advance(magic, add(13363, 7842));      // lvl 25 Magic XP
+    }
+    case ^berserker : {
+        stat_advance(attack, 22406);    // lvl ~28 Attack XP (signature skill)
+        stat_advance(strength, add(37224, 22406));   // lvl 25 Strength XP
+        stat_advance(hitpoints, 7842);  // lvl 25 Hitpoints XP   
+    }
+    case ^drunkenmonk : {
+        stat_advance(strength, 101330);
+        stat_advance(hitpoints, 224060);
+    }
+}
+
+
+[label,murder_studies]
+if (inv_freespace(inv) < 1 | inv_freespace(worn) ! 14){
+    mes("You need to have nothing in your inventory or equipped to do this.");
+    return;
+}
+if (~wilderness_level(coord) > 0){
+    mes("You cannot do this in the wilderness...");
+    return;
+}
+~pk_reset;
+~stat_push_t1;
+//switch_int(~p_choice5_header("* Attack *", 1, "* Strength *", 2, "* Magic *", 3, "* Ranged *", 4, "* Agility *", 5, "Murderer's Handbook")) {
+//    case 1 : @murder_training(attack, "Attack");
+//    case 2 : @murder_training(strength, "Strength");
+//    case 3 : @murder_training(magic, "Magic");
+//    case 4 : @murder_training(ranged, "Ranged");
+//    case 5 : @murder_training(agility, "Agility");
+//}
+
+[label,murder_training](stat $skill, string $skill_name)
+stat_advance($skill, 2750);
+// this is stupid but video shows double space for herblore, meaning theres prob a seperate label for each skill in 2004 (and it's prob a linebreak)
+if(string_length($skill_name) > 7) { 
+    ~mesbox("You receive some training and increase|experience to your <$skill_name>.");
+} else {
+    ~mesbox("You receive some training and increase experience to your <$skill_name>.");
+}
+@murder_studies;

@@ -231,7 +231,17 @@ if (p_finduid(uid) = true) {
 
 [proc,pk_reset]
 if_close;
+
 if (p_finduid(uid) = true) {
+    if (inv_total(inv, murderers_handbook) > 0){
+        inv_clear(inv);
+        inv_clear(worn);
+        inv_add(inv, murderers_handbook, 1);
+        p_teleport(0_48_54_12_36);
+        stat_reset2();
+        ~pk_skull(^max_32bit_int);
+        return;        
+    }    
     inv_clear(inv);
     inv_clear(worn);
     p_teleport(0_48_54_12_36);

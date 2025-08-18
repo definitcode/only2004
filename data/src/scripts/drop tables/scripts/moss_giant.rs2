@@ -9,7 +9,6 @@ gosub(npc_death);
 ~trail_mediumcluedrop(128, npc_coord);
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
-
 def_int $random = random(128);
 
 if ($random < 5) {
@@ -74,6 +73,10 @@ if ($random < 5) {
 }
 
 [queue,moss_giant_kill]
+if (~wilderness_level(coord) > 0){
+    obj_add(coord, ~wilderness_table, ^lootdrop_duration);
+}
+
 if (%e_ctoggle = ^e_toggle_on){
     mes("You etch another tally into your ledger.");
 }

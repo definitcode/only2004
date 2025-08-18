@@ -63,6 +63,9 @@ if ($random < 3) {
     obj_add(npc_coord, ~ultrarare_getitem, ^lootdrop_duration);
 }
 [queue,fire_giant_kill]
+if (~wilderness_level(coord) > 0){
+    obj_add(coord, ~wilderness_table, ^lootdrop_duration);
+}
 if (%e_ctoggle = ^e_toggle_on){
     mes("You etch another tally into your ledger.");
 }

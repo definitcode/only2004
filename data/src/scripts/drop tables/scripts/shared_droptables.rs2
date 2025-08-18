@@ -387,24 +387,27 @@ if ($random < 1) {
 
 [proc,grindingtable]()(namedobj,int)
 def_int $random = 0;
-$random = random(10);
+$random = random(15);
 
 if ($random < 1) {
-    return (iron_arrow,10);
-    return (steel_arrow,5);
+    return (iron_arrow,30);
+    return (steel_arrow,4);
 } else if ($random < 4) {
-    return (mindrune,50);
-    return (airrune,50);    
+    return (mindrune,37);
+    return (airrune,57);    
 } else if ($random < 8) {
-    return (coins,300);
+    return (coins,337);
     //return (coins,150);
     return (trout,4);
 } else if ($random < 9) {
-    return (coins,150);
+    return (coins,154);
     return (lumbyscroll,1);
 } else if ($random > 11) {
-    return (coins,300);
+    return (coins,312);
     return (draynorscroll,1);
+} else if ($random > 12) {
+    return (salmon, 2);
+    return (coins, 534);
 }
 
 [proc,dragon_table]()(namedobj,int)
@@ -553,4 +556,63 @@ if ($random < 1) {
 } else if ($random < 128) {
     return (cosmic_talisman, 1);
     return (~talisman_table);
+}
+
+[proc,trail_table]()(namedobj,int)
+//def_int $random;
+//$random = random(128);
+//if ($random < 8){
+//    return (~trail_easycluedrop, 1);
+//} else if ($random < 75){
+//    return(~trail_mediumcluedrop, 1);
+//} else if ($random > 126){
+//    return(~trail_hardcluedrop);
+//}
+
+[proc,wilderness_table]()(namedobj,int)
+def_int $random = 0;
+$random = random(128);
+
+if ($random < 8) {
+    return (adamant_sword, 1);
+} else if ($random < 9){
+    return (lobster, 5);
+    return (bloody_coins,25);
+} else if ($random < 12) {
+    return (adamant_chainbody, 1);
+} else if ($random < 13) {
+    return (adamant_platebody, 1);
+} else if ($random < 14) {
+    return (adamant_platelegs, 1);
+} else if ($random < 15) {
+    return (adamant_plateskirt, 1);
+} else if ($random < 16) {
+    return (adamant_full_helm, 1);    
+} else if ($random < 18) {
+    return (adamant_med_helm, 1);
+} else if ($random < 19) {
+    return (adamant_mace, 1);
+} else if ($random < 20) {
+    return (edgevillescroll,3);
+    return (bloody_coins,300);
+} else if ($random < 25) {
+    return (shiloscroll,5);
+    return (bloody_coins,250);
+} else if ($random < 28) {
+    return (edgevillescroll,1);
+    return (bloody_coins,250);
+} else if ($random < 34) {
+    return (~talisman_table);
+} else if ($random < 50) {
+    return (adamant_battleaxe, 1);
+} else if ($random < 124) {
+    //return (~trail_table);
+} else if ($random < 125) {
+    return (rune_chainbody,1);
+} else if ($random < 126) {
+    return (rune_sword,1);
+}  else if ($random < 127) {
+    return (rune_mace,1);
+}  else if ($random < 128) {
+    return (rune_arrowheads,50);
 }

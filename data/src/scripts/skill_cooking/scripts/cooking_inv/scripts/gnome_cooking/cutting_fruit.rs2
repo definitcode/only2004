@@ -1,4 +1,4 @@
-[opheldu,knife]
+[opheldu,_knife]
 switch_obj(last_useitem) {
     case lemon, orange, lime, pineapple, tentipineapple : @slice_or_dice_interface(last_useitem);
     case achey_tree_logs : @make_ogre_shafts;
@@ -15,28 +15,28 @@ switch_obj(last_useitem) {
 [opheldu,lemon]
 switch_obj(last_useitem) {
     case cocktail_shaker : @add_cocktail_ingredient(last_item);
-    case knife : @slice_or_dice_interface(last_item);
+    case knife, hc_knife, founders_knife, e_bronze_knife, e_iron_knife, e_steel_knife, e_mithril_knife, e_adamant_knife, e_rune_knife, e_dragon_knife : @slice_or_dice_interface(last_item);
     case default : ~displaymessage(^dm_default);
 }
 
 [opheldu,orange]
 switch_obj(last_useitem) {
     case cocktail_shaker : @add_cocktail_ingredient(last_item);
-    case knife : @slice_or_dice_interface(last_item);
+    case knife, hc_knife, founders_knife, e_bronze_knife, e_iron_knife, e_steel_knife, e_mithril_knife, e_adamant_knife, e_rune_knife, e_dragon_knife : @slice_or_dice_interface(last_item);
     case default : ~displaymessage(^dm_default);
 }
 
 [opheldu,lime]
 switch_obj(last_useitem) {
     case cocktail_shaker : @add_cocktail_ingredient(last_item);
-    case knife : @slice_or_dice_interface(last_item);
+    case knife, hc_knife, founders_knife, e_bronze_knife, e_iron_knife, e_steel_knife, e_mithril_knife, e_adamant_knife, e_rune_knife, e_dragon_knife : @slice_or_dice_interface(last_item);
     case default : ~displaymessage(^dm_default);
 }
 
 [opheldu,pineapple]
 switch_obj(last_useitem) {
     case cocktail_shaker : @add_cocktail_ingredient(last_item);
-    case knife : @slice_or_dice_interface(last_item);
+    case knife, hc_knife, founders_knife, e_bronze_knife, e_iron_knife, e_steel_knife, e_mithril_knife, e_adamant_knife, e_rune_knife, e_dragon_knife : @slice_or_dice_interface(last_item);
     case default : ~displaymessage(^dm_default);
 }
 

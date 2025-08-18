@@ -166,9 +166,9 @@ $ranged_stylebonus = ~combat_get_damagestyle_bonuses($damagestyle);
 def_int $effective_attack = ~combat_effective_stat($attack_level, $attack_prayer);
 def_int $effective_strength = ~combat_effective_stat($strength_level, $strength_prayer);
 def_int $effective_defence = ~combat_effective_stat($defence_level, $defence_prayer);
-def_int $effective_magic = ~combat_effective_stat($magic_level, 100); // no magic prayers
+def_int $effective_magic = ~combat_effective_stat($magic_level, $attack_prayer); // no magic prayers
 def_int $effective_magic_defence = divide(add(multiply(7, $effective_magic), multiply(3, $effective_defence)), 10);
-def_int $effective_ranged = ~combat_effective_stat($ranged_level, 100); // no ranged prayers
+def_int $effective_ranged = ~combat_effective_stat($ranged_level, $strength_prayer); // no ranged prayers
 
 // apply style bonuses
 $effective_attack = add(add($effective_attack, 8), $attack_stylebonus);
