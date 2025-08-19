@@ -53,51 +53,9 @@ inv_stoptransmit(smithing:column5);
 
 [label,smithing_anvil_interface](obj $last_item)
 def_struct $struct = oc_param($last_item, smithing_anvil_struct);
-def_namedobj $hammer = null;
-if (inv_total(inv, dragon_hammer) > 0) {
-    $hammer = dragon_hammer;
-    if (stat_base(smithing) < 99) {
-        ~mesbox("You cannot smith with a Dragon Hammer until level 99 Smithing.");
-        return;
-    }
-} else if (inv_total(inv, founders_hammer) > 0) {
-    $hammer = founders_hammer;
-} else if (inv_total(inv, rune_hammer) > 0) {
-    $hammer = rune_hammer;
-    if (stat_base(smithing) < 90) {
-        ~mesbox("You cannot smith with a Rune Hammer until level 90 Smithing.");
-        return;
-    }
-} else if (inv_total(inv, adamant_hammer) > 0) {
-    $hammer = adamant_hammer;
-    if (stat_base(smithing) < 70) {
-        ~mesbox("You cannot smith with an Adamant Hammer until level 70 Smithing.");
-        return;
-    }
-} else if (inv_total(inv, mithril_hammer) > 0) {
-    $hammer = mithril_hammer;
-    if (stat_base(smithing) < 50) {
-        ~mesbox("You cannot smith with a Mithril Hammer until level 50 Smithing.");
-        return;
-    }
-} else if (inv_total(inv, steel_hammer) > 0) {
-    $hammer = steel_hammer;
-    if (stat_base(smithing) < 35) {
-        ~mesbox("You cannot smith with a Steel Hammer until level 35 Smithing.");
-        return;
-    }
-} else if (inv_total(inv, iron_hammer) > 0) {
-    $hammer = iron_hammer;
-    if (stat_base(smithing) < 15) {
-        ~mesbox("You cannot smith with an Iron Hammer until level 15 Smithing.");
-        return;
-    }
-} else if (inv_total(inv, bronze_hammer) > 0) {
-    $hammer = bronze_hammer;
-} else if (inv_total(inv, hammer) > 0) {
-    $hammer = hammer;
-} else {
-    ~mesbox("You need a hammer to work the metal with.");
+def_obj $hammer = ~hammer_checker;
+if ($hammer = null) {
+    ~mesbox("You need a hammer you able to work the metal with.");
     return;
 }
 if ($struct = null) {

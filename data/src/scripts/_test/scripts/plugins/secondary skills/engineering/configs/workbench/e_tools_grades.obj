@@ -283,8 +283,20 @@ recol2d=23009
 2dyan=2012
 2dxan=356
 weight=2lb
-category=hammer
+param=attackrate,3
+param=stabattack,-10
+param=slashattack,-10
+param=crushattack,10
+param=magicattack,-10
+param=strengthbonus,5
 param=levelrequire,1
+iop2=Wield
+wearpos=righthand
+category=weapon_blunt
+param=crushattack_anim,human_blunt_pound
+param=defend_anim,human_blunt_block
+param=crush_sound,baxe_crush
+
 [iron_hammer]
 name=Iron hammer
 desc=Good for hitting things!
@@ -301,8 +313,19 @@ recol2d=23009
 2dyan=2012
 2dxan=356
 weight=2lb
-category=hammer
+param=attackrate,3
+param=stabattack,-10
+param=slashattack,-10
+param=crushattack,25
+param=magicattack,-10
+param=strengthbonus,20
 param=levelrequire,15
+iop2=Wield
+wearpos=righthand
+category=weapon_blunt
+param=crushattack_anim,human_blunt_pound
+param=defend_anim,human_blunt_block
+param=crush_sound,baxe_crush
 
 [steel_hammer]
 name=Steel hammer
@@ -320,8 +343,19 @@ recol2d=20004
 2dyan=2012
 2dxan=356
 weight=2lb
-category=hammer
+param=attackrate,3
+param=stabattack,-10
+param=slashattack,-10
+param=crushattack,45
+param=magicattack,-10
+param=strengthbonus,35
 param=levelrequire,30
+iop2=Wield
+wearpos=righthand
+category=weapon_blunt
+param=crushattack_anim,human_blunt_pound
+param=defend_anim,human_blunt_block
+param=crush_sound,baxe_crush
 
 [mithril_hammer]
 name=Mithril hammer
@@ -339,8 +373,19 @@ recol2d=21040
 2dyan=2012
 2dxan=356
 weight=2lb
-category=hammer
+param=attackrate,3
+param=stabattack,-10
+param=slashattack,-10
+param=crushattack,65
+param=magicattack,-10
+param=strengthbonus,55
 param=levelrequire,50
+iop2=Wield
+wearpos=righthand
+category=weapon_blunt
+param=crushattack_anim,human_blunt_pound
+param=defend_anim,human_blunt_block
+param=crush_sound,baxe_crush
 
 [adamant_hammer]
 name=Adamant hammer
@@ -358,8 +403,19 @@ recol2d=23073
 2dyan=2012
 2dxan=356
 weight=2lb
-category=hammer
+param=attackrate,3
+param=stabattack,-10
+param=slashattack,-10
+param=crushattack,65
+param=magicattack,-10
+param=strengthbonus,45
 param=levelrequire,70
+iop2=Wield
+wearpos=righthand
+category=weapon_blunt
+param=crushattack_anim,human_blunt_pound
+param=defend_anim,human_blunt_block
+param=crush_sound,baxe_crush
 
 [rune_hammer]
 name=Rune hammer
@@ -377,8 +433,19 @@ recol2d=1451
 2dyan=2012
 2dxan=356
 weight=2lb
-category=hammer
+param=attackrate,3
+param=stabattack,-10
+param=slashattack,-10
+param=crushattack,85
+param=magicattack,-10
+param=strengthbonus,65
 param=levelrequire,80
+iop2=Wield
+wearpos=righthand
+category=weapon_blunt
+param=crushattack_anim,human_blunt_pound
+param=defend_anim,human_blunt_block
+param=crush_sound,baxe_crush
 
 [dragon_hammer]
 name=Dragon hammer
@@ -396,8 +463,19 @@ recol2d=3072
 2dyan=2012
 2dxan=356
 weight=2lb
-category=hammer
+param=attackrate,3
+param=stabattack,-10
+param=slashattack,-10
+param=crushattack,90
+param=magicattack,-10
+param=strengthbonus,75
 param=levelrequire,90
+iop2=Wield
+wearpos=righthand
+category=weapon_blunt
+param=crushattack_anim,human_blunt_pound
+param=defend_anim,human_blunt_block
+param=crush_sound,baxe_crush
 
 // Graded harpoons
 [bronze_harpoon]
@@ -519,6 +597,7 @@ womanwear=model_503_obj_wear,6
 weight=3lb
 param=fish_equipment_struct,fish_equipment_harpoon
 param=levelrequire,80
+
 [dragon_harpoon]
 name=Dragon Harpoon
 desc=Useful for catching really big fish.

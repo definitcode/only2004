@@ -198,7 +198,7 @@ if ($passes_roll = true) {
         mes($succesmessage);
     }
     stat_advance(cooking, $experience);
-    if (inv_total(worn, chefshat) > 0) {
+    if (inv_total(worn, chefshat) > 0 | inv_total(worn, founders_partyhat) > 0) {
         stat_advance(cooking, $experience);
         mes("Your cooking skills are showing!");
     }

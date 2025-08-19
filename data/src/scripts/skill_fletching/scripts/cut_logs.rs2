@@ -17,38 +17,25 @@
 
 [opheldu,_category_22]
 // Multi-knife support for fletching logs, prioritizing best first
-if (last_useitem = e_dragon_knife) {
-    @fletch_log(last_useitem);
-} else if (last_useitem = e_rune_knife) {
-    @fletch_log(last_item);
-} else if (last_useitem = e_adamant_knife) {
-    @fletch_log(last_item);
-} else if (last_useitem = e_mithril_knife) {
-    @fletch_log(last_item);
-} else if (last_useitem = e_steel_knife) {
-    @fletch_log(last_item);
-} else if (last_useitem = e_iron_knife) {
-    @fletch_log(last_item);
-} else if (last_useitem = e_bronze_knife) {
-    @fletch_log(last_item);
-} else if (last_useitem = founders_knife) {
-    @fletch_log(last_item);
-} else if (last_useitem = knife) {
-    @fletch_log(last_item);
-} else if (
-    last_useitem = founders_tinderbox |
-    last_useitem = dragon_tinderbox |
-    last_useitem = rune_tinderbox |
-    last_useitem = adamant_tinderbox |
-    last_useitem = mithril_tinderbox |
-    last_useitem = steel_tinderbox |
-    last_useitem = iron_tinderbox |
-    last_useitem = bronze_tinderbox |
-    last_useitem = tinderbox
-) {
-    @light_logs_inv(last_slot);
-} else {
-    ~displaymessage(^dm_default);
+switch_obj(last_useitem){
+    case e_dragon_knife : @fletch_log(last_useitem);
+    case e_rune_knife : @fletch_log(last_useitem);
+    case e_adamant_knife : @fletch_log(last_useitem);
+    case e_mithril_knife : @fletch_log(last_useitem);
+    case e_steel_knife : @fletch_log(last_useitem);
+    case e_iron_knife : @fletch_log(last_useitem);
+    case e_bronze_knife : @fletch_log(last_useitem);
+    case knife : @fletch_log(last_useitem);
+    case founders_tinderbox : @light_logs_inv(last_slot);
+    case dragon_tinderbox : @light_logs_inv(last_slot);
+    case rune_tinderbox : @light_logs_inv(last_slot);
+    case adamant_tinderbox : @light_logs_inv(last_slot);
+    case mithril_tinderbox : @light_logs_inv(last_slot);
+    case steel_tinderbox : @light_logs_inv(last_slot);
+    case iron_tinderbox : @light_logs_inv(last_slot);
+    case bronze_tinderbox : @light_logs_inv(last_slot);
+    case tinderbox : @light_logs_inv(last_slot);
+    case default : ~displaymessage(^dm_default);
 }
 // Unified logic for all knives
 [label,knife_item_use]
@@ -115,7 +102,6 @@ switch_obj($knife) {
         $shaft_mult = 1;
     }
 }
-
 if ($knife = null) {
     anim(null, 0);
     mes("You do not have a knife you can use.");

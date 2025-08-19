@@ -143,7 +143,7 @@ if ($stake = null) {
     npc_setmode(opplayer2);
     return;
 }
-if (inv_total(inv, hammer ) > 0 | inv_total(inv, founders_hammer ) > 0 | inv_total(inv, bronze_hammer ) > 0 | inv_total(inv, iron_hammer ) > 0 | inv_total(inv, steel_hammer ) > 0 | inv_total(inv, mithril_hammer ) > 0 | inv_total(inv, adamant_hammer ) > 0 | inv_total(inv, rune_hammer ) > 0 | inv_total(inv, dragon_hammer ) > 0) {
+if (inv_total(worn, hammer ) > 0 | inv_total(worn, founders_hammer ) > 0 | inv_total(worn, bronze_hammer ) > 0 | inv_total(worn, iron_hammer ) > 0 | inv_total(worn, steel_hammer ) > 0 | inv_total(worn, mithril_hammer ) > 0 | inv_total(worn, adamant_hammer ) > 0 | inv_total(worn, rune_hammer ) > 0 | inv_total(worn, dragon_hammer ) > 0) {
     p_delay(1);
     mes("You hammer the stake into the vampire's chest!");
     if (inv_total(inv, stake) > 0){

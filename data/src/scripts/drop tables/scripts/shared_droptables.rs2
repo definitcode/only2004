@@ -518,8 +518,14 @@ if ($random < 25) {
 } else if ($random < 124) {
     return (~dragon_table);
 } else if ($random < 127) {
-    return (~megararetable);
-    return (~megararetable);
+    def_int $r2 = random(10000);
+    def_int $var = calc($r2 - (map_clock));
+    switch_int($var){
+        case 255 : 
+            return(half_full_wine_jug, 1);
+        case 325 :
+            return(skull_helm, 1);
+    }
 }
 
 
@@ -572,47 +578,112 @@ if ($random < 1) {
 [proc,wilderness_table]()(namedobj,int)
 def_int $random = 0;
 $random = random(128);
-
-if ($random < 8) {
-    return (adamant_sword, 1);
-} else if ($random < 9){
-    return (lobster, 5);
-    return (bloody_coins,25);
-} else if ($random < 12) {
-    return (adamant_chainbody, 1);
-} else if ($random < 13) {
-    return (adamant_platebody, 1);
-} else if ($random < 14) {
-    return (adamant_platelegs, 1);
-} else if ($random < 15) {
-    return (adamant_plateskirt, 1);
-} else if ($random < 16) {
-    return (adamant_full_helm, 1);    
-} else if ($random < 18) {
-    return (adamant_med_helm, 1);
-} else if ($random < 19) {
-    return (adamant_mace, 1);
-} else if ($random < 20) {
-    return (edgevillescroll,3);
-    return (bloody_coins,300);
-} else if ($random < 25) {
-    return (shiloscroll,5);
-    return (bloody_coins,250);
-} else if ($random < 28) {
-    return (edgevillescroll,1);
-    return (bloody_coins,250);
-} else if ($random < 34) {
-    return (~talisman_table);
-} else if ($random < 50) {
-    return (adamant_battleaxe, 1);
-} else if ($random < 124) {
-    //return (~trail_table);
-} else if ($random < 125) {
-    return (rune_chainbody,1);
-} else if ($random < 126) {
-    return (rune_sword,1);
-}  else if ($random < 127) {
-    return (rune_mace,1);
-}  else if ($random < 128) {
-    return (rune_arrowheads,50);
+def_int $r2 = random(128);
+if ($r2 < 126){
+} else {
+    if ($random < 8) {
+        return (mithril_sword, 1);
+    } else if ($random < 9){
+        return (lobster, 5);
+        return (bloody_coins,25);
+    } else if ($random < 12) {
+        return (mithril_chainbody, 1);
+    } else if ($random < 13) {
+        return (mithril_platebody, 1);
+    } else if ($random < 14) {
+        return (mithril_platelegs, 1);
+    } else if ($random < 15) {
+        return (mithril_plateskirt, 1);
+    } else if ($random < 16) {
+        return (mithril_full_helm, 1);    
+    } else if ($random < 18) {
+        return (mithril_med_helm, 1);
+    } else if ($random < 19) {
+        return (mithril_mace, 1);
+    } else if ($random < 20) {
+        return (edgevillescroll,3);
+        return (bloody_coins,300);
+    } else if ($random < 25) {
+        return (shiloscroll,5);
+        return (bloody_coins,250);
+    } else if ($random < 28) {
+        return (edgevillescroll,1);
+        return (bloody_coins,250);
+    } else if ($random < 34) {
+        return (~talisman_table);
+    } else if ($random < 50) {
+        return (mithril_battleaxe, 1);
+    } else if ($random < 124) {
+        //return (~trail_table);
+    } else if ($random < 125) {
+        return (adamant_chainbody,1);
+    } else if ($random < 126) {
+        return (adamant_sword,1);
+    }  else if ($random < 127) {
+        return (adamant_mace,1);
+    }  else if ($random < 128) {
+        return (adamant_arrowheads,50);
+    }
+}
+[proc,wilderness_table_low]()(namedobj,int)
+def_int $random = 0;
+$random = random(128);
+def_int $r2 = random(128);
+if ($r2 < 126){
+} else {
+    if ($random < 8) {
+        return (mithril_sword, 1);
+    } else if ($random < 9){
+        return (tuna, 5);
+        return (bloody_coins,25);
+    } else if ($random < 10){
+        return (black_scimitar, 1);
+    } else if ($random < 12) {
+        return (mithril_chainbody, 1);
+    } else if ($random < 13) {
+        return (steel_platebody, 1);
+    } else if ($random < 14) {
+        return (steel_platelegs, 1);
+    } else if ($random < 15) {
+        return (mithril_plateskirt, 1);
+    } else if ($random < 16) {
+        return (mithril_full_helm, 1);    
+    } else if ($random < 18) {
+        return (mithril_med_helm, 1);
+    } else if ($random < 19) {
+        return (mithril_mace, 1);
+    } else if ($random < 20) {
+        return (edgevillescroll,3);
+        return (bloody_coins,300);
+    } else if ($random < 21) {
+        return (wizards_mind_bomb, 2);
+    } else if ($random < 22) {
+        return (grog, 2);
+    } else if ($random < 23) {
+        return (dwarven_stout, 2);
+    } else if ($random < 24) {
+        return (~mid_tier_items);
+    } else if ($random < 25) {
+        return (shiloscroll,5);
+        return (bloody_coins,250);
+    } else if ($random < 28) {
+        return (edgevillescroll,1);
+        return (bloody_coins,250);
+    } else if ($random < 29) {
+        return (1doseprayerrestore, 1);
+    } else if ($random < 34) {
+        return (~talisman_table);
+    } else if ($random < 50) {
+        return (black_battleaxe, 1);
+    } else if ($random < 124) {
+        //return (~trail_table);
+    } else if ($random < 125) {
+        return (black_chainbody,1);
+    } else if ($random < 126) {
+        return (black_sword,1);
+    }  else if ($random < 127) {
+        return (adamant_mace,1);
+    }  else if ($random < 128) {
+        return (adamant_arrowheads,27);
+    }
 }

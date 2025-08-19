@@ -3,7 +3,7 @@
 [opheld1,reset_box] ~reset;
 [opheld1,hc_box] ~hc_box;
 [opheld1,alchemy_box] ~alchemy_box;
-[opheld1,allgear_box] @gp;
+[opheld1,allgear_box] ~rolltester;
 [proc,open_giftbox]
 if (inv_freespace(inv) > 3){
 
@@ -131,3 +131,16 @@ inv_del(inv, hc_box, 1);
 
 mes("High Alch GP Reset");
 inv_del(inv,alchemy_box, 1);
+
+
+
+[proc,rolltester]
+def_int $r2 = random(10000);
+def_int $var = calc($r2 - (map_clock));
+mes("Var: <tostring($var)>");
+switch_int($var){
+    case 255 : 
+        mes("Successful Proc! 255");
+    case 325 :
+        mes("Succesful Proc!! 325");
+}

@@ -1,9 +1,13 @@
 [opheld4,max_cape] @max_cape_interface("You charge your cape.");
 
 [label,max_cape_interface](string $message)
+def_int $imbued_dust = inv_total(inv, imbued_dust);
 def_obj $item = last_item;
 def_int $slot = last_slot;
-
+if ($imbued_dust < 500) {
+    mes("You need at least 500 Imbued Dust to Teleport!");
+    return;
+}
 def_int $choice = ~p_choice5_header("Edgeville.", 1, "Dueling Arena.", 2, "Brimhaven.", 3, "KBD.", 4, "Zanaris.", 5, "Where would you like to teleport to ?");
 
 if (~wilderness_level(coord) > 0) {

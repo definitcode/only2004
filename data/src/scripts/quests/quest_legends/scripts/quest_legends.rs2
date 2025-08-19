@@ -1441,8 +1441,9 @@ if (stat(smithing) < 50) {
     ~mesbox("You need a Smithing level of at least 50 to work Gold.");
     return;
 }
-if (inv_total(inv, hammer ) > 0 | inv_total(inv, founders_hammer ) > 0 | inv_total(inv, bronze_hammer ) > 0 | inv_total(inv, iron_hammer ) > 0 | inv_total(inv, steel_hammer ) > 0 | inv_total(inv, mithril_hammer ) > 0 | inv_total(inv, adamant_hammer ) > 0 | inv_total(inv, rune_hammer ) > 0 | inv_total(inv, dragon_hammer ) > 0) {
-    if (~p_choice2_header("Yes", 1, "No", 2, "Would you like to make a golden bowl?") = 2) {
+def_obj $hammer = ~hammer_checker;
+if ($hammer ! null){
+        if (~p_choice2_header("Yes", 1, "No", 2, "Would you like to make a golden bowl?") = 2) {
         return;
     }
     if_close;

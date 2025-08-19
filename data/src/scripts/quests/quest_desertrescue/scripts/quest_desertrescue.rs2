@@ -581,7 +581,8 @@ if(last_useitem = bronze_bar | last_useitem = thcaptplans) {
         ~objbox(bronze_bar, "You need a bronze bar to make this weapon.", 250, 0, 0);
         return;
     }
-    if(inv_total(inv, hammer) = 0) {
+    def_obj $hammer = ~hammer_checker;
+    if ($hammer = null){
         ~objbox(hammer, "You need a hammer to work anything on the anvil.", 250, 0, 0);
         return;
     }

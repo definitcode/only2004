@@ -70,16 +70,8 @@ if (inv_total(inv, nails) < 4) {
     ~mesbox("You need 4 steel nails to attach the plank with.");
     return;
 }
-if (
-    inv_total(inv, hammer) > 0 |
-    inv_total(inv, founders_hammer) > 0 |
-    inv_total(inv, bronze_hammer) > 0 |
-    inv_total(inv, iron_hammer) > 0 |
-    inv_total(inv, steel_hammer) > 0 |
-    inv_total(inv, mithril_hammer) > 0 |
-    inv_total(inv, adamant_hammer) > 0 |
-    inv_total(inv, rune_hammer) > 0 |
-    inv_total(inv, dragon_hammer) > 0) {
+def_obj $hammer = ~hammer_checker;
+if ($hammer ! null) {
     inv_del(inv, woodplank, 1);
     inv_del(inv, nails, 4);
     %dragon_planks = min(calc(%dragon_planks + 1), 3);

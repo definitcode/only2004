@@ -60,10 +60,11 @@ recol1d=25765
 2dzoom=600
 2dyan=84
 2dxan=260
-iop1=Drink
+manwear=model_2390_obj,0
+womanwear=model_2390_obj,6
+wearpos=righthand
 weight=1kg
-category=alcoholic_drinks
-param=next_obj_stage,jug_empty
+category=unique
 
 [jug_unfermented_wine]
 cost=10

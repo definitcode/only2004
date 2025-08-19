@@ -196,7 +196,7 @@ if (~wilderness_level(coord) > 0) {
 }
 inv_del(inv,yanillescroll, 1);
 ~player_teleport_normal(0_40_48_43_16);
-mes("You have used a Seers' Scroll!");
+mes("You have used a Yanille Scroll!");
 
 [proc,shiloport]
 %teleportlocation = ^reset_tele;

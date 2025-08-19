@@ -188,7 +188,8 @@ wearpos=lefthand
 wearpos2=righthand
 param=ready_baseanim,human_middlegrip
 manwear=model_loc_693_8,0
-womanwear=model_loc_693_8,0  
+womanwear=model_loc_693_8,0
+category=hammer
 
 
 [hooded_figure]
@@ -316,8 +317,8 @@ model=model_2791_obj
 iop2=Wield
 wearpos=righthand
 wearpos2=lefthand
-manwear=model_2791_obj,0
-womanwear=model_2791_obj,0
+manwear=model_555_npc,0
+womanwear=model_555_npc,0
 weight=7lb
 param=stabattack,48
 param=slashattack,145
@@ -327,7 +328,7 @@ param=crushdefence,1
 param=strengthbonus,130
 param=ready_baseanim,human_ready_scythe
 param=attackrate,9
-param=slashattack_anim,human_scythe_sweep
+param=slashattack_anim,human_middlegrip
 param=crushattack_anim,human_scythe_lunge
 param=stabattack_anim,human_scythe_slash
 param=defend_anim,human_scythe_block

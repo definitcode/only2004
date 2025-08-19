@@ -19,39 +19,48 @@ if(%gamemode_selected = ^gamemode_pvp){
     mes("You cannot do this.");
     return;
 }
-def_namedobj $chisel = null;
+def_obj $chisel = ~chisel_checker;
 def_int $exp_mul = 1;
 def_int $prod_mul = 1;
-if ((inv_total(inv, dragon_chisel) > 0)){
-    $chisel = dragon_chisel;
-    $exp_mul = 4;
-    $prod_mul = 4;
-} else if ((inv_total(inv, rune_chisel) > 0)){
-    $chisel = rune_chisel;
-    $exp_mul = 3;
-    $prod_mul = 3;
-} else if ((inv_total(inv, adamant_chisel) > 0)){
-    $chisel = adamant_chisel;
-    $exp_mul = 3;
-    $prod_mul = 2;
-} else if ((inv_total(inv, mithril_chisel) > 0)){
-    $chisel = mithril_chisel;
-    $exp_mul = 2;
-    $prod_mul = 2;
-} else if ((inv_total(inv, steel_chisel) > 0)){
-    $chisel = steel_chisel;
-    $exp_mul = 1;
-    $prod_mul = 1;
-} else if ((inv_total(inv, iron_chisel) > 0)){
-    $chisel = iron_chisel;
-    $exp_mul = 1;
-    $prod_mul = 1;
-} else if ((inv_total(inv, bronze_chisel) > 0)){
-    $chisel = bronze_chisel;
-    $exp_mul = 1;
-    $prod_mul = 1;
-} else if ((inv_total(inv, chisel) > 0)){
-    $chisel = chisel;
+switch_obj($chisel){
+    case dragon_chisel : {
+        $exp_mul = 4;
+        $prod_mul = 4;
+    }
+    case rune_chisel : {
+        $exp_mul = 3;
+        $prod_mul = 3;
+    }
+    case adamant_chisel : {
+        $exp_mul = 3;
+        $prod_mul = 2;
+
+    }
+    case mithril_chisel : {
+        $exp_mul = 2;
+        $prod_mul = 2;
+
+    }
+    case steel_chisel : {
+        $exp_mul = 1;
+        $prod_mul = 1;
+    }
+    case iron_chisel : {
+        $exp_mul = 1;
+        $prod_mul = 1;
+    }
+    case bronze_chisel : {
+        $exp_mul = 1;
+        $prod_mul = 1;
+    }
+    case chisel : {
+        $exp_mul = 1;
+        $prod_mul = 1;
+    }
+    case null : {
+        mes("You do not have a chisel you can use.");
+        return;
+    }
 }
 if (map_members = false) {
     mes(^mes_members_fletching); // guess
