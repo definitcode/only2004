@@ -1,0 +1,8 @@
+[mining_camp_progress]
+scope=perm
+
+[needed_fragments]
+scope=perm
+
+[fragments_turned_in]
+scope=perm

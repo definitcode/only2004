@@ -10,7 +10,7 @@ if (inv_total(inv, macro_pickaxehandle) > 0 & inv_total(inv, $pickaxe_head) > 0)
 
 [opheldu,macro_pickaxehandle]
 switch_obj(last_useitem) {
-    case macro_bronze_pickaxehead, macro_iron_pickaxehead, macro_steel_pickaxehead, macro_mithril_pickaxehead, macro_adamant_pickaxehead, macro_rune_pickaxehead : @reattach_pickaxe(last_useitem);
+    case macro_bronze_pickaxehead, macro_iron_pickaxehead, macro_steel_pickaxehead, macro_mithril_pickaxehead, macro_adamant_pickaxehead, macro_rune_pickaxehead, macro_dragon_pickaxehead : @reattach_pickaxe(last_useitem);
     case default : ~displaymessage(^dm_default);
 }
 
@@ -20,6 +20,7 @@ switch_obj(last_useitem) {
 [opheldu,macro_mithril_pickaxehead] @check_pickaxe_head;
 [opheldu,macro_adamant_pickaxehead] @check_pickaxe_head;
 [opheldu,macro_rune_pickaxehead] @check_pickaxe_head;
+[opheldu,macro_dragon_pickaxehead] @check_pickaxe_head;
 
 [label,check_pickaxe_head]
 if (last_useitem = macro_pickaxehandle) {

@@ -172,6 +172,18 @@ data=experience,400
 data=successchance,118,492
 data=cantcookmessage_fire,You need a proper oven to cook that.
 
+[cooking_generic_lemon_pie]
+table=cooking_generic
+data=uncooked,uncooked_lemon_pie
+data=cooked,lemon_pie
+data=burnt,burnt_pie
+data=levelrequired,50
+data=experience,1500
+data=successchance,58,372
+data=cookmessage_range,You cook the apple pie in the oven...
+data=cantcookmessage_fire,You need a proper oven to cook that.
+data=successmessage,You remove the apple pie from the oven.
+
 [cooking_generic_apple_pie]
 table=cooking_generic
 data=uncooked,uncooked_apple_pie

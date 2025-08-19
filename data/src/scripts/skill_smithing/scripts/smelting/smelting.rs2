@@ -12,6 +12,11 @@ switch_obj (last_useitem)
     case caveorb1, caveorb2, caveorb3, caveorb4 :
         if(loc_type = furnace_upass) @destroy_orboflight(last_useitem);
         ~displaymessage(^dm_default);
+    case unstable_fragment : {
+        inv_del(inv, unstable_fragment, 1);
+        anim(human_pickuptable, 0);
+        sound_synth(furnace, 2, 0);
+    } 
     case default :
         if (oc_category(last_useitem) = category_91) {
             @smelt_ore(last_useitem);

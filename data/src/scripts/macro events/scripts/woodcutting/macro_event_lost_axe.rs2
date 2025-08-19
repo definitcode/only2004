@@ -10,7 +10,7 @@ if (inv_total(inv, macro_hatchethandle) > 0 & inv_total(inv, $axe_head) > 0) {
 
 [opheldu,macro_hatchethandle]
 switch_obj(last_useitem) {
-    case macro_bronze_hatchethead, macro_iron_hatchethead, macro_steel_hatchethead, macro_black_hatchethead, macro_mithril_hatchethead, macro_adamant_hatchethead, macro_rune_hatchethead : @reattach_axe(last_useitem);
+    case macro_bronze_hatchethead, macro_iron_hatchethead, macro_steel_hatchethead, macro_black_hatchethead, macro_mithril_hatchethead, macro_adamant_hatchethead, macro_rune_hatchethead, macro_dragon_hatchethead : @reattach_axe(last_useitem);
     case default : ~displaymessage(^dm_default);
 }
 
@@ -21,6 +21,7 @@ switch_obj(last_useitem) {
 [opheldu,macro_mithril_hatchethead] @check_axe_head;
 [opheldu,macro_adamant_hatchethead] @check_axe_head;
 [opheldu,macro_rune_hatchethead] @check_axe_head;
+[opheldu,macro_dragon_hatchethead] @check_axe_head;
 
 [label,check_axe_head]
 if (last_useitem = macro_hatchethandle) {

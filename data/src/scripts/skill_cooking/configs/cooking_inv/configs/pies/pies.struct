@@ -1,3 +1,9 @@
+[uncooked_lemon_pie]
+param=product,uncooked_lemon_pie
+param=productmessage,lemon slices
+param=levelrequired,50
+param=levelfailmessage,an Lemon Pie
+
 [uncooked_apple_pie]
 param=product,uncooked_apple_pie
 param=productmessage,apple

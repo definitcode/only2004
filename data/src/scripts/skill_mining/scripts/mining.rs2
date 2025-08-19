@@ -12,6 +12,7 @@
 [oploc1,essence_pillar] @mining_firstswing(get_ore_essencefrag);
 [oploc3,essence_pillar] @mining_continue(get_ore_essencefrag);
 
+
 // gem rocks
 [oploc1,gemrock] @mining_firstswing(get_ore_gem_rock);
 [oploc3,gemrock] @mining_continue(get_ore_gem_rock);

@@ -1,0 +1,44 @@
+[king_ent]
+vislevel=hide
+name=King Ent
+desc=One of the most common trees in RuneScape.
+readyanim=seq_334
+vislevel=hide
+size=4
+hasalpha=yes
+op1=Chop down
+op3=hidden
+minimap=yes
+recol1s=13537
+recol1d=5218
+model1=model_loc_1293_8
+wanderrange=0
+moverestrict=nomove
+
+[mining_camp]
+vislevel=hide
+name=Mining Camp Leader
+desc=Leader of this dangerous expedition.
+walkanim=dwarf_walk
+readyanim=dwarf_ready
+op1=Talk-to
+op2=Fragments
+recol1s=15855
+recol1d=24075
+recol2s=15426
+recol2d=234
+recol3s=15785
+recol3d=234
+recol4s=8456
+recol4d=32767
+model1=model_2970_npc
+model2=model_2983_npc
+model3=model_2979_npc
+model4=model_2981_npc
+model5=model_2985_npc
+head1=model_0_npc_head
+category=boss_npc
+wanderrange=3
+param=damagetype,^stab_style
+param=death_anim,dwarf_death
+moverestrict=indoors

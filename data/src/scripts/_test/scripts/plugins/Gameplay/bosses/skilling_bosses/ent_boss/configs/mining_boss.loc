@@ -1,0 +1,31 @@
+[boss_rock]
+name=Rock
+desc=A rocky that needs to go.
+model=plainrock1
+op1=Mine
+op2=Prospect
+op3=hidden
+mapscene=12
+blockrange=no
+recol1s=6342
+recol1d=4452
+category=mining_rock_normal
+param=next_loc_stage_mining,plainrock1
+param=macro_gas,gas_boss_rock
+
+[gas_boss_rock]
+name=Unstable Rock
+desc=A dangerous rock releasing gas.
+model=macro_plainrock1
+op1=Mine
+op2=Prospect
+op3=hidden
+mapscene=12
+anim=gas
+hasalpha=yes
+blockrange=no
+recol1s=6342
+recol1d=4452
+recol2s=28538
+recol2d=17036
+category=mining_rock_macro_gas

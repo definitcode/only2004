@@ -1,0 +1,37 @@
+//[opnpc1,king_ent]
+//def_obj $axe = ~woodcutting_axe_checker;
+//def_obj $tb = ~firemaking_checker;
+//
+//if ($axe = null & $tb = null){
+//    mes("You do not have any tools required to do this!");
+//} else if ($axe = null){
+//    ~fireattack;
+//} else if ($tb = null){
+//    ~axeattack;
+//}
+//
+//[proc,fireattack]
+//
+//
+//[proc,axeattack]
+//def_obj $axe = ~woodcutting_axe_checker;
+//
+//
+//sound_synth(woodchop, 0, 0);
+//mes("You swing your axe at the tree.");
+//
+//if (%action_delay < map_clock) {
+//    %action_delay = calc(map_clock + 3);
+//} else if (%action_delay = map_clock) {
+//    if (%founders_transmog = ^transmog_on) {
+//        anim(human_woodcutting_founders_axe, 0);
+//    } else {
+//        anim(struct_param(oc_param($axe, woodcutting_struct), skill_anim), 0);
+//    }
+//    
+//    ~damage_kingent;
+//}
+//
+//[proc,damage_kingent]
+//npc_finduid(npc_aggressive_player)
+

@@ -687,3 +687,20 @@ if ($r2 < 126){
         return (adamant_arrowheads,27);
     }
 }
+
+[proc,treasure_items]()(namedobj,int)
+def_int $random = random(28);
+
+switch_int($random){
+    case 0 : return(cavalier_brown, 1);
+    case 1 : return(cavalier_black, 1);
+    case 2 : return(cavalier_dark, 1);
+    case 3 : return(berret_black, 1);
+    case 4 : return(berret_blue, 1);
+    case 5 : return(berret_white, 1);
+    case 6 : return(headband_black, 1);
+    case 7 : return(headband_brown, 1);
+    case 8 : return(headband_red, 1);
+    case 9 : return(halberd, 1);
+    case 10 : return(half_full_wine_jug, 1);
+}

@@ -1,0 +1,9 @@
+// Boss Game Status
+^mcb_notstarted = 0
+^mcb_started = 1
+
+// Difficulty
+^mcb_easy = 250
+^mcb_medium = 500
+^mcb_hard = 750
+^mcb_insane = 1050

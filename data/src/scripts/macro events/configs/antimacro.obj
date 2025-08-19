@@ -187,6 +187,32 @@ param=crush_sound,baxe_crush
 param=to_be_fixed_by_nurmof,^true
 param=fixed,rune_pickaxe
 
+[macro_broken_dragon_pickaxe]
+name=Broken pickaxe
+desc=Nurmof can fix this for me.
+model=model_2662_obj
+recol1s=15855
+recol1d=10273
+2dxof=-2
+2dyof=-19
+2dzoom=1070
+2dyan=1056
+2dxan=224
+wearpos=righthand
+weight=4lb
+category=weapon_blunt
+manwear=model_530_obj_wear,0
+womanwear=model_530_obj_wear,6
+cost=1100
+param=attackrate,5
+param=stabattack_anim,human_blunt_pound
+param=crushattack_anim,human_blunt_spike
+param=defend_anim,human_axe_block
+param=stab_sound,baxe_slash
+param=crush_sound,baxe_crush
+param=to_be_fixed_by_nurmof,^true
+param=fixed,dragon_pickaxe
+
 [macro_bronze_pickaxehead]
 name=Pickaxe head
 desc=It's missing a handle.
@@ -582,3 +608,18 @@ recol1d=6476
 weight=2lb
 cost=12799
 param=fixed,rune_axe
+
+
+[macro_dragon_hatchethead]
+name=Axe head
+desc=It's missing a handle.
+model=model_2444_obj
+recol1s=15855
+recol1d=14336
+2dxof=-15
+2dzoom=1060
+2dyan=1196
+2dxan=520
+weight=2lb
+cost=12799
+param=fixed,dragon_axe

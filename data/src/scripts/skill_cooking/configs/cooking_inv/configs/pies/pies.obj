@@ -18,6 +18,26 @@ weight=450g
 category=category_129
 param=next_obj_stage,half_an_apple_pie
 
+[lemon_pie]
+name=Lemon pie
+desc=Mmm Lemon pie.
+iop1=Eat
+cost=75
+model=model_2767_obj
+recol1s=30545
+recol1d=22982
+recol2s=7264
+recol2d=15620
+recol3s=15855
+recol3d=20971
+2dyof=-9
+2dzoom=950
+2dyan=104
+2dxan=192
+weight=450g
+category=category_129
+param=next_obj_stage,half_an_lemon_pie
+
 [redberry_pie]
 name=Redberry pie
 desc=Looks tasty.
@@ -102,6 +122,32 @@ recol5s=10570
 recol5d=18858
 recol6s=15554
 recol6d=18564
+2dyof=-9
+2dzoom=950
+2dyan=104
+2dxan=192
+weight=225g
+category=category_129
+param=next_obj_stage,piedish
+
+[half_an_lemon_pie]
+name=Half an lemon pie
+desc=Mmm half an lemon pie.
+iop1=Eat
+cost=150
+model=model_2643_obj
+recol1s=30545
+recol1d=22982
+recol2s=7264
+recol2d=15620
+recol3s=15855
+recol3d=20971
+recol4s=7399
+recol4d=19878
+recol5s=10570
+recol5d=18858
+recol6s=15554
+recol6d=26531
 2dyof=-9
 2dzoom=950
 2dyan=104

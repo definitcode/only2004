@@ -1,0 +1,346 @@
+[opnpc1,mining_camp] @mining_camp_boss;
+[opnpc2,mining_camp] @turninfragments;
+[opnpcu,mining_camp]
+def_obj $item = last_useitem;
+def_int $slot = last_useslot;
+def_int $cost = oc_cost($item);
+if (oc_param($item, to_be_fixed_by_nurmof) = ^true) { // dialogue is guessed and inspired by bob fixing axes
+// found a video https://youtu.be/43nVXcCOOCM
+// doesnt show all the dialogue but shows that its likely the same as bob fixing axes
+    if (inv_total(inv, coins) < $cost) {
+        ~chatnpc("<p,sad>I'll need <tostring($cost)>gp to repair that."); // bob osrs
+        return;
+    }
+    if ($cost > 0) {
+        ~chatnpc("<p,neutral>Quite badly damaged, but easy to repair. Would you like me to repair it for <tostring($cost)>gp?");
+    } else {
+        ~chatnpc("<p,neutral>Quite badly damaged, but easy to repair. Would you like me to repair it for free?");
+    }
+    
+    def_int $option = ~p_choice2("Yes, please.", 1, "No, thank you.", 2);
+    if ($option = 1) {
+        if ($cost = 0) {
+            inv_delslot(inv, $slot);
+            inv_add(inv, oc_param($item, fixed), 1);
+            mes("the Mining Camp Leader fixes your pickaxe for free!"); // guess
+            return;
+        }
+        if (inv_total(inv, coins) < $cost) {
+            ~chatplayer("<p,sad>Sorry, I don't have enough money with me."); // complete guess
+            return;
+        }
+        // fix pickaxe
+        inv_delslot(inv, $slot);
+        inv_del(inv, coins, $cost);
+        inv_add(inv, oc_param($item, fixed), 1);
+        mes("the Mining Camp Leader fixes your pickaxe for <tostring($cost)>gp"); // no period in the dialogue
+        return;
+    }
+} else {
+    ~chatnpc("<p,neutral>Sorry friend, but I can't do anything with that."); // bob osrs
+}
+
+[label,turninfragments]
+switch_int(%mining_camp_progress){
+    case ^mcb_started : {
+        if (%fragments_turned_in >= %needed_fragments){
+            ~chatnpc("<p,happy>Oh wow! Thank you so much!! Here take this.");
+            inv_add(inv, mining_casket, 1);
+        }
+        def_int $unstable_fragments = inv_total(inv, unstable_fragment);
+        if ($unstable_fragments = 0) {
+            ~mesbox("You need to turn in <tostring(calc(%needed_fragments - %fragments_turned_in))> more!");
+            return;
+        }
+        inv_del(inv, unstable_fragment, $unstable_fragments);
+        %fragments_turned_in = calc(%fragments_turned_in + $unstable_fragments);
+        ~mesbox("You have turned in <tostring(%fragments_turned_in)> and need to turn in <tostring(calc(%needed_fragments - %fragments_turned_in))> more!");
+    }
+}
+
+[label,mining_camp_boss]
+if (stat_base(mining) < 60){
+    ~chatnpc("You need to get more mining experience before I will entrust you with this task!");
+    return;
+}
+switch_int(%mining_camp_progress){
+    case ^mcb_started : {
+        if (%fragments_turned_in >= %needed_fragments){
+            ~chatnpc("<p,happy>Oh wow! Thank you so much!! Here take this.");
+            inv_add(inv, mining_casket, 1);
+        }
+        def_int $unstable_fragments = inv_total(inv, unstable_fragment);
+        if ($unstable_fragments = 0) {
+            ~mesbox("You need to turn in <tostring(calc(%needed_fragments - %fragments_turned_in))> more!");
+            return;
+        }
+        inv_del(inv, unstable_fragment, $unstable_fragments);
+        %fragments_turned_in = calc(%fragments_turned_in + $unstable_fragments);
+        ~mesbox("You have turned in <tostring(%fragments_turned_in)> and need to turn in <tostring(calc(%needed_fragments - %fragments_turned_in))> more!");
+    }
+    case ^mcb_notstarted : {
+        ~chatnpc("Hurry quick! I need your help getting these unstable rocks popped.");
+        ~chatplayer("What do you mean? 'unstable rocks'?");
+        ~chatnpc("We found deposits of dangerous rocks that require careful mining |techniques deployed by those trained by the dwarven splunkers!");        
+        switch_int(~p_choice2_header("Yes.", 1, "Go Back.", 2, "Would you like to start Unstable Rocks?")){
+            case 1 : {
+                %mining_camp_progress = ^mcb_started;
+                def_int $random = random(4);
+                switch_int($random){
+                    case 0 : %needed_fragments = ^mcb_easy;
+                    case 1 : %needed_fragments = ^mcb_medium;
+                    case 2 : %needed_fragments = ^mcb_hard;
+                    case 3 : %needed_fragments = ^mcb_insane;
+                }
+                ~chatnpc("You need to bring me <tostring(%needed_fragments)>x to me!");
+                %fragments_turned_in = 0;
+            }
+            case 2 : {
+                return;
+            }
+        }
+        
+    }
+}
+
+
+[proc,boss_gas_rock]
+anim(null, 0);
+loc_change(loc_param(macro_gas), ^lootdrop_duration);
+sound_synth(gas_hiss, 0, 0);
+p_oploc(1);
+~mesbox("The rock begins to hiss... violently..");
+
+
+
+[oploc1,gas_boss_rock] @mining_camp_gas;
+[oploc3,gas_boss_rock] @mining_camp_gas;
+[oploc1,boss_rock] @mining_firstswing_boss;
+[oploc3,boss_rock] @mining_continue_boss;
+
+[label,mining_camp_gas]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
+def_obj $pickaxe = ~pickaxe_checker;
+if ($pickaxe = null) {
+    anim(null, 0);
+    ~mesbox("You need a pickaxe to mine this rock. You do not have a pickaxe which you have the Mining level to use.");
+    return;
+}
+def_int $mining_rate = oc_param($pickaxe, mining_rate);
+if (%action_delay < map_clock) {
+    %action_delay = calc(map_clock + $mining_rate);
+    p_oploc(1);
+    return;
+}
+if (%founders_transmog = ^transmog_on) {
+    anim(human_mining_founders_pickaxe, 0);
+} else {
+    anim(oc_param($pickaxe, mining_animation), 0);
+}
+mes("You swing your pick at the rock.");
+if (%action_delay = map_clock) {
+}
+p_oploc(3);
+
+def_int $random = random(1000);
+if ($random < 4500){
+    anim(null, 0);
+    p_clearpendingaction;
+    sound_synth(gas_explosion, 0, 0);
+    spotanim_map(firewave_impact, loc_coord, 92, 0);
+    queue(damage_player, 0, 10);
+    mes("A spark from your pickaxe ignites the gas!"); // https://imgur.com/Rjj4JqR
+    mes("The blast damages your pickaxe!");
+    $pickaxe = ~pickaxe_checker;
+    def_namedobj $pickaxe_broken = oc_param($pickaxe, broken);
+
+    // todo: use inv_changeslot?
+    if (inv_total(worn, $pickaxe) > 0) {
+        inv_del(worn, $pickaxe, 1);
+        inv_setslot(worn, ^wearpos_rhand, $pickaxe_broken, 1);
+        ~update_all($pickaxe);
+    } else if (inv_total(inv, $pickaxe) > 0) {
+        inv_del(inv, $pickaxe, 1);
+        inv_add(inv, $pickaxe_broken, 1);
+    }
+} else {
+    anim(null, 0);
+    p_clearpendingaction;
+    sound_synth(gas_explosion, 0, 0);
+    spotanim_map(firewave_impact, loc_coord, 92, 0);
+    queue(damage_player, 0, 35);
+    mes("A spark from your pickaxe ignites the gas!"); // https://imgur.com/Rjj4JqR
+    mes("The blast damages you!");
+}
+
+
+
+[label,mining_casket_open]
+def_int $random = random(128);
+if ($random < 25){
+    inv_add(inv, ~mining_gem_table, 1);
+    inv_add(inv, ~talisman_table);
+} else if ($random < 50) {
+    inv_add(inv, ~trail_table);
+    inv_add(inv, adamant_pickaxe, 1);
+} else if ($random < 55) {
+    inv_add(inv, ~trail_table);
+    inv_add(inv, ~randomherb);
+    inv_add(inv, ~randomherb);
+} else if ($random < 60) {
+    inv_add(inv, ~trail_table);
+    inv_add(inv, mithril_pickaxe, 1);
+} else if ($random < 65) {
+    inv_add(inv, ~mid_tier_items);
+    ~casket_open;
+} else if ($random < 70) {
+    inv_add(inv, ~treasure_items);
+} else if ($random > 126){
+    def_int $r2 = random(1000);
+    switch_int($r2){
+        case 999 : {
+            inv_add(inv, rune_pickaxe, 1);
+            ~objbox(rune_pickaxe, "You received a Rune Pickaxe!", 120, 0, 0);
+        }
+        case 625 : {
+            inv_add(inv, rune_ammo_mould, 1);
+            ~objbox(rune_ammo_mould, "You received a Rune Ammo Mould!", 120, 0, 0);
+        }
+        case 300 : {
+            inv_add(inv, rune_chisel, 1);
+            ~objbox(rune_chisel, "You received a Rune Chisel!", 120, 0, 0);
+        }
+        case 150 : {
+            inv_add(inv, rune_hammer, 1);
+            ~objbox(rune_hammer, "You received a Rune Hammer!", 120, 0, 0);
+        }
+        case 200 : {
+            inv_add(inv, dragon_pickaxe, 1);
+            ~objbox(dragon_pickaxe, "You have received a legendary Dragon Pickaxe!", 120, 0, 0);
+        }
+        case default : inv_add(inv, ~treasure_items);
+    } 
+}
+inv_del(inv, mining_casket, 1);
+
+
+// --------------------------
+// First Swing
+// --------------------------
+[label,mining_firstswing_boss]
+if (stat_base(mining) < 60){
+    ~mesbox("You need lvl 60 Mining to do this.");
+    return;
+}
+if (%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
+
+def_int $is_empty = loc_param(mining_rock_empty);
+if ($is_empty = ^true) {
+    anim(null, 0);
+    mes("There is no ore currently available in this rock.");
+    sound_synth(prospect, 0, 0);
+    return;
+}
+
+if (inv_freespace(inv) < 1) {
+    anim(null, 0);
+    ~mesbox("Your inventory is too full to hold any more fragments.");
+    return;
+}
+
+def_obj $pickaxe = ~pickaxe_checker;
+if ($pickaxe = null) {
+    anim(null, 0);
+    ~mesbox("You need a pickaxe to mine this rock. You do not have a pickaxe which you have the Mining level to use.");
+    return;
+}
+
+def_int $mining_rate = oc_param($pickaxe, mining_rate);
+
+// only set delay if ready
+if (%action_delay < map_clock) {
+    %action_delay = calc(map_clock + $mining_rate);
+}
+
+// play swing anim
+if (%founders_transmog = ^transmog_on) {
+    anim(human_mining_founders_pickaxe, 0);
+} else {
+    anim(oc_param($pickaxe, mining_animation), 0);
+}
+
+mes("You swing your pick at the rock.");
+
+// hand off to continue loop
+p_oploc(3);
+
+
+// --------------------------
+// Continue Swing
+// --------------------------
+[label,mining_continue_boss]
+if (stat_base(mining) < 60){
+    ~mesbox("You need lvl 60 Mining to do this.");
+    return;
+}
+if (%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
+
+if (inv_freespace(inv) < 1) {
+    anim(null, 0);
+    ~mesbox("Your inventory is too full to hold any more fragments.");
+    return;
+}
+
+def_obj $pickaxe = ~pickaxe_checker;
+if ($pickaxe = null) {
+    anim(null, 0);
+    ~mesbox("You need a pickaxe to mine this rock. You do not have a pickaxe which you have the Mining level to use.");
+    return;
+}
+
+def_int $mining_rate = oc_param($pickaxe, mining_rate);
+
+// tick cycle
+if (%action_delay < map_clock) {
+    // set delay for next cycle
+    %action_delay = calc(map_clock + $mining_rate);
+    sound_synth(mine_quick, 0, 0);
+
+    // play animation
+    if (%founders_transmog = ^transmog_on) {
+        anim(human_mining_founders_pickaxe, 0);
+    } else {
+        anim(oc_param($pickaxe, mining_animation), 0);
+    }
+
+    // award fragment
+    inv_add(inv, unstable_fragment, 1);
+
+    // roll for gas explosion
+    def_int $random = random(10);
+    if ($random = 3) {
+        ~boss_gas_rock;
+        return;
+    }
+
+    // progress rock depletion
+    loc_change(loc_param(next_loc_stage_mining), 16);
+    sound_synth(sound_230, 0, 0); // Sudden says sound_230 is correct
+    anim(null, 0);
+
+    // queue next mining loop
+    p_oploc(1);
+    return;
+}
+
+// if still waiting, keep looping
+p_oploc(3);

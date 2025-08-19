@@ -44,7 +44,7 @@ if (%r_taskstatus = ^r_notstarted) {
                 }
             }
 
-            ~mesbox("Assigned: [<tostring(%r_taskamount)>x] [<oc_name($task_item)>]. Turn them in to complete the task.");
+            ~mesbox("Assigned: [<tostring(%r_taskamount)>x] [<oc_name($task_item)>]. Turn in to complete the task.");
             mes("Your task has begun. Good luck!");
         }
 
