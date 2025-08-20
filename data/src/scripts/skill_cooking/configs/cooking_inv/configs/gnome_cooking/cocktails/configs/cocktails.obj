@@ -808,6 +808,7 @@ recol2d=31637
 category=category_120
 weight=80g
 param=cocktail_message,You add a lemon slice to the drink.
+param=uncooked_pie_struct,uncooked_lemon_pie
 
 [orange]
 name=Orange

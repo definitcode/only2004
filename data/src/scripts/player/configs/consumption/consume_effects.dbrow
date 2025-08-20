@@ -282,6 +282,7 @@ data=stat_heal,hitpoints,0,0
 table=consume_table
 data=consumable,cup_of_tea
 data=stat_change,attack,2,2
+data=stat_change,agility,10,0
 data=stat_heal,hitpoints,3,0
 
 [odd_gnomefood_effect]

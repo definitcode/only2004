@@ -178,7 +178,11 @@ if (oc_param($item, next_obj_stage) ! null) {
     inv_add(inv, oc_param($item, next_obj_stage), 1);
 }
 mes("<$message> into your cocktail shaker...");
-
+stat_advance(cooking, 15);
+if (inv_total(worn, chefshat) > 0 | inv_total(worn, founders_partyhat) > 0) {
+    stat_advance(cooking, 15);
+    mes("Your cooking skills are showing!");
+}
 
 [proc,get_cocktail_ingredient_step]()(int)
 if (%gnome_drink_ingredient1 = null | %gnome_drink_ingredient1 = mcannonremains) return(0);

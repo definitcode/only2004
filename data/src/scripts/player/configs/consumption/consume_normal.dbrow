@@ -136,6 +136,8 @@ data=consume_sound,eat
 [heal_9]
 table=consume_table
 data=consumable,salmon
+data=consumable,lemon_pie
+data=consumable,half_an_lemon_pie
 data=stat_heal,hitpoints,9,0
 data=consume_sound,eat
 

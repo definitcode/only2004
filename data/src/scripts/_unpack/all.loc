@@ -3514,9 +3514,17 @@ desc=Time for a recital?
 model=model_loc_682
 width=2
 
-[loc_683]
+[loc_684]
 name=Grandfather clock
 desc=Tick-tock, it's a clock.
+model=model_loc_683
+
+[loc_683]
+name=Broken Clock
+recol1s=12613 
+recol1d=8419 
+desc=This should tick-tock, it's a clock.
+op1=Fix
 model=model_loc_683
 
 [loc_685]

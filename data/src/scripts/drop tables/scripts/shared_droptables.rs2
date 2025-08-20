@@ -625,6 +625,7 @@ if ($r2 < 126){
         return (adamant_arrowheads,50);
     }
 }
+
 [proc,wilderness_table_low]()(namedobj,int)
 def_int $random = 0;
 $random = random(128);

@@ -166,7 +166,7 @@ data=ore_name,unstable fragments
 data=rock_output,unstable_fragment
 data=rock_level,30
 data=rock_exp,165
-data=rock_successchance,1,640
+data=rock_successchance,550,640
 data=rock_respawnrate,40
 
 // TODO: add the correct success rates here (not currently on wiki)

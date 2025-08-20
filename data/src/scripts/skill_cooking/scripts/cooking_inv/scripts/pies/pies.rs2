@@ -12,19 +12,19 @@ switch_obj (last_useitem) {
 
 [opheldu,pie_shell]
 switch_obj (last_useitem) {
-    case cooking_apple, cooked_meat, cooked_chicken, redberry, lemon_chunks, lemon_slices : @make_uncooked_pie(last_useslot);
+    case cooking_apple, cooked_meat, cooked_chicken, redberry, lemon_slices : @make_uncooked_pie(last_useitem);
     case default : ~displaymessage(^dm_default);
 }
 
 [opheldu,cooking_apple]
 switch_obj (last_useitem) {
-    case pie_shell : @make_uncooked_pie(last_slot);
+    case pie_shell : @make_uncooked_pie(last_item);
     case default : ~displaymessage(^dm_default);
 }
 
 [opheldu,redberry]
 switch_obj (last_useitem) {
-    case pie_shell : @make_uncooked_pie(last_slot);
+    case pie_shell : @make_uncooked_pie(last_item);
     case default : ~displaymessage(^dm_default);
 }
 
@@ -35,29 +35,50 @@ mes("You remove the burnt pie from the pie dish.");
 
 [label,make_pie_shell]
 // delete the dough and pie dish
-def_int $tpd = inv_total(inv, pastry_dough);
-def_int $tpid = inv_total(inv, piedish);
+def_int $pd = inv_total(inv, pastry_dough);
+def_int $pid = inv_total(inv, piedish);
+if ($pid < 1){
+    return;
+}
 inv_del(inv, pastry_dough, 1);
 inv_del(inv, piedish, 1);
-anim(human_pray, 3);
 // add the pie shell
 inv_add(inv, pie_shell, 1);
+// display the message
 mes("You put the pastry dough into the pie dish to make a pie shell.");
-if ($tpid > 1) {
+anim(human_castlowlvlalchemy, 0);
+sound_synth(stringing, 1, 3);
+p_delay(1);
+stat_advance(cooking, 35);
+if (inv_total(worn, chefshat) > 0 | inv_total(worn, founders_partyhat) > 0) {
+    stat_advance(cooking, 35);
+    mes("Your cooking skills are showing!");
+}
+if ($pd > 0 & $pid > 0){
     @make_pie_shell;
+} else if ($pd < 1 & $pid < 1){
+    return;
 }
 
-[label,make_uncooked_pie](int $last)
-def_obj $ingredient = inv_getobj(inv, $last);
+[label,make_uncooked_pie](obj $ingredient)
 def_struct $struct = oc_param($ingredient, uncooked_pie_struct);
 if (stat(cooking) < struct_param($struct, levelrequired)) {
     ~mesbox("You need a Cooking level of <tostring(struct_param($struct, levelrequired))> to make <struct_param($struct, levelfailmessage)>.");
     return;
 }
-// delete the pie shell and the ingredient
 inv_del(inv, pie_shell, 1);
 inv_del(inv, $ingredient, 1);
-// add the uncooked pie
 inv_add(inv, struct_param($struct, product), 1);
-// display the message
 mes("You fill the pie with <struct_param($struct, productmessage)>.");
+anim(human_castlowlvlalchemy, 0);
+sound_synth(pottery, 1, 3);
+p_delay(1);
+stat_advance(cooking, 75);
+if (inv_total(worn, chefshat) > 0 | inv_total(worn, founders_partyhat) > 0) {
+    stat_advance(cooking, 75);
+    mes("Your cooking skills are showing!");
+}
+// recurse if more shells + same ingredient remain
+if (inv_total(inv, $ingredient) > 0 & inv_total(inv, pie_shell) > 0) {
+    @make_uncooked_pie($ingredient);
+}

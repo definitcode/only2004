@@ -2255,3 +2255,96 @@ switch_int($choice){
     }
     case 5 : ~e_pickaxehead;
 }
+
+
+// Grandfather clocks
+[oploc1,loc_683]
+def_obj $hammer = ~hammer_checker;
+def_int $delay = 0;
+def_seq $anim;
+def_int $xp;
+switch_obj($hammer){
+    case dragon_hammer : {
+        $anim = human_smithing_dragon;
+        $delay = 1;
+        $xp = 480;
+    }
+    case rune_hammer : {
+        $anim = human_smithing_rune;
+        $delay = 1;
+        $xp = 380;
+    }
+    case adamant_hammer : {
+        $anim = human_smithing_adamant;
+        $delay = 2;
+        $xp = 280;
+    }
+    case mithril_hammer : {
+        $anim = human_smithing_mithril;
+        $delay = 3;
+        $xp = 180;
+    }
+    case steel_hammer : {
+        $anim = human_smithing_steel;
+        $delay = 4;
+        $xp = 155;
+    }
+    case iron_hammer : {
+        $anim = human_smithing_iron;
+        $delay = 5;
+        $xp = 145;
+    }
+    case bronze_hammer : {
+        $anim = human_smithing_bronze;
+        $delay = 6;
+        $xp = 130;
+    }
+    case hammer : {
+        $anim = human_smithing;
+        $delay = 6;
+        $xp = 115;
+    }
+}
+if ($hammer = null | inv_total(inv, rogue_tools) < 1 | inv_total(inv, oil_can) < 1 | inv_total(inv, cog) < 5){
+    mes("You need the proper tools to do this!");
+    ~mesbox("1. Hammer |2. Rogue Tools |3. Oil Can |4. Iron Cog [10x] ");
+    return;
+}
+def_int $cogs = inv_total(inv, cog);
+def_int $oil = inv_total(inv, oil_can);
+def_int $loop = $delay;
+anim(human_pickpocket, 0);
+sound_synth(coffin_open, 1, 0);
+mes("You open up the broken clock..");
+p_delay(2);
+anim(human_oil_can, 0);
+sound_synth(bubbling, 1, 0);
+mes("It needed some oil so you give it a tad");
+p_delay(3);
+switch_int(random(2)){
+    case 0 : {
+        mes("You notice a missing set of cogs!");
+        anim($anim, $delay);
+        sound_synth(anvil_4, $loop, $delay);
+        inv_del(inv, cog, 5);
+        sound_synth(anvil, 1, $delay);
+    }
+    case 1 : {
+        mes("You notice it could use a little more oil.");
+        anim(human_oil_can, 0);
+        sound_synth(bubbling, 1, 0);
+        mes("The cogs need reworking!");
+        anim($anim, $delay);
+        sound_synth(anvil_4, $loop, $delay);
+        def_int $cog_count = 10;
+        if (%engineering > 50){
+            $cog_count = 5;
+            mes("A few of the cogs were salvageable so it only needed five more cogs.");
+        }
+        inv_del(inv, cog, $cog_count);
+        sound_synth(anvil, 1, $delay);
+    }
+}
+loc_change(loc_684, 30);
+mes("The clock has been fixed!");
+stat_advance(crafting, $xp);

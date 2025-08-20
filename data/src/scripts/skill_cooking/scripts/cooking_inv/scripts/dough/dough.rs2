@@ -13,9 +13,12 @@ switch_obj (last_useitem) {
         return;
 }
 
-// https://www.youtube.com/watch?v=Tix1wbx3YCc
-// https://youtu.be/n79WMvBkFTc
+
 [label,dough_interface](obj $water_source)
+if (%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this!");
+    return;
+}
 if (inv_freespace(inv) < 1) {
     mes("You dont have enough inventory space to make any dough.");
     return;
@@ -39,13 +42,26 @@ if (map_members = false & oc_members($choice) = true) {
     mes(^mes_members_do_that); // guess... osrs has no option on f2p worlds for pitta :(
     return;
 }
+@make_dough($choice, $end_string, $water_source);
 
+[label,make_dough](namedobj $choice, string $end_string, obj $water_source)
+def_int $flour = inv_total(inv, pot_flour);
+def_int $water_source_count = inv_total(inv, $water_source);
 inv_del(inv, pot_flour, 1);
 inv_del(inv, $water_source, 1);
-
+anim(human_pickpocket, 0);
 inv_add(inv, pot_empty, 1);
 if (oc_param($water_source, next_obj_stage) ! null) {
     inv_add(inv, oc_param($water_source, next_obj_stage), 1);
 }
+stat_advance(cooking, 75);
+if (inv_total(worn, chefshat) > 0 | inv_total(worn, founders_partyhat) > 0) {
+    stat_advance(cooking, 75);
+    mes("Your cooking skills are showing!");
+}
 inv_add(inv, $choice, 1);
 mes("You mix the water and flour to make <$end_string> <lowercase(oc_name($choice))>.");
+if ($flour > 1 & $water_source_count > 1) {
+    p_delay(3);
+    @make_dough($choice, $end_string, $water_source);
+}

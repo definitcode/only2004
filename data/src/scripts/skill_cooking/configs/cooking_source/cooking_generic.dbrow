@@ -180,9 +180,9 @@ data=burnt,burnt_pie
 data=levelrequired,50
 data=experience,1500
 data=successchance,58,372
-data=cookmessage_range,You cook the apple pie in the oven...
+data=cookmessage_range,You cook the lemon pie in the oven...
 data=cantcookmessage_fire,You need a proper oven to cook that.
-data=successmessage,You remove the apple pie from the oven.
+data=successmessage,You remove the lemon pie from the oven.
 
 [cooking_generic_apple_pie]
 table=cooking_generic

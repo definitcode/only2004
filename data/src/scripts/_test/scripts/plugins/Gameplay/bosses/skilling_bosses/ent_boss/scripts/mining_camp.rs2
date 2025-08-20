@@ -226,10 +226,6 @@ if ($random < 25){
 }
 inv_del(inv, mining_casket, 1);
 
-
-// --------------------------
-// First Swing
-// --------------------------
 [label,mining_firstswing_boss]
 if (stat_base(mining) < 60){
     ~mesbox("You need lvl 60 Mining to do this.");
@@ -276,14 +272,10 @@ if (%founders_transmog = ^transmog_on) {
 }
 
 mes("You swing your pick at the rock.");
-
-// hand off to continue loop
+sound_synth(mine_quick, 0, 0);
 p_oploc(3);
 
 
-// --------------------------
-// Continue Swing
-// --------------------------
 [label,mining_continue_boss]
 if (stat_base(mining) < 60){
     ~mesbox("You need lvl 60 Mining to do this.");
@@ -308,12 +300,11 @@ if ($pickaxe = null) {
 }
 
 def_int $mining_rate = oc_param($pickaxe, mining_rate);
-
+sound_synth(mine_quick, 0, 0);
 // tick cycle
 if (%action_delay < map_clock) {
     // set delay for next cycle
     %action_delay = calc(map_clock + $mining_rate);
-    sound_synth(mine_quick, 0, 0);
 
     // play animation
     if (%founders_transmog = ^transmog_on) {
