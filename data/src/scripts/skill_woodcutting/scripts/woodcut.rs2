@@ -154,10 +154,6 @@ if (stat_random(stat(woodcutting), $tree_chance_low, $tree_chance_high) = true) 
         }
     }
     mes("You get some <lowercase(oc_name($product))>.");
-    if (inv_total(worn, cavalier_brown) > 0) {
-        stat_advance(woodcutting, $exp);
-        mes("Your woodcutting skills are showing!");
-    }
     def_int $var_exp = null;
     switch_obj($axe){
         case dragon_axe : {
@@ -212,6 +208,10 @@ if (stat_random(stat(woodcutting), $tree_chance_low, $tree_chance_high) = true) 
             $productcount = 1;
             stat_advance(woodcutting, $exp);
         }
+    }
+    if (inv_total(worn, cavalier_brown) > 0 | inv_total(worn, founders_partyhat) > 0 ) {
+        stat_advance(woodcutting, $exp);
+        mes("Your woodcutting skills are showing!");
     }
     inv_add(inv, $product, $productcount);
     switch_namedobj($product){

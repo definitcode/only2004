@@ -9,7 +9,7 @@ def_string $message = oc_param($identified_herb, identified_herb_message);
 inv_setslot(inv, $slot, $identified_herb, 1);
 mes($message); // https://youtu.be/RVnSlXYGPe0?t=72
 stat_advance(herblore, $experience);
-%herbs_ground = calc(%herbs_ground + 1);
+%herbs_cleaned = calc(%herbs_cleaned + 1);
 
 /** Brew a potion. */
 [proc,brew_potion](struct $struct, namedobj $ingredient, namedobj $solvent, string $message, namedobj $mixture, int $experience)
@@ -26,7 +26,7 @@ mes($message);
 anim(human_herbing_vial, 0);
 sound_synth(grind, 0, 0);
 stat_advance(herblore, $experience);
-if (inv_total(worn, gasmask) > 0) {
+if (inv_total(worn, gasmask) > 0 | inv_total(worn, founders_partyhat) > 0) {
             stat_advance(herblore, $experience);
             mes("Your herblore skills are showing!");
 }

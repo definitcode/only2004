@@ -49,7 +49,7 @@ def_int $flour = inv_total(inv, pot_flour);
 def_int $water_source_count = inv_total(inv, $water_source);
 inv_del(inv, pot_flour, 1);
 inv_del(inv, $water_source, 1);
-anim(human_pickpocket, 0);
+anim(human_preparing_food, 0);
 inv_add(inv, pot_empty, 1);
 if (oc_param($water_source, next_obj_stage) ! null) {
     inv_add(inv, oc_param($water_source, next_obj_stage), 1);

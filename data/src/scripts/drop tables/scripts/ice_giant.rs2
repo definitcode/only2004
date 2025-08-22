@@ -73,7 +73,11 @@ if ($random < 5) {
 }
 
 [queue,ice_giant_kill]
-if (%e_ctoggle = ^e_toggle_on){
+if (~wilderness_level(coord) > 0) {
+    obj_add(coord, ~wilderness_table, ^lootdrop_duration);
+}
+
+if (%e_ctoggle = ^e_toggle_on) {
     mes("You etch another tally into your ledger.");
 }
 %ice_giant_kc = calc(%ice_giant_kc + 1);

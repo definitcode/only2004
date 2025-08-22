@@ -3,7 +3,7 @@
 ^mcb_started = 1
 
 // Difficulty
-^mcb_easy = 250
-^mcb_medium = 500
-^mcb_hard = 750
-^mcb_insane = 1050
+^mcb_easy = 25
+^mcb_medium = 100
+^mcb_hard = 500
+^mcb_insane = 1000

@@ -141,7 +141,7 @@ switch_obj ($last_item)
         inv_transmit(smithing_mithril4, smithing:column4);
         inv_transmit(smithing_mithril5, smithing:column5);
     case adamantite_bar :
-        %smithing_level = calc($player_level - 69);
+        %smithing_level = calc($player_level - 58);
         inv_transmit(smithing_adamant1, smithing:column1);
         inv_transmit(smithing_adamant2, smithing:column2);
         inv_transmit(smithing_adamant3, smithing:column3);
@@ -393,7 +393,6 @@ switch_obj($hammer){
         return;
     }
 }
-
 if (%founders_transmog = ^transmog_on){
     $anim = human_smithing_founders;
 }

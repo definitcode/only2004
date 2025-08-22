@@ -7,6 +7,7 @@
 [opheld2,mithril_longsword] @levelrequire_attack(50, last_slot);
 [opheld2,mithril_warhammer] @levelrequire_attack(50, last_slot);
 [opheld2,mithril_battleaxe] @levelrequire_attack(50, last_slot);
+[opheld2,halberd] @levelrequire_attack(50, last_slot);
 [opheld2,mithril_spear] @levelrequire_attack(50, last_slot);
 [opheld2,mithril_spear_p] @levelrequire_attack(50, last_slot);
 [opheld2,mithril_2h_sword] @levelrequire_attack(50, last_slot);

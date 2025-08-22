@@ -60,7 +60,9 @@ if (inv_total(worn, brown_apron) > 0) {
     stat_advance(crafting, 200);
     mes("Your crafting skills are showing!");
 }
-
+if (inv_total(inv, soda_ash) > 0 & inv_total(inv, bucket_sand) > 0){
+    @smelt_glass;
+}
 [label,craft_glass_interface]
 if(%gamemode_selected = ^gamemode_pvp){
     mes("You cannot do this.");

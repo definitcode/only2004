@@ -45,7 +45,25 @@ switch_int(%mining_camp_progress){
     case ^mcb_started : {
         if (%fragments_turned_in >= %needed_fragments){
             ~chatnpc("<p,happy>Oh wow! Thank you so much!! Here take this.");
-            inv_add(inv, mining_casket, 1);
+            switch_int(%needed_fragments){
+                case ^mcb_easy : {
+                    stat_advance(mining, 1050);
+                    inv_add(inv, casket, 1);
+                }
+                case ^mcb_medium : {
+                    stat_advance(mining, 2050);
+                    inv_add(inv, mining_casket, 1);
+                }
+                case ^mcb_hard : {
+                    stat_advance(mining, 3050);
+                    inv_add(inv, mining_casket, 2);
+                }
+                case ^mcb_insane : {
+                    stat_advance(mining, 5050);
+                    inv_add(inv, mining_casket, 3);
+                }
+            }
+            
         }
         def_int $unstable_fragments = inv_total(inv, unstable_fragment);
         if ($unstable_fragments = 0) {
@@ -85,8 +103,9 @@ switch_int(%mining_camp_progress){
         switch_int(~p_choice2_header("Yes.", 1, "Go Back.", 2, "Would you like to start Unstable Rocks?")){
             case 1 : {
                 %mining_camp_progress = ^mcb_started;
-                def_int $random = random(4);
-                switch_int($random){
+                //def_int $random = random(4);
+                def_int $choice = ~p_choice4_header("Easy. (25)", 1, "Medium. (100)", 2, "Hard. (500)", 3, "Insane. (1000)", 4, "~Difficulty Selection~");
+                switch_int($choice){
                     case 0 : %needed_fragments = ^mcb_easy;
                     case 1 : %needed_fragments = ^mcb_medium;
                     case 2 : %needed_fragments = ^mcb_hard;
