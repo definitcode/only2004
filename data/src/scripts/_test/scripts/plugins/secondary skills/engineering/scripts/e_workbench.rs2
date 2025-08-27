@@ -2170,11 +2170,15 @@ if (%crest_progress = ^crest_complete){
         ~mesbox("You need to be at least level 25 Engineering to make Steel Gauntlets");
         return;
     }
+    if (inv_total(inv, steel_gauntlets) > 0 | inv_total(bank, steel_gauntlets) > 0 | inv_total(worn, steel_gauntlets) > 0){
+        mes("You already have a pair of these gloves!");
+        return;
+    }
     if (inv_total(inv, leather_gloves) > 0 & inv_total(inv, steel_bar) > 1) {
         inv_del(inv, leather_gloves, 1);
         inv_del(inv, steel_bar, 2);
         ~crafting_action;
-        stat_advance(smithing, 850);
+        stat_advance(smithing, 250);
     } else {
         ~mesbox("Come back when you have a pair of Leather gloves and 2 Steel Bars");
     }
@@ -2187,16 +2191,17 @@ def_int $choice = (~p_choice4_header("Mithril.", 1, "Adamant", 2, "Rune.", 3, "D
 switch_int($choice){
     case 1 : {
         if (%engineering > 99) {
-            if (inv_total(inv, steel_gauntlets) > 0 & inv_total(inv, mithril_bar) > 14) {
-                inv_del(inv, mithril_bar, 15);
+
+            if (inv_total(inv, steel_gauntlets) > 0 & inv_total(inv, mithril_bar) > 1) {
+                inv_del(inv, mithril_bar, 2);
                 ~crafting_action;
-                stat_advance(smithing, 250);
+                stat_advance(smithing, 550);
                 stat_advance(crafting, 250);
                 stat_advance(fletching, 250);
                 inv_add(inv, mithril_gauntlets, 1);
                 ~objbox(mithril_gauntlets,"You have upgraded your gauntlets to Mithril gauntlets.", 250, 0, 0);
             } else {
-                ~mesbox("You need Steel gauntlets and 15 Mithril Bars to upgrade your gauntlets.");
+                ~mesbox("You need Steel gauntlets and 2 Mithril Bars to upgrade your gauntlets.");
             }
         } else {
             ~mesbox("You need 100 Engineering to upgrade your gauntlets.");
@@ -2204,8 +2209,8 @@ switch_int($choice){
     }
     case 2 : {
         if (%engineering > 149) {
-            if (inv_total(inv, mithril_gauntlets) > 0 & inv_total(inv, adamantite_bar) > 24) {
-                inv_del(inv, adamantite_bar, 25);
+            if (inv_total(inv, mithril_gauntlets) > 0 & inv_total(inv, adamantite_bar) > 1) {
+                inv_del(inv, adamantite_bar, 2);
                 ~crafting_action;
                 stat_advance(smithing, 750);
                 stat_advance(crafting, 750);
@@ -2213,7 +2218,7 @@ switch_int($choice){
                 inv_add(inv, adamant_gauntlets, 1);
                 ~objbox(adamant_gauntlets,"You have upgraded your gauntlets to Adamant gauntlets.", 250, 0, 0);
             } else {
-                ~mesbox("You need Mithril gauntlets and 25 Adamantite Bars to upgrade your gauntlets.");
+                ~mesbox("You need Mithril gauntlets and 2 Adamantite Bars to upgrade your gauntlets.");
             }
         } else {
             ~mesbox("You need 150 Engineering to upgrade your gauntlets.");
@@ -2221,8 +2226,8 @@ switch_int($choice){
     }
     case 3 : {
         if (%engineering > 199) {
-            if (inv_total(inv, adamant_gauntlets) > 0 & inv_total(inv, runite_bar) > 49) {
-                inv_del(inv, runite_bar, 50);
+            if (inv_total(inv, adamant_gauntlets) > 0 & inv_total(inv, runite_bar) > 1) {
+                inv_del(inv, runite_bar, 2);
                 ~crafting_action;
                 stat_advance(smithing, 750);
                 stat_advance(crafting, 750);
@@ -2230,7 +2235,7 @@ switch_int($choice){
                 inv_add(inv, rune_gauntlets, 1);
                 ~objbox(rune_gauntlets,"You have upgraded your gauntlets to Rune gauntlets.", 250, 0, 0);
             } else {
-                ~mesbox("You need Adamant gauntlets and 50 Runite Bars to upgrade your gauntlets.");
+                ~mesbox("You need Adamant gauntlets and 2 Runite Bars to upgrade your gauntlets.");
             }
         } else {
             ~mesbox("You need 200 Engineering to upgrade your gauntlets.");
@@ -2238,8 +2243,8 @@ switch_int($choice){
     }
     case 4 : {
             if (%engineering > 296) {
-            if (inv_total(inv, rune_gauntlets) > 0 & inv_total(inv, dragon_bar) > 49) {
-                inv_del(inv, dragon_bar, 50);
+            if (inv_total(inv, rune_gauntlets) > 0 & inv_total(inv, dragon_bar) > 1) {
+                inv_del(inv, dragon_bar, 2);
                 ~crafting_action;
                 stat_advance(smithing, 750);
                 stat_advance(crafting, 750);
@@ -2247,7 +2252,7 @@ switch_int($choice){
                 inv_add(inv, dragon_gauntlets, 1);
                 ~objbox(dragon_gauntlets,"You have upgraded your gauntlets to Dragon gauntlets.", 250, 0, 0);
             } else {
-                ~mesbox("You need Rune gauntlets and 50 Dragon Bars to upgrade your gauntlets.");
+                ~mesbox("You need Rune gauntlets and 2 Dragon Bars to upgrade your gauntlets.");
             }
         } else {
             ~mesbox("You need 297 Engineering to upgrade your gauntlets.");
