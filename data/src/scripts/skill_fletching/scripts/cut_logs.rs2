@@ -15,6 +15,8 @@
 
 [opheldu,founders_knife] @knife_item_use;
 
+[opheldu,knife] @knife_item_use;
+
 [opheldu,_category_22]
 // Multi-knife support for fletching logs, prioritizing best first
 switch_obj(last_useitem){
@@ -25,6 +27,7 @@ switch_obj(last_useitem){
     case e_steel_knife : @fletch_log(last_useitem);
     case e_iron_knife : @fletch_log(last_useitem);
     case e_bronze_knife : @fletch_log(last_useitem);
+    case hc_knife : @fletch_log(last_useitem);
     case knife : @fletch_log(last_useitem);
     case founders_tinderbox : @light_logs_inv(last_slot);
     case dragon_tinderbox : @light_logs_inv(last_slot);
@@ -97,7 +100,11 @@ switch_obj($knife) {
         $xp_mult = 1; 
         $shaft_mult = 1;
     }
-    case default : {
+    case hc_knife : {
+        $xp_mult = 1; 
+        $shaft_mult = 1;
+    }
+    case knife : {
         $xp_mult = 1; 
         $shaft_mult = 1;
     }
@@ -204,7 +211,11 @@ if (inv_total(worn, headband_red) > 0) {
 };
 ~hand_crafting_action;
 inv_add(inv, $product, $count);
-queue(fletching_repeat, 2, $log, $product, $count, $message, $fletching_experience);
+if ($log > 1){
+    queue(fletching_repeat, 2, $log, $product, $count, $message, $fletching_experience);
+} else {
+    return;
+}
 
 [queue,fletching_repeat](obj $log, namedobj $product, int $count, string $message, int $fletching_experience)
 def_int $xp_mult = 1;
@@ -241,10 +252,14 @@ switch_obj($knife) {
         $shaft_mult = 4;
     }
     case founders_knife : {
-        $xp_mult = 10; 
-        $shaft_mult = 10;
+        $xp_mult = 1; 
+        $shaft_mult = 1;
     }
-    case default : {
+    case hc_knife : {
+        $xp_mult = 1;
+        $shaft_mult = 1;
+    }
+    case knife : {
         $xp_mult = 1; 
         $shaft_mult = 1;
     }

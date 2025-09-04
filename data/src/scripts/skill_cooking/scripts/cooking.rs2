@@ -163,36 +163,19 @@ if ($passes_roll = true) {
         case seaturtle : %sea_turtle_cooked = calc(%sea_turtle_cooked + 1);
         case mantaray : %manta_ray_cooked = calc(%manta_ray_cooked + 1);
     }
-    // if ($cooked_item = shrimp) {
-    //     %shrimp_cooked = calc(%shrimp_cooked + 1);
-    // } else if ($cooked_item = anchovies) {
-    //     %anchovy_cooked = calc(%anchovy_cooked + 1);
-    // } else if ($cooked_item = sardine) {
-    //     %sardine_cooked = calc(%sardine_cooked + 1);
-    // } else if ($cooked_item = herring) {
-    //     %herring_cooked = calc(%herring_cooked + 1);
-    // } else if ($cooked_item = trout) {
-    //     %trout_cooked = calc(%trout_cooked + 1);
-    // } else if ($cooked_item = salmon) {
-    //     %salmon_cooked = calc(%salmon_cooked + 1);
-    // } else if ($cooked_item = pike) {
-    //     %pike_cooked = calc(%pike_cooked + 1);
-    // } else if ($cooked_item = tuna) {
-    //     %tuna_cooked = calc(%tuna_cooked + 1);
-    // } else if ($cooked_item = lobster) {
-    //     %lobster_cooked = calc(%lobster_cooked + 1);
-    // } else if ($cooked_item = swordfish) {
-    //     %swordfish_cooked = calc(%swordfish_cooked + 1);
-    // } else if ($cooked_item = shark) {
-    //     %shark_cooked = calc(%shark_cooked + 1);
-    // } else if ($cooked_item = lava_eel) {
-    //     %lava_eel_cooked = calc(%lava_eel_cooked + 1);
-    // } else if ($cooked_item = seaturtle) {
-    //     %sea_turtle_cooked = calc(%sea_turtle_cooked + 1);
-    // } else if ($cooked_item = mantaray) {
-    //     %manta_ray_cooked = calc(%manta_ray_cooked + 1);
-    // }
-
+    def_int $pet_drop = random(100000);
+    switch_int($pet_drop){
+        case 50000 : 
+            if (stat_base(cooking) > 59){
+                switch_namedobj($cooked_item){
+                    case shark : inv_add(inv, woman_whistle, 1);
+                    case swordfish : inv_add(inv, woman_whistle, 1);
+                    case lava_eel : inv_add(inv, woman_whistle, 1);
+                    case seaturtle : inv_add(inv, woman_whistle, 1);
+                    case mantaray : inv_add(inv, woman_whistle, 1);
+                }
+            }
+    }
     inv_add(inv, $cooked_item, 1);
     if (compare($succesmessage, "0") ! 0) {
         mes($succesmessage);

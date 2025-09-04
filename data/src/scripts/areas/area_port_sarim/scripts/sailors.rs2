@@ -45,14 +45,10 @@ switch_int ($option) {
             ~set_sail($dest, "and board the ship.", $coord, $ship_dest, 7); 
             return;
         }
-        if (inv_total(inv, shillings) < 30) {
-            ~chatnpc("<p,happy>Sorry, you don't have enough shillings to ride the boat.");
+        if (inv_total(inv, shillings) < 30 | inv_total(inv, coins) < 300) {
+            ~chatnpc("<p,happy>Sorry, you don't have enough to ride the boat.");
             return;
-        } else if (inv_total(inv, coins) < 300) {
-            ~chatplayer("<p,sad>Oh dear, I don't actually seem to have enough coins either.");
-            return;
-        }
-        if (inv_total(inv, shillings) > 29) {
+        } else if (inv_total(inv, shillings) > 29) {
             inv_del(inv, shillings, 30);
             mes("You pay the 30 shillings...");
         } else if (inv_total(inv, coins) > 299) {

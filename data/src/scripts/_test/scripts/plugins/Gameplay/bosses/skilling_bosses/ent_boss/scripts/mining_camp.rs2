@@ -56,11 +56,13 @@ switch_int(%mining_camp_progress){
                 }
                 case ^mcb_hard : {
                     stat_advance(mining, 3050);
+                    inv_add(inv, casket, 1);
                     inv_add(inv, mining_casket, 2);
                 }
                 case ^mcb_insane : {
                     stat_advance(mining, 5050);
-                    inv_add(inv, mining_casket, 3);
+                    inv_add(inv, casket, 2);
+                    inv_add(inv, mining_casket, 2);
                 }
             }
             
@@ -203,15 +205,15 @@ if ($random < 25){
     inv_add(inv, ~mining_gem_table, 1);
     inv_add(inv, ~talisman_table);
 } else if ($random < 50) {
-    inv_add(inv, ~trail_table);
     inv_add(inv, adamant_pickaxe, 1);
+    ~casket_open;
 } else if ($random < 55) {
-    inv_add(inv, ~trail_table);
     inv_add(inv, ~randomherb);
     inv_add(inv, ~randomherb);
+    ~casket_open;
 } else if ($random < 60) {
-    inv_add(inv, ~trail_table);
     inv_add(inv, mithril_pickaxe, 1);
+    ~casket_open;
 } else if ($random < 65) {
     inv_add(inv, ~mid_tier_items);
     ~casket_open;

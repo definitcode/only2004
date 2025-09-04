@@ -10,7 +10,7 @@ if (stat_base(fishing) < $level) {
 [label,levelrequire_smithing](int $level, int $slot)
 if (stat_base(smithing) < $level) {
     mes("You are not a high enough level to use this item.");
-    mes("You need a Fishing level of <tostring($level)>.");
+    mes("You need a Smithing level of <tostring($level)>.");
     return;
 }
 ~equip($slot);

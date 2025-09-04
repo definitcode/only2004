@@ -213,6 +213,13 @@ if (stat_random(stat(woodcutting), $tree_chance_low, $tree_chance_high) = true) 
         stat_advance(woodcutting, $exp);
         mes("Your woodcutting skills are showing!");
     }
+    def_int $pet_drop = random(100000);
+    switch_int($pet_drop){
+        case 50000 : 
+            if (stat_base(woodcutting) > 59){
+                inv_add(inv, tree_pet, 1);
+            }
+    }
     inv_add(inv, $product, $productcount);
     switch_namedobj($product){
         case logs : {

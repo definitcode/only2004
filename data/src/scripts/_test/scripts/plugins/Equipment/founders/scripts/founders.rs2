@@ -1,5 +1,5 @@
 [opheld1,founders_box] ~fb_open;
-[opheld1,founders_scroll] ~fb_status;
+[opheld1,founders_scroll] ~force_founders;
 [opheld1,hcfounders_scroll] ~hcfb_status;
 [opheld1,founders_partyhat] ~f_check;
 [opheld5,founders_box] ~drop_founders_item(last_slot);
@@ -136,8 +136,38 @@ if (%founders_status = ^notfounder) {
     ~mesbox("You cannot wear this item, you are not a Founder.");
     return;
 }
-[proc,fb_status]
 
+[proc,force_founders]
+if(%gamemode_selected = ^gamemode_hardcore){
+    if (%founders_status = ^notfounder) {
+        %founders_status = ^hcfounder;
+        ~mesbox("You are now a @red@Hardcore @cya@Founder!");
+        spotanim_pl(levelup_anim, 120, 0);
+        midi_jingle(^advance_firemaking_2_jingle, ^advance_firemaking_2_millis);
+        inv_del(inv, founders_scroll, 1);
+        return;
+    }
+}
+
+if (%founders_status = ^notfounder & %gamemode_selected = ^gamemode_none) {
+    %founders_status = ^founder;
+    ~mesbox("You are now a @cya@Founder@bla@!");
+    spotanim_pl(levelup_anim, 120, 0);
+    midi_jingle(^advance_firemaking_2_jingle, ^advance_firemaking_2_millis);
+    inv_del(inv, founders_scroll, 1);
+    return;
+} else if (%founders_status = ^founder) {
+    if (inv_total(inv, founders_scroll) > 0){
+    mes("You are a Founder, you can open this scroll once.");
+    }
+    return;
+} else {
+    if (inv_total(inv, founders_scroll) > 0){
+        mes("You have already opened this scroll.");
+    }
+}
+
+[proc,fb_status]
 //if(%gamemode_selected = ^gamemode_hardcore){
 //    if (%founders_status = ^notfounder) {
 //        %founders_status = ^hcfounder;

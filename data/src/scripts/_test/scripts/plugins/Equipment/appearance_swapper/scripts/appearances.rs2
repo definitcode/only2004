@@ -1,0 +1,16 @@
+[opheld1,disguise_box] @change_appearance;
+
+[label,change_appearance]
+
+def_int $disguise = ~p_choice2_header("Yes.", 1, "No.", 2, "Would you like to change your disguise?");
+switch_int($disguise){
+    case 1 : {
+        if_openmain(player_kit);
+        allowdesign(true);
+    }
+    case 2 : {
+        return;
+    }
+}
+inv_del(inv, disguise_box, 1);
+mes("You have changed your disguise!");

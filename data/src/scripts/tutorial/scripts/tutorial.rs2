@@ -140,7 +140,9 @@ if_close;
 queue(tutorial_designed_character, 0);
 
 [queue,tutorial_designed_character]
-%tutorial_progress = ^runescape_guide_designed_character;
+if (%tutorial_progress ! ^tutorial_complete){
+    %tutorial_progress = ^runescape_guide_designed_character;
+}
 allowdesign(false);
 
 [tutorial,_]

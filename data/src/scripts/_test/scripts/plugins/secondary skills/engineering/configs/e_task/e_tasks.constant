@@ -4,10 +4,10 @@
 ^e_ironnails = 2
 
 //Task Amount
-^e_easy = 1000
-^e_medium = 2500
-^e_hard = 5000
-^e_insane = 100000
+^e_easy = 100
+^e_medium = 250
+^e_hard = 500
+^e_insane = 1000
 
 //Task Statuses
 ^e_notstarted = 0

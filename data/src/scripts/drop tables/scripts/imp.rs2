@@ -116,4 +116,10 @@ if ($dropint < 5) {
 if (%e_ctoggle = ^e_toggle_on){
     mes("You etch another tally into your ledger.");
 }
+def_int $pet_drop = random(100000);
+switch_int($pet_drop){
+    case 50000 : 
+        inv_add(inv, imp_lamp, 1);
+        mes("You receive an Imp Lamp!");
+}
 %imp_kc = calc(%imp_kc + 1);

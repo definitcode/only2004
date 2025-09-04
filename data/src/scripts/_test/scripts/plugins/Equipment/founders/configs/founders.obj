@@ -84,7 +84,7 @@ weight=18oz
 cost=1
 param=no_alchemy,^true
 stackable=yes
-tradeable=no
+tradeable=yes
 
 [hcfounders_scroll]
 name=Founder's Scroll(HC)

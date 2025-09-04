@@ -1,0 +1,16 @@
+
+[disguise_box]
+name=Disguise Box
+desc=Useful for changing your identity.
+model=model_2348_obj
+recol1s=32767
+recol1d=21140
+manwear=model_488_obj_wear,0
+womanwear=model_488_obj_wear,0
+iop1=Change-with
+2dxof=1
+2dyof=-10
+2dzoom=660
+2dyan=1968
+2dxan=196
+cost=25000

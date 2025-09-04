@@ -119,6 +119,7 @@ switch_obj($tbox){
     case iron_tinderbox : $xp_mul = 1;
     case bronze_tinderbox : $xp_mul = 1; 
     case founders_tinderbox : $xp_mul = 1;
+    case hc_tinderbox : $xp_mul = 1;
 }
 switch_obj($logs){
     case logs : $exp_raw = 400;

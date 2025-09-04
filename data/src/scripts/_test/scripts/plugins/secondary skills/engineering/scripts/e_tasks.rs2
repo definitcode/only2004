@@ -52,13 +52,13 @@ switch_int($choice3) {
 
 [proc,e_rep_multi]
 if (%e_taskamount = ^e_easy) {
-    %e_repmulti = 1;
+    %e_repmulti = calc(1 * ^e_easy);
 } else if (%e_taskamount = ^e_medium) {
-    %e_repmulti = 10;
+    %e_repmulti = calc(1 * ^e_medium);
 } else if (%e_taskamount = ^e_hard) {
-    %e_repmulti = 100;
+    %e_repmulti = calc(1 * ^e_hard);
 } else if (%e_taskamount = ^e_insane) {
-    %e_repmulti = 1000;
+    %e_repmulti = calc(1 * ^e_insane);
 }
 
 [proc,e_ct]

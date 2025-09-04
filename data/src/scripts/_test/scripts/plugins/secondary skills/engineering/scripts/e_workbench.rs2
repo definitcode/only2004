@@ -160,7 +160,6 @@ switch_int($choice5){
 }
 [proc,e_crossbow]
 def_int $crossbow = null;
-
 // Bronze → Iron
 if (inv_total(inv, bronze_crossbow) > 0) {
     if (%engineering > 9) {
@@ -186,7 +185,6 @@ if (inv_total(inv, bronze_crossbow) > 0) {
         return;
     }
 }
-
 // Iron → Steel
 else if (inv_total(inv, iron_crossbow) > 0) {
     if (%engineering > 19) {
@@ -212,7 +210,6 @@ else if (inv_total(inv, iron_crossbow) > 0) {
         return;
     }
 }
-
 // Steel → Mithril
 else if (inv_total(inv, steel_crossbow) > 0) {
     if (%engineering > 34) {
@@ -238,7 +235,6 @@ else if (inv_total(inv, steel_crossbow) > 0) {
         return;
     }
 }
-
 // Mithril → Adamant
 else if (inv_total(inv, mithril_crossbow) > 0) {
     if (%engineering > 59) {
@@ -264,7 +260,6 @@ else if (inv_total(inv, mithril_crossbow) > 0) {
         return;
     }
 }
-
 // Adamant → Rune
 else if (inv_total(inv, adamant_crossbow) > 0) {
     if (%engineering > 79) {
@@ -290,7 +285,6 @@ else if (inv_total(inv, adamant_crossbow) > 0) {
         return;
     }
 }
-
 // Rune → Dragon
 else if (inv_total(inv, rune_crossbow) > 0) {
     if (%engineering > 99) {
@@ -317,7 +311,6 @@ else if (inv_total(inv, rune_crossbow) > 0) {
         return;
     }
 }
-
 // No valid crossbow
 else {
     ~mesbox("You do not have a crossbow to upgrade!");
@@ -919,7 +912,7 @@ if (inv_total(inv, bronze_pickaxe) > 0) {
             stat_advance(crafting, 950);
             stat_advance(fletching, 950);
             inv_add(inv, dragon_pickaxe, 1);
-            ~objbox(dragon_pickaxe,"You have upgraded your Rune Harpoon to a Dragon Harpoon.",250,0,0);
+            ~objbox(dragon_pickaxe,"You have upgraded your Rune Pickaxe to a Dragon Pickaxe.",250,0,0);
             return;
         } else {
             ~mesbox("You need 2 Magic Logs and a Dragon Pickaxehead to upgrade your Rune Pickaxe to a Dragon Pickaxe.");

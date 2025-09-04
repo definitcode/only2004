@@ -34,6 +34,7 @@ if (findhero = true) {
 if (%gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_hcuim){
     p_teleport(0_48_48_22_35);
     def_int $choice = ~p_choice2_header("Yes.", 1, "No.", 2, "Would you like to be demoted instead of resetting?");
+    def_int $choice2 = ~p_choice2_header("Yes.", 1, "No.", 2, "Are you sure?");
     switch_int($choice){
         case 1 : {
             %gamemode_selected = ^gamemode_none;
@@ -58,6 +59,7 @@ if (%gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hci
             ~initalltabs;
             ~ledger_reset;
             @start_tutorial;
+            return;
         }
     }
 
