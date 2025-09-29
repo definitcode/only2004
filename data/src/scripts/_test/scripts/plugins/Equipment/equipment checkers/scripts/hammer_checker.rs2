@@ -1,21 +1,21 @@
 [proc,hammer_checker]()(obj)
 def_int $lvl0 = stat(smithing);
 def_obj $obj1 = null;
-if (inv_total(inv, dragon_hammer) > 0 | inv_total(worn, dragon_hammer) > 0) {
+if (inv_total(worn, dragon_hammer) > 0) {
     $obj1 = dragon_hammer;
-} else if (inv_total(inv, rune_hammer) > 0 | inv_total(worn, rune_hammer) > 0) {
+} else if (inv_total(worn, rune_hammer) > 0) {
     $obj1 = rune_hammer;
-} else if (inv_total(inv, adamant_hammer) > 0 | inv_total(worn, adamant_hammer) > 0) {
+} else if (inv_total(worn, adamant_hammer) > 0) {
     $obj1 = adamant_hammer;
-} else if (inv_total(inv, mithril_hammer) > 0 | inv_total(worn, mithril_hammer) > 0) {
+} else if (inv_total(worn, mithril_hammer) > 0) {
     $obj1 = mithril_hammer;
-} else if (inv_total(inv, steel_hammer) > 0 | inv_total(worn, steel_hammer) > 0) {
+} else if (inv_total(worn, steel_hammer) > 0) {
     $obj1 = steel_hammer;
-} else if (inv_total(inv, iron_hammer) > 0 | inv_total(worn, iron_hammer) > 0) {
+} else if (inv_total(worn, iron_hammer) > 0) {
     $obj1 = iron_hammer;
-} else if (inv_total(inv, bronze_hammer) > 0 | inv_total(worn, bronze_hammer) > 0) {
+} else if (inv_total(worn, bronze_hammer) > 0) {
     $obj1 = bronze_hammer;
-} else if (inv_total(inv, hammer) > 0 | inv_total(worn, hammer) > 0) {
+} else if (inv_total(worn, hammer) > 0) {
     $obj1 = hammer;
 }
 if ($lvl0 >= oc_param(dragon_hammer, levelrequire) & ($obj1 = dragon_hammer)) {
