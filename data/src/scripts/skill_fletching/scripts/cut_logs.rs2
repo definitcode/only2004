@@ -211,7 +211,7 @@ if (inv_total(worn, headband_red) > 0) {
 };
 ~hand_crafting_action;
 inv_add(inv, $product, $count);
-if ($log > 1){
+if (inv_total(inv, $log) > 0){
     queue(fletching_repeat, 2, $log, $product, $count, $message, $fletching_experience);
 } else {
     return;
