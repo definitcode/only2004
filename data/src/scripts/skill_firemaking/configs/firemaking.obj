@@ -12,6 +12,7 @@ womanwear=model_488_obj_wear,0
 2dyan=1968
 2dxan=196
 weight=35g
+param=levelrequire,1
 
 [ashes]
 name=Ashes

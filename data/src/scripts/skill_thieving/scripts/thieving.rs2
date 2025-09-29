@@ -27,8 +27,10 @@ if (~check_if_success_pick_pocket($data) = false) {
 def_int $experience = db_getfield($data, pickpocket:experience, 0);
 ~pick_pocket_check_for_reward($data);
 if (inv_total(worn, thieving_gloves) > 0) {
-    ~sticky_gloves;
-    ~pick_pocket_check_for_reward($data);
+    if (random(10) > 7){
+        ~sticky_gloves;
+        ~pick_pocket_check_for_reward($data);
+    }
 }
 anim(human_pickpocket, 0);
 stat_advance(thieving, $experience);
@@ -165,8 +167,10 @@ anim(human_openchest, 0);
 def_int $experience = db_getfield($data, trapped_chest:experience, 0);
 stat_advance(thieving, $experience);
 if (inv_total(worn, thieving_gloves) > 0) {
-    ~sticky_gloves;
-    ~trapped_chest_check_for_reward($data);
+    if (random(10) > 7){
+        ~sticky_gloves;
+        ~trapped_chest_check_for_reward($data);
+    }
 }
 if (inv_total(worn, highwaymanmask) > 0) {
             stat_advance(thieving, $experience);

@@ -9,7 +9,4 @@ switch_int($random) {
         }
         mes("Aha! I have achieved more resources");
     }
-    case 2 : {
-        say("Do you know where I can get my armour trimmed?");
-    }
 }
