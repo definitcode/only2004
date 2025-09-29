@@ -39,7 +39,7 @@ if ($lvl0 >= oc_param(iron_hammer, levelrequire) & ($obj1 = iron_hammer)) {
 if ($lvl0 >= oc_param(bronze_hammer, levelrequire) & ($obj1 = bronze_hammer)) {
     return(bronze_hammer);
 }
-if ($lvl0 >= oc_param(bronze_hammer, levelrequire) & ($obj1 = hammer)) {
+if ($lvl0 >= oc_param(hammer, levelrequire) & ($obj1 = hammer)) {
     return(hammer);
 }
 return(null);
