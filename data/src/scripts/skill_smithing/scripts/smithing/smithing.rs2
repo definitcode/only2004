@@ -55,7 +55,7 @@ inv_stoptransmit(smithing:column5);
 def_struct $struct = oc_param($last_item, smithing_anvil_struct);
 def_obj $hammer = ~hammer_checker;
 if ($hammer = null) {
-    ~mesbox("You need a hammer you able to work the metal with.");
+    ~mesbox("You need a hammer you are able to work the metal with.");
     return;
 }
 if ($struct = null) {

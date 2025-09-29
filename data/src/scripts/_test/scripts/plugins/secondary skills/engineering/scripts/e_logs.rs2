@@ -159,7 +159,7 @@ if(inv_total(inv, $logs) > 0 & busy2 = false) {
     if ($total > 0 & loc_find($loc_coord, $loc) = true) {
         @burn_log($logs);
     } else {
-        mes("You don't have any bark to burn.");
+        mes("You don't have any logs to burn.");
         ~clearallq;
     }
 }
