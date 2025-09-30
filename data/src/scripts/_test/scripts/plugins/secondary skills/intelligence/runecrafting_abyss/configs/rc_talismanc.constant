@@ -16,3 +16,11 @@
 
 ^mageguild = 1
 ^reset_tele = 0
+
+
+^rc_notstarted = 1
+^rc_inprogress = 2
+^rc_easy = 250
+^rc_medium = 750
+^rc_hard = 15000
+^rc_insane = 30000

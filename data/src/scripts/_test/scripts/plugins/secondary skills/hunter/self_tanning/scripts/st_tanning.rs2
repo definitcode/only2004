@@ -21,7 +21,7 @@ if(%gamemode_selected = ^gamemode_pvp){
     return;
 }
 switch_obj(last_useitem) {
-    case cow_hide, dragonhide_green, dragonhide_blue, dragonhide_red, dragonhide_black, bear_leather : @self_tan;
+    case cow_hide, dragonhide_green, dragonhide_blue, dragonhide_red, dragonhide_black, bear_hide : @self_tan;
     case leather, hard_leather, dragon_leather, dragon_leather_blue, dragon_leather_red, dragon_leather_black : ~chatplayer("<p,confused>Err... I have no use for that, I make the stuff!");
     case default : ~chatplayer("<p,confused>Er... Thanks, but no thanks!");
 }

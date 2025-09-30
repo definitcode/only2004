@@ -119,7 +119,7 @@ data=stat_heal,hitpoints,3,0
 table=consume_table
 data=consumable,beer
 data=stat_change,strength,1,2
-data=stat_change,attack,-1,-6
+data=stat_change,attack,5,4
 data=stat_heal,hitpoints,1,0
 
 [wine_effect]

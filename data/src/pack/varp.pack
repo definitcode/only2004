@@ -639,3 +639,8 @@
 638=silver_bar_count
 639=gold_ore_count
 640=silver_ore_count
+641=runecraft_task
+642=rc_taskamount
+643=runecraft_taskstatus
+644=rc_rep
+645=rc_repmulti

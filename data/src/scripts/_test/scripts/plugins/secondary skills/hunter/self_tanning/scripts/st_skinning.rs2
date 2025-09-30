@@ -35,7 +35,7 @@ if ($lvl0 >= oc_param(e_mithril_knife, levelrequire) & ($obj1 = e_mithril_knife)
     return(e_mithril_knife);
 }
 if ($lvl0 >= oc_param(steel_knife, levelrequire) & ($obj1 = e_steel_knife)) {
-    return(steel_knife);
+    return(e_steel_knife);
 }
 if ($lvl0 >= oc_param(e_iron_knife, levelrequire) & ($obj1 = e_iron_knife)) {
     return(e_iron_knife);

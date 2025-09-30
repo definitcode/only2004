@@ -17,6 +17,7 @@ if (inv_freespace(worn) ! 14){
 if (%total_level > 27){
     ~pk_reset;
 }
+inv_add(inv, pk_box, 1);
 def_int $ch = ~p_choice5_header("Tank.", 1, "Rogue.", 2, "Ranger.", 3, "Mage.", 4, "Next.", 5, "~Class Picker~");
 switch_int($ch){
     case 1 : 

@@ -32,11 +32,10 @@ manwear=model_189_obj_wear,0
 womanwear=model_366_obj_wear,0
 manhead=model_69_obj_wear
 womanhead=model_127_obj_wear
-param=magicattack,18
+param=rangeattack,18
 param=prayerbonus,2
 param=magicdefence,1
 param=no_alchemy,^true
-iop2=Wear
 weight=4oz
 
 [bear_leather]

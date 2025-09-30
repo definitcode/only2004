@@ -15,6 +15,7 @@ stock5=unidentified_guam,15,450
 stock6=limpwurt_root,30,2000
 stock7=salt_petre,5000,500
 stock8=gunpowder,100,1000
+stock9=herb_bag,1,100000
 
 [2handedshop]
 // https://classic.runescape.wiki/w/Gaius%27_Two_Handed_Sword_Shop

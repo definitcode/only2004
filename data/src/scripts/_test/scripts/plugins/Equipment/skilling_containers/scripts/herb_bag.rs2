@@ -6,6 +6,9 @@
 // --- HERBS ---
 
 [label,load_herbs](obj $herb)
+if (inv_total(inv, herb_bag) < 1){
+    return;
+}
 def_int $total_herbs = calc(
     %guam_leaf_count +
     %marentill_count +

@@ -3,6 +3,9 @@
 [opheld2,bar_box] @check_bars;
 
 [label,load_bars](obj $bar)
+if (inv_total(inv, bar_box) < 1){
+    return;
+}
 def_int $total_bars = calc(
   %bronze_bar_count +
   %iron_bar_count +

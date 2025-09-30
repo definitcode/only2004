@@ -17,6 +17,7 @@ p_delay(3);
 
 [queue,player_death_default]
 ~player_death;
+~skilling_container_drops;
 midi_jingle(^death_jingle_2, ^death_jingle_2_millis);
 mes("Oh dear you are dead!");
 

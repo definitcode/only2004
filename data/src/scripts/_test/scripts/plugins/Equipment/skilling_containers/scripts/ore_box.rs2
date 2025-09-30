@@ -3,6 +3,9 @@
 [opheld2,ore_box2] @check_ores;
 
 [label,load_ores](obj $ore)
+if (inv_total(inv, ore_box2) < 1){
+    return;
+}
 def_int $total_ores = calc(
   %tin_ore_count +
   %copper_ore_count +

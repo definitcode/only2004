@@ -18,12 +18,6 @@ if (%gamemode_selected = ^gamemode_pvp){
     anim(human_pickupfloor, 0);
     inv_del(inv, murderers_handbook, 1);
 }
-    
-
-
-
-
-
 
 [proc,stat_push_t1]
 switch_int(%pk_class){

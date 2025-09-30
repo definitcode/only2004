@@ -69,6 +69,11 @@ allstock=no
 stock1=cow_hide,10,400
 stock2=leather,5,800
 stock3=hard_leather,1,1000
+stock4=bear_leather,0,5000
+stock5=dragonhide_green,0,5000
+stock6=dragonhide_blue,0,5000
+stock7=dragonhide_black,0,5000
+stock8=dragonhide_red,0,5000
 
 [generalshop3]
 // https://classic.runescape.wiki/w/Al_Kharid_General_Store
