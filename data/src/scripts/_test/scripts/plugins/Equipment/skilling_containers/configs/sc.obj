@@ -1,0 +1,81 @@
+[ore_box2]
+name=Ore Case
+desc=A sturdy case for holding mined ores!
+model=model_2450_obj
+recol1s=11630
+recol1d=0
+recol2s=11488 
+recol2d=2147
+recol3s=1257 
+recol3d=134
+2dxof=3
+2dyof=-6
+2dzoom=1410
+2dyan=1592
+2dxan=164
+cost=25000
+iop1=Unload
+iop2=Check
+weight=25lb
+members=yes
+tradeable=no
+param=no_alchemy,^true
+
+[bar_box]
+name=Bar Case
+desc=A sturdy case for holding smelted bars!
+model=model_2450_obj
+recol1s=11630
+recol1d=0
+recol2s=11488 
+recol2d=6476
+recol3s=5521 
+recol3d=134
+2dxof=3
+2dyof=-6
+2dzoom=1410
+2dyan=1592
+2dxan=164
+cost=25000
+iop1=Unload
+iop2=Check
+weight=25lb
+members=yes
+tradeable=no
+param=no_alchemy,^true
+
+[herb_bag]
+name=Herb Sack
+desc=A bag full of random herbs.
+weight=1100g
+category=water_skin_filled
+cost=30
+model=model_2699_obj
+iop1=Unload
+iop2=Check
+recol1s=13705
+recol1d=1416
+2dxof=-4
+2dyof=1
+2dzoom=780
+2dyan=156
+2dxan=52
+members=yes
+tradeable=no
+param=no_alchemy,^true
+
+[bucket_fish]
+name=Bucket of fish.
+desc=It's a bucket of fish.
+cost=6
+model=model_2504_obj
+2dyof=-18
+2dzoom=1020
+2dyan=1688
+2dxan=204
+iop1=Unload
+iop2=Check
+weight=3kg
+members=yes
+tradeable=no
+param=no_alchemy,^true

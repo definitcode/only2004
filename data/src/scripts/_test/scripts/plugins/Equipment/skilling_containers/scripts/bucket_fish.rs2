@@ -1,0 +1,105 @@
+[opheldu,_category_57] @load_fish(last_useitem);
+[opheld1,bucket_fish] @unload_fish;
+[opheld2,bucket_fish] @check_fish;
+
+
+[label,load_fish](obj $fish)
+def_int $total_fish = calc(%lobster_count + %shark_count + %tuna_count + %swordfish_count);
+def_int $fish_space = calc(stat_base(fishing) + 28);
+def_int $fish_count = inv_total(inv, $fish);
+def_int $space_left = calc($fish_space - $total_fish);
+if ($total_fish < $fish_space) {
+    if ($fish_count > $space_left) {
+        $fish_count = $space_left;
+    }
+    switch_obj($fish){
+        case raw_lobster : {
+            inv_del(inv, $fish, $fish_count);
+            %lobster_count = calc(%lobster_count + $fish_count);
+            mes("You loaded <tostring($fish_count)> fish.");
+        }
+        case raw_shark : {
+            inv_del(inv, $fish, $fish_count);
+            %shark_count = calc(%shark_count + $fish_count);
+            mes("You loaded <tostring($fish_count)> fish.");
+        }
+        case raw_tuna : {
+            inv_del(inv, $fish, $fish_count);
+            %tuna_count = calc(%tuna_count + $fish_count);
+            mes("You loaded <tostring($fish_count)> fish.");
+        }
+        case raw_swordfish : {
+            inv_del(inv, $fish, $fish_count);
+            %swordfish_count = calc(%swordfish_count + $fish_count);
+            mes("You loaded <tostring($fish_count)> fish.");
+        }
+        case default : {
+            mes("You cannot put this fish inside the bucket.");
+            return;
+        }
+    }
+}
+
+
+[label,unload_fish]
+def_int $total_fish = calc(%lobster_count + %shark_count + %tuna_count + %swordfish_count);
+def_int $freespace = inv_freespace(inv);
+def_int $choice = ~p_choice4_header("Tuna.", 1, "Lobster.", 2, "Swordfish.", 3, "Shark.", 4, "Which fish do you want to unload?");
+switch_int($choice){
+    case 1 : {
+        def_int $amount = min(%tuna_count, $freespace);
+        if ($amount > 0) {
+            inv_add(inv, raw_tuna, $amount);
+            %tuna_count = calc(%tuna_count - $amount);
+            mes("You unloaded <tostring($amount)> fish.");
+        }
+    }
+    case 2 : {
+        def_int $amount = min(%lobster_count, $freespace);
+        if ($amount > 0) {
+            inv_add(inv, raw_lobster, $amount);
+            %lobster_count = calc(%lobster_count - $amount);
+            mes("You unloaded <tostring($amount)> fish.");
+        }
+    }
+    case 3 : {
+        def_int $amount = min(%swordfish_count, $freespace);
+        if ($amount > 0) {
+            inv_add(inv, raw_swordfish, $amount);
+            %swordfish_count = calc(%swordfish_count - $amount);
+            mes("You unloaded <tostring($amount)> fish.");
+        }
+    }
+    case 4 : {
+        def_int $amount = min(%shark_count, $freespace);
+        if ($amount > 0) {
+            inv_add(inv, raw_shark, $amount);
+            %shark_count = calc(%shark_count - $amount);
+            mes("You unloaded <tostring($amount)> fish.");
+        }
+    }
+}
+
+
+[label,check_fish]
+def_int $choice = ~p_choice4_header(
+    "Tuna.", 1,
+    "Lobster.", 2,
+    "Swordfish.", 3,
+    "Shark.", 4,
+    "Which fish do you want to count?"
+);
+switch_int($choice){
+    case 1 : {
+        mes("You have <tostring(%tuna_count)>x Raw Tuna!");
+    }
+    case 2 : {
+        mes("You have <tostring(%lobster_count)>x Raw Lobster!");
+    }
+    case 3 : {
+        mes("You have <tostring(%swordfish_count)>x Raw Swordfish!");
+    }
+    case 4 : {
+        mes("You have <tostring(%shark_count)>x Raw Sharks!");
+    }
+}

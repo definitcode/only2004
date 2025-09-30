@@ -24,6 +24,7 @@ loc_anim(balloondrop_lever);
 inv_del(inv, coins, $coins);
 anim(human_boxlever, 0);
 sound_synth(lever, 0, 0);
+inv_add(inv, ~halloween_table);
 
 [label,partyroom_knights]
 ~mesbox("Nightly Dance costs 2000 coins.");

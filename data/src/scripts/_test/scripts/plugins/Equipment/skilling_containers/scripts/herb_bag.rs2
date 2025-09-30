@@ -1,0 +1,417 @@
+[opheldu,_category_774] @load_herbs(last_useitem);
+[opheld1,herb_bag] @unload_herbs;
+[opheld2,herb_bag] @check_herbs;
+
+
+// --- HERBS ---
+
+[label,load_herbs](obj $herb)
+def_int $total_herbs = calc(
+    %guam_leaf_count +
+    %marentill_count +
+    %tarromin_count +
+    %harralander_count +
+    %ranarr_weed_count +
+    %irit_leaf_count +
+    %avantoe_count +
+    %kwuarm_count +
+    %cadantine_count +
+    %dwarf_weed_count +
+    %torstol_count +
+    %lantadyme_count +
+    %snake_weed_count +
+    %ardrigal_count +
+    %sito_foil_count +
+    %volencia_moss_count +
+    %rogues_purse_count
+);
+
+def_int $herb_space = calc(stat_base(herblore) + 28);
+def_int $herb_count = inv_total(inv, $herb);
+def_int $space_left = calc($herb_space - $total_herbs);
+
+if ($total_herbs < $herb_space) {
+    if ($herb_count > $space_left) {
+        $herb_count = $space_left;
+    }
+    switch_obj($herb){
+        case guam_leaf : {
+            inv_del(inv, $herb, $herb_count);
+            %guam_leaf_count = calc(%guam_leaf_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Guam leaf.");
+        }
+        case marentill : {
+            inv_del(inv, $herb, $herb_count);
+            %marentill_count = calc(%marentill_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Marrentill.");
+        }
+        case tarromin : {
+            inv_del(inv, $herb, $herb_count);
+            %tarromin_count = calc(%tarromin_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Tarromin.");
+        }
+        case harralander : {
+            inv_del(inv, $herb, $herb_count);
+            %harralander_count = calc(%harralander_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Harralander.");
+        }
+        case ranarr_weed : {
+            inv_del(inv, $herb, $herb_count);
+            %ranarr_weed_count = calc(%ranarr_weed_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Ranarr weed.");
+        }
+        case irit_leaf : {
+            inv_del(inv, $herb, $herb_count);
+            %irit_leaf_count = calc(%irit_leaf_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Irit leaf.");
+        }
+        case avantoe : {
+            inv_del(inv, $herb, $herb_count);
+            %avantoe_count = calc(%avantoe_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Avantoe.");
+        }
+        case kwuarm : {
+            inv_del(inv, $herb, $herb_count);
+            %kwuarm_count = calc(%kwuarm_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Kwuarm.");
+        }
+        case cadantine : {
+            inv_del(inv, $herb, $herb_count);
+            %cadantine_count = calc(%cadantine_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Cadantine.");
+        }
+        case dwarf_weed : {
+            inv_del(inv, $herb, $herb_count);
+            %dwarf_weed_count = calc(%dwarf_weed_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Dwarf weed.");
+        }
+        case torstol : {
+            inv_del(inv, $herb, $herb_count);
+            %torstol_count = calc(%torstol_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Torstol.");
+        }
+        case lantadyme : {
+            inv_del(inv, $herb, $herb_count);
+            %lantadyme_count = calc(%lantadyme_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Lantadyme.");
+        }
+        case snake_weed : {
+            inv_del(inv, $herb, $herb_count);
+            %snake_weed_count = calc(%snake_weed_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Snake weed.");
+        }
+        case ardrigal : {
+            inv_del(inv, $herb, $herb_count);
+            %ardrigal_count = calc(%ardrigal_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Ardrigal.");
+        }
+        case sito_foil : {
+            inv_del(inv, $herb, $herb_count);
+            %sito_foil_count = calc(%sito_foil_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Sito foil.");
+        }
+        case volencia_moss : {
+            inv_del(inv, $herb, $herb_count);
+            %volencia_moss_count = calc(%volencia_moss_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Volencia moss.");
+        }
+        case rogues_purse : {
+            inv_del(inv, $herb, $herb_count);
+            %rogues_purse_count = calc(%rogues_purse_count + $herb_count);
+            mes("You loaded <tostring($herb_count)>x Rogues purse.");
+        }
+        case default : {
+            mes("You cannot load that into this bag.");
+        }
+    }
+}
+
+
+// --- UNLOAD HERBS ---
+
+[label,unload_herbs]
+def_int $freespace = inv_freespace(inv);
+def_int $choice = ~p_choice5_header(
+  "Guam leaf.", 1,
+  "Marrentill.", 2,
+  "Tarromin.", 3,
+  "Harralander.", 4,
+  "Next.", 5,
+  "Which herb do you want to unload?"
+);
+switch_int($choice){
+    case 1 : {
+        def_int $amount = min(%guam_leaf_count, $freespace);
+        if ($amount > 0) {
+            inv_add(inv, guam_leaf, $amount);
+            %guam_leaf_count = calc(%guam_leaf_count - $amount);
+            mes("You unloaded <tostring($amount)>x Guam leaf.");
+        }
+    }
+    case 2 : {
+        def_int $amount = min(%marentill_count, $freespace);
+        if ($amount > 0) {
+            inv_add(inv, marentill, $amount);
+            %marentill_count = calc(%marentill_count - $amount);
+            mes("You unloaded <tostring($amount)>x Marrentill.");
+        }
+    }
+    case 3 : {
+        def_int $amount = min(%tarromin_count, $freespace);
+        if ($amount > 0) {
+            inv_add(inv, tarromin, $amount);
+            %tarromin_count = calc(%tarromin_count - $amount);
+            mes("You unloaded <tostring($amount)>x Tarromin.");
+        }
+    }
+    case 4 : {
+        def_int $amount = min(%harralander_count, $freespace);
+        if ($amount > 0) {
+            inv_add(inv, harralander, $amount);
+            %harralander_count = calc(%harralander_count - $amount);
+            mes("You unloaded <tostring($amount)>x Harralander.");
+        }
+    }
+    case 5 : {
+        def_int $choice2 = ~p_choice5_header(
+          "Ranarr weed.", 1,
+          "Irit leaf.", 2,
+          "Avantoe.", 3,
+          "Kwuarm.", 4,
+          "Next.", 5,
+          "Which herb do you want to unload?"
+        );
+        switch_int($choice2){
+            case 1 : {
+                def_int $amount = min(%ranarr_weed_count, $freespace);
+                if ($amount > 0) {
+                    inv_add(inv, ranarr_weed, $amount);
+                    %ranarr_weed_count = calc(%ranarr_weed_count - $amount);
+                    mes("You unloaded <tostring($amount)>x Ranarr weed.");
+                }
+            }
+            case 2 : {
+                def_int $amount = min(%irit_leaf_count, $freespace);
+                if ($amount > 0) {
+                    inv_add(inv, irit_leaf, $amount);
+                    %irit_leaf_count = calc(%irit_leaf_count - $amount);
+                    mes("You unloaded <tostring($amount)>x Irit leaf.");
+                }
+            }
+            case 3 : {
+                def_int $amount = min(%avantoe_count, $freespace);
+                if ($amount > 0) {
+                    inv_add(inv, avantoe, $amount);
+                    %avantoe_count = calc(%avantoe_count - $amount);
+                    mes("You unloaded <tostring($amount)>x Avantoe.");
+                }
+            }
+            case 4 : {
+                def_int $amount = min(%kwuarm_count, $freespace);
+                if ($amount > 0) {
+                    inv_add(inv, kwuarm, $amount);
+                    %kwuarm_count = calc(%kwuarm_count - $amount);
+                    mes("You unloaded <tostring($amount)>x Kwuarm.");
+                }
+            }
+            case 5 : {
+                def_int $choice3 = ~p_choice5_header(
+                  "Cadantine.", 1,
+                  "Dwarf weed.", 2,
+                  "Torstol.", 3,
+                  "Lantadyme.", 4,
+                  "Next.", 5,
+                  "Which herb do you want to unload?"
+                );
+                switch_int($choice3){
+                    case 1 : {
+                        def_int $amount = min(%cadantine_count, $freespace);
+                        if ($amount > 0) {
+                            inv_add(inv, cadantine, $amount);
+                            %cadantine_count = calc(%cadantine_count - $amount);
+                            mes("You unloaded <tostring($amount)>x Cadantine.");
+                        }
+                    }
+                    case 2 : {
+                        def_int $amount = min(%dwarf_weed_count, $freespace);
+                        if ($amount > 0) {
+                            inv_add(inv, dwarf_weed, $amount);
+                            %dwarf_weed_count = calc(%dwarf_weed_count - $amount);
+                            mes("You unloaded <tostring($amount)>x Dwarf weed.");
+                        }
+                    }
+                    case 3 : {
+                        def_int $amount = min(%torstol_count, $freespace);
+                        if ($amount > 0) {
+                            inv_add(inv, torstol, $amount);
+                            %torstol_count = calc(%torstol_count - $amount);
+                            mes("You unloaded <tostring($amount)>x Torstol.");
+                        }
+                    }
+                    case 4 : {
+                        def_int $amount = min(%lantadyme_count, $freespace);
+                        if ($amount > 0) {
+                            inv_add(inv, lantadyme, $amount);
+                            %lantadyme_count = calc(%lantadyme_count - $amount);
+                            mes("You unloaded <tostring($amount)>x Lantadyme.");
+                        }
+                    }
+                    case 5 : {
+                        def_int $choice4 = ~p_choice5_header(
+                          "Snake weed.", 1,
+                          "Ardrigal.", 2,
+                          "Sito foil.", 3,
+                          "Volencia moss.", 4,
+                          "Rogues purse.", 5,
+                          "Which herb do you want to unload?"
+                        );
+                        switch_int($choice4){
+                            case 1 : {
+                                def_int $amount = min(%snake_weed_count, $freespace);
+                                if ($amount > 0) {
+                                    inv_add(inv, snake_weed, $amount);
+                                    %snake_weed_count = calc(%snake_weed_count - $amount);
+                                    mes("You unloaded <tostring($amount)>x Snake weed.");
+                                }
+                            }
+                            case 2 : {
+                                def_int $amount = min(%ardrigal_count, $freespace);
+                                if ($amount > 0) {
+                                    inv_add(inv, ardrigal, $amount);
+                                    %ardrigal_count = calc(%ardrigal_count - $amount);
+                                    mes("You unloaded <tostring($amount)>x Ardrigal.");
+                                }
+                            }
+                            case 3 : {
+                                def_int $amount = min(%sito_foil_count, $freespace);
+                                if ($amount > 0) {
+                                    inv_add(inv, sito_foil, $amount);
+                                    %sito_foil_count = calc(%sito_foil_count - $amount);
+                                    mes("You unloaded <tostring($amount)>x Sito foil.");
+                                }
+                            }
+                            case 4 : {
+                                def_int $amount = min(%volencia_moss_count, $freespace);
+                                if ($amount > 0) {
+                                    inv_add(inv, volencia_moss, $amount);
+                                    %volencia_moss_count = calc(%volencia_moss_count - $amount);
+                                    mes("You unloaded <tostring($amount)>x Volencia moss.");
+                                }
+                            }
+                            case 5 : {
+                                def_int $amount = min(%rogues_purse_count, $freespace);
+                                if ($amount > 0) {
+                                    inv_add(inv, rogues_purse, $amount);
+                                    %rogues_purse_count = calc(%rogues_purse_count - $amount);
+                                    mes("You unloaded <tostring($amount)>x Rogues purse.");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// --- CHECK HERBS ---
+
+[label,check_herbs]
+def_int $choice = ~p_choice5_header(
+  "Guam leaf.", 1,
+  "Marrentill.", 2,
+  "Tarromin.", 3,
+  "Harralander.", 4,
+  "Next.", 5,
+  "Which herb do you want to check?"
+);
+switch_int($choice){
+    case 1 : {
+        mes("You have <tostring(%guam_leaf_count)>x Guam leaf.");
+    }
+    case 2 : {
+        mes("You have <tostring(%marentill_count)>x Marrentill.");
+    }
+    case 3 : {
+        mes("You have <tostring(%tarromin_count)>x Tarromin.");
+    }
+    case 4 : {
+        mes("You have <tostring(%harralander_count)>x Harralander.");
+    }
+    case 5 : {
+        def_int $choice2 = ~p_choice5_header(
+          "Ranarr weed.", 1,
+          "Irit leaf.", 2,
+          "Avantoe.", 3,
+          "Kwuarm.", 4,
+          "Next.", 5,
+          "Which herb do you want to check?"
+        );
+        switch_int($choice2){
+            case 1 : {
+                mes("You have <tostring(%ranarr_weed_count)>x Ranarr weed.");
+            }
+            case 2 : {
+                mes("You have <tostring(%irit_leaf_count)>x Irit leaf.");
+            }
+            case 3 : {
+                mes("You have <tostring(%avantoe_count)>x Avantoe.");
+            }
+            case 4 : {
+                mes("You have <tostring(%kwuarm_count)>x Kwuarm.");
+            }
+            case 5 : {
+                def_int $choice3 = ~p_choice5_header(
+                  "Cadantine.", 1,
+                  "Dwarf weed.", 2,
+                  "Torstol.", 3,
+                  "Lantadyme.", 4,
+                  "Next.", 5,
+                  "Which herb do you want to check?"
+                );
+                switch_int($choice3){
+                    case 1 : {
+                        mes("You have <tostring(%cadantine_count)>x Cadantine.");
+                    }
+                    case 2 : {
+                        mes("You have <tostring(%dwarf_weed_count)>x Dwarf weed.");
+                    }
+                    case 3 : {
+                        mes("You have <tostring(%torstol_count)>x Torstol.");
+                    }
+                    case 4 : {
+                        mes("You have <tostring(%lantadyme_count)>x Lantadyme.");
+                    }
+                    case 5 : {
+                        def_int $choice4 = ~p_choice5_header(
+                          "Snake weed.", 1,
+                          "Ardrigal.", 2,
+                          "Sito foil.", 3,
+                          "Volencia moss.", 4,
+                          "Rogues purse.", 5,
+                          "Which herb do you want to check?"
+                        );
+                        switch_int($choice4){
+                            case 1 : {
+                                mes("You have <tostring(%snake_weed_count)>x Snake weed.");
+                            }
+                            case 2 : {
+                                mes("You have <tostring(%ardrigal_count)>x Ardrigal.");
+                            }
+                            case 3 : {
+                                mes("You have <tostring(%sito_foil_count)>x Sito foil.");
+                            }
+                            case 4 : {
+                                mes("You have <tostring(%volencia_moss_count)>x Volencia moss.");
+                            }
+                            case 5 : {
+                                mes("You have <tostring(%rogues_purse_count)>x Rogues purse.");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

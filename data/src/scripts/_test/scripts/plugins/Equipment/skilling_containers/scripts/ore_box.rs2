@@ -1,0 +1,258 @@
+[opheldu,_category_91] @load_ores(last_useitem);
+[opheld1,ore_box2] @unload_ores;
+[opheld2,ore_box2] @check_ores;
+
+[label,load_ores](obj $ore)
+def_int $total_ores = calc(
+  %tin_ore_count +
+  %copper_ore_count +
+  %iron_ore_count +
+  %gold_ore_count +
+  %silver_ore_count +
+  %coal_ore_count +
+  %mithril_ore_count +
+  %adamant_ore_count +
+  %rune_ore_count +
+  %dragon_ore_count
+);
+def_int $splunker = add(stat_base(mining), stat_base(smithing));
+def_int $splunkerlevel = calc($splunker + 98);
+def_int $ore_count = inv_total(inv, $ore);
+def_int $space_left = calc($splunkerlevel - $total_ores);
+if ($total_ores < $splunkerlevel) {
+    if ($ore_count > $space_left){
+        $ore_count = $space_left;
+    }
+    switch_obj($ore){
+        case tin_ore : {
+            inv_del(inv, $ore, $ore_count);
+            %tin_ore_count = calc(%tin_ore_count + $ore_count);
+            mes("You loaded <tostring($ore_count)>x ore.");
+        }
+        case copper_ore : {
+            inv_del(inv, $ore, $ore_count);
+            %copper_ore_count = calc(%copper_ore_count + $ore_count);
+            mes("You loaded <tostring($ore_count)>x ore.");
+        }
+        case iron_ore : {
+            inv_del(inv, $ore, $ore_count);
+            %iron_ore_count = calc(%iron_ore_count + $ore_count);
+            mes("You loaded <tostring($ore_count)>x ore.");
+        }
+        case gold_ore : {
+            inv_del(inv, $ore, $ore_count);
+            %gold_ore_count = calc(%gold_ore_count + $ore_count);
+            mes("You loaded <tostring($ore_count)>x ore.");
+        }
+        case silver_ore : {
+            inv_del(inv, $ore, $ore_count);
+            %silver_ore_count = calc(%silver_ore_count + $ore_count);
+            mes("You loaded <tostring($ore_count)>x ore.");
+        }
+        case coal : {
+            inv_del(inv, $ore, $ore_count);
+            %coal_ore_count = calc(%coal_ore_count + $ore_count);
+            mes("You loaded <tostring($ore_count)>x ore.");
+        }
+        case mithril_ore : {
+            inv_del(inv, $ore, $ore_count);
+            %mithril_ore_count = calc(%mithril_ore_count + $ore_count);
+            mes("You loaded <tostring($ore_count)>x ore.");
+        }
+        case adamantite_ore : {
+            inv_del(inv, $ore, $ore_count);
+            %adamant_ore_count = calc(%adamant_ore_count + $ore_count);
+            mes("You loaded <tostring($ore_count)>x ore.");
+        }
+        case runite_ore : {
+            inv_del(inv, $ore, $ore_count);
+            %rune_ore_count = calc(%rune_ore_count + $ore_count);
+            mes("You loaded <tostring($ore_count)>x ore.");
+        }
+        case dragon_ore : {
+            inv_del(inv, $ore, $ore_count);
+            %dragon_ore_count = calc(%dragon_ore_count + $ore_count);
+            mes("You loaded <tostring($ore_count)>x ore.");
+        }
+        case default : {
+            mes("You cannot load that into this case.");
+        }
+    }
+}
+
+[label,unload_ores]
+def_int $freespace = inv_freespace(inv);
+def_int $choice = ~p_choice5_header(
+    "Tin.", 1,
+    "Copper.", 2,
+    "Iron.", 3,
+    "Gold.", 4,
+    "Next.", 5,
+    "Which ore do you want to unload?"
+);
+switch_int($choice){
+    case 1 : {
+        def_int $amount = min(%tin_ore_count, $freespace);
+        if ($amount > 0) {
+            inv_add(inv, tin_ore, $amount);
+            %tin_ore_count = calc(%tin_ore_count - $amount);
+            mes("You unloaded <tostring($amount)>x ore.");
+        }
+    }
+    case 2 : {
+        def_int $amount = min(%copper_ore_count, $freespace);
+        if ($amount > 0) {
+            inv_add(inv, copper_ore, $amount);
+            %copper_ore_count = calc(%copper_ore_count - $amount);
+            mes("You unloaded <tostring($amount)>x ore.");
+        }
+    }
+    case 3 : {
+        def_int $amount = min(%iron_ore_count, $freespace);
+        if ($amount > 0) {
+            inv_add(inv, iron_ore, $amount);
+            %iron_ore_count = calc(%iron_ore_count - $amount);
+            mes("You unloaded <tostring($amount)>x ore.");
+        }
+    }
+    case 4 : {
+        def_int $amount = min(%gold_ore_count, $freespace);
+        if ($amount > 0) {
+            inv_add(inv, gold_ore, $amount);
+            %gold_ore_count = calc(%gold_ore_count - $amount);
+            mes("You unloaded <tostring($amount)>x ore.");
+        }
+    }
+    case 5 : {
+        def_int $choice2 = ~p_choice5_header(
+            "Silver.", 1,
+            "Coal.", 2,
+            "Mithril.", 3,
+            "Adamant.", 4,
+            "Next.", 5,
+            "Which ore do you want to unload?"
+        );
+        switch_int($choice2){
+            case 1 : {
+                def_int $amount = min(%silver_ore_count, $freespace);
+                if ($amount > 0) {
+                    inv_add(inv, silver_ore, $amount);
+                    %silver_ore_count = calc(%silver_ore_count - $amount);
+                    mes("You unloaded <tostring($amount)>x ore.");
+                }
+            }
+            case 2 : {
+                def_int $amount = min(%coal_ore_count, $freespace);
+                if ($amount > 0) {
+                    inv_add(inv, coal, $amount);
+                    %coal_ore_count = calc(%coal_ore_count - $amount);
+                    mes("You unloaded <tostring($amount)>x ore.");
+                }
+            }
+            case 3 : {
+                def_int $amount = min(%mithril_ore_count, $freespace);
+                if ($amount > 0) {
+                    inv_add(inv, mithril_ore, $amount);
+                    %mithril_ore_count = calc(%mithril_ore_count - $amount);
+                    mes("You unloaded <tostring($amount)>x ore.");
+                }
+            }
+            case 4 : {
+                def_int $amount = min(%adamant_ore_count, $freespace);
+                if ($amount > 0) {
+                    inv_add(inv, adamantite_ore, $amount);
+                    %adamant_ore_count = calc(%adamant_ore_count - $amount);
+                    mes("You unloaded <tostring($amount)>x ore.");                 
+                }
+            }
+            case 5 : {
+                def_int $choice3 = ~p_choice2_header(
+                    "Rune.", 1,
+                    "Dragon.", 2,
+                    "Which ore do you want to unload?"
+                );
+                switch_int($choice3){
+                    case 1 : {
+                        def_int $amount = min(%rune_ore_count, $freespace);
+                        if ($amount > 0) {
+                            inv_add(inv, runite_ore, $amount);
+                            %rune_ore_count = calc(%rune_ore_count - $amount);
+                            mes("You unloaded <tostring($amount)>x ore.");
+                        }
+                    }
+                    case 2 : {
+                        def_int $amount = min(%dragon_ore_count, $freespace);
+                        if ($amount > 0) {
+                            inv_add(inv, dragon_ore, $amount);
+                            %dragon_ore_count = calc(%dragon_ore_count - $amount);
+                            mes("You unloaded <tostring($amount)>x ore.");
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+[label,check_ores]
+def_int $choice = ~p_choice5_header(
+    "Tin.", 1,
+    "Copper.", 2,
+    "Iron.", 3,
+    "Gold.", 4,
+    "Next.", 5,
+    "Which ore do you want to check?"
+);
+switch_int($choice){
+    case 1 : {
+        mes("You have <tostring(%tin_ore_count)>x Tin Ore!");
+    }
+    case 2 : {
+        mes("You have <tostring(%copper_ore_count)>x Copper Ore!");
+    }
+    case 3 : {
+        mes("You have <tostring(%iron_ore_count)>x Iron Ore!");
+    }
+    case 4 : {
+        mes("You have <tostring(%gold_ore_count)>x Gold Ore!");
+    }
+    case 5 : {
+        def_int $choice2 = ~p_choice5_header(
+            "Silver.", 1,
+            "Coal.", 2,
+            "Mithril.", 3,
+            "Adamant.", 4,
+            "Next.", 5,
+            "Which ore do you want to check?"
+        );
+        switch_int($choice2){
+            case 1 : {
+                mes("You have <tostring(%silver_ore_count)>x Silver Ore!");
+            }
+            case 2 : {
+                mes("You have <tostring(%coal_ore_count)>x Coal!");
+            }
+            case 3 : {
+                mes("You have <tostring(%mithril_ore_count)>x Mithril Ore!");
+            }
+            case 4 : {
+                mes("You have <tostring(%adamant_ore_count)>x Adamantite Ore!");
+            }
+            case 5 : {
+                def_int $choice3 = ~p_choice2_header(
+                    "Rune.", 1,
+                    "Dragon.", 2,
+                    "Which ore do you want to check?"
+                );
+                switch_int($choice3){
+                    case 1 : {
+                        mes("You have <tostring(%rune_ore_count)>x Runite Ore!");
+                    }
+                    case 2 : {
+                        mes("You have <tostring(%dragon_ore_count)>x Dragon Ore!");
+                    }
+                }
+            }
+        }
+    }
+}

@@ -408,8 +408,9 @@ if ($random < 1) {
 } else if ($random > 12) {
     return (salmon, 2);
     return (coins, 534);
+} else if ($random = 14){
+    return(~halloween_table);
 }
-
 [proc,dragon_table]()(namedobj,int)
 def_int $random = 0;
 $random = random(128);
@@ -706,3 +707,25 @@ switch_int($random){
     case 9 : return(halberd, 1);
     case 10 : return(half_full_wine_jug, 1);
 }
+
+
+[proc,halloween_table]()(namedobj,int)
+def_int $random = random(100000);
+switch_int($random){
+    case 831 :    
+        return(halloweenmask_blue, 1);
+        ~objbox(halloweenmask_blue, "You recieved a Blue Halloween Mask!", 250, 0, 0);
+    case 8310 : 
+        return(halloweenmask_green, 1);
+        ~objbox(halloweenmask_green, "You recieved a Green Halloween Mask!", 250, 0, 0);
+    case 10831 : 
+        return(halloweenmask_red, 1);
+        ~objbox(halloweenmask_red, "You recieved a Red Halloween Mask!", 250, 0, 0);
+    case 1337 :
+        return(scythe, 1);
+        ~objbox(scythe, "You recieved a Scythe!", 350, 0, 0);
+    case 80085 :
+        return(pumpkin, 1);
+        ~objbox(pumpkin, "You received a Pumpkin!", 250, 0, 0);
+}
+return(coins, 500);

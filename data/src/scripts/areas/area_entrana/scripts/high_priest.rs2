@@ -20,6 +20,21 @@ if (%hero_progress = ^hero_started) { // only checks starting stage (OSRS)
     ~chatplayer("<p,quiz>So where would I find this 'Queen of the Ice' then?");
     ~chatnpc("<p,neutral>I know not adventurer, it was just a myth I was told|as a young boy. Perhaps somewhere icey?");
     ~chatplayer("<p,neutral>Thanks!");
+} 
+if (stat_base(prayer) > 69){
+    ~chatplayer("<p,happy>I have completed my rituals and proven my faith!");
+    ~chatnpc("<p,shock>That is wonderuful news! I see you have grown past what I forseen.");
+    ~chatnpc("<p,happy>You are now worthy of protecting this book!");
+    if (inv_total(bank, book_of_prayers) > 0 | inv_total(inv, book_of_prayers) > 0 | inv_total(worn, book_of_prayers) > 0){
+        ~chatnpc("<p,sad>You already have a copy of this book!");
+        return;
+    }
+    if (inv_freespace(inv) < 1){
+        ~chatnpc("<p,sad>Come back when you have more space in your bags!");
+        return;
+    } else {
+        inv_add(inv, book_of_prayers, 1);
+    }
 }
 ~chatnpc("<p,happy>Enjoy your stay here.|May it be spiritually uplifting!");
 

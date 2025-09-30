@@ -1,0 +1,206 @@
+[opheldu,_category_151] @load_bars(last_useitem);
+[opheld1,bar_box] @unload_bars;
+[opheld2,bar_box] @check_bars;
+
+[label,load_bars](obj $bar)
+def_int $total_bars = calc(
+  %bronze_bar_count +
+  %iron_bar_count +
+  %mithril_bar_count +
+  %adamant_bar_count +
+  %gold_bar_count +
+  %silver_bar_count +
+  %rune_bar_count +
+  %dragon_bar_count
+);
+def_int $splunker = add(stat_base(mining), stat_base(smithing));
+def_int $splunkerlevel = calc($splunker + 98);
+def_int $bar_count = inv_total(inv, $bar);
+def_int $space_left = calc($splunkerlevel - $total_bars);
+
+if ($total_bars < $splunkerlevel) {
+    if ($bar_count > $space_left) {
+        $bar_count = $space_left;
+    }
+
+    switch_obj($bar){
+        case bronze_bar : {
+            inv_del(inv, $bar, $bar_count);
+            %bronze_bar_count = calc(%bronze_bar_count + $bar_count);
+            mes("You loaded <tostring($bar_count)>x Bronze bar.");
+        }
+        case iron_bar : {
+            inv_del(inv, $bar, $bar_count);
+            %iron_bar_count = calc(%iron_bar_count + $bar_count);
+            mes("You loaded <tostring($bar_count)>x Iron bar.");
+        }
+        case mithril_bar : {
+            inv_del(inv, $bar, $bar_count);
+            %mithril_bar_count = calc(%mithril_bar_count + $bar_count);
+            mes("You loaded <tostring($bar_count)>x Mithril bar.");
+        }
+        case adamantite_bar : {
+            inv_del(inv, $bar, $bar_count);
+            %adamant_bar_count = calc(%adamant_bar_count + $bar_count);
+            mes("You loaded <tostring($bar_count)>x Adamant bar.");
+        }
+        case gold_bar : {
+            inv_del(inv, $bar, $bar_count);
+            %gold_bar_count = calc(%gold_bar_count + $bar_count);
+            mes("You loaded <tostring($bar_count)>x Gold bar.");
+        }
+        case silver_bar : {
+            inv_del(inv, $bar, $bar_count);
+            %silver_bar_count = calc(%silver_bar_count + $bar_count);
+            mes("You loaded <tostring($bar_count)>x Silver bar.");
+        }
+        case runite_bar : {
+            inv_del(inv, $bar, $bar_count);
+            %rune_bar_count = calc(%rune_bar_count + $bar_count);
+            mes("You loaded <tostring($bar_count)>x Rune bar.");
+        }
+        case dragon_bar : {
+            inv_del(inv, $bar, $bar_count);
+            %dragon_bar_count = calc(%dragon_bar_count + $bar_count);
+            mes("You loaded <tostring($bar_count)>x Dragon bar.");
+        }
+        case default : {
+            mes("You cannot load that into this case.");
+        }
+    }
+}
+
+[label,unload_bars]
+def_int $freespace = inv_freespace(inv);
+def_int $choice = ~p_choice5_header(
+  "Bronze.", 1,
+  "Iron.", 2,
+  "Mithril.", 3,
+  "Gold.", 4,
+  "Next.", 5,
+  "Which bar do you want to unload?"
+);
+switch_int($choice){
+    case 1 : {
+        def_int $amount = min(%bronze_bar_count, $freespace);
+        if ($amount > 0) {
+            inv_add(inv, bronze_bar, $amount);
+            %bronze_bar_count = calc(%bronze_bar_count - $amount);
+            mes("You unloaded <tostring($amount)>x Bronze bar.");
+        }
+    }
+    case 2 : {
+        def_int $amount = min(%iron_bar_count, $freespace);
+        if ($amount > 0) {
+            inv_add(inv, iron_bar, $amount);
+            %iron_bar_count = calc(%iron_bar_count - $amount);
+            mes("You unloaded <tostring($amount)>x Iron bar.");
+        }
+    }
+    case 3 : {
+        def_int $amount = min(%mithril_bar_count, $freespace);
+        if ($amount > 0) {
+            inv_add(inv, mithril_bar, $amount);
+            %mithril_bar_count = calc(%mithril_bar_count - $amount);
+            mes("You unloaded <tostring($amount)>x Mithril bar.");
+        }
+    }
+    case 4 : {
+        def_int $amount = min(%gold_bar_count, $freespace);
+        if ($amount > 0) {
+            inv_add(inv, gold_bar, $amount);
+            %gold_bar_count = calc(%gold_bar_count - $amount);
+            mes("You unloaded <tostring($amount)>x Gold bar.");
+        }
+    }
+    case 5 : {
+        def_int $choice2 = ~p_choice4_header(
+          "Silver.", 1,
+          "Adamant.", 2,
+          "Rune.", 3,
+          "Dragon.", 4,
+          "Which bar do you want to unload?"
+        );
+        switch_int($choice2){
+            case 1 : {
+                def_int $amount = min(%silver_bar_count, $freespace);
+                if ($amount > 0) {
+                    inv_add(inv, silver_bar, $amount);
+                    %silver_bar_count = calc(%silver_bar_count - $amount);
+                    mes("You unloaded <tostring($amount)>x Silver bar.");
+                }
+            }
+            case 2 : {
+                def_int $amount = min(%adamant_bar_count, $freespace);
+                if ($amount > 0) {
+                    inv_add(inv, adamantite_bar, $amount);
+                    %adamant_bar_count = calc(%adamant_bar_count - $amount);
+                    mes("You unloaded <tostring($amount)>x Adamant bar.");
+                }
+            }
+            case 3 : {
+                def_int $amount = min(%rune_bar_count, $freespace);
+                if ($amount > 0) {
+                    inv_add(inv, runite_bar, $amount);
+                    %rune_bar_count = calc(%rune_bar_count - $amount);
+                    mes("You unloaded <tostring($amount)>x Rune bar.");
+                }
+            }
+            case 4 : {
+                def_int $amount = min(%dragon_bar_count, $freespace);
+                if ($amount > 0) {
+                    inv_add(inv, dragon_bar, $amount);
+                    %dragon_bar_count = calc(%dragon_bar_count - $amount);
+                    mes("You unloaded <tostring($amount)>x Dragon bar.");
+                }
+            }
+        }
+    }
+}
+
+[label,check_bars]
+def_int $choice = ~p_choice5_header(
+  "Bronze.", 1,
+  "Iron.", 2,
+  "Mithril.", 3,
+  "Gold.", 4,
+  "Next.", 5,
+  "Which bar do you want to check?"
+);
+switch_int($choice){
+    case 1 : {
+        mes("You have <tostring(%bronze_bar_count)>x Bronze bar!");
+    }
+    case 2 : {
+        mes("You have <tostring(%iron_bar_count)>x Iron bar!");
+    }
+    case 3 : {
+        mes("You have <tostring(%mithril_bar_count)>x Mithril bar!");
+    }
+    case 4 : {
+        mes("You have <tostring(%gold_bar_count)>x Gold bar!");
+    }
+    case 5 : {
+        def_int $choice2 = ~p_choice4_header(
+          "Silver.", 1,
+          "Adamant.", 2,
+          "Rune.", 3,
+          "Dragon.", 4,
+          "Which bar do you want to check?"
+        );
+        switch_int($choice2){
+            case 1 : {
+                mes("You have <tostring(%silver_bar_count)>x Silver bar!");
+            }
+            case 2 : {
+                mes("You have <tostring(%adamant_bar_count)>x Adamant bar!");
+            }
+            case 3 : {
+                mes("You have <tostring(%rune_bar_count)>x Rune bar!");
+            }
+            case 4 : {
+                mes("You have <tostring(%dragon_bar_count)>x Dragon bar!");
+            }
+        }
+    }
+}
