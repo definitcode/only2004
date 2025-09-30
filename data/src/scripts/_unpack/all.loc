@@ -12624,6 +12624,14 @@ width=2
 length=2
 op2=Steal from
 
+[bakers_stall_stealing2]
+name=Baker's stall
+desc=This stall smells great.
+model=bakery_stall
+width=2
+length=2
+op2=Steal from
+
 [gem_stall_stealing]
 name=Gem stall
 desc=Precious stones from around the world.

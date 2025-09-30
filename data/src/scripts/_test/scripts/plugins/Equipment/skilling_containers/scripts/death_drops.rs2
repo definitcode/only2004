@@ -1,0 +1,161 @@
+[proc,skilling_container_drops]
+if (inv_total(inv, bucket_fish) > 0){
+    ~fish_drop;
+}
+if (inv_total(inv, bar_box) > 0){
+    ~bar_drop;
+}
+if (inv_total(inv, ore_box2) > 0){
+    ~ore_drop;
+}
+if (inv_total(inv, herb_bag) > 0){
+    ~herb_drop;
+}
+[proc,fish_drop]
+def_int $lobster_count = %lobster_count;
+def_int $swordfish_count = %swordfish_count;
+def_int $tuna_count = %tuna_count;
+def_int $shark_count  = %shark_count;
+if ($tuna_count > 0){
+    obj_add(coord, cert_raw_tuna, $tuna_count, ^lootdrop_duration);
+}
+if ($lobster_count > 0){
+    obj_add(coord, cert_raw_lobster, $lobster_count, ^lootdrop_duration);
+}
+if ($swordfish_count > 0){ 
+    obj_add(coord, cert_raw_swordfish, $swordfish_count, ^lootdrop_duration);
+}
+if ($shark_count > 0){ 
+    obj_add(coord, cert_raw_shark, $shark_count, ^lootdrop_duration);
+}
+inv_del(inv, bucket_fish, 1);
+mes("Your Bucket of fish has been destroyed!");
+%lobster_count = 0;
+%swordfish_count = 0;
+%tuna_count = 0;
+%shark_count = 0;
+
+
+/// ORE DROP
+[proc,ore_drop]
+def_int $tin_ore_count      = %tin_ore_count;
+def_int $copper_ore_count   = %copper_ore_count;
+def_int $iron_ore_count     = %iron_ore_count;
+def_int $gold_ore_count     = %gold_ore_count;
+def_int $silver_ore_count   = %silver_ore_count;
+def_int $coal_ore_count     = %coal_ore_count;
+def_int $mithril_ore_count  = %mithril_ore_count;
+def_int $adamant_ore_count  = %adamant_ore_count;
+def_int $rune_ore_count     = %rune_ore_count;
+def_int $dragon_ore_count   = %dragon_ore_count;
+if ($tin_ore_count > 0)     { obj_add(coord, cert_tin_ore, $tin_ore_count, ^lootdrop_duration); }
+if ($copper_ore_count > 0)  { obj_add(coord, cert_copper_ore, $copper_ore_count, ^lootdrop_duration); }
+if ($iron_ore_count > 0)    { obj_add(coord, cert_iron_ore, $iron_ore_count, ^lootdrop_duration); }
+if ($gold_ore_count > 0)    { obj_add(coord, cert_gold_ore, $gold_ore_count, ^lootdrop_duration); }
+if ($silver_ore_count > 0)  { obj_add(coord, cert_silver_ore, $silver_ore_count, ^lootdrop_duration); }
+if ($coal_ore_count > 0)    { obj_add(coord, cert_coal, $coal_ore_count, ^lootdrop_duration); }
+if ($mithril_ore_count > 0) { obj_add(coord, cert_mithril_ore, $mithril_ore_count, ^lootdrop_duration); }
+if ($adamant_ore_count > 0) { obj_add(coord, cert_adamantite_ore, $adamant_ore_count, ^lootdrop_duration); }
+if ($rune_ore_count > 0)    { obj_add(coord, cert_runite_ore, $rune_ore_count, ^lootdrop_duration); }
+if ($dragon_ore_count > 0)  { obj_add(coord, cert_dragon_ore, $dragon_ore_count, ^lootdrop_duration); }
+inv_del(inv, ore_box2, 1);
+mes("Your Ore Box has been destroyed!");
+%tin_ore_count = 0;
+%copper_ore_count = 0;
+%iron_ore_count = 0;
+%gold_ore_count = 0;
+%silver_ore_count = 0;
+%coal_ore_count = 0;
+%mithril_ore_count = 0;
+%adamant_ore_count = 0;
+%rune_ore_count = 0;
+%dragon_ore_count = 0;
+
+
+
+/// HERB DROP
+[proc,herb_drop]
+def_int $guam_leaf_count   = %guam_leaf_count;
+def_int $marentill_count   = %marentill_count;
+def_int $tarromin_count    = %tarromin_count;
+def_int $harralander_count = %harralander_count;
+def_int $ranarr_weed_count = %ranarr_weed_count;
+def_int $irit_leaf_count   = %irit_leaf_count;
+def_int $avantoe_count     = %avantoe_count;
+def_int $kwuarm_count      = %kwuarm_count;
+def_int $cadantine_count   = %cadantine_count;
+def_int $dwarf_weed_count  = %dwarf_weed_count;
+def_int $torstol_count     = %torstol_count;
+def_int $lantadyme_count   = %lantadyme_count;
+def_int $snake_weed_count  = %snake_weed_count;
+def_int $ardrigal_count    = %ardrigal_count;
+def_int $sito_foil_count   = %sito_foil_count;
+def_int $volencia_moss_count = %volencia_moss_count;
+def_int $rogues_purse_count  = %rogues_purse_count;
+if ($guam_leaf_count > 0)   { obj_add(coord, cert_guam_leaf, $guam_leaf_count, ^lootdrop_duration); }
+if ($marentill_count > 0)   { obj_add(coord, cert_marentill, $marentill_count, ^lootdrop_duration); }
+if ($tarromin_count > 0)    { obj_add(coord, cert_tarromin, $tarromin_count, ^lootdrop_duration); }
+if ($harralander_count > 0) { obj_add(coord, cert_harralander, $harralander_count, ^lootdrop_duration); }
+if ($ranarr_weed_count > 0) { obj_add(coord, cert_ranarr_weed, $ranarr_weed_count, ^lootdrop_duration); }
+if ($irit_leaf_count > 0)   { obj_add(coord, cert_irit_leaf, $irit_leaf_count, ^lootdrop_duration); }
+if ($avantoe_count > 0)     { obj_add(coord, cert_avantoe, $avantoe_count, ^lootdrop_duration); }
+if ($kwuarm_count > 0)      { obj_add(coord, cert_kwuarm, $kwuarm_count, ^lootdrop_duration); }
+if ($cadantine_count > 0)   { obj_add(coord, cert_cadantine, $cadantine_count, ^lootdrop_duration); }
+if ($dwarf_weed_count > 0)  { obj_add(coord, cert_dwarf_weed, $dwarf_weed_count, ^lootdrop_duration); }
+if ($torstol_count > 0)     { obj_add(coord, cert_torstol, $torstol_count, ^lootdrop_duration); }
+if ($lantadyme_count > 0)   { obj_add(coord, cert_lantadyme, $lantadyme_count, ^lootdrop_duration); }
+if ($snake_weed_count > 0)  { obj_add(coord, cert_snake_weed, $snake_weed_count, ^lootdrop_duration); }
+if ($ardrigal_count > 0)    { obj_add(coord, cert_ardrigal, $ardrigal_count, ^lootdrop_duration); }
+if ($sito_foil_count > 0)   { obj_add(coord, cert_sito_foil, $sito_foil_count, ^lootdrop_duration); }
+if ($volencia_moss_count > 0) { obj_add(coord, cert_volencia_moss, $volencia_moss_count, ^lootdrop_duration); }
+if ($rogues_purse_count > 0)  { obj_add(coord, cert_rogues_purse, $rogues_purse_count, ^lootdrop_duration); }
+inv_del(inv, herb_bag, 1);
+mes("Your Herb Bag has been destroyed!");
+%guam_leaf_count = 0;
+%marentill_count = 0;
+%tarromin_count = 0;
+%harralander_count = 0;
+%ranarr_weed_count = 0;
+%irit_leaf_count = 0;
+%avantoe_count = 0;
+%kwuarm_count = 0;
+%cadantine_count = 0;
+%dwarf_weed_count = 0;
+%torstol_count = 0;
+%lantadyme_count = 0;
+%snake_weed_count = 0;
+%ardrigal_count = 0;
+%sito_foil_count = 0;
+%volencia_moss_count = 0;
+%rogues_purse_count = 0;
+
+
+
+/// BAR DROP
+[proc,bar_drop]
+def_int $bronze_bar_count  = %bronze_bar_count;
+def_int $iron_bar_count    = %iron_bar_count;
+def_int $gold_bar_count    = %gold_bar_count;
+def_int $silver_bar_count  = %silver_bar_count;
+def_int $mithril_bar_count = %mithril_bar_count;
+def_int $adamant_bar_count = %adamant_bar_count;
+def_int $rune_bar_count    = %rune_bar_count;
+def_int $dragon_bar_count  = %dragon_bar_count;
+if ($bronze_bar_count > 0)  { obj_add(coord, cert_bronze_bar, $bronze_bar_count, ^lootdrop_duration); }
+if ($iron_bar_count > 0)    { obj_add(coord, cert_iron_bar, $iron_bar_count, ^lootdrop_duration); }
+if ($gold_bar_count > 0)    { obj_add(coord, cert_gold_bar, $gold_bar_count, ^lootdrop_duration); }
+if ($silver_bar_count > 0)  { obj_add(coord, cert_silver_bar, $silver_bar_count, ^lootdrop_duration); }
+if ($mithril_bar_count > 0) { obj_add(coord, cert_mithril_bar, $mithril_bar_count, ^lootdrop_duration); }
+if ($adamant_bar_count > 0) { obj_add(coord, cert_adamantite_bar, $adamant_bar_count, ^lootdrop_duration); }
+if ($rune_bar_count > 0)    { obj_add(coord, cert_runite_bar, $rune_bar_count, ^lootdrop_duration); }
+if ($dragon_bar_count > 0)  { obj_add(coord, cert_dragon_bar, $dragon_bar_count, ^lootdrop_duration); }
+inv_del(inv, bar_box, 1);
+mes("Your Bar Box has been destroyed!");
+%bronze_bar_count = 0;
+%iron_bar_count = 0;
+%gold_bar_count = 0;
+%silver_bar_count = 0;
+%mithril_bar_count = 0;
+%adamant_bar_count = 0;
+%rune_bar_count = 0;
+%dragon_bar_count = 0;

@@ -14,6 +14,21 @@ weight=2lb
 members=yes
 tradeable=no
 
+[unstable_bar]
+name=Unstable Bar
+desc=It's a bar of unstable elements.
+cost=28
+model=model_2408_obj
+recol1s=11488
+recol1d=2534
+2dxof=1
+2dyof=-8
+2dzoom=820
+2dyan=1180
+2dxan=196
+weight=4lb
+category=category_151
+stackable=yes
 
 
 [mining_casket]

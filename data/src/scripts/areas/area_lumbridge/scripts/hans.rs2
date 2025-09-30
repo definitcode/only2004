@@ -19,7 +19,19 @@
 //} else {
 //    ~chatnpc("You already have the founders pack!");
 //}
-
+if (%gamemode_selected = ^gamemode_ironman | %gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_hcuim | %gamemode_selected = ^gamemode_uim){
+    ~chatnpc("<p,happy>Hello! Would you like to change your Mode back to a @blu@Normal@bla@?");
+    ~mesbox("This will cause you to lose your status!");
+    def_int $choice = ~p_choice2_header("Yes.", 1, "No.", 2, "Mode Switcher");
+    switch_int($choice){
+        case 1 : {
+            %gamemode_selected = ^gamemode_none;
+            mes("Your account has been set to [Normal]");
+        }
+        case 2 : {
+        }
+    }
+}
 if(map_members = true) {
     if(inv_total(inv, trail_clue_hard_riddle012) > 0) {
         // https://www.youtube.com/watch?v=F5i3JqU6dkY

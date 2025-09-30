@@ -13,6 +13,7 @@ model=model_2520_obj
 weight=7g
 param=brew_potion_struct,3dose1attack
 param=brew_potion_struct_secondary,3dose2attack
+stackable=yes
 // jagex name
 
 [red_spiders_eggs]
@@ -26,6 +27,7 @@ model=model_2343_obj
 2dxan=252
 weight=7g
 param=brew_potion_struct,3dose1restore
+stackable=yes
 // jagex name
 
 [limpwurt_root]
@@ -41,6 +43,7 @@ model=model_2629_obj
 weight=7g
 param=brew_potion_struct,3dose1strength
 param=brew_potion_struct_secondary,3dose2strength
+stackable=yes
 // jagex name
 
 [snape_grass]
@@ -58,6 +61,7 @@ weight=7g
 respawnrate=30
 param=brew_potion_struct,3doseprayerrestore
 param=brew_potion_struct_secondary,3dosefisherspotion
+stackable=yes
 // guessed name
 
 [unicorn_horn_dust]
@@ -75,6 +79,7 @@ cost=20
 weight=7g
 param=brew_potion_struct,3doseantipoison
 param=brew_potion_struct_secondary,3dose2antipoison
+stackable=yes
 // guessed name
 
 [white_berries]
@@ -94,6 +99,7 @@ desc=Sour berries, used in potions.
 respawnrate=10
 param=brew_potion_struct,3dose1defense
 param=brew_potion_struct_secondary,3dose2defense
+stackable=yes
 // guessed name
 
 [dragon_scale_dust]
@@ -111,6 +117,7 @@ weight=7g
 members=yes
 param=brew_potion_struct,weapon_poison
 param=brew_potion_struct_secondary,3dose1antidragon
+stackable=yes
 
 [black_dragon_scale_dust]
 model=model_2742_obj
@@ -125,6 +132,7 @@ desc=Finely ground scale of Dragon.
 cost=52
 weight=7g
 members=yes
+stackable=yes
 
 [red_dragon_scale_dust]
 model=model_2742_obj
@@ -139,6 +147,7 @@ desc=Finely ground scale of Dragon.
 cost=52
 weight=7g
 members=yes
+stackable=yes
 
 [green_dragon_scale_dust]
 model=model_2742_obj
@@ -153,6 +162,7 @@ desc=Finely ground scale of Dragon.
 cost=52
 weight=7g
 members=yes
+stackable=yes
 
 
 // jagex name
@@ -191,6 +201,7 @@ category=category_86
 members=yes
 respawnrate=30
 param=brew_potion_struct,3dosepotionofzamorak
+stackable=yes
 
 [blamish_snail_slime]
 name=Blamish snail slime
@@ -219,3 +230,4 @@ model=model_2742_obj
 2dxan=136
 weight=100g
 members=yes
+stackable=yes

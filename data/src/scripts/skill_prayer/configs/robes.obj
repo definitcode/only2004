@@ -104,7 +104,25 @@ recol1d=0
 2dxan=572
 cost=30
 name=Black robe
-desc=Keeps a monk's knees nice and warm.
+desc=Keeps a wizards's knees nice and warm.
+iop2=Wear
+wearpos=legs
+manwear=model_265_obj_wear,0
+womanwear=model_428_idk,0
+weight=2lb
+param=prayerbonus,4
+cost=1350
+
+[bluerobebottom]
+model=model_2521_obj
+recol1s=2340
+recol1d=254
+2dyof=1
+2dzoom=1940
+2dxan=572
+cost=30
+name=Blue robe
+desc=Keeps a wizards's knees nice and warm.
 iop2=Wear
 wearpos=legs
 manwear=model_265_obj_wear,0

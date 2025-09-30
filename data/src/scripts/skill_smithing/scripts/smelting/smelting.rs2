@@ -13,9 +13,30 @@ switch_obj (last_useitem)
         if(loc_type = furnace_upass) @destroy_orboflight(last_useitem);
         ~displaymessage(^dm_default);
     case unstable_fragment : {
-        inv_del(inv, unstable_fragment, 1);
-        anim(human_pickuptable, 0);
-        sound_synth(furnace, 2, 0);
+        if (~wilderness_level(coord) > 29){
+            def_int $random = random(10);
+            if ($random > 1) {
+                inv_del(inv, unstable_fragment, 1);
+                anim(human_pickuptable, 0);
+                sound_synth(furnace, 2, 0);
+                p_delay(5);
+                anim(human_pickuptable, 0);
+                sound_synth(furnace, 2, 0);        
+                inv_add(inv, unstable_bar, 1);
+                stat_advance(smithing, 1800);
+                mes("You have smelt down the fragments.");
+            } else if ($random = 0) {
+                def_int $total = inv_total(inv, unstable_fragment);
+                inv_del(inv, unstable_fragment, random(2));
+                spotanim_pl(fireblast_impact, 100, 1);
+                sound_synth(explosion, 2, 0);
+                damage(uid, 1, 10);
+                mes("The unstable elements explodes!");
+            }
+        } else {
+            mes("You must be in the wilderness to do this!");
+            return;
+        }
     } 
     case default :
         if (oc_category(last_useitem) = category_91) {

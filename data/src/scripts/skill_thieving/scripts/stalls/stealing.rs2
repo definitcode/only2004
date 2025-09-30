@@ -7,6 +7,9 @@
 [oploc2,bakers_stall_stealing] // Baker's stall
 @attempt_steal_from_stall(loc_type, loc_coord, loc_angle, loc_shape);
 
+[oploc2,bakers_stall_stealing2] // Baker's stall
+@attempt_steal_from_stall(loc_type, loc_coord, loc_angle, loc_shape);
+
 [oploc2,gem_stall_stealing] // Gem stall
 @attempt_steal_from_stall(loc_type, loc_coord, loc_angle, loc_shape);
 

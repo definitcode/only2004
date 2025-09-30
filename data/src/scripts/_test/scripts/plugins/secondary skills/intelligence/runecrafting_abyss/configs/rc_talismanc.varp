@@ -1,6 +1,14 @@
 [talismancount]
 scope=perm
-
-
 [teleportlocation]
+scope=perm
+[runecraft_task]
+scope=perm
+[rc_taskamount]
+scope=perm
+[runecraft_taskstatus]
+scope=perm
+[rc_rep]
+scope=perm
+[rc_repmulti]
 scope=perm

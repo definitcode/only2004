@@ -99,9 +99,9 @@ param=ingredient_secondary_count,8
 
 [smelting_dragon_bar]
 param=levelfailure,You need a Smithing level of 99 to smelt a Dragon bar.
-param=processfailure,You need at least 1 Dragon ore 3 Runite bars and 10 Coal to smelt a dragon bar.
-param=processfailure_superheat,You need at least 1 Dragon ore 3 Runite bars and 10 Coal to smelt a dragon bar.
-param=processmessage,You place the dragon ore three runite bars and ten heaps of coal into the furnace.
+param=processfailure,You need at least 1 Dragon ore 3 Unstable bars and 10 Coal to smelt a dragon bar.
+param=processfailure_superheat,You need at least 1 Dragon ore 3 Unstable bars and 10 Coal to smelt a dragon bar.
+param=processmessage,You place the dragon ore three unstable bars and ten heaps of coal into the furnace.
 param=product,dragon_bar
 param=productmessage,You retrieve a bar of dragon metal.
 param=levelrequired,99
@@ -110,7 +110,7 @@ param=ingredient,dragon_ore
 param=bar_count,1
 param=ingredient_secondary,coal
 param=ingredient_secondary_count,10
-param=ingredient_third,runite_bar
+param=ingredient_third,unstable_bar
 param=ingredient_third_count,3
 
 

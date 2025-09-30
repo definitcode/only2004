@@ -25,6 +25,14 @@ param=product,purple_cape
 param=color,orange
 param=product,orange_cape
 
+[black_dye]
+param=cape,black_cape
+param=color,black
+param=processmessage,a black
+param=ingredient,reddye
+param=secondary_ingredient,swamp_tar
+param=product,blackdye
+
 [orange_dye]
 param=cape,orange_cape
 param=color,orange

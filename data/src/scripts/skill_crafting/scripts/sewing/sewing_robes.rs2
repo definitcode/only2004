@@ -1,0 +1,93 @@
+[label,craft_black_robes]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
+~black_robes;
+
+[proc,black_robes]
+def_int $silk = inv_total(inv, black_silk);
+def_namedobj $choice = ~multiobj3(
+    "What would you like to make?", 
+    blackwizhat, 0, -2, 185, "Hat.", 0, 0,
+    blackrobetop, 0, -20, 175, "Robe.", 0, 0,  
+    blackrobebottom, 0, -15, 190, "Bottoms.", 0, 0
+);
+
+switch_namedobj($choice){
+    case blackwizhat : {
+        ~hand_crafting_action;
+        inv_del(inv, black_silk, 1);
+        inv_add(inv, blackwizhat, 1);
+        stat_advance(crafting, 250);
+        ~objbox(blackwizhat, "You have created a Wizards hat!", 250, 0, 20);
+    }
+    case blackrobetop : {
+        ~hand_crafting_action;
+        inv_del(inv, black_silk, 1);
+        inv_add(inv, blackrobetop, 1);
+        stat_advance(crafting, 250);
+        ~objbox(blackrobetop, "You have created a Black robe!", 250, 0, 0);
+    }
+    case blackrobebottom : {
+        ~hand_crafting_action;
+        inv_del(inv, black_silk, 1);
+        inv_add(inv, blackrobebottom, 1);
+        stat_advance(crafting, 250);
+        ~objbox(blackrobebottom, "You have created a Black robe!", 250, 0, 0);
+    }
+}
+
+[label,craft_blue_robes]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
+~blue_robes;
+
+[proc,blue_robes]
+def_int $silk = inv_total(inv, blue_silk);
+def_namedobj $choice = ~multiobj3(
+    "What would you like to make?",
+    bluewizhat, 0, -2, 185, "Hat.", 0, 0,   
+    wizards_robe, 0, -20, 175, "Robe.", 0, 0,  
+    bluerobebottom, 0, -15, 190, "Bottoms.", 0, 0
+);
+if (inv_total(inv, thread) < 1) {
+    ~objbox(thread, "You need some thread to make anything out of leather.", 250, 0, divide(^objbox_height, 2));
+    return;
+}
+// delete thread after 5 uses are met
+%thread_used = calc(%thread_used + 1);
+if (%thread_used > 4) {
+    inv_del(inv, thread, 1);
+    mes("You use up one of your reels of Thread.");
+    %thread_used = 0;
+}
+switch_namedobj($choice){
+    case bluewizhat : {
+        ~hand_crafting_action;
+        inv_del(inv, blue_silk, 1);
+        inv_add(inv, bluewizhat, 1);
+        stat_advance(crafting, 250);
+        ~objbox(bluewizhat, "You have created a Wizards hat!", 250, 0, 20);
+    }
+    case wizards_robe : {
+        ~hand_crafting_action;
+        inv_del(inv, blue_silk, 1);
+        inv_add(inv, blackrobetop, 1);
+        stat_advance(crafting, 250);
+        ~objbox(blackrobetop, "You have created a Blue robe!", 250, 0, 0);
+    }
+    case bluerobebottom : {
+        ~hand_crafting_action;
+        inv_del(inv, blue_silk, 1);
+        inv_add(inv, bluerobebottom, 1);
+        stat_advance(crafting, 250);
+        ~objbox(bluerobebottom, "You have created a Blue robe!", 250, 0, 0);
+    }
+}
+if (inv_total(worn, brown_apron) > 0) {
+        stat_advance(crafting, 250);
+        mes("Your crafting skills are showing!");
+}

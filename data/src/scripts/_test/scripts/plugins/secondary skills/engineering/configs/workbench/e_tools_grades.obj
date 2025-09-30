@@ -16,6 +16,15 @@ recol3d=4096
 2dyan=1260
 2dxan=444
 weight=1lb
+iop1=Wear
+manwear=model_knife_obj_wear,0
+womanwear=model_knife_obj_wear,0
+param=attackrate,5
+param=stabattack,-10
+param=slashattack,-10
+param=crushattack,10
+param=magicattack,-10
+param=strengthbonus,5
 param=levelrequire,1
 category=knife
 
@@ -36,9 +45,17 @@ recol3d=4096
 2dyan=1260
 2dxan=444
 weight=1lb
+manwear=model_knife_obj_wear,0
+womanwear=model_knife_obj_wear,0
+param=attackrate,5
+param=stabattack,-10
+param=slashattack,-10
+param=crushattack,10
+param=magicattack,-10
+param=strengthbonus,5
 param=levelrequire,15
 category=knife
-
+iop1=Wear
 [e_steel_knife]
 name=Steel knife
 desc=A steel fletching knife.
@@ -56,9 +73,17 @@ recol3d=4096
 2dyan=1260
 2dxan=444
 weight=1lb
+manwear=model_knife_obj_wear,0
+womanwear=model_knife_obj_wear,0
+param=attackrate,5
+param=stabattack,-10
+param=slashattack,-10
+param=crushattack,10
+param=magicattack,-10
+param=strengthbonus,5
 param=levelrequire,30
 category=knife
-
+iop1=Wear
 [e_mithril_knife]
 name=Mithril knife
 desc=A mithril fletching knife.
@@ -76,9 +101,17 @@ recol3d=4096
 2dyan=1260
 2dxan=444
 weight=1lb
+manwear=model_knife_obj_wear,0
+womanwear=model_knife_obj_wear,0
+param=attackrate,5
+param=stabattack,-10
+param=slashattack,-10
+param=crushattack,10
+param=magicattack,-10
+param=strengthbonus,5
 param=levelrequire,50
 category=knife
-
+iop1=Wear
 [e_adamant_knife]
 name=Adamant knife
 desc=An adamant fletching knife.
@@ -96,9 +129,17 @@ recol3d=4096
 2dyan=1260
 2dxan=444
 weight=1lb
+manwear=model_knife_obj_wear,0
+womanwear=model_knife_obj_wear,0
+param=attackrate,5
+param=stabattack,-10
+param=slashattack,-10
+param=crushattack,10
+param=magicattack,-10
+param=strengthbonus,5
 param=levelrequire,70
 category=knife
-
+iop1=Wear
 [e_rune_knife]
 name=Rune knife
 desc=A rune fletching knife.
@@ -116,9 +157,17 @@ recol3d=4096
 2dyan=1260
 2dxan=444
 weight=1lb
+manwear=model_knife_obj_wear,0
+womanwear=model_knife_obj_wear,0
+param=attackrate,5
+param=stabattack,-10
+param=slashattack,-10
+param=crushattack,10
+param=magicattack,-10
+param=strengthbonus,5
 param=levelrequire,80
 category=knife
-
+iop1=Wear
 [e_dragon_knife]
 name=Dragon knife
 desc=A dragon fletching knife.
@@ -136,8 +185,17 @@ recol3d=4096
 2dyan=1260
 2dxan=444
 weight=1lb
+manwear=model_knife_obj_wear,0
+womanwear=model_knife_obj_wear,0
+param=attackrate,5
+param=stabattack,-10
+param=slashattack,-10
+param=crushattack,10
+param=magicattack,-10
+param=strengthbonus,5
 param=levelrequire,90
 category=knife
+iop1=Wear
 
 // Tinderboxes: bronze to rune
 [bronze_tinderbox]

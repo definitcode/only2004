@@ -22,3 +22,16 @@ model=model_2779_obj
 2dxan=332
 weight=3g
 param=crafting_spinning_struct,wool
+
+
+[spider_silk]
+name=Spider Silk
+desc=I think this came from a spider.
+model=model_2779_obj
+2dyof=-7
+2dzoom=1070
+2dyan=160
+2dxan=332
+weight=3g
+param=crafting_spinning_struct,silk
+stackable=yes

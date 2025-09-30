@@ -1,0 +1,24 @@
+[ai_queue3,deadly_red_spider]
+if (npc_findhero = false) {
+    return;
+}
+if (npc_findhero = true) {
+    queue(red_spider_kill, 0);
+}
+gosub(npc_death);
+// Default drop from config.
+obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
+
+obj_add(npc_coord, spider_silk, 1, ^lootdrop_duration);
+
+if (random(10) < 5){
+    obj_add(npc_coord, red_spiders_eggs, 1, ^lootdrop_duration);
+} else {
+    obj_add(npc_coord, red_spiders_eggs, 2, ^lootdrop_duration);
+}
+
+[queue,red_spider_kill]
+if (%e_ctoggle = ^e_toggle_on){
+    mes("You etch another tally into your ledger.");
+}
+%red_spider_kc = calc(%red_spider_kc + 1);

@@ -57,6 +57,9 @@ stackall=yes
 allstock=no
 stock1=bear_fur,3,100
 stock2=grey_wolf_fur,3,100
+stock3=bear_hide,10,300
+stock4=bear_cape,1,100000
+stock5=bear_gloves,1,100000
 
 [silverstall]
 // https://classic.runescape.wiki/w/Silver_Stall

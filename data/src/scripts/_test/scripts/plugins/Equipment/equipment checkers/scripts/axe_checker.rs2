@@ -4,25 +4,25 @@ def_int $level = stat(woodcutting);
 def_obj $obj1 = inv_getobj(worn, ^wearpos_rhand);
 // no wc req in 2004, this is also the case in rsc. Heres a guide from 2004 that says so :
 // https://web.archive.org/web/20040622013913/http://runehq.com/viewguidedb.php?id=00330
-if (($obj1 = dragon_axe) & $level > 90) {
+if (($obj1 = dragon_axe) & $level > 89) {
     return (dragon_axe);
 }
-if (($obj1 = rune_axe) & $level > 80) {
+if (($obj1 = rune_axe) & $level > 79) {
     return (rune_axe);
 }
-if (($obj1 = adamant_axe) & $level > 70) {
+if (($obj1 = adamant_axe) & $level > 69) {
     return (adamant_axe);
 }
-if (($obj1 = mithril_axe) & $level > 50) {
+if (($obj1 = mithril_axe) & $level > 49) {
     return (mithril_axe);
 }
-if (($obj1 = black_axe) & $level > 35) {
+if (($obj1 = black_axe) & $level > 34) {
     return (black_axe);
 }
-if (($obj1 = steel_axe) & $level > 30) {
+if (($obj1 = steel_axe) & $level > 29) {
     return (steel_axe);
 }
-if (($obj1 = iron_axe) & $level > 15) {
+if (($obj1 = iron_axe) & $level > 14) {
     return (iron_axe);
 }
 if (($obj1 = bronze_axe) & $level > 0) {

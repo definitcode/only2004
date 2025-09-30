@@ -214,6 +214,12 @@ if ($random < 25){
 } else if ($random < 60) {
     inv_add(inv, mithril_pickaxe, 1);
     ~casket_open;
+} else if ($random < 62) {
+    inv_add(inv, ore_box2, 1);
+    ~casket_open;
+} else if ($random < 63) {
+    inv_add(inv, bar_box, 1);
+    ~casket_open;
 } else if ($random < 65) {
     inv_add(inv, ~mid_tier_items);
     ~casket_open;
@@ -242,7 +248,7 @@ if ($random < 25){
             inv_add(inv, dragon_pickaxe, 1);
             ~objbox(dragon_pickaxe, "You have received a legendary Dragon Pickaxe!", 120, 0, 0);
         }
-        case default : inv_add(inv, ~treasure_items);
+        case default : inv_add(inv, ~halloween_table);
     } 
 }
 inv_del(inv, mining_casket, 1);

@@ -501,6 +501,8 @@ scope=perm
 [black_knight_kc]
 scope=perm
 
+[red_spider_kc]
+scope=perm
 
 [chaos_druid_warrior_kc]
 scope=perm

@@ -208,6 +208,7 @@ model=model_2795_obj
 2dyan=448
 2dxan=152
 weight=12g
+stackable=yes
 
 [bow_string]
 members=yes

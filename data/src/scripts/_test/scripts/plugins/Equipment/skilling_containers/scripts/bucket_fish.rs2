@@ -4,6 +4,9 @@
 
 
 [label,load_fish](obj $fish)
+if (inv_total(inv, bucket_fish) < 1){
+    return;
+}
 def_int $total_fish = calc(%lobster_count + %shark_count + %tuna_count + %swordfish_count);
 def_int $fish_space = calc(stat_base(fishing) + 28);
 def_int $fish_count = inv_total(inv, $fish);
@@ -16,22 +19,22 @@ if ($total_fish < $fish_space) {
         case raw_lobster : {
             inv_del(inv, $fish, $fish_count);
             %lobster_count = calc(%lobster_count + $fish_count);
-            mes("You loaded <tostring($fish_count)> fish.");
+            mes("You loaded <tostring($fish_count)>x fish.");
         }
         case raw_shark : {
             inv_del(inv, $fish, $fish_count);
             %shark_count = calc(%shark_count + $fish_count);
-            mes("You loaded <tostring($fish_count)> fish.");
+            mes("You loaded <tostring($fish_count)>x fish.");
         }
         case raw_tuna : {
             inv_del(inv, $fish, $fish_count);
             %tuna_count = calc(%tuna_count + $fish_count);
-            mes("You loaded <tostring($fish_count)> fish.");
+            mes("You loaded <tostring($fish_count)>x fish.");
         }
         case raw_swordfish : {
             inv_del(inv, $fish, $fish_count);
             %swordfish_count = calc(%swordfish_count + $fish_count);
-            mes("You loaded <tostring($fish_count)> fish.");
+            mes("You loaded <tostring($fish_count)>x fish.");
         }
         case default : {
             mes("You cannot put this fish inside the bucket.");

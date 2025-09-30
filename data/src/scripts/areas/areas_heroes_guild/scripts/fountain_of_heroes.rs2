@@ -4,8 +4,58 @@ if (last_useitem = amulet_of_glory | last_useitem = amulet_of_glory_1 | last_use
   mes("You dip the amulet in the fountain...");
   anim(human_pickupfloor, 0);
   p_delay(1);
+  stat_advance(magic, 250);
   inv_setslot(inv, $slot, amulet_of_glory_4, 1); // assuming setslot 
   ~objbox(amulet_of_glory, "You feel a power emanating from the fountain as it recharges your amulet. You can now rub the amulet to teleport and wear it to get more gems whilst mining.", 200, 0, -20);
   return;
+} else {
+  ~enchant_amulets;
+}
+
+[proc,enchant_amulets]
+def_obj $obj = last_useitem;
+switch_obj($obj){
+  case strung_sapphire_amulet : {
+    def_int $slot = last_useslot;
+    mes("You dip the amulet in the fountain...");
+    anim(human_pickupfloor, 0);
+    p_delay(1);
+    inv_setslot(inv, $slot, amulet_of_magic, 1); // assuming setslot
+    stat_advance(magic, 250);
+    ~objbox(amulet_of_magic, "You feel a power emanating from the fountain as it charges your amulet.", 200, 0, -20);
+    return;
+  }
+  case strung_ruby_amulet : {
+    def_int $slot = last_useslot;
+    mes("You dip the amulet in the fountain...");
+    anim(human_pickupfloor, 0);
+    p_delay(1);
+    inv_setslot(inv, $slot, amulet_of_strength, 1); // assuming setslot 
+    stat_advance(magic, 250);
+    ~objbox(amulet_of_strength, "You feel a power emanating from the fountain as it charges your amulet.", 200, 0, -20);
+    return;
+  }
+  case strung_emerald_amulet : {
+    def_int $slot = last_useslot;
+    mes("You dip the amulet in the fountain...");
+    anim(human_pickupfloor, 0);
+    p_delay(1);
+    stat_advance(magic, 250);
+    inv_setslot(inv, $slot, amulet_of_defence, 1); // assuming setslot 
+    ~objbox(amulet_of_defence, "You feel a power emanating from the fountain as it charges your amulet.", 200, 0, -20);
+    return;
+  }
+  case strung_diamond_amulet : {
+    def_int $slot = last_useslot;
+    mes("You dip the amulet in the fountain...");
+    anim(human_pickupfloor, 0);
+    p_delay(1);
+    inv_setslot(inv, $slot, amulet_of_power, 1); // assuming setslot 
+    stat_advance(magic, 250);
+    ~objbox(amulet_of_power, "You feel a power emanating from the fountain as it charges your amulet.", 200, 0, -20);
+    return;
+  }
 }
 ~displaymessage(^dm_default); 
+
+
