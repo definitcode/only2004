@@ -13,6 +13,20 @@ data=loot,chocolate_slice,1,1,2,a chocolate slice
 data=loot_total,20
 data=stall,baker's stall
 
+[stealing_bakery_stall2]
+table=stealing
+data=loc,bakers_stall_stealing2
+data=owner,baker
+data=guard,guard_ardougne
+data=level,1
+data=experience,80
+// late osrs is 3t https://youtu.be/ZsyY5R9Gvqw?t=24
+data=respawn_ticks,8
+data=loot,pot_flour,1,1,13,some flour
+data=loot,bread_dough,1,1,2,bread dough
+data=loot_total,20
+data=stall,baker's stall
+
 [stealing_tea_stall]
 table=stealing
 data=loc,tea_stall_stealing

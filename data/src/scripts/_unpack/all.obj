@@ -34,6 +34,33 @@ recol1d=22870
 2dzoom=1360
 2dxan=368
 weight=1kg
+stackable=yes
+
+[black_silk]
+name=Black Silk
+desc=It's a sheet of black silk.
+cost=30
+model=model_2725_obj
+recol1s=27412 
+recol1d=0
+2dyof=-15
+2dzoom=1360
+2dxan=368
+weight=1kg
+stackable=yes
+
+[blue_silk]
+name=Blue Silk
+desc=It's a sheet of blue silk.
+cost=30
+model=model_2725_obj
+recol1s=27412 
+recol1d=239
+2dyof=-15
+2dzoom=1360
+2dxan=368
+weight=1kg
+stackable=yes
 
 [spade]
 name=Spade

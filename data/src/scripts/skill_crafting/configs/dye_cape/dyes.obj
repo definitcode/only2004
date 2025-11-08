@@ -87,3 +87,19 @@ recol1d=19487
 weight=20g
 category=category_82
 param=crafting_capes_struct,purple_dye
+
+
+[blackdye]
+name=Black dye
+desc=A little bottle of black dye.
+cost=5
+model=model_2705_obj
+recol1s=15855
+recol1d=0
+2dyof=-2
+2dzoom=760
+2dyan=1920
+2dxan=124
+weight=20g
+category=category_82
+param=crafting_capes_struct,black_dye

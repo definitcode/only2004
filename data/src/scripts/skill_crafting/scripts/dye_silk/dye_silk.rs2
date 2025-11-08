@@ -1,0 +1,20 @@
+[opheldu,silk] @dye_silk(last_useitem);
+
+
+[label,dye_silk](obj $obj)
+switch_obj($obj){
+    case blackdye : {
+        inv_del(inv, silk, 1);
+        inv_del(inv, blackdye, 1);
+        inv_add(inv, black_silk, 1);
+        p_delay(1);
+        return;
+    }
+    case bluedye : {
+        inv_del(inv, silk, 1);
+        inv_del(inv, bluedye, 1);
+        inv_add(inv, blue_silk, 1);
+        p_delay(1);
+        return;
+    }
+}
