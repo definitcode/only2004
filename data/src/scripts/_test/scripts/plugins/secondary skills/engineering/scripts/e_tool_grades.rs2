@@ -2,15 +2,14 @@
 [opheld5,adamant_gauntlets] @drop_gauntlets;
 [opheld5,rune_gauntlets] @drop_gauntlets;
 [opheld5,dragon_gauntlets] @drop_gauntlets;
-[opheld1,knife] ~equip($slot);
-[opheld1,hc_knife] ~equip($slot);
-[opheld1,founders_knife] ~equip($slot);
-[opheld1,e_bronze_knife] ~equip($slot);
-[opheld1,e_iron_knife] ~equip($slot);
-[opheld1,e_mithril_knife] ~equip($slot);
-[opheld1,e_adamant_knife] ~equip($slot);
-[opheld1,e_rune_knife] ~equip($slot);
-[opheld1,e_dragon_knife] ~equip($slot);
+[opheld1,knife] ~equip(last_slot);
+[opheld1,hc_knife] ~equip(last_slot);
+[opheld1,founders_knife] ~equip(last_slot);
+[opheld1,e_iron_knife] ~equip(last_slot);
+[opheld1,e_mithril_knife] ~equip(last_slot);
+[opheld1,e_adamant_knife] ~equip(last_slot);
+[opheld1,e_rune_knife] ~equip(last_slot);
+[opheld1,e_dragon_knife] ~equip(last_slot);
 
 [opheldu,bronze_tinderbox]
 if (last_useitem = newbielogs) {
