@@ -360,7 +360,8 @@ scope=perm
 scope=perm
 [flax_spun]
 scope=perm
-
+[silk_spun]
+scope=perm
 
 // Leather
 

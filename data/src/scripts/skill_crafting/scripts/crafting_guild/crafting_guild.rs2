@@ -19,3 +19,21 @@ if (~check_axis(coord, loc_coord, loc_angle) = true) {
 
 [opnpc1,master_crafter]
 ~openshop_activenpc;
+
+[opnpc2,master_crafter]
+~convert_pottery;
+
+[proc,convert_pottery]
+def_int $fb = inv_total(inv, bowl_empty);
+def_int $pd = inv_total(inv, piedish);
+def_int $pot = inv_total(inv, pot_empty);
+
+
+inv_del(inv, bowl_empty, $fb);
+inv_add(inv, cert_bowl_empty, $fb);
+
+inv_del(inv, piedish, $pd);
+inv_add(inv, cert_piedish, $pd);
+
+inv_del(inv, pot_empty, $pot);
+inv_add(inv, cert_pot_empty, $pot);

@@ -21,6 +21,7 @@ recol1d=22025
 2dxan=264
 weight=1kg
 category=category_91
+stackable=yes
 
 [copper_ore]
 cost=3
