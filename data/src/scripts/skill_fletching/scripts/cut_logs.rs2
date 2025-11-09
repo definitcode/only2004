@@ -40,6 +40,22 @@ switch_obj(last_useitem){
     case tinderbox : @light_logs_inv(last_slot);
     case default : ~displaymessage(^dm_default);
 }
+[opheld4,logs] @light_logs_inv(last_slot);
+[opheld4,oak_logs] @light_logs_inv(last_slot);
+[opheld4,willow_logs] @light_logs_inv(last_slot);
+[opheld4,maple_logs] @light_logs_inv(last_slot);
+[opheld4,yew_logs] @light_logs_inv(last_slot);
+[opheld4,magic_logs] @light_logs_inv(last_slot);
+[opheld4,cursed_logs] @light_logs_inv(last_slot);
+
+[opheld3,logs] @fletch_log(logs);
+[opheld3,oak_logs] @fletch_log(oak_logs);
+[opheld3,willow_logs] @fletch_log(willow_logs);
+[opheld3,maple_logs] @fletch_log(maple_logs);
+[opheld3,yew_logs] @fletch_log(yew_logs);
+[opheld3,magic_logs] @fletch_log(magic_logs);
+[opheld3,cursed_logs] @fletch_log(cursed_logs);
+
 // Unified logic for all knives
 [label,knife_item_use]
 if(%gamemode_selected = ^gamemode_pvp){

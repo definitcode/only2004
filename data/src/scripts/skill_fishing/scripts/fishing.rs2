@@ -15,16 +15,21 @@ if (string_length($message) > 0) {
 
 // checks if you actually have the fish equipment required.
 [proc,check_fish_equipment](namedobj $fish_equipment)(boolean)
-if(%gamemode_selected = ^gamemode_pvp){
+if (%gamemode_selected = ^gamemode_pvp) {
     mes("You cannot do this.");
     return(false);
 }
+
 def_struct $struct = oc_param($fish_equipment, fish_equipment_struct);
-if (inv_total(inv, $fish_equipment) < 1) {
+
+// --- Check if player has fishing tool either worn or in inventory ---
+if (inv_total(worn, $fish_equipment) < 1 & inv_total(inv, $fish_equipment) < 1) {
     anim(null, 0);
     ~mesbox(struct_param($struct, fish_equipment_failmessage));
     return(false);
 }
+
+// --- Check if bait is required and available ---
 if ($struct ! null) {
     def_namedobj $bait = struct_param($struct, baitrequired);
     if ($bait ! null & inv_total(inv, $bait) < 1) {
@@ -33,6 +38,8 @@ if ($struct ! null) {
         return(false);
     }
 }
+
+// ✅ All checks passed
 return(true);
 
 
@@ -41,6 +48,10 @@ return(true);
 if ($equipment = null) return(1);
 
 switch_obj($equipment) {
+    case fly_fishing_rod : return(1);
+    case fishing_rod : return(1);
+    case net : return(1);
+    case big_net : return(1);
     case dragon_harpoon : return(4);
     case rune_harpoon : return(3);
     case adamant_harpoon : return(2);

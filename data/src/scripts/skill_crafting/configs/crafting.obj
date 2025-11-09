@@ -149,6 +149,7 @@ womanwear=model_525_obj_wear,6
 weight=4oz
 wearpos=righthand
 iop2=Wear
+wearpos=righthand
 category=skilling_tools
 
 [cow_hide]

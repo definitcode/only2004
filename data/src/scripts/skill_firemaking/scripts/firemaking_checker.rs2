@@ -1,25 +1,25 @@
 [proc,firemaking_checker]()(obj)
 def_int $lvl0 = stat(firemaking);
 def_obj $obj1 = null;
-if (inv_total(inv, dragon_tinderbox) > 0) {
+if (inv_total(worn, dragon_tinderbox) > 0) {
     $obj1 = dragon_tinderbox;
-} else if (inv_total(inv, rune_tinderbox) > 0) {
+} else if (inv_total(worn, rune_tinderbox) > 0) {
     $obj1 = rune_tinderbox;
-} else if (inv_total(inv, adamant_tinderbox) > 0) {
+} else if (inv_total(worn, adamant_tinderbox) > 0) {
     $obj1 = adamant_tinderbox;
-} else if (inv_total(inv, mithril_tinderbox) > 0) {
+} else if (inv_total(worn, mithril_tinderbox) > 0) {
     $obj1 = mithril_tinderbox;
-} else if (inv_total(inv, steel_tinderbox) > 0) {
+} else if (inv_total(worn, steel_tinderbox) > 0) {
     $obj1 = steel_tinderbox;
-} else if (inv_total(inv, iron_tinderbox) > 0) {
+} else if (inv_total(worn, iron_tinderbox) > 0) {
     $obj1 = iron_tinderbox;
-} else if (inv_total(inv, bronze_tinderbox) > 0) {
+} else if (inv_total(worn, bronze_tinderbox) > 0) {
     $obj1 = bronze_tinderbox;
-} else if (inv_total(inv, founders_tinderbox) > 0) {
+} else if (inv_total(worn, founders_tinderbox) > 0) {
     $obj1 = founders_tinderbox;
-} else if (inv_total(inv, hc_tinderbox) > 0) {
+} else if (inv_total(worn, hc_tinderbox) > 0) {
     $obj1 = hc_tinderbox;
-} else if (inv_total(inv, tinderbox) > 0) {
+} else if (inv_total(worn, tinderbox) > 0) {
     $obj1 = tinderbox;
 }
 if ($lvl0 >= oc_param(dragon_tinderbox, levelrequire) & ($obj1 = dragon_tinderbox)) {

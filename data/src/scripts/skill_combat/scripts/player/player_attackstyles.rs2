@@ -180,6 +180,7 @@ switch_category (oc_category($obj)) {
     case weapon_spear : ~.weapon_category_tab_attack(combat_spear:preview, combat_spear:name, combat_spear, $obj);
     case weapon_spiked : ~.weapon_category_tab_attack(combat_spiked:preview, combat_spiked:name, combat_spiked, $obj);
     case weapon_stab : ~.weapon_category_tab_attack(combat_stabsword:preview, combat_stabsword:name, combat_stabsword, $obj);
+    case knife : ~.weapon_category_tab_attack(combat_stabsword:preview, combat_stabsword:name, combat_stabsword, $obj);
     // ranged
     case weapon_bow : ~.weapon_category_tab_attack(combat_bow:preview, combat_bow:name, combat_bow, $obj);
     case weapon_crossbow : ~.weapon_category_tab_attack(combat_crossbow:preview, combat_crossbow:name, combat_crossbow, $obj);

@@ -14,6 +14,7 @@ name=Unicorn horn
 desc=This horn has restorative properties.
 param=grindable_ingredient_refined,unicorn_horn_dust
 param=grindable_ingredient_message,You grind the unicorn horn to dust.
+stackable=yes
 // jagex name
 
 [blue_dragon_scale]

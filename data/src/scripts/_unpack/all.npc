@@ -1113,6 +1113,7 @@ desc=Freshly sheared.
 walkanim=sheep_walk
 readyanim=sheep_ready
 model1=model_2928_npc
+op1=Shear
 timer=1
 param=death_anim,sheep_death
 
@@ -1120,6 +1121,7 @@ param=death_anim,sheep_death
 vislevel=hide
 name=Sheep
 desc=White and fluffy.
+op1=Shear
 walkanim=sheep_walk
 readyanim=sheep_ready
 model1=model_2929_npc

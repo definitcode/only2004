@@ -148,6 +148,7 @@ recol3d=199
 2dxan=444
 weight=1lb
 tradeable=no
+iop2=Wear
 param=no_alchemy,^true
 category=founders_items
 

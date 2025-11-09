@@ -75,30 +75,34 @@ if (stat_base(smithing) < $level) {
 //[opheld2,dragon_chisel] @levelrequire_crafting(90, last_slot);
 //
 //
-//[opheld2,bronze_tinderbox] @levelrequire_firemaking(1, last_slot);
-//[opheld2,iron_tinderbox] @levelrequire_firemaking(15, last_slot);
-//[opheld2,steel_tinderbox] @levelrequire_firemaking(30, last_slot);
-//[opheld2,mithril_tinderbox] @levelrequire_firemaking(50, last_slot);
-//[opheld2,adamant_tinderbox] @levelrequire_firemaking(70, last_slot);
-//[opheld2,rune_tinderbox] @levelrequire_firemaking(80, last_slot);
-//[opheld2,dragon_tinderbox] @levelrequire_firemaking(90, last_slot);
+[opheld2,tinderbox] @levelrequire_firemaking(1, last_slot);
+[opheld2,bronze_tinderbox] @levelrequire_firemaking(1, last_slot);
+[opheld2,iron_tinderbox] @levelrequire_firemaking(15, last_slot);
+[opheld2,steel_tinderbox] @levelrequire_firemaking(30, last_slot);
+[opheld2,mithril_tinderbox] @levelrequire_firemaking(50, last_slot);
+[opheld2,adamant_tinderbox] @levelrequire_firemaking(70, last_slot);
+[opheld2,rune_tinderbox] @levelrequire_firemaking(80, last_slot);
+[opheld2,dragon_tinderbox] @levelrequire_firemaking(90, last_slot);
 //
 //
-//[opheld2,e_bronze_knife] @levelrequire_fletching(1, last_slot);
-//[opheld2,e_iron_knife] @levelrequire_fletching(15, last_slot);
-//[opheld2,e_steel_knife] @levelrequire_fletching(30, last_slot);
-//[opheld2,e_mithril_knife] @levelrequire_fletching(50, last_slot);
-//[opheld2,e_adamant_knife] @levelrequire_fletching(70, last_slot);
-//[opheld2,e_rune_knife] @levelrequire_fletching(80, last_slot);
-//[opheld2,e_dragon_knife] @levelrequire_fletching(90, last_slot);
+[opheld2,knife] @levelrequire_fletching(1, last_slot);
+[opheld2,hc_knife] @levelrequire_fletching(1, last_slot);
+[opheld2,founders_knife] @levelrequire_fletching(1, last_slot);
+[opheld2,e_bronze_knife] @levelrequire_fletching(1, last_slot);
+[opheld2,e_iron_knife] @levelrequire_fletching(15, last_slot);
+[opheld2,e_steel_knife] @levelrequire_fletching(30, last_slot);
+[opheld2,e_mithril_knife] @levelrequire_fletching(50, last_slot);
+[opheld2,e_adamant_knife] @levelrequire_fletching(70, last_slot);
+[opheld2,e_rune_knife] @levelrequire_fletching(80, last_slot);
+[opheld2,e_dragon_knife] @levelrequire_fletching(90, last_slot);
 //
-[opheld2,bronze_harpoon] @levelrequire_fishing(1, last_slot);
-[opheld2,iron_harpoon] @levelrequire_fishing(30, last_slot);
-[opheld2,steel_harpoon] @levelrequire_fishing(35, last_slot);
-[opheld2,mithril_harpoon] @levelrequire_fishing(55, last_slot);
-[opheld2,adamant_harpoon] @levelrequire_fishing(65, last_slot);
-[opheld2,rune_harpoon] @levelrequire_fishing(75, last_slot);
-[opheld2,dragon_harpoon] @levelrequire_fishing(85, last_slot);
+//[opheld2,bronze_harpoon] @levelrequire_fishing(1, last_slot);
+//[opheld2,iron_harpoon] @levelrequire_fishing(30, last_slot);
+//[opheld2,steel_harpoon] @levelrequire_fishing(35, last_slot);
+//[opheld2,mithril_harpoon] @levelrequire_fishing(55, last_slot);
+//[opheld2,adamant_harpoon] @levelrequire_fishing(65, last_slot);
+//[opheld2,rune_harpoon] @levelrequire_fishing(75, last_slot);
+//[opheld2,dragon_harpoon] @levelrequire_fishing(85, last_slot);
 
 [opheld2,bronze_hammer] @levelrequire_smithing(1, last_slot);
 [opheld2,iron_hammer] @levelrequire_smithing(30, last_slot);
@@ -108,12 +112,12 @@ if (stat_base(smithing) < $level) {
 [opheld2,rune_hammer] @levelrequire_smithing(75, last_slot);
 [opheld2,dragon_hammer] @levelrequire_smithing(85, last_slot);
 //
-//[opheld2,bronze_shears] @levelrequire_herblore(1, last_slot);
-//[opheld2,iron_shears] @levelrequire_herblore(15, last_slot);
-//[opheld2,steel_shears] @levelrequire_herblore(30, last_slot);
-//[opheld2,mithril_shears] @levelrequire_herblore(50, last_slot);
-//[opheld2,adamant_shears] @levelrequire_herblore(70, last_slot);
-//[opheld2,rune_shears] @levelrequire_herblore(80, last_slot);
-//[opheld2,dragon_shears] @levelrequire_herblore(90, last_slot);
+[opheld2,bronze_shears] @levelrequire_crafting(1, last_slot);
+[opheld2,iron_shears] @levelrequire_crafting(15, last_slot);
+[opheld2,steel_shears] @levelrequire_crafting(30, last_slot);
+[opheld2,mithril_shears] @levelrequire_crafting(50, last_slot);
+[opheld2,adamant_shears] @levelrequire_crafting(70, last_slot);
+[opheld2,rune_shears] @levelrequire_crafting(80, last_slot);
+[opheld2,dragon_shears] @levelrequire_crafting(90, last_slot);
 
 

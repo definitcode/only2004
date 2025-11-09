@@ -16,7 +16,8 @@ recol3d=4096
 2dyan=1260
 2dxan=444
 weight=1lb
-iop1=Wear
+wearpos=righthand
+iop2=Wear
 manwear=model_knife_obj_wear,0
 womanwear=model_knife_obj_wear,0
 param=attackrate,5
@@ -55,7 +56,9 @@ param=magicattack,-10
 param=strengthbonus,5
 param=levelrequire,15
 category=knife
-iop1=Wear
+iop2=Wear
+wearpos=righthand
+
 [e_steel_knife]
 name=Steel knife
 desc=A steel fletching knife.
@@ -83,7 +86,9 @@ param=magicattack,-10
 param=strengthbonus,5
 param=levelrequire,30
 category=knife
-iop1=Wear
+iop2=Wear
+wearpos=righthand
+
 [e_mithril_knife]
 name=Mithril knife
 desc=A mithril fletching knife.
@@ -111,7 +116,9 @@ param=magicattack,-10
 param=strengthbonus,5
 param=levelrequire,50
 category=knife
-iop1=Wear
+iop2=Wear
+wearpos=righthand
+
 [e_adamant_knife]
 name=Adamant knife
 desc=An adamant fletching knife.
@@ -139,7 +146,9 @@ param=magicattack,-10
 param=strengthbonus,5
 param=levelrequire,70
 category=knife
-iop1=Wear
+iop2=Wear
+wearpos=righthand
+
 [e_rune_knife]
 name=Rune knife
 desc=A rune fletching knife.
@@ -167,7 +176,9 @@ param=magicattack,-10
 param=strengthbonus,5
 param=levelrequire,80
 category=knife
-iop1=Wear
+iop2=Wear
+wearpos=righthand
+
 [e_dragon_knife]
 name=Dragon knife
 desc=A dragon fletching knife.
@@ -195,7 +206,8 @@ param=magicattack,-10
 param=strengthbonus,5
 param=levelrequire,90
 category=knife
-iop1=Wear
+iop2=Wear
+wearpos=righthand
 
 // Tinderboxes: bronze to rune
 [bronze_tinderbox]
@@ -215,6 +227,8 @@ womanwear=model_488_obj_wear,0
 2dxan=196
 weight=35g
 param=levelrequire,1
+wearpos=righthand
+iop2=Wear
 
 [iron_tinderbox]
 name=Iron tinderbox
@@ -233,7 +247,8 @@ womanwear=model_488_obj_wear,0
 2dxan=196
 weight=35g
 param=levelrequire,15
-
+wearpos=righthand
+iop2=Wear
 [steel_tinderbox]
 name=Steel tinderbox
 desc=Useful for lighting a fire.
@@ -251,7 +266,8 @@ womanwear=model_488_obj_wear,0
 2dxan=196
 weight=35g
 param=levelrequire,30
-
+wearpos=righthand
+iop2=Wear
 [mithril_tinderbox]
 name=Mithril tinderbox
 desc=Useful for lighting a fire.
@@ -269,7 +285,8 @@ womanwear=model_488_obj_wear,0
 2dxan=196
 weight=35g
 param=levelrequire,50
-
+wearpos=righthand
+iop2=Wear
 [adamant_tinderbox]
 name=Adamant tinderbox
 desc=Useful for lighting a fire.
@@ -287,7 +304,8 @@ womanwear=model_488_obj_wear,0
 2dxan=196
 weight=35g
 param=levelrequire,70
-
+wearpos=righthand
+iop2=Wear
 [rune_tinderbox]
 name=Rune tinderbox
 desc=Useful for lighting a fire.
@@ -305,7 +323,7 @@ womanwear=model_488_obj_wear,0
 2dxan=196
 weight=35g
 param=levelrequire,80
-
+wearpos=righthand
 [dragon_tinderbox]
 name=Dragon tinderbox
 desc=Useful for lighting a fire.
@@ -323,7 +341,8 @@ womanwear=model_488_obj_wear,0
 2dxan=196
 weight=35g
 param=levelrequire,90
-
+wearpos=righthand
+iop2=Wear
 // Hammers: bronze to rune
 [bronze_hammer]
 name=Bronze hammer
@@ -615,7 +634,6 @@ womanwear=model_503_obj_wear,6
 weight=3lb
 param=fish_equipment_struct,fish_equipment_harpoon
 param=levelrequire,50
-
 [adamant_harpoon]
 name=Adamant harpoon
 desc=Useful for catching really big fish.
@@ -655,7 +673,6 @@ womanwear=model_503_obj_wear,6
 weight=3lb
 param=fish_equipment_struct,fish_equipment_harpoon
 param=levelrequire,80
-
 [dragon_harpoon]
 name=Dragon Harpoon
 desc=Useful for catching really big fish.
@@ -677,7 +694,6 @@ param=fish_equipment_struct,fish_equipment_harpoon
 tradeable=no
 param=no_alchemy,^true
 param=levelrequire,90
-
 // Graded lobster pots
 [lobster_pot_oak]
 name=Lobster pot(O)
@@ -766,6 +782,7 @@ womanwear=model_531_obj_wear,6
 weight=9oz
 param=fish_equipment_struct,fish_equipment_lobster_pot
 param=levelrequire,80
+
 
 [lobster_pot_dragon]
 name=Lobster pot(D)
@@ -1022,8 +1039,9 @@ recol1s=15855
 recol1d=8354
 recol2s=8320 
 recol2d=23009
+iop2=Wear
 param=levelrequire,1
-
+wearpos=righthand
 [iron_shears]
 name=Iron Shears
 desc=For shearing sheep.
@@ -1039,8 +1057,9 @@ recol1s=15855
 recol1d=8354
 recol2s=8320 
 recol2d=23009
+iop2=Wear
 param=levelrequire,15
-
+wearpos=righthand
 [steel_shears]
 name=Steel Shears
 desc=For shearing sheep.
@@ -1056,8 +1075,9 @@ recol1s=15855
 recol1d=15855
 recol2s=8320 
 recol2d=20004
+iop2=Wear
 param=levelrequire,30
-
+wearpos=righthand
 [mithril_shears]
 name=Mithril Shears
 desc=For shearing sheep.
@@ -1073,8 +1093,9 @@ recol1s=15855
 recol1d=6346
 recol2s=8320 
 recol2d=21040
+iop2=Wear
 param=levelrequire,50
-
+wearpos=righthand
 [adamant_shears]
 name=Adamant Shears
 desc=For shearing sheep.
@@ -1090,8 +1111,9 @@ recol1s=15855
 recol1d=6438
 recol2s=8320 
 recol2d=23073
+iop2=Wear
 param=levelrequire,70
-
+wearpos=righthand
 [rune_shears]
 name=Rune Shears
 desc=For shearing sheep.
@@ -1107,8 +1129,9 @@ recol1s=15855
 recol1d=6476
 recol2s=8320 
 recol2d=1451
+iop2=Wear
 param=levelrequire,80
-
+wearpos=righthand
 [dragon_shears]
 name=Dragon Shears
 desc=For shearing sheep.
@@ -1124,4 +1147,6 @@ recol1s=15855
 recol1d=14336
 recol2s=8320 
 recol2d=3072
+iop2=Wear
+wearpos=righthand
 param=levelrequire,90

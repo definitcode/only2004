@@ -2,46 +2,46 @@
 // https://youtu.be/597gMc5j14E?si=oXUOSwc7dvzmwOMl&t=237 this video shows sheep baa!'ing after ~objbox is called, so its defintely not baaing from the opnpcu script.
 // Also here: https://www.youtube.com/watch?v=597gMc5j14E&t=323s, the sheep baa!'s after finishing its retreat (defaultMode is called)
 
-[opnpcu,sheep_fluffy]
+[opnpc1,sheep_fluffy] @shear_sheep;
+
+[label,shear_sheep]
 def_namedobj $shears = null;
 def_seq $anim_id = null;
 def_int $exp = 45;
 def_int $multi = 4;
-if (inv_total(inv, shears) > 0) {
+if (inv_total(worn, shears) > 0) {
     $shears = shears;
     $anim_id = human_shearing;
     $multi = 4;
-} else if (inv_total(inv, dragon_shears) > 0) {
+} else if (inv_total(worn, dragon_shears) > 0) {
     $shears = dragon_shears;
     $anim_id = human_dragon_shearing;
     $multi = (inv_freespace(inv));
-} else if (inv_total(inv, rune_shears) > 0) {
+} else if (inv_total(worn, rune_shears) > 0) {
     $shears = rune_shears;
     $anim_id = human_rune_shearing;
     $multi = 8;
-} else if (inv_total(inv, adamant_shears) > 0) {
+} else if (inv_total(worn, adamant_shears) > 0) {
     $shears = adamant_shears;
     $anim_id = human_adamant_shearing;
     $multi = 6;
-} else if (inv_total(inv, mithril_shears) > 0) {
+} else if (inv_total(worn, mithril_shears) > 0) {
     $shears = mithril_shears;
     $anim_id = human_mithril_shearing;
     $multi = 3;
-} else if (inv_total(inv, steel_shears) > 0) {
+} else if (inv_total(worn, steel_shears) > 0) {
     $shears = steel_shears;
     $anim_id = human_steel_shearing;
     $multi = 2;
-} else if (inv_total(inv, iron_shears) > 0) {
+} else if (inv_total(worn, iron_shears) > 0) {
     $shears = iron_tinderbox;
     $anim_id = human_iron_shearing;
     $multi = 2;
-} else if (inv_total(inv, bronze_shears) > 0) {
+} else if (inv_total(worn, bronze_shears) > 0) {
     $shears = bronze_tinderbox;
     $anim_id = human_bronze_shearing;
     $multi = 2;
-}
-
-if(last_useitem = null) {
+} else {
     ~displaymessage(^dm_default);
     return;
 }
@@ -60,9 +60,6 @@ inv_add(inv, wool, $multi);
 mes("You get <tostring($multi)>x wool.");
 ~objbox(wool, "You get <tostring($multi)>x wool.", 250, 0, divide(^objbox_height, 2));
 
-[opnpcu,sheep_sheared]
-if(last_useitem = shears) {
-    mes("This sheep has already been shorn.");
-    return;
-}
-~displaymessage(^dm_default);
+[opnpc1,sheep_sheared]
+mes("This sheep has already been shorn.");
+return;

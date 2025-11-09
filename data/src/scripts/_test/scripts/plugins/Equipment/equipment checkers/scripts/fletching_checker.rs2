@@ -1,25 +1,25 @@
 [proc,fletching_checker]()(obj)
 def_int $lvl0 = stat(fletching);
 def_obj $obj1 = null;
-if (inv_total(inv, e_dragon_knife) > 0) {
+if (inv_total(inv, e_dragon_knife) > 0 | inv_total(worn, e_dragon_knife) > 0) {
     $obj1 = e_dragon_knife;
-} else if (inv_total(inv, e_rune_knife) > 0) {
+} else if (inv_total(inv, e_rune_knife) > 0 | inv_total(worn, e_rune_knife) > 0) {
     $obj1 = e_rune_knife;
-} else if (inv_total(inv, e_adamant_knife) > 0) {
+} else if (inv_total(inv, e_adamant_knife) > 0 | inv_total(worn, e_adamant_knife) > 0) {
     $obj1 = e_adamant_knife;
-} else if (inv_total(inv, e_mithril_knife) > 0) {
+} else if (inv_total(inv, e_mithril_knife) > 0 | inv_total(worn, e_mithril_knife) > 0) {
     $obj1 = e_mithril_knife;
-} else if (inv_total(inv, e_steel_knife) > 0) {
+} else if (inv_total(inv, e_steel_knife) > 0 | inv_total(worn, e_steel_knife) > 0) {
     $obj1 = e_steel_knife;
-} else if (inv_total(inv, e_iron_knife) > 0) {
+} else if (inv_total(inv, e_iron_knife) > 0 | inv_total(worn, e_iron_knife) > 0) {
     $obj1 = e_iron_knife;
-} else if (inv_total(inv, e_bronze_knife) > 0) {
+} else if (inv_total(inv, e_bronze_knife) > 0 | inv_total(worn, e_bronze_knife) > 0) {
     $obj1 = e_bronze_knife;
-} else if (inv_total(inv, founders_knife) > 0) {
+} else if (inv_total(inv, founders_knife) > 0 | inv_total(worn, founders_knife) > 0) {
     $obj1 = founders_knife;
-} else if (inv_total(inv, hc_knife) > 0) {
+} else if (inv_total(inv, hc_knife) > 0 | inv_total(worn, hc_knife) > 0) {
     $obj1 = hc_knife;
-} else if (inv_total(inv, knife) > 0) {
+} else if (inv_total(inv, knife) > 0 | inv_total(worn, knife) > 0) {
     $obj1 = knife;
 }
 if ($lvl0 >= oc_param(e_dragon_knife, levelrequire) & ($obj1 = e_dragon_knife)) {
@@ -58,25 +58,25 @@ return(null);
 [proc,knife_checker_cooking]()(obj)
 def_int $lvl0 = stat(cooking);
 def_obj $obj1 = null;
-if (inv_total(inv, e_dragon_knife) > 0) {
+if (inv_total(inv, e_dragon_knife) > 0 | inv_total(worn, e_dragon_knife) > 0) {
     $obj1 = e_dragon_knife;
-} else if (inv_total(inv, e_rune_knife) > 0) {
+} else if (inv_total(inv, e_rune_knife) > 0 | inv_total(worn, e_rune_knife) > 0) {
     $obj1 = e_rune_knife;
-} else if (inv_total(inv, e_adamant_knife) > 0) {
+} else if (inv_total(inv, e_adamant_knife) > 0 | inv_total(worn, e_adamant_knife) > 0) {
     $obj1 = e_adamant_knife;
-} else if (inv_total(inv, e_mithril_knife) > 0) {
+} else if (inv_total(inv, e_mithril_knife) > 0 | inv_total(worn, e_mithril_knife) > 0) {
     $obj1 = e_mithril_knife;
-} else if (inv_total(inv, e_steel_knife) > 0) {
+} else if (inv_total(inv, e_steel_knife) > 0 | inv_total(worn, e_steel_knife) > 0) {
     $obj1 = e_steel_knife;
-} else if (inv_total(inv, e_iron_knife) > 0) {
+} else if (inv_total(inv, e_iron_knife) > 0 | inv_total(worn, e_iron_knife) > 0) {
     $obj1 = e_iron_knife;
-} else if (inv_total(inv, e_bronze_knife) > 0) {
+} else if (inv_total(inv, e_bronze_knife) > 0 | inv_total(worn, e_bronze_knife) > 0) {
     $obj1 = e_bronze_knife;
-} else if (inv_total(inv, founders_knife) > 0) {
+} else if (inv_total(inv, founders_knife) > 0 | inv_total(worn, founders_knife) > 0) {
     $obj1 = founders_knife;
-} else if (inv_total(inv, hc_knife) > 0) {
+} else if (inv_total(inv, hc_knife) > 0 | inv_total(worn, hc_knife) > 0) {
     $obj1 = hc_knife;
-} else if (inv_total(inv, knife) > 0) {
+} else if (inv_total(inv, knife) > 0 | inv_total(worn, knife) > 0) {
     $obj1 = knife;
 }
 if ($lvl0 >= oc_param(e_dragon_knife, levelrequire) & ($obj1 = e_dragon_knife)) {

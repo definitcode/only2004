@@ -3,12 +3,17 @@ name=Knife
 desc=A dangerous looking knife.
 cost=6
 model=model_2559_obj
+manwear=model_knife_obj_wear,0
+womanwear=model_knife_obj_wear,6
 2dxof=-11
 2dyof=-4
 2dzoom=580
 2dyan=1260
 2dxan=444
 weight=1lb
+iop2=Wear
+wearpos=righthand
+param=levelrequire,1
 
 [bear_fur]
 name=Fur

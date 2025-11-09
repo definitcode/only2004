@@ -56,6 +56,9 @@ manwear=model_562_obj_wear,0
 womanwear=model_562_obj_wear,6
 weight=3lb
 param=fish_equipment_struct,fish_equipment_fishing_rod
+iop2=Wear
+wearpos=righthand
+wearpos2=lefthand
 
 [fly_fishing_rod]
 model=model_2695_obj
@@ -71,6 +74,9 @@ manwear=model_562_obj_wear,0
 womanwear=model_562_obj_wear,6
 weight=3lb
 param=fish_equipment_struct,fish_equipment_fly_fishing_rod
+iop2=Wear
+wearpos=righthand
+wearpos2=lefthand
 
 [harpoon]
 name=Harpoon

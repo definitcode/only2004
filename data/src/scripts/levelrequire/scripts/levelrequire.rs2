@@ -51,6 +51,29 @@ if (stat_base(ranged) < $level) {
 }
 ~equip($slot);
 
+[label,levelrequire_crafting](int $level, int $slot)
+if (stat_base(crafting) < $level) {
+    mes("You are not a high enough level to use this item.");
+    mes("You need to have a Crafting level of <tostring($level)>.");
+    return;
+}
+~equip($slot);
+
+[label,levelrequire_fletching](int $level, int $slot)
+if (stat_base(fletching) < $level) {
+    mes("You are not a high enough level to use this item.");
+    mes("You need to have a Fletching level of <tostring($level)>.");
+    return;
+}
+~equip($slot);
+
+[label,levelrequire_firemaking](int $level, int $slot)
+if (stat_base(firemaking) < $level) {
+    mes("You are not a high enough level to use this item.");
+    mes("You need to have a Firemaking level of <tostring($level)>.");
+    return;
+}
+~equip($slot);
 
 [label,levelrequire_magic_and_attack](int $magic_level, int $attack_level, int $slot)
 if (stat_base(magic) < $magic_level | stat_base(attack) < $attack_level) {
