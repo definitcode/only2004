@@ -23,24 +23,26 @@ if (%gamemode_selected = ^gamemode_pvp) {
 def_struct $struct = oc_param($fish_equipment, fish_equipment_struct);
 
 // --- Check if player has fishing tool either worn or in inventory ---
-if (inv_total(worn, $fish_equipment) < 1 & inv_total(inv, $fish_equipment) < 1) {
+if (inv_total(worn, $fish_equipment) > 0 | inv_total(inv, $fish_equipment) > 0) {
+    // --- Check if bait is required and available ---
+    if ($struct ! null) {
+        def_namedobj $bait = struct_param($struct, baitrequired);
+        if ($bait ! null & inv_total(inv, $bait) < 1) {
+            anim(null, 0);
+            ~mesbox("You don't have any <struct_param($struct, baitmessage)> left.");
+            return(false);
+        }
+    }
+
+    // ✅ All checks passed
+    return(true);
+
+} else {
     anim(null, 0);
     ~mesbox(struct_param($struct, fish_equipment_failmessage));
     return(false);
 }
 
-// --- Check if bait is required and available ---
-if ($struct ! null) {
-    def_namedobj $bait = struct_param($struct, baitrequired);
-    if ($bait ! null & inv_total(inv, $bait) < 1) {
-        anim(null, 0);
-        ~mesbox("You don't have any <struct_param($struct, baitmessage)> left.");
-        return(false);
-    }
-}
-
-// ✅ All checks passed
-return(true);
 
 
 // helper proc to determine bonus fish count

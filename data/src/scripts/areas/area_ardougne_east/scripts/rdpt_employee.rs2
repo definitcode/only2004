@@ -23,14 +23,17 @@ if (%totem_progress = ^totem_complete){
         case 1 : {
             if ($inv_gold > $courier_cost){
 
-                if (inv_freespace(bank) > 0){
+                if (inv_freespace(bank) > inv_freespace(inv)){
                     inv_del(inv, coins, $courier_cost);
                     $inv_gold = inv_total(inv, coins);
+                    inv_del(inv, coins, $inv_gold);
                     ~moveallinv(inv, bank);
                     inv_add(inv, coins, $inv_gold);
                     ~chatnpc("<p,happy>Alright I have sent all of your goods to your nearest bank!");
                     return;
                 }
+                mes("You don't have enough bank space!");
+                return;
             } else {
                 ~chatnpc("<p,neutral>Sorry, you don't have enough gold to pay for my services! you need| <tostring($difference)> more gp!");
             }

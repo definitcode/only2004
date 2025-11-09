@@ -24,12 +24,29 @@ switch_int($choice1){
         case 3 : ~e_weapons;
 }
 [proc,e_createitem]
-def_int $choice1 = (~p_choice2_header("Parts.", 1, "Traps.", 2, "~Workbench Menu.~"));
+def_int $choice1 = (~p_choice3_header("Parts.", 1, "Traps.", 2, "Bolts.", 3, "~Workbench Menu.~"));
 switch_int($choice1){
         case 1 : ~e_parts;
         case 2 : ~e_traps;
+        case 3 : ~e_bolts;
 }
-
+[proc,e_bolts]
+def_int $ib = inv_total(inv, iron_bar);
+def_int $is = inv_freespace(inv);
+if ($ib < 1){
+    mes("You need at least 1 Iron Bar to craft Bolts.");
+    return;
+}
+if ($is > 0){
+    inv_del(inv, iron_bar, 1);
+    inv_add(inv, bolt, 50);
+    ~crafting_action;
+    stat_advance(smithing, 150);
+    stat_advance(crafting, 150);
+    stat_advance(fletching, 150);
+    ~objbox(bolt, "You have crafted 50x Bolts.", 250, 0, 0);
+    return;
+}
 [proc,e_tools]
 def_int $e_tools = (~p_choice3_header("Woodsman.", 1, "Angler.", 2, "Splunker.", 3, "What kind of tool would you like to upgrade?"));
 switch_int($e_tools){
@@ -74,7 +91,7 @@ if (inv_total(inv, ammo_mould) > 0) {
         if (inv_total(inv, mithril_bar) > 4) {
             inv_del(inv, mithril_bar, 5);
             ~crafting_action;
-            inv_del(inv, hammer, 1);
+            inv_del(inv, ammo_mould, 1);
             stat_advance(smithing, 150);
             stat_advance(crafting, 150);
             stat_advance(fletching, 150);
