@@ -53,6 +53,9 @@ if ($lvl0 >= oc_param(bronze_harpoon, levelrequire) & ($obj1 = bronze_harpoon)) 
 if ($lvl0 >= oc_param(founders_harpoon, levelrequire) & ($obj1 = founders_harpoon)) {
     return(founders_harpoon);
 }
+if ($lvl0 >= oc_param(harpoon, levelrequire) & ($obj1 = harpoon)) {
+    return(harpoon);
+}
 return(null);
 
 [proc,lobsterpot_checker]()(namedobj)
