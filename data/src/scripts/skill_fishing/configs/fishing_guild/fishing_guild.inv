@@ -22,3 +22,20 @@ stock12=tuna,0,2300
 stock13=lobster,0,2600
 stock14=swordfish,0,2900
 stock15=bucket_fish,1,100000
+
+[localfisher]
+// https://classic.runescape.wiki/w/Fishing_Guild_Shop
+// https://storage.googleapis.com/tannerdino/images/fishingguild3.gif
+// https://storage.googleapis.com/tannerdino/images/rsfishingguild5.gif (full stocks)
+scope=shared
+size=40
+restock=yes
+stackall=yes
+allstock=no
+stock1=fishing_bait,50,1
+stock2=feather,25,1
+stock3=raw_herring,0,300
+stock4=raw_trout,0,600
+stock5=raw_salmon,0,900
+stock6=raw_pike,0,2300
+

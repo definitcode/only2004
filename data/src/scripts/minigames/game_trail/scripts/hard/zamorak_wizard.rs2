@@ -82,7 +82,7 @@ if ($random < 4) {
 } else if ($random < 67) {
     obj_add(npc_coord, lawrune, 9, ^lootdrop_duration);
 } else if ($random < 92) {
-    obj_add(npc_coord, coins, 89, ^lootdrop_duration);
+    obj_add(npc_coord, crimson_silk, 1, ^lootdrop_duration);
 } else if ($random < 109) {
     obj_add(npc_coord, coins, 77, ^lootdrop_duration);
 } else if ($random < 112) {

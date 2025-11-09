@@ -14,6 +14,7 @@ weight=1lb
 iop2=Wear
 wearpos=righthand
 param=levelrequire,1
+category=knife
 
 [bear_fur]
 name=Fur
@@ -44,6 +45,19 @@ stackable=yes
 [black_silk]
 name=Black Silk
 desc=It's a sheet of black silk.
+cost=30
+model=model_2725_obj
+recol1s=27412 
+recol1d=0
+2dyof=-15
+2dzoom=1360
+2dxan=368
+weight=1kg
+stackable=yes
+
+[crimson_silk]
+name=Crimson Silk
+desc=It's a sheet of crimson silk.
 cost=30
 model=model_2725_obj
 recol1s=27412 

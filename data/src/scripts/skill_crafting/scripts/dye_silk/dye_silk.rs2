@@ -17,4 +17,11 @@ switch_obj($obj){
         p_delay(1);
         return;
     }
+    case reddye : {
+        inv_del(inv, silk, 1);
+        inv_del(inv, reddye, 1);
+        inv_add(inv, red_silk, 1);
+        p_delay(1);
+        return;       
+    }
 }

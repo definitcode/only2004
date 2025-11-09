@@ -178,6 +178,10 @@ recol3d=4096
 2dyan=1260
 2dxan=444
 weight=1lb
+wearpos=righthand
+iop2=Wear
+manwear=model_knife_obj_wear,0
+womanwear=model_knife_obj_wear,0
 
 [hc_tinderbox]
 name=Tinderbox (HC)
@@ -195,3 +199,5 @@ womanwear=model_488_obj_wear,0
 2dyan=1968
 2dxan=196
 weight=35g
+wearpos=righthand
+iop2=Wear

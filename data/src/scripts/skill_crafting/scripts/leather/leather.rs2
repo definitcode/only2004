@@ -16,6 +16,7 @@ switch_obj (last_useitem)
     case bear_leather : @craft_bear_leather;
     case black_silk : @craft_black_robes;
     case blue_silk : @craft_blue_robes;
+    case crimson_silk : @craft_zam_robes;
     case dragon_leather, dragon_leather_blue, dragon_leather_red, dragon_leather_black : @craft_dhide_interface(last_useslot);
     case default : ~displaymessage(^dm_default);
 };
