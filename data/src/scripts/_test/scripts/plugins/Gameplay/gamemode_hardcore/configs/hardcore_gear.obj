@@ -182,6 +182,14 @@ wearpos=righthand
 iop2=Wear
 manwear=model_knife_obj_wear,0
 womanwear=model_knife_obj_wear,0
+param=attackrate,5
+param=stabattack,-10
+param=slashattack,-10
+param=crushattack,10
+param=magicattack,-10
+param=strengthbonus,5
+param=levelrequire,1
+category=knife
 
 [hc_tinderbox]
 name=Tinderbox (HC)
