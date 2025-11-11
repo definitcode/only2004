@@ -27,13 +27,20 @@ if (~check_axis(coord, loc_coord, loc_angle) = true) {
 def_int $fb = inv_total(inv, bowl_empty);
 def_int $pd = inv_total(inv, piedish);
 def_int $pot = inv_total(inv, pot_empty);
+if ($fb > 0){
+    inv_del(inv, bowl_empty, $fb);
+    inv_add(inv, cert_bowl_empty, $fb);
+    ~chatnpc("<p,happy>I have swapped your items for notes you can redeem at the bank!");
+} else if ($pd > 0){
+    inv_del(inv, piedish, $pd);
+    inv_add(inv, cert_piedish, $pd);
+    ~chatnpc("<p,happy>I have swapped your items for notes you can redeem at the bank!");
+} else if ($pot > 0){
+    inv_del(inv, pot_empty, $pot);
+    inv_add(inv, cert_pot_empty, $pot);
+    ~chatnpc("<p,happy>I have swapped your items for notes you can redeem at the bank!");
+} else {
+    mes("You don't have anything to convert");
+    return;
+}
 
-
-inv_del(inv, bowl_empty, $fb);
-inv_add(inv, cert_bowl_empty, $fb);
-
-inv_del(inv, piedish, $pd);
-inv_add(inv, cert_piedish, $pd);
-
-inv_del(inv, pot_empty, $pot);
-inv_add(inv, cert_pot_empty, $pot);

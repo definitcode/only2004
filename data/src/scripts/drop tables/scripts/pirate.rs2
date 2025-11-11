@@ -45,7 +45,7 @@ if ($random < 6) {
     obj_add(npc_coord, shillings, 120, ^lootdrop_duration);
 } else if ($random < 94) {
     obj_add(npc_coord, shillings, 35, ^lootdrop_duration);
-} else if ($random < 95) {
+} else if ($random < 104) {
     obj_add(npc_coord, shillings, 55, ^lootdrop_duration);
 
 } else if ($random < 105) {

@@ -89,7 +89,8 @@ switch_int(%pk_class){
     case ^mage : {
         stat_advance(defence, 801);    // lvl ~24 Defence XP
         stat_advance(hitpoints, 13363);  // lvl 25 Hitpoints XP
-        stat_advance(prayer, 24815);     // lvl ~24 Prayer XP
+        //stat_advance(prayer, 24815);     // lvl ~24 Prayer XP
+        stat_advance(prayer, 13815);
         stat_advance(magic, 22406);     // lvl ~28 Magic XP (signature skill)
     }
     case ^trispec : {
@@ -110,7 +111,8 @@ switch_int(%pk_class){
     case ^drunkenmonk : {
         stat_advance(strength, 101333);
         stat_advance(hitpoints, 22406);
-        stat_advance(prayer, 24815);
+        //stat_advance(prayer, 24815);
+        stat_advance(prayer, 13815);
     }
 }
 
