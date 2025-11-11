@@ -1,7 +1,7 @@
 [oploc1,crafting_guild_door]
 if (~check_axis(coord, loc_coord, loc_angle) = true) {
-    if (stat(crafting) < 40) {
-        ~chatnpc_specific(nc_name(master_crafter), master_crafter, "<p,neutral>Sorry only experienced craftsmen are allowed in here.|You must be level 40 or above to enter.");
+    if (stat(crafting) < 60) {
+        ~chatnpc_specific(nc_name(master_crafter), master_crafter, "<p,neutral>Sorry only experienced craftsmen are allowed in here.|You must be level 60 or above to enter.");
         return;
     }
     if (inv_total(worn, brown_apron) < 1) {
