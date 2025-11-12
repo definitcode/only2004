@@ -32,40 +32,62 @@ if (findhero = true) {
     ~player_death_lose_items;
     session_log(^log_moderator, "Player died");
 }
+//if (%gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_hcuim){
+//    p_teleport(0_48_48_22_35);
+//    def_int $choice = ~p_choice2_header("Yes.", 1, "No.", 2, "Would you like to be demoted instead of resetting?");
+//    def_int $choice2 = ~p_choice2_header("Yes.", 1, "No.", 2, "Are you sure?");
+//    switch_int($choice){
+//        case 1 : {
+//            %gamemode_selected = ^gamemode_none;
+//        }
+//        case 2 : {
+//            inv_clear(bank);
+//            ~founders_protection;
+//            inv_dropall(inv, coord, ^lootdrop_duration);
+//            inv_dropall(worn, coord, ^lootdrop_duration);
+//            ~reset();
+//            ~stat_reset_all;
+//            p_teleport(0_48_48_22_35);
+//            buildappearance(worn);
+//            ~prayer_deactivate_all;
+//            ~follower_death;
+//            anim(null, 0);
+//            p_stopaction;
+//            healenergy(10000);
+//            ~clear_pk_skull;
+//            ~clear_poison;
+//            ~update_all($prev_wep);
+//            ~initalltabs;
+//            ~ledger_reset;
+//            @start_tutorial;
+//            return;
+//        }
+//    }
+//
+//}
 if (%gamemode_selected = ^gamemode_hardcore | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_hcuim){
+    inv_clear(bank);
+    ~founders_protection;
+    inv_dropall(inv, coord, ^lootdrop_duration);
+    inv_dropall(worn, coord, ^lootdrop_duration);
+    ~reset();
+    ~stat_reset_all;
     p_teleport(0_48_48_22_35);
-    def_int $choice = ~p_choice2_header("Yes.", 1, "No.", 2, "Would you like to be demoted instead of resetting?");
-    def_int $choice2 = ~p_choice2_header("Yes.", 1, "No.", 2, "Are you sure?");
-    switch_int($choice){
-        case 1 : {
-            %gamemode_selected = ^gamemode_none;
-        }
-        case 2 : {
-            inv_clear(bank);
-            ~founders_protection;
-            inv_dropall(inv, coord, ^lootdrop_duration);
-            inv_dropall(worn, coord, ^lootdrop_duration);
-            ~reset();
-            ~stat_reset_all;
-            p_teleport(0_48_48_22_35);
-            buildappearance(worn);
-            ~prayer_deactivate_all;
-            ~follower_death;
-            anim(null, 0);
-            p_stopaction;
-            healenergy(10000);
-            ~clear_pk_skull;
-            ~clear_poison;
-            ~update_all($prev_wep);
-            ~initalltabs;
-            ~ledger_reset;
-            @start_tutorial;
-            return;
-        }
-    }
-
+    buildappearance(worn);
+    ~prayer_deactivate_all;
+    ~follower_death;
+    anim(null, 0);
+    p_stopaction;
+    healenergy(10000);
+    ~clear_pk_skull;
+    ~clear_poison;
+    ~update_all($prev_wep);
+    ~initalltabs;
+    ~ledger_reset;
+    @start_tutorial;
+    mes("You have been reset!");
+    return;
 }
-
 if (%gamemode_selected = ^gamemode_pvp){
             ~founders_protection;
             inv_dropall(inv, coord, ^lootdrop_duration);
