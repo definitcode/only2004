@@ -32,6 +32,7 @@ if (last_useitem = needle) @craft_leather(hardleather_body);
 ~displaymessage(^dm_default);
 
 [opheldu,bear_leather]
+if (last_useitem = feather) @craft_bear_cavalier;
 if (last_useitem = needle) @craft_bear_leather;
 ~displaymessage(^dm_default);
 

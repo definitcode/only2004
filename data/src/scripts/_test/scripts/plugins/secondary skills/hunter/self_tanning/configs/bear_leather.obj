@@ -14,6 +14,28 @@ cost=100
 param=no_alchemy,^true
 stackable=yes
 
+[cavalier_bear]
+name=Cavalier
+desc=All for one and one for all!
+cost=200
+weight=80g
+members=yes
+model=model_2451_obj
+recol1s=15649
+recol1d=10368
+2dxof=-1
+2dyof=-8
+2dzoom=690
+2dyan=1856
+2dxan=160
+iop2=Wear
+wearpos=hat
+manwear=model_186_obj_wear,0
+womanwear=model_362_obj_wear,0
+manhead=model_28_obj_wear
+womanhead=model_86_obj_wear
+
+
 [bear_coif]
 name=Bear Coif
 cost=160
