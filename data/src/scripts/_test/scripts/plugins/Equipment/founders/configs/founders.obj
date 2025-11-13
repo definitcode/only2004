@@ -13,7 +13,7 @@ iop1=Open
 2dyan=172
 2dxan=160
 weight=2lb
-tradeable=no
+tradeable=yes
 param=no_alchemy,^true
 
 [founders_partyhat]
@@ -141,6 +141,10 @@ recol2s=10400
 recol2d=0
 recol3s=26425
 recol3d=199
+wearpos=righthand
+iop2=Wear
+manwear=model_knife_obj_wear,0
+womanwear=model_knife_obj_wear,0
 2dxof=-11
 2dyof=-4
 2dzoom=580
@@ -148,7 +152,6 @@ recol3d=199
 2dxan=444
 weight=1lb
 tradeable=no
-iop2=Wear
 param=no_alchemy,^true
 category=founders_items
 
@@ -160,6 +163,7 @@ recol1s=32767
 recol1d=1786
 recol2s=11456
 recol2d=0
+iop2=Wear
 manwear=model_488_obj_wear,0
 womanwear=model_488_obj_wear,0
 2dxof=1

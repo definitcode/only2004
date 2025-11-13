@@ -352,9 +352,9 @@ inv_del(inv, oystershell, 1);
 // rates taken from osrs wiki
 // https://oldschool.runescape.wiki/w/Oyster
 def_int $random = random(32);
-
+def_int $oysters = random(9);
 if ($random < 25) {
-    inv_add(inv, smalloysterpearls, 10);
+    inv_add(inv, smalloysterpearls, $oysters);
 } else {
     inv_add(inv, oysterempty, 1);
 }

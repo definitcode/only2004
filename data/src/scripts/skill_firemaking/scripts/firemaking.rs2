@@ -51,6 +51,10 @@ if(%gamemode_selected = ^gamemode_pvp){
 def_obj $log = obj_type;
 // check level first
 def_obj $tbox = ~firemaking_checker;
+if ($tbox = null){
+    mes("You need to wield a Tinderbox to do this.");
+    return;
+}
 def_int $level = oc_param($log, levelrequire);
 def_int $level2 = oc_param($tbox, levelrequire);
 if ($log = cursed_logs) {
