@@ -3,17 +3,25 @@ if(%gamemode_selected = ^gamemode_pvp){
     mes("You cannot do this.");
     return;
 }
+def_int $feather = inv_total(inv, feather);
 if (inv_total(inv, bear_leather) < 2){
     mes("You need 2x Bear Leather to craft this.");
     return;
+} else if (inv_total(inv, thread) < 1) {
+    mes("You need a thread to do this");
+    return;
+} else if (inv_total(inv, needle) < 1){
+    mes("You need a needle to do this.");
+    return;
 }
-def_int $feather = inv_total(inv, feather);
 if ($feather < 1){
     return;
 } else {
     inv_del(inv, bear_leather, 2);
     inv_del(inv, feather, 1);
     inv_add(inv, cavalier_bear, 1);
+    inv_del(inv, thread, 1);
+    inv_del(inv, needle, 1);
     mes("You have crafted a Cavalier!");
     stat_advance(crafting, 150);
     if (inv_total(inv, brown_apron) > 0){
