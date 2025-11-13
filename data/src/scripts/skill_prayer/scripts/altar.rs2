@@ -1,6 +1,6 @@
 [oploc1,_prayer_altar] @pray_at_altar(stat_base(prayer));
-[oplocu,_prayer_altar] @bury_bones_altar(last_useitem);
-
+//[oplocu,_prayer_altar] @bury_bones_altar(last_useitem);
+[oplocu,loc_411] @bury_bones_altar(last_useitem);
 
 [label,bury_bones_altar](obj $item)
 if(%gamemode_selected = ^gamemode_pvp){

@@ -27,38 +27,118 @@ if (distance(coord, npc_coord) < 3){
     switch_obj($knife){
         case e_dragon_knife : {
             $drop_multiplier = 5;
+            if (%hunter > 396) {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,4), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,4), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,4))>");
+            } else if (%hunter > 349) {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,2), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,2), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,2))>");
+            } else {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,1), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,1), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,1))>");
+            }     
         }
         case e_rune_knife : {
             $drop_multiplier = 4;
+            if (%hunter > 396) {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,4), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,4), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,4))>");
+            } else if (%hunter > 349) {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,2), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,2), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,2))>");
+            } else {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,1), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,1), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,1))>");
+            } 
         }
         case e_adamant_knife : {
             $drop_multiplier = 3;
+            if (%hunter > 396) {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,4), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,4), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,4))>");
+            } else if (%hunter > 349) {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,2), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,2), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,2))>");
+            } else {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,1), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,1), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,1))>");
+            }
         }
         case e_mithril_knife : {
             $drop_multiplier = 2;
+            if (%hunter > 396) {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,4), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,4), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,4))>");
+            } else if (%hunter > 349) {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,2), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,2), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,2))>");
+            } else {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,1), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,1), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,1))>");
+            }  
         }
         case e_steel_knife : {
             $drop_multiplier = 1;
+            if (%hunter > 396) {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,4), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,4), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,4))>");
+            } else if (%hunter > 349) {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,2), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,2), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,2))>");
+            } else {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,1), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,1), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,1))>");
+            }
         }
         case e_bronze_knife : {
             $drop_multiplier = 1;
+            if (%hunter > 396) {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,4), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,4), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,4))>");
+            } else if (%hunter > 349) {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,2), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,2), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,2))>");
+            } else {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,1), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,1), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,1))>");
+            }
+        }
+        case knife : {
+            $drop_multiplier = 1;
+            if (%hunter > 396) {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,4), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,4), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,4))>");
+            } else if (%hunter > 349) {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,2), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,2), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,2))>");
+            } else {
+                obj_add(npc_coord, dragonhide_black, add($drop_multiplier,1), ^lootdrop_duration);
+                obj_add(npc_coord, $scale, add($drop_multiplier,1), ^lootdrop_duration);
+                mes("You carve the monster and receive <tostring(add($drop_multiplier,1))>");
+            }
         }
         case null : mes("You don't have a knife to skin this monster.");
     }
-    if (%hunter > 396) {
-        obj_add(npc_coord, dragonhide_black, add($drop_multiplier,4), ^lootdrop_duration);
-        obj_add(npc_coord, $scale, add($drop_multiplier,4), ^lootdrop_duration);
-        mes("You carve the monster and receive <tostring(add($drop_multiplier,4))>");
-    } else if (%hunter > 349) {
-        obj_add(npc_coord, dragonhide_black, add($drop_multiplier,2), ^lootdrop_duration);
-        obj_add(npc_coord, $scale, add($drop_multiplier,2), ^lootdrop_duration);
-        mes("You carve the monster and receive <tostring(add($drop_multiplier,2))>");
-    } else {
-        obj_add(npc_coord, dragonhide_black, add($drop_multiplier,1), ^lootdrop_duration);
-        obj_add(npc_coord, $scale, add($drop_multiplier,1), ^lootdrop_duration);
-        mes("You carve the monster and receive <tostring(add($drop_multiplier,1))>");
-    }
-    mes("You carve the monster and receive <tostring(add($drop_multiplier,1))>");
 } else {
     mes("You were not close enough to attempt skinning the monster.");
 }

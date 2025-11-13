@@ -77,7 +77,7 @@ switch_namedobj($choice){
     case wizards_robe : {
         ~hand_crafting_action;
         inv_del(inv, blue_silk, 1);
-        inv_add(inv, blackrobetop, 1);
+        inv_add(inv, wizards_robe, 1);
         stat_advance(crafting, 250);
         ~objbox(blackrobetop, "You have created a Blue robe!", 250, 0, 0);
     }

@@ -45,6 +45,8 @@ if ($random < 4) {
     obj_add(npc_coord, zamrobebottom, 1, ^lootdrop_duration);
 } else if ($random < 7) {
     obj_add(npc_coord, zamrobetop, 1, ^lootdrop_duration);
+} else if ($random < 8) {
+    obj_add(npc_coord, zamhat, 1, ^lootdrop_duration);
 } else if ($random < 10) {
     obj_add(npc_coord, water_battlestaff, 1, ^lootdrop_duration);
 } else if ($random < 13) {

@@ -36,7 +36,7 @@ param=grindable_ingredient_message,You grind down the blue dragon scale.
 [red_dragon_scale]
 cost=50
 members=yes
-name=Blue dragon scale
+name=Red dragon scale
 desc=A large shiny scale.
 model=model_2761_obj
 2dxof=7
@@ -54,7 +54,7 @@ stackable=yes
 [green_dragon_scale]
 cost=50
 members=yes
-name=Blue dragon scale
+name=Green dragon scale
 desc=A large shiny scale.
 model=model_2761_obj
 2dxof=7
@@ -72,7 +72,7 @@ stackable=yes
 [black_dragon_scale]
 cost=50
 members=yes
-name=Blue dragon scale
+name=Black dragon scale
 desc=A large shiny scale.
 model=model_2761_obj
 2dxof=7
