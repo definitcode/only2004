@@ -16,6 +16,10 @@ if ($feather < 1){
     inv_add(inv, cavalier_bear, 1);
     mes("You have crafted a Cavalier!");
     stat_advance(crafting, 150);
+    if (inv_total(inv, brown_apron) > 0){
+        stat_advance(crafting, 150);
+        mes("Your crafting skills are showing!");    
+    }
     p_delay(1);
     return;
 }
