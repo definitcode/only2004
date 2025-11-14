@@ -52,8 +52,8 @@ param=crafting_staff_struct,brown_bead
 
 [blue_bead]
 cost=4
-name=Brown bead
-desc=A small round brown bead.
+name=Blue bead
+desc=A small round blue bead.
 model=model_2456_obj
 recol1s=32767
 recol1d=31

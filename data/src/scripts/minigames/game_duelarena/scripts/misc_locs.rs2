@@ -9,6 +9,26 @@ p_arrivedelay;
 
 // Open bank chest - bank op
 [oploc2,duel_chestopen]
+def_int $gm = %gamemode_selected;
+switch_int($gm){
+    case 4 : {
+        mes("You cannot use a bank!");
+        return;
+    }
+    case 6 : {
+        mes("You cannot use a bank!");
+        return;
+    }
+    case 7 :{
+        mes("You cannot use a bank!");
+        return;
+    }
+    case 5 : {
+        mes("You cannot use a bank!");
+        return;
+    }
+
+}
 p_arrivedelay;
 @openbank;
 
