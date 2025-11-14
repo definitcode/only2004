@@ -3,8 +3,7 @@ if(%gamemode_selected = ^gamemode_pvp){
     mes("You cannot do this.");
     return;
 }
-if ($logs = logs) {
-} else if ($logs = oak_logs) {
+if ($logs = oak_logs) {
     if (stat_base(firemaking) < 15) {
         mes("You need a firemaking level of 15 to burn this logs.");
         return;
@@ -27,6 +26,11 @@ if ($logs = logs) {
 } else if ($logs = magic_logs) {
     if (stat_base(firemaking) < 75) {
         mes("You need a firemaking level of 75 to burn this logs.");
+        return;
+    }
+} else if ($logs = cursed_logs) {
+    if (stat_base(firemaking) < 99) {
+        mes("You need a firemaking level of 99 to burn this logs.");
         return;
     }
 }

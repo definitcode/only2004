@@ -66,6 +66,16 @@ switch_obj($knife){
         obj_add(npc_coord, bear_fur, $fur_multi, ^lootdrop_duration);
         obj_add(npc_coord, bear_hide, $fur_multi, ^lootdrop_duration);
     }
+    case hc_knife : {
+        obj_add(npc_coord, raw_bear_meat, $meat_multi, ^lootdrop_duration);
+        obj_add(npc_coord, bear_fur, $fur_multi, ^lootdrop_duration);
+        obj_add(npc_coord, bear_hide, $fur_multi, ^lootdrop_duration);
+    }
+    case founders_knife : {
+        obj_add(npc_coord, raw_bear_meat, $meat_multi, ^lootdrop_duration);
+        obj_add(npc_coord, bear_fur, $fur_multi, ^lootdrop_duration);
+        obj_add(npc_coord, bear_hide, $fur_multi, ^lootdrop_duration);
+    }   
     case knife : {
         obj_add(npc_coord, raw_bear_meat, $meat_multi, ^lootdrop_duration);
         obj_add(npc_coord, bear_fur, $fur_multi, ^lootdrop_duration);
