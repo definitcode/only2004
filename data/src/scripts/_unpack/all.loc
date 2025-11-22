@@ -5539,6 +5539,7 @@ model=model_loc_1012
 name=Cooking shelves
 desc=Storage for cookery items.
 model=model_loc_1013
+op1=Open
 
 [loc_1014]
 name=Shelves
@@ -6361,6 +6362,7 @@ name=Mushroom
 desc=Not good for eating.
 model=model_loc_1163
 blockrange=no
+op1=Cut
 
 [loc_1164]
 name=Mushroom
@@ -6371,18 +6373,21 @@ recol1s=31499
 recol1d=11555
 recol2s=31674
 recol2d=14792
+op1=Cut
 
 [loc_1165]
 name=Mushroom
 desc=Fungal growth.
 model=model_loc_1165
 blockrange=no
+op1=Cut
 
 [loc_1166]
 name=Mushrooms
 desc=Poisonous no doubt.
 model=model_loc_1166
 blockrange=no
+op1=Cut
 
 [loc_1167]
 name=Mushroom
@@ -6395,6 +6400,7 @@ recol2s=31674
 recol2d=17933
 recol3s=29492
 recol3d=14758
+op1=Cut
 
 [loc_1168]
 name=Mushrooms
@@ -6413,18 +6419,21 @@ recol5s=22855
 recol5d=11492
 recol6s=21764
 recol6d=10436
+op1=Cut
 
 [loc_1169]
 name=Mushroom
 desc=Poisonous no doubt.
 model=model_loc_1169
 blockrange=no
+op1=Cut
 
 [loc_1170]
 name=Fungus
 desc=I doubt that's edible.
 model=model_loc_1170
 blockrange=no
+op1=Cut
 
 [loc_1171]
 name=Fungus
@@ -6435,6 +6444,7 @@ recol1s=31302
 recol1d=11555
 recol2s=30415
 recol2d=14792
+op1=Cut
 
 [loc_1172]
 name=Fungus
@@ -6445,6 +6455,7 @@ recol1s=31302
 recol1d=17830
 recol2s=30415
 recol2d=25157
+op1=Cut
 
 [loc_1173]
 name=Small fern
@@ -6498,6 +6509,7 @@ blockwalk=no
 blockrange=no
 recol1s=197
 recol1d=294
+op1=Cut
 
 [loc_1179]
 name=Heather
@@ -6571,6 +6583,7 @@ desc=Commonly found in grassy areas.
 model=model_loc_1189
 blockwalk=no
 blockrange=no
+op1=Cut
 
 [loc_1190]
 name=Sunflower

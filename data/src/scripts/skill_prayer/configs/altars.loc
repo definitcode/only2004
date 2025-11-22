@@ -31,4 +31,5 @@ desc=Shrine to the glory of Zamorak.
 model=model_loc_61
 width=2
 op1=Pray-at
+op2=Summon
 category=prayer_altar

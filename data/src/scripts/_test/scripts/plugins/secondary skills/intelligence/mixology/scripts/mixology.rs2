@@ -91,13 +91,13 @@ switch_obj($scale){
     }
     case dragon_scale_dust : {
         if ($total_scales < 4) {
-            $potion = 4dose2defense;
+            $potion = 4dose2strength;
             if ($total_tar < $tar_cost){
                 mes("You need <tostring($tar_cost)> swamp tar to make this potion.");
                 return;
             }
         } else {
-            mes("You need 4 red dragon scale dust to make this potion.");
+            mes("You need 4 dragon scale dust to make this potion.");
             return;
         }
     }
@@ -214,6 +214,7 @@ def_int $intelligence = %intelligence;
 def_int $dust_needed = 10;
 def_int $random_anim = random(1);
 def_int $tar_cost;
+def_int $plague_check = ~plague_check;
 
 if ($random_anim = 0){
     anim(human_herbing_grind,0);
@@ -264,7 +265,11 @@ anim(human_cooking, 0);
 inv_add(inv, $random_potion, 1);
 stat_advance(herblore, 250);
 stat_advance(cooking, 250);
-if (inv_total(worn,gasmask) > 0 | inv_total(worn,gasmask_i) > 0){
+
+if ($plague_check > 2){
     stat_advance(herblore, 250);
     stat_advance(cooking, 250);
+} else {
+    damage(uid, 1, calc(stat_base(hitpoints) / 2));
+    mes("These phumes are too strong for you to handle.");
 }

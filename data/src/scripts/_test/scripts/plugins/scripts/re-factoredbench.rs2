@@ -1,0 +1,141 @@
+[oplocu,loc_609] @engineering_bench_refactored(last_useitem);
+[oplocu,loc_610] @engineering_bench_refactored(last_useitem);
+
+[label,engineering_bench_refactored](obj $used_item)
+// Main entry point for item-on-object interactions
+def_obj $hammer = ~hammer_checker;
+
+if ($hammer = null) {
+    mes("You need a hammer to work on the bench.");
+    return;
+}
+
+// Route based on the item used
+switch_obj($used_item) {
+    // --- TOOLS ---
+    // Tinderboxes
+    case tinderbox : ~e_tinderbox;
+    case bronze_tinderbox : ~e_tinderbox;
+    case iron_tinderbox : ~e_tinderbox;
+    case steel_tinderbox : ~e_tinderbox;
+    case mithril_tinderbox : ~e_tinderbox;
+    case adamant_tinderbox : ~e_tinderbox;
+    case rune_tinderbox : ~e_tinderbox;
+
+    // Knives
+    case knife : ~e_knife;
+    case e_bronze_knife : ~e_knife;
+    case e_iron_knife : ~e_knife;
+    case e_steel_knife : ~e_knife;
+    case e_mithril_knife : ~e_knife;
+    case e_adamant_knife : ~e_knife;
+    case e_rune_knife : ~e_knife;
+
+    // Shears
+    case shears : ~e_shears;
+    case bronze_shears : ~e_shears;
+    case iron_shears : ~e_shears;
+    case steel_shears : ~e_shears;
+    case mithril_shears : ~e_shears;
+    case adamant_shears : ~e_shears;
+    case rune_shears : ~e_shears;
+
+    // Chisels
+    case chisel : ~e_chisel;
+    case bronze_chisel : ~e_chisel;
+    case iron_chisel : ~e_chisel;
+    case steel_chisel : ~e_chisel;
+    case mithril_chisel : ~e_chisel;
+    case adamant_chisel : ~e_chisel;
+    case rune_chisel : ~e_chisel;
+
+    // Hammers
+    case hammer : ~e_hammer;
+    case bronze_hammer : ~e_hammer;
+    case iron_hammer : ~e_hammer;
+    case steel_hammer : ~e_hammer;
+    case mithril_hammer : ~e_hammer;
+    case adamant_hammer : ~e_hammer;
+    case rune_hammer : ~e_hammer;
+
+    // Harpoons
+    case harpoon : ~e_harpoon;
+    case bronze_harpoon : ~e_harpoon;
+    case iron_harpoon : ~e_harpoon;
+    case steel_harpoon : ~e_harpoon;
+    case mithril_harpoon : ~e_harpoon;
+    case adamant_harpoon : ~e_harpoon;
+    case rune_harpoon : ~e_harpoon;
+
+    // Lobster Pots
+    case lobster_pot : ~e_lobster_pot;
+    case lobster_pot_oak : ~e_lobster_pot;
+    case lobster_pot_willow : ~e_lobster_pot;
+    case lobster_pot_maple : ~e_lobster_pot;
+    case lobster_pot_yew : ~e_lobster_pot;
+    case lobster_pot_magic : ~e_lobster_pot;
+
+    // Pickaxes
+    case bronze_pickaxe : ~e_pickaxe;    
+    case iron_pickaxe : ~e_pickaxe;
+    case steel_pickaxe : ~e_pickaxe;
+    case mithril_pickaxe : ~e_pickaxe;
+    case adamant_pickaxe : ~e_pickaxe;
+    case rune_pickaxe : ~e_pickaxe;
+
+    // Ammo Moulds
+    case ammo_mould : ~e_ammo_mould;
+    case mithril_ammo_mould : ~e_ammo_mould;
+    case adamant_ammo_mould : ~e_ammo_mould;
+    case rune_ammo_mould : ~e_ammo_mould;
+
+    // --- WEAPONS ---
+    // Crossbows
+    case crossbow : ~e_crossbow;
+    case bronze_crossbow : ~e_crossbow;
+    case iron_crossbow : ~e_crossbow;
+    case steel_crossbow : ~e_crossbow;
+    case mithril_crossbow : ~e_crossbow;
+    case adamant_crossbow : ~e_crossbow;
+    case rune_crossbow : ~e_crossbow;
+
+    // --- ARMOUR ---
+    // Gauntlets
+    case leather_gloves : ~e_gauntlets;
+    case steel_gauntlets : ~e_gauntlets;
+    case mithril_gauntlets : ~e_gauntlets;
+    case adamant_gauntlets : ~e_gauntlets;
+    case rune_gauntlets : ~e_gauntlets;
+
+    // Bear Armour
+    case bear_leather : ~e_bearitems;
+
+    // --- PARTS & MATERIALS ---
+    case bronze_bar : ~e_createitem;
+    case iron_bar : ~e_createitem;
+    case steel_bar : ~e_createitem;
+    case mithril_bar : ~e_createitem;
+    case adamantite_bar : ~e_createitem;
+    case runite_bar : ~e_createitem;
+    case dragon_bar : ~e_createitem;
+
+    case rope : ~e_parts;
+    case woodplank : ~e_parts;
+    case empty_casket : ~e_parts;
+    case bolt : ~e_parts;
+    case gold_bar : ~e_pvpnecklace;
+
+    case default : { mes("Nothing interesting happens."); }
+}
+
+
+[proc,calc_engineering_xp](int $base_xp)
+def_int $xp = $base_xp;
+// 10% chance for critical success (1.5x XP)
+if (random(10) = 0) {
+    $xp = calc($xp * 15 / 10);
+    mes("Critical Success! You gain extra experience.");
+}
+stat_advance(smithing, $base_xp);
+stat_advance(crafting, $base_xp);
+stat_advance(fletching, $base_xp);

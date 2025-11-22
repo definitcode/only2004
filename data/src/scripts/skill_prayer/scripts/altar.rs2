@@ -1,6 +1,31 @@
 [oploc1,_prayer_altar] @pray_at_altar(stat_base(prayer));
 //[oplocu,_prayer_altar] @bury_bones_altar(last_useitem);
 [oplocu,loc_411] @bury_bones_altar(last_useitem);
+[oploc2,loc_411] ~summon_zamorakwizard(loc_coord);
+
+
+[proc,summon_zamorakwizard](coord $loc)
+def_int $skulls = inv_total(inv, player_skull);
+if ($skulls > 0) {
+    inv_del(inv, player_skull, 1);
+    npc_add(coord, macro_event_shade1, 600);    
+} else if ($skulls > 1) {
+    inv_del(inv, player_skull, 2);
+    npc_add(coord, macro_event_shade2, 600);    
+} else if ($skulls > 2) {
+    inv_del(inv, player_skull, 3);
+    npc_add(coord, macro_event_shade3, 600);    
+} else if ($skulls > 3) {
+    inv_del(inv, player_skull, 4);
+    npc_add(coord, macro_event_shade4, 600);    
+} else if ($skulls > 4) {
+    inv_del(inv, player_skull, 5);
+    npc_add(coord, macro_event_shade5, 600);    
+} else if ($skulls > 5) {
+    inv_del(inv, player_skull, 6);
+    npc_add(coord, macro_event_shade6, 600);    
+}
+
 
 [label,bury_bones_altar](obj $item)
 if(%gamemode_selected = ^gamemode_pvp){
@@ -22,7 +47,7 @@ if($item = "ashes"){
     anim(human_pickuptable, 0);
     p_delay(3);
     sound_synth(bones_down, 1, 0);
-} else if ($item = bones | $item = big_bones | $item = dragon_bones) {
+} else if ($item = bones | $item = big_bones | $item = dragon_bones | $item = player_skull) {
     mes("You prepare the bones for ritual");
     anim(human_herbing_grind, 0);
     mes("You start to grind the bones.");

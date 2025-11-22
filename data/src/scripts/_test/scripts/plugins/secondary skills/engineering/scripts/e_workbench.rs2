@@ -2001,19 +2001,19 @@ if (inv_total(worn, dragon_hammer) < 1) {
     return;
 } else if (inv_total(worn, founders_hammer) < 1) {
     return;
-} else if (inv_total(worn, rune_hammer)   < 1) {
+} else if (inv_total(worn, rune_hammer) < 1) {
     return;
-} else if (inv_total(worn, adamant_hammer)   < 1) {
+} else if (inv_total(worn, adamant_hammer) < 1) {
     return;
-} else if (inv_total(worn, mithril_hammer)   < 1) {
+} else if (inv_total(worn, mithril_hammer) < 1) {
     return;
-} else if (inv_total(worn, steel_hammer)   < 1) {
+} else if (inv_total(worn, steel_hammer) < 1) {
     return;
-} else if (inv_total(worn, iron_hammer)   < 1) {
+} else if (inv_total(worn, iron_hammer) < 1) {
     return;
-} else if (inv_total(worn, bronze_hammer)   < 1) {
+} else if (inv_total(worn, bronze_hammer) < 1) {
     return;
-} else if (inv_total(worn, hammer)   < 1) {
+} else if (inv_total(worn, hammer) < 1) {
     return;
 }
 

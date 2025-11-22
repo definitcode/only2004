@@ -361,3 +361,30 @@ param=slashdefence,16
 param=crushdefence,14
 param=rangedefence,15
 param=magicattack,10
+
+
+[elemental_shield]
+desc=A magic shield.
+model=model_155
+iop2=Wield
+2dxof=65534
+2dyof=22
+2dyan=216
+2dxan=300
+manwear=model_obj_2890,0
+womanwear=model_obj_2890,6
+members=true
+cost=14500
+name=Elemental shield
+wearpos=lefthand
+category=armour_shield
+weight=8oz
+param=magicdefence,6
+param=magicattack,35
+param=rangeattack,35
+param=stabdefence,15
+param=slashdefence,15
+param=crushdefence,15
+param=rangedefence,15
+param=strengthbonus,-40
+param=attackbonus,-40

@@ -1,0 +1,45 @@
+[proc,shear_checker_herb]()(obj)
+def_int $lvl0 = stat(herblore);
+def_obj $obj1 = null;
+if (inv_total(worn, dragon_shears) > 0) {
+    $obj1 = dragon_shears;
+} else if (inv_total(worn, rune_shears) > 0) {
+    $obj1 = rune_shears;
+} else if (inv_total(worn, adamant_shears) > 0) {
+    $obj1 = adamant_shears;
+} else if (inv_total(worn, mithril_shears) > 0) {
+    $obj1 = mithril_shears;
+} else if (inv_total(worn, steel_shears) > 0) {
+    $obj1 = steel_shears;
+} else if (inv_total(worn, iron_shears) > 0) {
+    $obj1 = iron_shears;
+} else if (inv_total(worn, bronze_shears) > 0) {
+    $obj1 = bronze_shears;
+} else if (inv_total(worn, shears) > 0) {
+    $obj1 = shears;
+}
+if ($lvl0 >= oc_param(dragon_shears, levelrequire) & ($obj1 = dragon_shears)) {
+    return(dragon_shears);
+}
+if ($lvl0 >= oc_param(rune_shears, levelrequire) & ($obj1 = rune_shears)) {
+    return(rune_shears);
+}
+if ($lvl0 >= oc_param(adamant_shears, levelrequire) & ($obj1 = adamant_shears)) {
+    return(adamant_shears);
+}
+if ($lvl0 >= oc_param(mithril_shears, levelrequire) & ($obj1 = mithril_shears)) {
+    return(mithril_shears);
+}
+if ($lvl0 >= oc_param(steel_shears, levelrequire) & ($obj1 = steel_shears)) {
+    return(steel_shears);
+}
+if ($lvl0 >= oc_param(iron_shears, levelrequire) & ($obj1 = iron_shears)) {
+    return(iron_shears);
+}
+if ($lvl0 >= oc_param(bronze_shears, levelrequire) & ($obj1 = bronze_shears)) {
+    return(bronze_shears);
+}
+if ($lvl0 >= oc_param(bronze_shears, levelrequire) & ($obj1 = bronze_shears)) {
+    return(shears);
+}
+return(null);

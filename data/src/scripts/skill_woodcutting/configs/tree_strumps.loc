@@ -5,6 +5,7 @@ model=model_loc_1341
 mapscene=6
 recol1s=4194
 recol1d=5218
+op1=Remove
 
 [loc_1342]
 name=Tree stump
@@ -15,6 +16,7 @@ length=2
 mapscene=6
 recol1s=4194
 recol1d=5218
+op1=Remove
 
 // i think this is ardougne zoo
 [loc_1343]
@@ -26,6 +28,7 @@ length=2
 mapscene=6
 recol1s=4194
 recol1d=17633
+op1=Remove
 
 // willow tree?
 [loc_1344]
@@ -37,6 +40,7 @@ length=2
 mapscene=6
 recol1s=4194
 recol1d=11490
+op1=Remove
 
 // skinny 2x2
 [loc_1345]
@@ -50,7 +54,7 @@ resizey=100
 resizez=100
 recol1s=4194
 recol1d=5218
-
+op1=Remove
 // way too big
 [loc_1346]
 name=Tree stump
@@ -64,6 +68,7 @@ resizez=448
 mapscene=6
 recol1s=4194
 recol1d=5218
+op1=Remove
 
 // too big, wide. looks dead
 [loc_1347]
@@ -75,7 +80,7 @@ length=2
 mapscene=6
 recol1s=7330
 recol1d=4194
-
+op1=Remove
 // looks like 2x2 dead tree, but weird angle
 [loc_1348]
 name=Tree stump
@@ -89,6 +94,7 @@ resizez=100
 mapscene=6
 recol1s=7330
 recol1d=4194
+op1=Remove
 
 // looks like 2x2 dead tree, but weird color
 [loc_1349]
@@ -105,6 +111,7 @@ recol1s=4194
 recol1d=13602
 recol2s=7330
 recol2d=13602
+op1=Remove
 
 //looks like 2x2 dead tree, but weird angle
 [loc_1350]
@@ -119,6 +126,7 @@ resizez=80
 mapscene=6
 recol1s=7330
 recol1d=4194
+op1=Remove
 
 // 1x1?
 [loc_1351]
@@ -126,6 +134,7 @@ name=Tree stump
 desc=This tree has been cut down.
 model=model_loc_1351
 mapscene=6
+op1=Remove
 
 //green
 [loc_1352]
@@ -137,7 +146,7 @@ recol1s=7296
 recol1d=3203
 recol2s=6240
 recol2d=3203
-
+op1=Remove
 // dead 1x1?
 [loc_1353]
 name=Tree stump
@@ -147,7 +156,7 @@ recol1s=7296
 recol1d=4194
 recol2s=6240
 recol2d=4194
-
+op1=Remove
 // giant oak tree?
 [loc_1354]
 name=Tree stump
@@ -155,36 +164,37 @@ desc=This tree has been cut down.
 model=model_loc_1354
 width=2
 length=2
-
+op1=Remove
 [oak_tree_stump]
 name=Tree stump
 desc=This tree has been cut down.
 model=model_loc_1355
 width=3
 length=3
-
+op1=Remove
 [loc_1356]
 name=Tree stump
 desc=This tree has been cut down.
 model=model_loc_1356
 width=3
 length=3
-
+op1=Remove
 [loc_1357]
 name=Tree stump
 desc=This tree has been cut down.
 model=model_loc_1357
 width=3
 length=3
-
+op1=Remove
 // big 1x1
 [loc_1358]
 name=Tree stump
 desc=This tree has been cut down.
 model=model_loc_1358
-
+op1=Remove
 // black 1x1
 [loc_1359]
 name=Tree stump
 desc=This tree has been cut down.
 model=model_loc_1359
+op1=Remove

@@ -132,6 +132,9 @@ protect=no
 [bank_noted]
 transmit=yes
 
+[cs_noted]
+transmit=yes
+
 [zq_map_mechanisms]
 scope=perm
 

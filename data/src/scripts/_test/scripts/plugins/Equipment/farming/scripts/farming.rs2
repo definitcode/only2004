@@ -1,0 +1,303 @@
+[oplocu,loc_303] @farming(last_useitem);
+
+[label,farming](obj $seed)
+
+switch_obj($seed){
+    case mithril_seed : {
+
+    }
+}
+
+// Mushrooms & Fungus
+[oploc1,loc_1163] @harvesting(loc_1163);
+[oploc1,loc_1164] @harvesting(loc_1164);
+[oploc1,loc_1165] @harvesting(loc_1165);
+[oploc1,loc_1166] @harvesting(loc_1166);
+[oploc1,loc_1167] @harvesting(loc_1167);
+[oploc1,loc_1168] @harvesting(loc_1168);
+[oploc1,loc_1169] @harvesting(loc_1169);
+[oploc1,loc_1170] @harvesting(loc_1170);
+[oploc1,loc_1171] @harvesting(loc_1171);
+[oploc1,loc_1172] @harvesting(loc_1172);
+
+// Tree Stumps
+[oploc1,loc_1341] @stump_removal(loc_1341);
+[oploc1,loc_1342] @stump_removal(loc_1342);
+[oploc1,loc_1343] @stump_removal(loc_1343);
+[oploc1,loc_1344] @stump_removal(loc_1344);
+[oploc1,loc_1345] @stump_removal(loc_1345);
+[oploc1,loc_1346] @stump_removal(loc_1346);
+[oploc1,loc_1347] @stump_removal(loc_1347);
+[oploc1,loc_1348] @stump_removal(loc_1348);
+[oploc1,loc_1349] @stump_removal(loc_1349);
+[oploc1,loc_1350] @stump_removal(loc_1350);
+[oploc1,loc_1351] @stump_removal(loc_1351);
+[oploc1,loc_1352] @stump_removal(loc_1352);
+[oploc1,loc_1353] @stump_removal(loc_1353);
+[oploc1,loc_1354] @stump_removal(loc_1354);
+[oploc1,oak_tree_stump] @stump_removal(oak_tree_stump);
+[oploc1,loc_1356] @stump_removal(loc_1356);
+[oploc1,loc_1357] @stump_removal(loc_1357);
+[oploc1,loc_1358] @stump_removal(loc_1358);
+[oploc1,loc_1359] @stump_removal(loc_1359);
+
+// Flowers
+[oploc1,daisys] @harvesting(daisys);
+
+[label,harvesting](loc $loc)
+def_int $multi;
+def_int $exp;
+def_obj $shears = ~shear_checker_herb;
+
+if ($shears = null){
+    mes("You don't have any shears.");
+    return;
+}
+switch_obj($shears){
+    case shears : {
+        $multi = 1;
+        $exp = 50;
+    }
+    case bronze_shears : {
+        $multi = 2;
+        $exp = 100;
+    }
+    case iron_shears : {
+        $multi = 3;
+        $exp = 150;
+    }
+    case steel_shears : {
+        $multi = 4;
+        $exp = 200;
+    }
+    case adamant_shears : {
+        $multi = 5;
+        $exp = 250;
+    }
+    case rune_shears : {
+        $multi = 6;
+        $exp = 300;
+    }
+    case dragon_shears : {
+        $multi = 7;
+        $exp = 350;
+    }
+}
+switch_loc($loc){
+    // Mushrooms & Fungus
+    case loc_1163 : {
+        ~cut_shroom($multi, $exp);
+    }
+    case loc_1164 : {
+        ~cut_shroom($multi, $exp);
+    }
+    case loc_1165 : {
+        ~cut_shroom($multi, $exp);
+    }
+    case loc_1166 : {
+        ~cut_shroom($multi, $exp);
+    }
+    case loc_1167 : {
+        ~cut_shroom($multi, $exp);
+    }
+    case loc_1168 : {
+        ~cut_shroom($multi, $exp);
+    }
+    case loc_1169 : {
+        ~cut_shroom($multi, $exp);
+    }
+    case loc_1170 : {
+        ~cut_shroom($multi, $exp);
+    }
+    case loc_1171 : {
+        ~cut_shroom($multi, $exp);
+    }
+    case loc_1172 : {
+        ~cut_shroom($multi, $exp);
+    }
+    // Flowers
+    case daisys : {
+        ~cut_daisys($multi, 120);
+    }
+}
+
+
+
+[label,stump_removal](loc $loc)
+def_int $multi;
+def_int $exp;
+if (~woodcutting_axe_checker(true) = null) {
+    mes("You don't have an axe.");
+    return;
+}
+p_oploc(1);
+switch_obj(~woodcutting_axe_checker(true)){
+    case dragon_axe : {
+        $multi = 7;
+        $exp = 350;
+    }
+    case rune_axe : {
+        $multi = 6;
+        $exp = 300;
+    }
+    case adamant_axe : {
+        $multi = 5;
+        $exp = 250;
+    }
+    case mithril_axe : {
+        $multi = 4;
+        $exp = 200;
+    }
+    case black_axe : {
+        $multi = 3;
+        $exp = 150;
+    }
+    case steel_axe : {
+        $multi = 2;
+        $exp = 100;
+    }
+    case iron_axe : {
+        $multi = 1;
+        $exp = 50;
+    }
+    case bronze_axe : {
+        $multi = 1;
+        $exp = 50;
+    }
+    case founders_axe : {
+        $multi = 1;
+        $exp = 50;
+    }
+}
+
+switch_loc($loc){
+    // Tree Stumps
+    case loc_1341 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1342 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1343 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1344 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1345 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1346 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1347 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1348 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1349 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1350 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1351 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1352 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1353 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1354 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case oak_tree_stump : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1356 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1357 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1358 : {
+        ~cut_tree_stump($multi, $exp);
+    }
+    case loc_1359 : {
+        ~cut_tree_stump($multi, $exp);
+    }    
+}
+[proc,plague_check]()(int)
+def_int $item_count;
+if (inv_total(worn, gasmask) > 0){
+    $item_count = calc($item_count + 1);
+}
+if (inv_total(worn, gasmask_i) > 0){
+    $item_count = calc($item_count + 1);
+}
+if (inv_total(worn, plague_trousers) > 0){
+    $item_count = calc($item_count + 1);
+}
+if (inv_total(worn, plague_jacket) > 0){
+    $item_count = calc($item_count + 1);
+}
+return($item_count);
+
+
+
+[proc,cut_shroom](int $multi, int $exp)
+def_int $freespace = inv_freespace(inv);
+if ($freespace < 1) {
+    mes("You don't have enough inventory space to cut the mushroom.");
+    return;
+}
+def_int $plague_check = ~plague_check;
+if ($plague_check > 2) {
+    $multi = calc($multi + random(4));
+    anim(human_pickupfloor, 0);
+    p_delay(1);
+    inv_add(inv, mushroom, $multi);
+    stat_advance(herblore, $exp);
+    loc_del(1200);
+} else {
+    damage(uid, 1, 10);
+    anim(human_axe_block, 0);
+    loc_anim(gas);
+    mes("You breath in toxic spores...");
+    mes("The gas burns your skin!");
+    queue(poison_player, 0, 27);
+}
+
+[proc,cut_daisys](int $multi, int $exp)
+def_int $freespace = inv_freespace(inv);
+if ($freespace < 1) {
+    mes("You don't have enough inventory space to cut the daisies.");
+    return;
+}
+$multi = calc($multi + random(4));
+anim(human_pickupfloor, 0);
+p_delay(1);
+inv_add(inv, flowers_white, $multi);
+stat_advance(herblore, $exp);
+loc_del(60);
+
+
+[proc,cut_tree_stump](int $multi, int $exp)
+def_int $freespace = inv_freespace(inv);
+if ($freespace < 1) {
+    mes("You don't have enough inventory space to remove the stump.");
+    return;
+}
+$multi = calc($multi + random(4));
+anim(human_pickupfloor, 0);
+sound_synth(woodchop, 2, 0);
+p_delay(1);
+anim(human_pickupfloor, 0);
+sound_synth(woodchop, 2, 0);
+p_delay(1);
+inv_add(inv, tree_bark, $multi);
+stat_advance(woodcutting, $exp);
+loc_del(600);

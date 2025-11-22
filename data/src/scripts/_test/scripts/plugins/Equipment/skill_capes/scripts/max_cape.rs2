@@ -1,4 +1,23 @@
 [opheld4,max_cape] @max_cape_interface("You charge your cape.");
+[opheld4,attack_cape] @skill_cape_teleport_simple("Warriors' Guild", 0_49_52_55_36);
+[opheld4,strength_cape] @skill_cape_teleport_simple("Warriors' Guild", 0_49_52_55_36);
+[opheld4,defence_cape] @skill_cape_teleport_simple("Warriors' Guild", 0_49_52_55_36);
+[opheld4,ranged_cape] @skill_cape_teleport_simple("Ranging Guild", 0_41_53_32_48);
+[opheld4,prayer_cape] @skill_cape_teleport_simple("Monastery", 0_47_54_44_34);
+[opheld4,magic_cape] @skill_cape_teleport_simple("Magic Guild", 0_40_48_43_16);
+[opheld4,runecrafting_cape] @skill_cape_teleport_simple("Runecrafting Guild", 0_40_48_43_16);
+[opheld4,hitpoints_cape] @skill_cape_teleport_simple("Warriors' Guild", 0_49_52_55_36);
+[opheld4,agility_cape] @agility_cape_teleport;
+[opheld4,herblore_cape] @skill_cape_teleport_simple("Taverley", 0_45_53_10_36);
+[opheld4,thieving_cape] @skill_cape_teleport_simple("Ardougne", 0_41_51_39_38);
+[opheld4,crafting_cape] @skill_cape_teleport_simple("Crafting Guild", 0_45_51_53_27);
+[opheld4,fletching_cape] @skill_cape_teleport_simple("Seers' Village", 0_42_54_44_29);
+[opheld4,mining_cape] @skill_cape_teleport_simple("Mining Guild", 0_47_52_8_11);
+[opheld4,blacksmithing_cape] @skill_cape_teleport_simple("Thurgo's Peninsula", 0_47_52_8_11);
+[opheld4,fishing_cape] @skill_cape_teleport_simple("Fishing Guild", 0_40_53_51_0);
+[opheld4,cooking_cape] @skill_cape_teleport_simple("Cooking Guild", 0_49_53_7_50);
+[opheld4,firemaking_cape] @skill_cape_teleport_simple("Firemaking Guild", 0_42_54_44_29);
+[opheld4,woodcutting_cape] @skill_cape_teleport_simple("Woodcutting Guild", 0_42_54_44_29);
 
 [label,max_cape_interface](string $message)
 def_int $imbued_dust = inv_total(inv, imbued_dust);
@@ -21,9 +40,66 @@ if (~pre_tele_checks(coord) = false) {
 }
 mes($message);
 switch_int($choice) {
-    case 1 : ~player_teleport_normal(0_48_54_15_40);
-    case 2 : ~player_teleport_normal(map_findsquare(0_51_50_51_35, 0, 2, ^map_findsquare_lineofwalk));
-    case 3 : ~player_teleport_normal(0_43_49_50_41);
-    case 4 : ~player_teleport_normal(0_46_60_62_10);
-    case 5 : ~player_teleport_normal(0_50_149_49_20);
+    case 1 : 
+        ~player_teleport_normal(0_48_54_15_40);
+        inv_del(inv, imbued_dust, 500);
+    case 2 : 
+        ~player_teleport_normal(map_findsquare(0_51_50_51_35, 0, 2, ^map_findsquare_lineofwalk));
+        inv_del(inv, imbued_dust, 500);
+    case 3 : 
+        ~player_teleport_normal(0_43_49_50_41);
+        inv_del(inv, imbued_dust, 500);
+    case 4 : 
+        ~player_teleport_normal(0_46_60_62_10);
+        inv_del(inv, imbued_dust, 500);
+    case 5 : 
+        ~player_teleport_normal(0_50_149_49_20);
+        inv_del(inv, imbued_dust, 500);
+}
+
+[label,skill_cape_teleport_simple](string $dest_name, coord $dest_coord)
+def_int $imbued_dust = inv_total(inv, imbued_dust);
+if ($imbued_dust < 500) {
+    mes("You need at least 500 Imbued Dust to Teleport!");
+    return;
+}
+if (~wilderness_level(coord) > 0) {
+    mes("A mysterious force blocks your teleport.");
+    mes("You can't use this teleport in the wilderness.");
+    return;
+}
+if (~pre_tele_checks(coord) = false) {
+    return;
+}
+mes("You teleport to <$dest_name>.");
+inv_del(inv, imbued_dust, 500);
+~player_teleport_normal($dest_coord);
+
+[label,agility_cape_teleport]
+def_int $imbued_dust = inv_total(inv, imbued_dust);
+if ($imbued_dust < 500) {
+    mes("You need at least 500 Imbued Dust to Teleport!");
+    return;
+}
+if (~wilderness_level(coord) > 0) {
+    mes("A mysterious force blocks your teleport.");
+    mes("You can't use this teleport in the wilderness.");
+    return;
+}
+if (~pre_tele_checks(coord) = false) {
+    return;
+}
+
+def_int $choice = ~p_choice2_header("Gnome Course.", 1, "Barbarian Course.", 2, "Where would you like to go?");
+switch_int($choice) {
+    case 1 : {
+        mes("You teleport to the Gnome Course.");
+        inv_del(inv, imbued_dust, 500);
+        ~player_teleport_normal(0_38_53_38_44); // Filler
+    }
+    case 2 : {
+        mes("You teleport to the Barbarian Course.");
+        inv_del(inv, imbued_dust, 500);
+        ~player_teleport_normal(0_39_55_56_41); // Filler
+    }
 }

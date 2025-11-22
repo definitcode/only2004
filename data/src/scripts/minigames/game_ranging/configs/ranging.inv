@@ -37,6 +37,11 @@ stock5=studded_chaps,15,80
 stock6=coif,10,50
 stock7=leather_cowl,10,70
 stock8=leather_vambraces,10,150
+stock9=bear_body_b,5,200
+stock10=bear_chaps_b,5,200
+stock11=bear_cape,1,500
+stock12=bear_coif,1,500
+stock13=bear_gloves,1,1000
 
 [ranging_guild_bowshop]
 // https://oldschool.runescape.wiki/w/Dargaud%27s_Bow_and_Arrows.
