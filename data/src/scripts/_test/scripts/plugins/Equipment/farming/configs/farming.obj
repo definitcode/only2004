@@ -1,6 +1,6 @@
 [basic_seeds]
 name=Random Seeds
-desc=You should plant these seeds in the compost.
+desc=You should plant these seeds in watered dirt.
 model=model_2381_obj
 recol1s=4232
 recol1d=512
@@ -29,7 +29,96 @@ weight=10g
 tradeable=yes
 stackable=yes
 
+//loc_1195
+[sapphire_petals]
+name=Sapphire Petals
+desc=A posy of sapphire petals.
+cost=2
+model=model_2364_obj
+recol1s=288
+recol1d=6584
+recol2s=448
+recol2d=11901
+members=yes
+2dxof=4
+2dzoom=700
+2dyan=1588
+2dxan=376
+weight=7g
+tradeable=yes
+stackable=yes
 
+[fire_petals]
+name=Fire Petals
+desc=A posy of fire petals.
+cost=2
+model=model_2364_obj
+recol1s=288
+recol1d=31393 
+recol2s=448
+recol2d=31553 
+members=yes
+2dxof=4
+2dzoom=700
+2dyan=1588
+2dxan=376
+weight=7g
+tradeable=yes
+stackable=yes
+
+[tulip_petals]
+name=Tulips
+desc=A posy of tulips.
+cost=2
+model=model_2364_obj
+recol1s=288
+recol1d=22693  
+recol2s=448
+recol2d=28936
+members=yes
+2dxof=4
+2dzoom=700
+2dyan=1588
+2dxan=376
+weight=7g
+tradeable=yes
+stackable=yes
+
+[sunflower_petals]
+name=Sunflower Petals
+desc=A posy of sunflower petals.
+cost=2
+model=model_2364_obj
+recol1s=288
+recol1d=28321   
+recol2s=448
+recol2d=28359 
+members=yes
+2dxof=4
+2dzoom=700
+2dyan=1588
+2dxan=376
+weight=7g
+tradeable=yes
+stackable=yes
+
+[precious_petals]
+name=Precious Petals
+desc=A posy of precious petals.
+cost=2
+model=model_2364_obj
+recol1s=288
+recol1d=22693  
+recol2s=448
+recol2d=28936
+members=yes
+2dxof=4
+2dzoom=700
+2dyan=1588
+2dxan=376
+weight=7g
+tradeable=yes
+stackable=yes
 
 [flowers_basic]
 name=Flowers
@@ -55,6 +144,7 @@ param=crushattack_anim,human_blunt_spike
 param=crush_sound,flower_attack
 tradeable=yes
 stackable=yes
+
 [flowers_red]
 name=Flowers
 desc=A posy of flowers.
@@ -205,6 +295,7 @@ param=crushattack_anim,human_blunt_spike
 param=crush_sound,flower_attack
 tradeable=yes
 stackable=yes
+
 [flowers_mixed]
 name=Flowers
 desc=A posy of flowers.
@@ -235,6 +326,7 @@ param=crushattack_anim,human_blunt_spike
 param=crush_sound,flower_attack
 tradeable=yes
 stackable=yes
+
 [flowers_white]
 name=Flowers
 desc=A posy of flowers.
@@ -295,4 +387,186 @@ param=strengthbonus,-10
 param=crushattack_anim,human_blunt_spike
 param=crush_sound,flower_attack
 tradeable=yes
+stackable=yes
+
+[black_powder]
+name=Black Powder
+desc=A heap of black powder.
+cost=2
+model=model_2742_obj
+recol1s=21140
+recol1d=0
+2dxof=-6
+2dzoom=1210
+2dyan=1892
+2dxan=264
+weight=2oz
+stackable=yes
+
+[blue_powder]
+name=Blue Powder
+desc=A heap of blue powder.
+cost=2
+model=model_2742_obj
+recol1s=21140
+recol1d=6584
+2dxof=-6
+2dzoom=1210
+2dyan=1892
+2dxan=264
+weight=2oz
+stackable=yes
+
+[basic_powder]
+name=Powder
+desc=A heap of powder.
+cost=2
+model=model_2742_obj
+recol1s=21140
+recol1d=21140
+2dxof=-6
+2dzoom=1210
+2dyan=1892
+2dxan=264
+weight=2oz
+stackable=yes
+
+[red_powder]
+name=Red Powder
+desc=A heap of red powder.
+cost=2
+model=model_2742_obj
+recol1s=21140
+recol1d=22693
+2dxof=-6
+2dzoom=1210
+2dyan=1892
+2dxan=264
+weight=2oz
+stackable=yes
+
+[tulip_powder]
+name=Tulip Powder
+desc=A heap of tulip powder.
+cost=2
+model=model_2742_obj
+recol1s=21140
+recol1d=25765
+2dxof=-6
+2dzoom=1210
+2dyan=1892
+2dxan=264
+weight=2oz
+stackable=yes
+
+[yellow_powder]
+name=Yellow Powder
+desc=A heap of yellow powder.
+cost=2
+model=model_2742_obj
+recol1s=21140
+recol1d=31553
+2dxof=-6
+2dzoom=1210
+2dyan=1892
+2dxan=264
+weight=2oz
+stackable=yes
+
+[white_powder]
+name=White Powder
+desc=A heap of white powder.
+cost=2
+model=model_2742_obj
+recol1s=21140
+recol1d=32767
+2dxof=-6
+2dzoom=1210
+2dyan=1892
+2dxan=264
+weight=2oz
+stackable=yes
+
+[orange_powder]
+name=Orange Powder
+desc=A heap of orange powder.
+cost=2
+model=model_2742_obj
+recol1s=21140
+recol1d=31393
+2dxof=-6
+2dzoom=1210
+2dyan=1892
+2dxan=264
+weight=2oz
+stackable=yes
+
+[mixed_powder]
+name=Mixed Powder
+desc=A heap of mixed powder.
+cost=2
+model=model_2742_obj
+recol1s=21140
+recol1d=22576
+2dxof=-6
+2dzoom=1210
+2dyan=1892
+2dxan=264
+weight=2oz
+stackable=yes
+
+[sapphire_powder]
+name=Sapphire Powder
+desc=A heap of sapphire powder.
+cost=2
+model=model_2742_obj
+recol1s=21140
+recol1d=6584
+2dxof=-6
+2dzoom=1210
+2dyan=1892
+2dxan=264
+weight=2oz
+stackable=yes
+
+[fire_powder]
+name=Fire Powder
+desc=A heap of fire powder.
+cost=2
+model=model_2742_obj
+recol1s=21140
+recol1d=31553
+2dxof=-6
+2dzoom=1210
+2dyan=1892
+2dxan=264
+weight=2oz
+stackable=yes
+
+[sunflower_powder]
+name=Sunflower Powder
+desc=A heap of sunflower powder.
+cost=2
+model=model_2742_obj
+recol1s=21140
+recol1d=28321
+2dxof=-6
+2dzoom=1210
+2dyan=1892
+2dxan=264
+weight=2oz
+stackable=yes
+
+[precious_powder]
+name=Precious Powder
+desc=A heap of precious powder.
+cost=2
+model=model_2742_obj
+recol1s=21140
+recol1d=28936
+2dxof=-6
+2dzoom=1210
+2dyan=1892
+2dxan=264
+weight=2oz
 stackable=yes

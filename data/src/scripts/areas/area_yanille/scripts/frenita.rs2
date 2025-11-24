@@ -2,10 +2,10 @@
 ~chatnpc("<p,happy>Would you like to buy some cooking equipment?");
 switch_int(~p_choice2("Yes please.", 1, "No thank you.", 2)) {
     case 1 : {
-        if (stat_base(cooking) > 59){
+        if (stat_base(cooking) = 99){
             ~openshop_activenpc;
         } else {
-            ~chatnpc("<p,neutral>Sorry, you need to have a cooking skill of 60 to access my shop!");
+            ~chatnpc("<p,neutral>Sorry, you need to have a cooking skill of 99 to access my shop!");
             return;
         }
     }

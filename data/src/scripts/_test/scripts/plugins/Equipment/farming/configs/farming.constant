@@ -1,0 +1,6 @@
+^needs_broken = 1
+^troweled = 2
+^dirt_watered = 3
+^seed_planted = 4
+^seed_watered = 5
+^seed_grown = 6

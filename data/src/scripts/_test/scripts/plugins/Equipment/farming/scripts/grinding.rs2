@@ -1,0 +1,33 @@
+[opheldu,pestle_and_mortar]
+switch_obj(last_useitem){
+    case flowers_basic : @grind_flowers(flowers_basic, blue_powder);
+    case flowers_red : @grind_flowers(flowers_red, red_powder);
+    case flowers_blue : @grind_flowers(flowers_blue, blue_powder);
+    case flowers_yellow : @grind_flowers(flowers_yellow, yellow_powder);
+    case flowers_white : @grind_flowers(flowers_white, white_powder);
+    case flowers_black : @grind_flowers(flowers_black, black_powder);
+    case flowers_purple : @grind_flowers(flowers_blue, blue_powder);
+    case flowers_orange : @grind_flowers(flowers_blue, orange_powder);
+    case flowers_mixed : @grind_flowers(flowers_blue, mixed_powder);
+    case sapphire_petals : @grind_flowers(sapphire_petals, sapphire_powder);
+    case fire_petals : @grind_flowers(fire_petals, fire_powder);
+    case tulip_petals : @grind_flowers(tulip_petals, tulip_powder);
+    case sunflower_petals : @grind_flowers(sunflower_petals, sunflower_powder);
+    case precious_petals : @grind_flowers(precious_petals, precious_powder);
+
+    case default : mes("You cannot do this.");
+}
+
+
+[label,grind_flowers](obj $used, namedobj $next)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
+def_int $experience = 50;
+inv_del(inv, $used, 1);
+inv_add(inv, $next, 1);
+anim(human_herbing_grind, 0);
+sound_synth(grind, 0, 0);
+stat_advance(herblore, $experience);
+%herbs_ground = calc(%herbs_ground + 1);

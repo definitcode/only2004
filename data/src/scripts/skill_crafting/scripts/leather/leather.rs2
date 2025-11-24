@@ -21,6 +21,20 @@ switch_obj (last_useitem)
     case default : ~displaymessage(^dm_default);
 };
 
+[opheldu,black_silk]
+if (last_useitem = needle) @craft_black_robes;
+~displaymessage(^dm_default);
+
+[opheldu,blue_silk]
+if (last_useitem = needle) @craft_blue_robes;
+~displaymessage(^dm_default);
+
+[opheldu,crimson_silk]
+if (last_useitem = needle) @craft_zam_robes;
+~displaymessage(^dm_default);
+
+
+
 [opheldu,leather]
 if (last_useitem = needle) {
     @craft_leather_interface;

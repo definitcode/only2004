@@ -121,6 +121,7 @@ if (p_finduid(uid) = true) {
 [proc,reset]
 if_close;
 if (p_finduid(uid) = true) {
+    %gamemode_selected = ^gamemode_none;
     inv_clear(bank);
     inv_clear(inv);
     inv_clear(worn);

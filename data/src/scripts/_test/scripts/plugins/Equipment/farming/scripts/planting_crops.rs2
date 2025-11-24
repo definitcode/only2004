@@ -1,0 +1,123 @@
+//[oploc1,farm_dirt] @planting_crops(farm_dirt, loc_coord, broken_dirt);
+//[oplocu,broken_dirt] @planting_crops_water(broken_dirt, loc_coord, watered_dirt, last_useitem);
+//[oploc1,watered_dirt] @planting_crops(watered_dirt, loc_coord, planted_seed);
+//[oploc1,planted_seed] @planting_crops(planted_seed, loc_coord, wheat_plant);
+//
+//[oploc1,broken_dirt] mes("You need to water this.");
+//[oploc2,broken_dirt] @examination(broken_dirt);
+//[oploc2,watered_dirt] @examination(watered_dirt);
+//[oploc2,planted_seed] @examination(planted_seed);
+
+[oploc1,farm_dirt] mes("Not Available.");
+[oplocu,broken_dirt] mes("Not Available.");
+[oploc1,watered_dirt] mes("Not Available.");
+[oploc1,planted_seed] mes("Not Available.");
+
+[oploc1,broken_dirt] mes("Not Available.");  
+[oploc2,broken_dirt] mes("Not Available.");
+[oploc2,watered_dirt] mes("Not Available.");
+[oploc2,planted_seed] mes("Not Available.");
+
+
+[label,planting_crops](loc $loc, coord $loc_coord, loc $loc2)
+switch_loc($loc){
+    case farm_dirt : {
+        ~digupsoil;
+        p_delay(1);
+        loc_change($loc2,300);
+        return;
+    }
+    case watered_dirt : {
+        ~plant_seed;
+        p_delay(1);
+        loc_change($loc2,300);
+        return;
+    }
+    case planted_seed : {
+        ~grow_crop;
+        p_delay(1);
+        loc_change($loc2,300);
+        return;
+    }
+}
+
+[label,planting_crops_water](loc $loc, coord $loc_coord, loc $loc2, obj $last_useitem)
+switch_loc($loc){
+
+    case broken_dirt : {
+        ~water_dirt($last_useitem);
+        p_delay(1);
+        loc_change($loc2,300);
+        return;
+    }
+}
+
+[label,examination](loc $loc)
+switch_loc($loc){
+    case broken_dirt : {
+        mes("Broken dirt.");
+    }
+    case watered_dirt : {
+        mes("Watered dirt.");
+    }
+    case planted_seed : {
+        mes("Planted seed.");
+    }
+}
+
+
+[proc,grow_crop]
+def_int $ready = random(5);
+if ($ready < 4) {
+    mes("This seed is not ready yet.");
+    p_delay($ready);
+    return;
+}
+
+
+
+[proc,water_dirt](obj $last_item)
+def_int $ws1 = inv_total(inv, $last_item);
+
+if ($ws1 < 1) {
+    mes("You don't have any water.");
+    return;
+}
+anim(human_pickupfloor, 1);
+sound_synth(holy_water_pour, 2, 0);
+inv_del(inv, $last_item, 1);
+switch_obj($last_item){
+    case bucket_water : {
+        inv_add(inv, bucket_empty, 1);
+    }
+    case vial_water : {
+        inv_add(inv, vial_empty, 1);
+    }
+    case jug_water : {
+        inv_add(inv, jug_empty, 1);
+    }
+}
+
+[proc,plant_seed]
+def_int $ws1 = inv_total(inv, basic_seeds);
+def_int $ws2 = inv_total(inv, trowel);
+if ($ws1 < 1) {
+    mes("You don't have any seeds.");
+    return;
+}
+if ($ws2 < 1) {
+    mes("You don't have a trowel.");
+    return;
+}
+anim(human_pickupfloor, 1);
+sound_synth(bones_down, 2, 0);
+inv_del(inv, basic_seeds, 1);
+
+[proc,digupsoil]
+def_int $ws1 = inv_total(inv, spade);
+if ($ws1 < 1) {
+    mes("You don't have a spades.");
+    return;
+}
+anim(human_dig, 0);
+sound_synth(bones_down, 2, 0);

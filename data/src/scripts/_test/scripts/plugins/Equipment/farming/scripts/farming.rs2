@@ -1,16 +1,3 @@
-[oplocu,loc_303] @farming(last_useitem);
-
-[label,farming](obj $seed)
-
-switch_obj($seed){
-    case mithril_seed : {
-
-    }
-}
-
-// Mushrooms & Fungus
-[oploc1,loc_1163] @harvesting(loc_1163);
-[oploc1,loc_1164] @harvesting(loc_1164);
 [oploc1,loc_1165] @harvesting(loc_1165);
 [oploc1,loc_1166] @harvesting(loc_1166);
 [oploc1,loc_1167] @harvesting(loc_1167);
@@ -41,8 +28,25 @@ switch_obj($seed){
 [oploc1,loc_1358] @stump_removal(loc_1358);
 [oploc1,loc_1359] @stump_removal(loc_1359);
 
+[oplocu,loc_313] @harvesting(loc_313);
+[oploc1,flax_ground] @harvesting(flax_ground);
+[oploc1,wheat_plant] @harvesting(wheat_plant);
+[oplocu,wheat_plant] @harvesting(wheat_plant);
 // Flowers
 [oploc1,daisys] @harvesting(daisys);
+[oploc1,loc_1188] @harvesting(loc_1188);
+[oploc1,loc_1187] @harvesting(loc_1187);
+[oploc1,loc_1190] @harvesting(loc_1190);
+[oploc1,loc_1191] @harvesting(loc_1191);
+[oploc1,loc_1192] @harvesting(loc_1192);
+[oploc1,loc_1193] @harvesting(loc_1193);
+[oploc1,loc_1195] @harvesting(loc_1195);
+[oploc1,loc_1196] @harvesting(loc_1196);
+[oploc1,loc_1197] @harvesting(loc_1197);
+[oploc1,loc_1198] @harvesting(loc_1198);
+[oploc1,loc_1199] @harvesting(loc_1199);
+[oploc1,loc_1200] @harvesting(loc_1200);
+[oploc1,loc_1201] @harvesting(loc_1201);
 
 [label,harvesting](loc $loc)
 def_int $multi;
@@ -117,7 +121,65 @@ switch_loc($loc){
     }
     // Flowers
     case daisys : {
-        ~cut_daisys($multi, 120);
+        ~cut_daisys($multi, 25);
+    }
+    case loc_1188 : {
+        ~cut_flowers_blue($multi, 25);
+    }
+    case loc_1187 : {
+        ~cut_flowers_red($multi, 25);
+    }
+
+
+    case loc_1190 : {
+        ~cut_flowers_sunflower($multi, 25);
+    }
+    // large
+    case loc_1191 : {
+        ~cut_flowers_sunflower($multi,25);
+    }
+
+    
+    // single
+    case loc_1192 : {
+        ~cut_flowers_precious($multi, 25);
+    }
+    // large
+    case loc_1193 : {
+        ~cut_flowers_precious($multi, 50);
+    }
+    // single
+    case loc_1195 : {
+        ~cut_flowers_sapphire($multi, 25);
+    }
+    //large
+    case loc_1196 : {
+        ~cut_flowers_sapphire($multi, 50);
+    }
+    // single
+    case loc_1197 : {
+        ~cut_flowers_fire($multi, 25);
+    }
+    // large
+    case loc_1198 : {
+        ~cut_flowers_fire($multi, 50);
+    }
+
+    // flowerbeds
+    case loc_1199 : {
+        ~cut_flowers_flowerbed_blue($multi, 75);
+    }
+    case loc_1200 : {
+        ~cut_flowers_flowerbed_red($multi, 75);
+    }
+    case loc_1201 : {
+        ~cut_flowers_flowerbed_yellow($multi, 75);
+    }
+    case flax_ground : {
+        ~cut_flax($multi, 65);
+    }
+    case wheat_plant : {
+        ~cut_wheat($multi, 65);
     }
 }
 
@@ -230,6 +292,7 @@ switch_loc($loc){
         ~cut_tree_stump($multi, $exp);
     }    
 }
+
 [proc,plague_check]()(int)
 def_int $item_count;
 if (inv_total(worn, gasmask) > 0){
@@ -284,6 +347,139 @@ inv_add(inv, flowers_white, $multi);
 stat_advance(herblore, $exp);
 loc_del(60);
 
+[proc,cut_flowers_red](int $multi, int $exp)
+def_int $freespace = inv_freespace(inv);
+if ($freespace < 1) {
+    mes("You don't have enough inventory space to cut the daisies.");
+    return;
+}
+$multi = calc($multi + random(4));
+anim(human_pickupfloor, 0);
+p_delay(1);
+loc_del(60);
+inv_add(inv, flowers_red, $multi);
+stat_advance(herblore, $exp);
+
+[proc,cut_flowers_blue](int $multi, int $exp)
+def_int $freespace = inv_freespace(inv);
+if ($freespace < 1) {
+    mes("You don't have enough inventory space to cut the daisies.");
+    return;
+}
+$multi = calc($multi + random(4));
+anim(human_pickupfloor, 0);
+p_delay(1);
+loc_del(60);
+inv_add(inv, flowers_blue, $multi);
+stat_advance(herblore, $exp);
+
+[proc,cut_flowers_sapphire](int $multi, int $exp)
+def_int $freespace = inv_freespace(inv);
+if ($freespace < 1) {
+    mes("You don't have enough inventory space to cut the daisies.");
+    return;
+}
+$multi = calc($multi + random(4));
+anim(human_pickupfloor, 0);
+p_delay(1);
+loc_del(60);
+inv_add(inv, sapphire_petals, $multi);
+stat_advance(herblore, $exp);
+
+[proc,cut_flowers_precious](int $multi, int $exp)
+def_int $freespace = inv_freespace(inv);
+if ($freespace < 1) {
+    mes("You don't have enough inventory space to cut the daisies.");
+    return;
+}
+$multi = calc($multi + random(4));
+anim(human_pickupfloor, 0);
+p_delay(1);
+loc_del(60);
+inv_add(inv, precious_petals, $multi);
+stat_advance(herblore, $exp);
+
+[proc,cut_flowers_tulips](int $multi, int $exp)
+def_int $freespace = inv_freespace(inv);
+if ($freespace < 1) {
+    mes("You don't have enough inventory space to cut the daisies.");
+    return;
+}
+$multi = calc($multi + random(4));
+anim(human_pickupfloor, 0);
+p_delay(1);
+loc_del(60);
+inv_add(inv, tulip_petals, $multi);
+stat_advance(herblore, $exp);
+
+
+[proc,cut_flowers_sunflower](int $multi, int $exp)
+def_int $freespace = inv_freespace(inv);
+if ($freespace < 1) {
+    mes("You don't have enough inventory space to cut the daisies.");
+    return;
+}
+$multi = calc($multi + random(4));
+anim(human_pickupfloor, 0);
+p_delay(1);
+loc_del(60);
+inv_add(inv, sunflower_petals, $multi);
+stat_advance(herblore, $exp);
+
+[proc,cut_flowers_fire](int $multi, int $exp)
+def_int $freespace = inv_freespace(inv);
+if ($freespace < 1) {
+    mes("You don't have enough inventory space to cut the daisies.");
+    return;
+}
+$multi = calc($multi + random(4));
+anim(human_pickupfloor, 0);
+p_delay(1);
+loc_del(60);
+inv_add(inv, fire_petals, $multi);
+stat_advance(herblore, $exp);
+
+[proc,cut_flowers_flowerbed_blue](int $multi, int $exp)
+def_int $freespace = inv_freespace(inv);
+if ($freespace < 1) {
+    mes("You don't have enough inventory space to cut the daisies.");
+    return;
+}
+$multi = calc($multi + 3);
+$multi = calc($multi + random(4));
+anim(human_pickupfloor, 0);
+p_delay(1);
+loc_del(60);
+inv_add(inv, flowers_blue, $multi);
+stat_advance(herblore, $exp);
+
+[proc,cut_flowers_flowerbed_red](int $multi, int $exp)
+def_int $freespace = inv_freespace(inv);
+if ($freespace < 1) {
+    mes("You don't have enough inventory space to cut the daisies.");
+    return;
+}
+$multi = calc($multi + 3);
+$multi = calc($multi + random(4));
+anim(human_pickupfloor, 0);
+p_delay(1);
+loc_del(60);
+inv_add(inv, flowers_red, $multi);
+stat_advance(herblore, $exp);
+
+[proc,cut_flowers_flowerbed_yellow](int $multi, int $exp)
+def_int $freespace = inv_freespace(inv);
+if ($freespace < 1) {
+    mes("You don't have enough inventory space to cut the daisies.");
+    return;
+}
+$multi = calc($multi + 3);
+$multi = calc($multi + random(4));
+anim(human_pickupfloor, 0);
+p_delay(1);
+loc_del(60);
+inv_add(inv, flowers_yellow, $multi);
+stat_advance(herblore, $exp);
 
 [proc,cut_tree_stump](int $multi, int $exp)
 def_int $freespace = inv_freespace(inv);
@@ -291,6 +487,7 @@ if ($freespace < 1) {
     mes("You don't have enough inventory space to remove the stump.");
     return;
 }
+
 $multi = calc($multi + random(4));
 anim(human_pickupfloor, 0);
 sound_synth(woodchop, 2, 0);
@@ -298,6 +495,33 @@ p_delay(1);
 anim(human_pickupfloor, 0);
 sound_synth(woodchop, 2, 0);
 p_delay(1);
+loc_del(600);
 inv_add(inv, tree_bark, $multi);
 stat_advance(woodcutting, $exp);
-loc_del(600);
+
+[proc,cut_flax](int $multi, int $exp)
+def_int $freespace = inv_freespace(inv);
+if ($freespace < 1) {
+    mes("You don't have enough inventory space to cut the flax.");
+    return;
+}
+$multi = calc($multi + random(4));
+anim(human_pickupfloor, 0);
+p_delay(1);
+loc_del(60);
+inv_add(inv, flax, $multi);
+stat_advance(herblore, $exp);
+
+
+[proc,cut_wheat](int $multi, int $exp)
+def_int $freespace = inv_freespace(inv);
+if ($freespace < 1) {
+    mes("You don't have enough inventory space to cut the wheat.");
+    return;
+}
+$multi = calc($multi + random(4));
+anim(human_pickupfloor, 0);
+p_delay(1);
+loc_del(60);
+inv_add(inv, grain, $multi);
+stat_advance(herblore, $exp);

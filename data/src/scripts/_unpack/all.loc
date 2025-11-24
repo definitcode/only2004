@@ -1212,6 +1212,7 @@ ambient=10
 op2=Pick
 blockwalk=no
 blockrange=no
+hillskew=yes
 
 [dugupsoil1]
 model=model_loc_184
@@ -1262,6 +1263,7 @@ recol2s=14594
 recol2d=16774
 recol3s=15586
 recol3d=16774
+op2=Farm
 
 [loc_322]
 model=model_loc_317
@@ -6567,6 +6569,7 @@ desc=That's pretty.
 model=model_loc_1187
 blockwalk=no
 blockrange=no
+op1=Cut
 
 [loc_1188]
 name=Flower
@@ -6576,7 +6579,9 @@ blockwalk=no
 blockrange=no
 recol1s=31
 recol1d=20513
+op1=Cut
 
+//single
 [daisys]
 name=Daisies
 desc=Commonly found in grassy areas.
@@ -6585,33 +6590,41 @@ blockwalk=no
 blockrange=no
 op1=Cut
 
+// single
 [loc_1190]
 name=Sunflower
 desc=Is this the biggest flower around?
 model=model_loc_1190
 blockwalk=no
 blockrange=no
+op1=Cut
 
+// large
 [loc_1191]
 name=Sunflowers
 desc=These are huge!
 model=model_loc_1191
 blockwalk=no
 blockrange=no
+op1=Cut
 
+// single
 [loc_1192]
 name=Flowers
 desc=A rare flower.
 model=model_loc_1192
 blockwalk=no
 blockrange=no
+op1=Cut
 
+// large
 [loc_1193]
 name=Flowers
 desc=Don't flowers make you feel better?
 model=model_loc_1193
 blockwalk=no
 blockrange=no
+op1=Cut
 
 [loc_1194]
 name=Tulips
@@ -6619,7 +6632,9 @@ desc=Can this talk?
 model=model_loc_1194
 blockwalk=no
 blockrange=no
+op1=Cut
 
+// Light blue
 [loc_1195]
 name=Flowers
 desc=You don't see that many of these.
@@ -6638,7 +6653,9 @@ recol5s=28903
 recol5d=10778
 recol6s=28936
 recol6d=11901
+op1=Cut
 
+//sapphire petals
 [loc_1196]
 name=Flowers
 desc=I wonder what these are?
@@ -6657,7 +6674,7 @@ recol5s=28903
 recol5d=10778
 recol6s=28936
 recol6d=11901
-
+op1=Cut
 [loc_1197]
 name=Flower
 desc=A rarely found flower.
@@ -6674,7 +6691,7 @@ recol4s=28903
 recol4d=31393
 recol5s=28936
 recol5d=31553
-
+op1=Cut
 [loc_1198]
 name=Flowers
 desc=Very rare flowers.
@@ -6691,14 +6708,14 @@ recol4s=28903
 recol4d=31393
 recol5s=28936
 recol5d=31553
-
+op1=Cut
 [loc_1199]
 name=Flowerbed
 desc=These smell nice.
 model=model_loc_1199
 blockwalk=no
 blockrange=no
-
+op1=Cut
 [loc_1200]
 name=Flowerbed
 desc=A bed of red flowers.
@@ -6709,7 +6726,7 @@ recol1s=31
 recol1d=30753
 recol2s=959
 recol2d=31649
-
+op1=Cut
 [loc_1201]
 name=Flowerbed
 desc=These are pretty.
@@ -6720,7 +6737,7 @@ recol1s=31
 recol1d=31649
 recol2s=959
 recol2d=864
-
+op1=Cut
 [loc_1202]
 name=Jungle flower
 desc=Found only in jungle areas.

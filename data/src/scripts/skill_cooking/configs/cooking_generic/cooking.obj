@@ -371,7 +371,7 @@ cost=1
 weight=120g
 category=category_86
 tradeable=no
-
+stackable=yes
 [onion]
 name=Onion
 desc=A strong smelling onion.
@@ -385,7 +385,7 @@ recol1d=24108
 weight=150g
 category=category_131
 param=ugthanki_kebab_struct,onion_kebab
-
+stackable=yes
 [chocolate_dust]
 cost=175
 members=yes
@@ -401,7 +401,7 @@ category=category_59
 name=Chocolate dust
 desc=It's ground up chocolate.
 param=cocktail_message,You sprinkle the chocolate dust over the drink.
-
+stackable=yes
 [pot_empty]
 name=Pot
 desc=This pot is empty.
@@ -439,3 +439,4 @@ model=model_2398_obj
 2dyan=88
 2dxan=292
 weight=600g
+stackable=yes

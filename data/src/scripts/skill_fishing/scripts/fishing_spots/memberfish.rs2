@@ -231,7 +231,7 @@ if (stat_random($level, 5, 50) = true) {
     inv_add(inv, raw_mantaray, 1);
     mes("You catch a mantaray.");
     stat_advance(fishing, 690);
-    if (inv_total(worn, piratehat) > 0) {
+    if (inv_total(worn, piratehat) > 0 & inv_total(worn, pirate_pants) > 0) {
         mes("Your fishing skills are showing!");
         stat_advance(fishing, 690);
         if ($random > 127) {
@@ -245,7 +245,7 @@ if (stat_random($level, 5, 50) = true) {
     inv_add(inv, raw_seaturtle, 1);
     mes("You catch a mantaray.");
     stat_advance(fishing, 570);
-    if (inv_total(worn, piratehat) > 0) {
+    if (inv_total(worn, piratehat) > 0 & inv_total(worn, pirate_pants) > 0) {
         mes("Your fishing skills are showing!");
         stat_advance(fishing, 570);
         if ($random > 127) {
@@ -259,7 +259,7 @@ if (stat_random($level, 5, 65) = true) {
     inv_add(inv, raw_mackerel, 1);
     mes("You catch a mackerel.");
     stat_advance(fishing, 200);
-    if (inv_total(worn, piratehat) > 0) {
+    if (inv_total(worn, piratehat) > 0 & inv_total(worn, pirate_pants) > 0) {
         mes("Your fishing skills are showing!");
         stat_advance(fishing, 200);
         if ($random > 127) {
@@ -287,7 +287,7 @@ if (stat_random($level, 3, 7) = true) {
     inv_add(inv, oystershell, 1);
     mes("You catch an oyster shell.");
     stat_advance(fishing, 100);
-    if (inv_total(worn, piratehat) > 0) {
+    if (inv_total(worn, piratehat) > 0 & inv_total(worn, pirate_pants) > 0) {
         mes("Your fishing skills are showing!");
         stat_advance(fishing, 100);
         if ($random > 127) {
@@ -301,7 +301,7 @@ if (stat_random($level, 1, 2) = true) {
     inv_add(inv, casket, 1);
     mes("You catch a casket.");
     stat_advance(fishing, 100);
-    if (inv_total(worn, piratehat) > 0) {
+    if (inv_total(worn, piratehat) > 0 & inv_total(worn, pirate_pants) > 0) {
         mes("Your fishing skills are showing!");
         stat_advance(fishing, 100);
         if ($random > 127) {
@@ -318,7 +318,7 @@ if (stat_random($level, 4, 55) = true) {
     inv_add(inv, raw_cod, 1);
     mes("You catch a cod.");
     stat_advance(fishing, 450);
-    if (inv_total(worn, piratehat) > 0) {
+    if (inv_total(worn, piratehat) > 0 & inv_total(worn, pirate_pants) > 0) {
         mes("Your fishing skills are showing!");
         stat_advance(fishing, 450);
         if ($random > 127) {
@@ -335,7 +335,7 @@ if (stat_random($level, 3, 40) = true) {
     inv_add(inv, raw_bass, 1);
     mes("You catch a bass.");
     stat_advance(fishing, 1000);
-    if (inv_total(worn, piratehat) > 0) {
+    if (inv_total(worn, piratehat) > 0 & inv_total(worn, pirate_pants) > 0) {
         mes("Your fishing skills are showing!");
         stat_advance(fishing, 1000);
         if ($random > 127) {
@@ -373,7 +373,28 @@ if ($random < 60) { // 10/128 coins for each
     // 20, 40, 80, 160, 320, 640
     inv_add(inv, coins, multiply(pow(2, add(random(6), 1)), 10)); // 2 ^ (random(6) + 1) * 10
     ~objbox(coins_250, "You open the casket. Inside you find some coins.", 250, 0, divide(^objbox_height, 2));
-} else if ($random < 92) { // 32/128 uncut sapphire
+} else if ($random < 93){
+    inv_add(inv,2dosefisherspotion, 1);
+    ~objbox(2dosefisherspotion, "You open the casket. Inside you find a 2 dose Fisher's Potion.", 250, 0, divide(^objbox_height, 2));
+} else if ($random < 94){
+    inv_add(inv, ~mid_tier_items);
+    ~objbox(coins_10000, "You open the casket. Inside you find something special.", 250, 0, divide(^objbox_height, 2));
+} else if ($random < 95){
+    inv_add(inv, bucket_fish, 1);
+    ~objbox(bucket_fish, "You open the casket. Inside you find a bucket of fish.", 250, 0, divide(^objbox_height, 2));
+} else if ($random < 96){
+    inv_add(inv, pirate_pants, 1);
+    ~objbox(pirate_pants, "You open the casket. Inside you find a Pirate Pants.", 250, 0, divide(^objbox_height, 2));
+} else if ($random < 97){
+    inv_add(inv, piratehat, 1);
+    ~objbox(piratehat, "You open the casket. Inside you find a Pirate Hat.", 250, 0, 0);
+} else if ($random < 98){
+    inv_add(inv, uncut_diamond, 1);
+    ~objbox(uncut_diamond, "You open the casket. Inside you find an uncut|diamond.", 250, 0, divide(^objbox_height, 2));
+} else if ($random < 99){
+    inv_add(inv, uncut_ruby, 1);
+    ~objbox(uncut_ruby, "You open the casket. Inside you find an uncut ruby.", 250, 0, divide(^objbox_height, 2));
+} else if ($random < 100) { // 32/128 uncut sapphire
     inv_add(inv, uncut_sapphire, 1);
     ~objbox(uncut_sapphire, "You open the casket. Inside you find an uncut|sapphire.", 250, 0, divide(^objbox_height, 2));
 } else if ($random < 100) { 

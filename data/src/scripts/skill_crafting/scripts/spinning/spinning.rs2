@@ -15,6 +15,9 @@ switch_obj (last_useitem)
     case ball_of_wool : ~objbox(ball_of_wool, "You have already spun this wool.", 250, 0, divide(^objbox_height, 2));
     case bow_string : ~objbox(bow_string, "You have already spun this bow string.", 250, 0, divide(^objbox_height, 2));
     case spider_silk : @craft_spinning(last_useitem);
+    case black_silk : @spin_black_robes;
+    case blue_silk : @spin_blue_robes;
+    case crimson_silk : @spin_zam_robes;
     case default : ~displaymessage(^dm_default);
 };
 

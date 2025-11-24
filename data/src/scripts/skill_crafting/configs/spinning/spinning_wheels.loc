@@ -1,11 +1,13 @@
 [spinning_wheel]
-name=Spinning wheel
-desc=Used for spinning thread.
+name=Sewing Machine
+desc=Used for sewing clothes and can also spin threads.
 model=model_loc_2644
 forceapproach=south
 
 [flax_ground]
 name=Flax
+hillskew=yes
 desc=A plant cultivated for fibres.
 model=model_loc_2646
+op1=Cut
 op2=Pick

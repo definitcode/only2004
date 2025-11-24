@@ -11,8 +11,230 @@ if (%hetty_progress ! ^hetty_complete) {
     return;
 }
 @mixology_game;
-[oplocu,loc_692] @dragon_scale_dust;
-[oplocu,loc_2024] @dragon_scale_dust;
+
+[oplocu,loc_692] 
+
+switch_obj(last_useitem){
+    case black_dragon_scale_dust : @dragon_scale_dust;
+    case green_dragon_scale_dust : @dragon_scale_dust;
+    case red_dragon_scale_dust : @dragon_scale_dust;
+    case dragon_scale_dust : @dragon_scale_dust;
+
+    case basic_powder : @add_powder_stat(last_useitem, hitpoints, 1);
+    case red_powder : @add_powder_stat(last_useitem, hitpoints, 2);
+    case blue_powder : @add_powder_stat(last_useitem, magic, 5);
+    case yellow_powder : @add_powder_stat(last_useitem, prayer, 5);
+
+    case white_powder : @add_powder_potion(last_useitem, 3dose1attack);
+    case black_powder : @add_powder_potion(last_useitem, 3dose1defense);
+    case orange_powder : @add_powder_potion(last_useitem, 3dose1strength);
+    case mixed_powder : @add_powder_potion(last_useitem, 3doseantipoison);
+    case sapphire_powder : @add_powder_potion(last_useitem, 3doserangerspotion);
+    case fire_powder : @add_powder_potion(last_useitem, 3dosepotionofzamorak); 
+    case tulip_powder : @add_powder_potion(last_useitem, 3doseprayerrestore);
+    case sunflower_powder : @add_powder_potion(last_useitem, 3dosestatrestore);
+    case precious_powder : @add_powder_potion(last_useitem, 3doseprayerrestore);
+    case default : mes("You cannot do this.");
+}
+
+[oplocu,loc_2024] 
+
+switch_obj(last_useitem){
+    case black_dragon_scale_dust : @dragon_scale_dust;
+    case green_dragon_scale_dust : @dragon_scale_dust;
+    case red_dragon_scale_dust : @dragon_scale_dust;
+    case dragon_scale_dust : @dragon_scale_dust;
+
+    case basic_powder : @add_powder_stat(last_useitem, hitpoints, 1);
+    case red_powder : @add_powder_stat(last_useitem, hitpoints, 2);
+    case blue_powder : @add_powder_stat(last_useitem, magic, 5);
+    case yellow_powder : @add_powder_stat(last_useitem, prayer, 5);
+
+    case white_powder : @add_powder_potion(last_useitem, 3dose1attack);
+    case black_powder : @add_powder_potion(last_useitem, 3dose1defense);
+    case orange_powder : @add_powder_potion(last_useitem, 3dose1strength);
+    case mixed_powder : @add_powder_potion(last_useitem, 3doseantipoison);
+    case sapphire_powder : @add_powder_potion(last_useitem, 3doserangerspotion);
+    case fire_powder : @add_powder_potion(last_useitem, 3dosepotionofzamorak); 
+    case tulip_powder : @add_powder_potion(last_useitem, 3doseprayerrestore);
+    case sunflower_powder : @add_powder_potion(last_useitem, 3dosestatrestore);
+    case precious_powder : @add_powder_potion(last_useitem, 3doseprayerrestore);
+    case default : mes("You cannot do this.");
+}
+[label,add_powder_stat](obj $used, stat $stat, int $amount)
+def_int $total = inv_total(inv, $used);
+if ($total < 50){
+    mes("You need at least 50 powder to begin.");
+    return;
+}
+switch_obj($used){
+    case basic_powder : {
+        inv_del(inv, $used, 50);
+        stat_boost($stat, $amount, 0);
+    }
+    case red_powder : {
+        inv_del(inv, $used, 50);
+        stat_boost($stat, $amount, 0);
+    }
+    case blue_powder : {
+        inv_del(inv, $used, 50);
+        stat_boost($stat, $amount, 0);
+    }
+    case yellow_powder : {
+        inv_del(inv, $used, 50);
+        stat_boost($stat, $amount, 0);
+    }
+}
+anim(human_pickupfloor, 0);
+sound_synth(bubbling, 2, 0);
+p_delay(2);
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot gain exp.");
+    return;
+}
+stat_advance(magic, 10);
+
+
+[label,add_powder_potion](obj $used, namedobj $potion)
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
+def_int $intelligence = %intelligence;
+def_int $dust_needed = 10;
+def_int $random_anim = random(1);
+def_int $vial_empty = inv_total(inv, vial_empty);
+def_int $imbued_dust = inv_total(inv, imbued_dust);
+def_int $swamp_tar = inv_total(inv, swamp_tar);
+def_int $powder = inv_total(inv, $used);
+def_int $tar_cost;
+
+if ($intelligence > 249) {
+    $dust_needed = 10;
+    $tar_cost = 2;
+
+} else if ($intelligence > 200) {
+    $dust_needed = 30;
+    $tar_cost = 5;
+
+} else if ($intelligence > 150) {
+    $dust_needed = 60;
+    $tar_cost = 8;
+
+} else if ($intelligence > 100) {
+    $dust_needed = 90;
+    $tar_cost = 10;
+
+} else if ($intelligence > 50) {
+    $dust_needed = 120;
+    $tar_cost = 10;
+
+} else {
+    $dust_needed = 150;
+    $tar_cost = 10;
+
+}
+if (inv_total(inv, imbued_dust) < $dust_needed | inv_total(inv, vial_empty) < 1 | inv_total(inv, swamp_tar) < $tar_cost) {
+    mes("You need at least <tostring($dust_needed)> imbued rune dust, 1 empty vial, and <tostring($tar_cost)> swamp tar to begin.");
+    return;
+}
+if ($vial_empty < 1) {
+    mes("You need at least 1 empty vial to begin.");
+    return;
+}
+if ($imbued_dust < $dust_needed) {
+    mes("You need at least <tostring($dust_needed)> imbued rune dust to begin.");
+    return;
+}
+if ($powder < 50) {
+    mes("You need at least 50 powder to begin.");
+    return;
+}
+if ($swamp_tar < $tar_cost) {
+    mes("You need at least <tostring($tar_cost)> swamp tar to begin.");
+    return;
+}
+
+switch_obj($used){
+    case white_powder : {
+        inv_del(inv, imbued_dust, $dust_needed);
+        inv_del(inv, vial_empty, 1);
+        inv_del(inv, swamp_tar, $tar_cost);
+        inv_del(inv, white_powder, 50);
+    }
+    case black_powder : {
+        inv_del(inv, imbued_dust, $dust_needed);
+        inv_del(inv, vial_empty, 1);
+        inv_del(inv, swamp_tar, $tar_cost);
+        inv_del(inv, black_powder, 50);
+    }
+    case orange_powder : {
+        inv_del(inv, imbued_dust, $dust_needed);
+        inv_del(inv, vial_empty, 1);
+        inv_del(inv, swamp_tar, $tar_cost);
+        inv_del(inv, orange_powder, 50);
+    }
+    case mixed_powder : {
+        inv_del(inv, imbued_dust, $dust_needed);
+        inv_del(inv, vial_empty, 1);
+        inv_del(inv, swamp_tar, $tar_cost);
+        inv_del(inv, mixed_powder, 50);
+    }
+    case sapphire_powder : {
+        inv_del(inv, imbued_dust, $dust_needed);
+        inv_del(inv, vial_empty, 1);
+        inv_del(inv, swamp_tar, $tar_cost);
+        inv_del(inv, sapphire_powder, 50);
+    }
+    case fire_powder : {
+        inv_del(inv, imbued_dust, $dust_needed);
+        inv_del(inv, vial_empty, 1);
+        inv_del(inv, swamp_tar, $tar_cost);
+        inv_del(inv, fire_powder, 50);
+    }
+    case tulip_powder : {
+        inv_del(inv, imbued_dust, $dust_needed);
+        inv_del(inv, vial_empty, 1);
+        inv_del(inv, swamp_tar, $tar_cost);
+        inv_del(inv, tulip_powder, 50);
+    }
+    case sunflower_powder : {
+        inv_del(inv, imbued_dust, $dust_needed);
+        inv_del(inv, vial_empty, 1);
+        inv_del(inv, swamp_tar, $tar_cost);
+        inv_del(inv, sunflower_powder, 50);
+    }
+    case precious_powder : {
+        inv_del(inv, imbued_dust, $dust_needed);
+        inv_del(inv, vial_empty, 1);
+        inv_del(inv, swamp_tar, $tar_cost);
+        inv_del(inv, precious_powder, 50);
+    }
+}
+if ($random_anim = 0){
+    anim(human_herbing_grind,0);
+    sound_synth(grind, 3, 0);
+    p_delay(5);
+} else if ($random_anim = 1) {
+    anim(human_herbing_grind,0);
+    sound_synth(grind, 3, 0);
+    p_delay(3);
+}
+
+anim(human_cooking, 0);
+sound_synth(bubbling, 2, 0);
+p_delay(3);
+inv_add(inv, $potion, 1);
+stat_advance(herblore, 250);
+stat_advance(cooking, 250);
+if (~plague_check > 2){
+    stat_advance(herblore, 250);
+    stat_advance(cooking, 250);
+} else {
+    mes("These phumes!!");
+    say("OUCH!");
+    damage(uid, 1, calc(stat_base(hitpoints) / 2));
+}
 
 [label,dragon_scale_dust]
 if(%gamemode_selected = ^gamemode_pvp){
@@ -28,6 +250,9 @@ def_namedobj $potion;
 def_int $intelligence = %intelligence;
 def_int $dust_needed = 10;
 def_int $random_anim = random(1);
+def_int $vial_empty = inv_total(inv, vial_empty);
+def_int $imbued_dust = inv_total(inv, imbued_dust);
+def_int $swamp_tar = inv_total(inv, swamp_tar);
 
 if ($intelligence > 249) {
     $dust_needed = 10;
@@ -48,14 +273,26 @@ if ($intelligence > 249) {
     $dust_needed = 150;
     $tar_cost = 10;
 }
-if (inv_total(inv, imbued_dust) < $dust_needed | inv_total(inv, vial_empty) < 1) {
+if (inv_total(inv, imbued_dust) < $dust_needed | inv_total(inv, vial_empty) < 1 | inv_total(inv, swamp_tar) < $tar_cost) {
+    mes("You need at least <tostring($dust_needed)> imbued rune dust, 1 empty vial, and <tostring($tar_cost)> swamp tar to begin.");
     return;
 }
-
+if ($vial_empty < 1) {
+    mes("You need at least 1 empty vial to begin.");
+    return;
+}
+if ($imbued_dust < $dust_needed) {
+    mes("You need at least <tostring($dust_needed)> imbued rune dust to begin.");
+    return;
+}
+if ($swamp_tar < $tar_cost) {
+    mes("You need at least <tostring($tar_cost)> swamp tar to begin.");
+    return;
+}
 switch_obj($scale){
     case black_dragon_scale_dust : {
         if ($total_scales < 4) {
-            $potion = 4dose1antidragon;
+            $potion = 3dose1antidragon;
             if ($total_tar < $tar_cost){
                 mes("You need <tostring($tar_cost)> swamp tar to make this potion.");
                 return;
@@ -67,7 +304,7 @@ switch_obj($scale){
     }
     case red_dragon_scale_dust : {
         if ($total_scales < 4) {
-            $potion = 4dose2antipoison;
+            $potion = 3dose2antipoison;
             if ($total_tar < $tar_cost){
                 mes("You need <tostring($tar_cost)> swamp tar to make this potion.");
                 return;
@@ -79,7 +316,7 @@ switch_obj($scale){
     }
     case green_dragon_scale_dust : {
         if ($total_scales < 4) {
-            $potion = 4dose2defense;
+            $potion = 3dose2defense;
             if ($total_tar < $tar_cost){
                 mes("You need <tostring($tar_cost)> swamp tar to make this potion.");
                 return;
@@ -91,7 +328,7 @@ switch_obj($scale){
     }
     case dragon_scale_dust : {
         if ($total_scales < 4) {
-            $potion = 4dose2strength;
+            $potion = 3dose2strength;
             if ($total_tar < $tar_cost){
                 mes("You need <tostring($tar_cost)> swamp tar to make this potion.");
                 return;
@@ -132,9 +369,12 @@ anim(human_cooking, 0);
 inv_add(inv, $potion, 1);
 stat_advance(herblore, 250);
 stat_advance(cooking, 250);
-if (inv_total(worn,gasmask) > 0 | inv_total(worn,gasmask_i) > 0){
+if (~plague_check > 2){
     stat_advance(herblore, 250);
     stat_advance(cooking, 250);
+} else {
+    mes("These phumes!!");
+    damage(uid, 1, calc(stat_base(hitpoints) / 2));
 }
 
 [label,mixology_game]

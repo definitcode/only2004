@@ -1,3 +1,202 @@
+[label,spin_black_robes]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+} else if (stat_base(crafting) < 30){
+    mes("You must have 30 Crafting to make this.");
+}
+~spin_black_robes;
+
+[label,spin_blue_robes]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
+~spin_blue_robes;
+
+[label,spin_zam_robes]
+if(%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+} else if (stat_base(crafting) < 90){
+    mes("You must have 90 Crafting to make this.");
+}
+~spin_zam_robes;
+
+[proc,sewing_action]
+anim(human_spinningwheel, 0);
+loc_anim(spinningwheel);
+
+[proc,spin_black_robes]
+def_int $silk = inv_total(inv, black_silk);
+def_namedobj $choice = ~multiobj3(
+    "What would you like to make?", 
+    blackwizhat, 0, -2, 185, "Hat.", 0, 0,
+    blackrobetop, 0, -20, 175, "Robe.", 0, 0,  
+    blackrobebottom, 0, -15, 190, "Bottoms.", 0, 0
+);
+
+switch_namedobj($choice){
+    case blackwizhat : {
+        ~sewing_action;
+        inv_del(inv, black_silk, 1);
+        inv_add(inv, blackwizhat, 1);
+        stat_advance(crafting, 250);
+        ~objbox(blackwizhat, "You have created a Wizards hat!", 250, 0, 20);
+    }
+    case blackrobetop : {
+        ~sewing_action;
+        inv_del(inv, black_silk, 1);
+        inv_add(inv, blackrobetop, 1);
+        stat_advance(crafting, 250);
+        ~objbox(blackrobetop, "You have created a Black robe!", 250, 0, 0);
+    }
+    case blackrobebottom : {
+        ~sewing_action;
+        inv_del(inv, black_silk, 1);
+        inv_add(inv, blackrobebottom, 1);
+        stat_advance(crafting, 250);
+        ~objbox(blackrobebottom, "You have created a Black robe!", 250, 0, 0);
+    }
+}
+
+
+
+[proc,spin_blue_robes]
+def_int $silk = inv_total(inv, blue_silk);
+def_namedobj $choice = ~multiobj3(
+    "What would you like to make?",
+    bluewizhat, 0, -2, 185, "Hat.", 0, 0,   
+    wizards_robe, 0, -20, 175, "Robe.", 0, 0,  
+    bluerobebottom, 0, -15, 190, "Bottoms.", 0, 0
+);
+
+switch_namedobj($choice){
+    case bluewizhat : {
+        ~sewing_action;
+        inv_del(inv, blue_silk, 1);
+        inv_add(inv, bluewizhat, 1);
+        stat_advance(crafting, 250);
+        ~objbox(bluewizhat, "You have created a Wizards hat!", 250, 0, 20);
+    }
+    case wizards_robe : {
+        ~sewing_action;
+        inv_del(inv, blue_silk, 1);
+        inv_add(inv, wizards_robe, 1);
+        stat_advance(crafting, 250);
+        ~objbox(blackrobetop, "You have created a Blue robe!", 250, 0, 0);
+    }
+    case bluerobebottom : {
+        ~sewing_action;
+        inv_del(inv, blue_silk, 1);
+        inv_add(inv, bluerobebottom, 1);
+        stat_advance(crafting, 250);
+        ~objbox(bluerobebottom, "You have created a Blue robe!", 250, 0, 0);
+    }
+}
+if (inv_total(worn, brown_apron) > 0) {
+        stat_advance(crafting, 250);
+        mes("Your crafting skills are showing!");
+}
+
+
+
+[proc,spin_zam_robes]
+def_int $silk = inv_total(inv, crimson_silk);
+def_namedobj $choice = ~multiobj3(
+    "What would you like to make?",
+    zamhat, 0, -2, 185, "Hat.", 0, 0,   
+    zamrobetop, 0, -20, 175, "Robe.", 0, 0,  
+    zamrobebottom, 0, -15, 190, "Bottoms.", 0, 0
+);
+switch_namedobj($choice){
+    case zamhat : {
+        ~sewing_action;
+        inv_del(inv, crimson_silk, 1);
+        inv_add(inv, zamhat, 1);
+        stat_advance(crafting, 2880);
+        ~objbox(zamhat, "You have created a Zamorak hat!", 250, 0, 20);
+    }
+    case zamrobetop : {
+        ~sewing_action;
+        inv_del(inv, crimson_silk, 1);
+        inv_add(inv, zamrobetop, 1);
+        stat_advance(crafting, 2880);
+        ~objbox(zamrobetop, "You have created a Robe of zamorak!", 250, 0, 0);
+    }
+    case zamrobebottom : {
+        ~sewing_action;
+        inv_del(inv, crimson_silk, 1);
+        inv_add(inv, zamrobebottom, 1);
+        stat_advance(crafting, 2880);
+        ~objbox(zamrobebottom, "You have created a Robe of zamorak!", 250, 0, 0);
+    }
+}
+if (inv_total(worn, brown_apron) > 0) {
+        stat_advance(crafting, 2880);
+        mes("Your crafting skills are showing!");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 [label,craft_black_robes]
 if(%gamemode_selected = ^gamemode_pvp){
     mes("You cannot do this.");
