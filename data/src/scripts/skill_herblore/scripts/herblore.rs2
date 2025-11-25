@@ -32,12 +32,33 @@ if (inv_total(worn, gasmask) > 0 | inv_total(worn, founders_partyhat) > 0) {
 }
 %potions_brewed = calc(%potions_brewed + 1);
 /** Grind a herblore ingredient. */
-[proc,grind_ingredient](obj $grindable, namedobj $refined, string $message, int $slot)
+[proc,grind_ingredient](obj $grindable, namedobj $refined, string $message, int $slot, int $quantity)
 if(%gamemode_selected = ^gamemode_pvp){
     mes("You cannot do this.");
     return;
 }
-inv_setslot(inv, $slot, $refined, 1);
+
+def_int $batch_size = 1;
+if ($quantity >= 25) {
+    $batch_size = 25;
+} else if ($quantity >= 10) {
+    $batch_size = 10;
+} else if ($quantity >= 5) {
+    $batch_size = 5;
+}
+
+// Check if we have space for the product if we aren't consuming the whole stack
+// If we consume the whole stack ($batch_size == $quantity), the slot becomes free, so we don't need extra space.
+// If we don't consume the whole stack, we need a free slot OR an existing stack of the product.
+if ($batch_size < $quantity) {
+    if (inv_freespace(inv) = 0 & inv_total(inv, $refined) = 0) {
+        mes("You don't have enough inventory space.");
+        return;
+    }
+}
+
+inv_del(inv, $grindable, $batch_size);
+inv_add(inv, $refined, $batch_size);
 // https://youtu.be/QUWaqEBTrCE?t=107
 mes($message);
 anim(human_herbing_grind, 0);

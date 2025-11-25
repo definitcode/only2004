@@ -1,17 +1,32 @@
 [opheldu,unicorn_horn]
-~attempt_grind_ingredient(last_useslot, last_slot);
+def_int $uh = inv_total(inv, unicorn_horn);
+~attempt_grind_ingredient(last_useslot, last_slot, $uh);
 
 [opheldu,blue_dragon_scale]
-~attempt_grind_ingredient(last_useslot, last_slot);
+def_int $bd = inv_total(inv, blue_dragon_scale);
+~attempt_grind_ingredient(last_useslot, last_slot, $bd);
+
+[opheldu,green_dragon_scale]
+def_int $gd = inv_total(inv, green_dragon_scale);
+~attempt_grind_ingredient(last_useslot, last_slot, $gd);
+
+[opheldu,red_dragon_scale]
+def_int $rd = inv_total(inv, red_dragon_scale);
+~attempt_grind_ingredient(last_useslot, last_slot, $rd);
+
+[opheldu,black_dragon_scale]
+def_int $bd = inv_total(inv, black_dragon_scale);
+~attempt_grind_ingredient(last_useslot, last_slot, $bd);
 
 [opheldu,bat_bones]
+def_int $bb = inv_total(inv, bat_bones);
 if(last_useitem = vial_water | last_useitem = guamjangervial) { // this only works 1 way (for water vial)!
     mes("The bat bones are too bulky to fit into the vial.");
     return;
 }
-~attempt_grind_ingredient(last_useslot, last_slot);
+~attempt_grind_ingredient(last_useslot, last_slot, $bb);
 
-[proc,attempt_grind_ingredient](int $use_slot, int $last_slot)
+[proc,attempt_grind_ingredient](int $use_slot, int $last_slot, int $quantity)
 if(%gamemode_selected = ^gamemode_pvp){
     mes("You cannot do this.");
     return;
@@ -40,4 +55,4 @@ if (map_members = false) {
 }
 
 def_string $message = oc_param($used_on, grindable_ingredient_message);
-~grind_ingredient($used_on, $refined, $message, $last_slot);
+~grind_ingredient($used_on, $refined, $message, $last_slot, $quantity);

@@ -74,6 +74,10 @@ switch_obj($shears){
         $multi = 4;
         $exp = 200;
     }
+    case mithril_shears : {
+        $multi = 4;
+        $exp = 225;
+    }
     case adamant_shears : {
         $multi = 5;
         $exp = 250;
