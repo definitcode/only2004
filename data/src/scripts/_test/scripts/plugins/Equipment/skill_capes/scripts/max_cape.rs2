@@ -108,11 +108,11 @@ switch_int($choice) {
 
 
 
-[label,skill_cape_selection]
+[proc,skill_cape_selection]
 ~mesbox("Select a skill cape to purchase(1M):");
 ~mesbox("1.) Attack | 2.) Strength | 3.) Defence | 4.) Ranged | 5.) Prayer | 6.) Magic | ");
-~mesbox("7.) Runecrafting | 8.) Hitpoints | 9.) Agility | 10.) Herblore | 11.) Thieving | 12.) Crafting | ");
-~mesbox("13.) Fletching | 14.) Mining | 15.) Blacksmithing | 16.) Fishing | 17.) Cooking | 18.) Firemaking | 19.) Woodcutting");
+~mesbox("7.) Runecraft | 8.) Hitpoints | 9.) Agility | 10.) Herblore | 11.) Thieving | 12.) Crafting | ");
+~mesbox("13.) Fletching | 14.) Mining | 15.) Smithing | 16.) Fishing | 17.) Cooking | 18.) Firemaking | 19.) Woodcutting");
 def_int $choice = last_int;
 switch_int($choice){
     case 1 : {
