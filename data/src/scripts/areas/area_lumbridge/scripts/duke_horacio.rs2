@@ -21,8 +21,8 @@ else return (duke_rune_mysteries_in_progress);
 
 [label,duke_horacio_money]
 ~chatnpc("<p,neutral>Let's see if you got the skills!");
-~openshop_activenpc;
-
+//~openshop_activenpc;
+@skill_cape_selection;
 
 [label,duke_rune_mysteries_start]
 ~chatplayer("<p,quiz>Have you any quests for me?");
