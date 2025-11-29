@@ -6,6 +6,7 @@ model=model_loc_618
 width=2
 blockrange=no
 category=chem_table
+op1=Store
 
 [loc_619]
 name=Chemistry Table
@@ -14,3 +15,4 @@ model=model_loc_619
 width=2
 blockrange=no
 category=chem_table
+op1=Store

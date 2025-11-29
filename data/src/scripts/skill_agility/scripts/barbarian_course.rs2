@@ -94,6 +94,7 @@ if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
             stat_advance(agility, 200);
             mes("Your agility skills are showing!");
 }
+~roll_agility_token;
 ~update_barbarian_varp(4);
 
 [oploc1,barbarian_crumblingwall] 

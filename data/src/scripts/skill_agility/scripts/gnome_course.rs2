@@ -16,7 +16,7 @@ mes("You climb the netting...");
 p_arrivedelay;
 ~agility_climb_up(75, movecoord(coord, 0, 1, -2));
 ~update_gnome_varp(2);
-
+~roll_agility_token;
 [oploc1,gnome_tree_branch_1]
 mes("You climb the tree..");
 ~gnome_trainer_say("That's it - straight up.");
@@ -76,6 +76,10 @@ if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
             stat_advance(agility, 75);
             mes("Your agility skills are showing!");
 }
+if (%gnome_course_progress < 6){
+    return;
+}
+
 ~update_gnome_varp(7);
 
 [proc,gnome_trainer_say](string $line)

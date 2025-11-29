@@ -1,0 +1,62 @@
+[opheld1,agility_token] @give_agility_exp;
+
+[label,give_agility_exp]
+def_int $exp = 100;
+def_int $stat = stat_base(agility);
+
+if ($stat < 10) {
+    mes("You are not able to use this yet!");
+    return;
+} else if ($stat < 25) {
+    $exp = 250;
+} else if ($stat < 50) {
+    $exp = 500;
+} else if ($stat < 75) {
+    $exp = 750;
+} else if ($stat < 99) {
+    $exp = 1000;
+} else if ($stat = 99) {
+    $exp = 1250;
+}
+
+mes("You have received <tostring($exp)> agility experience!");
+stat_advance(agility,$exp);
+inv_del(inv, agility_token, 1);
+return;
+
+
+[proc,roll_agility_token]
+def_int $rand = random(9);
+switch_int($rand){
+    case 0 : {
+        return;
+    }
+    case 1 : {
+        return;
+    }
+    case 2 : {
+        return;
+    }
+    case 3 : {
+        return;
+    }
+    case 4 : {
+        return;
+    }
+    case 5 : {
+        inv_add(inv, agility_token, 1);
+        mes("You find an agility token!");
+    }
+    case 6 : {
+        return;
+    }
+    case 7 : {
+        return;
+    }
+    case 8 : {
+        return;
+    }
+    case 9 : {
+        return;
+    }
+}

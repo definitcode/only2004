@@ -1,3 +1,52 @@
+[boxing_gloves]
+name=Boxing Gloves
+desc=Average Boxing Gloves.
+members=yes
+model=model_2649_obj
+recol1s=9473
+recol1d=14336
+2dxof=8
+2dyof=-8
+2dzoom=930
+2dyan=828
+2dxan=420
+iop2=Wear
+wearpos=righthand
+wearpos2=lefthand
+wearpos3=hands
+manwear=model_179_obj_wear,0
+womanwear=model_356_obj_wear,0
+weight=8oz
+param=attackrate,2
+param=attackbonus,20
+param=strengthbonus,60
+tradeable=yes
+
+[boxing_gloves_l]
+name=Boxing Gloves (L)
+desc=The Boxing Gloves of a true champion.
+members=yes
+model=model_2649_obj
+recol1s=9473
+recol1d=27392
+2dxof=8
+2dyof=-8
+2dzoom=930
+2dyan=828
+2dxan=420
+iop2=Wear
+wearpos=righthand
+wearpos2=lefthand
+wearpos3=hands
+manwear=model_179_obj_wear,0
+womanwear=model_356_obj_wear,0
+weight=8oz
+param=attackrate,2
+param=attackbonus,20
+param=strengthbonus,120
+tradeable=yes
+
+
 [ice_crown]
 name=Ice Crown
 desc=A crown of the Ice Queen.

@@ -115,6 +115,8 @@ if (inv_total(worn, ikov_bootsoflightnessworn) > 0) {
             stat_advance(agility, 200);
             mes("Your agility skills are showing!");
 }
+~roll_agility_token;
+
 mes("...You safely cross to the other side.");
 ~update_wilderness_varp(3);
 

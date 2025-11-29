@@ -1,0 +1,20 @@
+[agility_token]
+model=model_2759_obj
+name=Agility Token
+desc=an agility token.
+members=yes
+recol1s=15855
+recol1d=0
+recol2s=26348
+recol2d=14355
+recol4s=10650
+recol4d=24607
+2dxof=-2
+2dyof=3
+2dzoom=580
+2dyan=156
+2dxan=444
+weight=10lb
+tradeable=no
+stackable=yes
+iop1=Break
