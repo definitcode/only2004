@@ -1,61 +1,67 @@
-[oplocu,fountain_of_heroes]
-if (last_useitem = amulet_of_glory | last_useitem = amulet_of_glory_1 | last_useitem = amulet_of_glory_2 | last_useitem = amulet_of_glory_3) {
-  def_int $slot = last_useslot;
-  mes("You dip the amulet in the fountain...");
-  anim(human_pickupfloor, 0);
-  p_delay(1);
-  stat_advance(magic, 250);
-  inv_setslot(inv, $slot, amulet_of_glory_4, 1); // assuming setslot 
-  ~objbox(amulet_of_glory, "You feel a power emanating from the fountain as it recharges your amulet. You can now rub the amulet to teleport and wear it to get more gems whilst mining.", 200, 0, -20);
-  return;
-} else {
-  ~enchant_amulets;
-}
+[oplocu,fountain_of_heroes]@enchant_item(last_useitem, last_useslot);
 
-[proc,enchant_amulets]
-def_obj $obj = last_useitem;
+
+[label,enchant_item](obj $item, int $slot)
+def_obj $obj = $item;
+def_int $imbued_cost = 250;
+def_string $string;
 switch_obj($obj){
-  case strung_sapphire_amulet : {
-    def_int $slot = last_useslot;
-    mes("You dip the amulet in the fountain...");
-    anim(human_pickupfloor, 0);
-    p_delay(1);
-    inv_setslot(inv, $slot, amulet_of_magic, 1); // assuming setslot
-    stat_advance(magic, 250);
-    ~objbox(amulet_of_magic, "You feel a power emanating from the fountain as it charges your amulet.", 200, 0, -20);
+  case amulet_of_glory : {
+    ~item_dip($slot, $obj, amulet_of_glory_2, $imbued_cost, "Amulet of glory");
+  }
+  case amulet_of_glory_2 : {
+    ~item_dip($slot, $obj, amulet_of_glory_4, $imbued_cost, "Amulet of glory");
+  }
+  case amulet_of_glory_3 : {
+    ~item_dip($slot, $obj, amulet_of_glory_4, $imbued_cost, "Amulet of glory");
+  }
+  case amulet_of_glory_4 : {
+    mes("This amulet is already at its maximum level.");
     return;
+  }
+  case strung_sapphire_amulet : {
+    ~item_dip($slot, $obj, amulet_of_magic, $imbued_cost, "Amulet of magic");
   }
   case strung_ruby_amulet : {
-    def_int $slot = last_useslot;
-    mes("You dip the amulet in the fountain...");
-    anim(human_pickupfloor, 0);
-    p_delay(1);
-    inv_setslot(inv, $slot, amulet_of_strength, 1); // assuming setslot 
-    stat_advance(magic, 250);
-    ~objbox(amulet_of_strength, "You feel a power emanating from the fountain as it charges your amulet.", 200, 0, -20);
-    return;
+    ~item_dip($slot, $obj, amulet_of_strength, $imbued_cost, "Amulet of strength");
   }
   case strung_emerald_amulet : {
-    def_int $slot = last_useslot;
-    mes("You dip the amulet in the fountain...");
-    anim(human_pickupfloor, 0);
-    p_delay(1);
-    stat_advance(magic, 250);
-    inv_setslot(inv, $slot, amulet_of_defence, 1); // assuming setslot 
-    ~objbox(amulet_of_defence, "You feel a power emanating from the fountain as it charges your amulet.", 200, 0, -20);
-    return;
+    ~item_dip($slot, $obj, amulet_of_defence, $imbued_cost, "Amulet of defence");
   }
   case strung_diamond_amulet : {
-    def_int $slot = last_useslot;
-    mes("You dip the amulet in the fountain...");
-    anim(human_pickupfloor, 0);
-    p_delay(1);
-    inv_setslot(inv, $slot, amulet_of_power, 1); // assuming setslot 
-    stat_advance(magic, 250);
-    ~objbox(amulet_of_power, "You feel a power emanating from the fountain as it charges your amulet.", 200, 0, -20);
-    return;
+    ~item_dip($slot, $obj, amulet_of_power, $imbued_cost, "Amulet of power");
+  }
+  case strung_dragonstone_amulet : {
+    ~item_dip($slot, $obj, amulet_of_glory, $imbued_cost, "Amulet of glory");
+  }
+  case scythe : {
+    ~item_dip($slot, $obj, scythe_i, $imbued_cost, "Scythe(i)");
+  }
+  case magic_longbow : {
+    ~item_dip($slot, $obj, magic_longbow_i, 100000, "Magic Longbow(i)");
+  }
+  case dramen_staff : {
+    ~item_dip($slot, $obj, dramen_staff_i, 1000000, "Dramen Staff(i)");
+  }
+  case gasmask : {
+    ~item_dip($slot, $obj, gasmask_i, 1000000, "Gas Mask(i)");
+  }
+  case default : {
+    ~displaymessage(^dm_default);
   }
 }
-~displaymessage(^dm_default); 
+
+
+[proc,item_dip](int $slot, obj $item, namedobj $new_item, int $imbued_cost, string $string)
+if (inv_total(inv, imbued_dust) < $imbued_cost){
+  mes("You don't have enough imbued dust to imbue this item.");
+  return;
+}
+mes("You dip the <$string> in the fountain...");
+anim(human_pickupfloor, 0);
+p_delay(1);
+stat_advance(magic, 250);
+inv_setslot(inv, $slot, $new_item, 1); // assuming setslot 
+~objbox($new_item, "You feel a power emanating from the fountain as it charges your item.", 200, 0, -20);
 
 

@@ -25,6 +25,18 @@ switch_obj (last_useitem)
             return;
         }
         @craft_studded(bear_body_b);
+    case hound_chaps :
+        if (map_members = false) {
+            mes(^mes_members_feature);
+            return;
+        }
+        @craft_studded(hound_chaps_b);
+    case hound_body :
+        if (map_members = false) {
+            mes(^mes_members_feature);
+            return;
+        }
+        @craft_studded(hound_body_b);
     case default : ~displaymessage(^dm_default);
 };
 
@@ -68,6 +80,25 @@ if (last_useitem = studs) {
 }
 ~displaymessage(^dm_default);
 
+[opheldu,hound_chaps]
+if (last_useitem = studs) {
+    if (map_members = false) {
+        mes(^mes_members_feature);
+        return;
+    }
+    @craft_studded(hound_chaps_b);
+}
+~displaymessage(^dm_default);
+
+[opheldu,hound_body]
+if (last_useitem = studs) {
+    if (map_members = false) {
+        mes(^mes_members_feature);
+        return;
+    }
+    @craft_studded(hound_body_b);
+}
+~displaymessage(^dm_default);
 
 [label,craft_studded](obj $studded_obj)
 if (%gamemode_selected = ^gamemode_pvp){

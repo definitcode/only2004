@@ -4,10 +4,26 @@ if (last_useitem = bucket_empty) @sand_fill;
 
 [opheldu,glassblowingpipe]
 if (last_useitem = molten_glass) @craft_glass_interface;
+if (last_useitem = cannabis) @smoke_cannabis;
 
 [opheldu,molten_glass]
 if (last_useitem = glassblowingpipe) @craft_glass_interface;
 if (last_useitem = lens_mould) @craft_telescope_disc;
+
+[label,smoke_cannabis]
+inv_del(inv, cannabis, 1);
+anim(human_castlowlvlalchemy, 0);
+sound_synth(tinderbox_strike, 1, 0);
+stat_boost(herblore, 3, 0);
+p_delay(1);
+anim(human_glassblowing,0);
+mes("You smoke the cannabis.");
+say("Thats the good stuff...");
+stat_advance(herblore, 200);
+if (inv_total(worn, gasmask) > 0 | inv_total(worn, gasmask_i) > 0) {
+    stat_advance(herblore, 200);
+    mes("Your toking skills are showing!");
+}
 
 [label,sand_fill]
 if (map_members = false) {

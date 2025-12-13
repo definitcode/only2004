@@ -1471,7 +1471,7 @@ if (inv_total(inv, lobster_pot) > 0) {
 
 [proc,e_parts]
 
-def_int $e_parts = (~p_choice4_header("Iron Cog.", 1,"Barbed Rope.", 2, "Iron Nails.", 3, "Metal Rods.", 4, "What kind of part would you like to make?"));
+def_int $e_parts = (~p_choice5_header("Iron Cog.", 1,"Barbed Rope.", 2, "Iron Nails.", 3, "Metal Rods.", 4, "Bucket.", 5, "What kind of part would you like to make?"));
 def_obj $hammer = ~hammer_checker;
 if ($hammer = null){
     ~mesbox("You need a hammer to do this.");
@@ -1517,6 +1517,19 @@ switch_int($e_parts) {
     }
 
     case 4 : ~e_rodhead;
+    case 5 : {
+        if (inv_total(inv, woodplank) > 0 & inv_total(inv, iron_nails) > 11) {
+            inv_del(inv, woodplank, 1);
+            inv_del(inv, iron_nails, 12);
+            ~crafting_action;
+            stat_advance(smithing, 100);
+            stat_advance(crafting, 100);
+            inv_add(inv, bucket_empty, 1);
+            ~objbox(bucket_empty,"You have made a Bucket.", 250, 0, 0);
+        } else {
+            ~mesbox("You need 1 Bucket and 12 Iron Nails to make a Bucket.");
+        }
+    }
     
 }
 

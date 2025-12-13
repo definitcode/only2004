@@ -15,6 +15,8 @@ obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 def_int $random = random(138);
 if ($random < 7){
     obj_add(npc_coord, bronze_spear, 1, ^lootdrop_duration);
+} else if ($random < 8) {
+    obj_add(npc_coord,cooked_chicken, 1, ^lootdrop_duration);
 } else if ($random < 10) {
     obj_add(npc_coord, steel_javelin, 10, ^lootdrop_duration);
 } else if ($random < 12) {

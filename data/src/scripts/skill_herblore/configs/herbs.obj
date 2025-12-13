@@ -364,3 +364,18 @@ param=identified_herb_level,67
 param=identified_herb_exp,131
 param=identified_herb_message,This herb is a Lantadyme.
 param=brew_potion_struct,unf_lantadyme_potion
+
+
+
+[cannabis]
+name=Cannabis
+desc=This herb is Cannabis.
+category=category_90
+cost=5
+model=model_2364_obj
+members=yes
+2dxof=4
+2dzoom=700
+2dyan=1588
+2dxan=376
+weight=7g

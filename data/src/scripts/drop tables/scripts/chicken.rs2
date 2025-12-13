@@ -72,6 +72,14 @@ switch_obj($knife){
         obj_add(npc_coord, raw_chicken, $chicken_multi, ^lootdrop_duration);
         obj_add(npc_coord, feather, $feather_multi, ^lootdrop_duration);   
     }
+    case founders_knife : {
+        obj_add(npc_coord, raw_chicken, $chicken_multi, ^lootdrop_duration);
+        obj_add(npc_coord, feather, $feather_multi, ^lootdrop_duration);
+    }
+    case hc_knife : {
+        obj_add(npc_coord, raw_chicken, $chicken_multi, ^lootdrop_duration);
+        obj_add(npc_coord, feather, $feather_multi, ^lootdrop_duration);
+    }
     
 }
 

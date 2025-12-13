@@ -21,8 +21,8 @@ if(%gamemode_selected = ^gamemode_pvp){
     return;
 }
 switch_obj(last_useitem) {
-    case cow_hide, dragonhide_green, dragonhide_blue, dragonhide_red, dragonhide_black, bear_hide : @self_tan;
-    case leather, hard_leather, dragon_leather, dragon_leather_blue, dragon_leather_red, dragon_leather_black : ~chatplayer("<p,confused>Err... I have no use for that, I make the stuff!");
+    case cow_hide, dragonhide_green, dragonhide_blue, dragonhide_red, dragonhide_black, bear_hide, hound_hide : @self_tan;
+    case leather, hard_leather, dragon_leather, dragon_leather_blue, dragon_leather_red, dragon_leather_black, hound_leather : ~chatplayer("<p,confused>Err... I have no use for that, I make the stuff!");
     case default : ~chatplayer("<p,confused>Er... Thanks, but no thanks!");
 }
 
@@ -33,15 +33,35 @@ if(%gamemode_selected = ^gamemode_pvp){
     return;
 }
 // https://web.archive.org/web/20110920233323im_/http://runehq.com/images/cityguides/canifistanner.jpg
-def_int $choice = ~p_choice5_header("Bear leather", 1, "Soft leather", 2, "Hard leather", 3, "Dragon hide", 4, "Cancel.", 5, "What kind of leather do you wish to wet?");
+def_int $choice = ~p_choice5_header("Bear leather", 1, "Soft leather", 2, "Hard leather", 3, "Dragon hide", 4, "Hell hide.", 5, "What kind of leather do you wish to wet?");
 switch_int($choice) {
     case 1 : @s_wet_bear_leather;
     case 2 : @s_wet_soft_leather;
     case 3 : @s_wet_hard_leather;
     case 4 : @s_wet_dragon_leather;
-    case 5 : return;
+    case 5 : @s_wet_hound_leather;
 }
 
+[label,s_wet_hound_leather]
+def_int $hide_count = inv_total(inv, hound_hide);
+def_int $hc = inv_freespace(inv);
+def_int $hide_multiplier = multiply($hc,100);
+if (%hunter < 49) {
+    ~mesbox("You need to have a total Hunter Level of 50 to do this!");
+    return;
+}
+if ($hide_count > 0) {
+    inv_del(inv, hound_hide, 1);
+    inv_del(inv, bucket_dye, 1);
+    inv_add(inv, bucket_empty, 1);
+    p_delay(1);
+    inv_add(inv, wet_houndleather, 1);
+    anim(human_casthighlvlalchemy, 0);
+    sound_synth(holy_water_pour, 0, 0);
+    stat_advance(crafting, $hide_multiplier);
+} else {
+    ~chatplayer("You do not have enough hides to tan!");
+}
 [label,s_wet_bear_leather]
 def_int $hide_count = inv_total(inv, bear_hide);
 def_int $hc = inv_freespace(inv);

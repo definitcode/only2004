@@ -74,6 +74,16 @@ switch_obj($knife){
         obj_add(npc_coord, raw_beef, $beef_multi, ^lootdrop_duration);  
         mes("You carve the monster and receive <tostring($beef_multi)>x !"); 
     }
+    case founders_knife : {
+        obj_add(npc_coord, cow_hide, $hide_multi, ^lootdrop_duration);
+        obj_add(npc_coord, raw_beef, $beef_multi, ^lootdrop_duration);
+        mes("You carve the monster and receive <tostring($beef_multi)>x !");
+    }
+    case hc_knife : {
+        obj_add(npc_coord, cow_hide, $hide_multi, ^lootdrop_duration);
+        obj_add(npc_coord, raw_beef, $beef_multi, ^lootdrop_duration);
+        mes("You carve the monster and receive <tostring($beef_multi)>x !");
+    }
     
 }
 

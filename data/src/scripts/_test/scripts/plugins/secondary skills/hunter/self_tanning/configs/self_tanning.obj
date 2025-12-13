@@ -43,6 +43,20 @@ weight=5lb
 cost=100
 param=no_alchemy,^true
 
+[wet_houndleather]
+name=Hell Leather(w)
+desc=It's a piece of unprepared Hell leather.
+model=model_2338_obj
+recol1s=32767
+recol1d=6144
+2dxof=-1
+2dyof=-2
+2dzoom=1190
+2dyan=116
+2dxan=440
+weight=5lb
+cost=100
+param=no_alchemy,^true
 
 [wet_hard_leather]
 name=Hard leather(w)
