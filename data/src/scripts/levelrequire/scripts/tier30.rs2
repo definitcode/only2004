@@ -31,6 +31,17 @@
 [opheld2,adamant_full_helm_gold] @levelrequire_defence(70, last_slot);
 [opheld2,adamant_kiteshield_gold] @levelrequire_defence(70, last_slot);
 
+
+//Bear Set
+[opheld2,hound_boots] @levelrequire_ranged_and_strength(70, 70, last_slot);
+[opheld2,hound_gloves] @levelrequire_ranged_and_strength(70, 70, last_slot);
+[opheld2,hound_cape] @levelrequire_ranged_and_strength(70, 70, last_slot);
+[opheld2,hound_chaps] @levelrequire_ranged_and_strength(70, 70, last_slot);
+[opheld2,hound_body] @levelrequire_ranged_and_strength(70, 70, last_slot);
+[opheld2,hound_coif] @levelrequire_ranged_and_strength(70, 70, last_slot);
+[opheld2,hound_body_b] @levelrequire_ranged_and_strength(75, 75, last_slot);
+[opheld2,hound_chaps_b] @levelrequire_ranged_and_strength(75, 75, last_slot);
+
 // Ranged
 [opheld2,maple_longbow] @levelrequire_ranged(55, last_slot);
 [opheld2,maple_shortbow] @levelrequire_ranged(50, last_slot);
