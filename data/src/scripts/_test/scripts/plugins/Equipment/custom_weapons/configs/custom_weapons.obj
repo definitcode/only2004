@@ -437,3 +437,34 @@ param=crushdefence,15
 param=rangedefence,15
 param=strengthbonus,-40
 param=attackbonus,-40
+
+
+
+[deaths_sting]
+model=model_2733_obj
+2dxof=1
+2dzoom=1000
+2dyan=248
+2dxan=412
+name=Death's Sting
+desc=A very powerful dagger!
+members=yes
+iop2=Wield
+wearpos=righthand
+manwear=model_524_obj_wear,0
+womanwear=model_524_obj_wear,6
+category=weapon_stab
+weight=1lb
+param=stabattack,80
+param=slashattack,30
+param=crushattack,-4
+param=magicattack,1
+param=magicdefence,5
+param=strengthbonus,70
+param=attackrate,4
+param=stabattack_anim,human_sword_stab
+param=slashattack_anim,human_sword_slash
+param=defend_anim,human_sword_def
+param=stab_sound,stabsword_stab
+param=slash_sound,stabsword_slash
+tradeable=yes

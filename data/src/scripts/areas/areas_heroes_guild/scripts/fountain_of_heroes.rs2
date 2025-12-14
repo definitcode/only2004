@@ -46,6 +46,9 @@ switch_obj($obj){
   case gasmask : {
     ~item_dip($slot, $obj, gasmask_i, 1000000, "Gas Mask(i)");
   }
+  case deathdaggerdone : {
+    ~item_dip($slot, $obj, deaths_sting, 1000000, "Death's Sting");
+  }
   case default : {
     ~displaymessage(^dm_default);
   }

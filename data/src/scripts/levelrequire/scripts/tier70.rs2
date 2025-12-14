@@ -1,5 +1,5 @@
 // Melee
-
+[opheld2,deaths_sting] @levelrequire_zanaris_quest_attack(99, last_slot);
 // Ranged
 [opheld2,black_dragon_vambraces] @levelrequire_ranged_and_defence(80, 80, last_slot);
 [opheld2,black_dragonhide_chaps] @levelrequire_ranged_and_defence(80, 80, last_slot);
