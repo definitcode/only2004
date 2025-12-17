@@ -560,7 +560,7 @@ data=restore_message2,"It makes you feel a bit dizzy, but it heals some health."
 
 [strength_potion_consume_messages]
 table=consume_messages_table
-data=consumable,strength4
+data=consumable,4dose1strength
 data=consumable,3dose1strength
 data=consumable,2dose1strength
 data=consumable,1dose1strength

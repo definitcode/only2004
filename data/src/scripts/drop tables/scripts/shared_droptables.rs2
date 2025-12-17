@@ -344,7 +344,17 @@ if ($random < 8) {
     return (rune_arrowheads,50);
 }
 
+[proc,white_knight]()(namedobj,int)
+def_int $random = 0;
+$random = random(128);
 
+if ($random < 1) {
+    return (white_2h_sword, 1);
+} else if ($random < 50) {
+    return (white_platebody, 1);
+} else if ($random < 125) {
+    return (white_platelegs, 1);
+}
 
 [proc,scrollpack]()(namedobj, int)
 
@@ -706,6 +716,13 @@ switch_int($random){
     case 8 : return(headband_red, 1);
     case 9 : return(halberd, 1);
     case 10 : return(half_full_wine_jug, 1);
+    case 11 : return(berret_green, 1);
+    case 12 : return(hound_cavalier, 1);
+    case 13 : return(penguin_whistle, 1);
+    case 14 : return(woman_whistle, 1);
+    case 15 : return(tree_pet, 1);
+    case 16 : return(snowball_mould, 1);
+    case 17 : return(boxing_gloves, 1);
 }
 
 

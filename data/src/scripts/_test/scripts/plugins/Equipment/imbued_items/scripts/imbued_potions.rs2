@@ -9,220 +9,639 @@
 
 
 // Chemistry Tables in the Mage Guild
-[oplocu,loc_618] ~imbuepotion;
+[oploc3,loc_618] ~imbuemenu;
+[oploc3,loc_619] ~imbuemenu;
 // Category Wide Proc
-[oplocu,_chem_table] ~imbuepotion;
-// I don't know if this does anything important or if the oplocu,loc_618 is functional.
-[opheldu,4doseprayerrestore] ~imbuepotion;
-[proc,imbuepotion]
-def_int $random = random(3);
-def_int $random1 = random(3);
-def_int $choice1 = (~p_choice2_header("Yes.", 1,"No.", 2,"Would you like to imbue this potion?"));
-switch_int($choice1){
-    case 1 : $choice1;
-    case 2 : return;
+[oplocu,_chem_table] @chem_table_use(last_useitem);
+
+[label,chem_table_use](obj $obj)
+switch_obj($obj){
+    case vial_water : {
+        def_int $total = inv_total(inv, vial_water);
+        inv_del(inv, vial_water, $total);
+        inv_add(chemical_tables, vial_water, $total);
+        anim(human_pickuptable, 0);   
+    }
+    case vial_empty : {
+        def_int $total = inv_total(inv, vial_empty);
+        inv_del(inv, vial_empty, $total);
+        inv_add(chemical_tables, vial_empty, $total);
+        anim(human_pickuptable, 0);   
+    }
+    case eye_of_newt : {
+        def_int $total = inv_total(inv, eye_of_newt);
+        inv_del(inv, eye_of_newt, $total);
+        inv_add(chemical_tables, eye_of_newt, $total);
+        anim(human_pickuptable, 0);
+    }
+    case red_spiders_eggs : {
+        def_int $total = inv_total(inv, red_spiders_eggs);
+        inv_del(inv, red_spiders_eggs, $total);
+        inv_add(chemical_tables, red_spiders_eggs, $total);
+        anim(human_pickuptable, 0);
+    }
+    case limpwurt_root : {
+        def_int $total = inv_total(inv, limpwurt_root);
+        inv_del(inv, limpwurt_root, $total);
+        inv_add(chemical_tables, limpwurt_root, $total);
+        anim(human_pickuptable, 0);
+    }
+    case snape_grass : {
+        def_int $total = inv_total(inv, snape_grass);
+        inv_del(inv, snape_grass, $total);
+        inv_add(chemical_tables, snape_grass, $total);
+        anim(human_pickuptable, 0);
+    }
+    case unicorn_horn_dust : {
+        def_int $total = inv_total(inv, unicorn_horn_dust);
+        inv_del(inv, unicorn_horn_dust, $total);
+        inv_add(chemical_tables, unicorn_horn_dust, $total);
+        anim(human_pickuptable, 0);
+    }
+    case white_berries : {
+        def_int $total = inv_total(inv, white_berries);
+        inv_del(inv, white_berries, $total);
+        inv_add(chemical_tables, white_berries, $total);
+        anim(human_pickuptable, 0);
+    }
+    case dragon_scale_dust : {
+        def_int $total = inv_total(inv, dragon_scale_dust);
+        inv_del(inv, dragon_scale_dust, $total);
+        inv_add(chemical_tables, dragon_scale_dust, $total);
+        anim(human_pickuptable, 0);
+    }
+    case black_dragon_scale_dust : {
+        def_int $total = inv_total(inv, black_dragon_scale_dust);
+        inv_del(inv, black_dragon_scale_dust, $total);
+        inv_add(chemical_tables, black_dragon_scale_dust, $total);
+        anim(human_pickuptable, 0);
+    }
+    case red_dragon_scale_dust : {
+        def_int $total = inv_total(inv, red_dragon_scale_dust);
+        inv_del(inv, red_dragon_scale_dust, $total);
+        inv_add(chemical_tables, red_dragon_scale_dust, $total);
+        anim(human_pickuptable, 0);
+    }
+    case green_dragon_scale_dust : {
+        def_int $total = inv_total(inv, green_dragon_scale_dust);
+        inv_del(inv, green_dragon_scale_dust, $total);
+        inv_add(chemical_tables, green_dragon_scale_dust, $total);
+        anim(human_pickuptable, 0);
+    }
+    case wine_of_zamorak : {
+        def_int $total = inv_total(inv, wine_of_zamorak);
+        inv_del(inv, wine_of_zamorak, $total);
+        inv_add(chemical_tables, wine_of_zamorak, $total);
+        anim(human_pickuptable, 0);
+    }
+    case jangerberries : {
+        def_int $total = inv_total(inv, jangerberries);
+        inv_del(inv, jangerberries, $total);
+        inv_add(chemical_tables, jangerberries, $total);
+        anim(human_pickuptable, 0);
+    }
+    case blamish_snail_slime : {
+        def_int $total = inv_total(inv, blamish_snail_slime);
+        inv_del(inv, blamish_snail_slime, $total);
+        inv_add(chemical_tables, blamish_snail_slime, $total);
+        anim(human_pickuptable, 0);
+    }
+    case ground_bat_bones : {
+        def_int $total = inv_total(inv, ground_bat_bones);
+        inv_del(inv, ground_bat_bones, $total);
+        inv_add(chemical_tables, ground_bat_bones, $total);
+        anim(human_pickuptable, 0);
+    }
+    case guamvial : {
+        def_int $total = inv_total(inv, guamvial);
+        inv_del(inv, guamvial, $total);
+        inv_add(chemical_tables, guamvial, $total);
+        anim(human_pickuptable, 0);
+    }
+    case marrentillvial : {
+        def_int $total = inv_total(inv, marrentillvial);
+        inv_del(inv, marrentillvial, $total);
+        inv_add(chemical_tables, marrentillvial, $total);
+        anim(human_pickuptable, 0);
+    }
+    case tarrominvial : {
+        def_int $total = inv_total(inv, tarrominvial);
+        inv_del(inv, tarrominvial, $total);
+        inv_add(chemical_tables, tarrominvial, $total);
+        anim(human_pickuptable, 0);
+    }
+    case harralandervial : {
+        def_int $total = inv_total(inv, harralandervial);
+        inv_del(inv, harralandervial, $total);
+        inv_add(chemical_tables, harralandervial, $total);
+        anim(human_pickuptable, 0);
+    }
+    case ranarrvial : {
+        def_int $total = inv_total(inv, ranarrvial);
+        inv_del(inv, ranarrvial, $total);
+        inv_add(chemical_tables, ranarrvial, $total);
+        anim(human_pickuptable, 0);
+    }
+    case iritvial : {
+        def_int $total = inv_total(inv, iritvial);
+        inv_del(inv, iritvial, $total);
+        inv_add(chemical_tables, iritvial, $total);
+        anim(human_pickuptable, 0);
+    }
+    case avantoevial : {
+        def_int $total = inv_total(inv, avantoevial);
+        inv_del(inv, avantoevial, $total);
+        inv_add(chemical_tables, avantoevial, $total);
+        anim(human_pickuptable, 0);
+    }
+    case kwuarmvial : {
+        def_int $total = inv_total(inv, kwuarmvial);
+        inv_del(inv, kwuarmvial, $total);
+        inv_add(chemical_tables, kwuarmvial, $total);
+        anim(human_pickuptable, 0);
+    }
+    case cadantinevial : {
+        def_int $total = inv_total(inv, cadantinevial);
+        inv_del(inv, cadantinevial, $total);
+        inv_add(chemical_tables, cadantinevial, $total);
+        anim(human_pickuptable, 0);
+    }
+    case dwarfweedvial : {
+        def_int $total = inv_total(inv, dwarfweedvial);
+        inv_del(inv, dwarfweedvial, $total);
+        inv_add(chemical_tables, dwarfweedvial, $total);
+        anim(human_pickuptable, 0);
+    }
+    case torstolvial : {
+        def_int $total = inv_total(inv, torstolvial);
+        inv_del(inv, torstolvial, $total);
+        inv_add(chemical_tables, torstolvial, $total);
+        anim(human_pickuptable, 0);
+    }
+    case lantadymevial : {
+        def_int $total = inv_total(inv, lantadymevial);
+        inv_del(inv, lantadymevial, $total);
+        inv_add(chemical_tables, lantadymevial, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4dose1strength : {
+        def_int $total = inv_total(inv, 4dose1strength);
+        inv_del(inv, 4dose1strength, $total);
+        inv_add(chemical_tables, 4dose1strength, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 3dose1strength : {
+        def_int $total = inv_total(inv, 3dose1strength);
+        inv_del(inv, 3dose1strength, $total);
+        inv_add(chemical_tables, 3dose1strength, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 2dose1strength : {
+        def_int $total = inv_total(inv, 2dose1strength);
+        inv_del(inv, 2dose1strength, $total);
+        inv_add(chemical_tables, 2dose1strength, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 1dose1strength : {
+        def_int $total = inv_total(inv, 1dose1strength);
+        inv_del(inv, 1dose1strength, $total);
+        inv_add(chemical_tables, 1dose1strength, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 3dose1attack : {
+        def_int $total = inv_total(inv, 3dose1attack);
+        inv_del(inv, 3dose1attack, $total);
+        inv_add(chemical_tables, 3dose1attack, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 2dose1attack : {
+        def_int $total = inv_total(inv, 2dose1attack);
+        inv_del(inv, 2dose1attack, $total);
+        inv_add(chemical_tables, 2dose1attack, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 1dose1attack : {
+        def_int $total = inv_total(inv, 1dose1attack);
+        inv_del(inv, 1dose1attack, $total);
+        inv_add(chemical_tables, 1dose1attack, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 3dosestatrestore : {
+        def_int $total = inv_total(inv, 3dosestatrestore);
+        inv_del(inv, 3dosestatrestore, $total);
+        inv_add(chemical_tables, 3dosestatrestore, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 2dosestatrestore : {
+        def_int $total = inv_total(inv, 2dosestatrestore);
+        inv_del(inv, 2dosestatrestore, $total);
+        inv_add(chemical_tables, 2dosestatrestore, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 1dosestatrestore : {
+        def_int $total = inv_total(inv, 1dosestatrestore);
+        inv_del(inv, 1dosestatrestore, $total);
+        inv_add(chemical_tables, 1dosestatrestore, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 3dose1defense : {
+        def_int $total = inv_total(inv, 3dose1defense);
+        inv_del(inv, 3dose1defense, $total);
+        inv_add(chemical_tables, 3dose1defense, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 2dose1defense : {
+        def_int $total = inv_total(inv, 2dose1defense);
+        inv_del(inv, 2dose1defense, $total);
+        inv_add(chemical_tables, 2dose1defense, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 1dose1defense : {
+        def_int $total = inv_total(inv, 1dose1defense);
+        inv_del(inv, 1dose1defense, $total);
+        inv_add(chemical_tables, 1dose1defense, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 3doseprayerrestore : {
+        def_int $total = inv_total(inv, 3doseprayerrestore);
+        inv_del(inv, 3doseprayerrestore, $total);
+        inv_add(chemical_tables, 3doseprayerrestore, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 2doseprayerrestore : {
+        def_int $total = inv_total(inv, 2doseprayerrestore);
+        inv_del(inv, 2doseprayerrestore, $total);
+        inv_add(chemical_tables, 2doseprayerrestore, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 1doseprayerrestore : {
+        def_int $total = inv_total(inv, 1doseprayerrestore);
+        inv_del(inv, 1doseprayerrestore, $total);
+        inv_add(chemical_tables, 1doseprayerrestore, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 3dose2attack : {
+        def_int $total = inv_total(inv, 3dose2attack);
+        inv_del(inv, 3dose2attack, $total);
+        inv_add(chemical_tables, 3dose2attack, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 2dose2attack : {
+        def_int $total = inv_total(inv, 2dose2attack);
+        inv_del(inv, 2dose2attack, $total);
+        inv_add(chemical_tables, 2dose2attack, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 1dose2attack : {
+        def_int $total = inv_total(inv, 1dose2attack);
+        inv_del(inv, 1dose2attack, $total);
+        inv_add(chemical_tables, 1dose2attack, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 3dosefisherspotion : {
+        def_int $total = inv_total(inv, 3dosefisherspotion);
+        inv_del(inv, 3dosefisherspotion, $total);
+        inv_add(chemical_tables, 3dosefisherspotion, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 2dosefisherspotion : {
+        def_int $total = inv_total(inv, 2dosefisherspotion);
+        inv_del(inv, 2dosefisherspotion, $total);
+        inv_add(chemical_tables, 2dosefisherspotion, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 1dosefisherspotion : {
+        def_int $total = inv_total(inv, 1dosefisherspotion);
+        inv_del(inv, 1dosefisherspotion, $total);
+        inv_add(chemical_tables, 1dosefisherspotion, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 3dose2strength : {
+        def_int $total = inv_total(inv, 3dose2strength);
+        inv_del(inv, 3dose2strength, $total);
+        inv_add(chemical_tables, 3dose2strength, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 2dose2strength : {
+        def_int $total = inv_total(inv, 2dose2strength);
+        inv_del(inv, 2dose2strength, $total);
+        inv_add(chemical_tables, 2dose2strength, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 1dose2strength : {
+        def_int $total = inv_total(inv, 1dose2strength);
+        inv_del(inv, 1dose2strength, $total);
+        inv_add(chemical_tables, 1dose2strength, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 3dose2defense : {
+        def_int $total = inv_total(inv, 3dose2defense);
+        inv_del(inv, 3dose2defense, $total);
+        inv_add(chemical_tables, 3dose2defense, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 2dose2defense : {
+        def_int $total = inv_total(inv, 2dose2defense);
+        inv_del(inv, 2dose2defense, $total);
+        inv_add(chemical_tables, 2dose2defense, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 1dose2defense : {
+        def_int $total = inv_total(inv, 1dose2defense);
+        inv_del(inv, 1dose2defense, $total);
+        inv_add(chemical_tables, 1dose2defense, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 3doserangerspotion : {
+        def_int $total = inv_total(inv, 3doserangerspotion);
+        inv_del(inv, 3doserangerspotion, $total);
+        inv_add(chemical_tables, 3doserangerspotion, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 2doserangerspotion : {
+        def_int $total = inv_total(inv, 2doserangerspotion);
+        inv_del(inv, 2doserangerspotion, $total);
+        inv_add(chemical_tables, 2doserangerspotion, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 1doserangerspotion : {
+        def_int $total = inv_total(inv, 1doserangerspotion);
+        inv_del(inv, 1doserangerspotion, $total);
+        inv_add(chemical_tables, 1doserangerspotion, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 3doseantipoison : {
+        def_int $total = inv_total(inv, 3doseantipoison);
+        inv_del(inv, 3doseantipoison, $total);
+        inv_add(chemical_tables, 3doseantipoison, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 2doseantipoison : {
+        def_int $total = inv_total(inv, 2doseantipoison);
+        inv_del(inv, 2doseantipoison, $total);
+        inv_add(chemical_tables, 2doseantipoison, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 1doseantipoison : {
+        def_int $total = inv_total(inv, 1doseantipoison);
+        inv_del(inv, 1doseantipoison, $total);
+        inv_add(chemical_tables, 1doseantipoison, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 3dose2antipoison : {
+        def_int $total = inv_total(inv, 3dose2antipoison);
+        inv_del(inv, 3dose2antipoison, $total);
+        inv_add(chemical_tables, 3dose2antipoison, $total);
+        anim(human_pickuptable, 0);
+    }   
+    case 2dose2antipoison : {
+        def_int $total = inv_total(inv, 2dose2antipoison);
+        inv_del(inv, 3dose2antipoison, $total);
+        inv_add(chemical_tables, 2dose2antipoison, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 1dose2antipoison : {
+        def_int $total = inv_total(inv, 1dose2antipoison);
+        inv_del(inv, 1dose2antipoison, $total);
+        inv_add(chemical_tables, 1dose2antipoison, $total);
+        anim(human_pickuptable, 0);
+    }
+    case weapon_poison : {
+        def_int $total = inv_total(inv, weapon_poison);
+        inv_del(inv, weapon_poison, $total);
+        inv_add(chemical_tables, weapon_poison, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 3dosepotionofzamorak : {
+        def_int $total = inv_total(inv, 3dosepotionofzamorak);
+        inv_del(inv, 3dosepotionofzamorak, $total);
+        inv_add(chemical_tables, 3dosepotionofzamorak, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 2dosepotionofzamorak : {
+        def_int $total = inv_total(inv, 2dosepotionofzamorak);
+        inv_del(inv, 2dosepotionofzamorak, $total);
+        inv_add(chemical_tables, 2dosepotionofzamorak, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 1dosepotionofzamorak : {
+        def_int $total = inv_total(inv, 1dosepotionofzamorak);
+        inv_del(inv, 1dosepotionofzamorak, $total);
+        inv_add(chemical_tables, 1dosepotionofzamorak, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4dose1attack : {
+        def_int $total = inv_total(inv, 4dose1attack);
+        inv_del(inv, 4dose1attack, $total);
+        inv_add(chemical_tables, 4dose1attack, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4dosestatrestore : {
+        def_int $total = inv_total(inv, 4dosestatrestore);
+        inv_del(inv, 4dosestatrestore, $total);
+        inv_add(chemical_tables, 4dosestatrestore, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4dose1defense : {
+        def_int $total = inv_total(inv, 4dose1defense);
+        inv_del(inv, 4dose1defense, $total);
+        inv_add(chemical_tables, 4dose1defense, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4doseprayerrestore : {
+        def_int $total = inv_total(inv, 4doseprayerrestore);
+        inv_del(inv, 4doseprayerrestore, $total);
+        inv_add(chemical_tables, 4doseprayerrestore, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4dose2attack : {
+        def_int $total = inv_total(inv, 4dose2attack);
+        inv_del(inv, 4dose2attack, $total);
+        inv_add(chemical_tables, 4dose2attack, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4dosefisherspotion : {
+        def_int $total = inv_total(inv, 4dosefisherspotion);
+        inv_del(inv, 4dosefisherspotion, $total);
+        inv_add(chemical_tables, 4dosefisherspotion, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4dose2strength : {
+        def_int $total = inv_total(inv, 4dose2strength);
+        inv_del(inv, 4dose2strength, $total);
+        inv_add(chemical_tables, 4dose2strength, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4dose2defense : {
+        def_int $total = inv_total(inv, 4dose2defense);
+        inv_del(inv, 4dose2defense, $total);
+        inv_add(chemical_tables, 4dose2defense, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4doserangerspotion : {
+        def_int $total = inv_total(inv, 4doserangerspotion);
+        inv_del(inv, 4doserangerspotion, $total);
+        inv_add(chemical_tables, 4doserangerspotion, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4doseantipoison : {
+        def_int $total = inv_total(inv, 4doseantipoison);
+        inv_del(inv, 4doseantipoison, $total);
+        inv_add(chemical_tables, 4doseantipoison, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4dose2antipoison : {
+        def_int $total = inv_total(inv, 4dose2antipoison);
+        inv_del(inv, 4dose2antipoison, $total);
+        inv_add(chemical_tables, 4dose2antipoison, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4dosepotionofzamorak : {
+        def_int $total = inv_total(inv, 4dosepotionofzamorak);
+        inv_del(inv, 4dosepotionofzamorak, $total);
+        inv_add(chemical_tables, 4dosepotionofzamorak, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4dose1antidragon : {
+        def_int $total = inv_total(inv, 4dose1antidragon);
+        inv_del(inv, 4dose1antidragon, $total);
+        inv_add(chemical_tables, 4dose1antidragon, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 3dose1antidragon : {
+        def_int $total = inv_total(inv, 3dose1antidragon);
+        inv_del(inv, 3dose1antidragon, $total);
+        inv_add(chemical_tables, 3dose1antidragon, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 2dose1antidragon : {
+        def_int $total = inv_total(inv, 2dose1antidragon);
+        inv_del(inv, 2dose1antidragon, $total);
+        inv_add(chemical_tables, 2dose1antidragon, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 1dose1antidragon : {
+        def_int $total = inv_total(inv, 1dose1antidragon);
+        inv_del(inv, 1dose1antidragon, $total);
+        inv_add(chemical_tables, 1dose1antidragon, $total);
+        anim(human_pickuptable, 0);
+    }
+    case blamish_oil : {
+        def_int $total = inv_total(inv, blamish_oil);
+        inv_del(inv, blamish_oil, $total);
+        inv_add(chemical_tables, blamish_oil, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4doseprayerrestore : {
+        def_int $total = inv_total(inv, 4doseprayerrestore);
+        inv_del(inv, 4doseprayerrestore, $total);
+        inv_add(chemical_tables, 4doseprayerrestore, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4dose2prayerrestore : {
+        def_int $total = inv_total(inv, 4dose2prayerrestore);
+        inv_del(inv, 4dose2prayerrestore, $total);
+        inv_add(chemical_tables, 4dose2prayerrestore, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4dose2attack : {
+        def_int $total = inv_total(inv, 4dose2attack);
+        inv_del(inv, 4dose2attack, $total);
+        inv_add(chemical_tables, 4dose2attack, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4dose2strength : {
+        def_int $total = inv_total(inv, 4dose2strength);
+        inv_del(inv, 4dose2strength, $total);
+        inv_add(chemical_tables, 4dose2strength, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4dose2defense : {
+        def_int $total = inv_total(inv, 4dose2defense);
+        inv_del(inv, 4dose2defense, $total);
+        inv_add(chemical_tables, 4dose2defense, $total);
+        anim(human_pickuptable, 0);
+    }
+    case 4dose2rangerspotion : {
+        def_int $total = inv_total(inv, 4dose2rangerspotion);
+        inv_del(inv, 4dose2rangerspotion, $total);
+        inv_add(chemical_tables, 4dose2rangerspotion, $total);
+        anim(human_pickuptable, 0);
+    }
 }
+
+[proc,imbuemenu]
 def_int $choice2 = (~p_choice5_header("Prayer.", 1,"Attack.", 2,"Strength.", 3, "Defence.", 4,"Ranged.", 5,"Which potion would you like to imbue?"));
 switch_int($choice2){
-    case 1 : ~prayerpotion_i;
-    case 2 : ~attackpotion_i;
-    case 3 : ~strengthpotion_i;
-    case 4 : ~defpotion_i;
-    case 5 : ~ranpotion_i;
+    case 1 : ~imbued_potions(4doseprayerrestore, 4dose2prayerrestore, 100, 15, 450);
+    case 2 : ~imbued_potions(4dose2attack, 4dose3attack, 100, 15, 450);
+    case 3 : ~imbued_potions(4dose2strength, 4dose3strength, 100, 15, 450);
+    case 4 : ~imbued_potions(4dose2defense, 4dose3defense, 100, 15, 450);
+    case 5 : ~imbued_potions(4doserangerspotion, 4dose2rangerspotion, 100, 15, 450);
 }
 
-[proc,prayerpotion_i]
-def_int $random = random(3);
+
+
+
+[proc,imbued_potions](obj $first, namedobj $second, int $imbuedcost, int $cosmic_cost, int $exp)
+def_int $id = inv_total(inv,imbued_dust);
+def_int $cr = inv_total(inv,cosmicrune);
+if($id < $imbuedcost | $cr < $cosmic_cost){
+    mes("You need <tostring($imbuedcost)> imbued dust and <tostring($cosmic_cost)> cosmic runes to imbue this potion.");
+    return;
+}
+def_int $total = inv_total(inv,$first);
+switch_obj($first){
+    case 4doseprayerrestore : {
+        ~brewing_action($imbuedcost, $cosmic_cost);
+        inv_del(inv, $first, 1);
+        inv_add(inv, $second, 1);
+        ~imbuing_exp($exp);
+    }
+    case 4dose2attack : {
+        ~brewing_action($imbuedcost, $cosmic_cost);
+        inv_del(inv, $first, 1);
+        inv_add(inv, $second, 1);
+        ~imbuing_exp($exp);
+    }
+    case 4dose2strength : {
+        ~brewing_action($imbuedcost, $cosmic_cost);
+        inv_del(inv, $first, 1);
+        inv_add(inv, $second, 1);
+        ~imbuing_exp($exp);
+    }
+    case 4dose2defense : {
+        ~brewing_action($imbuedcost, $cosmic_cost);
+        inv_del(inv, $first, 1);
+        inv_add(inv, $second, 1);
+        ~imbuing_exp($exp);
+    }
+    case 4doserangerspotion : {
+        ~brewing_action($imbuedcost, $cosmic_cost);
+        inv_del(inv, $first, 1);
+        inv_add(inv, $second, 1);
+        ~imbuing_exp($exp);
+    }
+}
+
+[proc,imbuing_exp](int $exp)
+stat_advance(herblore, $exp);
+stat_advance(magic, $exp);
+
+[proc,brewing_action](int $dust_cost, int $cosmic_cost)
 def_int $random1 = random(3);
-if (inv_total(inv, 4doseprayerrestore) > 0){
-    if (inv_total(inv, cosmicrune) > 49);
-        if (%intelligence > 120){
-            switch_int($random){
-                case 1 : sound_synth(triffid_appear, 1, 0);
-                case 2 : sound_synth(grind, 1, 0);
-                case 3 : sound_synth(pop1, 1, 0);
-            }
-            inv_del(inv, 4doseprayerrestore, 1);
-            inv_del(inv, imbued_dust, 10000);
-            p_delay(1);
-            switch_int($random1){
-                case 1 : sound_synth(triffid_appear, 1, 0);
-                case 2 : sound_synth(grind, 1, 0);
-                case 3 : sound_synth(pop1, 1, 0);
-            }
-            anim(human_casthighlvlalchemy,0);
-            spotanim_pl(highlvlalchemy_casting, 92, 0);
-            p_delay(1);
-            sound_synth(high_alchemy, 1,0);
-            p_delay(1);
-            sound_synth(low_alchemy, 1,0);
-            inv_add(inv, 4dose2prayerrestore, 1);
-            stat_advance(herblore, 3200);
-            stat_advance(magic, 3200);
-        } else if (%intelligence < 119){
-            ~mesbox("You do not not have the Intelligence to imbue this potion!");
-        }
-
-    } else if (inv_total(inv, imbued_dust) < 10000) {
-        ~mesbox("You need 10,000 Imbued Dust to imbue this potion!");
-
-} else {
-    ~mesbox("You need to use a 4-dose Potion to imbue it!");
+def_int $random2 = random(3);
+inv_del(inv, imbued_dust, $dust_cost);
+inv_del(inv, cosmicrune, $cosmic_cost);
+p_delay(1);
+switch_int($random1){
+    case 1 : sound_synth(triffid_appear, 1, 0);
+    case 2 : sound_synth(grind, 1, 0);
+    case 3 : sound_synth(pop1, 1, 0);
 }
-
-[proc,attackpotion_i]
-def_int $random = random(3);
-def_int $random1 = random(3);
-if (inv_total(inv, 4dose2attack) > 0){
-    if (inv_total(inv, cosmicrune) > 49);
-        if (%intelligence > 120){
-            switch_int($random){
-                case 1 : sound_synth(triffid_appear, 1, 0);
-                case 2 : sound_synth(grind, 1, 0);
-                case 3 : sound_synth(pop1, 1, 0);
-            }
-            inv_del(inv, 4dose2attack, 1);
-            inv_del(inv, imbued_dust, 10000);
-            p_delay(1);
-            switch_int($random1){
-                case 1 : sound_synth(triffid_appear, 1, 0);
-                case 2 : sound_synth(grind, 1, 0);
-                case 3 : sound_synth(pop1, 1, 0);
-            }
-            spotanim_pl(highlvlalchemy_casting, 92, 0);
-            anim(human_casthighlvlalchemy,0);
-            p_delay(1);
-            sound_synth(high_alchemy, 1,0);
-            p_delay(1);
-            sound_synth(low_alchemy, 1,0);
-            inv_add(inv, 4dose3attack, 1);
-            stat_advance(herblore, 3200);
-            stat_advance(magic, 3200);
-        } else if (%intelligence < 119){
-            ~mesbox("You do not not have the Intelligence to imbue this potion!");
-        }
-
-    } else if (inv_total(inv, imbued_dust) < 10000) {
-        ~mesbox("You need 10,000 Imbued Dust to imbue this potion!");
-
-} else {
-    ~mesbox("You need to use a 4-dose Potion to imbue it!");
-}
-
-[proc,strengthpotion_i]
-def_int $random = random(3);
-def_int $random1 = random(3);
-if (inv_total(inv, 4dose2strength) > 0){
-    if (inv_total(inv, cosmicrune) > 49);
-        if (%intelligence > 120){
-            switch_int($random){
-                case 1 : sound_synth(triffid_appear, 1, 0);
-                case 2 : sound_synth(grind, 1, 0);
-                case 3 : sound_synth(pop1, 1, 0);
-            }
-            inv_del(inv, 4dose2strength, 1);
-            inv_del(inv, imbued_dust, 10000);
-            p_delay(1);
-            switch_int($random1){
-                case 1 : sound_synth(triffid_appear, 1, 0);
-                case 2 : sound_synth(grind, 1, 0);
-                case 3 : sound_synth(pop1, 1, 0);
-            }
-            spotanim_pl(highlvlalchemy_casting, 92, 0);
-            anim(human_casthighlvlalchemy,0);
-            p_delay(1);
-            sound_synth(high_alchemy, 1,0);
-            p_delay(1);
-            sound_synth(low_alchemy, 1,0);
-            inv_add(inv, 4dose3strength, 1);
-            stat_advance(herblore, 3200);
-            stat_advance(magic, 3200);
-        } else if (%intelligence < 119){
-            ~mesbox("You do not not have the Intelligence to imbue this potion!");
-        }
-
-    } else if (inv_total(inv, imbued_dust) < 10000) {
-        ~mesbox("You need 10,000 Imbued Dust to imbue this potion!");
-
-} else {
-    ~mesbox("You need to use a 4-dose Potion to imbue it!");
-}
-[proc,defpotion_i]
-def_int $random = random(3);
-def_int $random1 = random(3);
-if (inv_total(inv, 4dose2defense) > 0){
-    if (inv_total(inv, cosmicrune) > 49);
-        if (%intelligence > 120){
-            switch_int($random){
-                case 1 : sound_synth(triffid_appear, 1, 0);
-                case 2 : sound_synth(grind, 1, 0);
-                case 3 : sound_synth(pop1, 1, 0);
-            }
-            inv_del(inv, 4dose2defense, 1);
-            inv_del(inv, imbued_dust, 10000);
-            p_delay(1);
-            switch_int($random1){
-                case 1 : sound_synth(triffid_appear, 1, 0);
-                case 2 : sound_synth(grind, 1, 0);
-                case 3 : sound_synth(pop1, 1, 0);
-            }
-            spotanim_pl(highlvlalchemy_casting, 92, 0);
-            anim(human_casthighlvlalchemy,0);
-            p_delay(1);
-            sound_synth(high_alchemy, 1,0);
-            p_delay(1);
-            sound_synth(low_alchemy, 1,0);
-            inv_add(inv, 4dose3defense, 1);
-            stat_advance(herblore, 3200);
-            stat_advance(magic, 3200);
-        } else if (%intelligence < 119){
-            ~mesbox("You do not not have the Intelligence to imbue this potion!");
-        }
-
-    } else if (inv_total(inv, imbued_dust) < 10000) {
-        ~mesbox("You need 10,000 Imbued Dust to imbue this potion!");
-
-} else {
-    ~mesbox("You need to use a 4-dose Potion to imbue it!");
-}
-[proc,ranpotion_i]
-def_int $random = random(3);
-def_int $random1 = random(3);
-if (inv_total(inv, 4doserangerspotion) > 0){
-    if (inv_total(inv, cosmicrune) > 49);
-        if (%intelligence > 120){
-            switch_int($random){
-                case 1 : sound_synth(triffid_appear, 1, 0);
-                case 2 : sound_synth(grind, 1, 0);
-                case 3 : sound_synth(pop1, 1, 0);
-            }
-            inv_del(inv, 4doserangerspotion, 1);
-            inv_del(inv, imbued_dust, 10000);
-            p_delay(1);
-            switch_int($random1){
-                case 1 : sound_synth(triffid_appear, 1, 0);
-                case 2 : sound_synth(grind, 1, 0);
-                case 3 : sound_synth(pop1, 1, 0);
-            }
-            spotanim_pl(highlvlalchemy_casting, 92, 0);
-            anim(human_casthighlvlalchemy,0);
-            p_delay(1);
-            sound_synth(high_alchemy, 1,0);
-            p_delay(1);
-            sound_synth(low_alchemy, 1,0);
-            inv_add(inv, 4dose2rangerspotion, 1);
-            stat_advance(herblore, 3200);
-            stat_advance(magic, 3200);
-        } else if (%intelligence < 119){
-            ~mesbox("You do not not have the Intelligence to imbue this potion!");
-        }
-
-    } else if (inv_total(inv, imbued_dust) < 10000) {
-        ~mesbox("You need 10,000 Imbued Dust to imbue this potion!");
-
-} else {
-    ~mesbox("You need to use a 4-dose Potion to imbue it!");
-}
-
-
-// To create more just copy and paste these procs and create a new menu system that allows for paging of potions.
+anim(human_casthighlvlalchemy,0);
+spotanim_pl(highlvlalchemy_casting, 92, 0);
+p_delay(1);
+sound_synth(high_alchemy, 1,0);
+p_delay(1);
+sound_synth(low_alchemy, 1,0);

@@ -144,3 +144,84 @@ iop1=Open
 weight=2lb
 param=no_alchemy,^true
 tradeable=yes
+
+
+[christmas_present]
+name=Present
+desc=2025 Gift.
+cost=2
+iop1=Open
+model=model_2426_obj
+recol1s=26817
+recol1d=30653
+recol2s=160
+recol2d=19489
+2dyof=-14
+2dzoom=1180
+2dyan=172
+2dxan=160
+weight=2lb
+param=no_alchemy,1
+tradeable=yes
+
+[lump_of_coal]
+cost=45
+name=Lump o' Coal
+desc=a terrible gift!
+model=model_2748_obj
+recol1s=11488
+recol1d=4226
+2dxof=1
+2dyof=15
+2dzoom=1400
+2dyan=1576
+2dxan=368
+weight=5lb
+param=no_alchemy,^true
+
+
+[new_year_cracker]
+name=New Year cracker
+desc=I need to pull this
+model=model_2637_obj
+2dxof=-3
+2dyof=40
+2dzoom=630
+2dyan=1728
+2dxan=272
+weight=200g
+iop1=Open
+
+[event_scroll]
+members=yes
+cost=1
+model=model_2600_obj
+2dxof=1
+2dyof=7
+2dzoom=1040
+2dyan=120
+2dxan=380
+name=Event ledger
+desc=Maybe I should read it...
+iop1=Read
+weight=20g
+tradeable=no
+
+
+[halloween_box]
+name=Present
+desc=2025 Gift.
+cost=2
+iop1=Open
+model=model_2426_obj
+recol1s=26817
+recol1d=0
+recol2s=160
+recol2d=26049
+2dyof=-14
+2dzoom=1180
+2dyan=172
+2dxan=160
+weight=2lb
+param=no_alchemy,1
+tradeable=yes

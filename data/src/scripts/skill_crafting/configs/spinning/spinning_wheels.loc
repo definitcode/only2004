@@ -1,6 +1,6 @@
 [spinning_wheel]
-name=Sewing Machine
-desc=Used for sewing clothes and can also spin threads.
+name=Spinning Wheel
+desc=Used for spinning threads.
 model=model_loc_2644
 forceapproach=south
 

@@ -249,7 +249,7 @@ if (p_finduid(uid) = true) {
     inv_add(bank, lobster, ^max_32bit_int);
     inv_add(bank, swordfish, ^max_32bit_int);
     inv_add(bank, anchovie_pizza, ^max_32bit_int);
-    inv_add(bank, strength4, ^max_32bit_int);
+    inv_add(bank, 4dose1strength, ^max_32bit_int);
     inv_add(bank, airrune, ^max_32bit_int);
     inv_add(bank, firerune, ^max_32bit_int);
     inv_add(bank, deathrune, ^max_32bit_int);

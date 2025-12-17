@@ -223,7 +223,7 @@ if ($random < 25){
 } else if ($random < 65) {
     inv_add(inv, ~mid_tier_items);
     ~casket_open;
-} else if ($random < 70) {
+} else if ($random < 125) {
     inv_add(inv, ~treasure_items);
 } else if ($random > 126){
     def_int $r2 = random(1000);

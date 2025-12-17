@@ -6,6 +6,74 @@
 [opheld1,allgear_box] ~rolltester;
 [opheld1,scythe_box] ~scythe_box_open;
 [opheld1,halberd_box] ~halberd_box_open;
+[opheld1,christmas_present] ~christmas_present;
+[opheld1,new_year_cracker] ~new_year_cracker;
+[opheld1,halloween_box] ~halloween_box;
+
+[proc,christmas_present]
+if (inv_freespace(inv) > 3){
+    inv_add(inv, penguin_whistle, 1);
+    inv_add(inv, snowball_mould, 1);
+    inv_add(inv, santa_hat, 1);
+    inv_add(inv, lump_of_coal, 1);
+    inv_del(inv, christmas_present, 1);
+    %christmas = 1;
+} else {
+    mes("You need 4 spaces free to open this");
+}
+
+[proc,halloween_box]
+if (inv_freespace(inv) > 3){
+    inv_add(inv, scythe, 1);
+    inv_add(inv, pumpkin, 1);
+    switch_int(random(2)){
+        case 0 : {
+            inv_add(inv, pet_death_wing, 1);
+        }
+        case 1 : {
+            inv_add(inv, mummy_wraps, 1);
+        }
+        case 2 : {
+            inv_add(inv, hellhound_cage, 1);
+        }
+    }
+    switch_int(random(2)){
+        case 0 : {
+            inv_add(inv, halloweenmask_blue, 1);
+        }
+        case 1 : {
+            inv_add(inv, halloweenmask_red, 1);
+        }
+        case 2 : {
+            inv_add(inv, halloweenmask_green, 1);
+        }
+    }
+    inv_del(inv, halloween_box, 1);
+    %halloween = 1;
+} else {
+    mes("You need 4 spaces free to open this");
+}
+
+
+[proc,new_year_cracker]
+if (inv_freespace(inv) > 3){
+    spotanim_pl(levelup_anim, 120, 0);
+    inv_add(inv, beer, 1);
+    switch_int(random(2)){
+        case 0 : {
+            inv_add(inv, orc_tooth, 1);
+        }
+        case 1 : {
+            inv_add(inv, lizard_beads, 1);
+        }
+        case 2 : {
+            inv_add(inv, pet_ice_spider, 1);
+        }
+    }
+    inv_del(inv, new_year_cracker, 1);
+    say("Wooo! Happy New Year!");
+    %newyearseve = 1;
+}
 
 [proc,scythe_box_open]
 if (inv_freespace(inv) > 0){
@@ -159,4 +227,87 @@ switch_int($var){
         mes("Successful Proc! 255");
     case 325 :
         mes("Succesful Proc!! 325");
+}
+
+
+
+// Source: https://www.youtube.com/watch?v=JrsT--Rr0Kk&t=94s
+[opheld1,event_scroll]
+%book_page = 0;
+%open_book = event_scroll;
+@open_event_scroll;
+
+[label,open_event_scroll]
+@book_flip_page(0, 0, 3, event_scroll);
+
+[proc,event_scroll]
+def_string $christmas;
+def_string $newyears;
+def_string $easter;
+def_string $stpat;
+def_string $fourtwenty;
+def_string $halloween;
+
+def_int $christmasi = %christmas;
+def_int $newyearsi = %newyearseve;
+def_int $easteri = %easter;
+def_int $stpati = %stpatricksday;
+def_int $fourtwentyi = %420day;
+def_int $halloweeni = %halloween;
+
+switch_int($christmasi){
+    case 0 : {
+        $christmas = "@red@No@bla@";
+    }
+    case 1 : {
+        $christmas = "@gre@Yes@bla@";
+    }
+}
+switch_int($newyearsi){
+    case 0 : {
+        $newyears = "@red@No@bla@";
+    }
+    case 1 : {
+        $newyears = "@gre@Yes@bla@";
+    }
+
+}
+switch_int($easteri){
+    case 0 : {
+        $easter = "@red@No@bla@";
+    }
+    case 1 : {
+        $easter = "@gre@Yes@bla@";
+    }
+
+}
+switch_int($stpati){
+    case 0 : {
+        $stpat = "@red@No@bla@";
+    }
+    case 1 : {
+        $stpat = "@gre@Yes@bla@";
+    }
+
+}
+switch_int($fourtwentyi){
+    case 0 : {
+        $fourtwenty = "@red@No@bla@";
+    }
+    case 1 : {
+        $fourtwenty = "@gre@Yes@bla@";
+    }
+
+}
+switch_int($halloweeni){
+    case 0 : {
+        $halloween = "@red@No@bla@";
+    }
+    case 1 : {
+        $halloween = "@gre@Yes@bla@";
+    }
+
+}
+switch_int (%book_page) {
+    case 0 : ~book("Event List", "Christmas: [<$christmas>] |New Years Eve: [<$newyears>] |Easter: [<$easter>] |St. Patricks Day: [<$stpat>] |4/20: [<$fourtwenty>] |Halloween: [<$halloween>] |||");
 }

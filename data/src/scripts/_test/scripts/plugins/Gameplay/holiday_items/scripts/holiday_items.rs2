@@ -1,0 +1,59 @@
+[oploc1,snow_pile] @dig_snow;
+[opheldu,snowball_mould] @pack_snow;
+[opheld1,unpacked_snow] @pack_snow;
+[oplocu,snow_pile] 
+switch_obj(last_useitem){
+    case spade : {
+        inv_add(inv, unpacked_snow, 4);
+        loc_del(1200);
+    }
+    case default : {
+        mes("Nothing seems to happen.");
+        return;
+    }
+}
+
+
+[label,dig_snow]
+anim(human_pickupfloor, 1);
+inv_add(inv, unpacked_snow, 1);
+loc_del(1200);
+
+[label,pack_snow]
+if(inv_total(inv, unpacked_snow) < 1){
+    mes("You need at least 1 Unpacked Snow to pack it into a snowball.");
+    return;
+}
+inv_del(inv, unpacked_snow, 1);
+inv_add(inv, snowball, 4);
+~objbox(snowball, "You have packed the snow into a snowball.", 250, 0, 25);
+return;
+
+
+
+
+[opplayeru,snowball] @snowball_throw;
+[applayeru,snowball] @snowball_throw;
+
+[label,snowball_throw]
+if (%snowball_delay > map_clock) {
+    return; // this is how it works in osrs, doesnt use action_delay (cant tick manip with it)
+}
+inv_delslot(inv, last_useslot);
+
+anim(human_throw, 0);
+sound_synth(thrown, 0, 0);
+spotanim_pl(snowball_launch, 96, 0);
+%snowball_delay = calc(map_clock + 5);
+
+mes("You pelted <.name> with a snowball!");
+.mes("<name> pelted you with a snowball!");
+
+// Uncomment the line below if you want to have it land in a random location
+
+//def_coord $random_coord = map_findsquare(.coord, 1, 2, ^map_findsquare_lineofwalk);
+
+// If Random Location is selected change .coord to $random_coord
+def_int $duration = ~coord_projectile(coord, .coord, snowball_travel, 40, 0, 28, 15, 18, 32, 5);
+//sound_synth todo: find sound?
+spotanim_map(snowball_splash, .coord, 96, calc($duration/30));

@@ -1,0 +1,349 @@
+[opplayeru,chaotic_artifact] @chaotic_artifact(.uid);
+
+[opheld3,chaotic_artifact] mes("Special Attack: <tostring(%special_attack)>");
+[opheld2,chaotic_artifact] {
+    if (.finduid(%pk_prey1) = true) {
+        @chaotic_artifact(%pk_prey1);
+        return;
+    }
+    if (npc_finduid(%aggressive_npc) = true) {
+        @chaotic_artifact_npc(%aggressive_npc);
+        return;
+    }
+    mes("You don't have a target to use this on.");
+}
+
+[label,chaotic_artifact](player_uid $uid)
+def_obj $worn = inv_getobj(worn, 3);
+def_int $spec = %special_attack;
+if ($spec < 25){
+    mes("You do not have enough focus to cast this.");
+    return;
+}
+
+// Ensure context forvictim
+if (finduid($uid) = false) return;
+
+switch_obj($worn){
+    case magic_shortbow : {
+        def_int $dmg = random(25);
+        anim(%com_attackanim, 0);
+        sound_synth(%com_attacksound, 0, 0);
+        def_obj $ammo = inv_getobj(worn, ^wearpos_quiver);
+        mes("You unleash the fury of your bow!");
+        
+        // Combat Sync (Player Side)
+        %lastcombat = map_clock;
+        .queue(pvp_retaliate, 0, uid);
+        
+        // Retaliate & Damage (NPC Side)
+        // We use ~ to inherit context but no dot since it's a proc
+
+        spotanim_pl(oc_param($ammo, proj_launch), 96, 0);
+        ~player_projectile(coord, .coord, .uid, oc_param($ammo, proj_travel), 40, 36, 32, 15, 0, 11, 5);
+        
+        // Damage & Target Anims
+        .damage($uid, 1, $dmg);
+        .anim(.%com_defendanim, 20);
+        .anim(zap, 0);
+        .spotanim_pl(enfeeble_impact, 120, 3);
+        %special_attack = calc(%special_attack - 50);
+        mes("Special Attack: <tostring(%special_attack)>");
+        p_delay(1);
+    }
+    case dragon_dagger : {
+        def_int $dmg = random(25);
+        anim(human_scythe_spin, 0);
+        mes("You unleash the fury of your dagger!");
+        
+        // Sync & Retaliate
+        %lastcombat = map_clock;
+        .queue(pvp_retaliate, 0, uid);
+        
+        // Damage & Target Anims
+        .damage($uid, 1, $dmg);
+        .anim(.%com_defendanim, 20);
+        .anim(zap, 0);
+        .spotanim_pl(enfeeble_impact, 120, 0);
+        %special_attack = calc(%special_attack - 50);
+        mes("Special Attack: <tostring(%special_attack)>");
+        p_delay(1);
+    }
+    case dragon_dagger_p : {
+        def_int $dmg = random(25);
+        anim(human_scythe_spin, 0);
+        mes("You unleash the fury of your dagger!");
+        
+        // Sync & Retaliate
+        %lastcombat = map_clock;
+        .queue(pvp_retaliate, 0, uid);
+        
+        // Damage & Target Anims
+        .damage($uid, 1, $dmg);
+        .anim(.%com_defendanim, 20);
+        .anim(zap, 0);
+        %special_attack = calc(%special_attack - 50);
+        mes("Special Attack: <tostring(%special_attack)>");
+        p_delay(1);
+    }
+    case rogue_dagger : {
+        def_int $dmg = random(10);
+        anim(human_ddagger_lunge, 0);
+        mes("You strike with a lethal rogue's precision!");
+        
+        // Sync & Retaliate
+        %lastcombat = map_clock;
+        .queue(pvp_retaliate, 0, uid);
+        
+        // Damage & Target Anims
+        .damage($uid, 1, $dmg);
+        .anim(.%com_defendanim, 20);
+        .anim(human_pray, 0);
+        %special_attack = calc(%special_attack - 50);
+        mes("Special Attack: <tostring(%special_attack)>");
+        p_delay(1);
+
+    }
+    case rogue_dagger_p : {
+        def_int $dmg = random(10);
+        anim(human_ddagger_lunge, 0);
+        mes("You strike with a lethal rogue's precision!");
+        
+        // Sync & Retaliate
+        %lastcombat = map_clock;
+        .queue(pvp_retaliate, 0, uid);
+        
+        // Damage & Target Anims
+        .damage($uid, 1, $dmg);
+        .anim(.%com_defendanim, 20);
+        .anim(human_pray, 0);
+        %special_attack = calc(%special_attack - 50);
+        mes("Special Attack: <tostring(%special_attack)>");
+        p_delay(1);
+
+    }
+    case paladin_hammer : {
+        def_int $dmg = random(15);
+        spotanim_pl(saradomin_lightning, 100, 0);
+        anim(human_blunt_pound, 0);
+        mes("You invoke the frozen power of the Zeal!");
+        
+        // Sync & Retaliate
+        %lastcombat = map_clock;
+        .queue(pvp_retaliate, 0, uid);
+        
+        // Damage & Target Anims
+        .damage($uid, 1, $dmg);
+        .anim(.%com_defendanim, 20);
+        .anim(zap, 0);
+        %special_attack = calc(%special_attack - 50);
+        mes("Special Attack: <tostring(%special_attack)>");
+        p_delay(1);
+
+    }
+    case tank_warhammer : {
+        def_int $dmg = random(15);
+        spotanim_pl(saradomin_lightning, 100, 0);
+        .spotanim_pl(saradomin_lightning, 100, 0);
+        anim(human_blunt_pound, 0);
+        mes("You invoke the frozen power of the Zeal!");
+        
+        // Sync & Retaliate
+        %lastcombat = map_clock;
+        .queue(pvp_retaliate, 0, uid);
+        
+        // Damage & Target Anims
+        .damage($uid, 1, $dmg);
+        .anim(.%com_defendanim, 20);
+        .anim(zap, 0);
+        %special_attack = calc(%special_attack - 50);
+        mes("Special Attack: <tostring(%special_attack)>");
+        p_delay(1);
+
+    }
+}
+if ($spec = 50) {
+    inv_del(inv, chaotic_artifact, 1);
+    inv_add(inv, shattered_artifact, 1);
+    mes("Your Chaotic Artifact shatters into pieces..");
+}
+[label,chaotic_artifact_npc](npc_uid $uid)
+def_obj $worn = inv_getobj(worn, 3);
+def_int $spec = %special_attack;
+if ($spec < 50){
+    mes("You do not have enough focus to cast this.");
+    return;
+}
+// Ensure context for NPC
+if (npc_finduid($uid) = false) return;
+
+switch_obj($worn){
+
+    case magic_shortbow : {
+        def_int $dmg = random(25);
+        anim(%com_attackanim, 0);
+        sound_synth(%com_attacksound, 0, 0);
+        def_obj $ammo = inv_getobj(worn, ^wearpos_quiver);
+        mes("You unleash the fury of your bow!");
+        
+        // Combat Sync (Player Side)
+        %lastcombat = map_clock;
+        %aggressive_npc = $uid;
+        
+        // Retaliate & Damage (NPC Side)
+        // We use ~ to inherit context but no dot since it's a proc
+        ~npc_retaliate(0);
+        ~npc_default_damage($dmg);
+        spotanim_pl(oc_param($ammo, proj_launch), 96, 0);
+        ~npc_projectile(coord, npc_uid, oc_param($ammo, proj_travel), 40, 36, 41, 15, 5, 11, 5);
+        
+        // Visuals (NPC Context)
+        npc_anim(npc_param(defend_anim), 20);
+        npc_anim(zap, 0);
+        spotanim_npc(enfeeble_impact, 120, 3);
+        %special_attack = calc(%special_attack - 50);
+        mes("Special Attack: <tostring(%special_attack)>");
+
+    }
+
+    case dragon_dagger : {
+        def_int $dmg = random(25);
+        anim(human_scythe_spin, 0);
+        mes("You unleash the fury of your dagger!");
+        
+        // Combat Sync (Player Side)
+        %lastcombat = map_clock;
+        %aggressive_npc = $uid;
+        
+        // Retaliate & Damage (NPC Side)
+        // We use ~ to inherit context but no dot since it's a proc
+        ~npc_retaliate(0);
+        ~npc_default_damage($dmg);
+        
+        // Visuals (NPC Context)
+        npc_anim(npc_param(defend_anim), 20);
+        npc_anim(zap, 0);
+        spotanim_npc(enfeeble_impact, 120, 0);
+        %special_attack = calc(%special_attack - 50);
+        mes("Special Attack: <tostring(%special_attack)>");
+        p_delay(1);
+    }
+    case dragon_dagger_p : {
+        def_int $dmg = random(25);
+        anim(human_scythe_spin, 0);
+        spotanim_npc(curse_impact, 120, 0);
+        mes("You unleash the fury of your dagger!");
+        
+        // Combat Sync (Player Side)
+        %lastcombat = map_clock;
+        %aggressive_npc = $uid;
+        
+        // Retaliate & Damage (NPC Side)
+        // We use ~ to inherit context but no dot since it's a proc
+        ~npc_retaliate(0);
+        ~npc_default_damage($dmg);
+        
+        // Visuals (NPC Context)
+        npc_anim(npc_param(defend_anim), 20);
+        npc_anim(zap, 0);
+        spotanim_npc(enfeeble_impact, 120, 0);
+        %special_attack = calc(%special_attack - 50);
+        mes("Special Attack: <tostring(%special_attack)>");
+        p_delay(1);
+    }
+    case rogue_dagger : {
+        def_int $dmg = random(8);
+        anim(human_ddagger_lunge, 0);
+        mes("You strike with a lethal rogue's precision!");
+        
+        // Combat Sync (Player Side)
+        %lastcombat = map_clock;
+        %aggressive_npc = $uid;
+        
+        // Retaliate & Damage (NPC Side)
+        ~npc_retaliate(0);
+        ~npc_default_damage($dmg);
+        
+        // Visuals (NPC Context)
+        npc_anim(npc_param(defend_anim), 20);
+        npc_anim(human_pray, 0);
+        spotanim_npc(enfeeble_impact, 120, 0);
+        %special_attack = calc(%special_attack - 50);
+        mes("Special Attack: <tostring(%special_attack)>");
+        p_delay(1);
+    }
+    case rogue_dagger_p : {
+        def_int $dmg = random(8);
+        anim(human_ddagger_lunge, 0);
+        spotanim_npc(curse_impact, 120, 0);
+        mes("You strike with a lethal rogue's precision!");
+        
+        // Combat Sync (Player Side)
+        %lastcombat = map_clock;
+        %aggressive_npc = $uid;
+        
+        // Retaliate & Damage (NPC Side)
+        ~npc_retaliate(0);
+        ~npc_default_damage($dmg);
+        
+        // Visuals (NPC Context)
+        npc_anim(npc_param(defend_anim), 20);
+        npc_anim(human_pray, 0);
+        spotanim_npc(enfeeble_impact, 120, 0);
+        %special_attack = calc(%special_attack - 50);
+        mes("Special Attack: <tostring(%special_attack)>");
+        p_delay(1);
+    }
+    case paladin_hammer : {
+        def_int $dmg = random(15);
+        spotanim_npc(saradomin_lightning, 100, 0);
+        spotanim_pl(saradomin_lightning, 100, 0);
+        anim(human_blunt_pound, 0);
+        mes("You invoke the frozen power of the Zeal!");
+        
+        // Combat Sync (Player Side)
+        %lastcombat = map_clock;
+        %aggressive_npc = $uid;
+        
+        // Retaliate & Damage (NPC Side)
+        ~npc_retaliate(0);
+        ~npc_default_damage($dmg);
+        
+        // Visuals (NPC Context)
+        npc_anim(npc_param(defend_anim), 20);
+        npc_anim(zap, 0);
+        spotanim_npc(enfeeble_impact, 120, 3);
+        %special_attack = calc(%special_attack - 50);
+        mes("Special Attack: <tostring(%special_attack)>");
+        p_delay(1);
+    }
+    case tank_warhammer : {
+        def_int $dmg = random(15);
+        spotanim_pl(saradomin_lightning, 100, 0);
+        spotanim_npc(saradomin_lightning, 100, 0);
+        anim(human_blunt_pound, 0);
+        mes("You invoke the frozen power of the Zeal!");
+        
+        // Combat Sync (Player Side)
+        %lastcombat = map_clock;
+        %aggressive_npc = $uid;
+        
+        // Retaliate & Damage (NPC Side)
+        ~npc_retaliate(0);
+        ~npc_default_damage($dmg);
+        
+        // Visuals (NPC Context)
+        npc_anim(npc_param(defend_anim), 20);
+        npc_anim(zap, 0);
+        spotanim_npc(enfeeble_impact, 120, 3);
+        %special_attack = calc(%special_attack - 50);
+        mes("Special Attack: <tostring(%special_attack)>");
+        p_delay(1);
+    }
+}
+if ($spec = 50) {
+    inv_del(inv, chaotic_artifact, 1);
+    inv_add(inv, shattered_artifact, 1);
+    %special_attack = 0;
+    mes("Your Chaotic Artifact shatters into pieces..");
+}

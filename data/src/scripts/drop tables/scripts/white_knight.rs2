@@ -37,7 +37,14 @@ if ($random < 2) { // 2
         obj_add(npc_coord, bloodrune, 2, ^lootdrop_duration);
     }
 } else if ($random < 33) { // 1
-    obj_add(npc_coord, lawrune, 2, ^lootdrop_duration);
+    if (%squire_progress = ^squire_complete){
+        def_int $ran = random(28);
+        if ($ran > 10) {
+            //obj_add(npc_coord, ~white_knight, ^lootdrop_duration);
+        }
+    } else {
+        obj_add(npc_coord, lawrune, 3, ^lootdrop_duration);
+    }
 } else if ($random < 38) { // 5
     obj_add(npc_coord, ~randomherb, ^lootdrop_duration);
 } else if ($random < 53) { // 15 (seeds)

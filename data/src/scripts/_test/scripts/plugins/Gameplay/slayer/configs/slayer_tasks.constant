@@ -1,0 +1,20 @@
+^none = 0
+^giant_rat = 1
+^goblin = 2
+^skeleton = 3
+^hobgoblin = 4
+^dark_wizard = 5
+^wizard = 6
+^giant = 7
+
+
+
+^fire_giant = 8
+^moss_giant = 9
+^green_dragon = 10
+^blue_dragon = 11
+^red_dragon = 12
+^black_dragon = 13
+^ice_giant = 14
+^ice_warrior = 15
+^hellhound = 16

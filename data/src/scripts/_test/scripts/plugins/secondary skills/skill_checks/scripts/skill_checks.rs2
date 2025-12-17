@@ -29,27 +29,8 @@ def_int $her = stat_base(herblore);
 def_int $smi = stat_base(smithing);
 def_int $thi = stat_base(thieving);
 def_int $fis = stat_base(fishing);
-// First layer of additions
-def_int $sum1 = add($att, $str);
-def_int $sum2 = add($def, $ran);
-def_int $sum3 = add($mag, $pra);
-def_int $sum4 = add($run, $fle);
-def_int $sum5 = add($min, $cra);
-def_int $sum6 = add($woo, $coo);
-def_int $sum7 = add($fir, $agi);
-def_int $sum8 = add($her, $smi);
-def_int $sum9 = add($thi, $fis);
-// Second layer of additions
-def_int $mid1 = add($sum1, $sum2);
-def_int $mid2 = add($sum3, $sum4);
-def_int $mid3 = add($sum5, $sum6);
-def_int $mid4 = add($sum7, $sum8);
-def_int $mid5 = add($hit, $sum9); // Assuming hitpoints + remainder
-// Third layer of additions
-def_int $top1 = add($mid1, $mid2);
-def_int $top2 = add($mid3, $mid4);
-def_int $top3 = add($top1, $top2);
-def_int $total_level = add($top3, $mid5);
+
+def_int $total_level = calc($att + $str + $def + $ran + $mag + $pra + $hit + $run + $fle + $min + $cra + $woo + $coo + $fir + $agi + $her + $smi + $thi + $fis);
 %total_level = $total_level;
 return;
 
@@ -116,13 +97,8 @@ def_int $rogue = calc($nimble + $sleight);
 ~fortitude_check;
 ~intel_check;
 ~rogue_check;
-def_int $p1 = add(%intelligence,%rogue);
-def_int $p2 = add(%hunter,%engineering);
-def_int $p3 = %fortitude;
-def_int $total = calc($p1 + $p2 + $p3);
 
-def_int $stat_total = %total_level;
+def_int $total_level = calc(%intelligence + %rogue + %hunter + %engineering + %fortitude + %questpoints + %total_level);
 
-def_int $total_level = add($total,%total_level);
 %prestige = $total_level;
 return;

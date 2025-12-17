@@ -14,6 +14,12 @@
 [opheld1,edgevillescroll] ~edgeport;
 [opheld1,lumbyscroll] ~lumbport;
 
+
+
+
+
+
+
 [proc,inscribe_scroll]
 if (inv_total(inv, cosmicrune) < 24){
     mes("You need 25 Cosmic Runes to Inscribe a Blank Scroll!");

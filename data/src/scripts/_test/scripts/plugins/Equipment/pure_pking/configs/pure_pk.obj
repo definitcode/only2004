@@ -502,3 +502,87 @@ iop1=Open
 weight=2lb
 param=no_alchemy,^true
 tradeable=no
+
+
+
+[bloody_casket]
+name=Bloody Casket
+desc=I hope there's treasure in it.
+model=model_2450_obj
+recol1s=11488
+recol1d=7328 
+recol2s=11630
+recol2d=17441
+recol3s=25537
+recol3d=21504
+2dxof=3
+2dyof=-6
+2dzoom=1410
+2dyan=1592
+2dxan=164
+cost=50
+iop1=Open
+weight=5kg
+members=yes
+tradeable=no
+
+
+// Box
+[gear_box]
+name=Gear Box(t1)
+desc=This contains gifts.
+cost=2500
+model=model_2426_obj
+recol1s=26817
+recol1d=21570
+recol2s=160
+recol2d=2114
+iop1=Open
+2dyof=-14
+2dzoom=1180
+2dyan=172
+2dxan=160
+weight=2lb
+param=no_alchemy,^true
+tradeable=no
+
+
+[chaotic_artifact]
+name=Chaotic Artifact
+desc=A chaotic artifact.
+cost=1
+model=model_2759_obj
+members=yes
+recol1s=15855
+recol1d=12354
+recol2s=26348
+recol2d=20000
+recol4s=10650
+recol4d=8449
+2dxof=-2
+2dyof=3
+2dzoom=580
+2dyan=156
+2dxan=444
+weight=2lb
+members=yes
+tradeable=no
+iop2=Activate
+iop3=Check-
+
+[shattered_artifact]
+name=Shattered Artifact
+desc=This used to be a powerful artifact.
+model=model_2780_obj
+recol1s=20159
+recol1d=8449
+2dxof=-1
+2dyof=7
+2dzoom=490
+2dyan=608
+2dxan=492
+members=yes
+stackable=yes
+cost=30
+weight=4g
+category=category_530

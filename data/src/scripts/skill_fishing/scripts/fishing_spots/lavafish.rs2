@@ -86,9 +86,9 @@ if (map_members = false) {
     return(false);
 }
 // check level
-if (stat(fishing) < 53) {
+if (stat(fishing) < 99) {
     anim(null, 0);
-    ~mesbox("You need to be at least level 53 Fishing to bait these eels.");
+    ~mesbox("You need to be at least level 99 Fishing to bait these eels.");
     return(false);
 }
 // check if they have fishing equipment

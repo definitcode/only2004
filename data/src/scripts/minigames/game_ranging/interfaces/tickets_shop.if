@@ -809,11 +809,11 @@ y=227
 buttontype=normal
 width=32
 height=32
-model=model_2745_obj
+model=model_2837_obj
 zoom=400
 xan=500
 yan=100
-option=Buy for 2,400 tickets:
+option=Buy for 50,000 tickets:
 
 [com_96]
 type=text
@@ -826,6 +826,7 @@ font=q8
 text=What would you like to buy with your tickets?
 colour=0xFFFF00
 
+//robinhood
 [com_97]
 type=model
 x=359
@@ -833,10 +834,10 @@ y=226
 buttontype=normal
 width=32
 height=32
-model=model_2763_obj
+model=model_3021_obj
 zoom=700
 xan=600
-option=Buy for 2,000 tickets:
+option=Buy for 50,000 tickets:
 
 [com_98]
 type=text
@@ -863,8 +864,8 @@ script1op1=inv_count,inventory:inv,archery_ticket
 script1=gt,2399
 font=q8
 shadowed=yes
-text=Dragonhide Body
-activetext=Dragonhide Body
+text=Ranger boots (b)
+activetext=Ranger boots (b)
 colour=0x808080
 activecolour=0x00FF00
 
@@ -878,8 +879,8 @@ script1op1=inv_count,inventory:inv,archery_ticket
 script1=gt,1999
 font=q8
 shadowed=yes
-text=20 Adamant Javelins
-activetext=20 Adamant Javelins
+text=Robinhood Hat(b)
+activetext=Robinhood Hat(b)
 colour=0x808080
 activecolour=0x00FF00
 

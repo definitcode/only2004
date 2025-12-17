@@ -11,3 +11,9 @@ if (%hetty_progress = ^hetty_started | %hetty_progress = ^hetty_objects_given) {
         obj_add(npc_coord, rats_tail, 1, ^lootdrop_duration);
     }
 }
+
+switch_int(random(999999)){
+    case 999999 : {
+        obj_add(npc_coord, rat_trap, 1, ^lootdrop_duration);
+    }
+}

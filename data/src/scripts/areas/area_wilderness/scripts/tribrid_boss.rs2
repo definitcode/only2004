@@ -1,0 +1,175 @@
+[ai_queue1,notfat_tony] ~npc_default_retaliate_ap;
+
+[ai_queue3,notfat_tony]
+gosub(npc_death);
+if (npc_findhero = false) {
+    return;
+}
+// Default drop
+obj_add(npc_coord, bones, 1, ^lootdrop_duration);
+// Add more drops here or use a loot table
+
+[ai_applayer2,notfat_tony]
+if (%npc_action_delay > map_clock) {
+    return;
+}
+if (~npc_can_attack_player = false) {
+    npc_setmode(null);
+    return;
+}
+
+// If far, use ranged or magic
+if (npc_range(coord) > 1) {
+    if (random(2) = 0) {
+        ~tribrid_ranged_attack;
+    } else {
+        ~tribrid_magic_attack;
+    }
+    return;
+}
+
+// If close, switch to combat mode
+npc_sethuntmode(aggressive_melee);
+npc_setmode(opplayer2);
+
+
+[ai_opplayer2,notfat_tony]
+if (%npc_action_delay > map_clock) {
+    return;
+}
+if (~npc_can_attack_player = false) {
+    npc_setmode(null);
+    return;
+}
+
+~tribrid_random_attack;
+npc_sethuntmode(tribrid_boss);
+
+
+[proc,tribrid_random_attack]
+// 50% Melee, 25% Ranged, 25% Magic if close
+def_int $roll = random(4);
+
+if ($roll < 2) {
+    ~tribrid_melee_attack;
+} else if ($roll = 2) {
+    ~tribrid_ranged_attack;
+} else {
+    ~tribrid_magic_attack;
+}
+
+[proc,tribrid_melee_attack]
+if (stat(hitpoints) = 0) return;
+
+// Use configured attack animation or default
+if (npc_param(attack_anim) ! null) {
+    npc_anim(npc_param(attack_anim), 0);
+} else {
+    npc_anim(human_unarmedpunch, 0);
+}
+
+if (npc_param(attack_sound) ! null) {
+    sound_synth(npc_param(attack_sound), 0, 0);
+}
+
+~npc_meleeattack;
+%npc_action_delay = add(map_clock, 4); // Standard 4 tick attack speed
+~npc_set_attack_vars;
+
+
+[proc,tribrid_ranged_attack]
+if (stat(hitpoints) = 0) return;
+
+// Face player
+if_close;
+
+// Animation
+if (npc_param(attack_anim) ! null) {
+    npc_anim(npc_param(attack_anim), 0);
+} else {
+    ~npc_rangeattack;
+}
+
+// Projectile
+def_int $duration = ~player_projectile(npc_coord, coord, uid, iron_arrow_travel, 41, 31, 51, 16, -5, 64, 10);
+
+// Sound
+sound_synth(mcannon_fire, 0, 0);
+
+%npc_action_delay = add(map_clock, 4);
+
+// Damage calculation
+def_int $damage = 0;
+def_int $attack_roll = ~npc_ranged_attack_roll; // Assuming this exists, similar to magic
+def_int $defence_roll = ~player_defence_roll_specific(^ranged_style);
+
+if (randominc($attack_roll) > randominc($defence_roll)) {
+    // Calculate max hit based on NPC strength or param
+    def_int $max_hit = 10; // Default
+    // $max_hit = npc_param(ranged_max_hit); // If you add this param
+    
+    $damage = randominc($max_hit);
+    
+    // Check prayer
+    if (%prayer_protectfrommissiles = ^true) {
+        $damage = 0; // Or reduced
+        mes("Your prayer protects you from the missile!");
+    }
+}
+
+queue(combat_damage_player, calc($duration / 30), $damage);
+queue(playerhit_n_retaliate, calc($duration / 30), npc_uid);
+~npc_set_attack_vars;
+
+
+[proc,tribrid_magic_attack]
+if (stat(hitpoints) = 0) return;
+
+// Face player
+if_close;
+
+// Animation
+if (npc_param(attack_anim) ! null) {
+    npc_anim(npc_param(attack_anim), 0);
+} else {
+    npc_anim(human_castcurse, 0); // Default cast
+}
+
+// Projectile / Graphic
+def_spotanim $projectile_id = fireblast_travel; // Fire blast projectile
+def_spotanim $impact_graphic = fireblast_impact; // Fire blast impact
+
+def_int $duration = ~player_projectile(npc_coord, coord, uid, $projectile_id, 43, 31, 51, 16, -5, 64, 10);
+
+// Sound
+sound_synth(fire_strike_all, 0, 0);
+
+%npc_action_delay = add(map_clock, 4);
+
+// Damage calculation
+def_int $damage = 0;
+def_int $attack_roll = ~npc_magic_attack_roll_no_prot;
+def_int $defence_roll = ~player_defence_roll_specific(^magic_style);
+
+if (randominc($attack_roll) > randominc($defence_roll)) {
+    // Calculate max hit
+    def_int $max_hit = 10; // Default
+    
+    $damage = randominc($max_hit);
+    
+    // Check prayer
+    if (%prayer_protectfrommagic = ^true) {
+        $damage = 0; // Or reduced
+        mes("Your prayer protects you from the magic!");
+    }
+} else {
+    // Splash graphic
+    $impact_graphic = failedspell_impact; // Splash
+}
+
+// Queue impact graphic
+spotanim_pl($impact_graphic, 0, $duration);
+
+queue(combat_damage_player, calc($duration / 30), $damage);
+queue(playerhit_n_retaliate, calc($duration / 30), npc_uid);
+~npc_set_attack_vars;

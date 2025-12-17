@@ -1,0 +1,141 @@
+[opheld1,penguin_whistle] @penguin_drop;
+[opnpcu,pet_penguin]
+switch_obj(last_useitem){
+    case raw_shrimp : {
+        inv_del(inv, raw_shrimp, 1);
+        mes("You feed the penguin a raw shrimp.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
+        anim(human_pickuptable, 0);        
+    }
+    case raw_anchovies : {
+        inv_del(inv, last_useitem, 1);
+        mes("You feed the penguin a raw anchovy.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
+        anim(human_pickuptable, 0);        
+    }
+    case raw_salmon : {
+        inv_del(inv, last_useitem, 1);
+        mes("You feed the penguin a raw salmon.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
+        anim(human_pickuptable, 0);        
+    }
+    case raw_trout : {
+        inv_del(inv, last_useitem, 1);
+        mes("You feed the penguin a raw trout.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
+        anim(human_pickuptable, 0);        
+    }
+    case raw_tuna : {
+        inv_del(inv, last_useitem, 1);
+        mes("You feed the penguin a raw tuna.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
+        anim(human_pickuptable, 0);        
+    }
+    case raw_shark : {
+        inv_del(inv, last_useitem, 1);
+        mes("You feed the penguin a raw shark.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
+        anim(human_pickuptable, 0);        
+    }
+    case raw_sardine : {
+        inv_del(inv, last_useitem, 1);
+        mes("You feed the penguin a raw sardine.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
+        anim(human_pickuptable, 0);        
+    }
+    case raw_giant_carp : {
+        inv_del(inv, last_useitem, 1);
+        mes("You feed the penguin a raw giant carp.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
+        anim(human_pickuptable, 0);        
+    }
+    case raw_cod : {
+        inv_del(inv, last_useitem, 1);
+        mes("You feed the penguin a raw cod.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
+        anim(human_pickuptable, 0);        
+    }
+    case raw_herring : {
+        inv_del(inv, last_useitem, 1);
+        mes("You feed the penguin a raw herring.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
+        anim(human_pickuptable, 0);        
+    
+    }
+    case raw_pike : {
+        inv_del(inv, last_useitem, 1);
+        mes("You feed the penguin a raw pike.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
+        anim(human_pickuptable, 0);        
+    }
+    case raw_mackerel : {
+        inv_del(inv, last_useitem, 1);
+        mes("You feed the penguin a raw mackerel.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
+        anim(human_pickuptable, 0);
+        
+    }
+    case raw_bass : {
+        inv_del(inv, last_useitem, 1);
+        mes("You feed the penguin a raw bass.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
+        anim(human_pickuptable, 0);
+    
+    }
+    case raw_lobster : {
+        inv_del(inv, last_useitem, 1);
+        mes("You feed the penguin a raw lobster.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
+        anim(human_pickuptable, 0);        
+    
+    }
+    case raw_mantaray : {
+        inv_del(inv, last_useitem, 1);
+        mes("You feed the penguin a raw mantaray.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
+        anim(human_pickuptable, 0);
+        
+    }
+    case raw_seaturtle : {
+        inv_del(inv, last_useitem, 1);
+        mes("You feed the penguin a raw seaturtle.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
+        anim(human_pickuptable, 0);        
+    }
+    case default : {
+        mes("The penguin ignores you.");
+        return;
+    }
+}
+
+[ai_timer,pet_penguin]
+def_int $random = random(3);
+switch_int($random) {
+    case 0 : npc_say("I wish it was colder..");
+    case 1 : npc_say("Feed me, human!");
+    case 2 : npc_say("Tfw no penguin gf");
+    case 3 : npc_say("Carry me, my feet are tired");
+}
+
+[label,penguin_drop]
+if (map_members = false) {
+    mes(^mes_members_do_that); //todo: verify if there is a specific message for trying to drop in f2p
+    return;
+}
+if (npc_finduid(%follower_uid) = true) {
+    mes("You already have a follower."); //osrs
+    return;
+}
+inv_delslot(inv, last_slot);
+sound_synth(put_down, 0, 0);
+~penguin_spawn(oc_param(last_item, follower_id));
+
+[proc,penguin_spawn](npc $type)
+npc_add(coord, $type, ^max_32bit_int);
+%follower_obj = nc_param(npc_type, pet_item_id);
+%follower_uid = npc_uid;
+%npc_attacking_uid = uid;
+npc_setmode(playerfollow);
+npc_say("OUCH! You dropped me!");
+npc_settimer(30);
+

@@ -214,6 +214,9 @@ if ($random < 5) {
 }
 
 [queue,hellhound_kill]
+if (%active_slayer_task = ^hellhound){
+    @slayer_kill(%active_slayer_task, %task_amount, %current_count);
+}
 if (%e_ctoggle = ^e_toggle_on){
     mes("You etch another tally into your ledger.");
 }

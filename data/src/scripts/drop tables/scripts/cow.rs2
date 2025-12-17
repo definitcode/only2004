@@ -13,6 +13,11 @@ obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);
 // Normal drop
 //obj_add(npc_coord, raw_beef, 1, ^lootdrop_duration);
 //obj_add(npc_coord, cow_hide, 1, ^lootdrop_duration);
+switch_int(random(999999)){
+    case 999999 : {
+        obj_add(npc_coord, cow_leash, 1, ^lootdrop_duration);
+    }
+}
 
 def_int $hide_multi = 1;
 def_int $beef_multi = 1;

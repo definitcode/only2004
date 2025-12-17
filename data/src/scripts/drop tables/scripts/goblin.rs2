@@ -142,4 +142,7 @@ if ($dropint < 3) {
 if (%e_ctoggle = ^e_toggle_on){
     mes("You etch another tally into your ledger.");
 }
+if (%active_slayer_task = ^goblin){
+    @slayer_kill(%active_slayer_task, %task_amount, %current_count);
+}
 %goblin_kc = calc(%goblin_kc + 1);

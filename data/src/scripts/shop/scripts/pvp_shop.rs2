@@ -1,5 +1,5 @@
 // Bloody coin shop NPC trigger (make sure _shop_keeper_bloody exists)
-[opnpc3,_shop_keeper_bloody] ~openshop_bloody_activenpc;
+
 
 // Open bloody coin shop from proc
 [proc,openshop_bloody](inv $shop, int $shop_buy, int $shop_sell, int $shop_haggle, string $title)
@@ -22,6 +22,21 @@ if (%gamemode_selected ! ^gamemode_pvp){
     mes("You cannot access bloody coin shops as your gamemode!");
     return;
 }
+%shop = npc_param(owned_shop);
+%shop_buy = npc_param(shop_buy_multiplier);
+%shop_sell = npc_param(shop_sell_multiplier);
+%shop_haggle = npc_param(shop_delta);
+if (%gamemode_selected = ^gamemode_ironman | %gamemode_selected = ^gamemode_hcim | %gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim){
+    mes("You cannot access bloody coin shops as your gamemode!");
+    return;
+}
+if_settext(shop_template_bloody:com_76, npc_param(shop_title));
+inv_transmit(inv, shop_template_bloody_side:inv);
+inv_transmit(%shop, shop_template_bloody:inv);
+if_openmain_side(shop_template_bloody, shop_template_bloody_side);
+
+// Open bloody coin shop from active NPC
+[proc,openshop_bloodyfence_activenpc]
 %shop = npc_param(owned_shop);
 %shop_buy = npc_param(shop_buy_multiplier);
 %shop_sell = npc_param(shop_sell_multiplier);

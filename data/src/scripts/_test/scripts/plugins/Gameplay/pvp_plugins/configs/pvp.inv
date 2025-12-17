@@ -33,3 +33,11 @@ stock26=faladian_sword,10,25
 stock27=stake_dagger,10,25
 stock28=shield_of_arrav,50,25
 stock29=murderers_handbook,50,25
+stock30=gear_box,100,5
+
+[pvp_fence]
+scope=shared
+size=240
+restock=yes
+stackall=yes
+allstock=yes
