@@ -225,6 +225,9 @@ if ($random < 4) {
 if (~wilderness_level(coord) > 0){
     obj_add(coord, ~wilderness_table, ^lootdrop_duration);
 }
+if (%active_slayer_task = ^green_dragon){
+    @slayer_kill(%active_slayer_task, %task_amount, %current_count);
+}
 if (%e_ctoggle = ^e_toggle_on){
     mes("You etch another tally into your ledger.");
 }

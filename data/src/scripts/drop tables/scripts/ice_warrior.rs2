@@ -53,6 +53,9 @@ if ($random < 3) {
 if (~wilderness_level(coord) > 0){
     obj_add(coord, ~wilderness_table_low, ^lootdrop_duration);
 }
+if (%active_slayer_task = ^ice_warrior){
+    @slayer_kill(%active_slayer_task, %task_amount, %current_count);
+}
 if (%e_ctoggle = ^e_toggle_on){
     mes("You etch another tally into your ledger.");
 }

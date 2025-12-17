@@ -208,7 +208,7 @@ if (p_finduid(uid) = true) {
     inv_add(bank, jug_bad_wine, 100);
     inv_add(bank, jug_wine, 100);
     inv_add(bank, half_full_wine_jug, 100);
-    inv_add(bank, strength4, 100);
+    inv_add(bank, 4dose1strength, 100);
     inv_add(bank, 3dose1strength, 100);
     inv_add(bank, 2dose1strength, 100);
     inv_add(bank, 1dose1strength, 100);

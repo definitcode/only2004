@@ -1,0 +1,12 @@
+[pet_penguin]
+vislevel=hide
+name=Penguin
+desc=A penguin.
+model1=model_3003_npc
+walkanim=penguin_walk
+readyanim=penguin_ready
+op1=Unsummon
+param=death_anim,penguin_death
+category=custompet
+blockwalk=none
+param=pet_item_id,penguin_whistle

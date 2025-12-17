@@ -487,6 +487,7 @@ desc=Slightly magical.
 walkanim=human_walk_f,human_walk_b,human_walk_l,human_walk_r
 readyanim=human_ready
 op2=Attack
+op3=Pickpocket
 vislevel=9
 recol1s=14724
 recol1d=239

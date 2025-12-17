@@ -151,4 +151,7 @@ if ($random < 3) {
 if (%e_ctoggle = ^e_toggle_on){
     mes("You etch another tally into your ledger.");
 }
+if (%active_slayer_task = ^hobgoblin){
+    @slayer_kill(%active_slayer_task, %task_amount, %current_count);
+}
 %hobgoblin_kc = calc(%hobgoblin_kc + 1);

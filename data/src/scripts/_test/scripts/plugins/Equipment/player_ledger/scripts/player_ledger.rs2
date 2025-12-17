@@ -157,7 +157,7 @@ switch_int (%book_page) {
     "@bla@Dragon Slayer I: @whi@<$dragonslayer> |@bla@Legends Quest: @whi@<$legendsquest> |@bla@Heroes Quest: @whi@<$heroesquest> |@bla@Prestige: @whi@<$prestige> |@bla@Engineer: @whi@<$nurmofrep> |@bla@Rogue: @whi@<$roguerep> |||");
 
     case 3 : ~book("Task Tracker",
-    "@bla@Rogue Task | @bla@Status: @whi@<$r_taskstatus> | @bla@Item: @whi@<$r_taskitem> | @bla@Remainder: [@whi@<$r_amountleft>@bla@] ||@bla@Engineering Task | @bla@Status: @whi@<$e_taskstatus> | @bla@Item: @whi@<$e_taskitem> | @bla@Remainder: [@whi@<$e_amountleft>@bla@]|||");
+    "@bla@Rogue Task | @bla@Status: @whi@<$r_taskstatus> | @bla@Item: @whi@<$r_taskitem> | @bla@Remainder: [@whi@<$r_amountleft>@bla@] ||@bla@Engineering Task | @bla@Status: @whi@<$e_taskstatus> | @bla@Item: @whi@<$e_taskitem> | @bla@Remainder: [@whi@<$e_amountleft>@bla@] |     ||@bla@Slayer Task | [@whi@<tostring(~task_amount)>@bla@x @whi@<~task_name>@bla@] | @bla@Points: [@whi@<tostring(%slayer_points)>@bla@] |||");
 
     case 4 : ~book("Bosses", 
     "@bla@King Black Dragon: |[@whi@<tostring(%king_black_dragon_kc)>@bla@] ||@bla@Salarin the Twisted: |[@whi@<tostring(%salarin_the_twisted_kc)>@bla@] ||@bla@Bandit Camp Leaders: |[@whi@<tostring(%bandit_camp_leaders_kc)>@bla@] ||@bla@Gunthor The Brave: |[@whi@<tostring(%gunthor_kc)>@bla@]|@bla@Count Draynor: |[@whi@<tostring(%count_draynor_kc)>@bla@]|||");

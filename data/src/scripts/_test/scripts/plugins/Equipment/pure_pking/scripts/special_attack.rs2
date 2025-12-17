@@ -1,0 +1,8 @@
+[proc,sa_tick](int $amount)
+def_int $sa = %special_attack;
+if ($sa < 100){
+    %special_attack = calc($sa + 10);
+}
+if ($sa > 100) {
+    %special_attack = 100;
+}

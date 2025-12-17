@@ -29,7 +29,11 @@ if (%hunter > 349) {
 
 
 [queue,rat_kill]
+if (%active_slayer_task = ^giant_rat){
+    @slayer_kill(%active_slayer_task, %task_amount, %current_count);
+}
 if (%e_ctoggle = ^e_toggle_on){
     mes("You etch another tally into your ledger.");
 }
+
 %rat_kc = calc(%rat_kc + 1);

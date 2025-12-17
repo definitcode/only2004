@@ -1,0 +1,70 @@
+[snowball_mould]
+name=Snowball mould
+desc=Used to make snowballs.
+model=model_2706_obj
+2dxof=8
+2dzoom=2160
+2dyan=88
+2dxan=308
+cost=5
+weight=10lb
+members=yes
+tradeable=no
+
+[unpacked_snow]
+name=Unpacked snow
+desc=A pile of snow.
+cost=2
+model=model_2742_obj
+recol1s=21140
+recol1d=28539
+2dxof=-6
+2dzoom=1210
+2dyan=1892
+2dxan=264
+weight=2oz
+iop1=Pack
+members=yes
+tradeable=yes
+
+[snowball]
+name=Snowball
+desc=Can be used to prank others.
+model=model_2520_obj
+2dxof=1
+2dyof=-2
+2dzoom=690
+2dyan=256
+2dxan=364
+recol1s=25
+recol1d=32767
+recol2s=0
+recol2d=32767
+cost=1
+weight=80g
+members=yes
+
+
+
+[berret_green]
+name=Berret
+desc=Pouvez-vous parler francais?
+cost=80
+weight=40g
+members=yes
+model=model_3373_obj
+recol1s=12677
+recol1d=256
+2dxof=-1
+2dyof=-4
+2dzoom=560
+2dyan=1936
+2dxan=136
+iop2=Wear
+wearpos=hat
+manwear=model_198_obj_wear,0
+womanwear=model_373_obj_wear,0
+manhead=model_40_obj_wear
+womanhead=model_98_obj_wear
+
+

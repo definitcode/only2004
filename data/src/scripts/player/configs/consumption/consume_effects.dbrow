@@ -11,7 +11,7 @@ table=consume_table
 data=consumable,1dose1strength
 data=consumable,2dose1strength
 data=consumable,3dose1strength
-data=consumable,strength4
+data=consumable,4dose1strength
 data=stat_change,strength,3,10
 
 [defence_consumable_effect]

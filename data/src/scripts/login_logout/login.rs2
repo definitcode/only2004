@@ -44,6 +44,11 @@ settimer(health_regen, 100);
 ~fb_status;
 ~clearallq;
 %founders_transmog = ^transmog_off;
+if (%special_attack < 0){
+    %special_attack = 0;
+} else if (%special_attack > 100){
+    %special_attack = 100;
+}
 
 if (%gamemode_selected = ^gamemode_pvp){
     ~pk_skull(^max_32bit_int);

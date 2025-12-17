@@ -1,0 +1,27 @@
+// Christmas Event
+[snow_pile]
+name=Snow
+desc=A pile of snow.
+model=model_mudpile_upass
+forcedecor=yes
+active=yes
+recol1s=7329
+recol1d=31710
+op1=Gather-
+
+// 4/20 Event
+
+
+
+
+// New Years Event
+
+
+
+
+// Halloween Event
+
+
+
+
+// Easter Event

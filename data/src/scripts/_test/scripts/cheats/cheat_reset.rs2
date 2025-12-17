@@ -112,7 +112,7 @@ if (p_finduid(uid) = true) {
     %chompybird_kills = 0;
     %bunny_ears_unlocked = 0;
     %scythe_unlocked = 0;
-
+    %pk_skull = 0;
     p_logout;
 } else {
     @please_finish;
@@ -242,7 +242,15 @@ if (p_finduid(uid) = true) {
         stat_reset2();
         ~pk_skull(^max_32bit_int);
         return;        
-    }    
+    } else if (inv_total(worn, murderers_handbook) > 0){
+        inv_clear(inv);
+        inv_clear(worn);
+        inv_add(inv, murderers_handbook, 1);
+        p_teleport(0_48_54_12_36);
+        stat_reset2();
+        ~pk_skull(^max_32bit_int);
+        return;        
+    }   
     inv_clear(inv);
     inv_clear(worn);
     p_teleport(0_48_54_12_36);

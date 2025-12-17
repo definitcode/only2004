@@ -6,3 +6,4 @@
 ^gamemode_pvp = 5
 ^gamemode_hcuim = 6
 ^gamemode_hcim = 7
+^gamemode_explorer = 8

@@ -25,7 +25,7 @@ switch_int(~p_choice3("Can you make a strength potion?", 1, "Do you know any pot
                 inv_del(inv, red_spiders_eggs, 1);
                 inv_del(inv, limpwurt_root, 1);
                 inv_del(inv, coins, 5);
-                inv_add(inv, strength4, 1);
+                inv_add(inv, 4dose1strength, 1);
                 ~mesbox("The Apothecary gives you a strength potion.");
             } else if($option = 2) {
                 ~chatplayer("<p,neutral>No thanks.");

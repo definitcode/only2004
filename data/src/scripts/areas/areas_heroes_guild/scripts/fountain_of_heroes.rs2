@@ -1,4 +1,4 @@
-[oplocu,fountain_of_heroes]@enchant_item(last_useitem, last_useslot);
+[oplocu,fountain_of_heroes] @enchant_item(last_useitem, last_useslot);
 
 
 [label,enchant_item](obj $item, int $slot)
@@ -6,6 +6,12 @@ def_obj $obj = $item;
 def_int $imbued_cost = 250;
 def_string $string;
 switch_obj($obj){
+  case shattered_artifact : {
+    ~item_dip($slot, $obj, chaotic_artifact, $imbued_cost, "Chaotic Artifact");
+  }
+  case chaotic_artifact : {
+    ~item_dip($slot, $obj, chaotic_artifact, $imbued_cost, "Chaotic Artifact");
+  }
   case amulet_of_glory : {
     ~item_dip($slot, $obj, amulet_of_glory_2, $imbued_cost, "Amulet of glory");
   }
@@ -65,6 +71,15 @@ anim(human_pickupfloor, 0);
 p_delay(1);
 stat_advance(magic, 250);
 inv_setslot(inv, $slot, $new_item, 1); // assuming setslot 
-~objbox($new_item, "You feel a power emanating from the fountain as it charges your item.", 200, 0, -20);
-
+switch_obj($item){
+  case shattered_artifact : {
+    %special_attack = 100;
+    mes("Your Special Attack has been restored.");
+  }
+  case chaotic_artifact : {
+    %special_attack = 100;
+    mes("Your Special Attack has been restored.");
+  }
+}
+~objbox($new_item, "You feel a power emanating from the fountain as it charges your item.", 200, 0, -100);
 

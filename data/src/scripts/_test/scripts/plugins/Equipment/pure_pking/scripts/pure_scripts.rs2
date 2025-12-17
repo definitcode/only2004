@@ -1,5 +1,25 @@
 [opheld1,pk_box] @pk_box;
+[opheld1,bloody_casket] ~bloody_casket;
+[opheld1,gear_box] @gear_box_t1;
 
+[label,gear_box_t1]
+def_int $pk_class = %pk_class;
+switch_int($pk_class){
+    case ^tank : 
+        ~tank_gear;
+    case ^rogue : 
+        ~rogue_gear;
+    case ^ranger : 
+        ~ranged_gear;
+    case ^mage : 
+        ~mage_gear;
+    case ^trispec : 
+        ~tri_gear;
+    case ^berserker : 
+        ~berserker_gear;
+    case ^drunkenmonk : 
+        ~drunkmonk_gear;
+}
 [label,pk_box]
 %pk_class = ^no_class;
 if (%gamemode_selected ! ^gamemode_pvp){
@@ -295,4 +315,206 @@ if (stat_base(hitpoints) > 50){
 [proc,resurrection_gear]
 inv_add(inv, priest_gown, 1);
 inv_add(inv, priest_robe, 1);
-inv_add(inv, herring, 5);
+
+
+[proc,bloody_casket]
+inv_del(inv, bloody_casket, 1);
+def_int $random = random(128);
+if ($random < 5) {
+    inv_add(inv, bloody_coins, 5);
+} else if ($random < 9) {
+    inv_add(inv, bloody_coins, 10);
+} else if ($random < 12) {
+    inv_add(inv, bloody_coins, 15);
+} else if ($random < 14) {
+    inv_add(inv, steel_arrow, 20);
+} else if ($random < 20) {
+    inv_add(inv, chaosrune, 15);
+} else if ($random < 23) {
+    inv_add(inv, bloody_coins, 30);
+} else if ($random < 26) {
+    inv_add(inv, waterrune, 35);
+} else if ($random < 29) {
+    inv_add(inv, lawrune, 10);
+} else if ($random < 31) {
+    inv_add(inv, steel_arrow, 20);
+} else if ($random < 33) {
+    inv_add(inv, mindrune, 50);
+} else if ($random < 35) {
+    inv_add(inv, cosmicrune, 5);
+} else if ($random < 37) {
+    inv_add(inv, naturerune, 10);
+} else if ($random < 38) {
+    inv_add(inv, airrune, 50);
+} else if ($random < 39) {
+    inv_add(inv, earthrune, 15);
+} else if ($random < 46) {
+    inv_add(inv, ~randomherb);
+} else if ($random < 60) {
+    inv_add(inv, bloody_coins, 53);
+} else if ($random < 68) {
+    inv_add(inv, bloody_coins, 150);
+} else if ($random < 70) {
+    inv_add(inv, bloody_coins, 52);
+} else if ($random < 74) {
+    inv_add(inv, bloody_coins, 80);
+} else if ($random < 76) {
+    inv_add(inv, bloody_coins, 88);
+} else if ($random < 87) {
+    inv_add(inv, steel_crossbow, 1);
+} else if ($random < 93) {
+    inv_add(inv, sapphire_bolt, 20);
+} else if ($random < 95) {
+    inv_add(inv, black_scimitar, 1);
+} else if ($random < 96){
+    inv_add(inv, agility_token, 1);
+} else if ($random < 98) {
+    inv_add(inv, ~randomjewel);
+    inv_add(inv, ~randomjewel);
+    inv_add(inv, ~grindingtable);
+} else if ($random < 100) {
+    inv_add(inv, ~mid_tier_items);
+}
+
+
+
+[proc,tri_gear]
+if (inv_freespace(inv) > 18) {
+    // Balanced hybrid pure gear (medium combat)
+    inv_add(inv, silk_robe, 1);         // Black wizard robes (req lvl 30 magic)
+    inv_add(inv, silk_hat, 1);
+    inv_add(inv, leather_body, 1);       // Leather for melee (req lvl 1 str)
+    inv_add(inv, leather_chaps, 1);
+    inv_add(inv, leather_boots, 1);
+    inv_add(inv, iron_longsword, 1);    // Steel weapon (req lvl 30 attack)
+    inv_add(inv, pvp_badge, 1);
+    inv_add(inv, oak_longbow, 1);    // Willow shortbow (req lvl 10 ranged)
+    inv_add(inv, iron_arrow_p, 50);
+    inv_add(inv, iron_2h_sword, 1);     // Steel 2h sword (req lvl 30 attack)
+    inv_add(inv, mindrune, 75);
+    inv_add(inv, airrune, 150);
+    inv_add(inv, staff_of_fire, 1);      // Elemental staff (req lvl 10 magic & attack)
+    inv_add(inv, iron_dagger, 1);       // Steel dagger (req lvl 30 attack)
+    inv_add(inv, iron_sq_shield, 1);    // Steel shield (req lvl 30 defence)
+    inv_add(inv, cert_trout, 10);
+    inv_del(inv, gear_box, 1);
+
+} else {
+    mes("You need at least 19 inventory slots free.");
+}
+
+
+[proc,ranged_gear]
+if (inv_freespace(inv) > 14) {
+    // Bear + studded bear gear (req 40 str & ranged)
+    inv_add(inv, bear_coif, 1);        // Leather level 1 helmet, but bear sets req str/ranged
+    inv_add(inv, bear_body_b, 1);   // Studded body black (req 40 ranged)
+    inv_add(inv, bear_boots, 1);
+    inv_add(inv, bear_gloves, 1);
+    inv_add(inv, bear_cape, 1);
+    inv_add(inv, bear_chaps_b, 1);  // Studded chaps black (req 40 ranged)
+    inv_add(inv, pvp_badge, 1);
+    inv_add(inv, barbed_bolt, 25);
+    inv_add(inv, iron_crossbow, 1);
+    inv_add(inv, iron_dagger, 1);     // Black dagger (req 35 attack)
+    inv_add(inv, wooden_shield, 1);
+    inv_add(inv, cert_trout, 10);
+    inv_del(inv, gear_box, 1);
+} else {
+    mes("You need at least 15 inventory slots free.");
+}
+
+[proc,mage_gear]
+if (inv_freespace(inv) > 13) {
+    // Mage robes & battlestaff
+    inv_add(inv, silk_hat, 1);        // Black wizard hat (req 30 magic)
+    inv_add(inv, silk_robe, 1);       // Black wizard robe (req 30 magic)
+    inv_add(inv, silk_heavyskirt, 1);
+    inv_add(inv, silk_gloves, 1);
+    inv_add(inv, silk_cape, 1);
+    inv_add(inv, pvp_badge, 1);
+    inv_add(inv, book_of_chaos, 1);
+    inv_add(inv, mindrune, 75);
+    inv_add(inv, staff_of_fire, 1); // Battlestaff (req 50 attack & magic) — Mage has 65 magic, 10 attack (weapons req 10 attack minimum, battlestaff req 50 attack, so might not wield)
+    inv_add(inv, holy_water, 1);
+    inv_add(inv, airrune, 150);
+    inv_add(inv, cert_trout, 10);
+    inv_del(inv, gear_box, 1);
+} else {
+    mes("You need at least 14 inventory slots free.");
+}
+
+[proc,tank_gear]
+if (inv_freespace(inv) > 13) {
+    // Mithril tank gear
+    inv_add(inv, iron_full_helm, 1);
+    inv_add(inv, tank_chainbody, 1);
+    inv_add(inv, tank_platelegs, 1);
+    inv_add(inv, leather_gloves, 1);
+    inv_add(inv, leather_boots, 1);
+    inv_add(inv, pvp_badge, 1);
+    inv_add(inv, tank_kiteshield, 1);
+    inv_add(inv, tank_warhammer, 1);  // Black warhammer (req 35 attack)
+    inv_add(inv, iron_2h_sword, 1);   // Black 2h sword (req 35 attack)
+    inv_add(inv, cert_trout, 10);
+    inv_del(inv, gear_box, 1);
+} else {
+    mes("You need at least 14 inventory slots free.");
+}
+
+[proc,rogue_gear]
+if (inv_freespace(inv) > 13) {
+    // Bear gear for rogue (req 30 str/ranged)
+    inv_add(inv, bear_coif, 1);
+    inv_add(inv, bear_body, 1);
+    inv_add(inv, bear_boots, 1);
+    inv_add(inv, bear_gloves, 1);
+    inv_add(inv, bear_cape, 1);
+    inv_add(inv, bear_chaps, 1);
+    inv_add(inv, rogue_dagger, 1); // Black dagger (req 35 attack)
+    inv_add(inv, iron_dart_p, 1);
+    inv_add(inv, rogue_magnet, 1);
+    inv_add(inv, weapon_poison, 1);
+    inv_add(inv, 4doseantipoison, 1);
+    inv_add(inv, cert_trout, 10);
+    inv_add(inv, pvp_badge, 1);
+    inv_del(inv, gear_box, 1);
+} else {
+    mes("You need at least 14 inventory slots free.");
+}
+
+[proc,berserker_gear]
+if (inv_freespace(inv) > 13) {
+    // Bear gear for rogue (req 30 str/ranged)
+    inv_add(inv, bronze_med_helm, 1);
+    inv_add(inv, bronze_chainbody, 1);
+    inv_add(inv, leather_boots, 1);
+    inv_add(inv, leather_gloves, 1);
+    inv_add(inv, black_cape, 1);
+    inv_add(inv, leather_chaps, 1);
+    inv_add(inv, black_2h_sword, 1); // Black dagger (req 35 attack)
+    inv_add(inv, black_battleaxe, 1);
+    inv_add(inv, wooden_shield, 1);
+    inv_add(inv, 3dose1attack, 1);
+    inv_add(inv, cert_trout, 10);
+    inv_add(inv, pvp_badge, 1);
+    inv_del(inv, gear_box, 1);
+} else {
+    mes("You need at least 14 inventory slots free.");
+}
+
+[proc,drunkmonk_gear]
+if (inv_freespace(inv) > 13) {
+    // Bear gear for rogue (req 30 str/ranged)
+    inv_add(inv, stringstar, 1);
+    inv_add(inv, monkrobetop, 1);
+    inv_add(inv, monkrobebottom, 1);
+    inv_add(inv, leather_gloves, 1);
+    inv_add(inv, plainstaff, 1); // Black dagger (req 35 attack)
+    inv_add(inv, beer, 3);
+    inv_add(inv, cert_trout, 10);
+    inv_add(inv, pvp_badge, 1);
+    inv_del(inv, gear_box, 1);
+} else {
+    mes("You need at least 14 inventory slots free.");
+}

@@ -4,7 +4,7 @@ outputtype=namedobj
 val=1,1dose1strength
 val=2,2dose1strength
 val=3,3dose1strength
-val=4,strength4
+val=4,4dose1strength
 
 [potion_1attack]
 inputtype=int

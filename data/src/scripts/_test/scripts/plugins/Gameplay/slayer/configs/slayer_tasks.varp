@@ -1,0 +1,11 @@
+[active_slayer_task]
+scope=perm
+
+[task_amount]
+scope=perm
+
+[current_count]
+scope=perm
+
+[slayer_points]
+scope=perm

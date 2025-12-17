@@ -74,3 +74,53 @@ iop1=Summon
 tradeable=no
 param=follower_id,tree_pet
 param=no_alchemy,^true
+
+[penguin_whistle]
+name=Penguin whistle
+desc=Call a penguin to serve you.
+cost=10
+members=yes
+model=model_2433_obj
+2dyof=-2
+2dzoom=490
+2dyan=1208
+2dxan=152
+iop1=Blow
+weight=5g
+tradeable=no
+param=follower_id,pet_penguin
+param=no_alchemy,^true
+
+[pet_rock]
+name=Rock
+desc=a pretty solid pet!
+cost=10
+iop1=Place
+members=yes
+model=model_2571_obj
+2dxof=-5
+2dyof=-16
+2dzoom=820
+2dyan=20
+2dxan=204
+weight=1kg
+tradeable=no
+param=follower_id,pet_rock
+param=no_alchemy,^true
+
+[pet_death_wing]
+name=Bat Cage
+desc=Useful for catching bats.
+model=model_2663_obj
+2dzoom=1180
+2dyan=1668
+2dxan=192
+cost=20
+recol1s=10400
+recol1d=6144
+recol2s=10570 
+recol2d=19489  
+iop1=Release
+tradeable=no
+param=follower_id,pet_death_wing
+param=no_alchemy,^true

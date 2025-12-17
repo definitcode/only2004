@@ -1,0 +1,239 @@
+[opnpc1,slayer_expert] @slayer_menu;
+[opnpc2,slayer_expert] ~task_check;
+
+[label,slayer_menu]
+~chatnpc("<p,shock>Hello <name>! I am the local Slayer expert!");
+def_int $choice = ~p_choice4_header("New Task.", 1, "Check Task.", 2, "Slayer Shop.", 3, "Cancel Task.", 4, "*Slayer Menu*");
+switch_int($choice){
+    case 1 : {
+        if (%active_slayer_task = 0){
+            def_int $diff = ~p_choice3_header("Easy.", 1, "Medium.", 2, "Hard.", 3, "*Difficulty Selection*");
+            switch_int($diff){
+                case 1 : {
+                    ~new_slayer_task(0);
+                }
+                case 2 : {
+                    ~new_slayer_task(25);
+                }
+                case 3 : {
+                    ~new_slayer_task(50);
+                }
+            }
+            
+        } else {
+            mes("You need to finish your current task of killing <tostring(~task_amount)> more <~task_name>");
+            return;
+        }
+    }
+    case 2 : {
+        ~task_check;
+    }
+    case 3 : {
+        mes("Shop is not active at this moment!");
+        return;
+    }
+    case 4 : {
+        if (%active_slayer_task = 0) {
+            mes("You do not have an active task.");
+            return;
+        } else {
+            %active_slayer_task = 0;
+            mes("Your task has been cleared.");
+            mes("Slayer Points: <tostring(%slayer_points)>");
+        }
+    }
+}
+
+
+[label,slayer_kill](int $active_task, int $task_amount, int $current_count)
+if (~task_complete($active_task, $task_amount, $current_count) = false){
+    ~succesful_kill;
+    mes("You have killed a <~task_name>, marking a notch in your logbook.");
+    return;
+    //mes("<tostring(~task_amount)> <~task_name> kills left.");
+} else if (~task_complete($active_task, $task_amount, $current_count) = true){
+    //mes("You have killed a <~task_name>, marking a notch in your logbook.");
+    ~succesful_kill;
+    if (%active_slayer_task > 12){
+        %slayer_points = calc(%slayer_points + 10 + %active_slayer_task);
+    } else {
+        %slayer_points = calc(%slayer_points + 10);
+
+    }
+    mes("You have completed your task! Return to the Slayer expert for another.");
+    ~task_reset;
+    return;
+}
+
+[proc,new_slayer_task](int $difficulty)
+def_string $active_task;
+def_int $random_task = random(6);
+def_int $count = random(25);
+switch_int($difficulty){
+    case 0 : {
+        $random_task = $random_task;
+    }
+    case 25 : {
+        $random_task = calc($random_task + random(4));
+    }
+    case 50 : {
+        $random_task = calc($random_task + random(9));
+    }
+
+}
+switch_int($random_task){
+    case 0 : {
+        %active_slayer_task = ^giant_rat;
+        $active_task = "Giant Rat";
+    }
+    case 1 : {
+        %active_slayer_task = ^goblin;
+        $active_task = "Goblin";
+        
+    }
+    case 2 : {
+        %active_slayer_task = ^skeleton;
+        $active_task = "Skeleton";
+    }
+    case 3 : {
+        %active_slayer_task = ^hobgoblin;
+        $active_task = "Hobgoblin";
+    }
+    case 4 : {
+        %active_slayer_task = ^dark_wizard;
+        $active_task = "Dark Wizard";
+    }
+    case 5 : {
+        %active_slayer_task = ^wizard;
+        $active_task = "Wizard";
+    }
+    case 6 : {
+        %active_slayer_task = ^giant;
+        $active_task = "Giant";
+    }
+    case 7 : {
+        %active_slayer_task = ^fire_giant;
+        $active_task = "Fire Giant";
+    }
+    case 8 : {
+        %active_slayer_task = ^moss_giant;
+        $active_task = "Moss Giant";
+    }
+    case 9 : {
+        %active_slayer_task = ^green_dragon;
+        $active_task = "Green Dragon";
+    }
+    case 10 : {
+        %active_slayer_task = ^blue_dragon;
+        $active_task = "Blue Dragon";
+    }
+    case 11 : {
+        %active_slayer_task = ^red_dragon;
+        $active_task = "Red Dragon";
+    }
+    case 12 : {
+        %active_slayer_task = ^black_dragon;
+        $active_task = "Black Dragon";
+    }
+    case 13 : {
+        %active_slayer_task = ^ice_giant;
+        $active_task = "Ice Giant";
+    }
+    case 14 : {
+        %active_slayer_task = ^ice_warrior;
+        $active_task = "Ice Warrior";
+    }
+    case 15 : {
+        %active_slayer_task = ^hellhound;
+        $active_task = "Hellhound";
+    }
+}
+%task_amount = calc($count + $difficulty);
+%current_count = 0;
+mes("Slay <tostring($count)> <$active_task>'s.");
+~mesbox("You now have a new slayer task!");
+
+[proc,task_check]
+mes("<tostring(~task_amount)> <~task_name> kills left.");
+mes("Slayer Points: <tostring(%slayer_points)>");
+
+[proc,task_reset]
+%active_slayer_task = 0;
+%task_amount = 0;
+%current_count = 0;
+
+[proc,task_amount]()(int)
+def_int $remaining = calc(%task_amount - %current_count);
+return($remaining);
+
+[proc,task_name]()(string)
+def_string $string;
+def_int $active_task = calc(%active_slayer_task - 1);
+switch_int($active_task){
+    case 0 : {
+        $string = "Giant Rat";
+    }
+    case 1 : {
+        $string = "Goblin";
+    }
+    case 2 : {
+        $string = "Skeleton";
+    }
+    case 3 : {
+        $string = "Hobgoblin";
+    }
+    case 4 : {
+        $string = "Dark Wizard";
+    }
+    case 5 : {
+        $string = "Wizard";
+    }
+    case 6 : {
+        $string = "Giant";
+    }
+    case 7 : {
+        $string = "Fire Giant";
+    }
+    case 8 : {
+        $string = "Moss Giant";
+    }
+    case 9 : {
+        $string = "Green Dragon";
+    }
+    case 10 : {
+        $string = "Blue Dragon";
+    }
+    case 11 : {
+        $string = "Red Dragon";
+    }
+    case 12 : {
+        $string = "Black Dragon";
+    }
+}
+return($string);
+
+[proc,task_complete](int $active_task, int $task_amount, int $current_count)(boolean)
+if ($active_task ! 0 & $current_count < $task_amount ){
+    return(false);
+} else {
+    return(true);
+}
+
+
+[proc,succesful_kill]
+%current_count = calc(%current_count + 1);
+if (~task_amount < 0){
+    return;
+} else if (%task_amount = 0) {
+    if (%active_slayer_task > 12){
+        %slayer_points = calc(%slayer_points + 10 + %active_slayer_task);
+    } else {
+        %slayer_points = calc(%slayer_points + 10);
+
+    }
+    mes("You have completed your task! Return to the Slayer expert for another.");
+    ~task_reset;
+    return;       
+} else {
+    mes("Remaining Kills: <tostring(~task_amount)> <~task_name>");
+}

@@ -25,15 +25,15 @@ switch_obj(last_useitem){
     case blue_powder : @add_powder_stat(last_useitem, magic, 5);
     case yellow_powder : @add_powder_stat(last_useitem, prayer, 5);
 
-    case white_powder : @add_powder_potion(last_useitem, 3dose1attack);
-    case black_powder : @add_powder_potion(last_useitem, 3dose1defense);
-    case orange_powder : @add_powder_potion(last_useitem, 3dose1strength);
-    case mixed_powder : @add_powder_potion(last_useitem, 3doseantipoison);
-    case sapphire_powder : @add_powder_potion(last_useitem, 3doserangerspotion);
-    case fire_powder : @add_powder_potion(last_useitem, 3dosepotionofzamorak); 
-    case tulip_powder : @add_powder_potion(last_useitem, 3doseprayerrestore);
-    case sunflower_powder : @add_powder_potion(last_useitem, 3dosestatrestore);
-    case precious_powder : @add_powder_potion(last_useitem, 3doseprayerrestore);
+    case white_powder : @add_powder_potion(last_useitem, 4dose1attack);
+    case black_powder : @add_powder_potion(last_useitem, 4dose1defense);
+    case orange_powder : @add_powder_potion(last_useitem, 4dose1strength);
+    case mixed_powder : @add_powder_potion(last_useitem, 4doseantipoison);
+    case sapphire_powder : @add_powder_potion(last_useitem, 4doserangerspotion);
+    case fire_powder : @add_powder_potion(last_useitem, 4dosepotionofzamorak); 
+    case tulip_powder : @add_powder_potion(last_useitem, 4doseprayerrestore);
+    case sunflower_powder : @add_powder_potion(last_useitem, 4dosestatrestore);
+    case precious_powder : @add_powder_potion(last_useitem, 4doseprayerrestore);
     case default : mes("You cannot do this.");
 }
 
@@ -50,15 +50,15 @@ switch_obj(last_useitem){
     case blue_powder : @add_powder_stat(last_useitem, magic, 5);
     case yellow_powder : @add_powder_stat(last_useitem, prayer, 5);
 
-    case white_powder : @add_powder_potion(last_useitem, 3dose1attack);
-    case black_powder : @add_powder_potion(last_useitem, 3dose1defense);
-    case orange_powder : @add_powder_potion(last_useitem, 3dose1strength);
-    case mixed_powder : @add_powder_potion(last_useitem, 3doseantipoison);
-    case sapphire_powder : @add_powder_potion(last_useitem, 3doserangerspotion);
-    case fire_powder : @add_powder_potion(last_useitem, 3dosepotionofzamorak); 
-    case tulip_powder : @add_powder_potion(last_useitem, 3doseprayerrestore);
-    case sunflower_powder : @add_powder_potion(last_useitem, 3dosestatrestore);
-    case precious_powder : @add_powder_potion(last_useitem, 3doseprayerrestore);
+    case white_powder : @add_powder_potion(last_useitem, 4dose1attack);
+    case black_powder : @add_powder_potion(last_useitem, 4dose1defense);
+    case orange_powder : @add_powder_potion(last_useitem, 4dose1strength);
+    case mixed_powder : @add_powder_potion(last_useitem, 4doseantipoison);
+    case sapphire_powder : @add_powder_potion(last_useitem, 4doserangerspotion);
+    case fire_powder : @add_powder_potion(last_useitem, 4dosepotionofzamorak); 
+    case tulip_powder : @add_powder_potion(last_useitem, 4doseprayerrestore);
+    case sunflower_powder : @add_powder_potion(last_useitem, 4dosestatrestore);
+    case precious_powder : @add_powder_potion(last_useitem, 4doseprayerrestore);
     case default : mes("You cannot do this.");
 }
 [label,add_powder_stat](obj $used, stat $stat, int $amount)

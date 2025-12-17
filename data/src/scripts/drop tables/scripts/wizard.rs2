@@ -142,4 +142,7 @@ if ($random < 8) {
 if (%e_ctoggle = ^e_toggle_on){
     mes("You etch another tally into your ledger.");
 }
+if (%active_slayer_task = ^wizard){
+    @slayer_kill(%active_slayer_task, %task_amount, %current_count);
+}
 %wizard_kc = calc(%wizard_kc + 1);

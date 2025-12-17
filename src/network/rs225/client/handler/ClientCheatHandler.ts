@@ -41,6 +41,17 @@ export default class ClientCheatHandler extends MessageHandler<ClientCheat> {
         if (cmd === undefined || cmd.length <= 0) {
             return false;
         }
+        if (cmd === 'yell'
+        ) {
+            if (args.length === 0) {
+                player.messageGame('Usage: ::yell <message>');
+                return true;
+            }
+
+            const message = args.join(' ');
+            World.broadcastMes(`[GLOBAL] ${player.displayName} [${player.combatLevel}]: ${message}`);
+            return true;
+        }
 
         if (player.staffModLevel >= 2) {
             player.addSessionLog(LoggerEventType.MODERATOR, 'Ran cheat', cheat);
@@ -132,7 +143,7 @@ export default class ClientCheatHandler extends MessageHandler<ClientCheat> {
                             }
                         }
                     } catch (_) {
-                         
+
                         // invalid arguments
                         return false;
                     }
@@ -174,6 +185,31 @@ export default class ClientCheatHandler extends MessageHandler<ClientCheat> {
                 }
 
                 player.messageGame(`Naive move strategy: ${player.moveStrategy === MoveStrategy.NAIVE ? 'naive' : 'smart'}`);
+            } else if (cmd === 'teleto') {
+                // custom
+                if (args.length < 1) {
+                    return false;
+                }
+
+                // ::teleto <username>
+                const other = World.getPlayerByUsername(args[0]);
+                if (!other) {
+                    player.messageGame(`${args[0]} is not logged in.`);
+                    return false;
+                }
+
+                player.closeModal();
+
+                if (!player.canAccess()) {
+                    player.messageGame('Please finish what you are doing first.');
+                    return false;
+                }
+
+                player.clearInteraction();
+                player.unsetMapFlag();
+
+                player.teleJump(other.x, other.z, other.level);
+
             } else if (cmd === 'random') {
                 player.afkEventReady = true;
             }
@@ -499,30 +535,7 @@ export default class ClientCheatHandler extends MessageHandler<ClientCheat> {
                 }
 
                 player.teleJump((mx << 6) + lx, (mz << 6) + lz, level);
-            } else if (cmd === 'teleto' && Environment.NODE_PRODUCTION) {
-                // custom
-                if (args.length < 1) {
-                    return false;
-                }
 
-                // ::teleto <username>
-                const other = World.getPlayerByUsername(args[0]);
-                if (!other) {
-                    player.messageGame(`${args[0]} is not logged in.`);
-                    return false;
-                }
-
-                player.closeModal();
-
-                if (!player.canAccess()) {
-                    player.messageGame('Please finish what you are doing first.');
-                    return false;
-                }
-
-                player.clearInteraction();
-                player.unsetMapFlag();
-
-                player.teleJump(other.x, other.z, other.level);
             } else if (cmd === 'setvis' && Environment.NODE_PRODUCTION) {
                 // authentic
                 if (args.length < 1) {
