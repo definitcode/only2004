@@ -1,4 +1,7 @@
 [opnpc1,starved_ragger] @pvp_shop;
+[opnpc3,starved_fence] ~openshop_bloodyfence_activenpc;
+[opnpc1,starved_fence] ~openshop_bloodyfence_activenpc;
+[opnpc3,starved_ragger] ~openshop_bloody_activenpc;
 [opnpc4,starved_ragger] 
 if (%gamemode_selected = ^gamemode_pvp){
     @pvp_bank;
