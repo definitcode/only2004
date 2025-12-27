@@ -809,7 +809,7 @@ y=227
 buttontype=normal
 width=32
 height=32
-model=model_2745_obj
+model=model_2837_obj
 zoom=400
 xan=500
 yan=100
@@ -826,6 +826,7 @@ font=q8
 text=What would you like to buy with your tickets?
 colour=0xFFFF00
 
+//robinhood
 [com_97]
 type=model
 x=359
@@ -833,7 +834,7 @@ y=226
 buttontype=normal
 width=32
 height=32
-model=model_2763_obj
+model=model_3021_obj
 zoom=700
 xan=600
 option=Buy for 50,000 tickets:
