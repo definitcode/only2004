@@ -57,6 +57,11 @@ npc_setmode(null);
 p_delay(0);
 npc_changetype_keepall(sheep_sheared, 100);
 inv_add(inv, wool, $multi);
+switch_int(random(999999)){
+    case 999999 : {
+        inv_add(inv, sheep_leash, 1);
+    }
+}
 mes("You get <tostring($multi)>x wool.");
 ~objbox(wool, "You get <tostring($multi)>x wool.", 250, 0, divide(^objbox_height, 2));
 

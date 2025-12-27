@@ -166,7 +166,7 @@ tradeable=yes
 
 [lump_of_coal]
 cost=45
-name=Coal
+name=Lump o' Coal
 desc=a terrible gift!
 model=model_2748_obj
 recol1s=11488

@@ -10,7 +10,11 @@ gosub(npc_death);
 
 // todo confirm duration
 
-
+switch_int(random(999999)){
+    case 999999 : {
+        obj_add(npc_coord, ernest_cage, 1, ^lootdrop_duration);
+    }
+}
 
 // Default drop from config.
 obj_add(npc_coord, npc_param(death_drop), 1, ^lootdrop_duration);

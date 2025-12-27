@@ -26,7 +26,17 @@ if (inv_freespace(inv) > 3){
 if (inv_freespace(inv) > 3){
     inv_add(inv, scythe, 1);
     inv_add(inv, pumpkin, 1);
-    inv_add(inv, pet_death_wing, 1);
+    switch_int(random(2)){
+        case 0 : {
+            inv_add(inv, pet_death_wing, 1);
+        }
+        case 1 : {
+            inv_add(inv, mummy_wraps, 1);
+        }
+        case 2 : {
+            inv_add(inv, hellhound_cage, 1);
+        }
+    }
     switch_int(random(2)){
         case 0 : {
             inv_add(inv, halloweenmask_blue, 1);
@@ -49,6 +59,17 @@ if (inv_freespace(inv) > 3){
 if (inv_freespace(inv) > 3){
     spotanim_pl(levelup_anim, 120, 0);
     inv_add(inv, beer, 1);
+    switch_int(random(2)){
+        case 0 : {
+            inv_add(inv, orc_tooth, 1);
+        }
+        case 1 : {
+            inv_add(inv, lizard_beads, 1);
+        }
+        case 2 : {
+            inv_add(inv, pet_ice_spider, 1);
+        }
+    }
     inv_del(inv, new_year_cracker, 1);
     say("Wooo! Happy New Year!");
     %newyearseve = 1;
