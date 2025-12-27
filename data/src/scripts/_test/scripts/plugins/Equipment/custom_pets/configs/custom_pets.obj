@@ -285,3 +285,5 @@ model=model_2825_obj
 members=yes
 tradeable=no
 iop1=Rub
+param=follower_id,leprechaun_pet
+param=no_alchemy,^true
