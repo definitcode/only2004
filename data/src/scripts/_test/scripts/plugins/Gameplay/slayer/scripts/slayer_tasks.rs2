@@ -148,9 +148,10 @@ switch_int($random_task){
         $active_task = "Hellhound";
     }
 }
-%task_amount = calc($count + $difficulty);
+def_int $task_amount = calc($count + $difficulty);
+%task_amount = $task_amount;
 %current_count = 0;
-mes("Slay <tostring($count)> <$active_task>'s.");
+mes("Slay <tostring($task_amount)> <$active_task>'s.");
 ~mesbox("You now have a new slayer task!");
 
 [proc,task_check]
