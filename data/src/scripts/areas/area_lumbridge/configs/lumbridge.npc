@@ -138,6 +138,7 @@ desc=Servant of the Duke of Lumbridge.
 walkanim=human_walk_f,human_walk_b,human_walk_l,human_walk_r
 readyanim=human_ready
 op1=Talk-to
+op3=Pickpocket
 recol1s=2340
 recol1d=5378
 recol2s=14724
