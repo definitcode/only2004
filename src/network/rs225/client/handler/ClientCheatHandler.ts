@@ -49,7 +49,7 @@ export default class ClientCheatHandler extends MessageHandler<ClientCheat> {
             }
 
             const message = args.join(' ');
-            World.broadcastMes(`[GLOBAL] ${player.displayName} [${player.combatLevel}]: ${message}`);
+            World.broadcastMes(`[YELL] ${player.displayName}(${player.combatLevel}): ${message}`);
             return true;
         }
 

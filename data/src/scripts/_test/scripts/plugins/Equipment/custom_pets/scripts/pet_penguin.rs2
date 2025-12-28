@@ -4,86 +4,102 @@ switch_obj(last_useitem){
     case raw_shrimp : {
         inv_del(inv, raw_shrimp, 1);
         mes("You feed the penguin a raw shrimp.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
         anim(human_pickuptable, 0);        
     }
     case raw_anchovies : {
-        inv_del(inv, raw_anchovies, 1);
+        inv_del(inv, last_useitem, 1);
         mes("You feed the penguin a raw anchovy.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
         anim(human_pickuptable, 0);        
     }
     case raw_salmon : {
-        inv_del(inv, raw_salmon, 1);
+        inv_del(inv, last_useitem, 1);
         mes("You feed the penguin a raw salmon.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
         anim(human_pickuptable, 0);        
     }
     case raw_trout : {
-        inv_del(inv, raw_trout, 1);
+        inv_del(inv, last_useitem, 1);
         mes("You feed the penguin a raw trout.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
         anim(human_pickuptable, 0);        
     }
     case raw_tuna : {
-        inv_del(inv, raw_tuna, 1);
+        inv_del(inv, last_useitem, 1);
         mes("You feed the penguin a raw tuna.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
         anim(human_pickuptable, 0);        
     }
     case raw_shark : {
-        inv_del(inv, raw_shark, 1);
+        inv_del(inv, last_useitem, 1);
         mes("You feed the penguin a raw shark.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
         anim(human_pickuptable, 0);        
     }
     case raw_sardine : {
-        inv_del(inv, raw_sardine, 1);
+        inv_del(inv, last_useitem, 1);
         mes("You feed the penguin a raw sardine.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
         anim(human_pickuptable, 0);        
     }
     case raw_giant_carp : {
-        inv_del(inv, raw_giant_carp, 1);
+        inv_del(inv, last_useitem, 1);
         mes("You feed the penguin a raw giant carp.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
         anim(human_pickuptable, 0);        
     }
     case raw_cod : {
-        inv_del(inv, raw_cod, 1);
+        inv_del(inv, last_useitem, 1);
         mes("You feed the penguin a raw cod.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
         anim(human_pickuptable, 0);        
     }
     case raw_herring : {
-        inv_del(inv, raw_herring, 1);
+        inv_del(inv, last_useitem, 1);
         mes("You feed the penguin a raw herring.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
         anim(human_pickuptable, 0);        
     
     }
     case raw_pike : {
-        inv_del(inv, raw_pike, 1);
+        inv_del(inv, last_useitem, 1);
         mes("You feed the penguin a raw pike.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
         anim(human_pickuptable, 0);        
     }
     case raw_mackerel : {
-        inv_del(inv, raw_mackerel, 1);
+        inv_del(inv, last_useitem, 1);
         mes("You feed the penguin a raw mackerel.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
         anim(human_pickuptable, 0);
         
     }
     case raw_bass : {
-        inv_del(inv, raw_bass, 1);
+        inv_del(inv, last_useitem, 1);
         mes("You feed the penguin a raw bass.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
         anim(human_pickuptable, 0);
     
     }
     case raw_lobster : {
-        inv_del(inv, raw_lobster, 1);
+        inv_del(inv, last_useitem, 1);
         mes("You feed the penguin a raw lobster.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
         anim(human_pickuptable, 0);        
     
     }
     case raw_mantaray : {
-        inv_del(inv, raw_mantaray, 1);
+        inv_del(inv, last_useitem, 1);
         mes("You feed the penguin a raw mantaray.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
         anim(human_pickuptable, 0);
         
     }
     case raw_seaturtle : {
-        inv_del(inv, raw_seaturtle, 1);
+        inv_del(inv, last_useitem, 1);
         mes("You feed the penguin a raw seaturtle.");
+        npc_say("Mmm, thanks for the <oc_param(last_useitem, name)>!");
         anim(human_pickuptable, 0);        
     }
     case default : {

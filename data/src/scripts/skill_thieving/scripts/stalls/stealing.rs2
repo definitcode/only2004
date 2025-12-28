@@ -30,6 +30,7 @@ if (%gamemode_selected = ^gamemode_pvp){
 }
 if (%cook_progress ! ^cook_complete){
     mes("There doesn't seem to be anything here of value...");
+    mes("You need to finish cook's assistant first.");
     return;
 }
 p_arrivedelay;

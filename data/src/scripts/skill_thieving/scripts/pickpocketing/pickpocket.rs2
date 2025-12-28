@@ -82,6 +82,12 @@
 [opnpc3,gnome_woman_black] // Gnome woman
 @attempt_pick_pocket(npc_type);
 
+[opnpc3,wizard] // Wizard
+@attempt_pick_pocket(npc_type);
+
+[opnpc3,hans] // Wizard
+@attempt_pick_pocket(npc_type);
+
 [opnpc3,rogue] // Rogue
 @attempt_pick_pocket(npc_type);
 
