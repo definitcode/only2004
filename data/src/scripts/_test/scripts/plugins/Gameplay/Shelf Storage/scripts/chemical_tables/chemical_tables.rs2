@@ -27,6 +27,12 @@ if (%gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim){
 } else if (%gamemode_selected = ^gamemode_pvp | %pk_skull > 0){
     mes("Murderers cannot use Chemical Tables.");
     return;
+} else if (%biohazard_progress ! ^biohazard_complete){
+    mes("You need to complete the Biohazard quest to use Chemical Tables.");
+    return;
+} else if (%intelligence < 90){
+    mes("You need at least level 90 Intelligence to use Chemical Tables.");
+    return;
 }
 %ct_noted = 0;
 ~reorganize_inv(chemical_tables);

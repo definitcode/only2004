@@ -1,0 +1,8 @@
+[speedrun_active_challenge]
+scope=perm
+
+[speedrun_ticks]
+scope=perm
+
+[speedrun_running]
+scope=perm

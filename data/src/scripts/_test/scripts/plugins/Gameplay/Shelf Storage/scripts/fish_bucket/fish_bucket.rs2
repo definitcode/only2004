@@ -1,0 +1,161 @@
+[opheld1,bucket_fish] @fish_bucket_open(bucket_fish);
+
+[inv_button1,fb_side:inv] @fish_bucket_deposit(last_slot, 1);
+[inv_button2,fb_side:inv] @fish_bucket_deposit(last_slot, 5);
+[inv_button3,fb_side:inv] @fish_bucket_deposit(last_slot, 10);
+[inv_button4,fb_side:inv] @fish_bucket_deposit(last_slot, ^max_32bit_int);
+[inv_button5,fb_side:inv] @fish_bucket_deposit(last_slot, null);
+[inv_buttond,fb_side:inv] inv_movetoslot(inv, inv, last_slot, last_targetslot);
+
+[inv_button1,fb_main:inv] @fish_bucket_withdraw(last_slot, 1);
+[inv_button2,fb_main:inv] @fish_bucket_withdraw(last_slot, 5);
+[inv_button3,fb_main:inv] @fish_bucket_withdraw(last_slot, 10);
+[inv_button4,fb_main:inv] @fish_bucket_withdraw(last_slot, ^max_32bit_int);
+[inv_button5,fb_main:inv] @fish_bucket_withdraw(last_slot, null);
+[inv_buttond,fb_main:inv] inv_movetoslot(fish_bucket, fish_bucket, last_slot, last_targetslot);
+
+[if_button,fb_main:com_94] %fb_noted = 0;
+[if_button,fb_main:com_93] %fb_noted = 1;
+[if_close,fb_main] @fish_bucket_close;
+
+[label,fish_bucket_open](obj $obj)
+~clearallq;
+if (%gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim){
+    mes("Ultimate Ironman cannot use Bucket of Fish!");
+    return;
+} else if (%gamemode_selected = ^gamemode_pvp | %pk_skull > 0){
+    mes("Murderers cannot use Bucket of Fish!");
+    return;
+} else if (stat_base(fishing) < 60) {
+    mes("You need at least level 60 Fishing to use this!");
+    return;
+}
+%fb_noted = 0;
+~reorganize_inv(fish_bucket);
+inv_transmit(inv, fb_side:inv);
+inv_transmit(fish_bucket, fb_main:inv);
+if_openmain_side(fb_main, fb_side);
+
+[label,fish_bucket_close]
+inv_stoptransmit(fb_side:inv);
+inv_stoptransmit(fb_main:inv);
+queue(reorganize_bucket, 0);
+
+[queue,reorganize_bucket]
+~reorganize_inv(fish_bucket);
+
+[label,fish_bucket_deposit](int $slot, int $requested_number)
+def_obj $item = inv_getobj(inv, $slot);
+if ($requested_number <= 0) {
+    p_countdialog;
+    if (last_int <= 0) return;
+    $requested_number = last_int;
+}
+def_int $number = inv_total(inv, $item);
+if ($requested_number < $number) $number = $requested_number;
+if (~fish_bucket_check_nobreak($item) = true) {
+    return;
+}
+~fb_deposit_request(inv, $item, $number, $slot);
+
+[label,fish_bucket_withdraw](int $slot, int $requested_number)
+def_obj $item = inv_getobj(fish_bucket, $slot);
+if ($requested_number <= 0) {
+    p_countdialog;
+    if (last_int <= 0) return;
+    $requested_number = last_int;
+}
+def_int $number = inv_total(fish_bucket, $item);
+if ($requested_number < $number) $number = $requested_number;
+~fb_withdraw_request(inv, $item, $number, $slot);
+
+[proc,fb_withdraw_request](inv $inv, obj $obj, int $amount, int $slot)
+def_obj $cert_or_uncert = oc_uncert($obj);
+if (%fb_noted ! 0) {
+    $cert_or_uncert = oc_cert($obj);
+}
+if (%fb_noted = ^true & oc_cert($obj) = $obj) {
+    mes("This item can not be withdrawn as a note.");
+}
+if (inv_itemspace($inv, $cert_or_uncert, $amount, inv_size($inv)) = false){
+    if (inv_freespace($inv) = 0) {
+        mes("You don't have enough inventory space.");
+        return;
+    } else if (oc_stackable($cert_or_uncert) = true) {
+        mes("You're not going to be able to carry all that!");
+    } else {
+        mes("You don't have enough inventory space to withdraw that many.");
+    }
+}
+def_int $overflow = inv_itemspace2($inv, $cert_or_uncert, $amount, inv_size($inv));
+def_int $withdraw = sub($amount, $overflow);
+if ($withdraw > 0) {
+    session_log(^log_moderator, "Withdrew <oc_debugname($obj)> x<tostring($withdraw)> from Bucket of Fish");
+    switch_int (%fb_noted) {
+        case 0 : inv_moveitem_uncert(fish_bucket, $inv, $obj, $withdraw);
+        case default : inv_moveitem_cert(fish_bucket, $inv, $obj, $withdraw);
+    }
+}
+
+[proc,fb_deposit_request](inv $inv, obj $obj, int $amount, int $slot)
+def_int $max_per_fish = 27;
+
+def_obj $uncert = oc_uncert($obj);
+def_int $current = inv_total(fish_bucket, $uncert);
+
+if ($current >= $max_per_fish) {
+    mes("You already have the maximum amount of that fish in the bucket.");
+    return;
+}
+
+def_int $space_left = sub($max_per_fish, $current);
+if ($amount > $space_left) {
+    $amount = $space_left;
+}
+
+if ($amount <= 0) {
+    mes("You don't have enough space in your bucket.");
+    return;
+}
+
+session_log(^log_moderator,
+    "Deposited <oc_debugname($obj)> x<tostring($amount)> into your Bucket of Fish");
+
+inv_moveitem_uncert($inv, fish_bucket, $obj, $amount);
+
+[proc,fish_bucket_check_nobreak](obj $obj)(boolean)
+if (~fish_bucket_find_obj_unbankable($obj) = false) {
+    mes("I can't store that here!");
+    return(true);
+}
+if (map_members = false) {
+    if ((inv_total(fish_bucket, oc_uncert($obj)) = 0) & (sub(inv_size(fish_bucket), inv_freespace(fish_bucket)) >= ^bank_free_slots)) {
+        mes("You need to subscribe for a members account if you want to");
+        mes("store any more items in your bucket.");
+        return(true);
+    }
+}
+return(false);
+
+[proc,fish_bucket_find_obj_unbankable](obj $obj)(boolean)
+switch_obj ($obj) {
+    case raw_anchovies : return(true);
+    case raw_bear_meat : return(true);
+    case raw_beef : return(true);
+    case raw_chicken : return(true);
+    case raw_shrimp : return(true);
+    case raw_sardine : return(true);
+    case raw_herring : return(true);
+    case raw_trout : return(true);
+    case raw_pike : return(true);
+    case raw_salmon : return(true);
+    case raw_tuna : return(true);
+    case raw_lobster : return(true);
+    case raw_swordfish : return(true);
+    case raw_seaturtle : return(true);
+    case raw_mantaray : return(true);
+    case default : return(false);
+}
+
+
+

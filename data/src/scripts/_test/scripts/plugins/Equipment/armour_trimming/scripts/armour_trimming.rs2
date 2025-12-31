@@ -1,0 +1,286 @@
+[opheldu,trimming_kit_g] @attempt_armor_trimming(last_useitem);
+
+
+[label,attempt_armor_trimming](obj $last_item)
+if (%engineering < 200){
+    mes("You need an engineering level of 200 to do this.");
+    return;
+}
+switch_obj($last_item){
+
+    case rune_scimitar : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, guilded_scimitar, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case black_platebody : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, black_platebody_trim, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case black_platelegs : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, black_platelegs_trim, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case black_full_helm : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, black_full_helm_trim, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case black_kiteshield : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, black_kiteshield_trim, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case black_platebody : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, black_platebody_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case black_platelegs : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, black_platelegs_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case black_full_helm : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, black_full_helm_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case black_kiteshield : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, black_kiteshield_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case adamant_platebody : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, adamant_platebody_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case adamant_platelegs : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, adamant_platelegs_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case adamant_kiteshield : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, adamant_kiteshield_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case adamant_full_helm : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, adamant_full_helm_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case rune_platebody : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, rune_platebody_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case rune_platelegs : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, rune_platelegs_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case rune_kiteshield : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, rune_kiteshield_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case rune_full_helm : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, rune_full_helm_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case rune_platebody : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, rune_platebody_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case rune_platelegs : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, rune_platelegs_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case rune_full_helm : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, rune_full_helm_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case dragon_kiteshield : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, dragon_kiteshield_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case dragon_platebody : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, dragon_platebody_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case dragon_platelegs : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, dragon_platelegs_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case dragon_full_helm : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, dragon_full_helm_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+    case dragon_kiteshield : {
+        if (inv_total(inv, gold_bar) > 0){
+            inv_del(inv, $last_item, 1);
+            inv_del(inv, gold_bar, 1);
+            ~hand_crafting_action;
+            stat_advance(crafting, 250);
+            inv_add(inv, dragon_kiteshield_gold, 1);
+        } else {
+            mes("You need a gold bar to do this.");
+        }
+    }
+}

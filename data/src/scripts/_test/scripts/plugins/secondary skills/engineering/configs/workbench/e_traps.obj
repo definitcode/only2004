@@ -15,7 +15,7 @@ tradeable=yes
 
 [empty_casket]
 name=Empty Casket
-desc=Ready to be turned into a trap!
+desc=Can be utilized in many ways!
 model=model_2450_obj
 2dxof=3
 2dyof=-6

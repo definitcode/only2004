@@ -1,29 +1,4 @@
 [opnpc1,father_urhney]
-if (%gamemode_selected = ^gamemode_pvp){
-    ~chatnpc("<p,angry>Why hello!");
-    ~mesbox("<p,sad>I wanted to say that I wanted to atone for my sins!");
-    ~chatnpc("<p,happy>I am glad to hear it! The lamb of God cleanses us of all our sins.");
-    inv_clear(bank);
-    ~founders_protection;
-    inv_dropall(inv, coord, ^lootdrop_duration);
-    inv_dropall(worn, coord, ^lootdrop_duration);
-    ~reset();
-    ~stat_reset_all;
-    p_teleport(0_48_48_22_35);
-    buildappearance(worn);
-    ~prayer_deactivate_all;
-    ~follower_death;
-    anim(null, 0);
-    p_stopaction;
-    healenergy(10000);
-    ~clear_pk_skull;
-    ~clear_poison;
-    ~initalltabs;
-    ~ledger_reset;
-    @start_tutorial;
-    mes("You have been reset!");
-    return;
-}
 ~chatnpc("<p,angry>Go away! I'm meditating!");
 if (%priest_progress = ^priest_started) {
     @multi3("Well, that's friendly.", father_urhney_well_thats_friendly, "Father Aereck sent me to talk to you.", father_urhney_priest_father_aereck_sent_me, "I've come to repossess your house.", father_urhney_repossess_house);

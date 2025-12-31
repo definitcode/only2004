@@ -26,6 +26,12 @@ if (%gamemode_selected = ^gamemode_uim | %gamemode_selected = ^gamemode_hcuim){
 } else if (%gamemode_selected = ^gamemode_pvp | %pk_skull > 0){
     mes("Murderers cannot use Cooking Shelves.");
     return;
+} else if (%cook_progress ! ^cook_complete){
+    mes("You need to complete the Cooking quest to use Cooking Shelves.");
+    return;
+} else if (stat_base(cooking) < 60){
+    mes("You need at least level 60 Cooking to use Cooking Shelves.");
+    return;
 }
 %cs_noted = 0;
 ~reorganize_inv(cooking_shelves);

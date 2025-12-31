@@ -718,7 +718,7 @@ height=14
 center=yes
 font=b12
 shadowed=yes
-text=Chemical Tables
+text=Bucket of Fish
 colour=0xFF981F
 
 [com_90]
@@ -764,8 +764,6 @@ y=283
 buttontype=toggle
 width=72
 height=36
-script1op1=pushvar,bank_noted
-script1=eq,1
 graphic=combatboxes,0
 activegraphic=combatboxes,1
 
@@ -776,8 +774,6 @@ y=283
 buttontype=toggle
 width=72
 height=36
-script1op1=pushvar,bank_noted
-script1=eq,0
 graphic=combatboxes,0
 activegraphic=combatboxes,1
 

@@ -1,0 +1,847 @@
+[opheldu,empty_casket] @load_case(last_useitem);
+
+
+//Melee
+[opheld1,dragon_armor_case_lg] @open_case(dragon_armor_case_lg);
+[opheld1,dragon_armor_case_sk] @open_case(dragon_armor_case_sk);
+[opheld1,rune_armor_case_lg] @open_case(rune_armor_case_lg);
+[opheld1,rune_armor_case_sk] @open_case(rune_armor_case_sk);
+[opheld1,adamant_armor_case_lg] @open_case(adamant_armor_case_lg);
+[opheld1,adamant_armor_case_sk] @open_case(adamant_armor_case_sk);
+[opheld1,mithril_armor_case_lg] @open_case(mithril_armor_case_lg);
+[opheld1,mithril_armor_case_sk] @open_case(mithril_armor_case_sk);
+[opheld1,black_armor_case_lg] @open_case(black_armor_case_lg);
+[opheld1,black_armor_case_sk] @open_case(black_armor_case_sk);
+[opheld1,steel_armor_case_lg] @open_case(steel_armor_case_lg);
+[opheld1,steel_armor_case_sk] @open_case(steel_armor_case_sk);
+[opheld1,bronze_armor_case_lg] @open_case(bronze_armor_case_lg);
+[opheld1,bronze_armor_case_sk] @open_case(bronze_armor_case_sk);
+
+//gold trimmed
+[opheld1,dragon_armor_case_lgt] @open_case(dragon_armor_case_lgt);
+[opheld1,rune_armor_case_lgt] @open_case(rune_armor_case_lgt);
+[opheld1,adamant_armor_case_lgt] @open_case(adamant_armor_case_lgt);
+[opheld1,black_armor_case_lgt] @open_case(black_armor_case_lgt);
+
+
+//Ranged
+
+//Magic
+
+
+[label,load_case](obj $armor)
+if (%engineering < 150){
+    mes("You need an engineering level of 150 to do this.");
+    return;
+}
+if (%gamemode_selected = ^gamemode_pvp){
+    mes("You cannot do this.");
+    return;
+}
+switch_obj($armor){
+    //dragon
+    case dragon_full_helm : {
+        if (~dragon_armorlg_checker = true){
+            inv_del(inv, dragon_full_helm, 1);
+            inv_del(inv, dragon_platebody, 1);
+            inv_del(inv, dragon_platelegs, 1);
+            inv_add(inv, dragon_armor_case_lg, 1);
+        }
+    }
+    case dragon_platebody : {
+        if (~dragon_armorlg_checker = true){
+            inv_del(inv, dragon_full_helm, 1);
+            inv_del(inv, dragon_platebody, 1);
+            inv_del(inv, dragon_platelegs, 1);
+            inv_add(inv, dragon_armor_case_lg, 1);
+        }
+    }
+    case dragon_platelegs : {
+        if (~dragon_armorlg_checker = true){
+            inv_del(inv, dragon_full_helm, 1);
+            inv_del(inv, dragon_platebody, 1);
+            inv_del(inv, dragon_platelegs, 1);
+            inv_add(inv, dragon_armor_case_lg, 1);
+        }
+    }
+
+    case dragon_plateskirt : {
+        if (~dragon_armorsk_checker = true){
+            inv_del(inv, dragon_full_helm, 1);
+            inv_del(inv, dragon_platebody, 1);
+            inv_del(inv, dragon_plateskirt, 1);
+            inv_add(inv, dragon_armor_case_sk, 1);
+        }
+    }
+    //dragon trimmed 
+    case dragon_full_helm_gold : {
+        if (~dragon_armorlgt_checker = true){
+            inv_del(inv, dragon_full_helm_gold, 1);
+            inv_del(inv, dragon_platebody_gold, 1);
+            inv_del(inv, dragon_platelegs_gold, 1);
+            inv_del(inv, dragon_kiteshield_gold, 1);
+            inv_add(inv, dragon_armor_case_lgt, 1);
+        }
+    }
+    case dragon_platebody_gold : {
+        if (~dragon_armorlgt_checker = true){
+            inv_del(inv, dragon_full_helm_gold, 1);
+            inv_del(inv, dragon_platebody_gold, 1);
+            inv_del(inv, dragon_platelegs_gold, 1);
+            inv_del(inv, dragon_kiteshield_gold, 1);
+            inv_add(inv, dragon_armor_case_lgt, 1);
+        }
+    }
+    case dragon_platelegs_gold : {
+        if (~dragon_armorlgt_checker = true){
+            inv_del(inv, dragon_full_helm_gold, 1);
+            inv_del(inv, dragon_platebody_gold, 1);
+            inv_del(inv, dragon_platelegs_gold, 1);
+            inv_del(inv, dragon_kiteshield_gold, 1);
+            inv_add(inv, dragon_armor_case_lgt, 1);
+        }
+    }
+
+    case dragon_kiteshield_gold : {
+        if (~dragon_armorlgt_checker = true){
+            inv_del(inv, dragon_full_helm_gold, 1);
+            inv_del(inv, dragon_platebody_gold, 1);
+            inv_del(inv, dragon_platelegs_gold, 1);
+            inv_del(inv, dragon_kiteshield_gold, 1);
+            inv_add(inv, dragon_armor_case_lgt, 1);
+        }
+    }
+
+    //rune
+    case rune_full_helm : {
+        if (~rune_armorlg_checker = true){
+            inv_del(inv, rune_full_helm, 1);
+            inv_del(inv, rune_platebody, 1);
+            inv_del(inv, rune_platelegs, 1);
+            inv_add(inv, rune_armor_case_lg, 1);
+        }
+    }
+    case rune_platebody : {
+        if (~rune_armorlg_checker = true){
+            inv_del(inv, rune_full_helm, 1);
+            inv_del(inv, rune_platebody, 1);
+            inv_del(inv, rune_platelegs, 1);
+            inv_add(inv, rune_armor_case_lg, 1);
+        }
+    }
+    case rune_plateskirt : {
+        if (~rune_armorsk_checker = true){
+            inv_del(inv, rune_full_helm, 1);
+            inv_del(inv, rune_platebody, 1);
+            inv_del(inv, rune_plateskirt, 1);
+            inv_add(inv, rune_armor_case_sk, 1);
+        }
+    }
+    case rune_platelegs : {
+        if (~rune_armorlg_checker = true){
+            inv_del(inv, rune_full_helm, 1);
+            inv_del(inv, rune_platebody, 1);
+            inv_del(inv, rune_platelegs, 1);
+            inv_add(inv, rune_armor_case_lg, 1);
+        }
+    }
+
+    //rune trimmed
+    case rune_full_helm_gold : {
+        if (~rune_armorlgt_checker = true){
+            inv_del(inv, rune_full_helm_gold, 1);
+            inv_del(inv, rune_platebody_gold, 1);
+            inv_del(inv, rune_platelegs_gold, 1);
+            inv_del(inv, rune_kiteshield_gold, 1);
+            inv_add(inv, rune_armor_case_lgt, 1);
+        }
+    }
+    case rune_platebody_gold : {
+        if (~rune_armorlgt_checker = true){
+            inv_del(inv, rune_full_helm_gold, 1);
+            inv_del(inv, rune_platebody_gold, 1);
+            inv_del(inv, rune_platelegs_gold, 1);
+            inv_del(inv, rune_kiteshield_gold, 1);
+            inv_add(inv, rune_armor_case_lgt, 1);
+        }
+    }
+    case rune_platelegs_gold : {
+        if (~rune_armorlgt_checker = true){
+            inv_del(inv, rune_full_helm_gold, 1);
+            inv_del(inv, rune_platebody_gold, 1);
+            inv_del(inv, rune_platelegs_gold, 1);
+            inv_del(inv, rune_kiteshield_gold, 1);
+            inv_add(inv, rune_armor_case_lgt, 1);
+        }
+    }
+    case rune_kiteshield_gold : {
+        if (~rune_armorlgt_checker = true){
+            inv_del(inv, rune_full_helm_gold, 1);
+            inv_del(inv, rune_platebody_gold, 1);
+            inv_del(inv, rune_platelegs_gold, 1);
+            inv_del(inv, rune_kiteshield_gold, 1);
+            inv_add(inv, rune_armor_case_lgt, 1);
+        }
+    }
+
+
+    //adamant
+    case adamant_full_helm : {
+        if (~adamant_armorlg_checker = true){
+            inv_del(inv, adamant_full_helm, 1);
+            inv_del(inv, adamant_platebody, 1);
+            inv_del(inv, adamant_platelegs, 1);
+            inv_del(inv, adamant_kiteshield, 1);
+            inv_add(inv, adamant_armor_case_lg, 1);
+        }
+    }
+    case adamant_platebody : {
+        if (~adamant_armorlg_checker = true){
+            inv_del(inv, adamant_full_helm, 1);
+            inv_del(inv, adamant_platebody, 1);
+            inv_del(inv, adamant_platelegs, 1);
+            inv_add(inv, adamant_armor_case_lg, 1);
+        }
+    }
+    case adamant_plateskirt : {
+        if (~adamant_armorsk_checker = true){
+            inv_del(inv, adamant_full_helm, 1);
+            inv_del(inv, adamant_platebody, 1);
+            inv_del(inv, adamant_plateskirt, 1);
+            inv_add(inv, adamant_armor_case_sk, 1);
+        }
+    }
+    case adamant_platelegs : {
+        if (~adamant_armorlg_checker = true){
+            inv_del(inv, adamant_full_helm, 1);
+            inv_del(inv, adamant_platebody, 1);
+            inv_del(inv, adamant_platelegs, 1);
+            inv_add(inv, adamant_armor_case_lg, 1);
+        }
+    }
+    //adamant trimmed
+    case adamant_full_helm_gold : {
+        if (~adamant_armorlgt_checker = true){
+            inv_del(inv, adamant_full_helm_gold, 1);
+            inv_del(inv, adamant_platebody_gold, 1);
+            inv_del(inv, adamant_platelegs_gold, 1);
+            inv_del(inv, adamant_kiteshield_gold, 1);
+            inv_add(inv, adamant_armor_case_lgt, 1);
+        }
+    }
+    case adamant_platebody_gold : {
+        if (~adamant_armorlgt_checker = true){
+            inv_del(inv, adamant_full_helm_gold, 1);
+            inv_del(inv, adamant_platebody_gold, 1);
+            inv_del(inv, adamant_platelegs_gold, 1);
+            inv_del(inv, adamant_kiteshield_gold, 1);
+            inv_add(inv, adamant_armor_case_lgt, 1);
+        }
+    }
+    case adamant_platelegs_gold : {
+        if (~adamant_armorlgt_checker = true){
+            inv_del(inv, adamant_full_helm_gold, 1);
+            inv_del(inv, adamant_platebody_gold, 1);
+            inv_del(inv, adamant_platelegs_gold, 1);
+            inv_del(inv, adamant_kiteshield_gold, 1);
+            inv_add(inv, adamant_armor_case_lgt, 1);
+        }
+    }
+    case adamant_kiteshield_gold : {
+        if (~adamant_armorlgt_checker = true){
+            inv_del(inv, adamant_full_helm_gold, 1);
+            inv_del(inv, adamant_platebody_gold, 1);
+            inv_del(inv, adamant_platelegs_gold, 1);
+            inv_del(inv, adamant_kiteshield_gold, 1);
+            inv_add(inv, adamant_armor_case_lgt, 1);
+        }
+    }
+    //mithril
+    case mithril_full_helm : {
+        if (~mithril_armorlg_checker = true){
+            inv_del(inv, mithril_full_helm, 1);
+            inv_del(inv, mithril_platebody, 1);
+            inv_del(inv, mithril_platelegs, 1);
+            inv_add(inv, mithril_armor_case_lg, 1);
+        }
+    }
+    case mithril_platebody : {
+        if (~mithril_armorlg_checker = true){
+            inv_del(inv, mithril_full_helm, 1);
+            inv_del(inv, mithril_platebody, 1);
+            inv_del(inv, mithril_platelegs, 1);
+            inv_add(inv, mithril_armor_case_lg, 1);
+        }
+    }
+    case mithril_plateskirt : {
+        if (~mithril_armorsk_checker = true){
+            inv_del(inv, mithril_full_helm, 1);
+            inv_del(inv, mithril_platebody, 1);
+            inv_del(inv, mithril_plateskirt, 1);
+            inv_add(inv, mithril_armor_case_sk, 1);
+        }
+    }
+    case mithril_platelegs : {
+        if (~mithril_armorlg_checker = true){
+            inv_del(inv, mithril_full_helm, 1);
+            inv_del(inv, mithril_platebody, 1);
+            inv_del(inv, mithril_platelegs, 1);
+            inv_add(inv, mithril_armor_case_lg, 1);
+        }
+    }
+
+    //black
+    case black_full_helm : {
+        if (~black_armorlg_checker = true){
+            inv_del(inv, black_full_helm, 1);
+            inv_del(inv, black_platebody, 1);
+            inv_del(inv, black_platelegs, 1);
+            inv_add(inv, black_armor_case_lg, 1);
+        }
+    }
+    case black_platebody : {
+        if (~black_armorlg_checker = true){
+            inv_del(inv, black_full_helm, 1);
+            inv_del(inv, black_platebody, 1);
+            inv_del(inv, black_platelegs, 1);
+            inv_add(inv, black_armor_case_lg, 1);
+        }
+    }
+    case black_plateskirt : {
+        if (~black_armorsk_checker = true){
+            inv_del(inv, black_full_helm, 1);
+            inv_del(inv, black_platebody, 1);
+            inv_del(inv, black_plateskirt, 1);
+            inv_add(inv, black_armor_case_sk, 1);
+        }
+    }
+    case black_platelegs : {
+        if (~black_armorlg_checker = true){
+            inv_del(inv, black_full_helm, 1);
+            inv_del(inv, black_platebody, 1);
+            inv_del(inv, black_platelegs, 1);
+            inv_add(inv, black_armor_case_lg, 1);
+        }
+    }
+    //black trimmed
+    case black_full_helm_gold : {
+        if (~black_armorlgt_checker = true){
+            inv_del(inv, black_full_helm_gold, 1);
+            inv_del(inv, black_platebody_gold, 1);
+            inv_del(inv, black_platelegs_gold, 1);
+            inv_del(inv, black_kiteshield_gold, 1);
+            inv_add(inv, black_armor_case_lgt, 1);
+        }
+    }
+    case black_platebody_gold : {
+        if (~black_armorlgt_checker = true){
+            inv_del(inv, black_full_helm_gold, 1);
+            inv_del(inv, black_platebody_gold, 1);
+            inv_del(inv, black_platelegs_gold, 1);
+            inv_del(inv, black_kiteshield_gold, 1);
+            inv_add(inv, black_armor_case_lgt, 1);
+        }
+    }
+    case black_platelegs_gold : {
+        if (~black_armorlgt_checker = true){
+            inv_del(inv, black_full_helm_gold, 1);
+            inv_del(inv, black_platebody_gold, 1);
+            inv_del(inv, black_platelegs_gold, 1);
+            inv_del(inv, black_kiteshield_gold, 1);
+            inv_add(inv, black_armor_case_lgt, 1);
+        }
+    }
+    case black_kiteshield_gold : {
+        if (~black_armorlgt_checker = true){
+            inv_del(inv, black_full_helm_gold, 1);
+            inv_del(inv, black_platebody_gold, 1);
+            inv_del(inv, black_platelegs_gold, 1);
+            inv_del(inv, black_kiteshield_gold, 1);
+            inv_add(inv, black_armor_case_lgt, 1);
+        }
+    }
+    //steel
+    case steel_full_helm : {
+        if (~steel_armorlg_checker = true){
+            inv_del(inv, steel_full_helm, 1);
+            inv_del(inv, steel_platebody, 1);
+            inv_del(inv, steel_platelegs, 1);
+            inv_add(inv, steel_armor_case_lg, 1);
+        }
+    }
+    case steel_platebody : {
+        if (~steel_armorlg_checker = true){
+            inv_del(inv, steel_full_helm, 1);
+            inv_del(inv, steel_platebody, 1);
+            inv_del(inv, steel_platelegs, 1);
+            inv_add(inv, steel_armor_case_lg, 1);
+        }
+    }
+    case steel_plateskirt : {
+        if (~steel_armorsk_checker = true){
+            inv_del(inv, steel_full_helm, 1);
+            inv_del(inv, steel_platebody, 1);
+            inv_del(inv, steel_plateskirt, 1);
+            inv_add(inv, steel_armor_case_sk, 1);
+        }
+    }
+    case steel_platelegs : {
+        if (~steel_armorlg_checker = true){
+            inv_del(inv, steel_full_helm, 1);
+            inv_del(inv, steel_platebody, 1);
+            inv_del(inv, steel_platelegs, 1);
+            inv_add(inv, steel_armor_case_lg, 1);
+        }
+    }
+    //iron
+    case iron_full_helm : {
+        if (~iron_armorlg_checker = true){
+            inv_del(inv, iron_full_helm, 1);
+            inv_del(inv, iron_platebody, 1);
+            inv_del(inv, iron_platelegs, 1);
+            inv_add(inv, iron_armor_case_lg, 1);
+        }
+    }
+    case iron_platebody : {
+        if (~iron_armorlg_checker = true){
+            inv_del(inv, iron_full_helm, 1);
+            inv_del(inv, iron_platebody, 1);
+            inv_del(inv, iron_platelegs, 1);
+            inv_add(inv, iron_armor_case_lg, 1);
+        }
+    }
+    case iron_plateskirt : {
+        if (~iron_armorsk_checker = true){
+            inv_del(inv, iron_full_helm, 1);
+            inv_del(inv, iron_platebody, 1);
+            inv_del(inv, iron_plateskirt, 1);
+            inv_add(inv, iron_armor_case_sk, 1);
+        }
+    }
+    case iron_platelegs : {
+        if (~iron_armorlg_checker = true){
+            inv_del(inv, iron_full_helm, 1);
+            inv_del(inv, iron_platebody, 1);
+            inv_del(inv, iron_platelegs, 1);
+            inv_add(inv, iron_armor_case_lg, 1);
+        }
+    }
+    //bronze
+    case bronze_full_helm : {
+        if (~bronze_armorlg_checker = true){
+            inv_del(inv, bronze_full_helm, 1);
+            inv_del(inv, bronze_platebody, 1);
+            inv_del(inv, bronze_platelegs, 1);
+            inv_add(inv, bronze_armor_case_lg, 1);
+        }
+    }
+    case bronze_platebody : {
+        if (~bronze_armorlg_checker = true){
+            inv_del(inv, bronze_full_helm, 1);
+            inv_del(inv, bronze_platebody, 1);
+            inv_del(inv, bronze_platelegs, 1);
+            inv_add(inv, bronze_armor_case_lg, 1);
+        }
+    }
+    case bronze_plateskirt : {
+        if (~bronze_armorsk_checker = true){
+            inv_del(inv, bronze_full_helm, 1);
+            inv_del(inv, bronze_platebody, 1);
+            inv_del(inv, bronze_plateskirt, 1);
+            inv_add(inv, bronze_armor_case_sk, 1);
+        }
+    }
+    case bronze_platelegs : {
+        if (~bronze_armorlg_checker = true){
+            inv_del(inv, bronze_full_helm, 1);
+            inv_del(inv, bronze_platebody, 1);
+            inv_del(inv, bronze_platelegs, 1);
+            inv_add(inv, bronze_armor_case_lg, 1);
+        }
+    }
+}
+
+[label,open_case](obj $armor_case)
+switch_obj($armor_case){
+    case dragon_armor_case_lg : {
+        inv_del(inv, dragon_armor_case_lg, 1);
+        inv_add(inv, dragon_full_helm, 1);
+        inv_add(inv, dragon_platebody, 1);
+        inv_add(inv, dragon_platelegs, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+    case dragon_armor_case_sk : {
+        inv_del(inv, dragon_armor_case_sk, 1);
+        inv_add(inv, dragon_full_helm, 1);
+        inv_add(inv, dragon_platebody, 1);
+        inv_add(inv, dragon_plateskirt, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+    case dragon_armor_case_lgt : {
+        inv_del(inv, dragon_armor_case_lgt, 1);
+        inv_add(inv, dragon_full_helm_gold, 1);
+        inv_add(inv, dragon_platebody_gold, 1);
+        inv_add(inv, dragon_platelegs_gold, 1);
+        inv_add(inv, dragon_kiteshield_gold, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+    case rune_armor_case_lg : {
+        inv_del(inv, rune_armor_case_lg, 1);
+        inv_add(inv, rune_full_helm, 1);
+        inv_add(inv, rune_platebody, 1);
+        inv_add(inv, rune_platelegs, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+    case rune_armor_case_sk : {
+        inv_del(inv, rune_armor_case_sk, 1);
+        inv_add(inv, rune_full_helm, 1);
+        inv_add(inv, rune_platebody, 1);
+        inv_add(inv, rune_plateskirt, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+    case rune_armor_case_lgt : {
+        inv_del(inv, rune_armor_case_lgt, 1);
+        inv_add(inv, rune_full_helm_gold, 1);
+        inv_add(inv, rune_platebody_gold, 1);
+        inv_add(inv, rune_platelegs_gold, 1);
+        inv_add(inv, rune_kiteshield_gold, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+    case adamant_armor_case_lg : {
+        inv_del(inv, adamant_armor_case_lg, 1);
+        inv_add(inv, adamant_full_helm, 1);
+        inv_add(inv, adamant_platebody, 1);
+        inv_add(inv, adamant_platelegs, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+    case adamant_armor_case_sk : {
+        inv_del(inv, adamant_armor_case_sk, 1);
+        inv_add(inv, adamant_full_helm, 1);
+        inv_add(inv, adamant_platebody, 1);
+        inv_add(inv, adamant_plateskirt, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+    case adamant_armor_case_lgt : {
+        inv_del(inv, adamant_armor_case_lgt, 1);
+        inv_add(inv, adamant_full_helm_gold, 1);
+        inv_add(inv, adamant_platebody_gold, 1);
+        inv_add(inv, adamant_platelegs_gold, 1);
+        inv_add(inv, adamant_kiteshield_gold, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+    case black_armor_case_lg : {
+        inv_del(inv, black_armor_case_lg, 1);
+        inv_add(inv, black_full_helm, 1);
+        inv_add(inv, black_platebody, 1);
+        inv_add(inv, black_platelegs, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+    case black_armor_case_sk : {
+        inv_del(inv, black_armor_case_sk, 1);
+        inv_add(inv, black_full_helm, 1);
+        inv_add(inv, black_platebody, 1);
+        inv_add(inv, black_plateskirt, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+    case black_armor_case_lgt : {
+        inv_del(inv, black_armor_case_lgt, 1);
+        inv_add(inv, black_full_helm_gold, 1);
+        inv_add(inv, black_platebody_gold, 1);
+        inv_add(inv, black_platelegs_gold, 1);
+        inv_add(inv, black_kiteshield_gold, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+    case steel_armor_case_lg : {
+        inv_del(inv, steel_armor_case_lg, 1);
+        inv_add(inv, steel_full_helm, 1);
+        inv_add(inv, steel_platebody, 1);
+        inv_add(inv, steel_platelegs, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+    case steel_armor_case_sk : {
+        inv_del(inv, steel_armor_case_sk, 1);
+        inv_add(inv, steel_full_helm, 1);
+        inv_add(inv, steel_platebody, 1);
+        inv_add(inv, steel_plateskirt, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+    case iron_armor_case_lg : {
+        inv_del(inv, iron_armor_case_lg, 1);
+        inv_add(inv, iron_full_helm, 1);
+        inv_add(inv, iron_platebody, 1);
+        inv_add(inv, iron_platelegs, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+    case bronze_armor_case_lg : {
+        inv_del(inv, bronze_armor_case_lg, 1);
+        inv_add(inv, bronze_full_helm, 1);
+        inv_add(inv, bronze_platebody, 1);
+        inv_add(inv, bronze_platelegs, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+    case bronze_armor_case_sk : {
+        inv_del(inv, bronze_armor_case_sk, 1);
+        inv_add(inv, bronze_full_helm, 1);
+        inv_add(inv, bronze_platebody, 1);
+        inv_add(inv, bronze_plateskirt, 1);
+        inv_add(inv, empty_casket, 1);
+    }
+}
+mes("You just opened your <oc_param($armor_case, name)>!");
+
+[proc,dragon_armorlg_checker]()(boolean)
+def_int $full_helm = inv_total(inv, dragon_full_helm);
+def_int $platebody = inv_total(inv, dragon_platebody);
+def_int $platelegs = inv_total(inv, dragon_platelegs);
+
+if($full_helm > 0 & $platebody > 0 & $platelegs > 0 ){
+    return(true);
+}
+return(false);
+
+[proc,dragon_armorlgt_checker]()(boolean)
+def_int $full_helm = inv_total(inv, dragon_full_helm_gold);
+def_int $platebody = inv_total(inv, dragon_platebody_gold);
+def_int $platelegs = inv_total(inv, dragon_platelegs_gold);
+def_int $kiteshield = inv_total(inv, dragon_kiteshield_gold);
+
+if($full_helm > 0 & $platebody > 0 & $platelegs > 0 & $kiteshield > 0 ){
+    return(true);
+}
+return(false);
+
+[proc,dragon_armorsk_checker]()(boolean)
+def_int $full_helm = inv_total(inv, dragon_full_helm);
+def_int $platebody = inv_total(inv, dragon_platebody);
+def_int $plateskirt = inv_total(inv, dragon_plateskirt);
+
+if($full_helm > 0 & $platebody > 0 & $plateskirt > 0 ){
+    return(true);
+}
+return(false);
+
+[proc,rune_armorlg_checker]()(boolean)
+def_int $full_helm = inv_total(inv, rune_full_helm);
+def_int $platebody = inv_total(inv, rune_platebody);
+def_int $platelegs = inv_total(inv, rune_platelegs);
+
+if($full_helm > 0 & $platebody > 0 & $platelegs > 0){
+    return(true);
+}
+return(false);
+
+[proc,rune_armorsk_checker]()(boolean)
+def_int $full_helm = inv_total(inv, rune_full_helm);
+def_int $platebody = inv_total(inv, rune_platebody);
+def_int $plateskirt = inv_total(inv, rune_plateskirt);
+
+if($full_helm > 0 & $platebody > 0 & $plateskirt > 0 ){
+    return(true);
+}
+return(false);
+
+[proc,rune_armorlgt_checker]()(boolean)
+def_int $full_helm = inv_total(inv, rune_full_helm_gold);
+def_int $platebody = inv_total(inv, rune_platebody_gold);
+def_int $platelegs = inv_total(inv, rune_platelegs_gold);
+def_int $kiteshield = inv_total(inv, rune_kiteshield_gold);
+
+if($full_helm > 0 & $platebody > 0 & $platelegs > 0 & $kiteshield > 0){
+    return(true);
+}
+return(false);
+
+
+
+
+[proc,adamant_armorlg_checker]()(boolean)
+def_int $full_helm = inv_total(inv, adamant_full_helm);
+def_int $platebody = inv_total(inv, adamant_platebody);
+def_int $platelegs = inv_total(inv, adamant_platelegs);
+
+if($full_helm > 0 & $platebody > 0 & $platelegs > 0 ){
+    return(true);
+}
+return(false);
+
+[proc,adamant_armorsk_checker]()(boolean)
+def_int $full_helm = inv_total(inv, adamant_full_helm);
+def_int $platebody = inv_total(inv, adamant_platebody);
+def_int $plateskirt = inv_total(inv, adamant_plateskirt);
+
+if($full_helm > 0 & $platebody > 0 & $plateskirt > 0 ){
+    return(true);
+}
+return(false);
+
+[proc,adamant_armorlgt_checker]()(boolean)
+def_int $full_helm = inv_total(inv, adamant_full_helm_gold);
+def_int $platebody = inv_total(inv, adamant_platebody_gold);
+def_int $platelegs = inv_total(inv, adamant_platelegs_gold);
+def_int $kiteshield = inv_total(inv, adamant_kiteshield_gold);
+
+if($full_helm > 0 & $platebody > 0 & $platelegs > 0 & $kiteshield > 0){
+    return(true);
+}
+return(false);
+
+
+[proc,mithril_armorlg_checker]()(boolean)
+def_int $full_helm = inv_total(inv, mithril_full_helm);
+def_int $platebody = inv_total(inv, mithril_platebody);
+def_int $platelegs = inv_total(inv, mithril_platelegs);
+
+if($full_helm > 0 & $platebody > 0 & $platelegs > 0 ){
+    return(true);
+}
+return(false);
+
+[proc,mithril_armorsk_checker]()(boolean)
+def_int $full_helm = inv_total(inv, mithril_full_helm);
+def_int $platebody = inv_total(inv, mithril_platebody);
+def_int $plateskirt = inv_total(inv, mithril_plateskirt);
+
+if($full_helm > 0 & $platebody > 0 & $plateskirt > 0 ){
+    return(true);
+}
+return(false);
+
+
+[proc,black_armorlg_checker]()(boolean)
+def_int $full_helm = inv_total(inv, black_full_helm);
+def_int $platebody = inv_total(inv, black_platebody);
+def_int $platelegs = inv_total(inv, black_platelegs);
+
+if($full_helm > 0 & $platebody > 0 & $platelegs > 0 ){
+    return(true);
+}
+return(false);
+
+[proc,black_armorsk_checker]()(boolean)
+def_int $full_helm = inv_total(inv, black_full_helm);
+def_int $platebody = inv_total(inv, black_platebody);
+def_int $plateskirt = inv_total(inv, black_plateskirt);
+
+if($full_helm > 0 & $platebody > 0 & $plateskirt > 0 ){
+    return(true);
+}
+return(false);
+
+[proc,black_armorlgt_checker]()(boolean)
+def_int $full_helm = inv_total(inv, black_full_helm_gold);
+def_int $platebody = inv_total(inv, black_platebody_gold);
+def_int $platelegs = inv_total(inv, black_platelegs_gold);
+def_int $kiteshield = inv_total(inv, black_kiteshield_gold);
+
+if($full_helm > 0 & $platebody > 0 & $platelegs > 0 & $kiteshield > 0){
+    return(true);
+}
+return(false);
+
+
+
+[proc,steel_armorlg_checker]()(boolean)
+def_int $full_helm = inv_total(inv, steel_full_helm);
+def_int $platebody = inv_total(inv, steel_platebody);
+def_int $platelegs = inv_total(inv, steel_platelegs);
+
+if($full_helm > 0 & $platebody > 0 & $platelegs > 0 ){
+    return(true);
+}
+return(false);
+
+[proc,steel_armorsk_checker]()(boolean)
+def_int $full_helm = inv_total(inv, steel_full_helm);
+def_int $platebody = inv_total(inv, steel_platebody);
+def_int $plateskirt = inv_total(inv, steel_plateskirt);
+
+if($full_helm > 0 & $platebody > 0 & $plateskirt > 0 ){
+    return(true);
+}
+return(false);
+
+
+[proc,iron_armorlg_checker]()(boolean)
+def_int $full_helm = inv_total(inv, iron_full_helm);
+def_int $platebody = inv_total(inv, iron_platebody);
+def_int $platelegs = inv_total(inv, iron_platelegs);
+
+if($full_helm > 0 & $platebody > 0 & $platelegs > 0 ){
+    return(true);
+}
+return(false);
+
+[proc,iron_armorsk_checker]()(boolean)
+def_int $full_helm = inv_total(inv, iron_full_helm);
+def_int $platebody = inv_total(inv, iron_platebody);
+def_int $plateskirt = inv_total(inv, iron_plateskirt);
+
+if($full_helm > 0 & $platebody > 0 & $plateskirt > 0 ){
+    return(true);
+}
+return(false);
+
+
+[proc,bronze_armorlg_checker]()(boolean)
+def_int $full_helm = inv_total(inv, bronze_full_helm);
+def_int $platebody = inv_total(inv, bronze_platebody);
+def_int $platelegs = inv_total(inv, bronze_platelegs);
+
+if($full_helm > 0 & $platebody > 0 & $platelegs > 0 ){
+    return(true);
+}
+return(false);
+
+[proc,bronze_armorsk_checker]()(boolean)
+def_int $full_helm = inv_total(inv, bronze_full_helm);
+def_int $platebody = inv_total(inv, bronze_platebody);
+def_int $plateskirt = inv_total(inv, bronze_plateskirt);
+
+if($full_helm > 0 & $platebody > 0 & $plateskirt > 0 ){
+    return(true);
+}
+return(false);
+
+
+
+[proc,dragonhide_checker]()(boolean)
+def_int $chaps = inv_total(inv, dragonhide_chaps);
+def_int $body = inv_total(inv, dragonhide_body);
+
+if($chaps > 0 & $body > 0){
+    return(true);
+}
+return(false);
+
+[proc,blue_dragonhide_checker]()(boolean)
+def_int $chaps = inv_total(inv, blue_dragonhide_chaps);
+def_int $body = inv_total(inv, blue_dragonhide_body);
+
+if($chaps > 0 & $body > 0){
+    return(true);
+}
+return(false);
+
+[proc,black_dragonhide_checker]()(boolean)
+def_int $chaps = inv_total(inv, black_dragonhide_chaps);
+def_int $body = inv_total(inv, black_dragonhide_body);
+
+if($chaps > 0 & $body > 0){
+    return(true);
+}
+return(false);
+
+[proc,red_dragonhide_checker]()(boolean)
+def_int $chaps = inv_total(inv, red_dragonhide_chaps);
+def_int $body = inv_total(inv, red_dragonhide_body);
+
+if($chaps > 0 & $body > 0){
+    return(true);
+}
+return(false);
+
+
+if($chaps > 0 & $body > 0){
+    return(true);
+}
+return(false);

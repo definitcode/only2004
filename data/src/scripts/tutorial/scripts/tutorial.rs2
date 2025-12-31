@@ -507,6 +507,7 @@ healenergy(10000);
 //}
 ~initalltabs;
 ~update_all(inv_getobj(worn, ^wearpos_rhand));
+~speedrun_selection_menu;
 
 session_log(^log_adventure, "Completed tutorial island");
 if (%gamemode_selected = ^gamemode_ironman) {

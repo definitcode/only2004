@@ -22,7 +22,7 @@ param=brew_potion_struct,unf_guam_potion
 param=identified_herb_level,1
 // jagex name (yes they spelled it wrong)
 
-[marentill]
+[marrentill]
 cost=5
 members=yes
 name=Marrentill

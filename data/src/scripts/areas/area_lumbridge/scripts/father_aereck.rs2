@@ -1,7 +1,37 @@
 [opnpc1,father_aereck]
-if(%gamemode_selected = ^gamemode_pvp){
-    ~chatnpc("<p,angry>GO AWAY!");
-    return;
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>Why hello!");
+    ~mesbox("<p,sad>I wanted to say that I wanted to atone for my sins!");
+    ~chatnpc("<p,happy>I am glad to hear it! The lamb of God cleanses us of all our sins.");
+    def_int $choice = ~p_choice2_header("I want to atone for my sins.", 1, "I wish to die in my sins.", 2, "Remove Murderer Status & Reset Your Account.");
+    switch_int($choice){
+        case 1 : {
+            ~founders_protection;
+            inv_clear(bank);
+            inv_clear(inv);
+            inv_clear(worn);
+            ~reset();
+            ~stat_reset_all;
+            p_teleport(0_48_48_22_35);
+            buildappearance(worn);
+            ~prayer_deactivate_all;
+            ~follower_death;
+            anim(null, 0);
+            p_stopaction;
+            healenergy(10000);
+            ~clear_pk_skull;
+            ~clear_poison;
+            ~initalltabs;
+            ~ledger_reset;
+            @start_tutorial;
+            mes("You have been reset!");
+            return;
+        }
+        case 2 : {
+            return;
+        }
+    }
+
 }
 switch_int(%priest_progress) {
     case ^priest_not_started : @father_aereck_default;
@@ -10,9 +40,39 @@ switch_int(%priest_progress) {
 }
 
 [label,father_aereck_default]
-if(%gamemode_selected = ^gamemode_pvp){
-    ~chatnpc("<p,angry>GO AWAY!");
-    return;
+if (%gamemode_selected = ^gamemode_pvp){
+    ~chatnpc("<p,angry>Why hello!");
+    ~mesbox("<p,sad>I wanted to say that I wanted to atone for my sins!");
+    ~chatnpc("<p,happy>I am glad to hear it! The lamb of God cleanses us of all our sins.");
+    def_int $choice = ~p_choice2_header("I want to atone for my sins.", 1, "I wish to die in my sins.", 2, "Remove Murderer Status & Reset Your Account.");
+    switch_int($choice){
+        case 1 : {
+            ~founders_protection;
+            inv_clear(bank);
+            inv_clear(inv);
+            inv_clear(worn);
+            ~reset();
+            ~stat_reset_all;
+            p_teleport(0_48_48_22_35);
+            buildappearance(worn);
+            ~prayer_deactivate_all;
+            ~follower_death;
+            anim(null, 0);
+            p_stopaction;
+            healenergy(10000);
+            ~clear_pk_skull;
+            ~clear_poison;
+            ~initalltabs;
+            ~ledger_reset;
+            @start_tutorial;
+            mes("You have been reset!");
+            return;
+        }
+        case 2 : {
+            return;
+        }
+    }
+
 }
 ~chatnpc("<p,happy>Welcome to the church of holy Saradomin.");
 switch_int (~p_choice3("Who's Saradomin?", 1, "Nice place you've got here.", 2, "I'm looking for a quest!", 3)) {

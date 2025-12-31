@@ -6,6 +6,7 @@
 [opheld2,rune_mace] @levelrequire_attack(80, last_slot);
 [opheld2,rune_sword] @levelrequire_attack(80, last_slot);
 [opheld2,rune_scimitar] @levelrequire_attack(80, last_slot);
+[opheld2,guilded_scimitar] @levelrequire_attack(80, last_slot);
 [opheld2,rune_longsword] @levelrequire_attack(80, last_slot);
 [opheld2,rune_warhammer] @levelrequire_attack(80, last_slot);
 [opheld2,rune_battleaxe] @levelrequire_attack(80, last_slot);

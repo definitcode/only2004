@@ -2050,6 +2050,9 @@ if(%legends_progress < ^legends_replaced_totem) {
 
 [queue,legends_quest_complete]
 %legends_progress = ^legends_complete;
+if (%speedrun_active_challenge = ^challenge_legends_quest) {
+    ~speedrun_complete_challenge;
+}
 // todo: older ref image?
 // https://storage.googleapis.com/tannerdino/images/legendscomplt.png
 ~send_quest_complete(questlist:legends, thtotempolegift, 250, ^legends_questpoints, "You have completed the\\nLegends Guild Quest!");

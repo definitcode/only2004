@@ -1,6 +1,6 @@
-[opheldu,_category_151] @load_bars(last_useitem);
-[opheld1,bar_box] @unload_bars;
-[opheld2,bar_box] @check_bars;
+//[opheldu,_category_151] @load_bars(last_useitem);
+//[opheld1,bar_box] @unload_bars;
+//[opheld2,bar_box] @check_bars;
 
 [label,load_bars](obj $bar)
 if (inv_total(inv, bar_box) < 1){

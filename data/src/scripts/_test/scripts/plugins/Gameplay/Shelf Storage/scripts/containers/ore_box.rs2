@@ -1,6 +1,6 @@
-[opheldu,_category_91] @load_ores(last_useitem);
-[opheld1,ore_box2] @unload_ores;
-[opheld2,ore_box2] @check_ores;
+//[opheldu,_category_91] @load_ores(last_useitem);
+//[opheld1,ore_box2] @unload_ores;
+//[opheld2,ore_box2] @check_ores;
 
 [label,load_ores](obj $ore)
 if (inv_total(inv, ore_box2) < 1){

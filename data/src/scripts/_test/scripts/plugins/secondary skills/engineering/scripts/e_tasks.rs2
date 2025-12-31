@@ -51,56 +51,55 @@ switch_int($choice3) {
 ~e_tasks;
 
 [proc,e_rep_multi]
-if (%e_taskamount = ^e_easy) {
-    %e_repmulti = calc(1 * ^e_easy);
-} else if (%e_taskamount = ^e_medium) {
-    %e_repmulti = calc(1 * ^e_medium);
-} else if (%e_taskamount = ^e_hard) {
-    %e_repmulti = calc(1 * ^e_hard);
-} else if (%e_taskamount = ^e_insane) {
-    %e_repmulti = calc(1 * ^e_insane);
+def_int $task_amount = %e_taskamount;
+switch_int($task_amount){
+    case ^e_easy : %e_repmulti = calc(1 * ^e_easy);
+    case ^e_medium : %e_repmulti = calc(1 * ^e_medium);
+    case ^e_hard : %e_repmulti = calc(1 * ^e_hard);
+    case ^e_insane : %e_repmulti = calc(1 * ^e_insane);
 }
+[proc,engineeringrepgain]
+%e_taskstatus = ^e_notstarted;
+%e_nurmofrep = add(%e_nurmofrep,%e_repmulti);
+spotanim_pl(levelup_anim, 124, 0);
+midi_jingle(^advance_agility_jingle, ^advance_agility_millis);
+~mesbox("You have completed the task and have been rewarded!");
 
 [proc,e_ct]
 ~e_rep_multi;
-if (%e_taskstatus = ^e_inprogress) {
-    if (%e_taskitem = ^e_cog) {
-        ~mesbox("You are currently on a task to get [<tostring(%e_taskamount)>x] Iron Cogs.");
-        if (inv_total(inv, cog) > %e_taskamount) {
-            inv_del(inv, cog, %e_taskamount);
-            %e_taskstatus = ^e_notstarted;
-            %e_nurmofrep = add(%e_nurmofrep,%e_repmulti);
-            spotanim_pl(levelup_anim, 124, 0);
-            midi_jingle(^advance_agility_jingle, ^advance_agility_millis);
-            ~mesbox("You have completed the task and have been rewarded!");
-            return;
-        } 
-    } else if (%e_taskitem = ^e_barbedrope) {
-        ~mesbox("You are currently on a task to get [<tostring(%e_taskamount)>x] Barbed Rope.");
-        if (inv_total(inv, barbed_rope) > %e_taskamount) {
-            inv_del(inv, barbed_rope, %e_taskamount);
-            %e_taskstatus = ^e_notstarted;
-            %e_nurmofrep = add(%e_nurmofrep,%e_repmulti);
-            spotanim_pl(levelup_anim, 124, 0);
-            midi_jingle(^advance_agility_jingle, ^advance_agility_millis);
-            ~mesbox("You have completed the task and have been rewarded!");
-            return;
-        }
-    } else if (%e_taskitem = ^e_ironnails) {
-        ~mesbox("You are currently on a task to get [<tostring(%e_taskamount)>x] Iron Nails.");
-        if (inv_total(inv, iron_nails) > %e_taskamount) {
-            inv_del(inv, iron_nails, %e_taskamount);
-            %e_taskstatus = ^e_notstarted;
-            %e_nurmofrep = add(%e_nurmofrep,%e_repmulti);
-            spotanim_pl(levelup_anim, 124, 0);
-            midi_jingle(^advance_agility_jingle, ^advance_agility_millis);
-            ~mesbox("You have completed the task and have been rewarded!");
-            return;
+def_int $status = %e_taskstatus;
+def_int $progress = ^e_inprogress;
+def_int $task_item = %e_taskitem;
+switch_int($status){
+    case ^e_notstarted : {
+        ~mesbox("You are not currently on a task.");
+        ~e_tasks;
+    }
+    case ^e_inprogress : {
+        switch_int($task_item){
+            case ^e_cog : {
+                if (inv_total(inv, cog) > %e_taskamount) {
+                    inv_del(inv, cog, %e_taskamount);
+                    ~engineeringrepgain;
+                    return;
+                }
+            }
+            case ^e_barbedrope : {
+                if (inv_total(inv, barbed_rope) > %e_taskamount) {
+                    inv_del(inv, barbed_rope, %e_taskamount);
+                    ~engineeringrepgain;
+                    return;
+                }
+            }
+            case ^e_ironnails : {
+                if (inv_total(inv, iron_nails) > %e_taskamount) {
+                    inv_del(inv, iron_nails, %e_taskamount);
+                    ~engineeringrepgain;
+                    return;
+                }
+            }
         }
     }
-
-} else {
-    ~mesbox("You are not currently on a task.");
-    ~e_tasks;
 }
+
 

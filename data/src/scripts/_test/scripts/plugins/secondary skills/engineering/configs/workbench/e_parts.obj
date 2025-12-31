@@ -9,7 +9,7 @@ members=yes
 2dyan=2040
 2dxan=292
 weight=1kg
-category=e_part
+category=engineering_part
 tradeable=yes
 stackable=yes
 
@@ -27,6 +27,7 @@ recol1d=0
 2dxan=264
 weight=2oz
 stackable=yes
+category=engineering_part
 
 [salt_petre]
 name=Salt Petre
@@ -43,6 +44,7 @@ iop1=Grind
 2dxan=264
 weight=2oz
 stackable=yes
+category=engineering_part
 
 [iron_nails]
 name=Iron Nails
@@ -75,6 +77,7 @@ members=yes
 2dyan=1688
 2dxan=204
 weight=2500g
+category=engineering_part
 
 [bucket_powder]
 name=Bucket of Gunpowder
@@ -89,7 +92,7 @@ members=yes
 2dyan=1688
 2dxan=204
 weight=2500g
-
+category=engineering_part
 
 [bronze_rod]
 name=Bronze Rod
@@ -103,6 +106,7 @@ recol1d=8354
 2dyan=1056
 2dxan=224
 stackable=yes
+category=engineering_part
 
 [iron_rod]
 name=Iron Rod
@@ -116,6 +120,7 @@ recol1d=8456
 2dyan=1056
 2dxan=224
 stackable=yes
+category=engineering_part
 
 [steel_rod]
 name=Steel Rod
@@ -129,6 +134,7 @@ recol1d=15855
 2dyan=1056
 2dxan=224
 stackable=yes
+category=engineering_part
 
 [mithril_rod]
 name=Mithril Rod
@@ -142,6 +148,7 @@ recol1d=6346
 2dyan=1056
 2dxan=224
 stackable=yes
+category=engineering_part
 
 [adamant_rod]
 name=Adamant Rod
@@ -155,6 +162,7 @@ recol1d=6438
 2dyan=1056
 2dxan=224
 stackable=yes
+category=engineering_part
 
 [rune_rod]
 name=Rune Rod
@@ -168,6 +176,7 @@ recol1d=6476
 2dyan=1056
 2dxan=224
 stackable=yes
+category=engineering_part
 
 [dragon_rod]
 name=Dragon Rod
@@ -181,7 +190,7 @@ recol1d=14336
 2dyan=1056
 2dxan=224
 stackable=yes
-
+category=engineering_part
 
 
 

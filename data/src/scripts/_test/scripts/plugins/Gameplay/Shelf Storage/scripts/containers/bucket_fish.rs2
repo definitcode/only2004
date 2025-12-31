@@ -1,7 +1,40 @@
-[opheldu,_category_57] @load_fish(last_useitem);
-[opheld1,bucket_fish] @unload_fish;
-[opheld2,bucket_fish] @check_fish;
-
+//[opheldu,_category_57] @store_fish(last_useitem); 
+////@load_fish(last_useitem);
+////[opheld1,bucket_fish] @unload_fish;
+////[opheld2,bucket_fish] @check_fish;
+//
+//
+//
+//[label,store_fish](obj $obj)
+//if (stat_base(fishing) < 60) {
+//    mes("You need at least level 60 Fishing to use this!");
+//    return;
+//}
+//def_namedobj $namedobj;
+//switch_obj ($obj) {
+//    case raw_anchovies : $namedobj = raw_anchovies;
+//    case raw_shrimp : $namedobj = raw_shrimp;
+//    case raw_sardine : $namedobj = raw_sardine;
+//    case raw_herring : $namedobj = raw_herring;
+//    case raw_trout : $namedobj = raw_trout;
+//    case raw_pike : $namedobj = raw_pike;
+//    case raw_salmon : $namedobj = raw_salmon;
+//    case raw_tuna : $namedobj = raw_tuna;
+//    case raw_lobster : $namedobj = raw_lobster;
+//    case raw_swordfish : $namedobj = raw_swordfish;
+//    case raw_seaturtle : $namedobj = raw_seaturtle;
+//    case raw_mantaray : $namedobj = raw_mantaray;
+//    case default : {mes("This does not belong in there.");}
+//}
+//if (inv_freespace(fish_bucket) > 0){
+//    def_int $total_fish = inv_total(inv, $obj);
+//    mes("You put the fish in the bucket.");
+//    inv_add(fish_bucket, $namedobj, $total_fish);
+//    inv_del(inv, $obj, $total_fish);
+//} else {
+//    mes("The bucket is full!");
+//    return;
+//}
 
 [label,load_fish](obj $fish)
 if (inv_total(inv, bucket_fish) < 1){

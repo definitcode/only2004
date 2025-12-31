@@ -118,6 +118,7 @@ members=yes
 param=brew_potion_struct,weapon_poison
 param=brew_potion_struct_secondary,3dose1antidragon
 stackable=yes
+category=mixology
 
 [black_dragon_scale_dust]
 model=model_2742_obj
@@ -133,6 +134,7 @@ cost=52
 weight=7g
 members=yes
 stackable=yes
+category=mixology
 
 [red_dragon_scale_dust]
 model=model_2742_obj
@@ -148,6 +150,7 @@ cost=52
 weight=7g
 members=yes
 stackable=yes
+category=mixology
 
 [green_dragon_scale_dust]
 model=model_2742_obj
@@ -163,6 +166,7 @@ cost=52
 weight=7g
 members=yes
 stackable=yes
+category=mixology
 
 
 // jagex name

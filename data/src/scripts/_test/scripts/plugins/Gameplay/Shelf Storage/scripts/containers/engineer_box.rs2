@@ -1,0 +1,60 @@
+//[opheldu,_category_91] @load_engineer_box(last_useitem);
+//[opheldu,_category_151] @load_engineer_box(last_useitem);
+//[opheldu,_engineering_part] @load_engineer_box(last_useitem);
+//[opheldu,_category_74] @load_engineer_box(last_useitem);
+//
+//[label,load_engineer_box](obj $obj)
+//if (%engineering < 90) {
+//    mes("You need at least level 90 Engineering to use this!");
+//    return;
+//}
+//
+//def_namedobj $namedobj;
+//switch_obj ($obj) {
+//    case tin_ore : $namedobj = tin_ore;
+//    case copper_ore : $namedobj = copper_ore;
+//    case iron_ore : $namedobj = iron_ore;
+//    case gold_ore : $namedobj = gold_ore;
+//    case silver_ore : $namedobj = silver_ore;
+//    case mithril_ore : $namedobj = mithril_ore;
+//    case adamantite_ore : $namedobj = adamantite_ore;
+//    case runite_ore : $namedobj = runite_ore;
+//    case dragon_ore : $namedobj = dragon_ore;
+//
+//    case bronze_bar : $namedobj = bronze_bar;
+//    case iron_bar : $namedobj = iron_bar;
+//    case silver_bar : $namedobj = silver_bar;
+//    case gold_bar : $namedobj = gold_bar;
+//    case mithril_bar : $namedobj = mithril_bar;
+//    case adamantite_bar : $namedobj = adamantite_bar;
+//    case runite_bar : $namedobj = runite_bar;
+//    case dragon_bar : $namedobj = dragon_bar;
+//
+//    case cog : $namedobj = cog;
+//    case iron_nails : $namedobj = iron_nails;
+//    case barbed_rope : $namedobj = barbed_rope;
+//    case bucket_peter : $namedobj = bucket_peter;
+//    case bucket_powder : $namedobj = bucket_powder;
+//    case salt_petre : $namedobj = salt_petre;
+//    case gunpowder : $namedobj = gunpowder;
+//
+//
+//    case bronze_rod : $namedobj = bronze_rod;
+//    case iron_rod : $namedobj = iron_rod;
+//    case mithril_rod : $namedobj = mithril_rod;
+//    case adamant_rod : $namedobj = adamant_rod;
+//    case rune_rod : $namedobj = rune_rod;
+//    case dragon_rod : $namedobj = dragon_rod;
+//
+//
+//    case default : { mes("This does not belong in there.");}
+//}
+//if (inv_freespace(engineer_box) > 0){
+//    def_int $total_items = inv_total(inv, $obj);
+//    mes("You put the item in the engineer box.");
+//    inv_add(engineer_box, $namedobj, $total_items);
+//    inv_del(inv, $obj, $total_items);
+//} else {
+//    mes("The engineer box is full!");
+//    return;
+//}

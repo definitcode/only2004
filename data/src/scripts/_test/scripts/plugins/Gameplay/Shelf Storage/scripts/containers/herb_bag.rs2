@@ -1,7 +1,75 @@
-[opheldu,_category_774] @load_herbs(last_useitem);
-[opheld1,herb_bag] @unload_herbs;
-[opheld2,herb_bag] @check_herbs;
-
+//[opheldu,_category_774] @store_herb(last_useitem);
+////@load_herbs(last_useitem);
+////[opheld1,herb_bag] @unload_herbs;
+////[opheld2,herb_bag] @check_herbs;
+//
+//
+//
+//[label,store_herb](obj $obj)
+//if (stat_base(herblore) < 60) {
+//    mes("You need at least level 60 Herblore to use this!");
+//    return;
+//}
+//def_namedobj $namedobj;
+//switch_obj ($obj) {
+//    case unidentified_guam_leaf : $namedobj = unidentified_guam_leaf;
+//    case unidentified_marrentill : $namedobj = unidentified_marrentill;
+//    case unidentified_tarromin : $namedobj = unidentified_tarromin;
+//    case unidentified_harralander : $namedobj = unidentified_harralander;
+//    case unidentified_ranarr_weed : $namedobj = unidentified_ranarr_weed;
+//    case unidentified_irit_leaf : $namedobj = unidentified_irit_leaf;
+//    case unidentified_avantoe : $namedobj = unidentified_avantoe;
+//    case unidentified_kwuarm : $namedobj = unidentified_kwuarm;
+//    case unidentified_cadantine : $namedobj = unidentified_cadantine;
+//    case unidentified_dwarf_weed : $namedobj = unidentified_dwarf_weed;
+//    case unidentified_torstol : $namedobj = unidentified_torstol;
+//    case unidentified_lantadyme : $namedobj = unidentified_lantadyme;
+//    case unidentified_snake_weed : $namedobj = unidentified_snake_weed;
+//    case unidentified_ardrigal : $namedobj = unidentified_ardrigal;
+//    case unidentified_sito_foil : $namedobj = unidentified_sito_foil;
+//    case unidentified_volencia_moss : $namedobj = unidentified_volencia_moss;
+//    case unidentified_rogues_purse : $namedobj = unidentified_rogues_purse;
+//    case guam_leaf : $namedobj = guam_leaf;
+//    case marrentill : $namedobj = marrentill;
+//    case tarromin : $namedobj = tarromin;
+//    case harralander : $namedobj = harralander;
+//    case ranarr_weed : $namedobj = ranarr_weed;
+//    case irit_leaf : $namedobj = irit_leaf;
+//    case avantoe : $namedobj = avantoe;
+//    case kwuarm : $namedobj = kwuarm;
+//    case cadantine : $namedobj = cadantine;
+//    case dwarf_weed : $namedobj = dwarf_weed;
+//    case torstol : $namedobj = torstol;
+//    case lantadyme : $namedobj = lantadyme;
+//    case snake_weed : $namedobj = snake_weed;
+//    case ardrigal : $namedobj = ardrigal;
+//    case sito_foil : $namedobj = sito_foil;
+//    case volencia_moss : $namedobj = volencia_moss;
+//    case rogues_purse : $namedobj = rogues_purse;
+//    case basic_powder : $namedobj = basic_powder;
+//    case red_powder : $namedobj = red_powder;
+//    case blue_powder : $namedobj = blue_powder;
+//    case yellow_powder : $namedobj = yellow_powder;
+//    case white_powder : $namedobj = white_powder;
+//    case black_powder : $namedobj = black_powder;
+//    case orange_powder : $namedobj = orange_powder;
+//    case mixed_powder : $namedobj = mixed_powder;
+//    case sapphire_powder : $namedobj = sapphire_powder;
+//    case fire_powder : $namedobj = fire_powder;
+//    case tulip_powder : $namedobj = tulip_powder;
+//    case sunflower_powder : $namedobj = sunflower_powder;
+//    case precious_powder : $namedobj = precious_powder;
+//    case default : { mes("This does not belong in there."); }
+//}
+//if (inv_freespace(herb_bag) > 0){
+//    def_int $total_herbs = inv_total(inv, $obj);
+//    mes("You put the item in the herb bag.");
+//    inv_add(herb_bag, $namedobj, $total_herbs);
+//    inv_del(inv, $obj, $total_herbs);
+//} else {
+//    mes("The herb bag is full!");
+//    return;
+//}
 
 // --- HERBS ---
 
@@ -43,7 +111,7 @@ if ($total_herbs < $herb_space) {
             %guam_leaf_count = calc(%guam_leaf_count + $herb_count);
             mes("You loaded <tostring($herb_count)>x Guam leaf.");
         }
-        case marentill : {
+        case marrentill : {
             inv_del(inv, $herb, $herb_count);
             %marentill_count = calc(%marentill_count + $herb_count);
             mes("You loaded <tostring($herb_count)>x Marrentill.");
@@ -154,7 +222,7 @@ switch_int($choice){
     case 2 : {
         def_int $amount = min(%marentill_count, $freespace);
         if ($amount > 0) {
-            inv_add(inv, marentill, $amount);
+            inv_add(inv, marrentill, $amount);
             %marentill_count = calc(%marentill_count - $amount);
             mes("You unloaded <tostring($amount)>x Marrentill.");
         }

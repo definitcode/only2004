@@ -17,6 +17,10 @@ settimer(stat_boost_restore, 100);
 settimer(health_regen, 100);
 // random event timer
 
+if (%speedrun_running = true) {
+    settimer(speedrun_timer, 1);
+}
+
 // for logout out during a general macro event, they respawn when you log back in
 // queue: 
 // - https://youtu.be/T0ulsgorBkY?list=PLn23LiLYLb1Y3P9S9qZbijcJihiD416jT

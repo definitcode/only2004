@@ -5,7 +5,7 @@ param=brew_potion_message,You put the Guam Leaf into the vial of water.
 param=brew_potion_mixture,guamvial
 
 [unf_marrentill_potion]
-param=brew_potion_ingredient,marentill
+param=brew_potion_ingredient,marrentill
 param=brew_potion_solvent,vial_water
 param=brew_potion_level,5
 param=brew_potion_message,You put the Marrentill into the vial of water.

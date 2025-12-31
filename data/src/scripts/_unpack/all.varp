@@ -138,6 +138,15 @@ transmit=yes
 [ct_noted]
 transmit=yes
 
+[fb_noted]
+transmit=yes
+
+[hb_noted]
+transmit=yes
+
+[eb_noted]
+transmit=yes
+
 [zq_map_mechanisms]
 scope=perm
 
