@@ -210,6 +210,9 @@ switch_int($active_task){
     case 12 : {
         $string = "Black Dragon";
     }
+    case default : {
+        $string = "None";
+    }
 }
 return($string);
 

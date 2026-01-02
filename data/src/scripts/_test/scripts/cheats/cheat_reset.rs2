@@ -225,6 +225,9 @@ if (p_finduid(uid) = true) {
     %chompybird_kills = 0;
     %bunny_ears_unlocked = 0;
     %scythe_unlocked = 0;
+    // Reset Speedruns
+    %speedrun_active_challenge = ^challenge_none;
+    %speedrun_running = 0;
     //p_delay(10);
     //p_logout;
 } else {

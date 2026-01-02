@@ -17,7 +17,7 @@ settimer(stat_boost_restore, 100);
 settimer(health_regen, 100);
 // random event timer
 
-if (%speedrun_running = true) {
+if (%speedrun_running = 1) {
     settimer(speedrun_timer, 1);
 }
 

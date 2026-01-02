@@ -1,0 +1,71 @@
+[cavalier_th]
+name=Cavalier (t)
+desc=Only obtained by being an esteemed treasure hunter!
+cost=200
+weight=80g
+members=yes
+model=model_2451_obj
+recol1s=15649
+recol1d=5370
+2dxof=-1
+2dyof=-8
+2dzoom=690
+2dyan=1856
+2dxan=160
+iop2=Wear
+wearpos=hat
+manwear=model_186_obj_wear,0
+womanwear=model_362_obj_wear,0
+manhead=model_28_obj_wear
+womanhead=model_86_obj_wear
+param=no_alchemy,^true
+tradeable=no
+category=treasure
+
+[treasure_shirt]
+name=Treasure shirt
+desc=Only obtained by being an esteemed treasure hunter!
+cost=40
+model=model_2786_obj
+recol1s=14724
+recol1d=2203
+members=yes
+2dyof=7
+2dzoom=1370
+2dxan=536
+wearpos=torso
+wearpos2=arms
+manwear=model_292_idk,0
+manwear2=model_170_idk
+womanwear=model_456_idk,0
+womanwear2=model_348_idk
+iop2=Wear
+weight=2lb
+tradeable=no
+category=treasure
+
+[treasure_trousers]
+name=Treasure trousers
+desc=Only obtained by being an esteemed treasure hunter!
+members=yes
+cost=50
+model=model_2669_obj
+recol1s=13600
+recol1d=4312
+recol2s=4228 
+recol2d=1057
+2dyof=6
+2dzoom=2060
+2dyan=1924
+2dzan=104
+2dxan=596
+iop2=Wear
+wearpos=legs
+wearpos2=feet
+manwear=model_273_obj_wear,0
+womanwear=model_436_obj_wear,0
+weight=5lb
+tradeable=no
+category=treasure
+
+

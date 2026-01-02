@@ -288,3 +288,8 @@
 %r_taskstatus = ^r_notstarted;
 %r_taskitem = null;
 %founders_pack_collected = ^false;
+
+
+//Slayer Reset
+%active_slayer_task = ^none;
+%slayer_points = ^none;

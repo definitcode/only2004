@@ -1,0 +1,21 @@
+[rdpt_hat]
+name=RDPT Hat
+desc=Only obtained via RDPT!
+cost=200
+weight=80g
+members=yes
+model=model_194_npc
+2dxof=-1
+2dyof=-1
+2dzoom=690
+2dyan=1856
+2dxan=160
+iop2=Wear
+wearpos=hat
+manwear=model_194_npc,0
+womanwear=model_194_npc,0
+manhead=model_194_npc
+womanhead=model_194_npc
+param=no_alchemy,^true
+tradeable=no
+category=rdpt_emp

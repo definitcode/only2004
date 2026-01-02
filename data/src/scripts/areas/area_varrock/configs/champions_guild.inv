@@ -27,3 +27,5 @@ allstock=yes
 stock1=blue_cape,2,1000
 stock2=steel_full_helm,1,1000
 stock3=steel_platelegs,1,20000
+stock4=rogue_dagger,1,500
+stock5=tank_warhammer,1,500

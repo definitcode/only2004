@@ -50,6 +50,6 @@ data=experience,5000
 data=respawn_ticks,666
 data=loot,coins,1000,1000,128
 data=loot,raw_shark,1,1,128
-data=loot,adamantite_ore,1,1,128
+data=loot,mithril_ore,1,1,128
 data=loot,uncut_sapphire,1,1,128
 data=tele_coord,0_42_51_8_17

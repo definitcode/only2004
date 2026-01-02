@@ -11,6 +11,17 @@
 
 [proc,trail_clue_hard_complete]()(boolean)
 if(~get_trail_progress >= ^trail_hard_maxsteps | (add(~get_trail_progress, 2) >= ^trail_hard_maxsteps & random(2) = 0)) {
+    %clues_completed = calc(%clues_completed + 1);
+    switch_int(%clues_completed){
+        case 100 : {
+            inv_add(inv, treasure_shirt, 1);
+            inv_add(inv, treasure_trousers, 1);
+            inv_add(inv, cavalier_th, 1);
+            mes("Congrats on your 100th Hard Trail!");
+            mes("You have been rewarded with a treasure hunter outfit!");
+        }
+    }
+
     return (true);
 }
 return(false);

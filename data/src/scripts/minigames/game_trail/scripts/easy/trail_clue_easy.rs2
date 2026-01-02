@@ -26,6 +26,7 @@ if(~trail_clue_easy_complete = true) {
 
 [proc,trail_clue_easy_complete]()(boolean)
 if(~get_trail_progress >= ^trail_easy_maxsteps | (add(~get_trail_progress, 2) >= ^trail_easy_maxsteps & random(2) = 0)) {
+    %clues_completed = calc(%clues_completed + 1);
     return (true);
 }
 return(false);

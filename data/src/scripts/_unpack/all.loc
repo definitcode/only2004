@@ -1255,6 +1255,7 @@ recol3s=15586
 recol3d=16774
 
 [dugupsoil3_light]
+name=Dirt
 model=model_loc_186
 hillskew=yes
 recol1s=13505

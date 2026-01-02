@@ -15,6 +15,18 @@ def_string $player_name = displayname;
 def_string $dragonslayer = "Incomplete";
 def_string $legendsquest = "Incomplete";
 def_string $heroesquest = "Incomplete";
+def_string $dragon_speedrun = "None";
+def_string $legends_speedrun = "None";
+
+
+
+
+
+//Slayer
+def_int $slayer_taskamount = %task_amount;
+def_int $slayer_points = %slayer_points;
+
+
 
 if (%dragon_progress = ^dragon_complete) {
     $dragonslayer = "@gre@YES@bla@";
@@ -33,6 +45,17 @@ if (%hero_progress = ^hero_complete) {
     $heroesquest = "@red@NO@bla@";
 }
 
+if (%speedrun_best_dragon ! 0) {
+    def_int $s = divide(multiply(%speedrun_best_dragon, 600), 1000);
+    $dragon_speedrun = "<tostring($s)>s";
+}
+if (%speedrun_best_legends ! 0) {
+    def_int $s = divide(multiply(%speedrun_best_legends, 600), 1000);
+    $legends_speedrun = "<tostring($s)>s";
+}
+
+
+// Game Modes
 if (%gamemode_selected = ^gamemode_hardcore) {
     $gamemode_string = "@red@Hardcore@bla@";
 } else if (%gamemode_selected = ^gamemode_none) {
@@ -51,6 +74,7 @@ if (%gamemode_selected = ^gamemode_hardcore) {
     $gamemode_string = "Unknown";
 }
 
+// Founder Status
 if (%founders_status = ^founder) {
     $founders_string = "@cya@Founder@bla@";
 } else if (%founders_status = ^hcfounder) {
@@ -67,7 +91,21 @@ if (%founders_status = ^founder) {
 def_string $nurmofrep = null;
 def_string $roguerep = null;
 def_string $prestige = null;
+def_int $treasure_hunter = %clues_completed;
+def_string $treasure_title;
 
+//Titles
+if ($treasure_hunter > 99){
+    $treasure_title = "@yel@Explorer@bla@";
+} else if ($treasure_hunter > 79){
+    $treasure_title = "@cya@Adventurer@bla@";
+} else if ($treasure_hunter > 49){
+    $treasure_title = "@blu@Seeker@bla@";
+} else if ($treasure_hunter > 24){
+    $treasure_title = "@gre@Collector@bla@";
+} else {
+    $treasure_title = "@whi@Novice@bla@";
+}
 
 if (%prestige > 3499) {
     $prestige = "@yel@Legend@bla@";
@@ -78,8 +116,9 @@ if (%prestige > 3499) {
 } else if (%prestige > 499) {
     $prestige = "@gre@Honored@bla@";
 } else {
-    $prestige = "@whi@Explorer@bla@";
+    $prestige = "@whi@Bystander@bla@";
 }
+
 if (%e_nurmofrep > 3499) {
     $nurmofrep = "@yel@Architect@bla@";
 } else if (%e_nurmofrep > 2999) {
@@ -91,6 +130,7 @@ if (%e_nurmofrep > 3499) {
 } else {
     $nurmofrep = "@whi@Tinkerer@bla@";
 }
+
 if (%r_roguedefectorrep > 3499) {
     $roguerep = "@yel@Phantom@bla@";
 } else if (%r_roguedefectorrep > 2999) {
@@ -111,50 +151,45 @@ def_string $e_taskitem = null;
 def_string $e_taskstatus = null;
 def_string $e_amountleft = null;
 
-if (%e_taskitem = ^e_cog){
-    $e_taskitem = "@gre@Cog@bla@";
-} else if (%e_taskitem = ^e_barbedrope){
-    $e_taskitem = "@gre@Barbed Rope@bla@";
-} else if (%e_taskitem = ^e_ironnails){
-    $e_taskitem = "@gre@Iron Nails@bla@";
+switch_int(%e_taskitem){
+    case ^e_cog : {$e_taskitem = "@gre@Cog@bla@";}
+    case ^e_barbedrope : {$e_taskitem = "@gre@Barbed Rope@bla@";}
+    case ^e_ironnails : {$e_taskitem = "@gre@Iron Nails@bla@";}
 }
 
-if (%e_taskstatus = ^e_inprogress){
-    $e_taskstatus = "@gre@In Progress@bla@";
-} else if (%e_taskstatus = ^e_notstarted){
-    $e_taskstatus = "@yel@Not Started@bla@";
+switch_int(%e_taskstatus){
+    case ^e_inprogress : {$e_taskstatus = "@gre@In Progress@bla@";}
+    case ^e_notstarted : {$e_taskstatus = "@yel@Not Started@bla@";}
 }
 
-if (%e_taskamount = ^e_easy){
-    $e_amountleft = "N/A";
+switch_int(%e_taskamount){
+    case ^e_easy : {$e_amountleft = "N/A";}
 }
 
-if (%r_taskitem = ^r_badge){
-    $r_taskitem = "@gre@Badges@bla@";
-} else if (%r_taskitem = ^r_casket){
-    $r_taskitem = "@gre@Caskets@bla@";
+switch_int(%r_taskitem){
+    case ^r_badge : {$r_taskitem = "@gre@Badges@bla@";}
+    case ^r_casket : {$r_taskitem = "@gre@Caskets@bla@";}
 }
 
-if (%r_taskstatus = ^r_inprogress){
-    $r_taskstatus = "@gre@In Progress@bla@";
-} else if (%r_taskstatus = ^r_notstarted){
-    $r_taskstatus = "@yel@Not Started@bla@";
+switch_int(%r_taskstatus){
+    case ^r_inprogress : {$r_taskstatus = "@gre@In Progress@bla@";}
+    case ^r_notstarted : {$r_taskstatus = "@yel@Not Started@bla@";}
 }
 
-if (%r_taskamount = ^r_easy){
-    $r_amountleft = "N/A";
+switch_int(%r_taskamount){
+    case ^r_easy : {$r_amountleft = "N/A";}
 }
 
 switch_int (%book_page) {
 
     case 0 : ~book("The Ledger of Action", 
-    "@red@Welcome, <$player_name> ||@bla@This ledger records your skills, PvP stats, kills, and your rare treasures.||Unlock the next steps in your path to |glory and greatness.|||@blu@Account Info |@bla@Game Mode: |   @whi@<$gamemode_string> |@bla@Founder Status: |   @whi@<$founders_string> |@bla@Players Online: [@whi@<tostring($player_count)>@bla@]|||");
+    "@red@Welcome, <$player_name> ||@bla@This ledger records your skills, PvP stats, kills, and your rare treasures.||Unlock the next steps in your path to |glory and greatness.|||@blu@Account Info |@bla@Game Mode: |   @whi@<$gamemode_string> |@bla@Founder Status: |   @whi@<$founders_string> |@bla@Players Online: [@whi@<tostring($player_count)>@bla@] |||");
 
     case 1 : ~book("@red@Skills & PvP", 
     "@bla@Intelligence: @whi@<tostring(%intelligence)> |@bla@Hunter: @whi@<tostring(%hunter)> |@bla@Engineering: @whi@<tostring(%engineering)> @bla@(@yel@<tostring(%e_nurmofrep)>@bla@) |@bla@Rogue: @whi@<tostring(%rogue)> @bla@(@yel@<tostring(%r_roguedefectorrep)>@bla@) |@bla@Prestige: [@whi@<tostring(%prestige)>@bla@] |@bla@Total Kills: [@whi@<tostring(%pvptotal_kills)>@bla@] |@bla@Total Deaths: [@red@<tostring(%pvptotal_deaths)>@bla@] |@bla@PK Points: @bla@[@whi@<tostring(%pk_points)>@bla@] |@bla@Killstreak: [@whi@<tostring(%pvp_killstreak)>@bla@]|||");
 
     case 2 : ~book("Challenges & Achievements", 
-    "@bla@Dragon Slayer I: @whi@<$dragonslayer> |@bla@Legends Quest: @whi@<$legendsquest> |@bla@Heroes Quest: @whi@<$heroesquest> |@bla@Prestige: @whi@<$prestige> |@bla@Engineer: @whi@<$nurmofrep> |@bla@Rogue: @whi@<$roguerep> |||");
+    "@bla@Dragon Slayer I: @whi@<$dragonslayer> |@bla@Legends Quest: @whi@<$legendsquest> |@bla@Heroes Quest: @whi@<$heroesquest> |@bla@Prestige: @whi@<$prestige> |@bla@Engineer: @whi@<$nurmofrep> |@bla@Rogue: @whi@<$roguerep> ||@red@Speedrun Best Times |@bla@Dragon Slayer: @whi@<$dragon_speedrun> |@bla@Legends Quest: @whi@<$legends_speedrun>||@bla@Treasure Hunter: @whi@<$treasure_title>@bla@ |||");
 
     case 3 : ~book("Task Tracker",
     "@bla@Rogue Task | @bla@Status: @whi@<$r_taskstatus> | @bla@Item: @whi@<$r_taskitem> | @bla@Remainder: [@whi@<$r_amountleft>@bla@] ||@bla@Engineering Task | @bla@Status: @whi@<$e_taskstatus> | @bla@Item: @whi@<$e_taskitem> | @bla@Remainder: [@whi@<$e_amountleft>@bla@] |     ||@bla@Slayer Task | [@whi@<tostring(~task_amount)>@bla@x @whi@<~task_name>@bla@] | @bla@Points: [@whi@<tostring(%slayer_points)>@bla@] |||");
@@ -214,7 +249,7 @@ switch_int (%book_page) {
     
 
     case 22 : ~book("Misc. II",
-    "@bla@Superheats: |[@whi@<tostring(%superheated_count)>@bla@] |@bla@Teleports: |[@whi@<tostring(%teleport_count)>@bla@] |@bla@Telegrabs: |[@whi@<tostring(%telegrab_count)>@bla@] |@bla@Potions Brewed: |[@whi@<tostring(%potions_brewed)>@bla@] |@bla@Herbs Cleaned: |[@whi@<tostring(%herbs_cleaned)>@bla@] ||@bla@Herbs Ground: |[@whi@<tostring(%herbs_ground)>@bla@]|||");
+    "@bla@Superheats: |[@whi@<tostring(%superheated_count)>@bla@] |@bla@Teleports: |[@whi@<tostring(%teleport_count)>@bla@] |@bla@Telegrabs: |[@whi@<tostring(%telegrab_count)>@bla@] |@bla@Potions Brewed: |[@whi@<tostring(%potions_brewed)>@bla@] |@bla@Herbs Cleaned: |[@whi@<tostring(%herbs_cleaned)>@bla@] ||@bla@Herbs Ground: |[@whi@<tostring(%herbs_ground)>@bla@]|@bla@Clues Collected: @whi@<tostring($treasure_hunter)>@bla@ |||");
 
 }
 

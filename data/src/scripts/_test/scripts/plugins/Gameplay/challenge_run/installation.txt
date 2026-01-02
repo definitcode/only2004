@@ -1,0 +1,26 @@
+## Installation
+
+## Rules!
+## 1.) Don't trust that new files will be automatically packed
+## this means to check the relevant .pack files for what you are adding.
+## 2.) Replace files or lines
+## If you are running a heavily customized source you might want to Replace
+## code lines rather than the files themselves.
+
+
+## How To Install Speedrun Timers
+##
+## `cd ~/Server/src/data/scripts/`
+## 1.) Ensure our .varp configs are packed properly
+##
+## 2.) Replace `login.rs2`
+##
+## 3.) Replace `tutorial.rs2`
+##
+## 4.) Copy paste these codes into your bash directory
+##  
+## 5.) Run `npm run build` -> `npm run start`
+##
+## 6.) Upon character creation you will be asked if you want to choose
+## a challenge mode or not. If you select yes you will receive a challenge book
+## and a timer will begin.

@@ -835,8 +835,9 @@ buttontype=normal
 width=32
 height=32
 model=model_3021_obj
-zoom=700
-xan=600
+zoom=650
+yan=256
+xan=2044
 option=Buy for 50,000 tickets:
 
 [com_98]

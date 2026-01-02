@@ -4,6 +4,9 @@ if (%questpoints < 32) {
     ~chatnpc_specific("Guild master", guild_master, "<p,angry>You have not proved yourself worthy to enter here yet.");
     return;
 }
+if (%speedrun_active_challenge = ^challenge_champions_guild) {
+    ~speedrun_complete_challenge;
+}
 // the sound in osrs is 1t early (if entering), so i cant use the proc
 def_coord $loc_coord = loc_coord;
 def_int $angle = loc_angle;

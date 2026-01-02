@@ -1,0 +1,103 @@
+[opheld1,challenge_book] @check_time;
+
+[label,check_time]
+def_int $seconds = divide(multiply(%speedrun_ticks, 600), 1000);
+def_int $minutes = divide($seconds, 60);
+def_int $hours = divide($minutes, 60);
+def_int $days = divide($hours, 24);
+def_int $weeks = divide($days, 7);
+def_int $months = divide($weeks, 4);
+def_int $years = divide($months, 12);
+if ($seconds > 60){
+    $seconds = 0;
+    $minutes = calc($minutes + 1);
+}
+if ($minutes > 60){
+    $minutes = 0;
+    $hours = calc($hours + 1);
+}
+if ($hours > 24){
+    $hours = 0;
+    $days = calc($days + 1);
+}
+if ($days > 7){
+    $days = 0;
+    $weeks = calc($weeks + 1);
+}
+if ($weeks > 4){
+    $weeks = 0;
+    $months = calc($months + 1);
+}
+if ($months > 12){
+    $months = 0;
+    $years = calc($years + 1);
+}
+mes("Time: <tostring($years)> years, <tostring($months)> months, <tostring($weeks)> weeks, <tostring($days)> days, <tostring($hours)> hours, <tostring($minutes)> minutes, <tostring($seconds)> seconds");
+
+[timer,speedrun_timer]
+if (%speedrun_running = 1) {
+    %speedrun_ticks = add(%speedrun_ticks, 1);
+    
+    // Optional: display timer in chat periodically or keep it silent for ledger
+    if (modulo(%speedrun_ticks, 100) = 0) {
+        // mes("Speedrun Ticks: <tostring(%speedrun_ticks)>");
+    }
+} else {
+    cleartimer(speedrun_timer);
+}
+
+[proc,speedrun_start_challenge](int $challenge)
+%speedrun_active_challenge = $challenge;
+%speedrun_ticks = 0;
+%speedrun_running = 1;
+settimer(speedrun_timer, 1);
+mes("Speedrun challenge started!");
+
+[proc,speedrun_complete_challenge]
+if (%speedrun_running = 0) {
+    return;
+}
+%speedrun_running = 0;
+cleartimer(speedrun_timer);
+
+def_int $seconds = divide(multiply(%speedrun_ticks, 600), 1000);
+def_int $minutes = divide($seconds, 60);
+def_int $hours = divide($minutes, 60);
+def_int $days = divide($hours, 24);
+def_int $weeks = divide($days, 7);
+def_int $months = divide($weeks, 4);
+def_int $years = divide($months, 12);
+mes("Speedrun challenge complete!");
+mes("Time: <tostring($years)> years, <tostring($months)> months, <tostring($weeks)> weeks, <tostring($days)> days, <tostring($hours)> hours, <tostring($minutes)> minutes, <tostring($seconds)> seconds");
+
+
+// Update best times
+if (%speedrun_active_challenge = ^challenge_dragon_slayer) {
+    if (%speedrun_best_dragon = 0 | %speedrun_ticks < %speedrun_best_dragon) {
+        %speedrun_best_dragon = %speedrun_ticks;
+        mes("New Personal Best for Dragon Slayer!");
+    }
+} else if (%speedrun_active_challenge = ^challenge_legends_quest) {
+    if (%speedrun_best_legends = 0 | %speedrun_ticks < %speedrun_best_legends) {
+        %speedrun_best_legends = %speedrun_ticks;
+        mes("New Personal Best for Legends Quest!");
+    }
+} else if (%speedrun_active_challenge = ^challenge_champions_guild) {
+    if (%speedrun_best_champions = 0 | %speedrun_ticks < %speedrun_best_champions) {
+        %speedrun_best_champions = %speedrun_ticks;
+        mes("New Personal Best for Champions Guild!");
+    }
+}
+
+[proc,speedrun_selection_menu]
+def_int $start = ~p_choice2_header("Yes, I'd like to try a challenge.", 1, "No thanks, I just want to play.", 2, "Would you like to participate in a Speedrun?");
+if ($start ! 1) {
+    return;
+}
+
+def_int $choice = ~p_choice2_header("Dragon Slayer Speedrun", ^challenge_dragon_slayer, "Legends Quest Speedrun", ^challenge_legends_quest, "~ Speedrun Challenge ~");
+
+if ($choice ! ^challenge_none) {
+    inv_add(inv, challenge_book, 1);
+    ~speedrun_start_challenge($choice);
+}

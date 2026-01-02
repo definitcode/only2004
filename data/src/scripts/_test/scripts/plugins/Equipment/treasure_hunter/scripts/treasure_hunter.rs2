@@ -1,0 +1,20 @@
+[opheld2,_treasure] @treasure_requirements(%clues_completed, last_slot);
+
+[proc,treasureoutfitcheck]()(boolean)
+def_int $hat = inv_total(inv, inv_getobj(inv, ^wearpos_hat));
+def_int $torso = inv_total(inv, inv_getobj(inv, ^wearpos_torso));
+def_int $legs = inv_total(inv, inv_getobj(inv, ^wearpos_legs));
+
+if ($hat > 0 & $torso > 0 & $legs > 0) {
+    return(true);
+} else {
+    return(false);
+}
+
+
+[label,treasure_requirements](int $cluescompleted, int $slot)
+if ($cluescompleted < 100) {
+    mes("You need to have more than 100 clues to use this item.");
+    return;
+}
+~equip($slot);

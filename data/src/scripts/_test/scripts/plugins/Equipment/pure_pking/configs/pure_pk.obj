@@ -253,6 +253,7 @@ param=slashdefence,5
 param=crushdefence,5
 param=rangedefence,-10
 param=prayerbonus,5
+
 [paladin_platelegs]
 name=Paladin Platelegs
 desc=These look pretty heavy.

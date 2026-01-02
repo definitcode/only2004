@@ -1,0 +1,17 @@
+[dice_bag]
+name=Dice Bag
+desc=A bag full of random dice.
+weight=1100g
+cost=86500
+model=model_2699_obj
+iop1=Roll-
+recol1s=13705
+recol1d=11473
+2dxof=-4
+2dyof=1
+2dzoom=780
+2dyan=156
+2dxan=52
+members=yes
+tradeable=yes
+param=no_alchemy,^true

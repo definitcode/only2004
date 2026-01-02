@@ -90,7 +90,7 @@ class Pix2D extends DoublyLinkable {
   }
   static clear() {
     const len = this.width2d * this.height2d;
-    for (let i = 0;i < len; i++) {
+    for (let i = 0; i < len; i++) {
       this.pixels[i] = 0;
     }
   }
@@ -112,7 +112,7 @@ class Pix2D extends DoublyLinkable {
       width = this.right - x;
     }
     const off = x + y * this.width2d;
-    for (let i = 0;i < width; i++) {
+    for (let i = 0; i < width; i++) {
       this.pixels[off + i] = color;
     }
   }
@@ -128,7 +128,7 @@ class Pix2D extends DoublyLinkable {
       width = this.bottom - y;
     }
     const off = x + y * this.width2d;
-    for (let i = 0;i < width; i++) {
+    for (let i = 0; i < width; i++) {
       this.pixels[off + i * this.width2d] = color;
     }
   }
@@ -173,8 +173,8 @@ class Pix2D extends DoublyLinkable {
     }
     const step = this.width2d - width;
     let offset = x + y * this.width2d;
-    for (let i = -height;i < 0; i++) {
-      for (let j = -width;j < 0; j++) {
+    for (let i = -height; i < 0; i++) {
+      for (let j = -width; j < 0; j++) {
         this.pixels[offset++] = color;
       }
       offset += step;
@@ -201,8 +201,8 @@ class Pix2D extends DoublyLinkable {
     const b0 = (rgb & 255) * alpha;
     const step = this.width2d - width;
     let offset = x + y * this.width2d;
-    for (let i = 0;i < height; i++) {
-      for (let j = -width;j < 0; j++) {
+    for (let i = 0; i < height; i++) {
+      for (let j = -width; j < 0; j++) {
         const r1 = (this.pixels[offset] >> 16 & 255) * invAlpha;
         const g1 = (this.pixels[offset] >> 8 & 255) * invAlpha;
         const b1 = (this.pixels[offset] & 255) * invAlpha;
@@ -225,7 +225,7 @@ class Pix2D extends DoublyLinkable {
     if (yEnd >= this.height2d) {
       yEnd = this.height2d - 1;
     }
-    for (let y = yStart;y <= yEnd; y++) {
+    for (let y = yStart; y <= yEnd; y++) {
       const midpoint = y - yCenter;
       const xRadius = Math.sqrt(yRadius * yRadius - midpoint * midpoint) | 0;
       let xStart = xCenter - xRadius;
@@ -237,7 +237,7 @@ class Pix2D extends DoublyLinkable {
         xEnd = this.width2d - 1;
       }
       let offset = xStart + y * this.width2d;
-      for (let x = xStart;x <= xEnd; x++) {
+      for (let x = xStart; x <= xEnd; x++) {
         const r1 = (this.pixels[offset] >> 16 & 255) * invAlpha;
         const g1 = (this.pixels[offset] >> 8 & 255) * invAlpha;
         const b1 = (this.pixels[offset] & 255) * invAlpha;
@@ -348,7 +348,7 @@ function arraycopy(src, srcPos, dst, dstPos, length) {
 }
 function bytesToBigInt(bytes) {
   let result = 0n;
-  for (let index = 0;index < bytes.length; index++) {
+  for (let index = 0; index < bytes.length; index++) {
     result = result << 8n | BigInt(bytes[index]);
   }
   return result;
@@ -388,13 +388,13 @@ class Packet extends DoublyLinkable {
   static cacheMidCount = 0;
   static cacheMaxCount = 0;
   static {
-    for (let i = 0;i < 32; i++) {
+    for (let i = 0; i < 32; i++) {
       Packet.bitmask[i] = (1 << i) - 1;
     }
     Packet.bitmask[32] = 4294967295;
-    for (let i = 0;i < 256; i++) {
+    for (let i = 0; i < 256; i++) {
       let remainder = i;
-      for (let bit = 0;bit < 8; bit++) {
+      for (let bit = 0; bit < 8; bit++) {
         if ((remainder & 1) === 1) {
           remainder = remainder >>> 1 ^ Packet.CRC32_POLYNOMIAL;
         } else {
@@ -406,7 +406,7 @@ class Packet extends DoublyLinkable {
   }
   static crc32(src) {
     let crc = 4294967295;
-    for (let i = 0;i < src.length; i++) {
+    for (let i = 0; i < src.length; i++) {
       crc = crc >>> 8 ^ Packet.crctable[(crc ^ src[i]) & 255];
     }
     return ~crc;
@@ -555,7 +555,7 @@ class Packet extends DoublyLinkable {
   pjstr(str) {
     const view = this.view;
     const length = str.length;
-    for (let i = 0;i < length; i++) {
+    for (let i = 0; i < length; i++) {
       view.setUint8(this.pos++, str.charCodeAt(i));
     }
     view.setUint8(this.pos++, 10);
@@ -578,7 +578,7 @@ class Packet extends DoublyLinkable {
     let remaining = 8 - (this.bitPos & 7);
     let value = 0;
     this.bitPos += n;
-    for (;n > remaining; remaining = 8) {
+    for (; n > remaining; remaining = 8) {
       value += (this.view.getUint8(bytePos++) & Packet.bitmask[remaining]) << n - remaining;
       n -= remaining;
     }
@@ -629,13 +629,13 @@ class Pix8 extends DoublyLinkable {
     const cropH = index.g2();
     const paletteCount = index.g1();
     const palette = new Int32Array(paletteCount);
-    for (let i = 1;i < paletteCount; i++) {
+    for (let i = 1; i < paletteCount; i++) {
       palette[i] = index.g3();
       if (palette[i] === 0) {
         palette[i] = 1;
       }
     }
-    for (let i = 0;i < sprite; i++) {
+    for (let i = 0; i < sprite; i++) {
       index.pos += 2;
       dat.pos += index.g2() * index.g2();
       index.pos += 1;
@@ -656,14 +656,14 @@ class Pix8 extends DoublyLinkable {
     const pixelOrder = index.g1();
     if (pixelOrder === 0) {
       const length = image.width2d * image.height2d;
-      for (let i = 0;i < length; i++) {
+      for (let i = 0; i < length; i++) {
         pixels[i] = dat.g1b();
       }
     } else if (pixelOrder === 1) {
       const width2 = image.width2d;
       const height2 = image.height2d;
-      for (let x = 0;x < width2; x++) {
-        for (let y = 0;y < height2; y++) {
+      for (let x = 0; x < width2; x++) {
+        for (let y = 0; y < height2; y++) {
           pixels[x + y * width2] = dat.g1b();
         }
       }
@@ -714,9 +714,9 @@ class Pix8 extends DoublyLinkable {
     const pixels = this.pixels;
     const width = this.width2d;
     const height = this.height2d;
-    for (let y = 0;y < height; y++) {
+    for (let y = 0; y < height; y++) {
       const div = width / 2 | 0;
-      for (let x = 0;x < div; x++) {
+      for (let x = 0; x < div; x++) {
         const off1 = x + y * width;
         const off2 = width - x - 1 + y * width;
         const tmp = pixels[off1];
@@ -729,8 +729,8 @@ class Pix8 extends DoublyLinkable {
     const pixels = this.pixels;
     const width = this.width2d;
     const height = this.height2d;
-    for (let y = 0;y < (height / 2 | 0); y++) {
-      for (let x = 0;x < width; x++) {
+    for (let y = 0; y < (height / 2 | 0); y++) {
+      for (let x = 0; x < width; x++) {
         const off1 = x + y * width;
         const off2 = x + (height - y - 1) * width;
         const tmp = pixels[off1];
@@ -740,7 +740,7 @@ class Pix8 extends DoublyLinkable {
     }
   }
   translate2d(r, g, b) {
-    for (let i = 0;i < this.rgbPal.length; i++) {
+    for (let i = 0; i < this.rgbPal.length; i++) {
       let red = this.rgbPal[i] >> 16 & 255;
       red += r;
       if (red < 0) {
@@ -774,8 +774,8 @@ class Pix8 extends DoublyLinkable {
     this.cropH |= 0;
     const pixels = new Int8Array(this.cropW * this.cropH);
     let off = 0;
-    for (let y = 0;y < this.height2d; y++) {
-      for (let x = 0;x < this.width2d; x++) {
+    for (let y = 0; y < this.height2d; y++) {
+      for (let x = 0; x < this.width2d; x++) {
         pixels[(x + this.cropX >> 1) + (y + this.cropY >> 1) * this.cropW] = this.pixels[off++];
       }
     }
@@ -791,8 +791,8 @@ class Pix8 extends DoublyLinkable {
     }
     const pixels = new Int8Array(this.cropW * this.cropH);
     let off = 0;
-    for (let y = 0;y < this.height2d; y++) {
-      for (let x = 0;x < this.width2d; x++) {
+    for (let y = 0; y < this.height2d; y++) {
+      for (let x = 0; x < this.width2d; x++) {
         pixels[x + this.cropX + (y + this.cropY) * this.cropW] = this.pixels[off++];
       }
     }
@@ -805,8 +805,8 @@ class Pix8 extends DoublyLinkable {
   copyImage(w, h, src, srcOff, srcStep, dst, dstOff, dstStep) {
     const qw = -(w >> 2);
     w = -(w & 3);
-    for (let y = -h;y < 0; y++) {
-      for (let x = qw;x < 0; x++) {
+    for (let y = -h; y < 0; y++) {
+      for (let x = qw; x < 0; x++) {
         let palIndex = src[srcOff++];
         if (palIndex === 0) {
           dstOff++;
@@ -832,7 +832,7 @@ class Pix8 extends DoublyLinkable {
           dst[dstOff++] = this.rgbPal[palIndex & 255];
         }
       }
-      for (let x = w;x < 0; x++) {
+      for (let x = w; x < 0; x++) {
         const palIndex = src[srcOff++];
         if (palIndex === 0) {
           dstOff++;
@@ -900,9 +900,9 @@ class Pix8 extends DoublyLinkable {
   plot_scale(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11) {
     try {
       const local3 = arg3;
-      for (let local6 = -arg8;local6 < 0; local6++) {
+      for (let local6 = -arg8; local6 < 0; local6++) {
         const local14 = (arg4 >> 16) * arg11;
-        for (let local17 = -arg7;local17 < 0; local17++) {
+        for (let local17 = -arg7; local17 < 0; local17++) {
           const local27 = arg1[(arg3 >> 16) + local14];
           if (local27 == 0) {
             arg5++;
@@ -925,7 +925,7 @@ class Pix8 extends DoublyLinkable {
 class TypedArray1d extends Array {
   constructor(length, defaultValue) {
     super(length);
-    for (let l = 0;l < length; l++) {
+    for (let l = 0; l < length; l++) {
       this[l] = defaultValue;
     }
   }
@@ -934,9 +934,9 @@ class TypedArray1d extends Array {
 class TypedArray2d extends Array {
   constructor(length, width, defaultValue) {
     super(length);
-    for (let l = 0;l < length; l++) {
+    for (let l = 0; l < length; l++) {
       this[l] = new Array(width);
-      for (let w = 0;w < width; w++) {
+      for (let w = 0; w < width; w++) {
         this[l][w] = defaultValue;
       }
     }
@@ -946,11 +946,11 @@ class TypedArray2d extends Array {
 class TypedArray3d extends Array {
   constructor(length, width, height, defaultValue) {
     super(length);
-    for (let l = 0;l < length; l++) {
+    for (let l = 0; l < length; l++) {
       this[l] = new Array(width);
-      for (let w = 0;w < width; w++) {
+      for (let w = 0; w < width; w++) {
         this[l][w] = new Array(height);
-        for (let h = 0;h < height; h++) {
+        for (let h = 0; h < height; h++) {
           this[l][w][h] = defaultValue;
         }
       }
@@ -961,13 +961,13 @@ class TypedArray3d extends Array {
 class TypedArray4d extends Array {
   constructor(length, width, height, space, defaultValue) {
     super(length);
-    for (let l = 0;l < length; l++) {
+    for (let l = 0; l < length; l++) {
       this[l] = new Array(width);
-      for (let w = 0;w < width; w++) {
+      for (let w = 0; w < width; w++) {
         this[l][w] = new Array(height);
-        for (let h = 0;h < height; h++) {
+        for (let h = 0; h < height; h++) {
           this[l][w][h] = new Array(space);
-          for (let s = 0;s < space; s++) {
+          for (let s = 0; s < space; s++) {
             this[l][w][h][s] = defaultValue;
           }
         }
@@ -979,9 +979,9 @@ class TypedArray4d extends Array {
 class Uint8Array3d extends Array {
   constructor(length, width, height) {
     super(length);
-    for (let l = 0;l < length; l++) {
+    for (let l = 0; l < length; l++) {
       this[l] = new Array(width);
-      for (let w = 0;w < width; w++) {
+      for (let w = 0; w < width; w++) {
         this[l][w] = new Uint8Array(height);
       }
     }
@@ -991,7 +991,7 @@ class Uint8Array3d extends Array {
 class Int32Array2d extends Array {
   constructor(length, width) {
     super(length);
-    for (let l = 0;l < length; l++) {
+    for (let l = 0; l < length; l++) {
       this[l] = new Int32Array(width);
     }
   }
@@ -1000,9 +1000,9 @@ class Int32Array2d extends Array {
 class Int32Array3d extends Array {
   constructor(length, width, height) {
     super(length);
-    for (let l = 0;l < length; l++) {
+    for (let l = 0; l < length; l++) {
       this[l] = new Array(width);
-      for (let w = 0;w < width; w++) {
+      for (let w = 0; w < width; w++) {
         this[l][w] = new Int32Array(height);
       }
     }
@@ -1035,20 +1035,20 @@ class Pix3D extends Pix2D {
   static textureTranslucent = new TypedArray1d(50, false);
   static averageTextureRGB = new Int32Array(50);
   static {
-    for (let i = 1;i < 512; i++) {
+    for (let i = 1; i < 512; i++) {
       this.reciprocal15[i] = 32768 / i | 0;
     }
-    for (let i = 1;i < 2048; i++) {
+    for (let i = 1; i < 2048; i++) {
       this.reciprocal16[i] = 65536 / i | 0;
     }
-    for (let i = 0;i < 2048; i++) {
+    for (let i = 0; i < 2048; i++) {
       this.sin[i] = Math.sin(i * 0.0030679615757712823) * 65536 | 0;
       this.cos[i] = Math.cos(i * 0.0030679615757712823) * 65536 | 0;
     }
   }
   static init2D() {
     this.lineOffset = new Int32Array(Pix2D.height2d);
-    for (let y = 0;y < Pix2D.height2d; y++) {
+    for (let y = 0; y < Pix2D.height2d; y++) {
       this.lineOffset[y] = Pix2D.width2d * y;
     }
     this.centerX = Pix2D.width2d / 2 | 0;
@@ -1056,7 +1056,7 @@ class Pix3D extends Pix2D {
   }
   static init3D(width, height) {
     this.lineOffset = new Int32Array(height);
-    for (let y = 0;y < height; y++) {
+    for (let y = 0; y < height; y++) {
       this.lineOffset[y] = width * y;
     }
     this.centerX = width / 2 | 0;
@@ -1068,7 +1068,7 @@ class Pix3D extends Pix2D {
   }
   static unpackTextures(textures) {
     this.textureCount = 0;
-    for (let i = 0;i < 50; i++) {
+    for (let i = 0; i < 50; i++) {
       try {
         this.textures[i] = Pix8.fromArchive(textures, i.toString());
         if (this.lowMemory && this.textures[i]?.cropW === 128) {
@@ -1077,7 +1077,7 @@ class Pix3D extends Pix2D {
           this.textures[i]?.crop();
         }
         this.textureCount++;
-      } catch (err) {}
+      } catch (err) { }
     }
   }
   static getAverageTextureRGB(id) {
@@ -1092,7 +1092,7 @@ class Pix3D extends Pix2D {
     let g = 0;
     let b = 0;
     const length = palette.length;
-    for (let i = 0;i < length; i++) {
+    for (let i = 0; i < length; i++) {
       r += palette[i] >> 16 & 255;
       g += palette[i] >> 8 & 255;
       b += palette[i] & 255;
@@ -1108,10 +1108,10 @@ class Pix3D extends Pix2D {
   static setBrightness(brightness) {
     const randomBrightness = brightness + Math.random() * 0.03 - 0.015;
     let offset = 0;
-    for (let y = 0;y < 512; y++) {
+    for (let y = 0; y < 512; y++) {
       const hue = (y / 8 | 0) / 64 + 0.0078125;
       const saturation = (y & 7) / 8 + 0.0625;
-      for (let x = 0;x < 128; x++) {
+      for (let x = 0; x < 128; x++) {
         const lightness = x / 128;
         let r = lightness;
         let g = lightness;
@@ -1167,14 +1167,14 @@ class Pix3D extends Pix2D {
         this.hslPal[offset++] = this.setGamma(rgb, randomBrightness);
       }
     }
-    for (let id = 0;id < 50; id++) {
+    for (let id = 0; id < 50; id++) {
       const texture = this.textures[id];
       if (!texture) {
         continue;
       }
       const palette = texture.rgbPal;
       this.texPal[id] = new Int32Array(palette.length);
-      for (let i = 0;i < palette.length; i++) {
+      for (let i = 0; i < palette.length; i++) {
         const texturePalette = this.texPal[id];
         if (!texturePalette) {
           continue;
@@ -1182,7 +1182,7 @@ class Pix3D extends Pix2D {
         texturePalette[i] = this.setGamma(palette[i], randomBrightness);
       }
     }
-    for (let id = 0;id < 50; id++) {
+    for (let id = 0; id < 50; id++) {
       this.pushTexture(id);
     }
   }
@@ -3336,7 +3336,7 @@ class Pix3D extends Pix2D {
     } else {
       let cycle = 0;
       let selected = -1;
-      for (let t = 0;t < this.textureCount; t++) {
+      for (let t = 0; t < this.textureCount; t++) {
         if (this.activeTexels[t] && (this.textureCycle[t] < cycle || selected === -1)) {
           cycle = this.textureCycle[t];
           selected = t;
@@ -3353,7 +3353,7 @@ class Pix3D extends Pix2D {
     }
     if (this.lowMemory) {
       this.textureTranslucent[id] = false;
-      for (let i = 0;i < 4096; i++) {
+      for (let i = 0; i < 4096; i++) {
         const rgb = texels[i] = palette[texture.pixels[i]] & 16316671;
         if (rgb === 0) {
           this.textureTranslucent[id] = true;
@@ -3364,18 +3364,18 @@ class Pix3D extends Pix2D {
       }
     } else {
       if (texture.width2d === 64) {
-        for (let y = 0;y < 128; y++) {
-          for (let x = 0;x < 128; x++) {
+        for (let y = 0; y < 128; y++) {
+          for (let x = 0; x < 128; x++) {
             texels[x + (y << 7 | 0)] = palette[texture.pixels[(x >> 1) + (y >> 1 << 6 | 0)]];
           }
         }
       } else {
-        for (let i = 0;i < 16384; i++) {
+        for (let i = 0; i < 16384; i++) {
           texels[i] = palette[texture.pixels[i]];
         }
       }
       this.textureTranslucent[id] = false;
-      for (let i = 0;i < 16384; i++) {
+      for (let i = 0; i < 16384; i++) {
         texels[i] &= 16316671;
         const rgb = texels[i];
         if (rgb === 0) {
@@ -3421,7 +3421,7 @@ class PixMap {
     const length = this.pixels.length;
     const pixels = this.pixels;
     const paint = this.paint;
-    for (let i = 0;i < length; i++) {
+    for (let i = 0; i < length; i++) {
       const pixel = pixels[i];
       paint[i] = pixel >> 16 & 255 | (pixel >> 8 & 255) << 8 | (pixel & 255) << 16 | 4278190080;
     }
@@ -3835,10 +3835,10 @@ class GameShell {
   my = 0;
   nx = 0;
   ny = 0;
-  async load() {}
-  async update() {}
-  async draw() {}
-  async refresh() {}
+  async load() { }
+  async update() { }
+  async draw() { }
+  async refresh() { }
   constructor(resizetoFit = false) {
     canvas.tabIndex = -1;
     canvas2d.fillStyle = "black";
@@ -3890,7 +3890,7 @@ class GameShell {
     };
     await this.showProgress(0, "Loading...");
     await this.load();
-    for (let i = 0;i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
       this.otim[i] = performance.now();
     }
     let ntime;
@@ -3927,7 +3927,7 @@ class GameShell {
       this.otim[opos] = ntime;
       opos = (opos + 1) % 10;
       if (delta > 1) {
-        for (let i = 0;i < 10; i++) {
+        for (let i = 0; i < 10; i++) {
           if (this.otim[i] !== 0) {
             this.otim[i] += delta;
           }
@@ -4019,7 +4019,7 @@ class GameShell {
   get ms() {
     const length = this.frameTime.length;
     let ft = 0;
-    for (let index = 0;index < length; index++) {
+    for (let index = 0; index < length; index++) {
       ft += this.frameTime[index];
     }
     const ms = ft / length * 1000;
@@ -4184,7 +4184,7 @@ class GameShell {
   }
   onblur(e) {
     this.hasFocus = false;
-    for (let i = 0;i < 128; i++) {
+    for (let i = 0; i < 128; i++) {
       this.actionKey[i] = 0;
     }
     if (InputTracking.trackingActive) {
@@ -4450,7 +4450,7 @@ class FloType extends ConfigType {
   static unpack(config) {
     const dat = new Packet(config.read("flo.dat"));
     this.totalCount = dat.g2();
-    for (let i = 0;i < this.totalCount; i++) {
+    for (let i = 0; i < this.totalCount; i++) {
       this.instances[i] = new FloType(i).unpackType(dat);
     }
   }
@@ -4618,16 +4618,16 @@ class AnimBase {
     const label = new Packet(models.read("base_label.dat"));
     const total = head.g2();
     head.pos += 2;
-    for (let i = 0;i < total; i++) {
+    for (let i = 0; i < total; i++) {
       const id = head.g2();
       const length = head.g1();
       const transformTypes = new Uint8Array(length);
       const groupLabels = new TypedArray1d(length, null);
-      for (let j = 0;j < length; j++) {
+      for (let j = 0; j < length; j++) {
         transformTypes[j] = type.g1();
         const groupCount = label.g1();
         const labels = new Uint8Array(groupCount);
-        for (let k = 0;k < groupCount; k++) {
+        for (let k = 0; k < groupCount; k++) {
           labels[k] = label.g1();
         }
         groupLabels[j] = labels;
@@ -4657,7 +4657,7 @@ class AnimFrame {
     const x = new Int32Array(500);
     const y = new Int32Array(500);
     const z = new Int32Array(500);
-    for (let i = 0;i < total; i++) {
+    for (let i = 0; i < total; i++) {
       const id = head.g2();
       const frame = this.instances[id] = new AnimFrame;
       frame.frameDelay = del.g1();
@@ -4667,14 +4667,14 @@ class AnimFrame {
       const groupCount = head.g1();
       let lastGroup = -1;
       let current = 0;
-      for (let j = 0;j < groupCount; j++) {
+      for (let j = 0; j < groupCount; j++) {
         if (!base.animTypes) {
           throw new Error;
         }
         const flags = tran1.g1();
         if (flags > 0) {
           if (base.animTypes[j] !== 0) {
-            for (let group = j - 1;group > lastGroup; group--) {
+            for (let group = j - 1; group > lastGroup; group--) {
               if (base.animTypes[group] === 0) {
                 labels[current] = group;
                 x[current] = 0;
@@ -4714,7 +4714,7 @@ class AnimFrame {
       frame.x = new Int32Array(current);
       frame.y = new Int32Array(current);
       frame.z = new Int32Array(current);
-      for (let j = 0;j < current; j++) {
+      for (let j = 0; j < current; j++) {
         frame.bases[j] = labels[j];
         frame.x[j] = x[j];
         frame.y[j] = y[j];
@@ -4750,7 +4750,7 @@ class SeqType extends ConfigType {
   static unpack(config) {
     const dat = new Packet(config.read("seq.dat"));
     this.totalCount = dat.g2();
-    for (let i = 0;i < this.totalCount; i++) {
+    for (let i = 0; i < this.totalCount; i++) {
       const seq = new SeqType(i).unpackType(dat);
       if (seq.seqFrameCount === 0) {
         seq.seqFrameCount = 1;
@@ -4770,7 +4770,7 @@ class SeqType extends ConfigType {
       this.seqFrames = new Int16Array(this.seqFrameCount);
       this.seqIframes = new Int16Array(this.seqFrameCount);
       this.seqDelay = new Int16Array(this.seqFrameCount);
-      for (let i = 0;i < this.seqFrameCount; i++) {
+      for (let i = 0; i < this.seqFrameCount; i++) {
         this.seqFrames[i] = dat.g2();
         this.seqIframes[i] = dat.g2();
         if (this.seqIframes[i] === 65535) {
@@ -4790,7 +4790,7 @@ class SeqType extends ConfigType {
     } else if (code === 3) {
       const count = dat.g1();
       this.walkmerge = new Int32Array(count + 1);
-      for (let i = 0;i < count; i++) {
+      for (let i = 0; i < count; i++) {
         this.walkmerge[i] = dat.g1();
       }
       this.walkmerge[count] = 9999999;
@@ -4817,7 +4817,7 @@ class HashTable {
   constructor(size) {
     this.buckets = new Array(size);
     this.bucketCount = size;
-    for (let i = 0;i < size; i++) {
+    for (let i = 0; i < size; i++) {
       const sentinel = this.buckets[i] = new Linkable;
       sentinel.next = sentinel;
       sentinel.prev = sentinel;
@@ -4825,7 +4825,7 @@ class HashTable {
   }
   get(key) {
     const start = this.buckets[Number(key & BigInt(this.bucketCount - 1))];
-    for (let node = start.next;node !== start; node = node.next) {
+    for (let node = start.next; node !== start; node = node.next) {
       if (!node) {
         continue;
       }
@@ -4974,7 +4974,7 @@ class LocShape {
   }
   static of(id) {
     const values = this.values();
-    for (let index = 0;index < values.length; index++) {
+    for (let index = 0; index < values.length; index++) {
       const shape = values[index];
       if (shape.id === id) {
         return shape;
@@ -5093,7 +5093,7 @@ class Model extends DoublyLinkable {
       let trianglePriorityDataOffset = 0;
       let triangleAlphaDataOffset = 0;
       let triangleSkinDataOffset = 0;
-      for (let i = 0;i < count; i++) {
+      for (let i = 0; i < count; i++) {
         const id = Model.head.g2();
         const meta = new Metadata;
         meta.vertexCount = Model.head.g2();
@@ -5110,7 +5110,7 @@ class Model extends DoublyLinkable {
         const hasAlpha = Model.head.g1();
         const hasSkins = Model.head.g1();
         const hasLabels = Model.head.g1();
-        for (let v = 0;v < meta.vertexCount; v++) {
+        for (let v = 0; v < meta.vertexCount; v++) {
           const flags = Model.point1.g1();
           if ((flags & 1) !== 0) {
             Model.point2.gsmart();
@@ -5122,7 +5122,7 @@ class Model extends DoublyLinkable {
             Model.point4.gsmart();
           }
         }
-        for (let v = 0;v < meta.faceCount; v++) {
+        for (let v = 0; v < meta.faceCount; v++) {
           const type = Model.vertex2.g1();
           if (type === 1) {
             Model.vertex1.gsmart();
@@ -5187,7 +5187,7 @@ class Model extends DoublyLinkable {
     let vertexY;
     if (copyVertexY) {
       vertexY = new Int32Array(vertexCount);
-      for (let v = 0;v < vertexCount; v++) {
+      for (let v = 0; v < vertexCount; v++) {
         vertexY[v] = src.vertexY[v];
       }
     } else {
@@ -5203,7 +5203,7 @@ class Model extends DoublyLinkable {
       faceColorA = new Int32Array(faceCount);
       faceColorB = new Int32Array(faceCount);
       faceColorC = new Int32Array(faceCount);
-      for (let f = 0;f < faceCount; f++) {
+      for (let f = 0; f < faceCount; f++) {
         if (src.faceColorA) {
           faceColorA[f] = src.faceColorA[f];
         }
@@ -5216,16 +5216,16 @@ class Model extends DoublyLinkable {
       }
       faceInfo = new Int32Array(faceCount);
       if (!src.faceInfo) {
-        for (let f = 0;f < faceCount; f++) {
+        for (let f = 0; f < faceCount; f++) {
           faceInfo[f] = 0;
         }
       } else {
-        for (let f = 0;f < faceCount; f++) {
+        for (let f = 0; f < faceCount; f++) {
           faceInfo[f] = src.faceInfo[f];
         }
       }
       vertexNormal = new TypedArray1d(vertexCount, null);
-      for (let v = 0;v < vertexCount; v++) {
+      for (let v = 0; v < vertexCount; v++) {
         const copy = vertexNormal[v] = new VertexNormal;
         if (src.vertexNormal) {
           const original = src.vertexNormal[v];
@@ -5293,7 +5293,7 @@ class Model extends DoublyLinkable {
       vertexX = new Int32Array(vertexCount);
       vertexY = new Int32Array(vertexCount);
       vertexZ = new Int32Array(vertexCount);
-      for (let v = 0;v < vertexCount; v++) {
+      for (let v = 0; v < vertexCount; v++) {
         vertexX[v] = src.vertexX[v];
         vertexY[v] = src.vertexY[v];
         vertexZ[v] = src.vertexZ[v];
@@ -5304,7 +5304,7 @@ class Model extends DoublyLinkable {
       faceColor = src.faceColor;
     } else {
       faceColor = new Int32Array(faceCount);
-      for (let f = 0;f < faceCount; f++) {
+      for (let f = 0; f < faceCount; f++) {
         if (src.faceColor) {
           faceColor[f] = src.faceColor[f];
         }
@@ -5316,11 +5316,11 @@ class Model extends DoublyLinkable {
     } else {
       faceAlpha = new Int32Array(faceCount);
       if (!src.faceAlpha) {
-        for (let f = 0;f < faceCount; f++) {
+        for (let f = 0; f < faceCount; f++) {
           faceAlpha[f] = 0;
         }
       } else {
-        for (let f = 0;f < faceCount; f++) {
+        for (let f = 0; f < faceCount; f++) {
           faceAlpha[f] = src.faceAlpha[f];
         }
       }
@@ -5357,7 +5357,7 @@ class Model extends DoublyLinkable {
     const vertexX = new Int32Array(vertexCount);
     const vertexY = new Int32Array(vertexCount);
     const vertexZ = new Int32Array(vertexCount);
-    for (let v = 0;v < vertexCount; v++) {
+    for (let v = 0; v < vertexCount; v++) {
       vertexX[v] = src.vertexX[v];
       vertexY[v] = src.vertexY[v];
       vertexZ[v] = src.vertexZ[v];
@@ -5368,11 +5368,11 @@ class Model extends DoublyLinkable {
     } else {
       faceAlpha = new Int32Array(faceCount);
       if (!src.faceAlpha) {
-        for (let f = 0;f < faceCount; f++) {
+        for (let f = 0; f < faceCount; f++) {
           faceAlpha[f] = 0;
         }
       } else {
-        for (let f = 0;f < faceCount; f++) {
+        for (let f = 0; f < faceCount; f++) {
           faceAlpha[f] = src.faceAlpha[f];
         }
       }
@@ -5411,7 +5411,7 @@ class Model extends DoublyLinkable {
     let faceCount = 0;
     let texturedFaceCount = 0;
     let priority = -1;
-    for (let i = 0;i < count; i++) {
+    for (let i = 0; i < count; i++) {
       const model2 = models[i];
       if (model2) {
         vertexCount += model2.vertexCount;
@@ -5463,17 +5463,17 @@ class Model extends DoublyLinkable {
     vertexCount = 0;
     faceCount = 0;
     texturedFaceCount = 0;
-    for (let i = 0;i < count; i++) {
+    for (let i = 0; i < count; i++) {
       const model2 = models[i];
       if (model2) {
         const vertexCount2 = vertexCount;
-        for (let v = 0;v < model2.vertexCount; v++) {
+        for (let v = 0; v < model2.vertexCount; v++) {
           vertexX[vertexCount] = model2.vertexX[v];
           vertexY[vertexCount] = model2.vertexY[v];
           vertexZ[vertexCount] = model2.vertexZ[v];
           vertexCount++;
         }
-        for (let f = 0;f < model2.faceCount; f++) {
+        for (let f = 0; f < model2.faceCount; f++) {
           faceVertexA[faceCount] = model2.faceVertexA[f] + vertexCount2;
           faceVertexB[faceCount] = model2.faceVertexB[f] + vertexCount2;
           faceVertexC[faceCount] = model2.faceVertexC[f] + vertexCount2;
@@ -5526,7 +5526,7 @@ class Model extends DoublyLinkable {
           }
           faceCount++;
         }
-        for (let f = 0;f < model2.texturedFaceCount; f++) {
+        for (let f = 0; f < model2.texturedFaceCount; f++) {
           texturedVertexA[texturedFaceCount] = model2.texturedVertexA[f] + vertexCount2;
           texturedVertexB[texturedFaceCount] = model2.texturedVertexB[f] + vertexCount2;
           texturedVertexC[texturedFaceCount] = model2.texturedVertexC[f] + vertexCount2;
@@ -5568,7 +5568,7 @@ class Model extends DoublyLinkable {
     let faceCount = 0;
     let texturedFaceCount = 0;
     let priority = -1;
-    for (let i = 0;i < count; i++) {
+    for (let i = 0; i < count; i++) {
       const model = models[i];
       if (model) {
         vertexCount += model.vertexCount;
@@ -5624,7 +5624,7 @@ class Model extends DoublyLinkable {
       const x = src.vertexX[vertexId];
       const y = src.vertexY[vertexId];
       const z = src.vertexZ[vertexId];
-      for (let v = 0;v < vertexCount2; v++) {
+      for (let v = 0; v < vertexCount2; v++) {
         if (x === vertexX2[v] && y === vertexY2[v] && z === vertexZ2[v]) {
           identical = v;
           break;
@@ -5641,10 +5641,10 @@ class Model extends DoublyLinkable {
       }
       return { vertex: identical, vertexCount: vertexCount2 };
     };
-    for (let i = 0;i < count; i++) {
+    for (let i = 0; i < count; i++) {
       const model = models[i];
       if (model) {
-        for (let face = 0;face < model.faceCount; face++) {
+        for (let face = 0; face < model.faceCount; face++) {
           if (copyInfo) {
             if (!model.faceInfo) {
               if (faceInfo) {
@@ -5697,7 +5697,7 @@ class Model extends DoublyLinkable {
           faceVertexC[faceCount] = c.vertex;
           faceCount++;
         }
-        for (let f = 0;f < model.texturedFaceCount; f++) {
+        for (let f = 0; f < model.texturedFaceCount; f++) {
           const a = addVertex(model, model.texturedVertexA[f], vertexX, vertexY, vertexZ, vertexLabel, vertexCount);
           vertexCount = a.vertexCount;
           const b = addVertex(model, model.texturedVertexB[f], vertexX, vertexY, vertexZ, vertexLabel, vertexCount);
@@ -5795,7 +5795,7 @@ class Model extends DoublyLinkable {
     let a;
     let b;
     let c;
-    for (let v = 0;v < vertexCount; v++) {
+    for (let v = 0; v < vertexCount; v++) {
       const flags = Model.point1.g1();
       a = 0;
       if ((flags & 1) !== 0) {
@@ -5824,7 +5824,7 @@ class Model extends DoublyLinkable {
     Model.face3.pos = meta.facePrioritiesOffset;
     Model.face4.pos = meta.faceAlphasOffset;
     Model.face5.pos = meta.faceLabelsOffset;
-    for (let f = 0;f < faceCount; f++) {
+    for (let f = 0; f < faceCount; f++) {
       faceColor[f] = Model.face1.g2();
       if (faceInfo) {
         faceInfo[f] = Model.face2.g1();
@@ -5845,7 +5845,7 @@ class Model extends DoublyLinkable {
     b = 0;
     c = 0;
     let last = 0;
-    for (let f = 0;f < faceCount; f++) {
+    for (let f = 0; f < faceCount; f++) {
       const orientation = Model.vertex2.g1();
       if (orientation === 1) {
         a = Model.vertex1.gsmart() + last;
@@ -5874,7 +5874,7 @@ class Model extends DoublyLinkable {
       faceVertexC[f] = c;
     }
     Model.axis.pos = meta.faceTextureAxisOffset * 6;
-    for (let f = 0;f < texturedFaceCount; f++) {
+    for (let f = 0; f < texturedFaceCount; f++) {
       texturedVertexA[f] = Model.axis.g2();
       texturedVertexB[f] = Model.axis.g2();
       texturedVertexC[f] = Model.axis.g2();
@@ -5985,7 +5985,7 @@ class Model extends DoublyLinkable {
     this.maxY = 0;
     this.radius = 0;
     this.minY = 0;
-    for (let i = 0;i < this.vertexCount; i++) {
+    for (let i = 0; i < this.vertexCount; i++) {
       const x = this.vertexX[i];
       const y = this.vertexY[i];
       const z = this.vertexZ[i];
@@ -6007,7 +6007,7 @@ class Model extends DoublyLinkable {
   calculateBoundsY() {
     this.maxY = 0;
     this.minY = 0;
-    for (let v = 0;v < this.vertexCount; v++) {
+    for (let v = 0; v < this.vertexCount; v++) {
       const y = this.vertexY[v];
       if (-y > this.maxY) {
         this.maxY = -y;
@@ -6023,7 +6023,7 @@ class Model extends DoublyLinkable {
     if (this.vertexLabel) {
       const labelVertexCount = new Int32Array(256);
       let count = 0;
-      for (let v2 = 0;v2 < this.vertexCount; v2++) {
+      for (let v2 = 0; v2 < this.vertexCount; v2++) {
         const label = this.vertexLabel[v2];
         labelVertexCount[label]++;
         if (label > count) {
@@ -6031,7 +6031,7 @@ class Model extends DoublyLinkable {
         }
       }
       this.labelVertices = new TypedArray1d(count + 1, null);
-      for (let label = 0;label <= count; label++) {
+      for (let label = 0; label <= count; label++) {
         this.labelVertices[label] = new Int32Array(labelVertexCount[label]);
         labelVertexCount[label] = 0;
       }
@@ -6049,7 +6049,7 @@ class Model extends DoublyLinkable {
     if (this.faceLabel) {
       const labelFaceCount = new Int32Array(256);
       let count = 0;
-      for (let f = 0;f < this.faceCount; f++) {
+      for (let f = 0; f < this.faceCount; f++) {
         const label = this.faceLabel[f];
         labelFaceCount[label]++;
         if (label > count) {
@@ -6057,7 +6057,7 @@ class Model extends DoublyLinkable {
         }
       }
       this.labelFaces = new TypedArray1d(count + 1, null);
-      for (let label = 0;label <= count; label++) {
+      for (let label = 0; label <= count; label++) {
         this.labelFaces[label] = new Int32Array(labelFaceCount[label]);
         labelFaceCount[label] = 0;
       }
@@ -6088,7 +6088,7 @@ class Model extends DoublyLinkable {
       Model.baseZ = 0;
       let counter = 0;
       let maskBase = mask[counter++];
-      for (let i = 0;i < primary.frameLength; i++) {
+      for (let i = 0; i < primary.frameLength; i++) {
         if (!primary.bases) {
           continue;
         }
@@ -6105,7 +6105,7 @@ class Model extends DoublyLinkable {
       Model.baseZ = 0;
       counter = 0;
       maskBase = mask[counter++];
-      for (let i = 0;i < secondary.frameLength; i++) {
+      for (let i = 0; i < secondary.frameLength; i++) {
         if (!secondary.bases) {
           continue;
         }
@@ -6128,7 +6128,7 @@ class Model extends DoublyLinkable {
     Model.baseX = 0;
     Model.baseY = 0;
     Model.baseZ = 0;
-    for (let i = 0;i < transform.frameLength; i++) {
+    for (let i = 0; i < transform.frameLength; i++) {
       if (!transform.bases || !transform.x || !transform.y || !transform.z || !skeleton || !skeleton.animLabels || !skeleton.animTypes) {
         continue;
       }
@@ -6137,7 +6137,7 @@ class Model extends DoublyLinkable {
     }
   }
   rotateY90() {
-    for (let v = 0;v < this.vertexCount; v++) {
+    for (let v = 0; v < this.vertexCount; v++) {
       const tmp = this.vertexX[v];
       this.vertexX[v] = this.vertexZ[v];
       this.vertexZ[v] = -tmp;
@@ -6146,14 +6146,14 @@ class Model extends DoublyLinkable {
   rotateX(angle) {
     const sin = Pix3D.sin[angle];
     const cos = Pix3D.cos[angle];
-    for (let v = 0;v < this.vertexCount; v++) {
+    for (let v = 0; v < this.vertexCount; v++) {
       const tmp = this.vertexY[v] * cos - this.vertexZ[v] * sin >> 16;
       this.vertexZ[v] = this.vertexY[v] * sin + this.vertexZ[v] * cos >> 16;
       this.vertexY[v] = tmp;
     }
   }
   translateModel(y, x, z) {
-    for (let v = 0;v < this.vertexCount; v++) {
+    for (let v = 0; v < this.vertexCount; v++) {
       this.vertexX[v] += x;
       this.vertexY[v] += y;
       this.vertexZ[v] += z;
@@ -6163,24 +6163,24 @@ class Model extends DoublyLinkable {
     if (!this.faceColor) {
       return;
     }
-    for (let f = 0;f < this.faceCount; f++) {
+    for (let f = 0; f < this.faceCount; f++) {
       if (this.faceColor[f] === src) {
         this.faceColor[f] = dst;
       }
     }
   }
   rotateY180() {
-    for (let v = 0;v < this.vertexCount; v++) {
+    for (let v = 0; v < this.vertexCount; v++) {
       this.vertexZ[v] = -this.vertexZ[v];
     }
-    for (let f = 0;f < this.faceCount; f++) {
+    for (let f = 0; f < this.faceCount; f++) {
       const temp = this.faceVertexA[f];
       this.faceVertexA[f] = this.faceVertexC[f];
       this.faceVertexC[f] = temp;
     }
   }
   scale(x, y, z) {
-    for (let v = 0;v < this.vertexCount; v++) {
+    for (let v = 0; v < this.vertexCount; v++) {
       this.vertexX[v] = this.vertexX[v] * x / 128 | 0;
       this.vertexY[v] = this.vertexY[v] * y / 128 | 0;
       this.vertexZ[v] = this.vertexZ[v] * z / 128 | 0;
@@ -6196,11 +6196,11 @@ class Model extends DoublyLinkable {
     }
     if (!this.vertexNormal) {
       this.vertexNormal = new TypedArray1d(this.vertexCount, null);
-      for (let v = 0;v < this.vertexCount; v++) {
+      for (let v = 0; v < this.vertexCount; v++) {
         this.vertexNormal[v] = new VertexNormal;
       }
     }
-    for (let f = 0;f < this.faceCount; f++) {
+    for (let f = 0; f < this.faceCount; f++) {
       const a = this.faceVertexA[f];
       const b = this.faceVertexB[f];
       const c = this.faceVertexC[f];
@@ -6258,7 +6258,7 @@ class Model extends DoublyLinkable {
       this.applyLighting(lightAmbient, attenuation, lightSrcX, lightSrcY, lightSrcZ);
     } else {
       this.vertexNormalOriginal = new TypedArray1d(this.vertexCount, null);
-      for (let v = 0;v < this.vertexCount; v++) {
+      for (let v = 0; v < this.vertexCount; v++) {
         const normal = this.vertexNormal[v];
         const copy = new VertexNormal;
         if (normal) {
@@ -6277,7 +6277,7 @@ class Model extends DoublyLinkable {
     }
   }
   applyLighting(lightAmbient, lightAttenuation, lightSrcX, lightSrcY, lightSrcZ) {
-    for (let f = 0;f < this.faceCount; f++) {
+    for (let f = 0; f < this.faceCount; f++) {
       const a = this.faceVertexA[f];
       const b = this.faceVertexB[f];
       const c = this.faceVertexC[f];
@@ -6317,7 +6317,7 @@ class Model extends DoublyLinkable {
     this.vertexLabel = null;
     this.faceLabel = null;
     if (this.faceInfo) {
-      for (let f = 0;f < this.faceCount; f++) {
+      for (let f = 0; f < this.faceCount; f++) {
         if ((this.faceInfo[f] & 2) === 2) {
           return;
         }
@@ -6335,7 +6335,7 @@ class Model extends DoublyLinkable {
     const sinEyePitch = Pix3D.sin[eyePitch];
     const cosEyePitch = Pix3D.cos[eyePitch];
     const midZ = eyeY * sinEyePitch + eyeZ * cosEyePitch >> 16;
-    for (let v = 0;v < this.vertexCount; v++) {
+    for (let v = 0; v < this.vertexCount; v++) {
       let x = this.vertexX[v];
       let y = this.vertexY[v];
       let z = this.vertexZ[v];
@@ -6374,7 +6374,7 @@ class Model extends DoublyLinkable {
     }
     try {
       this.draw2(false, false, 0);
-    } catch (err) {}
+    } catch (err) { }
   }
   draw(yaw, sinEyePitch, cosEyePitch, sinEyeYaw, cosEyeYaw, relativeX, relativeY, relativeZ, typecode) {
     const zPrime = relativeZ * cosEyeYaw - relativeX * sinEyeYaw >> 16;
@@ -6444,7 +6444,7 @@ class Model extends DoublyLinkable {
       sinYaw = Pix3D.sin[yaw];
       cosYaw = Pix3D.cos[yaw];
     }
-    for (let v = 0;v < this.vertexCount; v++) {
+    for (let v = 0; v < this.vertexCount; v++) {
       let x = this.vertexX[v];
       let y = this.vertexY[v];
       let z = this.vertexZ[v];
@@ -6481,19 +6481,19 @@ class Model extends DoublyLinkable {
     }
     try {
       this.draw2(clipped, picking, typecode);
-    } catch (err) {}
+    } catch (err) { }
   }
   draw2(clipped, picking, typecode, wireframe = false) {
     if (Model.checkHoverFace) {
       this.pickedFace = -1;
       this.pickedFaceDepth = -1;
     }
-    for (let depth = 0;depth < this.maxDepth; depth++) {
+    for (let depth = 0; depth < this.maxDepth; depth++) {
       if (Model.tmpDepthFaceCount) {
         Model.tmpDepthFaceCount[depth] = 0;
       }
     }
-    for (let f = 0;f < this.faceCount; f++) {
+    for (let f = 0; f < this.faceCount; f++) {
       if (this.faceInfo && this.faceInfo[f] === -1) {
         continue;
       }
@@ -6548,34 +6548,34 @@ class Model extends DoublyLinkable {
       }
     }
     if (!this.facePriority && Model.tmpDepthFaceCount) {
-      for (let depth = this.maxDepth - 1;depth >= 0; depth--) {
+      for (let depth = this.maxDepth - 1; depth >= 0; depth--) {
         const count = Model.tmpDepthFaceCount[depth];
         if (count <= 0) {
           continue;
         }
         if (Model.tmpDepthFaces) {
           const faces = Model.tmpDepthFaces[depth];
-          for (let f = 0;f < count; f++) {
+          for (let f = 0; f < count; f++) {
             try {
               this.drawFace(faces[f], wireframe);
-            } catch (e) {}
+            } catch (e) { }
           }
         }
       }
       return;
     }
-    for (let priority = 0;priority < 12; priority++) {
+    for (let priority = 0; priority < 12; priority++) {
       if (Model.tmpPriorityFaceCount && Model.tmpPriorityDepthSum) {
         Model.tmpPriorityFaceCount[priority] = 0;
         Model.tmpPriorityDepthSum[priority] = 0;
       }
     }
     if (Model.tmpDepthFaceCount) {
-      for (let depth = this.maxDepth - 1;depth >= 0; depth--) {
+      for (let depth = this.maxDepth - 1; depth >= 0; depth--) {
         const faceCount = Model.tmpDepthFaceCount[depth];
         if (faceCount > 0 && Model.tmpDepthFaces) {
           const faces = Model.tmpDepthFaces[depth];
-          for (let i = 0;i < faceCount; i++) {
+          for (let i = 0; i < faceCount; i++) {
             if (this.facePriority && Model.tmpPriorityFaceCount && Model.tmpPriorityFaces) {
               const priorityDepth = faces[i];
               const priorityFace = this.facePriority[priorityDepth];
@@ -6622,7 +6622,7 @@ class Model extends DoublyLinkable {
       } else {
         priorityDepth = -1000;
       }
-      for (let priority = 0;priority < 10; priority++) {
+      for (let priority = 0; priority < 10; priority++) {
         while (priority === 0 && priorityDepth > averagePriorityDepthSum1_2) {
           try {
             this.drawFace(priorityFaces[priorityFace++], wireframe);
@@ -6637,7 +6637,7 @@ class Model extends DoublyLinkable {
             } else {
               priorityDepth = -1000;
             }
-          } catch (e) {}
+          } catch (e) { }
         }
         while (priority === 3 && priorityDepth > averagePriorityDepthSum3_4) {
           try {
@@ -6653,7 +6653,7 @@ class Model extends DoublyLinkable {
             } else {
               priorityDepth = -1000;
             }
-          } catch (e) {}
+          } catch (e) { }
         }
         while (priority === 5 && priorityDepth > averagePriorityDepthSum6_8) {
           try {
@@ -6669,14 +6669,14 @@ class Model extends DoublyLinkable {
             } else {
               priorityDepth = -1000;
             }
-          } catch (e) {}
+          } catch (e) { }
         }
         const count = Model.tmpPriorityFaceCount[priority];
         const faces = Model.tmpPriorityFaces[priority];
-        for (let i = 0;i < count; i++) {
+        for (let i = 0; i < count; i++) {
           try {
             this.drawFace(faces[i], wireframe);
-          } catch (e) {}
+          } catch (e) { }
         }
       }
       while (priorityDepth !== -1000) {
@@ -6693,7 +6693,7 @@ class Model extends DoublyLinkable {
           } else {
             priorityDepth = -1000;
           }
-        } catch (e) {}
+        } catch (e) { }
       }
     }
   }
@@ -6908,7 +6908,7 @@ class Model extends DoublyLinkable {
       Model.baseX = 0;
       Model.baseY = 0;
       Model.baseZ = 0;
-      for (let g = 0;g < labelCount; g++) {
+      for (let g = 0; g < labelCount; g++) {
         if (!this.labelVertices) {
           continue;
         }
@@ -6916,7 +6916,7 @@ class Model extends DoublyLinkable {
         if (label < this.labelVertices.length) {
           const vertices = this.labelVertices[label];
           if (vertices) {
-            for (let i = 0;i < vertices.length; i++) {
+            for (let i = 0; i < vertices.length; i++) {
               const v = vertices[i];
               Model.baseX += this.vertexX[v];
               Model.baseY += this.vertexY[v];
@@ -6936,14 +6936,14 @@ class Model extends DoublyLinkable {
         Model.baseZ = z;
       }
     } else if (type === 1) {
-      for (let g = 0;g < labelCount; g++) {
+      for (let g = 0; g < labelCount; g++) {
         const group = labels[g];
         if (!this.labelVertices || group >= this.labelVertices.length) {
           continue;
         }
         const vertices = this.labelVertices[group];
         if (vertices) {
-          for (let i = 0;i < vertices.length; i++) {
+          for (let i = 0; i < vertices.length; i++) {
             const v = vertices[i];
             this.vertexX[v] += x;
             this.vertexY[v] += y;
@@ -6952,14 +6952,14 @@ class Model extends DoublyLinkable {
         }
       }
     } else if (type === 2) {
-      for (let g = 0;g < labelCount; g++) {
+      for (let g = 0; g < labelCount; g++) {
         const label = labels[g];
         if (!this.labelVertices || label >= this.labelVertices.length) {
           continue;
         }
         const vertices = this.labelVertices[label];
         if (vertices) {
-          for (let i = 0;i < vertices.length; i++) {
+          for (let i = 0; i < vertices.length; i++) {
             const v = vertices[i];
             this.vertexX[v] -= Model.baseX;
             this.vertexY[v] -= Model.baseY;
@@ -6997,14 +6997,14 @@ class Model extends DoublyLinkable {
         }
       }
     } else if (type === 3) {
-      for (let g = 0;g < labelCount; g++) {
+      for (let g = 0; g < labelCount; g++) {
         const label = labels[g];
         if (!this.labelVertices || label >= this.labelVertices.length) {
           continue;
         }
         const vertices = this.labelVertices[label];
         if (vertices) {
-          for (let i = 0;i < vertices.length; i++) {
+          for (let i = 0; i < vertices.length; i++) {
             const v = vertices[i];
             this.vertexX[v] -= Model.baseX;
             this.vertexY[v] -= Model.baseY;
@@ -7019,14 +7019,14 @@ class Model extends DoublyLinkable {
         }
       }
     } else if (type === 5 && this.labelFaces && this.faceAlpha) {
-      for (let g = 0;g < labelCount; g++) {
+      for (let g = 0; g < labelCount; g++) {
         const label = labels[g];
         if (label >= this.labelFaces.length) {
           continue;
         }
         const triangles = this.labelFaces[label];
         if (triangles) {
-          for (let i = 0;i < triangles.length; i++) {
+          for (let i = 0; i < triangles.length; i++) {
             const t = triangles[i];
             this.faceAlpha[t] += x * 8;
             if (this.faceAlpha[t] < 0) {
@@ -7048,7 +7048,7 @@ class Model extends DoublyLinkable {
     this.maxX = -999999;
     this.maxZ = -99999;
     this.minZ = 99999;
-    for (let v = 0;v < this.vertexCount; v++) {
+    for (let v = 0; v < this.vertexCount; v++) {
       const x = this.vertexX[v];
       const y = this.vertexY[v];
       const z = this.vertexZ[v];
@@ -7118,12 +7118,12 @@ class LocType extends ConfigType {
     this.totalCount = idx.g2();
     this.offsets = new Int32Array(this.totalCount);
     let offset = 2;
-    for (let id = 0;id < this.totalCount; id++) {
+    for (let id = 0; id < this.totalCount; id++) {
       this.offsets[id] = offset;
       offset += idx.g2();
     }
     this.typeCache = new TypedArray1d(10, null);
-    for (let id = 0;id < 10; id++) {
+    for (let id = 0; id < 10; id++) {
       this.typeCache[id] = new LocType(-1);
     }
   }
@@ -7131,7 +7131,7 @@ class LocType extends ConfigType {
     if (!this.typeCache || !this.offsets || !this.dat) {
       throw new Error;
     }
-    for (let i = 0;i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
       const type = this.typeCache[i];
       if (!type) {
         continue;
@@ -7195,7 +7195,7 @@ class LocType extends ConfigType {
       const count = dat.g1();
       this.models = new Int32Array(count);
       this.shapes = new Int32Array(count);
-      for (let i = 0;i < count; i++) {
+      for (let i = 0; i < count; i++) {
         this.models[i] = dat.g2();
         this.shapes[i] = dat.g1();
       }
@@ -7247,7 +7247,7 @@ class LocType extends ConfigType {
       const count = dat.g1();
       this.recol_s = new Uint16Array(count);
       this.recol_d = new Uint16Array(count);
-      for (let i = 0;i < count; i++) {
+      for (let i = 0; i < count; i++) {
         this.recol_s[i] = dat.g2();
         this.recol_d[i] = dat.g2();
       }
@@ -7282,7 +7282,7 @@ class LocType extends ConfigType {
       return null;
     }
     let shapeIndex = -1;
-    for (let i = 0;i < this.shapes.length; i++) {
+    for (let i = 0; i < this.shapes.length; i++) {
       if (this.shapes[i] === shape) {
         shapeIndex = i;
         break;
@@ -7299,7 +7299,7 @@ class LocType extends ConfigType {
       }
       if (this.hillskew) {
         const groundY = (heightmapSW + heightmapSE + heightmapNE + heightmapNW) / 4 | 0;
-        for (let i = 0;i < cached.vertexCount; i++) {
+        for (let i = 0; i < cached.vertexCount; i++) {
           const x = cached.vertexX[i];
           const z = cached.vertexZ[i];
           const heightS = heightmapSW + ((heightmapSE - heightmapSW) * (x + 64) / 128 | 0);
@@ -7346,7 +7346,7 @@ class LocType extends ConfigType {
       modified.rotateY90();
     }
     if (this.recol_s && this.recol_d) {
-      for (let i = 0;i < this.recol_s.length; i++) {
+      for (let i = 0; i < this.recol_s.length; i++) {
         modified.recolor(this.recol_s[i], this.recol_d[i]);
       }
     }
@@ -7366,7 +7366,7 @@ class LocType extends ConfigType {
     }
     if (this.hillskew) {
       const groundY = (heightmapSW + heightmapSE + heightmapNE + heightmapNW) / 4 | 0;
-      for (let i = 0;i < modified.vertexCount; i++) {
+      for (let i = 0; i < modified.vertexCount; i++) {
         const x = modified.vertexX[i];
         const z = modified.vertexZ[i];
         const heightS = heightmapSW + ((heightmapSE - heightmapSW) * (x + 64) / 128 | 0);
@@ -7457,7 +7457,7 @@ class Pix24 extends DoublyLinkable {
     const image = new Pix24(jpeg.width, jpeg.height);
     const data = new Uint32Array(jpeg.data.buffer);
     const pixels = image.pixels;
-    for (let i = 0;i < pixels.length; i++) {
+    for (let i = 0; i < pixels.length; i++) {
       const pixel = data[i];
       pixels[i] = (pixel >> 24 & 255) << 24 | (pixel & 255) << 16 | (pixel >> 8 & 255) << 8 | pixel >> 16 & 255;
     }
@@ -7472,13 +7472,13 @@ class Pix24 extends DoublyLinkable {
     const paletteCount = index.g1();
     const palette = [];
     const length = paletteCount - 1;
-    for (let i = 0;i < length; i++) {
+    for (let i = 0; i < length; i++) {
       palette[i + 1] = index.g3();
       if (palette[i + 1] === 0) {
         palette[i + 1] = 1;
       }
     }
-    for (let i = 0;i < sprite; i++) {
+    for (let i = 0; i < sprite; i++) {
       index.pos += 2;
       dat.pos += index.g2() * index.g2();
       index.pos += 1;
@@ -7498,14 +7498,14 @@ class Pix24 extends DoublyLinkable {
     const pixelOrder = index.g1();
     if (pixelOrder === 0) {
       const length2 = image.width2d * image.height2d;
-      for (let i = 0;i < length2; i++) {
+      for (let i = 0; i < length2; i++) {
         image.pixels[i] = palette[dat.g1()];
       }
     } else if (pixelOrder === 1) {
       const width2 = image.width2d;
-      for (let x = 0;x < width2; x++) {
+      for (let x = 0; x < width2; x++) {
         const height2 = image.height2d;
-        for (let y = 0;y < height2; y++) {
+        for (let y = 0; y < height2; y++) {
           image.pixels[x + y * width2] = palette[dat.g1()];
         }
       }
@@ -7639,9 +7639,9 @@ class Pix24 extends DoublyLinkable {
     const pixels = this.pixels;
     const width = this.width2d;
     const height = this.height2d;
-    for (let y = 0;y < height; y++) {
+    for (let y = 0; y < height; y++) {
       const div = width / 2 | 0;
-      for (let x = 0;x < div; x++) {
+      for (let x = 0; x < div; x++) {
         const off1 = x + y * width;
         const off2 = width - x - 1 + y * width;
         const tmp = pixels[off1];
@@ -7654,8 +7654,8 @@ class Pix24 extends DoublyLinkable {
     const pixels = this.pixels;
     const width = this.width2d;
     const height = this.height2d;
-    for (let y = 0;y < (height / 2 | 0); y++) {
-      for (let x = 0;x < width; x++) {
+    for (let y = 0; y < (height / 2 | 0); y++) {
+      for (let x = 0; x < width; x++) {
         const off1 = x + y * width;
         const off2 = x + (height - y - 1) * width;
         const tmp = pixels[off1];
@@ -7665,7 +7665,7 @@ class Pix24 extends DoublyLinkable {
     }
   }
   translate2d(r, g, b) {
-    for (let i = 0;i < this.pixels.length; i++) {
+    for (let i = 0; i < this.pixels.length; i++) {
       const rgb = this.pixels[i];
       if (rgb !== 0) {
         let red = rgb >> 16 & 255;
@@ -7761,12 +7761,12 @@ class Pix24 extends DoublyLinkable {
       let leftX = (anchorX << 16) + centerY * sinZoom + centerX * cosZoom;
       let leftY = (anchorY << 16) + (centerY * cosZoom - centerX * sinZoom);
       let leftOff = x + y * Pix2D.width2d;
-      for (let i = 0;i < h; i++) {
+      for (let i = 0; i < h; i++) {
         const dstOff = lineStart[i];
         let dstX = leftOff + dstOff;
         let srcX = leftX + cosZoom * dstOff;
         let srcY = leftY - sinZoom * dstOff;
-        for (let j = -lineWidth[i];j < 0; j++) {
+        for (let j = -lineWidth[i]; j < 0; j++) {
           Pix2D.pixels[dstX++] = this.pixels[(srcX >> 16) + (srcY >> 16) * this.width2d];
           srcX += cosZoom;
           srcY -= sinZoom;
@@ -7775,7 +7775,7 @@ class Pix24 extends DoublyLinkable {
         leftY += cosZoom;
         leftOff += Pix2D.width2d;
       }
-    } catch (e) {}
+    } catch (e) { }
   }
   drawMasked(x, y, mask) {
     x |= 0;
@@ -7820,9 +7820,9 @@ class Pix24 extends DoublyLinkable {
   scale(w, h, src, offW, offH, dst, dstStep, dstOff, currentW, scaleCropWidth, scaleCropHeight) {
     try {
       const lastOffW = offW;
-      for (let y = -h;y < 0; y++) {
+      for (let y = -h; y < 0; y++) {
         const offY = (offH >> 16) * currentW;
-        for (let x = -w;x < 0; x++) {
+        for (let x = -w; x < 0; x++) {
           const rgb = src[(offW >> 16) + offY];
           if (rgb === 0) {
             dstOff++;
@@ -7842,14 +7842,14 @@ class Pix24 extends DoublyLinkable {
   copyImageBlitOpaque(w, h, src, srcOff, srcStep, dst, dstOff, dstStep) {
     const qw = -(w >> 2);
     w = -(w & 3);
-    for (let y = -h;y < 0; y++) {
-      for (let x = qw;x < 0; x++) {
+    for (let y = -h; y < 0; y++) {
+      for (let x = qw; x < 0; x++) {
         dst[dstOff++] = src[srcOff++];
         dst[dstOff++] = src[srcOff++];
         dst[dstOff++] = src[srcOff++];
         dst[dstOff++] = src[srcOff++];
       }
-      for (let x = w;x < 0; x++) {
+      for (let x = w; x < 0; x++) {
         dst[dstOff++] = src[srcOff++];
       }
       dstOff += dstStep;
@@ -7858,8 +7858,8 @@ class Pix24 extends DoublyLinkable {
   }
   copyPixelsAlpha(w, h, src, srcOff, srcStep, dst, dstOff, dstStep, alpha) {
     const invAlpha = 256 - alpha;
-    for (let y = -h;y < 0; y++) {
-      for (let x = -w;x < 0; x++) {
+    for (let y = -h; y < 0; y++) {
+      for (let x = -w; x < 0; x++) {
         const rgb = src[srcOff++];
         if (rgb === 0) {
           dstOff++;
@@ -7875,8 +7875,8 @@ class Pix24 extends DoublyLinkable {
   copyImageDraw(w, h, src, srcOff, srcStep, dst, dstOff, dstStep) {
     const qw = -(w >> 2);
     w = -(w & 3);
-    for (let y = -h;y < 0; y++) {
-      for (let x = qw;x < 0; x++) {
+    for (let y = -h; y < 0; y++) {
+      for (let x = qw; x < 0; x++) {
         let rgb = src[srcOff++];
         if (rgb === 0) {
           dstOff++;
@@ -7902,7 +7902,7 @@ class Pix24 extends DoublyLinkable {
           dst[dstOff++] = rgb;
         }
       }
-      for (let x = w;x < 0; x++) {
+      for (let x = w; x < 0; x++) {
         const rgb = src[srcOff++];
         if (rgb === 0) {
           dstOff++;
@@ -7917,8 +7917,8 @@ class Pix24 extends DoublyLinkable {
   copyPixelsMasked(w, h, src, srcStep, srcOff, dst, dstOff, dstStep, mask) {
     const qw = -(w >> 2);
     w = -(w & 3);
-    for (let y = -h;y < 0; y++) {
-      for (let x = qw;x < 0; x++) {
+    for (let y = -h; y < 0; y++) {
+      for (let x = qw; x < 0; x++) {
         let rgb = src[srcOff++];
         if (rgb !== 0 && mask[dstOff] === 0) {
           dst[dstOff++] = rgb;
@@ -7944,7 +7944,7 @@ class Pix24 extends DoublyLinkable {
           dstOff++;
         }
       }
-      for (let x = w;x < 0; x++) {
+      for (let x = w; x < 0; x++) {
         const rgb = src[srcOff++];
         if (rgb !== 0 && mask[dstOff] === 0) {
           dst[dstOff++] = rgb;
@@ -7975,12 +7975,12 @@ class ObjType extends ConfigType {
     this.totalCount = idx.g2();
     this.offsets = new Int32Array(this.totalCount);
     let offset = 2;
-    for (let id = 0;id < this.totalCount; id++) {
+    for (let id = 0; id < this.totalCount; id++) {
       this.offsets[id] = offset;
       offset += idx.g2();
     }
     this.typeCache = new TypedArray1d(10, null);
-    for (let id = 0;id < 10; id++) {
+    for (let id = 0; id < 10; id++) {
       this.typeCache[id] = new ObjType(-1);
     }
   }
@@ -7988,7 +7988,7 @@ class ObjType extends ConfigType {
     if (!this.typeCache || !this.offsets || !this.dat) {
       throw new Error;
     }
-    for (let i = 0;i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
       const type = this.typeCache[i];
       if (!type) {
         continue;
@@ -8031,7 +8031,7 @@ class ObjType extends ConfigType {
     }
     if (obj.countobj && obj.countco && count > 1) {
       let countobj = -1;
-      for (let i = 0;i < 10; i++) {
+      for (let i = 0; i < 10; i++) {
         if (count >= obj.countco[i] && obj.countco[i] !== 0) {
           countobj = obj.countobj[i];
         }
@@ -8059,8 +8059,8 @@ class ObjType extends ConfigType {
     const sinPitch = Pix3D.sin[obj.xan2d] * obj.zoom2d >> 16;
     const cosPitch = Pix3D.cos[obj.xan2d] * obj.zoom2d >> 16;
     iModel.drawSimple(0, obj.yan2d, obj.zan2d, obj.xan2d, obj.xof2d, sinPitch + (iModel.maxY / 2 | 0) + obj.yof2d, cosPitch + obj.yof2d);
-    for (let x = 31;x >= 0; x--) {
-      for (let y = 31;y >= 0; y--) {
+    for (let x = 31; x >= 0; x--) {
+      for (let y = 31; y >= 0; y--) {
         if (icon.pixels[x + y * 32] !== 0) {
           continue;
         }
@@ -8075,8 +8075,8 @@ class ObjType extends ConfigType {
         }
       }
     }
-    for (let x = 31;x >= 0; x--) {
-      for (let y = 31;y >= 0; y--) {
+    for (let x = 31; x >= 0; x--) {
+      for (let y = 31; y >= 0; y--) {
         if (icon.pixels[x + y * 32] === 0 && x > 0 && y > 0 && icon.pixels[x + (y - 1) * 32 - 1] > 0) {
           icon.pixels[x + y * 32] = 3153952;
         }
@@ -8201,7 +8201,7 @@ class ObjType extends ConfigType {
       const count = dat.g1();
       this.recol_s = new Uint16Array(count);
       this.recol_d = new Uint16Array(count);
-      for (let i = 0;i < count; i++) {
+      for (let i = 0; i < count; i++) {
         this.recol_s[i] = dat.g2();
         this.recol_d[i] = dat.g2();
       }
@@ -8265,7 +8265,7 @@ class ObjType extends ConfigType {
       model.translateModel(this.womanwearOffsetY, 0, 0);
     }
     if (this.recol_s && this.recol_d) {
-      for (let i = 0;i < this.recol_s.length; i++) {
+      for (let i = 0; i < this.recol_s.length; i++) {
         model.recolor(this.recol_s[i], this.recol_d[i]);
       }
     }
@@ -8290,7 +8290,7 @@ class ObjType extends ConfigType {
       model = Model.modelFromModels(models, 2);
     }
     if (this.recol_s && this.recol_d) {
-      for (let i = 0;i < this.recol_s.length; i++) {
+      for (let i = 0; i < this.recol_s.length; i++) {
         model.recolor(this.recol_s[i], this.recol_d[i]);
       }
     }
@@ -8299,7 +8299,7 @@ class ObjType extends ConfigType {
   getInterfaceModel(count) {
     if (this.countobj && this.countco && count > 1) {
       let id = -1;
-      for (let i = 0;i < 10; i++) {
+      for (let i = 0; i < 10; i++) {
         if (count >= this.countco[i] && this.countco[i] !== 0) {
           id = this.countobj[i];
         }
@@ -8316,7 +8316,7 @@ class ObjType extends ConfigType {
     }
     const model = Model.model(this.model);
     if (this.recol_s && this.recol_d) {
-      for (let i = 0;i < this.recol_s.length; i++) {
+      for (let i = 0; i < this.recol_s.length; i++) {
         model.recolor(this.recol_s[i], this.recol_d[i]);
       }
     }
@@ -8400,12 +8400,12 @@ class NpcType extends ConfigType {
     this.totalCount = idx.g2();
     this.offsets = new Int32Array(this.totalCount);
     let offset = 2;
-    for (let id = 0;id < this.totalCount; id++) {
+    for (let id = 0; id < this.totalCount; id++) {
       this.offsets[id] = offset;
       offset += idx.g2();
     }
     this.typeCache = new TypedArray1d(20, null);
-    for (let id = 0;id < 20; id++) {
+    for (let id = 0; id < 20; id++) {
       this.typeCache[id] = new NpcType(-1);
     }
   }
@@ -8413,7 +8413,7 @@ class NpcType extends ConfigType {
     if (!this.typeCache || !this.offsets || !this.dat) {
       throw new Error;
     }
-    for (let i = 0;i < 20; i++) {
+    for (let i = 0; i < 20; i++) {
       const type = this.typeCache[i];
       if (!type) {
         continue;
@@ -8453,7 +8453,7 @@ class NpcType extends ConfigType {
     if (code === 1) {
       const count = dat.g1();
       this.models = new Uint16Array(count);
-      for (let i = 0;i < count; i++) {
+      for (let i = 0; i < count; i++) {
         this.models[i] = dat.g2();
       }
     } else if (code === 2) {
@@ -8485,14 +8485,14 @@ class NpcType extends ConfigType {
       const count = dat.g1();
       this.recol_s = new Uint16Array(count);
       this.recol_d = new Uint16Array(count);
-      for (let i = 0;i < count; i++) {
+      for (let i = 0; i < count; i++) {
         this.recol_s[i] = dat.g2();
         this.recol_d[i] = dat.g2();
       }
     } else if (code === 60) {
       const count = dat.g1();
       this.heads = new Uint16Array(count);
-      for (let i = 0;i < count; i++) {
+      for (let i = 0; i < count; i++) {
         this.heads[i] = dat.g2();
       }
     } else if (code === 90) {
@@ -8518,7 +8518,7 @@ class NpcType extends ConfigType {
       model = NpcType.modelCache.get(BigInt(this.id));
       if (!model && this.models) {
         const models = new TypedArray1d(this.models.length, null);
-        for (let i = 0;i < this.models.length; i++) {
+        for (let i = 0; i < this.models.length; i++) {
           models[i] = Model.model(this.models[i]);
         }
         if (models.length === 1) {
@@ -8527,7 +8527,7 @@ class NpcType extends ConfigType {
           model = Model.modelFromModels(models, models.length);
         }
         if (this.recol_s && this.recol_d) {
-          for (let i = 0;i < this.recol_s.length; i++) {
+          for (let i = 0; i < this.recol_s.length; i++) {
             model?.recolor(this.recol_s[i], this.recol_d[i]);
           }
         }
@@ -8563,7 +8563,7 @@ class NpcType extends ConfigType {
       return null;
     }
     const models = new TypedArray1d(this.heads.length, null);
-    for (let i = 0;i < this.heads.length; i++) {
+    for (let i = 0; i < this.heads.length; i++) {
       models[i] = Model.model(this.heads[i]);
     }
     let model;
@@ -8573,7 +8573,7 @@ class NpcType extends ConfigType {
       model = Model.modelFromModels(models, models.length);
     }
     if (this.recol_s && this.recol_d) {
-      for (let i = 0;i < this.recol_s.length; i++) {
+      for (let i = 0; i < this.recol_s.length; i++) {
         model?.recolor(this.recol_s[i], this.recol_d[i]);
       }
     }
@@ -8588,7 +8588,7 @@ class IdkType extends ConfigType {
   static unpack(config) {
     const dat = new Packet(config.read("idk.dat"));
     this.totalCount = dat.g2();
-    for (let i = 0;i < this.totalCount; i++) {
+    for (let i = 0; i < this.totalCount; i++) {
       this.instances[i] = new IdkType(i).unpackType(dat);
     }
   }
@@ -8604,7 +8604,7 @@ class IdkType extends ConfigType {
     } else if (code === 2) {
       const count = dat.g1();
       this.models = new Int32Array(count);
-      for (let i = 0;i < count; i++) {
+      for (let i = 0; i < count; i++) {
         this.models[i] = dat.g2();
       }
     } else if (code === 3) {
@@ -8624,7 +8624,7 @@ class IdkType extends ConfigType {
       return null;
     }
     const models = new TypedArray1d(this.models.length, null);
-    for (let i = 0;i < this.models.length; i++) {
+    for (let i = 0; i < this.models.length; i++) {
       models[i] = Model.model(this.models[i]);
     }
     let model;
@@ -8633,7 +8633,7 @@ class IdkType extends ConfigType {
     } else {
       model = Model.modelFromModels(models, models.length);
     }
-    for (let i = 0;i < 6 && this.recol_s[i] !== 0; i++) {
+    for (let i = 0; i < 6 && this.recol_s[i] !== 0; i++) {
       model?.recolor(this.recol_s[i], this.recol_d[i]);
     }
     return model;
@@ -8641,13 +8641,13 @@ class IdkType extends ConfigType {
   getHeadModel() {
     let count = 0;
     const models = new TypedArray1d(5, null);
-    for (let i = 0;i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
       if (this.heads[i] !== -1) {
         models[count++] = Model.model(this.heads[i]);
       }
     }
     const model = Model.modelFromModels(models, count);
-    for (let i = 0;i < 6 && this.recol_s[i] !== 0; i++) {
+    for (let i = 0; i < 6 && this.recol_s[i] !== 0; i++) {
       model.recolor(this.recol_s[i], this.recol_d[i]);
     }
     return model;
@@ -8662,7 +8662,7 @@ class SpotAnimType extends ConfigType {
   static unpack(config) {
     const dat = new Packet(config.read("spotanim.dat"));
     this.totalCount = dat.g2();
-    for (let i = 0;i < this.totalCount; i++) {
+    for (let i = 0; i < this.totalCount; i++) {
       this.instances[i] = new SpotAnimType(i).unpackType(dat);
     }
   }
@@ -8711,7 +8711,7 @@ class SpotAnimType extends ConfigType {
       return model;
     }
     model = Model.model(this.model);
-    for (let i = 0;i < 6; i++) {
+    for (let i = 0; i < 6; i++) {
       if (this.recol_s[0] !== 0) {
         model.recolor(this.recol_s[i], this.recol_d[i]);
       }
@@ -8730,7 +8730,7 @@ class VarpType extends ConfigType {
   static unpack(config) {
     const dat = new Packet(config.read("varp.dat"));
     this.totalCount = dat.g2();
-    for (let i = 0;i < this.totalCount; i++) {
+    for (let i = 0; i < this.totalCount; i++) {
       this.instances[i] = new VarpType(i).unpackType(dat);
     }
   }
@@ -8812,7 +8812,7 @@ class JString {
   static toBase37(string) {
     string = string.trim();
     let l = 0n;
-    for (let i = 0;i < string.length && i < 12; i++) {
+    for (let i = 0; i < string.length && i < 12; i++) {
       const c = string.charCodeAt(i);
       l *= 37n;
       if (c >= 65 && c <= 90) {
@@ -8844,7 +8844,7 @@ class JString {
   static toSentenceCase(input) {
     const chars = [...input.toLowerCase()];
     let punctuation = true;
-    for (let index = 0;index < chars.length; index++) {
+    for (let index = 0; index < chars.length; index++) {
       const char = chars[index];
       if (punctuation && char >= "a" && char <= "z") {
         chars[index] = char.toUpperCase();
@@ -8858,7 +8858,7 @@ class JString {
   }
   static toAsterisks(str) {
     let temp = "";
-    for (let i = 0;i < str.length; i++) {
+    for (let i = 0; i < str.length; i++) {
       temp = temp + "*";
     }
     return temp;
@@ -8871,7 +8871,7 @@ class JString {
       return str;
     }
     const chars = [...str];
-    for (let i = 0;i < chars.length; i++) {
+    for (let i = 0; i < chars.length; i++) {
       if (chars[i] === "_") {
         chars[i] = " ";
         if (i + 1 < chars.length && chars[i + 1] >= "a" && chars[i + 1] <= "z") {
@@ -8887,7 +8887,7 @@ class JString {
   static hashCode(str) {
     const upper = str.toUpperCase();
     let hash = 0n;
-    for (let i = 0;i < upper.length; i++) {
+    for (let i = 0; i < upper.length; i++) {
       hash = hash * 61n + BigInt(upper.charCodeAt(i)) - 32n;
       hash = hash + (hash >> 56n) & 0xffffffffffffffn;
     }
@@ -8930,7 +8930,7 @@ class Component {
       if (comparatorCount > 0) {
         com.scriptComparator = new Uint8Array(comparatorCount);
         com.scriptOperand = new Uint16Array(comparatorCount);
-        for (let i = 0;i < comparatorCount; i++) {
+        for (let i = 0; i < comparatorCount; i++) {
           com.scriptComparator[i] = dat.g1();
           com.scriptOperand[i] = dat.g2();
         }
@@ -8938,11 +8938,11 @@ class Component {
       const scriptCount = dat.g1();
       if (scriptCount > 0) {
         com.script = new TypedArray1d(scriptCount, null);
-        for (let i = 0;i < scriptCount; i++) {
+        for (let i = 0; i < scriptCount; i++) {
           const opcodeCount = dat.g2();
           const script = new Uint16Array(opcodeCount);
           com.script[i] = script;
-          for (let j = 0;j < opcodeCount; j++) {
+          for (let j = 0; j < opcodeCount; j++) {
             script[j] = dat.g2();
           }
         }
@@ -8954,7 +8954,7 @@ class Component {
         com.childId = new Array(childCount);
         com.childX = new Array(childCount);
         com.childY = new Array(childCount);
-        for (let i = 0;i < childCount; i++) {
+        for (let i = 0; i < childCount; i++) {
           com.childId[i] = dat.g2();
           com.childX[i] = dat.g2b();
           com.childY[i] = dat.g2b();
@@ -8974,7 +8974,7 @@ class Component {
         com.invSlotOffsetX = new Int16Array(20);
         com.invSlotOffsetY = new Int16Array(20);
         com.invSlotSprite = new TypedArray1d(20, null);
-        for (let i = 0;i < 20; i++) {
+        for (let i = 0; i < 20; i++) {
           if (dat.g1() === 1) {
             com.invSlotOffsetX[i] = dat.g2b();
             com.invSlotOffsetY[i] = dat.g2b();
@@ -8986,7 +8986,7 @@ class Component {
           }
         }
         com.iops = new TypedArray1d(5, null);
-        for (let i = 0;i < 5; i++) {
+        for (let i = 0; i < 5; i++) {
           const iop = dat.gjstr();
           com.iops[i] = iop;
           if (iop.length === 0) {
@@ -9067,7 +9067,7 @@ class Component {
         com.marginY = dat.g2b();
         com.interactable = dat.g1() === 1;
         com.iops = new TypedArray1d(5, null);
-        for (let i = 0;i < 5; i++) {
+        for (let i = 0; i < 5; i++) {
           const iop = dat.gjstr();
           com.iops[i] = iop;
           if (iop.length === 0) {
@@ -9307,8 +9307,8 @@ class CollisionMap {
     this.reset();
   }
   reset() {
-    for (let x = 0;x < this.sizeX; x++) {
-      for (let z = 0;z < this.sizeZ; z++) {
+    for (let x = 0; x < this.sizeX; x++) {
+      for (let z = 0; z < this.sizeZ; z++) {
         const index = CollisionMap.index(x, z);
         if (x === 0 || z === 0 || x === this.sizeX - 1 || z === this.sizeZ - 1) {
           this.flags[index] = 16777215 /* BOUNDS */;
@@ -9336,11 +9336,11 @@ class CollisionMap {
       sizeX = sizeZ;
       sizeZ = tmp;
     }
-    for (let tx = x;tx < x + sizeX; tx++) {
+    for (let tx = x; tx < x + sizeX; tx++) {
       if (!(tx >= 0 && tx < this.sizeX)) {
         continue;
       }
-      for (let tz = z;tz < z + sizeZ; tz++) {
+      for (let tz = z; tz < z + sizeZ; tz++) {
         if (!(tz >= 0 && tz < this.sizeZ)) {
           continue;
         }
@@ -9360,11 +9360,11 @@ class CollisionMap {
       sizeX = sizeZ;
       sizeZ = tmp;
     }
-    for (let tx = x;tx < x + sizeX; tx++) {
+    for (let tx = x; tx < x + sizeX; tx++) {
       if (!(tx >= 0 && tx < this.sizeX)) {
         continue;
       }
-      for (let tz = z;tz < z + sizeZ; tz++) {
+      for (let tz = z; tz < z + sizeZ; tz++) {
         if (!(tz >= 0 && tz < this.sizeZ)) {
           continue;
         }
@@ -9885,7 +9885,7 @@ class TileOverlay {
     const secondaryColors = new Int32Array(vertexCount);
     const sceneX = tileX * TileOverlay.FULL_SQUARE;
     const sceneZ = tileZ * TileOverlay.FULL_SQUARE;
-    for (let v = 0;v < vertexCount; v++) {
+    for (let v = 0; v < vertexCount; v++) {
       let type = points[v];
       if ((type & 1) === 0 && type <= 8) {
         type = (type - angle - angle - 1 & 7) + 1;
@@ -10018,7 +10018,7 @@ class TileOverlay {
       this.triangleTextureIds = null;
     }
     let index = 0;
-    for (let t = 0;t < triangleCount; t++) {
+    for (let t = 0; t < triangleCount; t++) {
       const color = paths[index];
       let a = paths[index + 1];
       let b = paths[index + 2];
@@ -10200,20 +10200,20 @@ class World3D {
     this.viewportCenterX = viewportWidth / 2 | 0;
     this.viewportCenterY = viewportHeight / 2 | 0;
     const matrix = new TypedArray4d(9, 32, 53, 53, false);
-    for (let pitch = 128;pitch <= 384; pitch += 32) {
-      for (let yaw = 0;yaw < 2048; yaw += 64) {
+    for (let pitch = 128; pitch <= 384; pitch += 32) {
+      for (let yaw = 0; yaw < 2048; yaw += 64) {
         this.sinEyePitch = Pix3D.sin[pitch];
         this.cosEyePitch = Pix3D.cos[pitch];
         this.sinEyeYaw = Pix3D.sin[yaw];
         this.cosEyeYaw = Pix3D.cos[yaw];
         const pitchLevel = (pitch - 128) / 32 | 0;
         const yawLevel = yaw / 64 | 0;
-        for (let dx = -26;dx <= 26; dx++) {
-          for (let dz = -26;dz <= 26; dz++) {
+        for (let dx = -26; dx <= 26; dx++) {
+          for (let dz = -26; dz <= 26; dz++) {
             const x = dx * 128;
             const z = dz * 128;
             let visible = false;
-            for (let y = -frustumStart;y <= frustumEnd; y += 128) {
+            for (let y = -frustumStart; y <= frustumEnd; y += 128) {
               if (this.testPoint(x, z, pitchDistance[pitchLevel] + y)) {
                 visible = true;
                 break;
@@ -10224,32 +10224,32 @@ class World3D {
         }
       }
     }
-    for (let pitchLevel = 0;pitchLevel < 8; pitchLevel++) {
-      for (let yawLevel = 0;yawLevel < 32; yawLevel++) {
-        for (let x = -25;x < 25; x++) {
-          for (let z = -25;z < 25; z++) {
+    for (let pitchLevel = 0; pitchLevel < 8; pitchLevel++) {
+      for (let yawLevel = 0; yawLevel < 32; yawLevel++) {
+        for (let x = -25; x < 25; x++) {
+          for (let z = -25; z < 25; z++) {
             let visible = false;
             check_areas:
-              for (let dx = -1;dx <= 1; dx++) {
-                for (let dz = -1;dz <= 1; dz++) {
-                  if (matrix[pitchLevel][yawLevel][x + dx + 25 + 1][z + dz + 25 + 1]) {
-                    visible = true;
-                    break check_areas;
-                  }
-                  if (matrix[pitchLevel][(yawLevel + 1) % 31][x + dx + 25 + 1][z + dz + 25 + 1]) {
-                    visible = true;
-                    break check_areas;
-                  }
-                  if (matrix[pitchLevel + 1][yawLevel][x + dx + 25 + 1][z + dz + 25 + 1]) {
-                    visible = true;
-                    break check_areas;
-                  }
-                  if (matrix[pitchLevel + 1][(yawLevel + 1) % 31][x + dx + 25 + 1][z + dz + 25 + 1]) {
-                    visible = true;
-                    break check_areas;
-                  }
+            for (let dx = -1; dx <= 1; dx++) {
+              for (let dz = -1; dz <= 1; dz++) {
+                if (matrix[pitchLevel][yawLevel][x + dx + 25 + 1][z + dz + 25 + 1]) {
+                  visible = true;
+                  break check_areas;
+                }
+                if (matrix[pitchLevel][(yawLevel + 1) % 31][x + dx + 25 + 1][z + dz + 25 + 1]) {
+                  visible = true;
+                  break check_areas;
+                }
+                if (matrix[pitchLevel + 1][yawLevel][x + dx + 25 + 1][z + dz + 25 + 1]) {
+                  visible = true;
+                  break check_areas;
+                }
+                if (matrix[pitchLevel + 1][(yawLevel + 1) % 31][x + dx + 25 + 1][z + dz + 25 + 1]) {
+                  visible = true;
+                  break check_areas;
                 }
               }
+            }
             this.visibilityMatrix[pitchLevel][yawLevel][x + 25][z + 25] = visible;
           }
         }
@@ -10296,20 +10296,20 @@ class World3D {
     this.reset();
   }
   reset() {
-    for (let level = 0;level < this.maxLevel; level++) {
-      for (let x = 0;x < this.maxTileX; x++) {
-        for (let z = 0;z < this.maxTileZ; z++) {
+    for (let level = 0; level < this.maxLevel; level++) {
+      for (let x = 0; x < this.maxTileX; x++) {
+        for (let z = 0; z < this.maxTileZ; z++) {
           this.levelTiles[level][x][z] = null;
         }
       }
     }
-    for (let l = 0;l < 4 /* LEVELS */; l++) {
-      for (let o = 0;o < World3D.levelOccluderCount[l]; o++) {
+    for (let l = 0; l < 4 /* LEVELS */; l++) {
+      for (let o = 0; o < World3D.levelOccluderCount[l]; o++) {
         World3D.levelOccluders[l][o] = null;
       }
       World3D.levelOccluderCount[l] = 0;
     }
-    for (let i = 0;i < this.temporaryLocCount; i++) {
+    for (let i = 0; i < this.temporaryLocCount; i++) {
       this.temporaryLocs[i] = null;
     }
     this.temporaryLocCount = 0;
@@ -10317,15 +10317,15 @@ class World3D {
   }
   setMinLevel(level) {
     this.minLevel = level;
-    for (let stx = 0;stx < this.maxTileX; stx++) {
-      for (let stz = 0;stz < this.maxTileZ; stz++) {
+    for (let stx = 0; stx < this.maxTileX; stx++) {
+      for (let stz = 0; stz < this.maxTileZ; stz++) {
         this.levelTiles[level][stx][stz] = new Ground(level, stx, stz);
       }
     }
   }
   setBridge(stx, stz) {
     const ground = this.levelTiles[0][stx][stz];
-    for (let level = 0;level < 3; level++) {
+    for (let level = 0; level < 3; level++) {
       this.levelTiles[level][stx][stz] = this.levelTiles[level + 1][stx][stz];
       const tile2 = this.levelTiles[level][stx][stz];
       if (tile2) {
@@ -10350,7 +10350,7 @@ class World3D {
   }
   setTile(level, x, z, shape, angle, textureId, southwestY, southeastY, northeastY, northwestY, southwestColor, southeastColor, northeastColor, northwestColor, southwestColor2, southeastColor2, northeastColor2, northwestColor2, backgroundRgb, foregroundRgb) {
     if (shape === 0 /* PLAIN */) {
-      for (let l = level;l >= 0; l--) {
+      for (let l = level; l >= 0; l--) {
         if (!this.levelTiles[l][x][z]) {
           this.levelTiles[l][x][z] = new Ground(l, x, z);
         }
@@ -10360,7 +10360,7 @@ class World3D {
         tile.underlay = new TileUnderlay(southwestColor, southeastColor, northeastColor, northwestColor, -1, backgroundRgb, false);
       }
     } else if (shape === 1 /* DIAGONAL */) {
-      for (let l = level;l >= 0; l--) {
+      for (let l = level; l >= 0; l--) {
         if (!this.levelTiles[l][x][z]) {
           this.levelTiles[l][x][z] = new Ground(l, x, z);
         }
@@ -10370,7 +10370,7 @@ class World3D {
         tile.underlay = new TileUnderlay(southwestColor2, southeastColor2, northeastColor2, northwestColor2, textureId, foregroundRgb, southwestY === southeastY && southwestY === northeastY && southwestY === northwestY);
       }
     } else {
-      for (let l = level;l >= 0; l--) {
+      for (let l = level; l >= 0; l--) {
         if (!this.levelTiles[l][x][z]) {
           this.levelTiles[l][x][z] = new Ground(l, x, z);
         }
@@ -10401,7 +10401,7 @@ class World3D {
     let stackOffset = 0;
     const tile = this.levelTiles[level][stx][stz];
     if (tile) {
-      for (let l = 0;l < tile.locCount; l++) {
+      for (let l = 0; l < tile.locCount; l++) {
         const loc = tile.locs[l];
         if (!loc || !loc.model) {
           continue;
@@ -10430,7 +10430,7 @@ class World3D {
     if (!modelA && !modelB) {
       return;
     }
-    for (let l = level;l >= 0; l--) {
+    for (let l = level; l >= 0; l--) {
       if (!this.levelTiles[l][tileX][tileZ]) {
         this.levelTiles[l][tileX][tileZ] = new Ground(l, tileX, tileZ);
       }
@@ -10450,7 +10450,7 @@ class World3D {
     if (!model) {
       return;
     }
-    for (let l = level;l >= 0; l--) {
+    for (let l = level; l >= 0; l--) {
       if (!this.levelTiles[l][tileX][tileZ]) {
         this.levelTiles[l][tileX][tileZ] = new Ground(l, tileX, tileZ);
       }
@@ -10582,7 +10582,7 @@ class World3D {
     if (!tile) {
       return;
     }
-    for (let l = 0;l < tile.locCount; l++) {
+    for (let l = 0; l < tile.locCount; l++) {
       const loc = tile.locs[l];
       if (loc && (loc.typecode >> 29 & 3) === 2 && loc.minSceneTileX === x && loc.minSceneTileZ === z) {
         this.removeLoc2(loc);
@@ -10598,7 +10598,7 @@ class World3D {
     if (!tile) {
       return;
     }
-    for (let i = 0;i < tile.locCount; i++) {
+    for (let i = 0; i < tile.locCount; i++) {
       const loc = tile.locs[i];
       if (loc && (loc.typecode >> 29 & 3) === 2) {
         loc.model = model;
@@ -10607,7 +10607,7 @@ class World3D {
     }
   }
   clearTemporaryLocs() {
-    for (let i = 0;i < this.temporaryLocCount; i++) {
+    for (let i = 0; i < this.temporaryLocCount; i++) {
       const loc = this.temporaryLocs[i];
       if (loc) {
         this.removeLoc2(loc);
@@ -10629,7 +10629,7 @@ class World3D {
     if (!tile) {
       return 0;
     }
-    for (let l = 0;l < tile.locCount; l++) {
+    for (let l = 0; l < tile.locCount; l++) {
       const loc = tile.locs[l];
       if (loc && (loc.typecode >> 29 & 3) === 2 && loc.minSceneTileX === x && loc.minSceneTileZ === z) {
         return loc.typecode;
@@ -10652,7 +10652,7 @@ class World3D {
     } else if (tile.groundDecoration && tile.groundDecoration.typecode === typecode) {
       return tile.groundDecoration.info & 255;
     } else {
-      for (let i = 0;i < tile.locCount; i++) {
+      for (let i = 0; i < tile.locCount; i++) {
         const loc = tile.locs[i];
         if (loc && loc.typecode === typecode) {
           return loc.info & 255;
@@ -10664,9 +10664,9 @@ class World3D {
   buildModels(lightAmbient, lightAttenuation, lightSrcX, lightSrcY, lightSrcZ) {
     const lightMagnitude = Math.sqrt(lightSrcX * lightSrcX + lightSrcY * lightSrcY + lightSrcZ * lightSrcZ) | 0;
     const attenuation = lightAttenuation * lightMagnitude >> 8;
-    for (let level = 0;level < this.maxLevel; level++) {
-      for (let tileX = 0;tileX < this.maxTileX; tileX++) {
-        for (let tileZ = 0;tileZ < this.maxTileZ; tileZ++) {
+    for (let level = 0; level < this.maxLevel; level++) {
+      for (let tileX = 0; tileX < this.maxTileX; tileX++) {
+        for (let tileZ = 0; tileZ < this.maxTileZ; tileZ++) {
           const tile = this.levelTiles[level][tileX][tileZ];
           if (!tile) {
             continue;
@@ -10681,7 +10681,7 @@ class World3D {
             }
             wall.modelA.applyLighting(lightAmbient, attenuation, lightSrcX, lightSrcY, lightSrcZ);
           }
-          for (let i = 0;i < tile.locCount; i++) {
+          for (let i = 0; i < tile.locCount; i++) {
             const loc = tile.locs[i];
             if (loc && loc.model && loc.model.vertexNormal) {
               this.mergeLocNormals(level, tileX, tileZ, loc.maxSceneTileX + 1 - loc.minSceneTileX, loc.maxSceneTileZ - loc.minSceneTileZ + 1, loc.model);
@@ -10729,15 +10729,15 @@ class World3D {
     const maxTileX = tileX + tileSizeX;
     const minTileZ = tileZ - 1;
     const maxTileZ = tileZ + tileSizeZ;
-    for (let l = level;l <= level + 1; l++) {
+    for (let l = level; l <= level + 1; l++) {
       if (l === this.maxLevel) {
         continue;
       }
-      for (let x = minTileX;x <= maxTileX; x++) {
+      for (let x = minTileX; x <= maxTileX; x++) {
         if (x < 0 || x >= this.maxTileX) {
           continue;
         }
-        for (let z = minTileZ;z <= maxTileZ; z++) {
+        for (let z = minTileZ; z <= maxTileZ; z++) {
           if (z < 0 || z >= this.maxTileZ || allowFaceRemoval && x < maxTileX && z < maxTileZ && (z >= tileZ || x === tileX)) {
             continue;
           }
@@ -10755,7 +10755,7 @@ class World3D {
           if (wall && wall.modelB && wall.modelB.vertexNormal) {
             this.mergeNormals(model, wall.modelB, offsetX, offsetY, offsetZ, allowFaceRemoval);
           }
-          for (let i = 0;i < tile.locCount; i++) {
+          for (let i = 0; i < tile.locCount; i++) {
             const loc = tile.locs[i];
             if (!loc || !loc.model || !loc.model.vertexNormal) {
               continue;
@@ -10776,7 +10776,7 @@ class World3D {
     const vertexX = modelB.vertexX;
     const vertexCountB = modelB.vertexCount;
     if (modelA.vertexNormal && modelA.vertexNormalOriginal) {
-      for (let vertexA = 0;vertexA < modelA.vertexCount; vertexA++) {
+      for (let vertexA = 0; vertexA < modelA.vertexCount; vertexA++) {
         const normalA = modelA.vertexNormal[vertexA];
         const originalNormalA = modelA.vertexNormalOriginal[vertexA];
         if (originalNormalA && originalNormalA.w !== 0) {
@@ -10793,7 +10793,7 @@ class World3D {
             continue;
           }
           if (modelB.vertexNormal && modelB.vertexNormalOriginal) {
-            for (let vertexB = 0;vertexB < vertexCountB; vertexB++) {
+            for (let vertexB = 0; vertexB < vertexCountB; vertexB++) {
               const normalB = modelB.vertexNormal[vertexB];
               const originalNormalB = modelB.vertexNormalOriginal[vertexB];
               if (x !== vertexX[vertexB] || z !== modelB.vertexZ[vertexB] || y !== modelB.vertexY[vertexB] || originalNormalB && originalNormalB.w === 0) {
@@ -10821,14 +10821,14 @@ class World3D {
       return;
     }
     if (modelA.faceInfo) {
-      for (let i = 0;i < modelA.faceCount; i++) {
+      for (let i = 0; i < modelA.faceCount; i++) {
         if (this.mergeIndexA[modelA.faceVertexA[i]] === this.tmpMergeIndex && this.mergeIndexA[modelA.faceVertexB[i]] === this.tmpMergeIndex && this.mergeIndexA[modelA.faceVertexC[i]] === this.tmpMergeIndex) {
           modelA.faceInfo[i] = -1;
         }
       }
     }
     if (modelB.faceInfo) {
-      for (let i = 0;i < modelB.faceCount; i++) {
+      for (let i = 0; i < modelB.faceCount; i++) {
         if (this.mergeIndexB[modelB.faceVertexA[i]] === this.tmpMergeIndex && this.mergeIndexB[modelB.faceVertexB[i]] === this.tmpMergeIndex && this.mergeIndexB[modelB.faceVertexC[i]] === this.tmpMergeIndex) {
           modelB.faceInfo[i] = -1;
         }
@@ -10844,7 +10844,7 @@ class World3D {
     if (underlay) {
       const rgb = underlay.colour;
       if (rgb !== 0) {
-        for (let i = 0;i < 4; i++) {
+        for (let i = 0; i < 4; i++) {
           dst[offset] = rgb;
           dst[offset + 1] = rgb;
           dst[offset + 2] = rgb;
@@ -10866,7 +10866,7 @@ class World3D {
     const rotation = World3D.MINIMAP_TILE_ROTATION_MAP[angle];
     let off = 0;
     if (background !== 0) {
-      for (let i = 0;i < 4; i++) {
+      for (let i = 0; i < 4; i++) {
         dst[offset] = mask[rotation[off++]] === 0 ? background : foreground;
         dst[offset + 1] = mask[rotation[off++]] === 0 ? background : foreground;
         dst[offset + 2] = mask[rotation[off++]] === 0 ? background : foreground;
@@ -10875,7 +10875,7 @@ class World3D {
       }
       return;
     }
-    for (let i = 0;i < 4; i++) {
+    for (let i = 0; i < 4; i++) {
       if (mask[rotation[off++]] !== 0) {
         dst[offset] = foreground;
       }
@@ -10939,10 +10939,10 @@ class World3D {
     }
     this.updateActiveOccluders();
     World3D.tilesRemaining = 0;
-    for (let level = this.minLevel;level < this.maxLevel; level++) {
+    for (let level = this.minLevel; level < this.maxLevel; level++) {
       const tiles = this.levelTiles[level];
-      for (let x = World3D.minDrawTileX;x < World3D.maxDrawTileX; x++) {
-        for (let z = World3D.minDrawTileZ;z < World3D.maxDrawTileZ; z++) {
+      for (let x = World3D.minDrawTileX; x < World3D.maxDrawTileX; x++) {
+        for (let z = World3D.minDrawTileZ; z < World3D.maxDrawTileZ; z++) {
           const tile = tiles[x][z];
           if (!tile) {
             continue;
@@ -10960,15 +10960,15 @@ class World3D {
         }
       }
     }
-    for (let level = this.minLevel;level < this.maxLevel; level++) {
+    for (let level = this.minLevel; level < this.maxLevel; level++) {
       const tiles = this.levelTiles[level];
-      for (let dx = -25;dx <= 0; dx++) {
+      for (let dx = -25; dx <= 0; dx++) {
         const rightTileX = World3D.eyeTileX + dx;
         const leftTileX = World3D.eyeTileX - dx;
         if (rightTileX < World3D.minDrawTileX && leftTileX >= World3D.maxDrawTileX) {
           continue;
         }
-        for (let dz = -25;dz <= 0; dz++) {
+        for (let dz = -25; dz <= 0; dz++) {
           const forwardTileZ = World3D.eyeTileZ + dz;
           const backwardTileZ = World3D.eyeTileZ - dz;
           let tile;
@@ -11007,15 +11007,15 @@ class World3D {
         }
       }
     }
-    for (let level = this.minLevel;level < this.maxLevel; level++) {
+    for (let level = this.minLevel; level < this.maxLevel; level++) {
       const tiles = this.levelTiles[level];
-      for (let dx = -25;dx <= 0; dx++) {
+      for (let dx = -25; dx <= 0; dx++) {
         const rightTileX = World3D.eyeTileX + dx;
         const leftTileX = World3D.eyeTileX - dx;
         if (rightTileX < World3D.minDrawTileX && leftTileX >= World3D.maxDrawTileX) {
           continue;
         }
-        for (let dz = -25;dz <= 0; dz++) {
+        for (let dz = -25; dz <= 0; dz++) {
           const forwardTileZ = World3D.eyeTileZ + dz;
           const backgroundTileZ = World3D.eyeTileZ - dz;
           let tile;
@@ -11059,8 +11059,8 @@ class World3D {
     if (!model && !entity) {
       return false;
     }
-    for (let tx = tileX;tx < tileX + tileSizeX; tx++) {
-      for (let tz = tileZ;tz < tileZ + tileSizeZ; tz++) {
+    for (let tx = tileX; tx < tileX + tileSizeX; tx++) {
+      for (let tz = tileZ; tz < tileZ + tileSizeZ; tz++) {
         if (tx < 0 || tz < 0 || tx >= this.maxTileX || tz >= this.maxTileZ) {
           return false;
         }
@@ -11071,8 +11071,8 @@ class World3D {
       }
     }
     const loc = new Location(level, y, x, z, model, entity, yaw, tileX, tileX + tileSizeX - 1, tileZ, tileZ + tileSizeZ - 1, typecode, info);
-    for (let tx = tileX;tx < tileX + tileSizeX; tx++) {
-      for (let tz = tileZ;tz < tileZ + tileSizeZ; tz++) {
+    for (let tx = tileX; tx < tileX + tileSizeX; tx++) {
+      for (let tz = tileZ; tz < tileZ + tileSizeZ; tz++) {
         let spans = 0;
         if (tx > tileX) {
           spans |= 1;
@@ -11086,7 +11086,7 @@ class World3D {
         if (tz < tileZ + tileSizeZ - 1) {
           spans += 2;
         }
-        for (let l = level;l >= 0; l--) {
+        for (let l = level; l >= 0; l--) {
           if (!this.levelTiles[l][tx][tz]) {
             this.levelTiles[l][tx][tz] = new Ground(l, tx, tz);
           }
@@ -11106,16 +11106,16 @@ class World3D {
     return true;
   }
   removeLoc2(loc) {
-    for (let tx = loc.minSceneTileX;tx <= loc.maxSceneTileX; tx++) {
-      for (let tz = loc.minSceneTileZ;tz <= loc.maxSceneTileZ; tz++) {
+    for (let tx = loc.minSceneTileX; tx <= loc.maxSceneTileX; tx++) {
+      for (let tz = loc.minSceneTileZ; tz <= loc.maxSceneTileZ; tz++) {
         const tile = this.levelTiles[loc.locLevel][tx][tz];
         if (!tile) {
           continue;
         }
-        for (let i = 0;i < tile.locCount; i++) {
+        for (let i = 0; i < tile.locCount; i++) {
           if (tile.locs[i] === loc) {
             tile.locCount--;
-            for (let j = i;j < tile.locCount; j++) {
+            for (let j = i; j < tile.locCount; j++) {
               tile.locs[j] = tile.locs[j + 1];
               tile.locSpan[j] = tile.locSpan[j + 1];
             }
@@ -11124,7 +11124,7 @@ class World3D {
           }
         }
         tile.locSpans = 0;
-        for (let i = 0;i < tile.locCount; i++) {
+        for (let i = 0; i < tile.locCount; i++) {
           tile.locSpans |= tile.locSpan[i];
         }
       }
@@ -11134,7 +11134,7 @@ class World3D {
     const count = World3D.levelOccluderCount[World3D.topLevel];
     const occluders = World3D.levelOccluders[World3D.topLevel];
     World3D.activeOccluderCount = 0;
-    for (let i = 0;i < count; i++) {
+    for (let i = 0; i < count; i++) {
       const occluder = occluders[i];
       if (!occluder) {
         continue;
@@ -11237,14 +11237,14 @@ class World3D {
             }
             let ok = false;
             find_visible_tile:
-              for (let x = deltaMinTileX;x <= deltaMaxTileX; x++) {
-                for (let z = deltaMinTileZ;z <= deltaMaxTileZ; z++) {
-                  if (World3D.visibilityMap && World3D.visibilityMap[x][z]) {
-                    ok = true;
-                    break find_visible_tile;
-                  }
+            for (let x = deltaMinTileX; x <= deltaMaxTileX; x++) {
+              for (let z = deltaMinTileZ; z <= deltaMaxTileZ; z++) {
+                if (World3D.visibilityMap && World3D.visibilityMap[x][z]) {
+                  ok = true;
+                  break find_visible_tile;
                 }
               }
+            }
             if (ok) {
               occluder.mode = 5;
               occluder.minDeltaX = (occluder.minX - World3D.eyeX << 8) / deltaMaxY | 0;
@@ -11322,7 +11322,7 @@ class World3D {
           if (wall2) {
             wall2.modelA?.draw(0, World3D.sinEyePitch, World3D.cosEyePitch, World3D.sinEyeYaw, World3D.cosEyeYaw, wall2.x - World3D.eyeX, wall2.y - World3D.eyeY, wall2.z - World3D.eyeZ, wall2.typecode);
           }
-          for (let i = 0;i < bridge.locCount; i++) {
+          for (let i = 0; i < bridge.locCount; i++) {
             const loc = bridge.locs[i];
             if (loc) {
               let model = loc.model;
@@ -11468,7 +11468,7 @@ class World3D {
       }
       if (tile.checkLocSpans !== 0) {
         let draw = true;
-        for (let i = 0;i < tile.locCount; i++) {
+        for (let i = 0; i < tile.locCount; i++) {
           const loc = tile.locs[i];
           if (!loc) {
             continue;
@@ -11491,60 +11491,60 @@ class World3D {
         tile.containsLocs = false;
         let locBufferSize = 0;
         iterate_locs:
-          for (let i = 0;i < locCount; i++) {
-            const loc = tile.locs[i];
-            if (!loc || loc.cycle === World3D.cycle) {
-              continue;
-            }
-            for (let x = loc.minSceneTileX;x <= loc.maxSceneTileX; x++) {
-              for (let z = loc.minSceneTileZ;z <= loc.maxSceneTileZ; z++) {
-                const other = tiles[x][z];
-                if (!other) {
+        for (let i = 0; i < locCount; i++) {
+          const loc = tile.locs[i];
+          if (!loc || loc.cycle === World3D.cycle) {
+            continue;
+          }
+          for (let x = loc.minSceneTileX; x <= loc.maxSceneTileX; x++) {
+            for (let z = loc.minSceneTileZ; z <= loc.maxSceneTileZ; z++) {
+              const other = tiles[x][z];
+              if (!other) {
+                continue;
+              }
+              if (!other.groundVisible) {
+                if (other.checkLocSpans === 0) {
                   continue;
                 }
-                if (!other.groundVisible) {
-                  if (other.checkLocSpans === 0) {
-                    continue;
-                  }
-                  let spans = 0;
-                  if (x > loc.minSceneTileX) {
-                    spans += 1;
-                  }
-                  if (x < loc.maxSceneTileX) {
-                    spans += 4;
-                  }
-                  if (z > loc.minSceneTileZ) {
-                    spans += 8;
-                  }
-                  if (z < loc.maxSceneTileZ) {
-                    spans += 2;
-                  }
-                  if ((spans & other.checkLocSpans) !== tile.inverseBlockLocSpans) {
-                    continue;
-                  }
+                let spans = 0;
+                if (x > loc.minSceneTileX) {
+                  spans += 1;
                 }
-                tile.containsLocs = true;
-                continue iterate_locs;
+                if (x < loc.maxSceneTileX) {
+                  spans += 4;
+                }
+                if (z > loc.minSceneTileZ) {
+                  spans += 8;
+                }
+                if (z < loc.maxSceneTileZ) {
+                  spans += 2;
+                }
+                if ((spans & other.checkLocSpans) !== tile.inverseBlockLocSpans) {
+                  continue;
+                }
               }
-            }
-            World3D.locBuffer[locBufferSize++] = loc;
-            let minTileDistanceX = World3D.eyeTileX - loc.minSceneTileX;
-            const maxTileDistanceX = loc.maxSceneTileX - World3D.eyeTileX;
-            if (maxTileDistanceX > minTileDistanceX) {
-              minTileDistanceX = maxTileDistanceX;
-            }
-            const minTileDistanceZ = World3D.eyeTileZ - loc.minSceneTileZ;
-            const maxTileDistanceZ = loc.maxSceneTileZ - World3D.eyeTileZ;
-            if (maxTileDistanceZ > minTileDistanceZ) {
-              loc.distance = minTileDistanceX + maxTileDistanceZ;
-            } else {
-              loc.distance = minTileDistanceX + minTileDistanceZ;
+              tile.containsLocs = true;
+              continue iterate_locs;
             }
           }
+          World3D.locBuffer[locBufferSize++] = loc;
+          let minTileDistanceX = World3D.eyeTileX - loc.minSceneTileX;
+          const maxTileDistanceX = loc.maxSceneTileX - World3D.eyeTileX;
+          if (maxTileDistanceX > minTileDistanceX) {
+            minTileDistanceX = maxTileDistanceX;
+          }
+          const minTileDistanceZ = World3D.eyeTileZ - loc.minSceneTileZ;
+          const maxTileDistanceZ = loc.maxSceneTileZ - World3D.eyeTileZ;
+          if (maxTileDistanceZ > minTileDistanceZ) {
+            loc.distance = minTileDistanceX + maxTileDistanceZ;
+          } else {
+            loc.distance = minTileDistanceX + minTileDistanceZ;
+          }
+        }
         while (true) {
           let farthestDistance = -50;
           let farthestIndex = -1;
-          for (let index = 0;index < locBufferSize; index++) {
+          for (let index = 0; index < locBufferSize; index++) {
             const loc = World3D.locBuffer[index];
             if (!loc) {
               continue;
@@ -11569,8 +11569,8 @@ class World3D {
             if (model && !this.locVisible(occludeLevel, farthest.minSceneTileX, farthest.maxSceneTileX, farthest.minSceneTileZ, farthest.maxSceneTileZ, model.maxY)) {
               model.draw(farthest.yaw, World3D.sinEyePitch, World3D.cosEyePitch, World3D.sinEyeYaw, World3D.cosEyeYaw, farthest.x - World3D.eyeX, farthest.y - World3D.eyeY, farthest.z - World3D.eyeZ, farthest.typecode);
             }
-            for (let x = farthest.minSceneTileX;x <= farthest.maxSceneTileX; x++) {
-              for (let z = farthest.minSceneTileZ;z <= farthest.maxSceneTileZ; z++) {
+            for (let x = farthest.minSceneTileX; x <= farthest.maxSceneTileX; x++) {
+              for (let z = farthest.minSceneTileZ; z <= farthest.maxSceneTileZ; z++) {
                 const occupied = tiles[x][z];
                 if (!occupied) {
                   continue;
@@ -11803,7 +11803,7 @@ class World3D {
   }
   drawTileOverlay(tileX, tileZ, overlay, sinEyePitch, cosEyePitch, sinEyeYaw, cosEyeYaw) {
     let vertexCount = overlay.vertexX.length;
-    for (let i = 0;i < vertexCount; i++) {
+    for (let i = 0; i < vertexCount; i++) {
       let x = overlay.vertexX[i] - World3D.eyeX;
       let y = overlay.vertexY[i] - World3D.eyeY;
       let z = overlay.vertexZ[i] - World3D.eyeZ;
@@ -11826,7 +11826,7 @@ class World3D {
     }
     Pix3D.alpha = 0;
     vertexCount = overlay.triangleVertexA.length;
-    for (let v = 0;v < vertexCount; v++) {
+    for (let v = 0; v < vertexCount; v++) {
       const a = overlay.triangleVertexA[v];
       const b = overlay.triangleVertexB[v];
       const c = overlay.triangleVertexC[v];
@@ -12001,8 +12001,8 @@ class World3D {
     let x;
     let z;
     if (minX !== maxX || minZ !== maxZ) {
-      for (x = minX;x <= maxX; x++) {
-        for (z = minZ;z <= maxZ; z++) {
+      for (x = minX; x <= maxX; x++) {
+        for (z = minZ; z <= maxZ; z++) {
           if (this.levelTileOcclusionCycles[level][x][z] === -World3D.cycle) {
             return false;
           }
@@ -12031,7 +12031,7 @@ class World3D {
     return false;
   }
   occluded(x, y, z) {
-    for (let i = 0;i < World3D.activeOccluderCount; i++) {
+    for (let i = 0; i < World3D.activeOccluderCount; i++) {
       const occluder = World3D.activeOccluders[i];
       if (!occluder) {
         continue;
@@ -12362,9 +12362,9 @@ class World {
     this.blendMagnitude = new Int32Array(maxTileZ);
   }
   build(scene, collision) {
-    for (let level = 0;level < 4 /* LEVELS */; level++) {
-      for (let x = 0;x < 104 /* SIZE */; x++) {
-        for (let z = 0;z < 104 /* SIZE */; z++) {
+    for (let level = 0; level < 4 /* LEVELS */; level++) {
+      for (let x = 0; x < 104 /* SIZE */; x++) {
+        for (let z = 0; z < 104 /* SIZE */; z++) {
           if ((this.levelTileFlags[level][x][z] & 1) === 1) {
             let trueLevel = level;
             if ((this.levelTileFlags[1][x][z] & 2) === 2) {
@@ -12389,7 +12389,7 @@ class World {
     } else if (World.randomLightnessOffset > 16) {
       World.randomLightnessOffset = 16;
     }
-    for (let level = 0;level < 4 /* LEVELS */; level++) {
+    for (let level = 0; level < 4 /* LEVELS */; level++) {
       const shademap = this.levelShademap[level];
       const lightAmbient = 96;
       const lightAttenuation = 768;
@@ -12398,8 +12398,8 @@ class World {
       const lightZ = -50;
       const lightMag = Math.sqrt(lightX * lightX + lightY * lightY + lightZ * lightZ) | 0;
       const lightMagnitude = lightAttenuation * lightMag >> 8;
-      for (let z = 1;z < this.maxTileZ - 1; z++) {
-        for (let x = 1;x < this.maxTileX - 1; x++) {
+      for (let z = 1; z < this.maxTileZ - 1; z++) {
+        for (let x = 1; x < this.maxTileX - 1; x++) {
           const dx = this.levelHeightmap[level][x + 1][z] - this.levelHeightmap[level][x - 1][z];
           const dz = this.levelHeightmap[level][x][z + 1] - this.levelHeightmap[level][x][z - 1];
           const len = Math.sqrt(dx * dx + dz * dz + 65536) | 0;
@@ -12411,15 +12411,15 @@ class World {
           this.levelLightmap[x][z] = light - shade;
         }
       }
-      for (let z = 0;z < this.maxTileZ; z++) {
+      for (let z = 0; z < this.maxTileZ; z++) {
         this.blendChroma[z] = 0;
         this.blendSaturation[z] = 0;
         this.blendLightness[z] = 0;
         this.blendLuminance[z] = 0;
         this.blendMagnitude[z] = 0;
       }
-      for (let x0 = -5;x0 < this.maxTileX + 5; x0++) {
-        for (let z0 = 0;z0 < this.maxTileZ; z0++) {
+      for (let x0 = -5; x0 < this.maxTileX + 5; x0++) {
+        for (let z0 = 0; z0 < this.maxTileZ; z0++) {
           const x1 = x0 + 5;
           let debugMag;
           if (x1 >= 0 && x1 < this.maxTileX) {
@@ -12452,7 +12452,7 @@ class World {
           let lightnessAccumulator = 0;
           let luminanceAccumulator = 0;
           let magnitudeAccumulator = 0;
-          for (let z0 = -5;z0 < this.maxTileZ + 5; z0++) {
+          for (let z0 = -5; z0 < this.maxTileZ + 5; z0++) {
             const dz1 = z0 + 5;
             if (dz1 >= 0 && dz1 < this.maxTileZ) {
               hueAccumulator += this.blendChroma[dz1];
@@ -12537,8 +12537,8 @@ class World {
           }
         }
       }
-      for (let stz = 1;stz < this.maxTileZ - 1; stz++) {
-        for (let stx = 1;stx < this.maxTileX - 1; stx++) {
+      for (let stz = 1; stz < this.maxTileZ - 1; stz++) {
+        for (let stx = 1; stx < this.maxTileX - 1; stx++) {
           scene?.setDrawLevel(level, stx, stz, this.getDrawLevel(level, stx, stz));
         }
       }
@@ -12546,8 +12546,8 @@ class World {
     if (!World.fullbright) {
       scene?.buildModels(64, 768, -50, -10, -50);
     }
-    for (let x = 0;x < this.maxTileX; x++) {
-      for (let z = 0;z < this.maxTileZ; z++) {
+    for (let x = 0; x < this.maxTileX; x++) {
+      for (let z = 0; z < this.maxTileZ; z++) {
         if ((this.levelTileFlags[1][x][z] & 2) === 2) {
           scene?.setBridge(x, z);
         }
@@ -12557,15 +12557,15 @@ class World {
       let wall0 = 1;
       let wall1 = 2;
       let floor = 4;
-      for (let topLevel = 0;topLevel < 4 /* LEVELS */; topLevel++) {
+      for (let topLevel = 0; topLevel < 4 /* LEVELS */; topLevel++) {
         if (topLevel > 0) {
           wall0 <<= 3;
           wall1 <<= 3;
           floor <<= 3;
         }
-        for (let level = 0;level <= topLevel; level++) {
-          for (let tileZ = 0;tileZ <= this.maxTileZ; tileZ++) {
-            for (let tileX = 0;tileX <= this.maxTileX; tileX++) {
+        for (let level = 0; level <= topLevel; level++) {
+          for (let tileZ = 0; tileZ <= this.maxTileZ; tileZ++) {
+            for (let tileX = 0; tileX <= this.maxTileX; tileX++) {
               if ((this.levelOccludemap[level][tileX][tileZ] & wall0) !== 0) {
                 let minTileZ = tileZ;
                 let maxTileZ = tileZ;
@@ -12578,30 +12578,30 @@ class World {
                   maxTileZ++;
                 }
                 find_min_level:
-                  while (minLevel > 0) {
-                    for (let z = minTileZ;z <= maxTileZ; z++) {
-                      if ((this.levelOccludemap[minLevel - 1][tileX][z] & wall0) === 0) {
-                        break find_min_level;
-                      }
+                while (minLevel > 0) {
+                  for (let z = minTileZ; z <= maxTileZ; z++) {
+                    if ((this.levelOccludemap[minLevel - 1][tileX][z] & wall0) === 0) {
+                      break find_min_level;
                     }
-                    minLevel--;
                   }
+                  minLevel--;
+                }
                 find_max_level:
-                  while (maxLevel < topLevel) {
-                    for (let z = minTileZ;z <= maxTileZ; z++) {
-                      if ((this.levelOccludemap[maxLevel + 1][tileX][z] & wall0) === 0) {
-                        break find_max_level;
-                      }
+                while (maxLevel < topLevel) {
+                  for (let z = minTileZ; z <= maxTileZ; z++) {
+                    if ((this.levelOccludemap[maxLevel + 1][tileX][z] & wall0) === 0) {
+                      break find_max_level;
                     }
-                    maxLevel++;
                   }
+                  maxLevel++;
+                }
                 const area = (maxLevel + 1 - minLevel) * (maxTileZ + 1 - minTileZ);
                 if (area >= 8) {
                   const minY = this.levelHeightmap[maxLevel][tileX][minTileZ] - 240;
                   const maxX = this.levelHeightmap[minLevel][tileX][minTileZ];
                   World3D.addOccluder(topLevel, 1, tileX * 128, minY, minTileZ * 128, tileX * 128, maxX, maxTileZ * 128 + 128);
-                  for (let l = minLevel;l <= maxLevel; l++) {
-                    for (let z = minTileZ;z <= maxTileZ; z++) {
+                  for (let l = minLevel; l <= maxLevel; l++) {
+                    for (let z = minTileZ; z <= maxTileZ; z++) {
                       this.levelOccludemap[l][tileX][z] &= ~wall0;
                     }
                   }
@@ -12619,30 +12619,30 @@ class World {
                   maxTileX++;
                 }
                 find_min_level2:
-                  while (minLevel > 0) {
-                    for (let x = minTileX;x <= maxTileX; x++) {
-                      if ((this.levelOccludemap[minLevel - 1][x][tileZ] & wall1) === 0) {
-                        break find_min_level2;
-                      }
+                while (minLevel > 0) {
+                  for (let x = minTileX; x <= maxTileX; x++) {
+                    if ((this.levelOccludemap[minLevel - 1][x][tileZ] & wall1) === 0) {
+                      break find_min_level2;
                     }
-                    minLevel--;
                   }
+                  minLevel--;
+                }
                 find_max_level2:
-                  while (maxLevel < topLevel) {
-                    for (let x = minTileX;x <= maxTileX; x++) {
-                      if ((this.levelOccludemap[maxLevel + 1][x][tileZ] & wall1) === 0) {
-                        break find_max_level2;
-                      }
+                while (maxLevel < topLevel) {
+                  for (let x = minTileX; x <= maxTileX; x++) {
+                    if ((this.levelOccludemap[maxLevel + 1][x][tileZ] & wall1) === 0) {
+                      break find_max_level2;
                     }
-                    maxLevel++;
                   }
+                  maxLevel++;
+                }
                 const area = (maxLevel + 1 - minLevel) * (maxTileX + 1 - minTileX);
                 if (area >= 8) {
                   const minY = this.levelHeightmap[maxLevel][minTileX][tileZ] - 240;
                   const maxY = this.levelHeightmap[minLevel][minTileX][tileZ];
                   World3D.addOccluder(topLevel, 2, minTileX * 128, minY, tileZ * 128, maxTileX * 128 + 128, maxY, tileZ * 128);
-                  for (let l = minLevel;l <= maxLevel; l++) {
-                    for (let x = minTileX;x <= maxTileX; x++) {
+                  for (let l = minLevel; l <= maxLevel; l++) {
+                    for (let x = minTileX; x <= maxTileX; x++) {
                       this.levelOccludemap[l][x][tileZ] &= ~wall1;
                     }
                   }
@@ -12660,28 +12660,28 @@ class World {
                   maxTileZ++;
                 }
                 find_min_tile_xz:
-                  while (minTileX > 0) {
-                    for (let z = minTileZ;z <= maxTileZ; z++) {
-                      if ((this.levelOccludemap[level][minTileX - 1][z] & floor) === 0) {
-                        break find_min_tile_xz;
-                      }
+                while (minTileX > 0) {
+                  for (let z = minTileZ; z <= maxTileZ; z++) {
+                    if ((this.levelOccludemap[level][minTileX - 1][z] & floor) === 0) {
+                      break find_min_tile_xz;
                     }
-                    minTileX--;
                   }
+                  minTileX--;
+                }
                 find_max_tile_xz:
-                  while (maxTileX < this.maxTileX) {
-                    for (let z = minTileZ;z <= maxTileZ; z++) {
-                      if ((this.levelOccludemap[level][maxTileX + 1][z] & floor) === 0) {
-                        break find_max_tile_xz;
-                      }
+                while (maxTileX < this.maxTileX) {
+                  for (let z = minTileZ; z <= maxTileZ; z++) {
+                    if ((this.levelOccludemap[level][maxTileX + 1][z] & floor) === 0) {
+                      break find_max_tile_xz;
                     }
-                    maxTileX++;
                   }
+                  maxTileX++;
+                }
                 if ((maxTileX + 1 - minTileX) * (maxTileZ + 1 - minTileZ) >= 4) {
                   const y = this.levelHeightmap[level][minTileX][minTileZ];
                   World3D.addOccluder(topLevel, 4, minTileX * 128, y, minTileZ * 128, maxTileX * 128 + 128, y, maxTileZ * 128 + 128);
-                  for (let x = minTileX;x <= maxTileX; x++) {
-                    for (let z = minTileZ;z <= maxTileZ; z++) {
+                  for (let x = minTileX; x <= maxTileX; x++) {
+                    for (let z = minTileZ; z <= maxTileZ; z++) {
                       this.levelOccludemap[level][x][z] &= ~floor;
                     }
                   }
@@ -12695,17 +12695,17 @@ class World {
   }
   clearLandscape(startX, startZ, endX, endZ) {
     let waterOverlay = 0;
-    for (let i = 0;i < FloType.totalCount; i++) {
+    for (let i = 0; i < FloType.totalCount; i++) {
       if (FloType.instances[i].debugname?.toLowerCase() === "water") {
         waterOverlay = i + 1 << 24 >> 24;
         break;
       }
     }
-    for (let z = startX;z < startX + endX; z++) {
-      for (let x = startZ;x < startZ + endZ; x++) {
+    for (let z = startX; z < startX + endX; z++) {
+      for (let x = startZ; x < startZ + endZ; x++) {
         if (x >= 0 && x < this.maxTileX && z >= 0 && z < this.maxTileZ) {
           this.levelTileOverlayIds[0][x][z] = waterOverlay;
-          for (let level = 0;level < 4 /* LEVELS */; level++) {
+          for (let level = 0; level < 4 /* LEVELS */; level++) {
             this.levelHeightmap[level][x][z] = 0;
             this.levelTileFlags[level][x][z] = 0;
           }
@@ -12715,9 +12715,9 @@ class World {
   }
   readLandscape(originX, originZ, xOffset, zOffset, src) {
     const buf = new Packet(src);
-    for (let level = 0;level < 4 /* LEVELS */; level++) {
-      for (let x = 0;x < 64; x++) {
-        for (let z = 0;z < 64; z++) {
+    for (let level = 0; level < 4 /* LEVELS */; level++) {
+      for (let x = 0; x < 64; x++) {
+        for (let z = 0; z < 64; z++) {
           const stx = x + xOffset;
           const stz = z + zOffset;
           let opcode;
@@ -12860,8 +12860,8 @@ class World {
           height = loc.length;
         }
         if (scene?.addLoc(level, x, z, y, model, null, typecode, info, width, height, yaw) && loc.shadow) {
-          for (let dx = 0;dx <= width; dx++) {
-            for (let dz = 0;dz <= height; dz++) {
+          for (let dx = 0; dx <= width; dx++) {
+            for (let dz = 0; dz <= height; dz++) {
               let shade = model.radius / 4 | 0;
               if (shade > 30) {
                 shade = 30;
@@ -13122,7 +13122,7 @@ class PathingEntity extends Entity {
         if (this.routeLength < 9) {
           this.routeLength++;
         }
-        for (let i = this.routeLength;i > 0; i--) {
+        for (let i = this.routeLength; i > 0; i--) {
           this.routeFlagX[i] = this.routeFlagX[i - 1];
           this.routeFlagZ[i] = this.routeFlagZ[i - 1];
           this.routeRun[i] = this.routeRun[i - 1];
@@ -13170,7 +13170,7 @@ class PathingEntity extends Entity {
     if (this.routeLength < 9) {
       this.routeLength++;
     }
-    for (let i = this.routeLength;i > 0; i--) {
+    for (let i = this.routeLength; i > 0; i--) {
       this.routeFlagX[i] = this.routeFlagX[i - 1];
       this.routeFlagZ[i] = this.routeFlagZ[i - 1];
       this.routeRun[i] = this.routeRun[i - 1];
@@ -13434,7 +13434,7 @@ class PlayerEntity extends PathingEntity {
     buf.pos = 0;
     this.gender = buf.g1();
     this.headicons = buf.g1();
-    for (let part = 0;part < 12; part++) {
+    for (let part = 0; part < 12; part++) {
       const msb = buf.g1();
       if (msb === 0) {
         this.appearances[part] = 0;
@@ -13442,7 +13442,7 @@ class PlayerEntity extends PathingEntity {
         this.appearances[part] = (msb << 8) + buf.g1();
       }
     }
-    for (let part = 0;part < 5; part++) {
+    for (let part = 0; part < 5; part++) {
       let color = buf.g1();
       if (color < 0 || color >= PlayerEntity.DESIGN_IDK_COLORS[part].length) {
         color = 0;
@@ -13481,7 +13481,7 @@ class PlayerEntity extends PathingEntity {
     this.combatLevel = buf.g1();
     this.playerVisible = true;
     this.appearanceHashcode = 0n;
-    for (let part = 0;part < 12; part++) {
+    for (let part = 0; part < 12; part++) {
       this.appearanceHashcode <<= 0x4n;
       if (this.appearances[part] >= 256) {
         this.appearanceHashcode += BigInt(this.appearances[part]) - 256n;
@@ -13493,7 +13493,7 @@ class PlayerEntity extends PathingEntity {
     if (this.appearances[1] >= 256) {
       this.appearanceHashcode += BigInt(this.appearances[1]) - 256n >> 8n;
     }
-    for (let part = 0;part < 5; part++) {
+    for (let part = 0; part < 5; part++) {
       this.appearanceHashcode <<= 0x3n;
       this.appearanceHashcode += BigInt(this.colors[part]);
     }
@@ -13506,7 +13506,7 @@ class PlayerEntity extends PathingEntity {
     }
     const models = new TypedArray1d(12, null);
     let modelCount = 0;
-    for (let part = 0;part < 12; part++) {
+    for (let part = 0; part < 12; part++) {
       const value = this.appearances[part];
       if (value >= 256 && value < 512) {
         models[modelCount++] = IdkType.instances[value - 256].getHeadModel();
@@ -13519,7 +13519,7 @@ class PlayerEntity extends PathingEntity {
       }
     }
     const tmp = Model.modelFromModels(models, modelCount);
-    for (let part = 0;part < 5; part++) {
+    for (let part = 0; part < 5; part++) {
       if (this.colors[part] === 0) {
         continue;
       }
@@ -13565,7 +13565,7 @@ class PlayerEntity extends PathingEntity {
     if (!model) {
       const models = new TypedArray1d(12, null);
       let modelCount = 0;
-      for (let part = 0;part < 12; part++) {
+      for (let part = 0; part < 12; part++) {
         let value = this.appearances[part];
         if (leftHandValue >= 0 && part === 3) {
           value = leftHandValue;
@@ -13588,7 +13588,7 @@ class PlayerEntity extends PathingEntity {
         }
       }
       model = Model.modelFromModels(models, modelCount);
-      for (let part = 0;part < 5; part++) {
+      for (let part = 0; part < 5; part++) {
         if (this.colors[part] === 0) {
           continue;
         }
@@ -13764,7 +13764,7 @@ class SpotAnimEntity extends Entity {
     if (!this.spotType.seq || !this.spotType.seq.seqDelay) {
       return;
     }
-    for (this.seqCycle += delta;this.seqCycle > this.spotType.seq.seqDelay[this.seqFrame]; ) {
+    for (this.seqCycle += delta; this.seqCycle > this.spotType.seq.seqDelay[this.seqFrame];) {
       this.seqCycle -= this.spotType.seq.seqDelay[this.seqFrame] + 1;
       this.seqFrame++;
       if (this.seqFrame >= this.spotType.seq.seqFrameCount) {
@@ -13835,7 +13835,7 @@ class PixFont extends DoublyLinkable {
   height2d = 0;
   static {
     const isCapacitor = navigator.userAgent.includes("Capacitor");
-    for (let i = 0;i < 256; i++) {
+    for (let i = 0; i < 256; i++) {
       let c = PixFont.CHARSET.indexOf(String.fromCharCode(i));
       if (isCapacitor) {
         if (c >= 63) {
@@ -13857,7 +13857,7 @@ class PixFont extends DoublyLinkable {
       idx.pos += (off - 1) * 3;
     }
     const font = new PixFont;
-    for (let i = 0;i < 94; i++) {
+    for (let i = 0; i < 94; i++) {
       font.charOffsetX[i] = idx.g1();
       font.charOffsetY[i] = idx.g1();
       const w = font.charMaskWidth[i] = idx.g2();
@@ -13866,12 +13866,12 @@ class PixFont extends DoublyLinkable {
       const len = w * h;
       font.charMask[i] = new Int8Array(len);
       if (type === 0) {
-        for (let j = 0;j < w * h; j++) {
+        for (let j = 0; j < w * h; j++) {
           font.charMask[i][j] = dat.g1b();
         }
       } else if (type === 1) {
-        for (let x = 0;x < w; x++) {
-          for (let y = 0;y < h; y++) {
+        for (let x = 0; x < w; x++) {
+          for (let y = 0; y < h; y++) {
             font.charMask[i][x + y * w] = dat.g1b();
           }
         }
@@ -13883,7 +13883,7 @@ class PixFont extends DoublyLinkable {
       font.charAdvance[i] = w + 2;
       {
         let space = 0;
-        for (let y = h / 7 | 0;y < h; y++) {
+        for (let y = h / 7 | 0; y < h; y++) {
           space += font.charMask[i][y * w];
         }
         if (space <= (h / 7 | 0)) {
@@ -13893,7 +13893,7 @@ class PixFont extends DoublyLinkable {
       }
       {
         let space = 0;
-        for (let y = h / 7 | 0;y < h; y++) {
+        for (let y = h / 7 | 0; y < h; y++) {
           space += font.charMask[i][w + y * w - 1];
         }
         if (space <= (h / 7 | 0)) {
@@ -13902,7 +13902,7 @@ class PixFont extends DoublyLinkable {
       }
     }
     font.charAdvance[94] = font.charAdvance[8];
-    for (let i = 0;i < 256; i++) {
+    for (let i = 0; i < 256; i++) {
       font.drawWidth[i] = font.charAdvance[PixFont.CHARCODESET[i]];
     }
     return font;
@@ -13915,7 +13915,7 @@ class PixFont extends DoublyLinkable {
     y |= 0;
     const length = str.length;
     y -= this.height2d;
-    for (let i = 0;i < length; i++) {
+    for (let i = 0; i < length; i++) {
       const c = PixFont.CHARCODESET[str.charCodeAt(i)];
       if (c !== 94) {
         this.drawChar(this.charMask[c], x + this.charOffsetX[c], y + this.charOffsetY[c], this.charMaskWidth[c], this.charMaskHeight[c], color);
@@ -13928,7 +13928,7 @@ class PixFont extends DoublyLinkable {
     y |= 0;
     const length = str.length;
     y -= this.height2d;
-    for (let i = 0;i < length; i++) {
+    for (let i = 0; i < length; i++) {
       if (str.charAt(i) === "@" && i + 4 < length && str.charAt(i + 4) === "@") {
         color = this.evaluateTag(str.substring(i + 1, i + 4));
         i += 4;
@@ -13950,7 +13950,7 @@ class PixFont extends DoublyLinkable {
     }
     const length = str.length;
     let w = 0;
-    for (let i = 0;i < length; i++) {
+    for (let i = 0; i < length; i++) {
       if (str.charAt(i) === "@" && i + 4 < length && str.charAt(i + 4) === "@") {
         i += 4;
       } else {
@@ -13978,7 +13978,7 @@ class PixFont extends DoublyLinkable {
     this.random.setSeed(BigInt(seed));
     const rand = (this.random.nextInt() & 31) + 192;
     const offY = y - this.height2d;
-    for (let i = 0;i < str.length; i++) {
+    for (let i = 0; i < str.length; i++) {
       if (str.charAt(i) === "@" && i + 4 < str.length && str.charAt(i + 4) === "@") {
         color = this.evaluateTag(str.substring(i + 1, i + 4));
         i += 4;
@@ -14013,7 +14013,7 @@ class PixFont extends DoublyLinkable {
     y |= 0;
     x -= this.stringWidth(str) / 2 | 0;
     const offY = y - this.height2d;
-    for (let i = 0;i < str.length; i++) {
+    for (let i = 0; i < str.length; i++) {
       const c = PixFont.CHARCODESET[str.charCodeAt(i)];
       if (c != 94) {
         this.drawChar(this.charMask[c], x + this.charOffsetX[c], offY + this.charOffsetY[c] + (Math.sin(i / 2 + phase / 5) * 5 | 0), this.charMaskWidth[c], this.charMaskHeight[c], color);
@@ -14102,8 +14102,8 @@ class PixFont extends DoublyLinkable {
     h |= 0;
     const hw = -(w >> 2);
     w = -(w & 3);
-    for (let y = -h;y < 0; y++) {
-      for (let x = hw;x < 0; x++) {
+    for (let y = -h; y < 0; y++) {
+      for (let x = hw; x < 0; x++) {
         if (src[srcOff++] === 0) {
           dstOff++;
         } else {
@@ -14125,7 +14125,7 @@ class PixFont extends DoublyLinkable {
           dst[dstOff++] = rgb;
         }
       }
-      for (let x = w;x < 0; x++) {
+      for (let x = w; x < 0; x++) {
         if (src[srcOff++] === 0) {
           dstOff++;
         } else {
@@ -14141,8 +14141,8 @@ class PixFont extends DoublyLinkable {
     h |= 0;
     const rgb = ((color & 16711935) * alpha & 4278255360) + ((color & 65280) * alpha & 16711680) >> 8;
     const invAlpha = 256 - alpha;
-    for (let y = -h;y < 0; y++) {
-      for (let x = -w;x < 0; x++) {
+    for (let y = -h; y < 0; y++) {
+      for (let x = -w; x < 0; x++) {
         if (mask[maskOff++] === 0) {
           dstOff++;
         } else {
@@ -14205,7 +14205,7 @@ class PixFont extends DoublyLinkable {
         break;
       }
       let splitIndex = str.length;
-      for (let i = 0;i < str.length; i++) {
+      for (let i = 0; i < str.length; i++) {
         if (str[i] === " ") {
           const w = this.stringWidth(str.substring(0, i));
           if (w > maxWidth) {
@@ -14407,7 +14407,7 @@ class WebSocketReader {
     if (this.closed) {
       throw new Error;
     }
-    for (let i = 0;i < len; i++) {
+    for (let i = 0; i < len; i++) {
       dst[off + i] = await this.read();
     }
     return dst;
@@ -14478,8 +14478,8 @@ class Database {
       };
     });
   }
-  onclose = (event) => {};
-  onerror = (event) => {};
+  onclose = (event) => { };
+  onerror = (event) => { };
 }
 
 // src/io/Isaac.ts
@@ -14491,7 +14491,7 @@ class Isaac {
   b = 0;
   c = 0;
   constructor(seed) {
-    for (let i = 0;i < seed.length; i++) {
+    for (let i = 0; i < seed.length; i++) {
       this.rsl[i] = seed[i];
     }
     this.init();
@@ -14505,7 +14505,7 @@ class Isaac {
   }
   init() {
     let a = 2654435769, b = 2654435769, c = 2654435769, d = 2654435769, e = 2654435769, f = 2654435769, g = 2654435769, h = 2654435769;
-    for (let i = 0;i < 4; i++) {
+    for (let i = 0; i < 4; i++) {
       a ^= b << 11;
       d += a;
       b += c;
@@ -14531,7 +14531,7 @@ class Isaac {
       c += h;
       a += b;
     }
-    for (let i = 0;i < 256; i += 8) {
+    for (let i = 0; i < 256; i += 8) {
       a += this.rsl[i];
       b += this.rsl[i + 1];
       c += this.rsl[i + 2];
@@ -14573,7 +14573,7 @@ class Isaac {
       this.mem[i + 6] = g;
       this.mem[i + 7] = h;
     }
-    for (let i = 0;i < 256; i += 8) {
+    for (let i = 0; i < 256; i += 8) {
       a += this.mem[i];
       b += this.mem[i + 1];
       c += this.mem[i + 2];
@@ -14621,7 +14621,7 @@ class Isaac {
   isaac() {
     this.c++;
     this.b += this.c;
-    for (let i = 0;i < 256; i++) {
+    for (let i = 0; i < 256; i++) {
       const x = this.mem[i];
       const mem = i & 3;
       if (mem === 0) {
@@ -14647,7 +14647,7 @@ class Jagfile {
   static genHash(name) {
     let hash = 0;
     name = name.toUpperCase();
-    for (let i = 0;i < name.length; i++) {
+    for (let i = 0; i < name.length; i++) {
       hash = hash * 61 + name.charCodeAt(i) - 32 | 0;
     }
     return hash;
@@ -14678,7 +14678,7 @@ class Jagfile {
     this.filePackedSize = [];
     this.fileOffset = [];
     let offset = data.pos + this.fileCount * 10;
-    for (let i = 0;i < this.fileCount; i++) {
+    for (let i = 0; i < this.fileCount; i++) {
       this.fileHash.push(data.g4());
       this.fileUnpackedSize.push(data.g3());
       this.filePackedSize.push(data.g3());
@@ -15005,11 +15005,11 @@ class WordFilter {
     this.filterBadWords(filtered);
     this.filterDomains(filtered);
     this.filterFragments(filtered);
-    for (let index = 0;index < this.whitelist.length; index++) {
+    for (let index = 0; index < this.whitelist.length; index++) {
       let offset = -1;
       while ((offset = lowercase.indexOf(this.whitelist[index], offset + 1)) !== -1) {
         const whitelisted = [...this.whitelist[index]];
-        for (let charIndex = 0;charIndex < whitelisted.length; charIndex++) {
+        for (let charIndex = 0; charIndex < whitelisted.length; charIndex++) {
           filtered[charIndex + offset] = whitelisted[charIndex];
         }
       }
@@ -15026,14 +15026,14 @@ class WordFilter {
   }
   static readTld(packet) {
     const count = packet.g4();
-    for (let index = 0;index < count; index++) {
+    for (let index = 0; index < count; index++) {
       this.tldTypes[index] = packet.g1();
       this.tlds[index] = new Uint16Array(packet.g1()).map(() => packet.g1());
     }
   }
   static readBadWords(packet) {
     const count = packet.g4();
-    for (let index = 0;index < count; index++) {
+    for (let index = 0; index < count; index++) {
       this.bads[index] = new Uint16Array(packet.g1()).map(() => packet.g1());
       const combos = new Array(packet.g1()).fill([]).map(() => [packet.g1b(), packet.g1b()]);
       if (combos.length > 0) {
@@ -15043,13 +15043,13 @@ class WordFilter {
   }
   static readDomains(packet) {
     const count = packet.g4();
-    for (let index = 0;index < count; index++) {
+    for (let index = 0; index < count; index++) {
       this.domains[index] = new Uint16Array(packet.g1()).map(() => packet.g1());
     }
   }
   static readFragments(packet) {
     const count = packet.g4();
-    for (let index = 0;index < count; index++) {
+    for (let index = 0; index < count; index++) {
       this.fragments[index] = packet.g2();
     }
   }
@@ -15058,13 +15058,13 @@ class WordFilter {
     const slash = [...chars];
     this.filterBadCombinations(null, period, this.PERIOD);
     this.filterBadCombinations(null, slash, this.SLASH);
-    for (let index = 0;index < this.tlds.length; index++) {
+    for (let index = 0; index < this.tlds.length; index++) {
       this.filterTld(slash, this.tldTypes[index], chars, this.tlds[index], period);
     }
   }
   static filterBadWords(chars) {
-    for (let comboIndex = 0;comboIndex < 2; comboIndex++) {
-      for (let index = this.bads.length - 1;index >= 0; index--) {
+    for (let comboIndex = 0; comboIndex < 2; comboIndex++) {
+      for (let index = this.bads.length - 1; index >= 0; index--) {
         this.filterBadCombinations(this.badCombinations[index], chars, this.bads[index]);
       }
     }
@@ -15074,18 +15074,18 @@ class WordFilter {
     const period = [...chars];
     this.filterBadCombinations(null, ampersat, this.AMPERSAT);
     this.filterBadCombinations(null, period, this.PERIOD);
-    for (let index = this.domains.length - 1;index >= 0; index--) {
+    for (let index = this.domains.length - 1; index >= 0; index--) {
       this.filterDomain(period, ampersat, this.domains[index], chars);
     }
   }
   static filterFragments(chars) {
-    for (let currentIndex = 0;currentIndex < chars.length; ) {
+    for (let currentIndex = 0; currentIndex < chars.length;) {
       const numberIndex = this.indexOfNumber(chars, currentIndex);
       if (numberIndex === -1) {
         return;
       }
       let isSymbolOrNotLowercaseAlpha = false;
-      for (let index = currentIndex;index >= 0 && index < numberIndex && !isSymbolOrNotLowercaseAlpha; index++) {
+      for (let index = currentIndex; index >= 0 && index < numberIndex && !isSymbolOrNotLowercaseAlpha; index++) {
         if (!this.isSymbol(chars[index]) && !this.isNotLowercaseAlpha(chars[index])) {
           isSymbolOrNotLowercaseAlpha = true;
         }
@@ -15099,7 +15099,7 @@ class WordFilter {
         currentIndex = numberIndex;
       }
       let value = 0;
-      for (let index = numberIndex;index < chars.length && index < currentIndex; index++) {
+      for (let index = numberIndex; index < chars.length && index < currentIndex; index++) {
         value = value * 10 + chars[index].charCodeAt(0) - 48;
       }
       if (value <= 255 && currentIndex - numberIndex <= 8) {
@@ -15143,7 +15143,7 @@ class WordFilter {
       return 0;
     }
     let value = 0;
-    for (let index = 0;index < chars.length; index++) {
+    for (let index = 0; index < chars.length; index++) {
       const char = chars[chars.length - index - 1];
       if (this.isLowercaseAlpha(char)) {
         value = value * 38 + char.charCodeAt(0) + 1 - 97;
@@ -15158,7 +15158,7 @@ class WordFilter {
     return value;
   }
   static indexOfNumber(chars, offset) {
-    for (let index = offset;index < chars.length && index >= 0; index++) {
+    for (let index = offset; index < chars.length && index >= 0; index++) {
       if (this.isNumerical(chars[index])) {
         return index;
       }
@@ -15166,7 +15166,7 @@ class WordFilter {
     return -1;
   }
   static indexOfNonNumber(offset, chars) {
-    for (let index = offset;index < chars.length && index >= 0; index++) {
+    for (let index = offset; index < chars.length && index >= 0; index++) {
       if (!this.isNumerical(chars[index])) {
         return index;
       }
@@ -15194,7 +15194,7 @@ class WordFilter {
   static filterDomain(period, ampersat, domain, chars) {
     const domainLength = domain.length;
     const charsLength = chars.length;
-    for (let index = 0;index <= charsLength - domainLength; index++) {
+    for (let index = 0; index <= charsLength - domainLength; index++) {
       const { matched, currentIndex } = this.findMatchingDomain(index, domain, chars);
       if (!matched) {
         continue;
@@ -15240,7 +15240,7 @@ class WordFilter {
     if (bads.length > chars.length) {
       return;
     }
-    for (let startIndex = 0;startIndex <= chars.length - bads.length; startIndex++) {
+    for (let startIndex = 0; startIndex <= chars.length - bads.length; startIndex++) {
       let currentIndex = startIndex;
       const { currentIndex: updatedCurrentIndex, badIndex, hasSymbol, hasNumber, hasDigit } = this.processBadCharacters(chars, bads, currentIndex);
       currentIndex = updatedCurrentIndex;
@@ -15270,7 +15270,7 @@ class WordFilter {
             if (localIndex >= 0 && (!this.isSymbol(chars[localIndex]) || chars[localIndex] === "'")) {
               const localSubString = [];
               let localSubStringIndex;
-              for (localSubStringIndex = 0;localSubStringIndex < 3 && localIndex + localSubStringIndex < chars.length && (!this.isSymbol(chars[localIndex + localSubStringIndex]) || chars[localIndex + localSubStringIndex] === "'"); localSubStringIndex++) {
+              for (localSubStringIndex = 0; localSubStringIndex < 3 && localIndex + localSubStringIndex < chars.length && (!this.isSymbol(chars[localIndex + localSubStringIndex]) || chars[localIndex + localSubStringIndex] === "'"); localSubStringIndex++) {
                 localSubString[localSubStringIndex] = chars[localIndex + localSubStringIndex];
               }
               let isSubStringValidCondition = true;
@@ -15310,7 +15310,7 @@ class WordFilter {
       }
       let numeralCount = 0;
       let alphaCount = 0;
-      for (let index = startIndex;index < currentIndex; index++) {
+      for (let index = startIndex; index < currentIndex; index++) {
         if (this.isNumerical(chars[index])) {
           numeralCount++;
         } else if (this.isAlpha(chars[index])) {
@@ -15329,7 +15329,7 @@ class WordFilter {
     let hasSymbol = false;
     let hasNumber = false;
     let hasDigit = false;
-    for (;index < chars.length && !(hasNumber && hasDigit); ) {
+    for (; index < chars.length && !(hasNumber && hasDigit);) {
       if (index >= chars.length || hasNumber && hasDigit) {
         break;
       }
@@ -15576,7 +15576,7 @@ class WordFilter {
     if (tld.length > chars.length) {
       return;
     }
-    for (let index = 0;index <= chars.length - tld.length; index++) {
+    for (let index = 0; index <= chars.length - tld.length; index++) {
       const { currentIndex, tldIndex } = this.processTlds(chars, tld, index);
       if (tldIndex < tld.length) {
         continue;
@@ -15603,7 +15603,7 @@ class WordFilter {
       if (periodFilterStatus > 2) {
         if (periodFilterStatus === 4) {
           foundPeriod = false;
-          for (periodIndex = index - 1;periodIndex >= 0; periodIndex--) {
+          for (periodIndex = index - 1; periodIndex >= 0; periodIndex--) {
             if (foundPeriod) {
               if (period[periodIndex] !== "*") {
                 break;
@@ -15616,7 +15616,7 @@ class WordFilter {
           }
         }
         foundPeriod = false;
-        for (periodIndex = startFilterIndex - 1;periodIndex >= 0; periodIndex--) {
+        for (periodIndex = startFilterIndex - 1; periodIndex >= 0; periodIndex--) {
           if (foundPeriod) {
             if (this.isSymbol(chars[periodIndex])) {
               break;
@@ -15631,7 +15631,7 @@ class WordFilter {
       if (slashFilterStatus > 2) {
         if (slashFilterStatus === 4) {
           foundPeriod = false;
-          for (periodIndex = endFilterIndex + 1;periodIndex < chars.length; periodIndex++) {
+          for (periodIndex = endFilterIndex + 1; periodIndex < chars.length; periodIndex++) {
             if (foundPeriod) {
               if (slash[periodIndex] !== "*") {
                 break;
@@ -15644,7 +15644,7 @@ class WordFilter {
           }
         }
         foundPeriod = false;
-        for (periodIndex = endFilterIndex + 1;periodIndex < chars.length; periodIndex++) {
+        for (periodIndex = endFilterIndex + 1; periodIndex < chars.length; periodIndex++) {
           if (foundPeriod) {
             if (this.isSymbol(chars[periodIndex])) {
               break;
@@ -15704,7 +15704,7 @@ class WordFilter {
     return char >= "A" && char <= "Z";
   }
   static isNumericalChars(chars) {
-    for (let index = 0;index < chars.length; index++) {
+    for (let index = 0; index < chars.length; index++) {
       if (!this.isNumerical(chars[index]) && chars[index] !== "\x00") {
         return false;
       }
@@ -15712,13 +15712,13 @@ class WordFilter {
     return true;
   }
   static maskChars(offset, length, chars) {
-    for (let index = offset;index < length; index++) {
+    for (let index = offset; index < length; index++) {
       chars[index] = "*";
     }
   }
   static maskedCountBackwards(chars, offset) {
     let count = 0;
-    for (let index = offset - 1;index >= 0 && this.isSymbol(chars[index]); index--) {
+    for (let index = offset - 1; index >= 0 && this.isSymbol(chars[index]); index--) {
       if (chars[index] === "*") {
         count++;
       }
@@ -15727,7 +15727,7 @@ class WordFilter {
   }
   static maskedCountForwards(chars, offset) {
     let count = 0;
-    for (let index = offset + 1;index < chars.length && this.isSymbol(chars[index]); index++) {
+    for (let index = offset + 1; index < chars.length && this.isSymbol(chars[index]); index++) {
       if (chars[index] === "*") {
         count++;
       }
@@ -15747,7 +15747,7 @@ class WordFilter {
     if (offset === 0) {
       return 2;
     }
-    for (let index = offset - 1;index >= 0 && this.isSymbol(chars[index]); index--) {
+    for (let index = offset - 1; index >= 0 && this.isSymbol(chars[index]); index--) {
       if (symbols.includes(chars[index])) {
         return 3;
       }
@@ -15758,7 +15758,7 @@ class WordFilter {
     if (offset + 1 === chars.length) {
       return 2;
     }
-    for (let index = offset + 1;index < chars.length && this.isSymbol(chars[index]); index++) {
+    for (let index = offset + 1; index < chars.length && this.isSymbol(chars[index]); index++) {
       if (symbols.includes(chars[index])) {
         return 3;
       }
@@ -15767,7 +15767,7 @@ class WordFilter {
   }
   static format(chars) {
     let pos = 0;
-    for (let index = 0;index < chars.length; index++) {
+    for (let index = 0; index < chars.length; index++) {
       if (this.isCharacterAllowed(chars[index])) {
         chars[pos] = chars[index];
       } else {
@@ -15777,7 +15777,7 @@ class WordFilter {
         pos++;
       }
     }
-    for (let index = pos;index < chars.length; index++) {
+    for (let index = pos; index < chars.length; index++) {
       chars[index] = " ";
     }
   }
@@ -15786,7 +15786,7 @@ class WordFilter {
 ` || char === "\t" || char === "£" || char === "€";
   }
   static replaceUppercases(chars, comparison) {
-    for (let index = 0;index < comparison.length; index++) {
+    for (let index = 0; index < comparison.length; index++) {
       if (chars[index] !== "*" && this.isUppercaseAlpha(comparison[index])) {
         chars[index] = comparison[index];
       }
@@ -15794,7 +15794,7 @@ class WordFilter {
   }
   static formatUppercases(chars) {
     let flagged = true;
-    for (let index = 0;index < chars.length; index++) {
+    for (let index = 0; index < chars.length; index++) {
       const char = chars[index];
       if (!this.isAlpha(char)) {
         flagged = true;
@@ -15879,7 +15879,7 @@ class WordPack {
     let pos = 0;
     let carry = -1;
     let nibble;
-    for (let index = 0;index < length && pos < 100; index++) {
+    for (let index = 0; index < length && pos < 100; index++) {
       const value = word.g1();
       nibble = value >> 4 & 15;
       if (carry !== -1) {
@@ -15901,7 +15901,7 @@ class WordPack {
       }
     }
     let uppercase = true;
-    for (let index = 0;index < pos; index++) {
+    for (let index = 0; index < pos; index++) {
       const char = this.charBuffer[index];
       if (uppercase && char >= "a" && char <= "z") {
         this.charBuffer[index] = char.toUpperCase();
@@ -15919,10 +15919,10 @@ class WordPack {
     }
     str = str.toLowerCase();
     let carry = -1;
-    for (let index = 0;index < str.length; index++) {
+    for (let index = 0; index < str.length; index++) {
       const char = str.charAt(index);
       let currentChar = 0;
-      for (let lookupIndex = 0;lookupIndex < this.TABLE.length; lookupIndex++) {
+      for (let lookupIndex = 0; lookupIndex < this.TABLE.length; lookupIndex++) {
         if (char === this.TABLE[lookupIndex]) {
           currentChar = lookupIndex;
           break;
@@ -15971,7 +15971,7 @@ class Envelope {
     this.envLength = dat.g1();
     this.shapeDelta = new Int32Array(this.envLength);
     this.shapePeak = new Int32Array(this.envLength);
-    for (let i = 0;i < this.envLength; i++) {
+    for (let i = 0; i < this.envLength; i++) {
       this.shapeDelta[i] = dat.g2();
       this.shapePeak[i] = dat.g2();
     }
@@ -16027,7 +16027,7 @@ class Tone {
   reverbDelay = 0;
   static init() {
     this.noise = new Int32Array(32768);
-    for (let i = 0;i < 32768; i++) {
+    for (let i = 0; i < 32768; i++) {
       if (Math.random() > 0.5) {
         this.noise[i] = 1;
       } else {
@@ -16035,13 +16035,13 @@ class Tone {
       }
     }
     this.sin = new Int32Array(32768);
-    for (let i = 0;i < 32768; i++) {
+    for (let i = 0; i < 32768; i++) {
       this.sin[i] = Math.sin(i / 5215.1903) * 16384 | 0;
     }
     this.toneSrc = new Int32Array(220500);
   }
   generate(sampleCount, length) {
-    for (let sample = 0;sample < sampleCount; sample++) {
+    for (let sample = 0; sample < sampleCount; sample++) {
       Tone.toneSrc[sample] = 0;
     }
     if (length < 10) {
@@ -16068,7 +16068,7 @@ class Tone {
       amplitudeStart = (this.amplitudeModRate.end - this.amplitudeModRate.start) * 32.768 / samplesPerStep | 0;
       amplitudeDuration = this.amplitudeModRate.start * 32.768 / samplesPerStep | 0;
     }
-    for (let harmonic = 0;harmonic < 5; harmonic++) {
+    for (let harmonic = 0; harmonic < 5; harmonic++) {
       if (this.frequencyBase && this.harmonicVolume[harmonic] !== 0) {
         Tone.tmpPhases[harmonic] = 0;
         Tone.tmpDelays[harmonic] = this.harmonicDelay[harmonic] * samplesPerStep;
@@ -16078,7 +16078,7 @@ class Tone {
       }
     }
     if (this.frequencyBase && this.amplitudeBase) {
-      for (let sample = 0;sample < sampleCount; sample++) {
+      for (let sample = 0; sample < sampleCount; sample++) {
         let frequency = this.frequencyBase.evaluateAt(sampleCount);
         let amplitude = this.amplitudeBase.evaluateAt(sampleCount);
         if (this.frequencyModRate && this.frequencyModRange) {
@@ -16093,7 +16093,7 @@ class Tone {
           amplitude = amplitude * ((this.generate2(range, amplitudePhase, this.amplitudeModRate.form) >> 1) + 32768) >> 15;
           amplitudePhase += (rate * amplitudeStart >> 16) + amplitudeDuration;
         }
-        for (let harmonic = 0;harmonic < 5; harmonic++) {
+        for (let harmonic = 0; harmonic < 5; harmonic++) {
           if (this.harmonicVolume[harmonic] !== 0) {
             const position = sample + Tone.tmpDelays[harmonic];
             if (position < sampleCount) {
@@ -16109,7 +16109,7 @@ class Tone {
       this.envAttack.reset();
       let counter = 0;
       let muted = true;
-      for (let sample = 0;sample < sampleCount; sample++) {
+      for (let sample = 0; sample < sampleCount; sample++) {
         const releaseValue = this.envRelease.evaluateAt(sampleCount);
         const attackValue = this.envAttack.evaluateAt(sampleCount);
         let threshold;
@@ -16130,12 +16130,12 @@ class Tone {
     }
     if (this.reverbDelay > 0 && this.reverbVolume > 0) {
       const start = this.reverbDelay * samplesPerStep;
-      for (let sample = start;sample < sampleCount; sample++) {
+      for (let sample = start; sample < sampleCount; sample++) {
         Tone.toneSrc[sample] += Tone.toneSrc[sample - start] * this.reverbVolume / 100 | 0;
         Tone.toneSrc[sample] |= 0;
       }
     }
-    for (let sample = 0;sample < sampleCount; sample++) {
+    for (let sample = 0; sample < sampleCount; sample++) {
       if (Tone.toneSrc[sample] < -32768) {
         Tone.toneSrc[sample] = -32768;
       }
@@ -16184,7 +16184,7 @@ class Tone {
       this.envAttack = new Envelope;
       this.envAttack.read(dat);
     }
-    for (let harmonic = 0;harmonic < 10; harmonic++) {
+    for (let harmonic = 0; harmonic < 10; harmonic++) {
       const volume = dat.gsmarts();
       if (volume === 0) {
         break;
@@ -16233,7 +16233,7 @@ class Wave {
     return track?.getWave(loopCount) ?? null;
   }
   read(dat) {
-    for (let tone = 0;tone < 10; tone++) {
+    for (let tone = 0; tone < 10; tone++) {
       if (dat.g1() !== 0) {
         dat.pos--;
         this.tones[tone] = new Tone;
@@ -16245,7 +16245,7 @@ class Wave {
   }
   trim() {
     let start = 9999999;
-    for (let tone = 0;tone < 10; tone++) {
+    for (let tone = 0; tone < 10; tone++) {
       if (this.tones[tone] && (this.tones[tone].toneStart / 20 | 0) < start) {
         start = this.tones[tone].toneStart / 20 | 0;
       }
@@ -16256,7 +16256,7 @@ class Wave {
     if (start === 9999999 || start === 0) {
       return 0;
     }
-    for (let tone = 0;tone < 10; tone++) {
+    for (let tone = 0; tone < 10; tone++) {
       if (this.tones[tone]) {
         this.tones[tone].toneStart -= start * 20;
       }
@@ -16288,7 +16288,7 @@ class Wave {
   }
   generate(loopCount) {
     let duration = 0;
-    for (let tone = 0;tone < 10; tone++) {
+    for (let tone = 0; tone < 10; tone++) {
       if (this.tones[tone] && this.tones[tone].toneLength + this.tones[tone].toneStart > duration) {
         duration = this.tones[tone].toneLength + this.tones[tone].toneStart;
       }
@@ -16303,17 +16303,17 @@ class Wave {
       loopCount = 0;
     }
     let totalSampleCount = sampleCount + (loopStop - loopStart) * (loopCount - 1);
-    for (let sample = 44;sample < totalSampleCount + 44; sample++) {
+    for (let sample = 44; sample < totalSampleCount + 44; sample++) {
       if (Wave.waveBytes) {
         Wave.waveBytes[sample] = -128;
       }
     }
-    for (let tone = 0;tone < 10; tone++) {
+    for (let tone = 0; tone < 10; tone++) {
       if (this.tones[tone]) {
         const toneSampleCount = this.tones[tone].toneLength * 22050 / 1000 | 0;
         const start = this.tones[tone].toneStart * 22050 / 1000 | 0;
         const samples = this.tones[tone].generate(toneSampleCount, this.tones[tone].toneLength);
-        for (let sample = 0;sample < toneSampleCount; sample++) {
+        for (let sample = 0; sample < toneSampleCount; sample++) {
           if (Wave.waveBytes) {
             Wave.waveBytes[sample + start + 44] += samples[sample] >> 8 << 24 >> 24;
           }
@@ -16326,14 +16326,14 @@ class Wave {
       sampleCount += 44;
       totalSampleCount += 44;
       const endOffset = totalSampleCount - sampleCount;
-      for (let sample = sampleCount - 1;sample >= loopStop; sample--) {
+      for (let sample = sampleCount - 1; sample >= loopStop; sample--) {
         if (Wave.waveBytes) {
           Wave.waveBytes[sample + endOffset] = Wave.waveBytes[sample];
         }
       }
-      for (let loop = 1;loop < loopCount; loop++) {
+      for (let loop = 1; loop < loopCount; loop++) {
         const offset = (loopStop - loopStart) * loop;
-        for (let sample = loopStart;sample < loopStop; sample++) {
+        for (let sample = loopStart; sample < loopStop; sample++) {
           if (Wave.waveBytes) {
             Wave.waveBytes[sample + offset] = Wave.waveBytes[sample];
           }
@@ -16729,7 +16729,7 @@ class Client extends GameShell {
   displayFps = false;
   static {
     let acc = 0;
-    for (let i = 0;i < 99; i++) {
+    for (let i = 0; i < 99; i++) {
       const level = i + 1;
       const delta = level + Math.pow(2, level / 7) * 300 | 0;
       acc += delta;
@@ -16749,7 +16749,7 @@ class Client extends GameShell {
     } else {
       Client.setHighMemory();
     }
-    if (false) {}
+    if (false) { }
     this.run();
   }
   static setHighMemory() {
@@ -16776,7 +16776,7 @@ class Client extends GameShell {
           if (length !== data.length) {
             data = data.slice(0, length);
           }
-        } catch (e) {}
+        } catch (e) { }
       }
       if (!data) {
         return;
@@ -16785,8 +16785,8 @@ class Client extends GameShell {
         await this.db?.cachesave(name + ".mid", data);
         const uncompressed = BZip22.decompress(data, -1, false, true);
         playMidi(uncompressed, this.midiVolume, fade);
-      } catch (e) {}
-    } catch (e) {}
+      } catch (e) { }
+    } catch (e) { }
   }
   getTitleScreenState() {
     return this.titleScreenState;
@@ -16823,7 +16823,7 @@ class Client extends GameShell {
         this.db = null;
       }
       const checksums = new Packet(await downloadUrl("/crc"));
-      for (let i = 0;i < 9; i++) {
+      for (let i = 0; i < 9; i++) {
         this.archiveChecksums[i] = checksums.g4();
       }
       await this.setMidi("scape_main", 12345678, 40000, false);
@@ -16848,7 +16848,7 @@ class Client extends GameShell {
       if (this.levelHeightmap) {
         this.scene = new World3D(this.levelHeightmap, 104 /* SIZE */, 4 /* LEVELS */, 104 /* SIZE */);
       }
-      for (let level = 0;level < 4 /* LEVELS */; level++) {
+      for (let level = 0; level < 4 /* LEVELS */; level++) {
         this.levelCollisionMap[level] = new CollisionMap;
       }
       this.imageMinimap = new Pix24(512, 512);
@@ -16859,35 +16859,35 @@ class Client extends GameShell {
       this.imageBackbase1 = Pix8.fromArchive(media, "backbase1", 0);
       this.imageBackbase2 = Pix8.fromArchive(media, "backbase2", 0);
       this.imageBackhmid1 = Pix8.fromArchive(media, "backhmid1", 0);
-      for (let i = 0;i < 13; i++) {
+      for (let i = 0; i < 13; i++) {
         this.imageSideicons[i] = Pix8.fromArchive(media, "sideicons", i);
       }
       this.imageCompass = Pix24.fromArchive(media, "compass", 0);
       try {
-        for (let i = 0;i < 50; i++) {
+        for (let i = 0; i < 50; i++) {
           if (i === 22) {
             continue;
           }
           this.imageMapscene[i] = Pix8.fromArchive(media, "mapscene", i);
         }
-      } catch (e) {}
+      } catch (e) { }
       try {
-        for (let i = 0;i < 50; i++) {
+        for (let i = 0; i < 50; i++) {
           this.imageMapfunction[i] = Pix24.fromArchive(media, "mapfunction", i);
         }
-      } catch (e) {}
+      } catch (e) { }
       try {
-        for (let i = 0;i < 20; i++) {
+        for (let i = 0; i < 20; i++) {
           this.imageHitmarks[i] = Pix24.fromArchive(media, "hitmarks", i);
         }
-      } catch (e) {}
+      } catch (e) { }
       try {
-        for (let i = 0;i < 20; i++) {
+        for (let i = 0; i < 20; i++) {
           this.imageHeadicons[i] = Pix24.fromArchive(media, "headicons", i);
         }
-      } catch (e) {}
+      } catch (e) { }
       this.imageMapflag = Pix24.fromArchive(media, "mapflag", 0);
-      for (let i = 0;i < 8; i++) {
+      for (let i = 0; i < 8; i++) {
         this.imageCrosses[i] = Pix24.fromArchive(media, "cross", i);
       }
       this.imageMapdot0 = Pix24.fromArchive(media, "mapdots", 0);
@@ -16949,7 +16949,7 @@ class Client extends GameShell {
       const randG = (Math.random() * 21 | 0) - 10;
       const randB = (Math.random() * 21 | 0) - 10;
       const rand = (Math.random() * 41 | 0) - 20;
-      for (let i = 0;i < 50; i++) {
+      for (let i = 0; i < 50; i++) {
         if (this.imageMapfunction[i]) {
           this.imageMapfunction[i]?.translate2d(randR + rand, randG + rand, randB + rand);
         }
@@ -16981,10 +16981,10 @@ class Client extends GameShell {
       await this.showProgress(92, "Unpacking interfaces");
       Component.unpack(interfaces, media, [this.fontPlain11, this.fontPlain12, this.fontBold12, this.fontQuill8]);
       await this.showProgress(97, "Preparing game engine");
-      for (let y = 0;y < 33; y++) {
+      for (let y = 0; y < 33; y++) {
         let left = 999;
         let right = 0;
-        for (let x = 0;x < 35; x++) {
+        for (let x = 0; x < 35; x++) {
           if (this.imageMapback.pixels[x + y * this.imageMapback.width2d] === 0) {
             if (left === 999) {
               left = x;
@@ -16997,10 +16997,10 @@ class Client extends GameShell {
         this.compassMaskLineOffsets[y] = left;
         this.compassMaskLineLengths[y] = right - left;
       }
-      for (let y = 9;y < 160; y++) {
+      for (let y = 9; y < 160; y++) {
         let left = 999;
         let right = 0;
-        for (let x = 10;x < 168; x++) {
+        for (let x = 10; x < 168; x++) {
           if (this.imageMapback.pixels[x + y * this.imageMapback.width2d] === 0 && (x > 34 || y > 34)) {
             if (left === 999) {
               left = x;
@@ -17020,7 +17020,7 @@ class Client extends GameShell {
       Pix3D.init3D(512, 334);
       this.areaViewportOffsets = Pix3D.lineOffset;
       const distance = new Int32Array(9);
-      for (let x = 0;x < 9; x++) {
+      for (let x = 0; x < 9; x++) {
         const angle = x * 32 + 128 + 15;
         const offset = angle * 3 + 600;
         const sin = Pix3D.sin[angle];
@@ -17160,7 +17160,7 @@ class Client extends GameShell {
         data = await downloadUrl(`/${filename}${crc}`);
       } catch (e) {
         data = undefined;
-        for (let i = retry;i > 0; i--) {
+        for (let i = retry; i > 0; i--) {
           await this.showProgress(progress, `Error loading - Will retry in ${i} secs.`);
           await sleep(1000);
         }
@@ -17218,7 +17218,7 @@ class Client extends GameShell {
           return;
         }
         let valid = false;
-        for (let i = 0;i < PixFont.CHARSET.length; i++) {
+        for (let i = 0; i < PixFont.CHARSET.length; i++) {
           if (String.fromCharCode(key) === PixFont.CHARSET.charAt(i)) {
             valid = true;
             break;
@@ -17292,12 +17292,12 @@ class Client extends GameShell {
       this.loginout.p1(this.out.pos + 36 + 1 + 1);
       this.loginout.p1(225);
       this.loginout.p1(Client.lowMemory ? 1 : 0);
-      for (let i = 0;i < 9; i++) {
+      for (let i = 0; i < 9; i++) {
         this.loginout.p4(this.archiveChecksums[i]);
       }
       this.loginout.pdata(this.out.data, this.out.pos, 0);
       this.out.random = new Isaac(seed);
-      for (let i = 0;i < 4; i++) {
+      for (let i = 0; i < 4; i++) {
         seed[i] += 50;
       }
       this.randomIn = new Isaac(seed);
@@ -17326,7 +17326,7 @@ class Client extends GameShell {
         this.menuSize = 0;
         this.menuVisible = false;
         this.idleCycles = performance.now();
-        for (let i = 0;i < 100; i++) {
+        for (let i = 0; i < 100; i++) {
           this.messageText[i] = null;
         }
         this.objSelected = 0;
@@ -17344,19 +17344,19 @@ class Client extends GameShell {
         this.flagSceneTileZ = 0;
         this.playerCount = 0;
         this.npcCount = 0;
-        for (let i = 0;i < 2048 /* MAX_PLAYER_COUNT */; i++) {
+        for (let i = 0; i < 2048 /* MAX_PLAYER_COUNT */; i++) {
           this.players[i] = null;
           this.playerAppearanceBuffer[i] = null;
         }
-        for (let i = 0;i < 8192; i++) {
+        for (let i = 0; i < 8192; i++) {
           this.npcs[i] = null;
         }
         this.localPlayer = this.players[2047 /* LOCAL_PLAYER_INDEX */] = new PlayerEntity;
         this.projectiles.clear();
         this.spotanims.clear();
-        for (let level = 0;level < 4 /* LEVELS */; level++) {
-          for (let x = 0;x < 104 /* SIZE */; x++) {
-            for (let z = 0;z < 104 /* SIZE */; z++) {
+        for (let level = 0; level < 4 /* LEVELS */; level++) {
+          for (let x = 0; x < 104 /* SIZE */; x++) {
+            for (let z = 0; z < 104 /* SIZE */; z++) {
               this.objStacks[level][x][z] = null;
             }
           }
@@ -17377,7 +17377,7 @@ class Client extends GameShell {
         this.flashingTab = -1;
         this.designGenderMale = true;
         this.validateCharacterDesign();
-        for (let i = 0;i < 5; i++) {
+        for (let i = 0; i < 5; i++) {
           this.designColors[i] = 0;
         }
         Client.oplogic1 = 0;
@@ -17494,7 +17494,7 @@ class Client extends GameShell {
     InputTracking.setDisabled();
     this.clearCaches();
     this.scene?.reset();
-    for (let level = 0;level < 4 /* LEVELS */; level++) {
+    for (let level = 0; level < 4 /* LEVELS */; level++) {
       this.levelCollisionMap[level]?.reset();
     }
     stopMidi(false);
@@ -17546,9 +17546,9 @@ class Client extends GameShell {
     if (this.idleTimeout > 0) {
       this.idleTimeout--;
     }
-    for (let i = 0;i < 5 && await this.read(); i++) {}
+    for (let i = 0; i < 5 && await this.read(); i++) { }
     if (this.ingame) {
-      for (let wave = 0;wave < this.waveCount; wave++) {
+      for (let wave = 0; wave < this.waveCount; wave++) {
         if (this.waveDelay[wave] <= 0) {
           try {
             const buf = Wave.generate(this.waveIds[wave], this.waveLoops[wave]);
@@ -17566,7 +17566,7 @@ class Client extends GameShell {
             console.error(e);
           }
           this.waveCount--;
-          for (let i = wave;i < this.waveCount; i++) {
+          for (let i = wave; i < this.waveCount; i++) {
             this.waveIds[i] = this.waveIds[i + 1];
             this.waveLoops[i] = this.waveLoops[i + 1];
             this.waveDelay[i] = this.waveDelay[i + 1];
@@ -17708,7 +17708,7 @@ class Client extends GameShell {
       if (this.sceneState === 2 && this.cutscene) {
         this.applyCutscene();
       }
-      for (let i = 0;i < 5; i++) {
+      for (let i = 0; i < 5; i++) {
         this.cameraModifierCycle[i]++;
       }
       await this.handleInputKey();
@@ -17833,7 +17833,7 @@ class Client extends GameShell {
     if (!this.sceneMapLandData || !this.sceneMapLandReady || !this.sceneMapLocData || !this.sceneMapLocReady) {
       return -1000;
     }
-    for (let i = 0;i < this.sceneMapLandReady.length; i++) {
+    for (let i = 0; i < this.sceneMapLandReady.length; i++) {
       if (this.sceneMapLandReady[i] === false) {
         return -1;
       }
@@ -17858,14 +17858,14 @@ class Client extends GameShell {
       Pix3D.clearTexels();
       this.clearCaches();
       this.scene?.reset();
-      for (let level = 0;level < 4 /* LEVELS */; level++) {
+      for (let level = 0; level < 4 /* LEVELS */; level++) {
         this.levelCollisionMap[level]?.reset();
       }
       const world = new World(104 /* SIZE */, 104 /* SIZE */, this.levelHeightmap, this.levelTileFlags);
       World.lowMemory = Client.lowMemory;
       const maps = this.sceneMapLandData?.length ?? 0;
       if (this.sceneMapIndex) {
-        for (let index = 0;index < maps; index++) {
+        for (let index = 0; index < maps; index++) {
           const mapsquareX = this.sceneMapIndex[index] >> 8;
           const mapsquareZ = this.sceneMapIndex[index] & 255;
           if (mapsquareX === 33 && mapsquareZ >= 71 && mapsquareZ <= 73) {
@@ -17881,7 +17881,7 @@ class Client extends GameShell {
       }
       if (this.sceneMapIndex && this.sceneMapLandData) {
         this.out.p1isaac(108 /* NO_TIMEOUT */);
-        for (let i = 0;i < maps; i++) {
+        for (let i = 0; i < maps; i++) {
           const x = (this.sceneMapIndex[i] >> 8) * 64 - this.sceneBaseTileX;
           const z = (this.sceneMapIndex[i] & 255) * 64 - this.sceneBaseTileZ;
           const src = this.sceneMapLandData[i];
@@ -17895,7 +17895,7 @@ class Client extends GameShell {
       }
       if (this.sceneMapIndex && this.sceneMapLocData) {
         this.out.p1isaac(108 /* NO_TIMEOUT */);
-        for (let i = 0;i < maps; i++) {
+        for (let i = 0; i < maps; i++) {
           const x = (this.sceneMapIndex[i] >> 8) * 64 - this.sceneBaseTileX;
           const z = (this.sceneMapIndex[i] & 255) * 64 - this.sceneBaseTileZ;
           const src = this.sceneMapLocData[i];
@@ -17909,7 +17909,7 @@ class Client extends GameShell {
       world.build(this.scene, this.levelCollisionMap);
       this.areaViewport?.bind();
       this.out.p1isaac(108 /* NO_TIMEOUT */);
-      for (let loc = this.locList.head();loc; loc = this.locList.next()) {
+      for (let loc = this.locList.head(); loc; loc = this.locList.next()) {
         if ((this.levelTileFlags && this.levelTileFlags[1][loc.heightmapNE][loc.heightmapNW] & 2) === 2) {
           loc.heightmapSW--;
           if (loc.heightmapSW < 0) {
@@ -17917,8 +17917,8 @@ class Client extends GameShell {
           }
         }
       }
-      for (let x = 0;x < 104 /* SIZE */; x++) {
-        for (let z = 0;z < 104 /* SIZE */; z++) {
+      for (let x = 0; x < 104 /* SIZE */; x++) {
+        for (let z = 0; z < 104 /* SIZE */; z++) {
           this.sortObjStacks(x, z);
         }
       }
@@ -17930,7 +17930,7 @@ class Client extends GameShell {
     Pix3D.initPool(20);
   }
   clearAddedLocs() {
-    for (let loc = this.addedLocs.head();loc; loc = this.addedLocs.next()) {
+    for (let loc = this.addedLocs.head(); loc; loc = this.addedLocs.next()) {
       if (loc.duration === -1) {
         loc.delay = 0;
         this.storeLoc(loc);
@@ -17945,12 +17945,12 @@ class Client extends GameShell {
     }
     const pixels = this.imageMinimap.pixels;
     const length = pixels.length;
-    for (let i = 0;i < length; i++) {
+    for (let i = 0; i < length; i++) {
       pixels[i] = 0;
     }
-    for (let z = 1;z < 104 /* SIZE */ - 1; z++) {
+    for (let z = 1; z < 104 /* SIZE */ - 1; z++) {
       let offset = (104 /* SIZE */ - 1 - z) * 512 * 4 + 24628;
-      for (let x = 1;x < 104 /* SIZE */ - 1; x++) {
+      for (let x = 1; x < 104 /* SIZE */ - 1; x++) {
         if (this.levelTileFlags && (this.levelTileFlags[level][x][z] & 24) === 0) {
           this.scene?.drawMinimapTile(level, x, z, pixels, offset, 512);
         }
@@ -17963,8 +17963,8 @@ class Client extends GameShell {
     const wallRgb = ((Math.random() * 20 | 0) + 238 - 10 << 16) + ((Math.random() * 20 | 0) + 238 - 10 << 8) + (Math.random() * 20 | 0) + 238 - 10;
     const doorRgb = (Math.random() * 20 | 0) + 238 - 10 << 16;
     this.imageMinimap.bind();
-    for (let z = 1;z < 104 /* SIZE */ - 1; z++) {
-      for (let x = 1;x < 104 /* SIZE */ - 1; x++) {
+    for (let z = 1; z < 104 /* SIZE */ - 1; z++) {
+      for (let x = 1; x < 104 /* SIZE */ - 1; x++) {
         if (this.levelTileFlags && (this.levelTileFlags[level][x][z] & 24) === 0) {
           this.drawMinimapLoc(x, z, level, wallRgb, doorRgb);
         }
@@ -17975,8 +17975,8 @@ class Client extends GameShell {
     }
     this.areaViewport?.bind();
     this.activeMapFunctionCount = 0;
-    for (let x = 0;x < 104 /* SIZE */; x++) {
-      for (let z = 0;z < 104 /* SIZE */; z++) {
+    for (let x = 0; x < 104 /* SIZE */; x++) {
+      for (let z = 0; z < 104 /* SIZE */; z++) {
         let typecode = this.scene?.getGroundDecorTypecode(this.currentLevel, x, z) ?? 0;
         if (typecode === 0) {
           continue;
@@ -17994,7 +17994,7 @@ class Client extends GameShell {
           const collisionmap = this.levelCollisionMap[this.currentLevel];
           if (collisionmap) {
             const flags = collisionmap.flags;
-            for (let i = 0;i < 10; i++) {
+            for (let i = 0; i < 10; i++) {
               const rand = Math.random() * 4 | 0;
               if (rand === 0 && stx > 0 && stx > x - 3 && (flags[CollisionMap.index(stx - 1, stz)] & 2621704 /* BLOCK_WEST */) === 0 /* OPEN */) {
                 stx--;
@@ -18022,7 +18022,7 @@ class Client extends GameShell {
     if (this.sceneState !== 2) {
       return;
     }
-    for (let loc = this.addedLocs.head();loc; loc = this.addedLocs.next()) {
+    for (let loc = this.addedLocs.head(); loc; loc = this.addedLocs.next()) {
       if (loc.duration > 0) {
         loc.duration--;
       }
@@ -18094,7 +18094,7 @@ class Client extends GameShell {
       let done = false;
       while (!done) {
         done = true;
-        for (let i = 0;i < this.menuSize - 1; i++) {
+        for (let i = 0; i < this.menuSize - 1; i++) {
           if (this.menuAction[i] < 1000 && this.menuAction[i + 1] > 1000) {
             const tmp0 = this.menuOption[i];
             this.menuOption[i] = this.menuOption[i + 1];
@@ -18125,7 +18125,7 @@ class Client extends GameShell {
     if (this.systemUpdateTimer !== 0) {
       lineOffset = 1;
     }
-    for (let i = 0;i < 100; i++) {
+    for (let i = 0; i < 100; i++) {
       if (this.messageText[i] !== null) {
         const type = this.messageTextType[i];
         if ((type === 3 || type === 7) && (type === 7 || this.privateChatSetting === 0 || this.privateChatSetting === 1 && this.isFriend(this.messageTextSender[i]))) {
@@ -18159,7 +18159,7 @@ class Client extends GameShell {
   }
   handleChatMouseInput(_mouseX, mouseY) {
     let line = 0;
-    for (let i = 0;i < 100; i++) {
+    for (let i = 0; i < 100; i++) {
       if (!this.messageText[i]) {
         continue;
       }
@@ -18233,7 +18233,7 @@ class Client extends GameShell {
       this.menuSize++;
     }
     let lastTypecode = -1;
-    for (let picked = 0;picked < Model.pickedCount; picked++) {
+    for (let picked = 0; picked < Model.pickedCount; picked++) {
       const typecode = Model.picked[picked];
       const x = typecode & 127;
       const z = typecode >> 7 & 127;
@@ -18254,7 +18254,7 @@ class Client extends GameShell {
           this.menuSize++;
         } else if (this.spellSelected !== 1) {
           if (loc.op) {
-            for (let op = 4;op >= 0; op--) {
+            for (let op = 4; op >= 0; op--) {
               if (loc.op[op]) {
                 this.menuOption[this.menuSize] = loc.op[op] + " @cya@" + loc.name;
                 if (op === 0) {
@@ -18281,7 +18281,7 @@ class Client extends GameShell {
           }
           if ("false") {
             this.menuOption[this.menuSize] = "Examine @cya@" + loc.name + " ";
-          } else {}
+          } else { }
           this.menuAction[this.menuSize] = 1175;
           this.menuParamA[this.menuSize] = typecode;
           this.menuParamB[this.menuSize] = x;
@@ -18299,7 +18299,7 @@ class Client extends GameShell {
       if (entityType === 1) {
         const npc = this.npcs[typeId];
         if (npc && npc.npcType && npc.npcType.size === 1 && (npc.x & 127) === 64 && (npc.z & 127) === 64) {
-          for (let i = 0;i < this.npcCount; i++) {
+          for (let i = 0; i < this.npcCount; i++) {
             const other = this.npcs[this.npcIds[i]];
             if (other && other !== npc && other.npcType && other.npcType.size === 1 && other.x === npc.x && other.z === npc.z) {
               this.addNpcOptions(other.npcType, this.npcIds[i], x, z);
@@ -18313,13 +18313,13 @@ class Client extends GameShell {
       if (entityType === 0) {
         const player = this.players[typeId];
         if (player && (player.x & 127) === 64 && (player.z & 127) === 64) {
-          for (let i = 0;i < this.npcCount; i++) {
+          for (let i = 0; i < this.npcCount; i++) {
             const other = this.npcs[this.npcIds[i]];
             if (other && other.npcType && other.npcType.size === 1 && other.x === player.x && other.z === player.z) {
               this.addNpcOptions(other.npcType, this.npcIds[i], x, z);
             }
           }
-          for (let i = 0;i < this.playerCount; i++) {
+          for (let i = 0; i < this.playerCount; i++) {
             const other = this.players[this.playerIds[i]];
             if (other && other !== player && other.x === player.x && other.z === player.z) {
               this.addPlayerOptions(other, this.playerIds[i], x, z);
@@ -18335,7 +18335,7 @@ class Client extends GameShell {
         if (!objs) {
           continue;
         }
-        for (let obj = objs.tail();obj; obj = objs.prev()) {
+        for (let obj = objs.tail(); obj; obj = objs.prev()) {
           const type = ObjType.get(obj.index);
           if (this.objSelected === 1) {
             this.menuOption[this.menuSize] = "Use " + this.objSelectedName + " with @lre@" + type.name;
@@ -18345,7 +18345,7 @@ class Client extends GameShell {
             this.menuParamC[this.menuSize] = z;
             this.menuSize++;
           } else if (this.spellSelected !== 1) {
-            for (let op = 4;op >= 0; op--) {
+            for (let op = 4; op >= 0; op--) {
               if (type.op && type.op[op]) {
                 this.menuOption[this.menuSize] = type.op[op] + " @lre@" + type.name;
                 if (op === 0) {
@@ -18378,7 +18378,7 @@ class Client extends GameShell {
             }
             if ("false") {
               this.menuOption[this.menuSize] = "Examine @lre@" + type.name + " ";
-            } else {}
+            } else { }
             this.menuAction[this.menuSize] = 1102;
             this.menuParamA[this.menuSize] = obj.index;
             this.menuParamB[this.menuSize] = x;
@@ -18445,7 +18445,7 @@ class Client extends GameShell {
           clickY -= 375;
         }
         let option = -1;
-        for (let i = 0;i < this.menuSize; i++) {
+        for (let i = 0; i < this.menuSize; i++) {
           const optionY = menuY + (this.menuSize - 1 - i) * 15 + 31;
           if (clickX > menuX && clickX < menuX + menuWidth && clickY > optionY - 13 && clickY < optionY + 3) {
             option = i;
@@ -18627,7 +18627,7 @@ class Client extends GameShell {
         this.closeInterfaces();
         this.reportAbuseInput = "";
         this.reportAbuseMuteOption = false;
-        for (let i = 0;i < Component.instances.length; i++) {
+        for (let i = 0; i < Component.instances.length; i++) {
           if (Component.instances[i] && Component.instances[i].clientCode === 600) {
             this.reportAbuseInterfaceID = this.viewportInterfaceId = Component.instances[i].layer;
             return;
@@ -18652,7 +18652,7 @@ class Client extends GameShell {
     this.viewportInterfaceId = -1;
   }
   updateEntityChats() {
-    for (let i = -1;i < this.playerCount; i++) {
+    for (let i = -1; i < this.playerCount; i++) {
       let index;
       if (i === -1) {
         index = 2047 /* LOCAL_PLAYER_INDEX */;
@@ -18667,7 +18667,7 @@ class Client extends GameShell {
         }
       }
     }
-    for (let i = 0;i < this.npcCount; i++) {
+    for (let i = 0; i < this.npcCount; i++) {
       const index = this.npcIds[i];
       const npc = this.npcs[index];
       if (npc && npc.chatTimer > 0) {
@@ -18722,8 +18722,8 @@ class Client extends GameShell {
     let maxY = 0;
     if (this.levelHeightmap) {
       if (orbitTileX > 3 && orbitTileZ > 3 && orbitTileX < 100 && orbitTileZ < 100) {
-        for (let x = orbitTileX - 4;x <= orbitTileX + 4; x++) {
-          for (let z = orbitTileZ - 4;z <= orbitTileZ + 4; z++) {
+        for (let x = orbitTileX - 4; x <= orbitTileX + 4; x++) {
+          for (let z = orbitTileZ - 4; z <= orbitTileZ + 4; z++) {
             let level = this.currentLevel;
             if (level < 3 && this.levelTileFlags && (this.levelTileFlags[1][x][z] & 2) === 2) {
               level++;
@@ -18920,7 +18920,7 @@ class Client extends GameShell {
                 let value = 0;
                 try {
                   value = parseInt(this.chatbackInput, 10);
-                } catch (e) {}
+                } catch (e) { }
                 this.out.p1isaac(237 /* RESUME_P_COUNTDIALOG */);
                 this.out.p4(value);
               }
@@ -18946,7 +18946,7 @@ class Client extends GameShell {
                   try {
                     const desiredFps = parseInt(this.chatTyped.substring(6)) || 50;
                     this.setTargetedFramerate(desiredFps);
-                  } catch (e) {}
+                  } catch (e) { }
                 } else {
                   this.out.p1isaac(4 /* CLIENT_CHEAT */);
                   this.out.p1(this.chatTyped.length - 1);
@@ -19037,7 +19037,7 @@ class Client extends GameShell {
     }
   }
   updatePlayers() {
-    for (let i = -1;i < this.playerCount; i++) {
+    for (let i = -1; i < this.playerCount; i++) {
       let index;
       if (i === -1) {
         index = 2047 /* LOCAL_PLAYER_INDEX */;
@@ -19075,7 +19075,7 @@ class Client extends GameShell {
     }
   }
   updateNpcs() {
-    for (let i = 0;i < this.npcCount; i++) {
+    for (let i = 0; i < this.npcCount; i++) {
       const id = this.npcIds[i];
       const npc = this.npcs[id];
       if (npc && npc.npcType) {
@@ -19457,7 +19457,7 @@ class Client extends GameShell {
     }
     this.imageTitlebox = Pix8.fromArchive(this.titleArchive, "titlebox");
     this.imageTitlebutton = Pix8.fromArchive(this.titleArchive, "titlebutton");
-    for (let i = 0;i < 12; i++) {
+    for (let i = 0; i < 12; i++) {
       this.imageRunes[i] = Pix8.fromArchive(this.titleArchive, "runes", i);
     }
     this.imageFlamesLeft = new Pix24(128, 265);
@@ -19467,42 +19467,42 @@ class Client extends GameShell {
     if (this.imageTitle1)
       arraycopy(this.imageTitle1.pixels, 0, this.imageFlamesRight.pixels, 0, 33920);
     this.flameGradient0 = new Int32Array(256);
-    for (let index = 0;index < 64; index++) {
+    for (let index = 0; index < 64; index++) {
       this.flameGradient0[index] = index * 262144;
     }
-    for (let index = 0;index < 64; index++) {
+    for (let index = 0; index < 64; index++) {
       this.flameGradient0[index + 64] = index * 1024 + 16711680 /* RED */;
     }
-    for (let index = 0;index < 64; index++) {
+    for (let index = 0; index < 64; index++) {
       this.flameGradient0[index + 128] = index * 4 + 16776960 /* YELLOW */;
     }
-    for (let index = 0;index < 64; index++) {
+    for (let index = 0; index < 64; index++) {
       this.flameGradient0[index + 192] = 16777215 /* WHITE */;
     }
     this.flameGradient1 = new Int32Array(256);
-    for (let index = 0;index < 64; index++) {
+    for (let index = 0; index < 64; index++) {
       this.flameGradient1[index] = index * 1024;
     }
-    for (let index = 0;index < 64; index++) {
+    for (let index = 0; index < 64; index++) {
       this.flameGradient1[index + 64] = index * 4 + 65280 /* GREEN */;
     }
-    for (let index = 0;index < 64; index++) {
+    for (let index = 0; index < 64; index++) {
       this.flameGradient1[index + 128] = index * 262144 + 65535 /* CYAN */;
     }
-    for (let index = 0;index < 64; index++) {
+    for (let index = 0; index < 64; index++) {
       this.flameGradient1[index + 192] = 16777215 /* WHITE */;
     }
     this.flameGradient2 = new Int32Array(256);
-    for (let index = 0;index < 64; index++) {
+    for (let index = 0; index < 64; index++) {
       this.flameGradient2[index] = index * 4;
     }
-    for (let index = 0;index < 64; index++) {
+    for (let index = 0; index < 64; index++) {
       this.flameGradient2[index + 64] = index * 262144 + 255 /* BLUE */;
     }
-    for (let index = 0;index < 64; index++) {
+    for (let index = 0; index < 64; index++) {
       this.flameGradient2[index + 128] = index * 1024 + 16711935 /* MAGENTA */;
     }
-    for (let index = 0;index < 64; index++) {
+    for (let index = 0; index < 64; index++) {
       this.flameGradient2[index + 192] = 16777215 /* WHITE */;
     }
     this.flameGradient = new Int32Array(256);
@@ -19864,7 +19864,7 @@ class Client extends GameShell {
     const cameraPitch = this.cameraPitch;
     const cameraYaw = this.cameraYaw;
     let jitter;
-    for (let type = 0;type < 5; type++) {
+    for (let type = 0; type < 5; type++) {
       if (this.cameraModifierEnabled[type]) {
         jitter = Math.random() * (this.cameraModifierJitter[type] * 2 + 1) - this.cameraModifierJitter[type] + Math.sin(this.cameraModifierCycle[type] * (this.cameraModifierWobbleSpeed[type] / 100)) * this.cameraModifierWobbleScale[type] | 0;
         if (type === 0) {
@@ -19916,7 +19916,7 @@ class Client extends GameShell {
     if (this.localPlayer.x >> 7 === this.flagSceneTileX && this.localPlayer.z >> 7 === this.flagSceneTileZ) {
       this.flagSceneTileX = 0;
     }
-    for (let i = -1;i < this.playerCount; i++) {
+    for (let i = -1; i < this.playerCount; i++) {
       let player;
       let id;
       if (i === -1) {
@@ -19952,7 +19952,7 @@ class Client extends GameShell {
     }
   }
   pushNpcs() {
-    for (let i = 0;i < this.npcCount; i++) {
+    for (let i = 0; i < this.npcCount; i++) {
       const npc = this.npcs[this.npcIds[i]];
       const typecode = (this.npcIds[i] << 14) + 536870911 + 1 | 0;
       if (!npc || !npc.isVisibleNow()) {
@@ -19973,7 +19973,7 @@ class Client extends GameShell {
     }
   }
   pushProjectiles() {
-    for (let proj = this.projectiles.head();proj; proj = this.projectiles.next()) {
+    for (let proj = this.projectiles.head(); proj; proj = this.projectiles.next()) {
       if (proj.projLevel !== this.currentLevel || this.loopCycle > proj.lastCycle) {
         proj.unlink();
       } else if (this.loopCycle >= proj.startCycle) {
@@ -20001,7 +20001,7 @@ class Client extends GameShell {
     }
   }
   pushSpotanims() {
-    for (let entity = this.spotanims.head();entity; entity = this.spotanims.next()) {
+    for (let entity = this.spotanims.head(); entity; entity = this.spotanims.next()) {
       if (entity.spotLevel !== this.currentLevel || entity.seqComplete) {
         entity.unlink();
       } else if (this.loopCycle >= entity.startCycle) {
@@ -20015,7 +20015,7 @@ class Client extends GameShell {
     }
   }
   pushLocs() {
-    for (let loc = this.locList.head();loc; loc = this.locList.next()) {
+    for (let loc = this.locList.head(); loc; loc = this.locList.next()) {
       let append = false;
       loc.seqCycle += this.sceneDelta;
       if (loc.seqFrame === -1) {
@@ -20211,7 +20211,7 @@ class Client extends GameShell {
   }
   draw2DEntityElements() {
     this.chatCount = 0;
-    for (let index = -1;index < this.playerCount + this.npcCount; index++) {
+    for (let index = -1; index < this.playerCount + this.npcCount; index++) {
       let entity = null;
       if (index === -1) {
         entity = this.localPlayer;
@@ -20229,7 +20229,7 @@ class Client extends GameShell {
         if (player.headicons !== 0) {
           this.projectFromEntity(entity, entity.maxY + 15);
           if (this.projectX > -1) {
-            for (let icon = 0;icon < 8; icon++) {
+            for (let icon = 0; icon < 8; icon++) {
               if ((player.headicons & 1 << icon) !== 0) {
                 this.imageHeadicons[icon]?.draw(this.projectX - 12, this.projectY - y);
                 y -= 25;
@@ -20289,7 +20289,7 @@ class Client extends GameShell {
         }
       }
     }
-    for (let i = 0;i < this.chatCount; i++) {
+    for (let i = 0; i < this.chatCount; i++) {
       const x = this.chatX[i];
       let y = this.chatY[i];
       const padding = this.chatWidth[i];
@@ -20297,7 +20297,7 @@ class Client extends GameShell {
       let sorting = true;
       while (sorting) {
         sorting = false;
-        for (let j = 0;j < i; j++) {
+        for (let j = 0; j < i; j++) {
           if (y + 2 > this.chatY[j] - this.chatHeight[j] && y - height < this.chatY[j] + 2 && x - padding < this.chatX[j] + this.chatWidth[j] && x + padding > this.chatX[j] - this.chatWidth[j] && this.chatY[j] - this.chatHeight[j] < y) {
             y = this.chatY[j] - this.chatHeight[j];
             sorting = true;
@@ -20443,7 +20443,7 @@ class Client extends GameShell {
         const adjustment = texture.width2d * this.sceneDelta * 2;
         const src = texture.pixels;
         const dst = this.textureBuffer;
-        for (let i = 0;i <= bottom; i++) {
+        for (let i = 0; i <= bottom; i++) {
           dst[i] = src[i - adjustment & bottom];
         }
         texture.pixels = dst;
@@ -20459,7 +20459,7 @@ class Client extends GameShell {
         const adjustment = texture.width2d * this.sceneDelta * 2;
         const src = texture.pixels;
         const dst = this.textureBuffer;
-        for (let i = 0;i <= bottom; i++) {
+        for (let i = 0; i <= bottom; i++) {
           dst[i] = src[i - adjustment & bottom];
         }
         texture.pixels = dst;
@@ -20488,12 +20488,12 @@ class Client extends GameShell {
       this.drawMenu();
     }
     // ✅ Always draw multi-combat icon at top location
-    this.imageHeadicons[1]?.draw(472, 258);
+    //this.imageHeadicons[1]?.draw(472, 258);
     if (this.wildernessLevel > 0) {
       this.imageHeadicons[0]?.draw(472, 296);
       this.fontPlain12?.drawStringCenter(484, 329, "Level: " + this.wildernessLevel, 16776960 /* YELLOW */);
     }
-  
+
     if (this.worldLocationState === 1) {
       this.imageHeadicons[6]?.draw(472, 296);
       this.fontPlain12?.drawStringCenter(484, 329, "Arena", 16776960 /* YELLOW */);
@@ -20544,7 +20544,7 @@ class Client extends GameShell {
     if (this.systemUpdateTimer !== 0) {
       lineOffset = 1;
     }
-    for (let i = 0;i < 100; i++) {
+    for (let i = 0; i < 100; i++) {
       if (!this.messageText[i]) {
         continue;
       }
@@ -20581,13 +20581,13 @@ class Client extends GameShell {
   }
   drawWildyLevel() {
     if (!this.localPlayer) return;
-  
+
     const x = (this.localPlayer.x >> 7) + this.sceneBaseTileX;
     const z = (this.localPlayer.z >> 7) + this.sceneBaseTileZ;
-  
+
     // --- Zone 1: King Black Dragon lair (forced PvP zone) ---
-    
-  
+
+
     // --- Zone 2: Wilderness (scaling PvP level)
     if (x >= 2944 && x < 3392 && z >= 3520 && z < 6400) {
       this.wildernessLevel = ((z - 3520) / 8 | 0) + 1;
@@ -20598,7 +20598,7 @@ class Client extends GameShell {
     } else {
       this.wildernessLevel = 0;
     }
-  
+
     // --- Zone 3: Duel Arena (arena marker)
     this.worldLocationState = 0;
     if (x >= 3328 && x < 3392 && z >= 3200 && z < 3264) {
@@ -20615,15 +20615,15 @@ class Client extends GameShell {
         this.worldLocationState = 1;
       }
     }
-  
+
     if (this.worldLocationState === 0 && x >= 3328 && x <= 3393 && z >= 3203 && z <= 3325) {
       this.worldLocationState = 2;
     }
-  
+
 
     this.overrideChat = 0;
     if ((x >= 3053 && x <= 3156 && z >= 3056 && z <= 3136) ||
-        (x >= 3072 && x <= 3118 && z >= 9492 && z <= 9535)) {
+      (x >= 3072 && x <= 3118 && z >= 9492 && z <= 9535)) {
       this.overrideChat = 1;
     }
     if (this.overrideChat === 1 && x >= 3139 && x <= 3199 && z >= 3008 && z <= 3062) {
@@ -20673,7 +20673,7 @@ class Client extends GameShell {
       mouseX -= 22;
       mouseY -= 375;
     }
-    for (let i = 0;i < this.menuSize; i++) {
+    for (let i = 0; i < this.menuSize; i++) {
       const optionY = y + (this.menuSize - 1 - i) * 15 + 31;
       let rgb = 16777215 /* WHITE */;
       if (mouseX > x && mouseX < x + w && mouseY > optionY - 13 && mouseY < optionY + 3) {
@@ -20860,8 +20860,8 @@ class Client extends GameShell {
     }
     const sceneWidth = 104 /* SIZE */;
     const sceneLength = 104 /* SIZE */;
-    for (let x2 = 0;x2 < sceneWidth; x2++) {
-      for (let z2 = 0;z2 < sceneLength; z2++) {
+    for (let x2 = 0; x2 < sceneWidth; x2++) {
+      for (let z2 = 0; z2 < sceneLength; z2++) {
         const index = CollisionMap.index(x2, z2);
         this.bfsDirection[index] = 0;
         this.bfsCost[index] = 99999999;
@@ -20971,9 +20971,9 @@ class Client extends GameShell {
     if (!arrived) {
       if (tryNearest) {
         let min = 100;
-        for (let padding = 1;padding < 2; padding++) {
-          for (let px = dx - padding;px <= dx + padding; px++) {
-            for (let pz = dz - padding;pz <= dz + padding; pz++) {
+        for (let padding = 1; padding < 2; padding++) {
+          for (let px = dx - padding; px <= dx + padding; px++) {
+            for (let pz = dz - padding; pz <= dz + padding; pz++) {
               const index = CollisionMap.index(px, pz);
               if (px >= 0 && pz >= 0 && px < 104 /* SIZE */ && pz < 104 /* SIZE */ && this.bfsCost[index] < min) {
                 min = this.bfsCost[index];
@@ -21040,7 +21040,7 @@ class Client extends GameShell {
       this.out.p2(startZ + this.sceneBaseTileZ);
       this.flagSceneTileX = this.bfsStepX[0];
       this.flagSceneTileZ = this.bfsStepZ[0];
-      for (let i = 1;i < bufferSize; i++) {
+      for (let i = 1; i < bufferSize; i++) {
         length--;
         this.out.p1(this.bfsStepX[length] - startX);
         this.out.p1(this.bfsStepZ[length] - startZ);
@@ -21112,7 +21112,7 @@ class Client extends GameShell {
         const username = this.in.g8();
         const world = this.in.g1();
         let displayName = JString.formatName(JString.fromBase37(username));
-        for (let i = 0;i < this.friendCount; i++) {
+        for (let i = 0; i < this.friendCount; i++) {
           if (username === this.friendName37[i]) {
             if (this.friendWorld[i] !== world) {
               this.friendWorld[i] = world;
@@ -21138,7 +21138,7 @@ class Client extends GameShell {
         let sorted = false;
         while (!sorted) {
           sorted = true;
-          for (let i = 0;i < this.friendCount - 1; i++) {
+          for (let i = 0; i < this.friendCount - 1; i++) {
             if (this.friendWorld[i] !== Client.nodeId && this.friendWorld[i + 1] === Client.nodeId || this.friendWorld[i] === 0 && this.friendWorld[i + 1] !== 0) {
               const oldWorld = this.friendWorld[i];
               this.friendWorld[i] = this.friendWorld[i + 1];
@@ -21167,7 +21167,7 @@ class Client extends GameShell {
         const z = this.in.g1();
         if (this.sceneMapIndex && this.sceneMapLandData && this.sceneMapLandReady) {
           let index = -1;
-          for (let i = 0;i < this.sceneMapIndex.length; i++) {
+          for (let i = 0; i < this.sceneMapIndex.length; i++) {
             if (this.sceneMapIndex[i] === (x << 8) + z) {
               index = i;
             }
@@ -21210,7 +21210,7 @@ class Client extends GameShell {
         this.out.p1isaac(150 /* REBUILD_GETMAPS */);
         this.out.p1(0);
         let mapCount = 0;
-        for (let i = 0;i < regions; i++) {
+        for (let i = 0; i < regions; i++) {
           const mapsquareX = this.in.g1();
           const mapsquareZ = this.in.g1();
           const landCrc = this.in.g4();
@@ -21263,10 +21263,10 @@ class Client extends GameShell {
         const dz = this.sceneBaseTileZ - this.scenePrevBaseTileZ;
         this.scenePrevBaseTileX = this.sceneBaseTileX;
         this.scenePrevBaseTileZ = this.sceneBaseTileZ;
-        for (let i = 0;i < 8192; i++) {
+        for (let i = 0; i < 8192; i++) {
           const npc = this.npcs[i];
           if (npc) {
-            for (let j = 0;j < 10; j++) {
+            for (let j = 0; j < 10; j++) {
               npc.routeFlagX[j] -= dx;
               npc.routeFlagZ[j] -= dz;
             }
@@ -21274,10 +21274,10 @@ class Client extends GameShell {
             npc.z -= dz * 128;
           }
         }
-        for (let i = 0;i < 2048 /* MAX_PLAYER_COUNT */; i++) {
+        for (let i = 0; i < 2048 /* MAX_PLAYER_COUNT */; i++) {
           const player = this.players[i];
           if (player) {
-            for (let j = 0;j < 10; j++) {
+            for (let j = 0; j < 10; j++) {
               player.routeFlagX[j] -= dx;
               player.routeFlagZ[j] -= dz;
             }
@@ -21302,11 +21302,11 @@ class Client extends GameShell {
           endTileZ = -1;
           dirZ = -1;
         }
-        for (let x = startTileX;x !== endTileX; x += dirX) {
-          for (let z = startTileZ;z !== endTileZ; z += dirZ) {
+        for (let x = startTileX; x !== endTileX; x += dirX) {
+          for (let z = startTileZ; z !== endTileZ; z += dirZ) {
             const lastX = x + dx;
             const lastZ = z + dz;
-            for (let level = 0;level < 4 /* LEVELS */; level++) {
+            for (let level = 0; level < 4 /* LEVELS */; level++) {
               if (lastX >= 0 && lastZ >= 0 && lastX < 104 /* SIZE */ && lastZ < 104 /* SIZE */) {
                 this.objStacks[level][x][z] = this.objStacks[level][lastX][lastZ];
               } else {
@@ -21315,7 +21315,7 @@ class Client extends GameShell {
             }
           }
         }
-        for (let loc = this.addedLocs.head();loc; loc = this.addedLocs.next()) {
+        for (let loc = this.addedLocs.head(); loc; loc = this.addedLocs.next()) {
           loc.x -= dx;
           loc.z -= dz;
           if (loc.x < 0 || loc.z < 0 || loc.x >= 104 /* SIZE */ || loc.z >= 104 /* SIZE */) {
@@ -21396,7 +21396,7 @@ class Client extends GameShell {
         const z = this.in.g1();
         if (this.sceneMapIndex && this.sceneMapLocData && this.sceneMapLocReady) {
           let index = -1;
-          for (let i = 0;i < this.sceneMapIndex.length; i++) {
+          for (let i = 0; i < this.sceneMapIndex.length; i++) {
             if (this.sceneMapIndex[i] === (x << 8) + z) {
               index = i;
             }
@@ -21483,7 +21483,7 @@ class Client extends GameShell {
         const length = this.in.g2();
         let index = -1;
         if (this.sceneMapIndex) {
-          for (let i = 0;i < this.sceneMapIndex.length; i++) {
+          for (let i = 0; i < this.sceneMapIndex.length; i++) {
             if (this.sceneMapIndex[i] === (x << 8) + z) {
               index = i;
             }
@@ -21518,7 +21518,7 @@ class Client extends GameShell {
         const inv = Component.instances[com];
         const size = this.in.g1();
         if (inv.invSlotObjId && inv.invSlotObjCount) {
-          for (let i = 0;i < size; i++) {
+          for (let i = 0; i < size; i++) {
             inv.invSlotObjId[i] = this.in.g2();
             let count = this.in.g1();
             if (count === 255) {
@@ -21526,12 +21526,12 @@ class Client extends GameShell {
             }
             inv.invSlotObjCount[i] = count;
           }
-          for (let i = size;i < inv.invSlotObjId.length; i++) {
+          for (let i = size; i < inv.invSlotObjId.length; i++) {
             inv.invSlotObjId[i] = 0;
             inv.invSlotObjCount[i] = 0;
           }
         } else {
-          for (let i = 0;i < size; i++) {
+          for (let i = 0; i < size; i++) {
             this.in.g2();
             if (this.in.g1() === 255) {
               this.in.g4();
@@ -21560,7 +21560,7 @@ class Client extends GameShell {
       if (this.inPacketType === 15 /* UPDATE_INV_STOP_TRANSMIT */) {
         const inv = Component.instances[this.in.g2()];
         if (inv.invSlotObjId) {
-          for (let i = 0;i < inv.invSlotObjId.length; i++) {
+          for (let i = 0; i < inv.invSlotObjId.length; i++) {
             inv.invSlotObjId[i] = -1;
             inv.invSlotObjId[i] = 0;
           }
@@ -21581,7 +21581,7 @@ class Client extends GameShell {
           }
           this.reportAbuseInput = "";
           this.reportAbuseMuteOption = false;
-          for (let i = 0;i < Component.instances.length; i++) {
+          for (let i = 0; i < Component.instances.length; i++) {
             if (Component.instances[i] && Component.instances[i].clientCode === contentType) {
               this.viewportInterfaceId = Component.instances[i].layer;
               break;
@@ -21728,15 +21728,15 @@ class Client extends GameShell {
       if (this.inPacketType === 135 /* UPDATE_ZONE_FULL_FOLLOWS */) {
         this.baseX = this.in.g1();
         this.baseZ = this.in.g1();
-        for (let x = this.baseX;x < this.baseX + 8; x++) {
-          for (let z = this.baseZ;z < this.baseZ + 8; z++) {
+        for (let x = this.baseX; x < this.baseX + 8; x++) {
+          for (let z = this.baseZ; z < this.baseZ + 8; z++) {
             if (this.objStacks[this.currentLevel][x][z]) {
               this.objStacks[this.currentLevel][x][z] = null;
               this.sortObjStacks(x, z);
             }
           }
         }
-        for (let loc = this.addedLocs.head();loc; loc = this.addedLocs.next()) {
+        for (let loc = this.addedLocs.head(); loc; loc = this.addedLocs.next()) {
           if (loc.x >= this.baseX && loc.x < this.baseX + 8 && loc.z >= this.baseZ && loc.z < this.baseZ + 8 && loc.plane === this.currentLevel) {
             loc.duration = 0;
           }
@@ -21751,7 +21751,7 @@ class Client extends GameShell {
         const length = this.in.g2();
         let index = -1;
         if (this.sceneMapIndex) {
-          for (let i = 0;i < this.sceneMapIndex.length; i++) {
+          for (let i = 0; i < this.sceneMapIndex.length; i++) {
             if (this.sceneMapIndex[i] === (x << 8) + z) {
               index = i;
             }
@@ -21774,14 +21774,14 @@ class Client extends GameShell {
         const messageId = this.in.g4();
         const staffModLevel = this.in.g1();
         let ignored = false;
-        for (let i = 0;i < 100; i++) {
+        for (let i = 0; i < 100; i++) {
           if (this.messageTextIds[i] === messageId) {
             ignored = true;
             break;
           }
         }
         if (staffModLevel <= 1) {
-          for (let i = 0;i < this.ignoreCount; i++) {
+          for (let i = 0; i < this.ignoreCount; i++) {
             if (this.ignoreName37[i] === from) {
               ignored = true;
               break;
@@ -21799,13 +21799,13 @@ class Client extends GameShell {
             } else {
               this.addMessage(3, filtered, JString.formatName(JString.fromBase37(from)));
             }
-          } catch (e) {}
+          } catch (e) { }
         }
         this.inPacketType = -1;
         return true;
       }
       if (this.inPacketType === 193 /* RESET_CLIENT_VARCACHE */) {
-        for (let i = 0;i < this.varps.length; i++) {
+        for (let i = 0; i < this.varps.length; i++) {
           if (this.varps[i] !== this.varCache[i]) {
             this.varps[i] = this.varCache[i];
             await this.updateVarp(i);
@@ -21877,7 +21877,7 @@ class Client extends GameShell {
           const player = message.substring(0, message.indexOf(":"));
           username = JString.toBase37(player);
           let ignored = false;
-          for (let i = 0;i < this.ignoreCount; i++) {
+          for (let i = 0; i < this.ignoreCount; i++) {
             if (this.ignoreName37[i] === username) {
               ignored = true;
               break;
@@ -21890,7 +21890,7 @@ class Client extends GameShell {
           const player = message.substring(0, message.indexOf(":"));
           username = JString.toBase37(player);
           let ignored = false;
-          for (let i = 0;i < this.ignoreCount; i++) {
+          for (let i = 0; i < this.ignoreCount; i++) {
             if (this.ignoreName37[i] === username) {
               ignored = true;
               break;
@@ -21949,14 +21949,14 @@ class Client extends GameShell {
         return true;
       }
       if (this.inPacketType === 136 /* RESET_ANIMS */) {
-        for (let i = 0;i < this.players.length; i++) {
+        for (let i = 0; i < this.players.length; i++) {
           const player = this.players[i];
           if (!player) {
             continue;
           }
           player.primarySeqId = -1;
         }
-        for (let i = 0;i < this.npcs.length; i++) {
+        for (let i = 0; i < this.npcs.length; i++) {
           const npc = this.npcs[i];
           if (!npc) {
             continue;
@@ -21974,7 +21974,7 @@ class Client extends GameShell {
       }
       if (this.inPacketType === 21 /* UPDATE_IGNORELIST */) {
         this.ignoreCount = this.inPacketSize / 8 | 0;
-        for (let i = 0;i < this.ignoreCount; i++) {
+        for (let i = 0; i < this.ignoreCount; i++) {
           this.ignoreName37[i] = this.in.g8();
         }
         this.inPacketType = -1;
@@ -21982,7 +21982,7 @@ class Client extends GameShell {
       }
       if (this.inPacketType === 239 /* CAM_RESET */) {
         this.cutscene = false;
-        for (let i = 0;i < 5; i++) {
+        for (let i = 0; i < 5; i++) {
           this.cameraModifierEnabled[i] = false;
         }
         this.inPacketType = -1;
@@ -22024,7 +22024,7 @@ class Client extends GameShell {
         this.skillExperience[stat] = xp;
         this.skillLevel[stat] = level;
         this.skillBaseLevel[stat] = 1;
-        for (let i = 0;i < 98; i++) {
+        for (let i = 0; i < 98; i++) {
           if (xp >= Client.levelExperience[i]) {
             this.skillBaseLevel[stat] = i + 2;
           }
@@ -22153,7 +22153,7 @@ class Client extends GameShell {
       if (x >= 0 && z >= 0 && x < 104 /* SIZE */ && z < 104 /* SIZE */) {
         const list = this.objStacks[this.currentLevel][x][z];
         if (list) {
-          for (let next = list.head();next; next = list.next()) {
+          for (let next = list.head(); next; next = list.next()) {
             if (next.index === (id & 32767)) {
               next.unlink();
               break;
@@ -22268,7 +22268,7 @@ class Client extends GameShell {
       if (x >= 0 && z >= 0 && x < 104 /* SIZE */ && z < 104 /* SIZE */) {
         const list = this.objStacks[this.currentLevel][x][z];
         if (list) {
-          for (let next = list.head();next; next = list.next()) {
+          for (let next = list.head(); next; next = list.next()) {
             if (next.index === (id & 32767) && next.count === oldCount) {
               next.count = newCount;
               break;
@@ -22281,7 +22281,7 @@ class Client extends GameShell {
   }
   appendLoc(duration, type, rotation, layer, z, shape, level, x, delay) {
     let loc = null;
-    for (let next = this.addedLocs.head();next; next = this.addedLocs.next()) {
+    for (let next = this.addedLocs.head(); next; next = this.addedLocs.next()) {
       if (next.plane === this.currentLevel && next.x === x && next.z === z && next.layer === layer) {
         loc = next;
         break;
@@ -22397,7 +22397,7 @@ class Client extends GameShell {
     }
     let topCost = -99999999;
     let topObj = null;
-    for (let obj = objStacks.head();obj; obj = objStacks.next()) {
+    for (let obj = objStacks.head(); obj; obj = objStacks.next()) {
       const type2 = ObjType.get(obj.index);
       let cost = type2.cost;
       if (type2.stackable) {
@@ -22416,7 +22416,7 @@ class Client extends GameShell {
     let middleObjId = -1;
     let bottomObjCount = 0;
     let middleObjCount = 0;
-    for (let obj = objStacks.head();obj; obj = objStacks.next()) {
+    for (let obj = objStacks.head(); obj; obj = objStacks.next()) {
       if (obj.index !== topObj.index && bottomObjId === -1) {
         bottomObjId = obj.index;
         bottomObjCount = obj.count;
@@ -22445,7 +22445,7 @@ class Client extends GameShell {
     this.readPlayers(buf);
     this.readNewPlayers(buf, size);
     this.readPlayerUpdates(buf);
-    for (let i = 0;i < this.entityRemovalCount; i++) {
+    for (let i = 0; i < this.entityRemovalCount; i++) {
       const index = this.entityRemovalIds[i];
       const player = this.players[index];
       if (!player) {
@@ -22459,7 +22459,7 @@ class Client extends GameShell {
       console.error(`eek! Error packet size mismatch in getplayer pos:${buf.pos} psize:${size}`);
       throw new Error;
     }
-    for (let index = 0;index < this.playerCount; index++) {
+    for (let index = 0; index < this.playerCount; index++) {
       if (!this.players[this.playerIds[index]]) {
         console.error(`eek! ${this.usernameInput} null entry in pl list - pos:${index} size:${this.playerCount}`);
         throw new Error;
@@ -22505,7 +22505,7 @@ class Client extends GameShell {
   readPlayers(buf) {
     const count = buf.gBit(8);
     if (count < this.playerCount) {
-      for (let i = count;i < this.playerCount; i++) {
+      for (let i = count; i < this.playerCount; i++) {
         this.entityRemovalIds[this.entityRemovalCount++] = this.playerIds[i];
       }
     }
@@ -22514,7 +22514,7 @@ class Client extends GameShell {
       throw new Error;
     }
     this.playerCount = 0;
-    for (let i = 0;i < count; i++) {
+    for (let i = 0; i < count; i++) {
       const index = this.playerIds[i];
       const player = this.players[index];
       const hasUpdate = buf.gBit(1);
@@ -22600,7 +22600,7 @@ class Client extends GameShell {
     buf.bytes();
   }
   readPlayerUpdates(buf) {
-    for (let i = 0;i < this.entityUpdateCount; i++) {
+    for (let i = 0; i < this.entityUpdateCount; i++) {
       const index = this.entityUpdateIds[i];
       const player = this.players[index];
       if (!player) {
@@ -22678,7 +22678,7 @@ class Client extends GameShell {
         const username = JString.toBase37(player.name);
         let ignored = false;
         if (type <= 1) {
-          for (let i = 0;i < this.ignoreCount; i++) {
+          for (let i = 0; i < this.ignoreCount; i++) {
             if (this.ignoreName37[i] === username) {
               ignored = true;
               break;
@@ -22698,7 +22698,7 @@ class Client extends GameShell {
             } else {
               this.addMessage(2, filtered, player.name);
             }
-          } catch (e) {}
+          } catch (e) { }
         }
       }
       buf.pos = start + length;
@@ -22736,7 +22736,7 @@ class Client extends GameShell {
     this.readNpcs(buf);
     this.readNewNpcs(buf, size);
     this.readNpcUpdates(buf);
-    for (let i = 0;i < this.entityRemovalCount; i++) {
+    for (let i = 0; i < this.entityRemovalCount; i++) {
       const index = this.entityRemovalIds[i];
       const npc = this.npcs[index];
       if (!npc) {
@@ -22751,7 +22751,7 @@ class Client extends GameShell {
       console.error(`eek! ${this.usernameInput} size mismatch in getnpcpos - pos:${buf.pos} psize:${size}`);
       throw new Error;
     }
-    for (let i = 0;i < this.npcCount; i++) {
+    for (let i = 0; i < this.npcCount; i++) {
       if (!this.npcs[this.npcIds[i]]) {
         console.error(`eek! ${this.usernameInput} null entry in npc list - pos:${i} size:${this.npcCount}`);
         throw new Error;
@@ -22762,7 +22762,7 @@ class Client extends GameShell {
     buf.bits();
     const count = buf.gBit(8);
     if (count < this.npcCount) {
-      for (let i = count;i < this.npcCount; i++) {
+      for (let i = count; i < this.npcCount; i++) {
         this.entityRemovalIds[this.entityRemovalCount++] = this.npcIds[i];
       }
     }
@@ -22771,7 +22771,7 @@ class Client extends GameShell {
       throw new Error;
     }
     this.npcCount = 0;
-    for (let i = 0;i < count; i++) {
+    for (let i = 0; i < count; i++) {
       const index = this.npcIds[i];
       const npc = this.npcs[index];
       const hasUpdate = buf.gBit(1);
@@ -22860,7 +22860,7 @@ class Client extends GameShell {
     buf.bytes();
   }
   readNpcUpdates(buf) {
-    for (let i = 0;i < this.entityUpdateCount; i++) {
+    for (let i = 0; i < this.entityUpdateCount; i++) {
       const id = this.entityUpdateIds[i];
       const npc = this.npcs[id];
       if (!npc) {
@@ -22938,7 +22938,7 @@ class Client extends GameShell {
     if (this.fontBold12) {
       width = this.fontBold12.stringWidth("Choose Option");
       let maxWidth;
-      for (let i = 0;i < this.menuSize; i++) {
+      for (let i = 0; i < this.menuSize; i++) {
         maxWidth = this.fontBold12.stringWidth(this.menuOption[i]);
         if (maxWidth > width) {
           width = maxWidth;
@@ -23042,7 +23042,7 @@ class Client extends GameShell {
         option = option.substring(tag + 5).trim();
         const name = JString.formatName(JString.fromBase37(JString.toBase37(option)));
         let found = false;
-        for (let i = 0;i < this.playerCount; i++) {
+        for (let i = 0; i < this.playerCount; i++) {
           const player = this.players[this.playerIds[i]];
           if (player && player.name && player.name.toLowerCase() === name.toLowerCase() && this.localPlayer) {
             this.tryMove(this.localPlayer.routeFlagX[0], this.localPlayer.routeFlagZ[0], player.routeFlagX[0], player.routeFlagZ[0], 2, 1, 1, 0, 0, 0, false);
@@ -23286,7 +23286,7 @@ class Client extends GameShell {
       if (tag !== -1) {
         const name37 = JString.toBase37(option.substring(tag + 5).trim());
         let friend = -1;
-        for (let i = 0;i < this.friendCount; i++) {
+        for (let i = 0; i < this.friendCount; i++) {
           if (this.friendName37[i] === name37) {
             friend = i;
             break;
@@ -23476,7 +23476,7 @@ class Client extends GameShell {
         this.closeInterfaces();
         this.reportAbuseInput = option.substring(tag + 5).trim();
         this.reportAbuseMuteOption = false;
-        for (let i = 0;i < Component.instances.length; i++) {
+        for (let i = 0; i < Component.instances.length; i++) {
           if (Component.instances[i] && Component.instances[i].clientCode === 600 /* CC_REPORT_INPUT */) {
             this.reportAbuseInterfaceID = this.viewportInterfaceId = Component.instances[i].layer;
             break;
@@ -23558,7 +23558,7 @@ class Client extends GameShell {
     } else if (this.spellSelected !== 1) {
       let type;
       if (npc.op) {
-        for (type = 4;type >= 0; type--) {
+        for (type = 4; type >= 0; type--) {
           if (npc.op[type] && npc.op[type]?.toLowerCase() !== "attack") {
             this.menuOption[this.menuSize] = npc.op[type] + " @yel@" + tooltip;
             if (type === 0) {
@@ -23580,7 +23580,7 @@ class Client extends GameShell {
         }
       }
       if (npc.op) {
-        for (type = 4;type >= 0; type--) {
+        for (type = 4; type >= 0; type--) {
           if (npc.op[type] && npc.op[type]?.toLowerCase() === "attack") {
             let action = 0;
             if (this.localPlayer && npc.vislevel > this.localPlayer.combatLevel) {
@@ -23607,7 +23607,7 @@ class Client extends GameShell {
       }
       if ("false") {
         this.menuOption[this.menuSize] = "Examine @yel@" + tooltip + " ";
-      } else {}
+      } else { }
       this.menuAction[this.menuSize] = 1607;
       this.menuParamA[this.menuSize] = a;
       this.menuParamB[this.menuSize] = b;
@@ -23688,7 +23688,7 @@ class Client extends GameShell {
       this.menuParamC[this.menuSize] = c;
       this.menuSize++;
     }
-    for (let i = 0;i < this.menuSize; i++) {
+    for (let i = 0; i < this.menuSize; i++) {
       if (this.menuAction[i] === 660) {
         this.menuOption[i] = "Walk here @whi@" + tooltip;
         return;
@@ -23727,7 +23727,7 @@ class Client extends GameShell {
     const bottom = Pix2D.bottom;
     Pix2D.setBounds(x, y, x + com.width, y + com.height);
     const children = com.childId.length;
-    for (let i = 0;i < children; i++) {
+    for (let i = 0; i < children; i++) {
       if (!com.childX || !com.childY) {
         continue;
       }
@@ -23755,8 +23755,8 @@ class Client extends GameShell {
         }
       } else if (child.comType === 2 /* TYPE_INV */) {
         let slot = 0;
-        for (let row = 0;row < child.height; row++) {
-          for (let col = 0;col < child.width; col++) {
+        for (let row = 0; row < child.height; row++) {
+          for (let col = 0; col < child.width; col++) {
             if (!child.invSlotOffsetX || !child.invSlotOffsetY || !child.invSlotObjId || !child.invSlotObjCount) {
               continue;
             }
@@ -23830,7 +23830,7 @@ class Client extends GameShell {
         if (!font || !text) {
           continue;
         }
-        for (let lineY = childY + font.height2d;text.length > 0; lineY += font.height2d) {
+        for (let lineY = childY + font.height2d; text.length > 0; lineY += font.height2d) {
           if (text.indexOf("%") !== -1) {
             do {
               const index = text.indexOf("%1");
@@ -23925,8 +23925,8 @@ class Client extends GameShell {
           continue;
         }
         let slot = 0;
-        for (let row = 0;row < child.height; row++) {
-          for (let col = 0;col < child.width; col++) {
+        for (let row = 0; row < child.height; row++) {
+          for (let col = 0; col < child.width; col++) {
             if (child.invSlotObjId[slot] > 0) {
               const obj = ObjType.get(child.invSlotObjId[slot] - 1);
               let text = obj.name;
@@ -23981,7 +23981,7 @@ class Client extends GameShell {
   }
   formatObjCountTagged(amount) {
     let s = String(amount);
-    for (let i = s.length - 3;i > 0; i -= 3) {
+    for (let i = s.length - 3; i > 0; i -= 3) {
       s = s.substring(0, i) + "," + s.substring(i);
     }
     if (s.length > 8) {
@@ -24029,7 +24029,7 @@ class Client extends GameShell {
     if (!com.scriptComparator) {
       return false;
     }
-    for (let i = 0;i < com.scriptComparator.length; i++) {
+    for (let i = 0; i < com.scriptComparator.length; i++) {
       const value = this.executeClientscript1(com, i);
       if (!com.scriptOperand) {
         return false;
@@ -24079,7 +24079,7 @@ class Client extends GameShell {
           const com = Component.instances[script[pc++]];
           const obj = script[pc++] + 1;
           if (com.invSlotObjId && com.invSlotObjCount) {
-            for (let i = 0;i < com.invSlotObjId.length; i++) {
+            for (let i = 0; i < com.invSlotObjId.length; i++) {
               if (com.invSlotObjId[i] === obj) {
                 register += com.invSlotObjCount[i];
               }
@@ -24096,7 +24096,7 @@ class Client extends GameShell {
         } else if (opcode === 8) {
           register += this.localPlayer?.combatLevel || 0;
         } else if (opcode === 9) {
-          for (let i = 0;i < 19; i++) {
+          for (let i = 0; i < 19; i++) {
             if (i === 18) {
               i = 20;
             }
@@ -24105,7 +24105,7 @@ class Client extends GameShell {
         } else if (opcode === 10) {
           const com = Component.instances[script[pc++]];
           const obj = script[pc++] + 1;
-          for (let i = 0;i < com.invSlotObjId.length; i++) {
+          for (let i = 0; i < com.invSlotObjId.length; i++) {
             if (com.invSlotObjId[i] === obj) {
               register += 999999999;
               break;
@@ -24130,7 +24130,7 @@ class Client extends GameShell {
       return;
     }
     const children = com.childId.length;
-    for (let i = 0;i < children; i++) {
+    for (let i = 0; i < children; i++) {
       let childX = com.childX[i] + x;
       let childY = com.childY[i] + y - scrollPosition;
       const child = Component.instances[com.childId[i]];
@@ -24150,8 +24150,8 @@ class Client extends GameShell {
         }
       } else if (child.comType === 2) {
         let slot = 0;
-        for (let row = 0;row < child.height; row++) {
-          for (let col = 0;col < child.width; col++) {
+        for (let row = 0; row < child.height; row++) {
+          for (let col = 0; col < child.width; col++) {
             let slotX = childX + col * (child.marginX + 32);
             let slotY = childY + row * (child.marginY + 32);
             if (slot < 20 && child.invSlotOffsetX && child.invSlotOffsetY) {
@@ -24189,7 +24189,7 @@ class Client extends GameShell {
               }
             } else {
               if (child.interactable) {
-                for (let op = 4;op >= 3; op--) {
+                for (let op = 4; op >= 3; op--) {
                   if (obj.iop && obj.iop[op]) {
                     this.menuOption[this.menuSize] = obj.iop[op] + " @lre@" + obj.name;
                     if (op === 3) {
@@ -24220,7 +24220,7 @@ class Client extends GameShell {
                 this.menuSize++;
               }
               if (child.interactable && obj.iop) {
-                for (let op = 2;op >= 0; op--) {
+                for (let op = 2; op >= 0; op--) {
                   if (obj.iop[op]) {
                     this.menuOption[this.menuSize] = obj.iop[op] + " @lre@" + obj.name;
                     if (op === 0) {
@@ -24238,7 +24238,7 @@ class Client extends GameShell {
                 }
               }
               if (child.iops) {
-                for (let op = 4;op >= 0; op--) {
+                for (let op = 4; op >= 0; op--) {
                   if (child.iops[op]) {
                     this.menuOption[this.menuSize] = child.iops[op] + " @lre@" + obj.name;
                     if (op === 0) {
@@ -24261,7 +24261,7 @@ class Client extends GameShell {
               }
               if ("false") {
                 this.menuOption[this.menuSize] = "Examine @lre@" + obj.name + " ";
-              } else {}
+              } else { }
               this.menuAction[this.menuSize] = 1773;
               this.menuParamA[this.menuSize] = obj.id;
               if (child.invSlotObjCount) {
@@ -24345,7 +24345,7 @@ class Client extends GameShell {
     if (!parent.childId) {
       return;
     }
-    for (let i = 0;i < parent.childId.length && parent.childId[i] !== -1; i++) {
+    for (let i = 0; i < parent.childId.length && parent.childId[i] !== -1; i++) {
       const child = Component.instances[parent.childId[i]];
       if (child.comType === 1) {
         this.resetInterfaceAnimation(child.id);
@@ -24360,7 +24360,7 @@ class Client extends GameShell {
     if (!parent.childId) {
       return false;
     }
-    for (let i = 0;i < parent.childId.length && parent.childId[i] !== -1; i++) {
+    for (let i = 0; i < parent.childId.length && parent.childId[i] !== -1; i++) {
       const child = Component.instances[parent.childId[i]];
       if (child.comType === 1) {
         updated ||= this.updateInterfaceAnimation(child.id, delta);
@@ -24537,14 +24537,14 @@ class Client extends GameShell {
         this.updateDesignModel = false;
         const models = new TypedArray1d(7, null);
         let modelCount = 0;
-        for (let part = 0;part < 7; part++) {
+        for (let part = 0; part < 7; part++) {
           const kit = this.designIdentikits[part];
           if (kit >= 0) {
             models[modelCount++] = IdkType.instances[kit].getModel();
           }
         }
         const model = Model.modelFromModels(models, modelCount);
-        for (let part = 0;part < 5; part++) {
+        for (let part = 0; part < 5; part++) {
           if (this.designColors[part] !== 0) {
             model.recolor(PlayerEntity.DESIGN_IDK_COLORS[part][0], PlayerEntity.DESIGN_IDK_COLORS[part][this.designColors[part]]);
             if (part === 1) {
@@ -24755,10 +24755,10 @@ class Client extends GameShell {
     if (clientCode === 326 /* CC_ACCEPT_DESIGN */) {
       this.out.p1isaac(52 /* IF_PLAYERDESIGN */);
       this.out.p1(this.designGenderMale ? 0 : 1);
-      for (let i = 0;i < 7; i++) {
+      for (let i = 0; i < 7; i++) {
         this.out.p1(this.designIdentikits[i]);
       }
-      for (let i = 0;i < 5; i++) {
+      for (let i = 0; i < 5; i++) {
         this.out.p1(this.designColors[i]);
       }
       return true;
@@ -24779,9 +24779,9 @@ class Client extends GameShell {
   }
   validateCharacterDesign() {
     this.updateDesignModel = true;
-    for (let i = 0;i < 7; i++) {
+    for (let i = 0; i < 7; i++) {
       this.designIdentikits[i] = -1;
-      for (let j = 0;j < IdkType.totalCount; j++) {
+      for (let j = 0; j < IdkType.totalCount; j++) {
         if (!IdkType.instances[j].disableKit && IdkType.instances[j].bodyPart === i + (this.designGenderMale ? 0 : 7)) {
           this.designIdentikits[i] = j;
           break;
@@ -24830,7 +24830,7 @@ class Client extends GameShell {
       let font = this.fontPlain12;
       let line = 0;
       Pix2D.setBounds(0, 0, 463, 77);
-      for (let i = 0;i < 100; i++) {
+      for (let i = 0; i < 100; i++) {
         const message = this.messageText[i];
         if (!message) {
           continue;
@@ -24921,13 +24921,13 @@ class Client extends GameShell {
     let anchorY = 464 - (this.localPlayer.z / 32 | 0);
     this.imageMinimap?.drawRotatedMasked(21, 9, 146, 151, this.minimapMaskLineOffsets, this.minimapMaskLineLengths, anchorX, anchorY, angle, this.minimapZoom + 256);
     this.imageCompass?.drawRotatedMasked(0, 0, 33, 33, this.compassMaskLineOffsets, this.compassMaskLineLengths, 25, 25, this.orbitCameraYaw, 256);
-    for (let i = 0;i < this.activeMapFunctionCount; i++) {
+    for (let i = 0; i < this.activeMapFunctionCount; i++) {
       anchorX = this.activeMapFunctionX[i] * 4 + 2 - (this.localPlayer.x / 32 | 0);
       anchorY = this.activeMapFunctionZ[i] * 4 + 2 - (this.localPlayer.z / 32 | 0);
       this.drawOnMinimap(anchorY, this.activeMapFunctions[i], anchorX);
     }
-    for (let ltx = 0;ltx < 104 /* SIZE */; ltx++) {
-      for (let ltz = 0;ltz < 104 /* SIZE */; ltz++) {
+    for (let ltx = 0; ltx < 104 /* SIZE */; ltx++) {
+      for (let ltz = 0; ltz < 104 /* SIZE */; ltz++) {
         const stack = this.objStacks[this.currentLevel][ltx][ltz];
         if (stack) {
           anchorX = ltx * 4 + 2 - (this.localPlayer.x / 32 | 0);
@@ -24936,7 +24936,7 @@ class Client extends GameShell {
         }
       }
     }
-    for (let i = 0;i < this.npcCount; i++) {
+    for (let i = 0; i < this.npcCount; i++) {
       const npc = this.npcs[this.npcIds[i]];
       if (npc && npc.isVisibleNow() && npc.npcType && npc.npcType.minimap) {
         anchorX = (npc.x / 32 | 0) - (this.localPlayer.x / 32 | 0);
@@ -24944,14 +24944,14 @@ class Client extends GameShell {
         this.drawOnMinimap(anchorY, this.imageMapdot1, anchorX);
       }
     }
-    for (let i = 0;i < this.playerCount; i++) {
+    for (let i = 0; i < this.playerCount; i++) {
       const player = this.players[this.playerIds[i]];
       if (player && player.isVisibleNow() && player.name) {
         anchorX = (player.x / 32 | 0) - (this.localPlayer.x / 32 | 0);
         anchorY = (player.z / 32 | 0) - (this.localPlayer.z / 32 | 0);
         let friend = false;
         const name37 = JString.toBase37(player.name);
-        for (let j = 0;j < this.friendCount; j++) {
+        for (let j = 0; j < this.friendCount; j++) {
           if (name37 === this.friendName37[j] && this.friendWorld[j] !== 0) {
             friend = true;
             break;
@@ -25001,7 +25001,7 @@ class Client extends GameShell {
     if (this.chatInterfaceId === -1) {
       this.redrawChatback = true;
     }
-    for (let i = 99;i > 0; i--) {
+    for (let i = 99; i > 0; i--) {
       this.messageTextType[i] = this.messageTextType[i - 1];
       this.messageTextSender[i] = this.messageTextSender[i - 1];
       this.messageText[i] = this.messageText[i - 1];
@@ -25014,7 +25014,7 @@ class Client extends GameShell {
     if (!username) {
       return false;
     }
-    for (let i = 0;i < this.friendCount; i++) {
+    for (let i = 0; i < this.friendCount; i++) {
       if (username.toLowerCase() === this.friendName[i]?.toLowerCase()) {
         return true;
       }
@@ -25033,13 +25033,13 @@ class Client extends GameShell {
       return;
     }
     const displayName = JString.formatName(JString.fromBase37(username));
-    for (let i = 0;i < this.friendCount; i++) {
+    for (let i = 0; i < this.friendCount; i++) {
       if (this.friendName37[i] === username) {
         this.addMessage(0, displayName + " is already on your friend list", "");
         return;
       }
     }
-    for (let i = 0;i < this.ignoreCount; i++) {
+    for (let i = 0; i < this.ignoreCount; i++) {
       if (this.ignoreName37[i] === username) {
         this.addMessage(0, "Please remove " + displayName + " from your ignore list first", "");
         return;
@@ -25062,11 +25062,11 @@ class Client extends GameShell {
     if (username === 0n) {
       return;
     }
-    for (let i = 0;i < this.friendCount; i++) {
+    for (let i = 0; i < this.friendCount; i++) {
       if (this.friendName37[i] === username) {
         this.friendCount--;
         this.redrawSidebar = true;
-        for (let j = i;j < this.friendCount; j++) {
+        for (let j = i; j < this.friendCount; j++) {
           this.friendName[j] = this.friendName[j + 1];
           this.friendWorld[j] = this.friendWorld[j + 1];
           this.friendName37[j] = this.friendName37[j + 1];
@@ -25086,13 +25086,13 @@ class Client extends GameShell {
       return;
     }
     const displayName = JString.formatName(JString.fromBase37(username));
-    for (let i = 0;i < this.ignoreCount; i++) {
+    for (let i = 0; i < this.ignoreCount; i++) {
       if (this.ignoreName37[i] === username) {
         this.addMessage(0, displayName + " is already on your ignore list", "");
         return;
       }
     }
-    for (let i = 0;i < this.friendCount; i++) {
+    for (let i = 0; i < this.friendCount; i++) {
       if (this.friendName37[i] === username) {
         this.addMessage(0, "Please remove " + displayName + " from your friend list first", "");
         return;
@@ -25107,11 +25107,11 @@ class Client extends GameShell {
     if (username === 0n) {
       return;
     }
-    for (let i = 0;i < this.ignoreCount; i++) {
+    for (let i = 0; i < this.ignoreCount; i++) {
       if (this.ignoreName37[i] === username) {
         this.ignoreCount--;
         this.redrawSidebar = true;
-        for (let j = i;j < this.ignoreCount; j++) {
+        for (let j = i; j < this.ignoreCount; j++) {
           this.ignoreName37[j] = this.ignoreName37[j + 1];
         }
         this.out.p1isaac(171 /* IGNORELIST_DEL */);
@@ -25153,19 +25153,19 @@ class Client extends GameShell {
       return;
     }
     const height = 256;
-    for (let x = 10;x < 117; x++) {
+    for (let x = 10; x < 117; x++) {
       const rand = Math.random() * 100 | 0;
       if (rand < 50)
         this.flameBuffer3[x + (height - 2 << 7)] = 255;
     }
-    for (let l = 0;l < 100; l++) {
+    for (let l = 0; l < 100; l++) {
       const x = (Math.random() * 124 | 0) + 2;
       const y = (Math.random() * 128 | 0) + 128;
       const index = x + (y << 7);
       this.flameBuffer3[index] = 192;
     }
-    for (let y = 1;y < height - 1; y++) {
-      for (let x = 1;x < 127; x++) {
+    for (let y = 1; y < height - 1; y++) {
+      for (let x = 1; x < 127; x++) {
         const index = x + (y << 7);
         this.flameBuffer2[index] = (this.flameBuffer3[index - 1] + this.flameBuffer3[index + 1] + this.flameBuffer3[index - 128] + this.flameBuffer3[index + 128]) / 4 | 0;
       }
@@ -25175,8 +25175,8 @@ class Client extends GameShell {
       this.flameCycle0 -= this.flameBuffer0.length;
       this.updateFlameBuffer(this.imageRunes[Math.random() * 12 | 0]);
     }
-    for (let y = 1;y < height - 1; y++) {
-      for (let x = 1;x < 127; x++) {
+    for (let y = 1; y < height - 1; y++) {
+      for (let x = 1; x < 127; x++) {
         const index = x + (y << 7);
         let intensity = this.flameBuffer2[index + 128] - (this.flameBuffer0[index + this.flameCycle0 & this.flameBuffer0.length - 1] / 5 | 0);
         if (intensity < 0) {
@@ -25185,7 +25185,7 @@ class Client extends GameShell {
         this.flameBuffer3[index] = intensity;
       }
     }
-    for (let y = 0;y < height - 1; y++) {
+    for (let y = 0; y < height - 1; y++) {
       this.flameLineOffset[y] = this.flameLineOffset[y + 1];
     }
     this.flameLineOffset[height - 1] = Math.sin(this.loopCycle / 14) * 16 + Math.sin(this.loopCycle / 15) * 14 + Math.sin(this.loopCycle / 16) * 12 | 0;
@@ -25210,13 +25210,13 @@ class Client extends GameShell {
     }
     const flameHeight = 256;
     this.flameBuffer0.fill(0);
-    for (let i = 0;i < 5000; i++) {
+    for (let i = 0; i < 5000; i++) {
       const rand = Math.random() * 128 * flameHeight | 0;
       this.flameBuffer0[rand] = Math.random() * 256 | 0;
     }
-    for (let i = 0;i < 20; i++) {
-      for (let y = 1;y < flameHeight - 1; y++) {
-        for (let x = 1;x < 127; x++) {
+    for (let i = 0; i < 20; i++) {
+      for (let y = 1; y < flameHeight - 1; y++) {
+        for (let x = 1; x < 127; x++) {
           const index = x + (y << 7);
           this.flameBuffer1[index] = (this.flameBuffer0[index - 1] + this.flameBuffer0[index + 1] + this.flameBuffer0[index - 128] + this.flameBuffer0[index + 128]) / 4 | 0;
         }
@@ -25227,8 +25227,8 @@ class Client extends GameShell {
     }
     if (image) {
       let off = 0;
-      for (let y = 0;y < image.height2d; y++) {
-        for (let x = 0;x < image.width2d; x++) {
+      for (let y = 0; y < image.height2d; y++) {
+        for (let x = 0; x < image.width2d; x++) {
           if (image.pixels[off++] !== 0) {
             const x0 = x + image.cropX + 16;
             const y0 = y + image.cropY + 16;
@@ -25245,7 +25245,7 @@ class Client extends GameShell {
     }
     const height = 256;
     if (this.flameGradientCycle0 > 0) {
-      for (let i = 0;i < 256; i++) {
+      for (let i = 0; i < 256; i++) {
         if (this.flameGradientCycle0 > 768) {
           this.flameGradient[i] = this.mix(this.flameGradient0[i], 1024 - this.flameGradientCycle0, this.flameGradient1[i]);
         } else if (this.flameGradientCycle0 > 256) {
@@ -25255,7 +25255,7 @@ class Client extends GameShell {
         }
       }
     } else if (this.flameGradientCycle1 > 0) {
-      for (let i = 0;i < 256; i++) {
+      for (let i = 0; i < 256; i++) {
         if (this.flameGradientCycle1 > 768) {
           this.flameGradient[i] = this.mix(this.flameGradient0[i], 1024 - this.flameGradientCycle1, this.flameGradient2[i]);
         } else if (this.flameGradientCycle1 > 256) {
@@ -25265,24 +25265,24 @@ class Client extends GameShell {
         }
       }
     } else {
-      for (let i = 0;i < 256; i++) {
+      for (let i = 0; i < 256; i++) {
         this.flameGradient[i] = this.flameGradient0[i];
       }
     }
-    for (let i = 0;i < 33920; i++) {
+    for (let i = 0; i < 33920; i++) {
       if (this.imageTitle0 && this.imageFlamesLeft)
         this.imageTitle0.pixels[i] = this.imageFlamesLeft.pixels[i];
     }
     let srcOffset = 0;
     let dstOffset = 1152;
-    for (let y = 1;y < height - 1; y++) {
+    for (let y = 1; y < height - 1; y++) {
       const offset = this.flameLineOffset[y] * (height - y) / height | 0;
       let step = offset + 22;
       if (step < 0) {
         step = 0;
       }
       srcOffset += step;
-      for (let x = step;x < 128; x++) {
+      for (let x = step; x < 128; x++) {
         let value = this.flameBuffer3[srcOffset++];
         if (value === 0) {
           dstOffset++;
@@ -25299,18 +25299,18 @@ class Client extends GameShell {
       dstOffset += step;
     }
     this.imageTitle0?.draw(0, 0);
-    for (let i = 0;i < 33920; i++) {
+    for (let i = 0; i < 33920; i++) {
       if (this.imageTitle1 && this.imageFlamesRight) {
         this.imageTitle1.pixels[i] = this.imageFlamesRight.pixels[i];
       }
     }
     srcOffset = 0;
     dstOffset = 1176;
-    for (let y = 1;y < height - 1; y++) {
+    for (let y = 1; y < height - 1; y++) {
       const offset = this.flameLineOffset[y] * (height - y) / height | 0;
       const step = 103 - offset;
       dstOffset += offset;
-      for (let x = 0;x < step; x++) {
+      for (let x = 0; x < step; x++) {
         let value = this.flameBuffer3[srcOffset++];
         if (value === 0) {
           dstOffset++;
